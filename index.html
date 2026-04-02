@@ -31,6 +31,39 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "WebApplication", "MedicalWebPage"],
+        "name": "Clinical Case Log, LLC",
+        "url": "https://freecptcodefinder.com",
+        "logo": "https://freecptcodefinder.com/logo.png",
+        "description": "Free CPT Code Finder - Interactive decision tree for finding surgical procedure codes, diagnosis codes, and modifiers. Built by a practicing surgeon.",
+        "applicationCategory": "Medical coding tool",
+        "operatingSystem": "Web",
+        "author": {
+            "@type": "Person",
+            "name": "Dr. Graydon Stallard, DO",
+            "jobTitle": "General, Trauma, and Critical Care Surgeon"
+        },
+        "medicalSpecialty": "Surgery",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Healthcare professionals, surgeons, residents, PA/NP students, medical billing professionals"
+        },
+        "isAccessibleForFree": true,
+        "dateModified": "2026-04-02",
+        "inLanguage": "en-US",
+        "keywords": "CPT codes, ICD-10 codes, medical coding, surgical procedures, billing codes",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://freecptcodefinder.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
     <style>
         /* CSS Reset & Base */
         * {
@@ -43,6 +76,9 @@
             --primary-blue: #2563EB;
             --primary-blue-dark: #1E40AF;
             --light-blue: #EFF6FF;
+            --secondary-green: #059669;
+            --accent-amber: #F59E0B;
+            --background: #FAFBFC;
             --gray-50: #F9FAFB;
             --gray-100: #F3F4F6;
             --gray-200: #E5E7EB;
@@ -53,6 +89,7 @@
             --gray-700: #374151;
             --gray-800: #1F2937;
             --gray-900: #111827;
+            --text-primary: #111827;
             --green-500: #10B981;
             --red-500: #EF4444;
         }
@@ -60,8 +97,8 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--gray-800);
-            background: white;
+            color: var(--text-primary);
+            background: var(--background);
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -79,6 +116,11 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .container {
@@ -127,16 +169,25 @@
 
         /* Ad Units */
         .ad-unit {
-            background: var(--gray-100);
-            border: 2px dashed var(--gray-300);
+            background: #FAFAFB;
+            border: 1px solid #E5E7EB;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray-500);
-            font-size: 0.875rem;
-            font-weight: 500;
-            border-radius: 4px;
+            color: #9CA3AF;
+            font-size: 0.75rem;
+            font-weight: 400;
+            border-radius: 6px;
             margin: 1rem 0;
+            position: relative;
+        }
+
+        .ad-unit::before {
+            content: 'Advertisement';
+            color: #9CA3AF;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .ad-unit.banner { height: 90px; }
@@ -145,9 +196,273 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 50%, var(--background) 100%);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23e0f2fe" fill-opacity="0.4"><circle cx="3" cy="3" r="3"/></g></g></svg>');
+            opacity: 0.3;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--gray-200);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Trust Banner */
+        .trust-banner {
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1.5rem 0;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .trust-banner h3 {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .trust-badge {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            padding: 0.5rem 1rem;
+            background: var(--gray-50);
+            border-radius: 6px;
+            border: 1px solid var(--gray-200);
+            font-weight: 500;
+        }
+
+        /* Email Capture */
+        .email-capture {
+            background: var(--light-blue);
             padding: 3rem 0;
             text-align: center;
+            margin: 3rem 0;
+        }
+
+        .email-capture h3 {
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .email-capture p {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 1rem;
+            min-width: 200px;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .subscribe-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .subscribe-btn:hover {
+            background: var(--primary-blue-dark);
+        }
+
+        /* Advertise Section */
+        .advertise-section {
+            display: none;
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .advertise-section.active {
+            display: block;
+        }
+
+        .advertise-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .advertise-content h2 {
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .advertise-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .ad-placements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        .ad-placement {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .ad-placement h3 {
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .ad-placement .dimensions {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .ad-placement p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            background: var(--primary-blue);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gray-900);
+            color: white;
+            padding: 1rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cookie-consent.hidden {
+            display: none;
+        }
+
+        .cookie-consent p {
+            margin: 0;
+            font-size: 0.875rem;
+        }
+
+        .cookie-consent button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
         }
 
         .hero h1 {
@@ -179,11 +494,19 @@
             border-radius: 50px;
             outline: none;
             transition: all 0.2s;
+            animation: pulse 2s infinite;
         }
 
         .search-input:focus {
             border-color: var(--primary-blue);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
         }
 
         .search-results {
@@ -244,14 +567,36 @@
             border-radius: 50px;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .quick-btn:hover {
             border-color: var(--primary-blue);
             color: var(--primary-blue);
             background: var(--light-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
+        .quick-btn.popular {
+            position: relative;
+        }
+
+        .quick-btn.popular::after {
+            content: 'Most Popular';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-amber);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 10px;
+            white-space: nowrap;
         }
 
         /* Main Content Area */
@@ -636,30 +981,58 @@
         .footer {
             background: var(--gray-800);
             color: var(--gray-300);
-            padding: 2rem 0;
+            padding: 3rem 0 2rem;
             margin-top: 3rem;
         }
 
         .footer-content {
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        .footer-links a {
+        .footer-section h4 {
+            color: white;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
             color: var(--gray-300);
             text-decoration: none;
             transition: color 0.2s;
+            font-size: 0.9rem;
         }
 
-        .footer-links a:hover {
+        .footer-section a:hover {
             color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-600);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 1rem;
         }
 
         .disclaimer {
@@ -667,6 +1040,26 @@
             color: var(--gray-400);
             margin-top: 1.5rem;
             line-height: 1.5;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: white;
         }
 
         /* Responsive Design */
@@ -712,11 +1105,53 @@
 
             .quick-access {
                 gap: 0.5rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
             }
 
             .quick-btn {
-                padding: 0.5rem 1rem;
+                padding: 0.75rem 1rem;
                 font-size: 0.875rem;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .email-input {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .search-input {
+                width: 100%;
             }
 
             .tree-actions {
@@ -729,6 +1164,15 @@
 
             .icd-tab {
                 text-align: left;
+            }
+
+            .ad-placements {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .advertise-content h2 {
+                font-size: 2rem;
             }
         }
 
@@ -994,12 +1438,10 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="main-header">
         <div class="container">
             <!-- Replace with Google AdSense code after approval -->
-            <div class="ad-unit banner" data-slot="top-banner">
-                AdSense Top Banner (728x90)
-            </div>
+            <div class="ad-unit banner" data-slot="top-banner"></div>
             
             <div class="header-content">
                 <div>
@@ -1010,6 +1452,7 @@
                     <a href="#" onclick="event.preventDefault();showSection('home')" class="nav-link active">CPT Codes</a>
                     <a href="#" onclick="event.preventDefault();showSection('icd10')" class="nav-link">ICD-10 Codes</a>
                     <a href="#" onclick="event.preventDefault();showSection('rvu')" class="nav-link">RVU Calculator</a>
+                    <a href="#" onclick="event.preventDefault();showSection('advertise')" class="nav-link">Advertise With Us</a>
                     <a href="#" onclick="event.preventDefault();showSection('about')" class="nav-link">About</a>
                     <a href="#" onclick="event.preventDefault();showSection('legal')" class="nav-link">Legal</a>
                 </nav>
@@ -1020,6 +1463,26 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">27</span>
+                    <span class="stat-label">Surgical Specialties</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">342+</span>
+                    <span class="stat-label">CPT Codes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Free</span>
+                    <span class="stat-label">RVU Calculator</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">MD</span>
+                    <span class="stat-label">Built by a Practicing Surgeon</span>
+                </div>
+            </div>
+            
             <h1>Find CPT & ICD-10 Codes Fast</h1>
             <p>Interactive decision tree guides you to the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.</p>
             
@@ -1033,9 +1496,10 @@
             </div>
             
             <div class="quick-access">
-                <button class="quick-btn" onclick="startDecisionTree(0)">Hernia Repair</button>
-                <button class="quick-btn" onclick="startDecisionTree(1)">Appendectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree(2)">Cholecystectomy</button>
+                <button class="quick-btn popular" onclick="startDecisionTree(0)">Hernia Repair</button>
+                <button class="quick-btn popular" onclick="startDecisionTree(1)">Appendectomy</button>
+                <button class="quick-btn popular" onclick="startDecisionTree(2)">Cholecystectomy</button>
+                <button class="quick-btn popular" onclick="startDecisionTree(7)">Colectomy</button>
                 <button class="quick-btn" onclick="startDecisionTree(3)">Wound Debridement</button>
                 <button class="quick-btn" onclick="startDecisionTree(4)">Skin/Soft Tissue Excision</button>
                 <button class="quick-btn" onclick="startDecisionTree(5)">Breast Surgery</button>
@@ -1064,6 +1528,30 @@
         </div>
     </section>
 
+    <!-- Trust Banner -->
+    <section class="trust-banner">
+        <div class="container">
+            <h3>Trusted by surgeons, residents, PA students, and coding professionals nationwide</h3>
+            <div class="trust-badges">
+                <div class="trust-badge">AMA CPT® Referenced</div>
+                <div class="trust-badge">CMS RVU Data</div>
+                <div class="trust-badge">NCCI Compliant</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture -->
+    <section class="email-capture">
+        <div class="container">
+            <h3>Stay Updated with Medical Coding Changes</h3>
+            <p>Get weekly coding updates, new CPT changes, and billing tips — free.</p>
+            <div class="email-form">
+                <input type="email" class="email-input" placeholder="Enter your email address" required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-area">
@@ -1084,9 +1572,7 @@
                 </div>
                 
                 <!-- Replace with Google AdSense code after approval -->
-                <div class="ad-unit in-feed" data-slot="between-results" style="margin-top: 2rem;">
-                    AdSense In-Feed Ad
-                </div>
+                <div class="ad-unit in-feed" data-slot="between-results" style="margin-top: 2rem;"></div>
             </div>
 
             <!-- CPT Result Display -->
@@ -1180,6 +1666,45 @@
                 </div>
             </div>
 
+            <!-- Advertise With Us Section -->
+            <div id="advertiseSection" class="advertise-section">
+                <div class="container">
+                    <div class="advertise-content">
+                        <h2>Reach Healthcare Professionals</h2>
+                        <p class="subtitle">FreeCPTCodeFinder.com serves surgeons, residents, PA/NP students, and medical billing professionals.</p>
+                        
+                        <div class="ad-placements">
+                            <div class="ad-placement">
+                                <h3>Top Banner</h3>
+                                <p class="dimensions">728x90 pixels</p>
+                                <p>Premium placement above the header, visible on every page load. Maximum exposure for your brand.</p>
+                            </div>
+                            <div class="ad-placement">
+                                <h3>Sidebar</h3>
+                                <p class="dimensions">300x250 pixels</p>
+                                <p>Persistent placement alongside search results and decision trees. High engagement area.</p>
+                            </div>
+                            <div class="ad-placement">
+                                <h3>In-Feed</h3>
+                                <p class="dimensions">Variable size</p>
+                                <p>Native placement between search results and procedure steps. Seamless integration with content.</p>
+                            </div>
+                            <div class="ad-placement">
+                                <h3>Sponsored Content</h3>
+                                <p class="dimensions">Custom</p>
+                                <p>Educational content featuring your products or services. Builds trust and authority.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <h3>Ready to Advertise?</h3>
+                            <p>Contact us for rates, demographics, and custom placement options.</p>
+                            <a href="mailto:ads@freecptcodefinder.com" class="contact-email">ads@freecptcodefinder.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- About Section -->
             <div id="aboutSection" class="about-section">
                 <div class="container">
@@ -1197,9 +1722,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <!-- Replace with Google AdSense code after approval -->
-            <div class="ad-unit sidebar" data-slot="sidebar-ad">
-                AdSense Sidebar (300x250)
-            </div>
+            <div class="ad-unit sidebar" data-slot="sidebar-ad"></div>
         </aside>
     </main>
 
@@ -1253,24 +1776,74 @@
     <footer class="footer">
         <div class="container">
             <!-- Replace with Google AdSense code after approval -->
-            <div class="ad-unit banner" data-slot="bottom-banner">
-                AdSense Bottom Banner (728x90)
+            <div class="ad-unit banner" data-slot="bottom-banner"></div>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('home')">CPT Code Finder</a></li>
+                        <li><a href="#" onclick="showSection('icd10')">ICD-10 Browser</a></li>
+                        <li><a href="#" onclick="showSection('rvu')">RVU Calculator</a></li>
+                        <li><a href="https://clinicalcaselog.com" target="_blank">Clinical Case Log</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Specialties</h4>
+                    <ul>
+                        <li><a href="#" onclick="startDecisionTree(0)">Hernia Repair</a></li>
+                        <li><a href="#" onclick="startDecisionTree(1)">Appendectomy</a></li>
+                        <li><a href="#" onclick="startDecisionTree(2)">Cholecystectomy</a></li>
+                        <li><a href="#" onclick="startDecisionTree(7)">Colectomy</a></li>
+                        <li><a href="#" onclick="startDecisionTree(5)">Breast Surgery</a></li>
+                        <li><a href="#" onclick="startDecisionTree(6)">Thyroidectomy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('about')">About</a></li>
+                        <li><a href="#" onclick="showSection('advertise')">Advertise With Us</a></li>
+                        <li><a href="mailto:support@freecptcodefinder.com">Contact Support</a></li>
+                        <li><a href="mailto:ads@freecptcodefinder.com">Advertising</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('legal')">Terms of Use</a></li>
+                        <li><a href="#" onclick="showSection('legal')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showSection('legal')">Medical Disclaimer</a></li>
+                        <li><a href="#" onclick="showSection('legal')">Copyright Notice</a></li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="#" onclick="event.preventDefault();showSection('about')">About</a>
-                    <a href="#" onclick="event.preventDefault();showSection('legal')">Privacy & Legal</a>
-                    <a href="#" onclick="event.preventDefault();showSection('legal')">Terms of Use</a>
-                    <a href="mailto:support@freecptcodefinder.com">Contact</a>
-                </div>
+            <div class="footer-bottom">
                 <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
+                
+                <div class="social-links">
+                    <a href="mailto:support@freecptcodefinder.com">Email</a>
+                    <a href="https://clinicalcaselog.com" target="_blank">Clinical Case Log</a>
+                </div>
+                
                 <div class="disclaimer">
                     <strong>Disclaimer:</strong> This tool is for educational and reference purposes only. Always verify codes with the current AMA CPT codebook and CMS ICD-10 guidelines. Coding decisions should be made by qualified medical coding professionals based on complete clinical documentation.
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <p>This site uses cookies to improve your experience and analyze usage.</p>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
 
     <script>
         // Embedded JSON data to avoid CORS issues
@@ -2321,6 +2894,8 @@
             setupSearch();
             setupRVUSearch();
             loadRVUData();
+            setupScrollEffects();
+            checkCookieConsent();
             
             // Add touch-friendly interactions for mobile
             if ('ontouchstart' in window) {
@@ -2357,6 +2932,7 @@
             document.getElementById('cptResult').classList.remove('active');
             document.getElementById('icdBrowser').classList.remove('active');
             document.getElementById('rvuCalculator').classList.remove('active');
+            document.getElementById('advertiseSection').classList.remove('active');
             document.getElementById('aboutSection').classList.remove('active');
 
             // Show appropriate section
@@ -2367,9 +2943,13 @@
                     break;
                 case 'icd10':
                     document.getElementById('icdBrowser').classList.add('active');
+                    initializeICD10Browser();
                     break;
                 case 'rvu':
                     document.getElementById('rvuCalculator').classList.add('active');
+                    break;
+                case 'advertise':
+                    document.getElementById('advertiseSection').classList.add('active');
                     break;
                 case 'about':
                     document.getElementById('aboutSection').classList.add('active');
@@ -2380,6 +2960,16 @@
             }
 
             currentSection = section;
+            
+            // Smooth scroll to main content
+            if (section !== 'home') {
+                document.querySelector('.main-content')?.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
         function setupSearch() {
@@ -2674,30 +3264,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ICD-10 Tab switching
-        function switchICD10Tab(system) {
-            document.querySelectorAll('.icd-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            const data = ICD10_DATA[system];
-            if (!data) return;
-            
-            const container = document.getElementById('icd10Content');
-            let html = `<h3 style="font-size:18px;font-weight:600;color:#1e293b;margin-bottom:16px;">${data.description} (${data.code_range})</h3>`;
-            html += '<div style="display:grid;gap:8px;">';
-            data.codes.forEach(c => {
-                html += `
-                    <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;">
-                        <div>
-                            <span style="font-weight:700;color:#16a34a;margin-right:12px;">${c.code}</span>
-                            <span style="color:#374151;font-size:14px;">${c.description}</span>
-                        </div>
-                        <button onclick="copyCode('${c.code}')" style="background:#16a34a;color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;">Copy</button>
-                    </div>`;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-        }
+
 
         // RVU Calculator Functions
         function setupRVUSearch() {
@@ -2975,6 +3542,87 @@
             setTimeout(() => {
                 addProcedure(cptCode);
             }, 100);
+        }
+
+        // Scroll Effects
+        function setupScrollEffects() {
+            let header = document.getElementById('main-header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Cookie Consent
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                document.getElementById('cookieConsent').style.display = 'flex';
+            } else {
+                document.getElementById('cookieConsent').style.display = 'none';
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+
+        // Initialize ICD-10 Browser with first tab
+        function initializeICD10Browser() {
+            setTimeout(() => {
+                const firstTab = document.querySelector('.icd-tab');
+                if (firstTab) {
+                    firstTab.click();
+                }
+            }, 100);
+        }
+
+        // ICD-10 System Display
+        function showICD10System(systemName) {
+            // Update tabs
+            document.querySelectorAll('.icd-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show system data
+            const data = ICD10_DATA[systemName];
+            if (!data) return;
+            
+            // Create or get the systems container
+            let systemsContainer = document.getElementById('icdSystems');
+            if (!systemsContainer) {
+                systemsContainer = document.createElement('div');
+                systemsContainer.id = 'icdSystems';
+                document.getElementById('icdBrowser').appendChild(systemsContainer);
+            }
+            
+            let html = `
+                <div class="icd-system active">
+                    <div class="system-header">
+                        <h3 class="system-title">${data.description}</h3>
+                        <p class="system-range">${data.code_range}</p>
+                    </div>
+                    <div class="icd-codes">`;
+            
+            data.codes.forEach(code => {
+                html += `
+                    <div class="icd-code-item">
+                        <div class="icd-code-info">
+                            <div class="icd-code">${code.code}</div>
+                            <div class="icd-desc">${code.description}</div>
+                        </div>
+                        <button onclick="copyCode('${code.code}')" class="copy-btn">Copy</button>
+                    </div>`;
+            });
+            
+            html += '</div></div>';
+            systemsContainer.innerHTML = html;
         }
 
         // Initialize - show first ICD-10 system
