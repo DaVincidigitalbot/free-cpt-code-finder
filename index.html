@@ -1011,6 +1011,7 @@
                     <a href="#" onclick="event.preventDefault();showSection('icd10')" class="nav-link">ICD-10 Codes</a>
                     <a href="#" onclick="event.preventDefault();showSection('rvu')" class="nav-link">RVU Calculator</a>
                     <a href="#" onclick="event.preventDefault();showSection('about')" class="nav-link">About</a>
+                    <a href="#" onclick="event.preventDefault();showSection('legal')" class="nav-link">Legal</a>
                 </nav>
             </div>
         </div>
@@ -1201,8 +1202,8 @@
             <div class="footer-content">
                 <div class="footer-links">
                     <a href="#" onclick="event.preventDefault();showSection('about')">About</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
+                    <a href="#" onclick="event.preventDefault();showSection('legal')">Privacy & Legal</a>
+                    <a href="#" onclick="event.preventDefault();showSection('legal')">Terms of Use</a>
                     <a href="mailto:support@freecptcodefinder.com">Contact</a>
                 </div>
                 <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
@@ -2294,6 +2295,7 @@
             document.querySelector(`.nav-link[onclick*="${section}"]`)?.classList.add('active');
 
             // Hide all sections
+            document.getElementById('legalSection').style.display = 'none';
             document.getElementById('decisionTree').classList.remove('active');
             document.getElementById('cptResult').classList.remove('active');
             document.getElementById('icdBrowser').classList.remove('active');
@@ -2314,6 +2316,9 @@
                     break;
                 case 'about':
                     document.getElementById('aboutSection').classList.add('active');
+                    break;
+                case 'legal':
+                    document.getElementById('legalSection').style.display = 'block';
                     break;
             }
 
