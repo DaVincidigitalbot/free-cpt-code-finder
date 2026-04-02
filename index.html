@@ -14,6 +14,20 @@
     <meta property="og:url" content="https://freecptcodefinder.com">
     <meta property="og:image" content="https://freecptcodefinder.com/og-image.png">
     
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
+    <meta name="twitter:description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree built by a practicing surgeon.">
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://freecptcodefinder.com/">
+    <meta name="author" content="Dr. Graydon Stallard, DO">
+    <meta name="og:site_name" content="Free CPT Code Finder">
+
+    <!-- Favicon (emoji fallback) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -799,12 +813,21 @@
             </div>
             
             <div class="quick-access">
-                <button class="quick-btn" onclick="startDecisionTree('Hernia Repair')">Hernia Repair</button>
-                <button class="quick-btn" onclick="startDecisionTree('Appendectomy')">Appendectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree('Cholecystectomy')">Cholecystectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree('Wound Debridement')">Wound Care</button>
-                <button class="quick-btn" onclick="startDecisionTree('Breast Surgery')">Breast Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree('Thyroidectomy')">Thyroidectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree(0)">Hernia Repair</button>
+                <button class="quick-btn" onclick="startDecisionTree(1)">Appendectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree(2)">Cholecystectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree(3)">Wound Debridement</button>
+                <button class="quick-btn" onclick="startDecisionTree(4)">Skin/Soft Tissue Excision</button>
+                <button class="quick-btn" onclick="startDecisionTree(5)">Breast Surgery</button>
+                <button class="quick-btn" onclick="startDecisionTree(6)">Thyroidectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree(7)">Colectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree(8)">Small Bowel</button>
+                <button class="quick-btn" onclick="startDecisionTree(9)">Trauma</button>
+                <button class="quick-btn" onclick="startDecisionTree(10)">Abscess I&amp;D</button>
+                <button class="quick-btn" onclick="startDecisionTree(11)">Endoscopy</button>
+                <button class="quick-btn" onclick="startDecisionTree(12)">Vascular Access</button>
+                <button class="quick-btn" onclick="startDecisionTree(13)">Orthopedic</button>
+                <button class="quick-btn" onclick="startDecisionTree(14)">General Procedures</button>
             </div>
         </div>
     </section>
@@ -2183,7 +2206,14 @@
 
         // Decision Tree Navigation
         function startDecisionTree(categoryIndex) {
-            const category = cptData.categories[categoryIndex];
+            // Accept both index number and name string
+            let category;
+            if (typeof categoryIndex === 'number') {
+                category = cptData.categories[categoryIndex];
+            } else {
+                category = cptData.categories.find(c => c.name === categoryIndex);
+            }
+            if (!category) return;
             currentCategory = category;
             currentPath = [];
             document.getElementById('searchResults').style.display = 'none';
