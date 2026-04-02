@@ -1434,6 +1434,67 @@
                 font-size: 2rem;
             }
         }
+    
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .quick-access {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            .quick-btn {
+                font-size: 13px !important;
+                padding: 12px 8px !important;
+                min-height: 48px;
+            }
+            .stats-bar, .stat-row, .trust-bar {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+            .hero-section h1 {
+                font-size: 1.8rem !important;
+            }
+            .search-input {
+                width: 100% !important;
+                font-size: 16px !important;  /* prevents iOS zoom */
+            }
+            .nav {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .nav a {
+                font-size: 13px !important;
+                padding: 8px 12px !important;
+            }
+            .ad-unit.banner {
+                height: 60px !important;
+            }
+            .ad-unit.sidebar {
+                width: 100% !important;
+                height: 100px !important;
+            }
+            .decision-tree, .icd-browser, .rvu-calculator, .about-section {
+                padding: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quick-access {
+                grid-template-columns: 1fr !important;
+            }
+            .quick-btn {
+                font-size: 14px !important;
+                padding: 14px 12px !important;
+            }
+        }
+
+        /* TABLET */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .quick-access {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1499,31 +1560,29 @@
                 <button class="quick-btn popular" onclick="startDecisionTree(0)">Hernia Repair</button>
                 <button class="quick-btn popular" onclick="startDecisionTree(1)">Appendectomy</button>
                 <button class="quick-btn popular" onclick="startDecisionTree(2)">Cholecystectomy</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(7)">Colectomy</button>
                 <button class="quick-btn" onclick="startDecisionTree(3)">Wound Debridement</button>
                 <button class="quick-btn" onclick="startDecisionTree(4)">Skin/Soft Tissue Excision</button>
                 <button class="quick-btn" onclick="startDecisionTree(5)">Breast Surgery</button>
                 <button class="quick-btn" onclick="startDecisionTree(6)">Thyroidectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree(7)">Colectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree(8)">Small Bowel</button>
-                <button class="quick-btn" onclick="startDecisionTree(9)">Trauma</button>
-                <button class="quick-btn" onclick="startDecisionTree(10)">Abscess I&amp;D</button>
-                <button class="quick-btn" onclick="startDecisionTree(11)">Endoscopy</button>
-                <button class="quick-btn" onclick="startDecisionTree(12)">Vascular Access</button>
-                <button class="quick-btn" onclick="startDecisionTree(13)">Orthopedic</button>
-                <button class="quick-btn" onclick="startDecisionTree(14)">General Procedures</button>
-                <button class="quick-btn" onclick="startDecisionTree(15)">Cardiothoracic Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(16)">Critical Care</button>
-                <button class="quick-btn" onclick="startDecisionTree(17)">Airway Management</button>
-                <button class="quick-btn" onclick="startDecisionTree(18)">Emergent General Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(20)">HPB Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(21)">Colorectal Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(22)">OB/GYN</button>
-                <button class="quick-btn" onclick="startDecisionTree(23)">Surgical Oncology</button>
-                <button class="quick-btn" onclick="startDecisionTree(24)">Gynecologic Oncology</button>
-                <button class="quick-btn" onclick="startDecisionTree(25)">Pediatric Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(26)">OMFS (Oral & Maxillofacial)</button>
-                <button class="quick-btn" onclick="startDecisionTree(27)">Neurosurgery</button>
+                <button class="quick-btn" onclick="startDecisionTree(7)">Small Bowel</button>
+                <button class="quick-btn" onclick="startDecisionTree(8)">Trauma</button>
+                <button class="quick-btn" onclick="startDecisionTree(9)">Abscess I&amp;D</button>
+                <button class="quick-btn" onclick="startDecisionTree(10)">Endoscopy</button>
+                <button class="quick-btn" onclick="startDecisionTree(11)">Vascular Access</button>
+                <button class="quick-btn" onclick="startDecisionTree(12)">Orthopedic</button>
+                <button class="quick-btn" onclick="startDecisionTree(13)">General Procedures</button>
+                <button class="quick-btn" onclick="startDecisionTree(14)">Cardiothoracic Surgery</button>
+                <button class="quick-btn" onclick="startDecisionTree(15)">Critical Care</button>
+                <button class="quick-btn" onclick="startDecisionTree(16)">Airway Management</button>
+                <button class="quick-btn" onclick="startDecisionTree(17)">Emergent General Surgery</button>
+                <button class="quick-btn" onclick="startDecisionTree(18)">HPB Surgery</button>
+                <button class="quick-btn popular" onclick="startDecisionTree(19)">Colorectal Surgery</button>
+                <button class="quick-btn" onclick="startDecisionTree(20)">OB/GYN</button>
+                <button class="quick-btn" onclick="startDecisionTree(21)">Surgical Oncology</button>
+                <button class="quick-btn" onclick="startDecisionTree(22)">Gynecologic Oncology</button>
+                <button class="quick-btn" onclick="startDecisionTree(23)">Pediatric Surgery</button>
+                <button class="quick-btn" onclick="startDecisionTree(24)">OMFS</button>
+                <button class="quick-btn" onclick="startDecisionTree(25)">Neurosurgery</button>
             </div>
         </div>
     </section>
@@ -1797,9 +1856,29 @@
                         <li><a href="#" onclick="startDecisionTree(0)">Hernia Repair</a></li>
                         <li><a href="#" onclick="startDecisionTree(1)">Appendectomy</a></li>
                         <li><a href="#" onclick="startDecisionTree(2)">Cholecystectomy</a></li>
-                        <li><a href="#" onclick="startDecisionTree(7)">Colectomy</a></li>
+                        <li><a href="#" onclick="startDecisionTree(3)">Wound Debridement</a></li>
+                        <li><a href="#" onclick="startDecisionTree(4)">Skin/Soft Tissue Excision</a></li>
                         <li><a href="#" onclick="startDecisionTree(5)">Breast Surgery</a></li>
                         <li><a href="#" onclick="startDecisionTree(6)">Thyroidectomy</a></li>
+                        <li><a href="#" onclick="startDecisionTree(7)">Small Bowel</a></li>
+                        <li><a href="#" onclick="startDecisionTree(8)">Trauma</a></li>
+                        <li><a href="#" onclick="startDecisionTree(9)">Abscess I&D</a></li>
+                        <li><a href="#" onclick="startDecisionTree(10)">Endoscopy</a></li>
+                        <li><a href="#" onclick="startDecisionTree(11)">Vascular Access</a></li>
+                        <li><a href="#" onclick="startDecisionTree(12)">Orthopedic</a></li>
+                        <li><a href="#" onclick="startDecisionTree(13)">General Procedures</a></li>
+                        <li><a href="#" onclick="startDecisionTree(14)">Cardiothoracic Surgery</a></li>
+                        <li><a href="#" onclick="startDecisionTree(15)">Critical Care</a></li>
+                        <li><a href="#" onclick="startDecisionTree(16)">Airway Management</a></li>
+                        <li><a href="#" onclick="startDecisionTree(17)">Emergent General Surgery</a></li>
+                        <li><a href="#" onclick="startDecisionTree(18)">HPB Surgery</a></li>
+                        <li><a href="#" onclick="startDecisionTree(19)">Colorectal Surgery</a></li>
+                        <li><a href="#" onclick="startDecisionTree(20)">OB/GYN</a></li>
+                        <li><a href="#" onclick="startDecisionTree(21)">Surgical Oncology</a></li>
+                        <li><a href="#" onclick="startDecisionTree(22)">Gynecologic Oncology</a></li>
+                        <li><a href="#" onclick="startDecisionTree(23)">Pediatric Surgery</a></li>
+                        <li><a href="#" onclick="startDecisionTree(24)">OMFS</a></li>
+                        <li><a href="#" onclick="startDecisionTree(25)">Neurosurgery</a></li>
                     </ul>
                 </div>
                 
