@@ -3251,37 +3251,51 @@
             container.style.display = 'block';
             container.scrollIntoView({ behavior: 'smooth' });
             
+            currentBranches = category.branches;
+            currentCategoryName = category.name;
+            currentQuestionStack = [];
             showQuestion(category.questions[0], category.branches, category.name);
         }
 
+        // Global state for decision tree navigation
+        let currentBranches = {};
+        let currentCategoryName = '';
+        let currentQuestionStack = [];
+        let tempResults = [];
+
         function showQuestion(questionObj, branches, categoryName) {
+            // Store in global state — no inline JSON needed
+            currentBranches = branches || currentBranches;
+            currentCategoryName = categoryName || currentCategoryName;
+            
+            // Store results for terminal nodes
+            tempResults = [];
+            if (questionObj.options) {
+                questionObj.options.forEach((opt, i) => {
+                    if (opt.cpt_code) {
+                        tempResults[i] = opt;
+                    }
+                });
+            }
+
             const container = document.getElementById('decisionTree');
             let html = `
                 <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:32px;">
                     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
-                        <h3 style="font-size:20px;font-weight:700;color:#1e293b;">${categoryName}</h3>
+                        <h3 style="font-size:20px;font-weight:700;color:#1e293b;">${currentCategoryName}</h3>
                         <button onclick="resetDecisionTree()" style="background:#f1f5f9;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;color:#64748b;">Start Over</button>
                     </div>
-                    ${currentPath.length > 0 ? `<button onclick="goBack()" style="background:none;border:none;color:#2563eb;cursor:pointer;font-size:14px;margin-bottom:16px;">← Back</button>` : ''}
+                    ${currentQuestionStack.length > 0 ? '<button onclick="goBack()" style="background:none;border:none;color:#2563eb;cursor:pointer;font-size:14px;margin-bottom:16px;">← Back</button>' : ''}
                     <p style="font-size:18px;color:#374151;margin-bottom:24px;font-weight:500;">${questionObj.question}</p>
                     <div style="display:grid;gap:12px;">`;
             
             questionObj.options.forEach((opt, i) => {
+                const btnStyle = 'text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:16px 20px;cursor:pointer;font-size:15px;color:#374151;transition:all 0.2s;';
+                
                 if (opt.cpt_code) {
-                    // Terminal node — show result directly
-                    html += `<button onclick='showCPTResult(${JSON.stringify(opt).replace(/'/g, "\\'")})'
-                        style="text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:16px 20px;cursor:pointer;font-size:15px;color:#374151;transition:all 0.2s;"
-                        onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" 
-                        onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">
-                        ${opt.label}
-                    </button>`;
-                } else if (opt.next && branches[opt.next]) {
-                    html += `<button onclick='navigateBranch("${opt.next}", ${JSON.stringify(branches).replace(/'/g, "\\'")}, "${categoryName}", ${JSON.stringify(questionObj).replace(/'/g, "\\'")})'
-                        style="text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:16px 20px;cursor:pointer;font-size:15px;color:#374151;transition:all 0.2s;"
-                        onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" 
-                        onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">
-                        ${opt.label} →
-                    </button>`;
+                    html += '<button onclick="showResultByIndex(' + i + ')" style="' + btnStyle + '" onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">' + opt.label + '</button>';
+                } else if (opt.next && currentBranches[opt.next]) {
+                    html += '<button onclick="navigateBranch('' + opt.next + '')" style="' + btnStyle + '" onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">' + opt.label + ' →</button>';
                 }
             });
             
@@ -3289,18 +3303,31 @@
             container.innerHTML = html;
         }
 
-        function navigateBranch(branchKey, branches, categoryName, prevQuestion) {
-            currentPath.push({ branchKey, branches, categoryName, prevQuestion });
-            const branch = branches[branchKey];
+        function showResultByIndex(idx) {
+            if (tempResults[idx]) {
+                showCPTResult(tempResults[idx]);
+            }
+        }
+
+        function navigateBranch(branchKey) {
+            const branch = currentBranches[branchKey];
             if (branch) {
-                showQuestion(branch, branches, categoryName);
+                // Save current state for back button
+                currentQuestionStack.push(branch);
+                showQuestion(branch, currentBranches, currentCategoryName);
             }
         }
 
         function goBack() {
-            if (currentPath.length > 0) {
-                const prev = currentPath.pop();
-                showQuestion(prev.prevQuestion, prev.branches, prev.categoryName);
+            if (currentQuestionStack.length > 0) {
+                currentQuestionStack.pop(); // remove current
+                if (currentQuestionStack.length > 0) {
+                    const prev = currentQuestionStack[currentQuestionStack.length - 1];
+                    showQuestion(prev, currentBranches, currentCategoryName);
+                } else {
+                    // Go back to first question
+                    showQuestion(currentCategory.questions[0], currentCategory.branches, currentCategory.name);
+                }
             }
         }
 
@@ -3340,6 +3367,8 @@
             document.getElementById('decisionTree').style.display = 'none';
             document.getElementById('decisionTree').innerHTML = '';
             currentPath = [];
+            currentQuestionStack = [];
+            tempResults = [];
             currentCategory = null;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
