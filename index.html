@@ -777,6 +777,219 @@
         .hidden {
             display: none !important;
         }
+
+        /* RVU Calculator */
+        .rvu-calculator {
+            display: none;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .rvu-calculator.active {
+            display: block;
+        }
+
+        .rvu-search {
+            margin-bottom: 2rem;
+        }
+
+        .rvu-search input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .rvu-search input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .procedure-list {
+            min-height: 200px;
+            border: 2px dashed var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: var(--gray-50);
+        }
+
+        .procedure-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 100px 120px 100px 40px;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .procedure-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .procedure-item .cpt-code {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 1.125rem;
+        }
+
+        .procedure-item .description {
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+
+        .procedure-item .work-rvu {
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .modifier-select {
+            padding: 0.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .remove-btn {
+            background: var(--red-500);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 1.125rem;
+            transition: background 0.2s;
+        }
+
+        .remove-btn:hover {
+            background: #DC2626;
+        }
+
+        .rvu-totals {
+            background: var(--light-blue);
+            border: 2px solid var(--primary-blue);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .totals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .total-item {
+            text-align: center;
+        }
+
+        .total-item .label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-item .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .estimated-payment {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--primary-blue);
+        }
+
+        .estimated-payment .label {
+            font-size: 1rem;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .estimated-payment .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--green-500);
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--gray-500);
+            font-style: italic;
+            padding: 3rem 1rem;
+        }
+
+        .rvu-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-suggestion {
+            background: white;
+            border: 1px solid var(--gray-200);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 0.5rem;
+        }
+
+        .search-suggestion:hover {
+            background: var(--light-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .search-suggestion .cpt-code {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-right: 0.75rem;
+        }
+
+        .search-suggestion .work-rvu {
+            float: right;
+            font-weight: 600;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile responsive for RVU calculator */
+        @media (max-width: 768px) {
+            .procedure-item {
+                grid-template-columns: 1fr;
+                text-align: left;
+                gap: 0.5rem;
+            }
+
+            .procedure-item .cpt-code {
+                font-size: 1.25rem;
+            }
+
+            .totals-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .estimated-payment .value {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -796,6 +1009,7 @@
                 <nav class="nav">
                     <a href="#" onclick="event.preventDefault();showSection('home')" class="nav-link active">CPT Codes</a>
                     <a href="#" onclick="event.preventDefault();showSection('icd10')" class="nav-link">ICD-10 Codes</a>
+                    <a href="#" onclick="event.preventDefault();showSection('rvu')" class="nav-link">RVU Calculator</a>
                     <a href="#" onclick="event.preventDefault();showSection('about')" class="nav-link">About</a>
                 </nav>
             </div>
@@ -811,6 +1025,10 @@
             <div class="search-container">
                 <input type="text" id="searchInput" class="search-input" placeholder="Search CPT or ICD-10 codes..." autocomplete="off">
                 <div id="searchResults" class="search-results"></div>
+<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin:16px 0;max-width:800px;margin-left:auto;margin-right:auto;">
+                    <p style="font-size:14px;color:#1e40af;font-weight:600;margin-bottom:4px;">💡 Coding Tip</p>
+                    <p style="font-size:14px;color:#374151;">Robotic-assisted surgeries are coded using the same CPT codes as laparoscopic procedures. There is no separate CPT modifier for robotic assistance — the approach (laparoscopic vs open) determines the code, regardless of whether a robot was used.</p>
+                </div>
             </div>
             
             <div class="quick-access">
@@ -898,6 +1116,55 @@
                 </div>
                 
                 <div id="icdSystems"></div>
+            </div>
+
+            <!-- RVU Calculator -->
+            <div id="rvuCalculator" class="rvu-calculator">
+                <h2>RVU Calculator</h2>
+                <p style="color: var(--gray-600); margin-bottom: 2rem;">Calculate Work RVUs for multiple procedures with modifier logic</p>
+                
+                <div class="rvu-search">
+                    <input type="text" id="rvuSearchInput" placeholder="Search CPT codes by number or description..." autocomplete="off">
+                    <div id="rvuSearchResults" style="margin-top: 1rem;"></div>
+                </div>
+                
+                <div class="procedure-list" id="procedureList">
+                    <div class="empty-state">
+                        Search and add CPT codes above to calculate RVUs
+                    </div>
+                </div>
+                
+                <div class="rvu-totals" id="rvuTotals" style="display: none;">
+                    <div class="totals-grid">
+                        <div class="total-item">
+                            <div class="label">Work RVU</div>
+                            <div class="value" id="totalWorkRVU">0.00</div>
+                        </div>
+                        <div class="total-item">
+                            <div class="label">Practice Expense RVU</div>
+                            <div class="value" id="totalPERVU">0.00</div>
+                        </div>
+                        <div class="total-item">
+                            <div class="label">Malpractice RVU</div>
+                            <div class="value" id="totalMPRVU">0.00</div>
+                        </div>
+                        <div class="total-item">
+                            <div class="label">Total RVU</div>
+                            <div class="value" id="totalRVU">0.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="estimated-payment">
+                        <div class="label">Estimated Reimbursement (2026)</div>
+                        <div class="value" id="estimatedPayment">$0.00</div>
+                    </div>
+                </div>
+                
+                <div class="rvu-actions">
+                    <button class="btn secondary" onclick="clearAllProcedures()">Clear All</button>
+                    <button class="btn secondary" onclick="printRVUSummary()">Print Summary</button>
+                    <button class="btn secondary" onclick="copyRVUResults()">Copy Results</button>
+                </div>
             </div>
 
             <!-- About Section -->
@@ -1981,6 +2248,9 @@
         let currentBranch = null;
         let decisionPath = [];
         let searchTimeout = null;
+        let rvuSearchTimeout = null;
+        let procedureList = [];
+        let RVU_DATA = null;
 
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
@@ -1990,11 +2260,29 @@
         function initializeApp() {
             showSection('home');
             setupSearch();
+            setupRVUSearch();
             initializeICD10Browser();
+            loadRVUData();
             
             // Add touch-friendly interactions for mobile
             if ('ontouchstart' in window) {
                 document.body.classList.add('touch-device');
+            }
+        }
+
+        // Load RVU database
+        async function loadRVUData() {
+            try {
+                const response = await fetch('rvu_database.json');
+                RVU_DATA = await response.json();
+            } catch (error) {
+                console.error('Failed to load RVU data:', error);
+                // Fallback - create minimal data structure
+                RVU_DATA = {
+                    conversion_factor: 33.89,
+                    year: 2026,
+                    codes: {}
+                };
             }
         }
 
@@ -2009,6 +2297,7 @@
             document.getElementById('decisionTree').classList.remove('active');
             document.getElementById('cptResult').classList.remove('active');
             document.getElementById('icdBrowser').classList.remove('active');
+            document.getElementById('rvuCalculator').classList.remove('active');
             document.getElementById('aboutSection').classList.remove('active');
 
             // Show appropriate section
@@ -2019,6 +2308,9 @@
                     break;
                 case 'icd10':
                     document.getElementById('icdBrowser').classList.add('active');
+                    break;
+                case 'rvu':
+                    document.getElementById('rvuCalculator').classList.add('active');
                     break;
                 case 'about':
                     document.getElementById('aboutSection').classList.add('active');

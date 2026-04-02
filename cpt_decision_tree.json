@@ -7,11 +7,26 @@
         {
           "question": "What type of hernia?",
           "options": [
-            {"label": "Inguinal", "next": "inguinal_questions"},
-            {"label": "Ventral/Incisional", "next": "ventral_questions"},
-            {"label": "Umbilical", "next": "umbilical_questions"},
-            {"label": "Femoral", "next": "femoral_questions"},
-            {"label": "Hiatal", "next": "hiatal_questions"}
+            {
+              "label": "Inguinal",
+              "next": "inguinal_questions"
+            },
+            {
+              "label": "Ventral/Incisional",
+              "next": "ventral_questions"
+            },
+            {
+              "label": "Umbilical",
+              "next": "umbilical_questions"
+            },
+            {
+              "label": "Femoral",
+              "next": "femoral_questions"
+            },
+            {
+              "label": "Hiatal",
+              "next": "hiatal_questions"
+            }
           ]
         }
       ],
@@ -19,102 +34,333 @@
         "inguinal_questions": {
           "question": "Initial or recurrent?",
           "options": [
-            {"label": "Initial", "next": "inguinal_initial"},
-            {"label": "Recurrent", "next": "inguinal_recurrent"}
+            {
+              "label": "Initial",
+              "next": "inguinal_initial"
+            },
+            {
+              "label": "Recurrent",
+              "next": "inguinal_recurrent"
+            }
           ]
         },
         "inguinal_initial": {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "next": "inguinal_open"},
-            {"label": "Laparoscopic", "next": "inguinal_lap"}
+            {
+              "label": "Open",
+              "next": "inguinal_open"
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "next": "inguinal_lap"
+            }
           ]
         },
         "inguinal_recurrent": {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "next": "inguinal_recurrent_open"},
-            {"label": "Laparoscopic", "next": "inguinal_recurrent_lap"}
+            {
+              "label": "Open",
+              "next": "inguinal_recurrent_open"
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "next": "inguinal_recurrent_lap"
+            }
           ]
         },
         "inguinal_open": {
           "question": "Age and complexity?",
           "options": [
-            {"label": "5 years or older", "cpt_code": "49505", "description": "Repair initial inguinal hernia, age 5 years or older; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90", "K40.91"]},
-            {"label": "Incarcerated/strangulated", "cpt_code": "49507", "description": "Repair initial inguinal hernia, age 5 years or older; incarcerated or strangulated", "modifiers": ["-LT", "-RT"], "icd10": ["K40.00", "K40.10"]},
-            {"label": "Under 5 years", "cpt_code": "49500", "description": "Repair initial inguinal hernia, younger than age 5 years; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90", "K40.91"]}
+            {
+              "label": "5 years or older",
+              "cpt_code": "49505",
+              "description": "Repair initial inguinal hernia, age 5 years or older; reducible",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.90",
+                "K40.91"
+              ]
+            },
+            {
+              "label": "Incarcerated/strangulated",
+              "cpt_code": "49507",
+              "description": "Repair initial inguinal hernia, age 5 years or older; incarcerated or strangulated",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.00",
+                "K40.10"
+              ]
+            },
+            {
+              "label": "Under 5 years",
+              "cpt_code": "49500",
+              "description": "Repair initial inguinal hernia, younger than age 5 years; reducible",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.90",
+                "K40.91"
+              ]
+            }
           ]
         },
         "inguinal_lap": {
           "question": "Bilateral?",
           "options": [
-            {"label": "Unilateral", "cpt_code": "49650", "description": "Laparoscopy, surgical; repair of inguinal hernia, initial", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90", "K40.91"]},
-            {"label": "Bilateral", "cpt_code": "49651", "description": "Laparoscopy, surgical; repair of inguinal hernia, initial, bilateral", "modifiers": [], "icd10": ["K40.20", "K40.30"]}
+            {
+              "label": "Unilateral",
+              "cpt_code": "49650",
+              "description": "Laparoscopy, surgical; repair of inguinal hernia, initial",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.90",
+                "K40.91"
+              ]
+            },
+            {
+              "label": "Bilateral",
+              "cpt_code": "49651",
+              "description": "Laparoscopy, surgical; repair of inguinal hernia, initial, bilateral",
+              "modifiers": [],
+              "icd10": [
+                "K40.20",
+                "K40.30"
+              ]
+            }
           ]
         },
         "inguinal_recurrent_open": {
           "cpt_code": "49520",
           "description": "Repair recurrent inguinal hernia, any age; reducible",
-          "modifiers": ["-LT", "-RT"],
-          "icd10": ["K40.90", "K40.91"]
+          "modifiers": [
+            "-LT",
+            "-RT"
+          ],
+          "icd10": [
+            "K40.90",
+            "K40.91"
+          ]
         },
         "inguinal_recurrent_lap": {
-          "cpt_code": "49651", 
+          "cpt_code": "49651",
           "description": "Laparoscopy, surgical; repair of recurrent inguinal hernia",
-          "modifiers": ["-LT", "-RT"],
-          "icd10": ["K40.90", "K40.91"]
+          "modifiers": [
+            "-LT",
+            "-RT"
+          ],
+          "icd10": [
+            "K40.90",
+            "K40.91"
+          ]
         },
         "ventral_questions": {
           "question": "Size of defect?",
           "options": [
-            {"label": "Less than 3 cm", "next": "ventral_small"},
-            {"label": "3-10 cm", "next": "ventral_medium"},
-            {"label": "Greater than 10 cm", "next": "ventral_large"}
+            {
+              "label": "Less than 3 cm",
+              "next": "ventral_small"
+            },
+            {
+              "label": "3-10 cm",
+              "next": "ventral_medium"
+            },
+            {
+              "label": "Greater than 10 cm",
+              "next": "ventral_large"
+            }
           ]
         },
         "ventral_small": {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "cpt_code": "49560", "description": "Repair initial incisional or ventral hernia; reducible", "modifiers": [], "icd10": ["K43.9"]},
-            {"label": "Laparoscopic", "cpt_code": "49652", "description": "Laparoscopy, surgical; repair initial ventral hernia", "modifiers": [], "icd10": ["K43.9"]}
+            {
+              "label": "Open",
+              "cpt_code": "49560",
+              "description": "Repair initial incisional or ventral hernia; reducible",
+              "modifiers": [],
+              "icd10": [
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "cpt_code": "49652",
+              "description": "Laparoscopy, surgical; repair initial ventral hernia",
+              "modifiers": [],
+              "icd10": [
+                "K43.9"
+              ]
+            }
           ]
         },
         "ventral_medium": {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "cpt_code": "49561", "description": "Repair initial incisional or ventral hernia; incarcerated or strangulated", "modifiers": [], "icd10": ["K43.0", "K43.1"]},
-            {"label": "Laparoscopic", "cpt_code": "49653", "description": "Laparoscopy, surgical; repair ventral hernia 3-10 cm", "modifiers": [], "icd10": ["K43.9"]}
+            {
+              "label": "Open",
+              "cpt_code": "49561",
+              "description": "Repair initial incisional or ventral hernia; incarcerated or strangulated",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "cpt_code": "49653",
+              "description": "Laparoscopy, surgical; repair ventral hernia 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9"
+              ]
+            }
           ]
         },
         "ventral_large": {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "cpt_code": "49566", "description": "Repair recurrent incisional or ventral hernia; reducible", "modifiers": [], "icd10": ["K43.2"]},
-            {"label": "Laparoscopic", "cpt_code": "49654", "description": "Laparoscopy, surgical; repair ventral hernia >10 cm", "modifiers": [], "icd10": ["K43.9"]}
+            {
+              "label": "Open",
+              "cpt_code": "49566",
+              "description": "Repair recurrent incisional or ventral hernia; reducible",
+              "modifiers": [],
+              "icd10": [
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "cpt_code": "49654",
+              "description": "Laparoscopy, surgical; repair ventral hernia >10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9"
+              ]
+            }
           ]
         },
         "umbilical_questions": {
           "question": "Age and complexity?",
           "options": [
-            {"label": "5 years or older, reducible", "cpt_code": "49585", "description": "Repair umbilical hernia, age 5 years or older; reducible", "modifiers": [], "icd10": ["K42.9"]},
-            {"label": "5 years or older, incarcerated", "cpt_code": "49587", "description": "Repair umbilical hernia, age 5 years or older; incarcerated or strangulated", "modifiers": [], "icd10": ["K42.0", "K42.1"]},
-            {"label": "Under 5 years", "cpt_code": "49580", "description": "Repair umbilical hernia, younger than age 5 years; reducible", "modifiers": [], "icd10": ["K42.9"]}
+            {
+              "label": "5 years or older, reducible",
+              "cpt_code": "49585",
+              "description": "Repair umbilical hernia, age 5 years or older; reducible",
+              "modifiers": [],
+              "icd10": [
+                "K42.9"
+              ]
+            },
+            {
+              "label": "5 years or older, incarcerated",
+              "cpt_code": "49587",
+              "description": "Repair umbilical hernia, age 5 years or older; incarcerated or strangulated",
+              "modifiers": [],
+              "icd10": [
+                "K42.0",
+                "K42.1"
+              ]
+            },
+            {
+              "label": "Under 5 years",
+              "cpt_code": "49580",
+              "description": "Repair umbilical hernia, younger than age 5 years; reducible",
+              "modifiers": [],
+              "icd10": [
+                "K42.9"
+              ]
+            }
           ]
         },
         "femoral_questions": {
           "question": "Complexity?",
           "options": [
-            {"label": "Initial repair", "cpt_code": "49550", "description": "Repair initial femoral hernia, any age; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K41.90", "K41.91"]},
-            {"label": "Incarcerated/strangulated", "cpt_code": "49553", "description": "Repair initial femoral hernia, any age; incarcerated or strangulated", "modifiers": ["-LT", "-RT"], "icd10": ["K41.00", "K41.10"]},
-            {"label": "Recurrent", "cpt_code": "49555", "description": "Repair recurrent femoral hernia; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K41.90", "K41.91"]}
+            {
+              "label": "Initial repair",
+              "cpt_code": "49550",
+              "description": "Repair initial femoral hernia, any age; reducible",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K41.90",
+                "K41.91"
+              ]
+            },
+            {
+              "label": "Incarcerated/strangulated",
+              "cpt_code": "49553",
+              "description": "Repair initial femoral hernia, any age; incarcerated or strangulated",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K41.00",
+                "K41.10"
+              ]
+            },
+            {
+              "label": "Recurrent",
+              "cpt_code": "49555",
+              "description": "Repair recurrent femoral hernia; reducible",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K41.90",
+                "K41.91"
+              ]
+            }
           ]
         },
         "hiatal_questions": {
           "question": "Type of hiatal hernia?",
           "options": [
-            {"label": "Sliding (Type I)", "cpt_code": "43280", "description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty", "modifiers": [], "icd10": ["K44.9"]},
-            {"label": "Paraesophageal (Type II-IV)", "cpt_code": "43281", "description": "Laparoscopy, surgical, repair of paraesophageal hernia", "modifiers": [], "icd10": ["K44.0", "K44.1"]},
-            {"label": "Open approach", "cpt_code": "43324", "description": "Esophagogastric fundoplasty (eg, Nissen, Belsey IV, Hill procedures)", "modifiers": [], "icd10": ["K44.9"]}
+            {
+              "label": "Sliding (Type I)",
+              "cpt_code": "43280",
+              "description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty",
+              "modifiers": [],
+              "icd10": [
+                "K44.9"
+              ]
+            },
+            {
+              "label": "Paraesophageal (Type II-IV)",
+              "cpt_code": "43281",
+              "description": "Laparoscopy, surgical, repair of paraesophageal hernia",
+              "modifiers": [],
+              "icd10": [
+                "K44.0",
+                "K44.1"
+              ]
+            },
+            {
+              "label": "Open approach",
+              "cpt_code": "43324",
+              "description": "Esophagogastric fundoplasty (eg, Nissen, Belsey IV, Hill procedures)",
+              "modifiers": [],
+              "icd10": [
+                "K44.9"
+              ]
+            }
           ]
         }
       }
@@ -126,8 +372,14 @@
         {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "next": "appendectomy_open"},
-            {"label": "Laparoscopic", "next": "appendectomy_lap"}
+            {
+              "label": "Open",
+              "next": "appendectomy_open"
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "next": "appendectomy_lap"
+            }
           ]
         }
       ],
@@ -135,15 +387,56 @@
         "appendectomy_open": {
           "question": "Complexity?",
           "options": [
-            {"label": "Simple appendectomy", "cpt_code": "44970", "description": "Laparoscopy, surgical, appendectomy", "modifiers": [], "icd10": ["K35.9", "K36", "K37"]},
-            {"label": "With abscess/peritonitis", "cpt_code": "44960", "description": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis", "modifiers": [], "icd10": ["K35.0", "K35.1", "K35.2", "K35.3"]}
+            {
+              "label": "Simple appendectomy",
+              "cpt_code": "44970",
+              "description": "Laparoscopy, surgical, appendectomy",
+              "modifiers": [],
+              "icd10": [
+                "K35.9",
+                "K36",
+                "K37"
+              ]
+            },
+            {
+              "label": "With abscess/peritonitis",
+              "cpt_code": "44960",
+              "description": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis",
+              "modifiers": [],
+              "icd10": [
+                "K35.0",
+                "K35.1",
+                "K35.2",
+                "K35.3"
+              ]
+            }
           ]
         },
         "appendectomy_lap": {
           "question": "Complexity?",
           "options": [
-            {"label": "Simple laparoscopic", "cpt_code": "44970", "description": "Laparoscopy, surgical, appendectomy", "modifiers": [], "icd10": ["K35.9", "K36", "K37"]},
-            {"label": "With abscess/complicated", "cpt_code": "44979", "description": "Unlisted laparoscopy procedure, appendix", "modifiers": [], "icd10": ["K35.0", "K35.1", "K35.2"]}
+            {
+              "label": "Simple laparoscopic",
+              "cpt_code": "44970",
+              "description": "Laparoscopy, surgical, appendectomy",
+              "modifiers": [],
+              "icd10": [
+                "K35.9",
+                "K36",
+                "K37"
+              ]
+            },
+            {
+              "label": "With abscess/complicated",
+              "cpt_code": "44979",
+              "description": "Unlisted laparoscopy procedure, appendix",
+              "modifiers": [],
+              "icd10": [
+                "K35.0",
+                "K35.1",
+                "K35.2"
+              ]
+            }
           ]
         }
       }
@@ -155,8 +448,14 @@
         {
           "question": "Approach?",
           "options": [
-            {"label": "Open", "next": "cholecystectomy_open"},
-            {"label": "Laparoscopic", "next": "cholecystectomy_lap"}
+            {
+              "label": "Open",
+              "next": "cholecystectomy_open"
+            },
+            {
+              "label": "Laparoscopic/Robotic / Robotic",
+              "next": "cholecystectomy_lap"
+            }
           ]
         }
       ],
@@ -164,17 +463,73 @@
         "cholecystectomy_open": {
           "question": "Additional procedures?",
           "options": [
-            {"label": "Simple cholecystectomy", "cpt_code": "47600", "description": "Cholecystectomy", "modifiers": [], "icd10": ["K80.20", "K80.70", "K87"]},
-            {"label": "With cholangiography", "cpt_code": "47605", "description": "Cholecystectomy; with cholangiography", "modifiers": [], "icd10": ["K80.20", "K80.70"]},
-            {"label": "With exploration of CBD", "cpt_code": "47610", "description": "Cholecystectomy with exploration of common duct", "modifiers": [], "icd10": ["K80.30", "K80.50"]}
+            {
+              "label": "Simple cholecystectomy",
+              "cpt_code": "47600",
+              "description": "Cholecystectomy",
+              "modifiers": [],
+              "icd10": [
+                "K80.20",
+                "K80.70",
+                "K87"
+              ]
+            },
+            {
+              "label": "With cholangiography",
+              "cpt_code": "47605",
+              "description": "Cholecystectomy; with cholangiography",
+              "modifiers": [],
+              "icd10": [
+                "K80.20",
+                "K80.70"
+              ]
+            },
+            {
+              "label": "With exploration of CBD",
+              "cpt_code": "47610",
+              "description": "Cholecystectomy with exploration of common duct",
+              "modifiers": [],
+              "icd10": [
+                "K80.30",
+                "K80.50"
+              ]
+            }
           ]
         },
         "cholecystectomy_lap": {
           "question": "Additional procedures?",
           "options": [
-            {"label": "Simple laparoscopic", "cpt_code": "47562", "description": "Laparoscopy, surgical; cholecystectomy", "modifiers": [], "icd10": ["K80.20", "K80.70", "K87"]},
-            {"label": "With cholangiography", "cpt_code": "47563", "description": "Laparoscopy, surgical; cholecystectomy with cholangiography", "modifiers": [], "icd10": ["K80.20", "K80.70"]},
-            {"label": "With exploration/removal of CBD stone", "cpt_code": "47564", "description": "Laparoscopy, surgical; cholecystectomy with exploration of common duct", "modifiers": [], "icd10": ["K80.30", "K80.50"]}
+            {
+              "label": "Simple laparoscopic",
+              "cpt_code": "47562",
+              "description": "Laparoscopy, surgical; cholecystectomy",
+              "modifiers": [],
+              "icd10": [
+                "K80.20",
+                "K80.70",
+                "K87"
+              ]
+            },
+            {
+              "label": "With cholangiography",
+              "cpt_code": "47563",
+              "description": "Laparoscopy, surgical; cholecystectomy with cholangiography",
+              "modifiers": [],
+              "icd10": [
+                "K80.20",
+                "K80.70"
+              ]
+            },
+            {
+              "label": "With exploration/removal of CBD stone",
+              "cpt_code": "47564",
+              "description": "Laparoscopy, surgical; cholecystectomy with exploration of common duct",
+              "modifiers": [],
+              "icd10": [
+                "K80.30",
+                "K80.50"
+              ]
+            }
           ]
         }
       }
@@ -186,10 +541,22 @@
         {
           "question": "Depth of debridement?",
           "options": [
-            {"label": "Skin/Epidermis", "next": "debridement_skin"},
-            {"label": "Subcutaneous tissue", "next": "debridement_subq"},
-            {"label": "Muscle and/or fascia", "next": "debridement_muscle"},
-            {"label": "Bone", "next": "debridement_bone"}
+            {
+              "label": "Skin/Epidermis",
+              "next": "debridement_skin"
+            },
+            {
+              "label": "Subcutaneous tissue",
+              "next": "debridement_subq"
+            },
+            {
+              "label": "Muscle and/or fascia",
+              "next": "debridement_muscle"
+            },
+            {
+              "label": "Bone",
+              "next": "debridement_bone"
+            }
           ]
         }
       ],
@@ -197,29 +564,129 @@
         "debridement_skin": {
           "question": "Surface area?",
           "options": [
-            {"label": "First 20 sq cm or less", "cpt_code": "11042", "description": "Debridement, subcutaneous tissue; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909", "T14.8"]},
-            {"label": "Each additional 20 sq cm", "cpt_code": "11045", "description": "Debridement, subcutaneous tissue; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909"]}
+            {
+              "label": "First 20 sq cm or less",
+              "cpt_code": "11042",
+              "description": "Debridement, subcutaneous tissue; first 20 sq cm or less",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "L89.90",
+                "L97.909",
+                "T14.8"
+              ]
+            },
+            {
+              "label": "Each additional 20 sq cm",
+              "cpt_code": "11045",
+              "description": "Debridement, subcutaneous tissue; each additional 20 sq cm",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "L89.90",
+                "L97.909"
+              ]
+            }
           ]
         },
         "debridement_subq": {
           "question": "Surface area?",
           "options": [
-            {"label": "First 20 sq cm or less", "cpt_code": "11042", "description": "Debridement, subcutaneous tissue; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909", "T14.8"]},
-            {"label": "Each additional 20 sq cm", "cpt_code": "11045", "description": "Debridement, subcutaneous tissue; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909"]}
+            {
+              "label": "First 20 sq cm or less",
+              "cpt_code": "11042",
+              "description": "Debridement, subcutaneous tissue; first 20 sq cm or less",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "L89.90",
+                "L97.909",
+                "T14.8"
+              ]
+            },
+            {
+              "label": "Each additional 20 sq cm",
+              "cpt_code": "11045",
+              "description": "Debridement, subcutaneous tissue; each additional 20 sq cm",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "L89.90",
+                "L97.909"
+              ]
+            }
           ]
         },
         "debridement_muscle": {
           "question": "Surface area?",
           "options": [
-            {"label": "First 20 sq cm or less", "cpt_code": "11043", "description": "Debridement, muscle and/or fascia; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909", "M79.3"]},
-            {"label": "Each additional 20 sq cm", "cpt_code": "11046", "description": "Debridement, muscle and/or fascia; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909"]}
+            {
+              "label": "First 20 sq cm or less",
+              "cpt_code": "11043",
+              "description": "Debridement, muscle and/or fascia; first 20 sq cm or less",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "L89.90",
+                "L97.909",
+                "M79.3"
+              ]
+            },
+            {
+              "label": "Each additional 20 sq cm",
+              "cpt_code": "11046",
+              "description": "Debridement, muscle and/or fascia; each additional 20 sq cm",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "L89.90",
+                "L97.909"
+              ]
+            }
           ]
         },
         "debridement_bone": {
           "question": "Surface area?",
           "options": [
-            {"label": "First 20 sq cm or less", "cpt_code": "11044", "description": "Debridement, bone; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["M86.9", "L89.90", "L97.909"]},
-            {"label": "Each additional 20 sq cm", "cpt_code": "11047", "description": "Debridement, bone; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["M86.9", "L89.90"]}
+            {
+              "label": "First 20 sq cm or less",
+              "cpt_code": "11044",
+              "description": "Debridement, bone; first 20 sq cm or less",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M86.9",
+                "L89.90",
+                "L97.909"
+              ]
+            },
+            {
+              "label": "Each additional 20 sq cm",
+              "cpt_code": "11047",
+              "description": "Debridement, bone; each additional 20 sq cm",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M86.9",
+                "L89.90"
+              ]
+            }
           ]
         }
       }
@@ -231,8 +698,14 @@
         {
           "question": "Benign or malignant?",
           "options": [
-            {"label": "Benign", "next": "excision_benign"},
-            {"label": "Malignant", "next": "excision_malignant"}
+            {
+              "label": "Benign",
+              "next": "excision_benign"
+            },
+            {
+              "label": "Malignant",
+              "next": "excision_malignant"
+            }
           ]
         }
       ],
@@ -240,83 +713,425 @@
         "excision_benign": {
           "question": "Location?",
           "options": [
-            {"label": "Trunk/Extremity", "next": "benign_trunk"},
-            {"label": "Scalp/Neck/Hands/Feet/Genitalia", "next": "benign_scalp"},
-            {"label": "Face/Ears/Eyelids/Nose/Lips", "next": "benign_face"}
+            {
+              "label": "Trunk/Extremity",
+              "next": "benign_trunk"
+            },
+            {
+              "label": "Scalp/Neck/Hands/Feet/Genitalia",
+              "next": "benign_scalp"
+            },
+            {
+              "label": "Face/Ears/Eyelids/Nose/Lips",
+              "next": "benign_face"
+            }
           ]
         },
         "excision_malignant": {
           "question": "Location?",
           "options": [
-            {"label": "Trunk/Extremity", "next": "malignant_trunk"},
-            {"label": "Scalp/Neck/Hands/Feet/Genitalia", "next": "malignant_scalp"},
-            {"label": "Face/Ears/Eyelids/Nose/Lips", "next": "malignant_face"}
+            {
+              "label": "Trunk/Extremity",
+              "next": "malignant_trunk"
+            },
+            {
+              "label": "Scalp/Neck/Hands/Feet/Genitalia",
+              "next": "malignant_scalp"
+            },
+            {
+              "label": "Face/Ears/Eyelids/Nose/Lips",
+              "next": "malignant_face"
+            }
           ]
         },
         "benign_trunk": {
           "question": "Size (including margins)?",
           "options": [
-            {"label": "0.5 cm or less", "cpt_code": "11400", "description": "Excision, benign lesion including margins, trunk/extremity; 0.5 cm or less", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "0.6-1.0 cm", "cpt_code": "11401", "description": "Excision, benign lesion including margins, trunk/extremity; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "1.1-2.0 cm", "cpt_code": "11402", "description": "Excision, benign lesion including margins, trunk/extremity; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "2.1-3.0 cm", "cpt_code": "11403", "description": "Excision, benign lesion including margins, trunk/extremity; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "3.1-4.0 cm", "cpt_code": "11404", "description": "Excision, benign lesion including margins, trunk/extremity; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "Over 4.0 cm", "cpt_code": "11406", "description": "Excision, benign lesion including margins, trunk/extremity; over 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]}
+            {
+              "label": "0.5 cm or less",
+              "cpt_code": "11400",
+              "description": "Excision, benign lesion including margins, trunk/extremity; 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "0.6-1.0 cm",
+              "cpt_code": "11401",
+              "description": "Excision, benign lesion including margins, trunk/extremity; 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "1.1-2.0 cm",
+              "cpt_code": "11402",
+              "description": "Excision, benign lesion including margins, trunk/extremity; 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "2.1-3.0 cm",
+              "cpt_code": "11403",
+              "description": "Excision, benign lesion including margins, trunk/extremity; 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "3.1-4.0 cm",
+              "cpt_code": "11404",
+              "description": "Excision, benign lesion including margins, trunk/extremity; 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "Over 4.0 cm",
+              "cpt_code": "11406",
+              "description": "Excision, benign lesion including margins, trunk/extremity; over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            }
           ]
         },
         "benign_scalp": {
           "question": "Size (including margins)?",
           "options": [
-            {"label": "0.5 cm or less", "cpt_code": "11420", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 0.5 cm or less", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "0.6-1.0 cm", "cpt_code": "11421", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "1.1-2.0 cm", "cpt_code": "11422", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "2.1-3.0 cm", "cpt_code": "11423", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "3.1-4.0 cm", "cpt_code": "11424", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "Over 4.0 cm", "cpt_code": "11426", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; over 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]}
+            {
+              "label": "0.5 cm or less",
+              "cpt_code": "11420",
+              "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "0.6-1.0 cm",
+              "cpt_code": "11421",
+              "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "1.1-2.0 cm",
+              "cpt_code": "11422",
+              "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "2.1-3.0 cm",
+              "cpt_code": "11423",
+              "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "3.1-4.0 cm",
+              "cpt_code": "11424",
+              "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "Over 4.0 cm",
+              "cpt_code": "11426",
+              "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            }
           ]
         },
         "benign_face": {
           "question": "Size (including margins)?",
           "options": [
-            {"label": "0.5 cm or less", "cpt_code": "11440", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 0.5 cm or less", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "0.6-1.0 cm", "cpt_code": "11441", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "1.1-2.0 cm", "cpt_code": "11442", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "2.1-3.0 cm", "cpt_code": "11443", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "3.1-4.0 cm", "cpt_code": "11444", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
-            {"label": "Over 4.0 cm", "cpt_code": "11446", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; over 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]}
+            {
+              "label": "0.5 cm or less",
+              "cpt_code": "11440",
+              "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "0.6-1.0 cm",
+              "cpt_code": "11441",
+              "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "1.1-2.0 cm",
+              "cpt_code": "11442",
+              "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "2.1-3.0 cm",
+              "cpt_code": "11443",
+              "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "3.1-4.0 cm",
+              "cpt_code": "11444",
+              "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            },
+            {
+              "label": "Over 4.0 cm",
+              "cpt_code": "11446",
+              "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "D23.9",
+                "L72.9"
+              ]
+            }
           ]
         },
         "malignant_trunk": {
           "question": "Size (including margins)?",
           "options": [
-            {"label": "0.5 cm or less", "cpt_code": "11600", "description": "Excision, malignant lesion including margins, trunk/extremity; 0.5 cm or less", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
-            {"label": "0.6-1.0 cm", "cpt_code": "11601", "description": "Excision, malignant lesion including margins, trunk/extremity; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
-            {"label": "1.1-2.0 cm", "cpt_code": "11602", "description": "Excision, malignant lesion including margins, trunk/extremity; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
-            {"label": "2.1-3.0 cm", "cpt_code": "11603", "description": "Excision, malignant lesion including margins, trunk/extremity; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
-            {"label": "3.1-4.0 cm", "cpt_code": "11604", "description": "Excision, malignant lesion including margins, trunk/extremity; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
-            {"label": "Over 4.0 cm", "cpt_code": "11606", "description": "Excision, malignant lesion including margins, trunk/extremity; over 4.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]}
+            {
+              "label": "0.5 cm or less",
+              "cpt_code": "11600",
+              "description": "Excision, malignant lesion including margins, trunk/extremity; 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "C44.509",
+                "C44.599"
+              ]
+            },
+            {
+              "label": "0.6-1.0 cm",
+              "cpt_code": "11601",
+              "description": "Excision, malignant lesion including margins, trunk/extremity; 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.509",
+                "C44.599"
+              ]
+            },
+            {
+              "label": "1.1-2.0 cm",
+              "cpt_code": "11602",
+              "description": "Excision, malignant lesion including margins, trunk/extremity; 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.509",
+                "C44.599"
+              ]
+            },
+            {
+              "label": "2.1-3.0 cm",
+              "cpt_code": "11603",
+              "description": "Excision, malignant lesion including margins, trunk/extremity; 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.509",
+                "C44.599"
+              ]
+            },
+            {
+              "label": "3.1-4.0 cm",
+              "cpt_code": "11604",
+              "description": "Excision, malignant lesion including margins, trunk/extremity; 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.509",
+                "C44.599"
+              ]
+            },
+            {
+              "label": "Over 4.0 cm",
+              "cpt_code": "11606",
+              "description": "Excision, malignant lesion including margins, trunk/extremity; over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.509",
+                "C44.599"
+              ]
+            }
           ]
         },
         "malignant_scalp": {
           "question": "Size (including margins)?",
           "options": [
-            {"label": "0.5 cm or less", "cpt_code": "11620", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 0.5 cm or less", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
-            {"label": "0.6-1.0 cm", "cpt_code": "11621", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
-            {"label": "1.1-2.0 cm", "cpt_code": "11622", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
-            {"label": "2.1-3.0 cm", "cpt_code": "11623", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
-            {"label": "3.1-4.0 cm", "cpt_code": "11624", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
-            {"label": "Over 4.0 cm", "cpt_code": "11626", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; over 4.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]}
+            {
+              "label": "0.5 cm or less",
+              "cpt_code": "11620",
+              "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "C44.40",
+                "C44.509"
+              ]
+            },
+            {
+              "label": "0.6-1.0 cm",
+              "cpt_code": "11621",
+              "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.40",
+                "C44.509"
+              ]
+            },
+            {
+              "label": "1.1-2.0 cm",
+              "cpt_code": "11622",
+              "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.40",
+                "C44.509"
+              ]
+            },
+            {
+              "label": "2.1-3.0 cm",
+              "cpt_code": "11623",
+              "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.40",
+                "C44.509"
+              ]
+            },
+            {
+              "label": "3.1-4.0 cm",
+              "cpt_code": "11624",
+              "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.40",
+                "C44.509"
+              ]
+            },
+            {
+              "label": "Over 4.0 cm",
+              "cpt_code": "11626",
+              "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.40",
+                "C44.509"
+              ]
+            }
           ]
         },
         "malignant_face": {
           "question": "Size (including margins)?",
           "options": [
-            {"label": "0.5 cm or less", "cpt_code": "11640", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 0.5 cm or less", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
-            {"label": "0.6-1.0 cm", "cpt_code": "11641", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
-            {"label": "1.1-2.0 cm", "cpt_code": "11642", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
-            {"label": "2.1-3.0 cm", "cpt_code": "11643", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
-            {"label": "3.1-4.0 cm", "cpt_code": "11644", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
-            {"label": "Over 4.0 cm", "cpt_code": "11646", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; over 4.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]}
+            {
+              "label": "0.5 cm or less",
+              "cpt_code": "11640",
+              "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "C44.309",
+                "C44.399"
+              ]
+            },
+            {
+              "label": "0.6-1.0 cm",
+              "cpt_code": "11641",
+              "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.309",
+                "C44.399"
+              ]
+            },
+            {
+              "label": "1.1-2.0 cm",
+              "cpt_code": "11642",
+              "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.309",
+                "C44.399"
+              ]
+            },
+            {
+              "label": "2.1-3.0 cm",
+              "cpt_code": "11643",
+              "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.309",
+                "C44.399"
+              ]
+            },
+            {
+              "label": "3.1-4.0 cm",
+              "cpt_code": "11644",
+              "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.309",
+                "C44.399"
+              ]
+            },
+            {
+              "label": "Over 4.0 cm",
+              "cpt_code": "11646",
+              "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C44.309",
+                "C44.399"
+              ]
+            }
           ]
         }
       }
@@ -328,9 +1143,18 @@
         {
           "question": "Type of procedure?",
           "options": [
-            {"label": "Biopsy", "next": "breast_biopsy"},
-            {"label": "Lumpectomy", "next": "breast_lumpectomy"},
-            {"label": "Mastectomy", "next": "breast_mastectomy"}
+            {
+              "label": "Biopsy",
+              "next": "breast_biopsy"
+            },
+            {
+              "label": "Lumpectomy",
+              "next": "breast_lumpectomy"
+            },
+            {
+              "label": "Mastectomy",
+              "next": "breast_mastectomy"
+            }
           ]
         }
       ],
@@ -338,39 +1162,171 @@
         "breast_biopsy": {
           "question": "Type of biopsy?",
           "options": [
-            {"label": "Core needle biopsy", "cpt_code": "19083", "description": "Biopsy, breast, with placement of breast localization device", "modifiers": ["-LT", "-RT"], "icd10": ["N63.10", "N63.20", "R92.8"]},
-            {"label": "Open surgical biopsy", "cpt_code": "19101", "description": "Biopsy of breast; open, incisional", "modifiers": ["-LT", "-RT"], "icd10": ["N63.10", "N63.20", "R92.8"]},
-            {"label": "Vacuum-assisted biopsy", "cpt_code": "19083", "description": "Biopsy, breast, with placement of breast localization device", "modifiers": ["-LT", "-RT"], "icd10": ["N63.10", "N63.20", "R92.8"]}
+            {
+              "label": "Core needle biopsy",
+              "cpt_code": "19083",
+              "description": "Biopsy, breast, with placement of breast localization device",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N63.10",
+                "N63.20",
+                "R92.8"
+              ]
+            },
+            {
+              "label": "Open surgical biopsy",
+              "cpt_code": "19101",
+              "description": "Biopsy of breast; open, incisional",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N63.10",
+                "N63.20",
+                "R92.8"
+              ]
+            },
+            {
+              "label": "Vacuum-assisted biopsy",
+              "cpt_code": "19083",
+              "description": "Biopsy, breast, with placement of breast localization device",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N63.10",
+                "N63.20",
+                "R92.8"
+              ]
+            }
           ]
         },
         "breast_lumpectomy": {
           "question": "Additional procedures?",
           "options": [
-            {"label": "Simple lumpectomy", "cpt_code": "19301", "description": "Mastectomy, partial", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912", "D05.90"]},
-            {"label": "With sentinel lymph node biopsy", "cpt_code": "19302", "description": "Mastectomy, partial, with axillary lymphadenectomy", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]},
-            {"label": "With wire localization", "cpt_code": "19125", "description": "Excision of breast lesion identified by preoperative placement of radiological marker", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]}
+            {
+              "label": "Simple lumpectomy",
+              "cpt_code": "19301",
+              "description": "Mastectomy, partial",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912",
+                "D05.90"
+              ]
+            },
+            {
+              "label": "With sentinel lymph node biopsy",
+              "cpt_code": "19302",
+              "description": "Mastectomy, partial, with axillary lymphadenectomy",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912"
+              ]
+            },
+            {
+              "label": "With wire localization",
+              "cpt_code": "19125",
+              "description": "Excision of breast lesion identified by preoperative placement of radiological marker",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912"
+              ]
+            }
           ]
         },
         "breast_mastectomy": {
           "question": "Type of mastectomy?",
           "options": [
-            {"label": "Simple/Total", "cpt_code": "19303", "description": "Mastectomy, simple, complete", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912", "D05.90"]},
-            {"label": "Modified radical", "cpt_code": "19307", "description": "Mastectomy, modified radical, including axillary lymph nodes", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]},
-            {"label": "Radical", "cpt_code": "19305", "description": "Mastectomy, radical, including pectoral muscles, axillary lymph nodes", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]},
-            {"label": "Skin-sparing", "cpt_code": "19304", "description": "Mastectomy, subcutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912", "Z40.01"]}
+            {
+              "label": "Simple/Total",
+              "cpt_code": "19303",
+              "description": "Mastectomy, simple, complete",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912",
+                "D05.90"
+              ]
+            },
+            {
+              "label": "Modified radical",
+              "cpt_code": "19307",
+              "description": "Mastectomy, modified radical, including axillary lymph nodes",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912"
+              ]
+            },
+            {
+              "label": "Radical",
+              "cpt_code": "19305",
+              "description": "Mastectomy, radical, including pectoral muscles, axillary lymph nodes",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912"
+              ]
+            },
+            {
+              "label": "Skin-sparing",
+              "cpt_code": "19304",
+              "description": "Mastectomy, subcutaneous",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C50.911",
+                "C50.912",
+                "Z40.01"
+              ]
+            }
           ]
         }
       }
     },
     {
       "name": "Thyroidectomy",
-      "specialty": "General Surgery", 
+      "specialty": "General Surgery",
       "questions": [
         {
           "question": "Extent of resection?",
           "options": [
-            {"label": "Total thyroidectomy", "next": "thyroid_total"},
-            {"label": "Partial thyroidectomy/Lobectomy", "next": "thyroid_partial"}
+            {
+              "label": "Total thyroidectomy",
+              "next": "thyroid_total"
+            },
+            {
+              "label": "Partial thyroidectomy/Lobectomy",
+              "next": "thyroid_partial"
+            }
           ]
         }
       ],
@@ -378,17 +1334,71 @@
         "thyroid_total": {
           "question": "Additional procedures?",
           "options": [
-            {"label": "Total thyroidectomy", "cpt_code": "60240", "description": "Thyroidectomy, total or complete", "modifiers": [], "icd10": ["E04.9", "C73", "E05.90"]},
-            {"label": "With lymph node dissection", "cpt_code": "60252", "description": "Thyroidectomy, total or subtotal for malignancy; with limited neck dissection", "modifiers": [], "icd10": ["C73"]},
-            {"label": "With radical neck dissection", "cpt_code": "60254", "description": "Thyroidectomy, total or subtotal for malignancy; with radical neck dissection", "modifiers": [], "icd10": ["C73"]}
+            {
+              "label": "Total thyroidectomy",
+              "cpt_code": "60240",
+              "description": "Thyroidectomy, total or complete",
+              "modifiers": [],
+              "icd10": [
+                "E04.9",
+                "C73",
+                "E05.90"
+              ]
+            },
+            {
+              "label": "With lymph node dissection",
+              "cpt_code": "60252",
+              "description": "Thyroidectomy, total or subtotal for malignancy; with limited neck dissection",
+              "modifiers": [],
+              "icd10": [
+                "C73"
+              ]
+            },
+            {
+              "label": "With radical neck dissection",
+              "cpt_code": "60254",
+              "description": "Thyroidectomy, total or subtotal for malignancy; with radical neck dissection",
+              "modifiers": [],
+              "icd10": [
+                "C73"
+              ]
+            }
           ]
         },
         "thyroid_partial": {
           "question": "Type of partial resection?",
           "options": [
-            {"label": "Lobectomy, unilateral", "cpt_code": "60220", "description": "Total thyroid lobectomy, unilateral; with or without isthmusectomy", "modifiers": [], "icd10": ["E04.1", "C73", "E04.9"]},
-            {"label": "Lobectomy with contralateral subtotal", "cpt_code": "60225", "description": "Total thyroid lobectomy, unilateral; with contralateral subtotal lobectomy, including isthmusectomy", "modifiers": [], "icd10": ["E04.9", "C73"]},
-            {"label": "Partial lobectomy", "cpt_code": "60210", "description": "Partial thyroid lobectomy, unilateral; with or without isthmusectomy", "modifiers": [], "icd10": ["E04.1", "D34"]}
+            {
+              "label": "Lobectomy, unilateral",
+              "cpt_code": "60220",
+              "description": "Total thyroid lobectomy, unilateral; with or without isthmusectomy",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73",
+                "E04.9"
+              ]
+            },
+            {
+              "label": "Lobectomy with contralateral subtotal",
+              "cpt_code": "60225",
+              "description": "Total thyroid lobectomy, unilateral; with contralateral subtotal lobectomy, including isthmusectomy",
+              "modifiers": [],
+              "icd10": [
+                "E04.9",
+                "C73"
+              ]
+            },
+            {
+              "label": "Partial lobectomy",
+              "cpt_code": "60210",
+              "description": "Partial thyroid lobectomy, unilateral; with or without isthmusectomy",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "D34"
+              ]
+            }
           ]
         }
       }
@@ -400,10 +1410,22 @@
         {
           "question": "Location of resection?",
           "options": [
-            {"label": "Right/Cecum/Ascending", "next": "colectomy_right"},
-            {"label": "Left/Descending", "next": "colectomy_left"}, 
-            {"label": "Sigmoid", "next": "colectomy_sigmoid"},
-            {"label": "Total/Subtotal", "next": "colectomy_total"}
+            {
+              "label": "Right/Cecum/Ascending",
+              "next": "colectomy_right"
+            },
+            {
+              "label": "Left/Descending",
+              "next": "colectomy_left"
+            },
+            {
+              "label": "Sigmoid",
+              "next": "colectomy_sigmoid"
+            },
+            {
+              "label": "Total/Subtotal",
+              "next": "colectomy_total"
+            }
           ]
         }
       ],
@@ -411,36 +1433,180 @@
         "colectomy_right": {
           "question": "Approach and anastomosis?",
           "options": [
-            {"label": "Open with anastomosis", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2", "K57.92"]},
-            {"label": "Open without anastomosis", "cpt_code": "44141", "description": "Colectomy, partial; with skin level cecostomy or colostomy", "modifiers": [], "icd10": ["C18.0", "C18.2"]},
-            {"label": "Laparoscopic with anastomosis", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2", "K57.92"]},
-            {"label": "Laparoscopic without anastomosis", "cpt_code": "44206", "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment", "modifiers": [], "icd10": ["C18.0", "C18.2"]}
+            {
+              "label": "Open with anastomosis",
+              "cpt_code": "44140",
+              "description": "Colectomy, partial; with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C18.0",
+                "C18.2",
+                "K57.92"
+              ]
+            },
+            {
+              "label": "Open without anastomosis",
+              "cpt_code": "44141",
+              "description": "Colectomy, partial; with skin level cecostomy or colostomy",
+              "modifiers": [],
+              "icd10": [
+                "C18.0",
+                "C18.2"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic with anastomosis",
+              "cpt_code": "44205",
+              "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C18.0",
+                "C18.2",
+                "K57.92"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic without anastomosis",
+              "cpt_code": "44206",
+              "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
+              "modifiers": [],
+              "icd10": [
+                "C18.0",
+                "C18.2"
+              ]
+            }
           ]
         },
         "colectomy_left": {
           "question": "Approach and anastomosis?",
           "options": [
-            {"label": "Open with anastomosis", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7", "K57.92"]},
-            {"label": "Open without anastomosis", "cpt_code": "44141", "description": "Colectomy, partial; with skin level cecostomy or colostomy", "modifiers": [], "icd10": ["C18.6", "C18.7"]},
-            {"label": "Laparoscopic with anastomosis", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7", "K57.92"]},
-            {"label": "Laparoscopic without anastomosis", "cpt_code": "44206", "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment", "modifiers": [], "icd10": ["C18.6", "C18.7"]}
+            {
+              "label": "Open with anastomosis",
+              "cpt_code": "44140",
+              "description": "Colectomy, partial; with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C18.6",
+                "C18.7",
+                "K57.92"
+              ]
+            },
+            {
+              "label": "Open without anastomosis",
+              "cpt_code": "44141",
+              "description": "Colectomy, partial; with skin level cecostomy or colostomy",
+              "modifiers": [],
+              "icd10": [
+                "C18.6",
+                "C18.7"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic with anastomosis",
+              "cpt_code": "44205",
+              "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C18.6",
+                "C18.7",
+                "K57.92"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic without anastomosis",
+              "cpt_code": "44206",
+              "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
+              "modifiers": [],
+              "icd10": [
+                "C18.6",
+                "C18.7"
+              ]
+            }
           ]
         },
         "colectomy_sigmoid": {
           "question": "Approach and anastomosis?",
           "options": [
-            {"label": "Open with anastomosis", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C19", "C18.7", "K57.32"]},
-            {"label": "Open without anastomosis", "cpt_code": "44141", "description": "Colectomy, partial; with skin level cecostomy or colostomy", "modifiers": [], "icd10": ["C19", "C18.7"]},
-            {"label": "Laparoscopic with anastomosis", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C19", "C18.7", "K57.32"]},
-            {"label": "Laparoscopic without anastomosis", "cpt_code": "44206", "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment", "modifiers": [], "icd10": ["C19", "C18.7"]}
+            {
+              "label": "Open with anastomosis",
+              "cpt_code": "44140",
+              "description": "Colectomy, partial; with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C19",
+                "C18.7",
+                "K57.32"
+              ]
+            },
+            {
+              "label": "Open without anastomosis",
+              "cpt_code": "44141",
+              "description": "Colectomy, partial; with skin level cecostomy or colostomy",
+              "modifiers": [],
+              "icd10": [
+                "C19",
+                "C18.7"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic with anastomosis",
+              "cpt_code": "44205",
+              "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C19",
+                "C18.7",
+                "K57.32"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic without anastomosis",
+              "cpt_code": "44206",
+              "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
+              "modifiers": [],
+              "icd10": [
+                "C19",
+                "C18.7"
+              ]
+            }
           ]
         },
         "colectomy_total": {
           "question": "Approach and procedure?",
           "options": [
-            {"label": "Total abdominal colectomy", "cpt_code": "44150", "description": "Colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy", "modifiers": [], "icd10": ["C18.9", "K59.39", "K51.90"]},
-            {"label": "Total with proctectomy", "cpt_code": "44155", "description": "Colectomy, total, abdominal, with proctectomy; with ileostomy", "modifiers": [], "icd10": ["C19", "C20", "K51.90"]},
-            {"label": "Laparoscopic total", "cpt_code": "44210", "description": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy", "modifiers": [], "icd10": ["C18.9", "K59.39", "K51.90"]}
+            {
+              "label": "Total abdominal colectomy",
+              "cpt_code": "44150",
+              "description": "Colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy",
+              "modifiers": [],
+              "icd10": [
+                "C18.9",
+                "K59.39",
+                "K51.90"
+              ]
+            },
+            {
+              "label": "Total with proctectomy",
+              "cpt_code": "44155",
+              "description": "Colectomy, total, abdominal, with proctectomy; with ileostomy",
+              "modifiers": [],
+              "icd10": [
+                "C19",
+                "C20",
+                "K51.90"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic total",
+              "cpt_code": "44210",
+              "description": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy",
+              "modifiers": [],
+              "icd10": [
+                "C18.9",
+                "K59.39",
+                "K51.90"
+              ]
+            }
           ]
         }
       }
@@ -452,10 +1618,22 @@
         {
           "question": "Type of procedure?",
           "options": [
-            {"label": "Resection", "next": "small_bowel_resection"},
-            {"label": "Lysis of adhesions", "next": "small_bowel_lysis"},
-            {"label": "Enterotomy", "next": "small_bowel_enterotomy"},
-            {"label": "Enterostomy", "next": "small_bowel_enterostomy"}
+            {
+              "label": "Resection",
+              "next": "small_bowel_resection"
+            },
+            {
+              "label": "Lysis of adhesions",
+              "next": "small_bowel_lysis"
+            },
+            {
+              "label": "Enterotomy",
+              "next": "small_bowel_enterotomy"
+            },
+            {
+              "label": "Enterostomy",
+              "next": "small_bowel_enterostomy"
+            }
           ]
         }
       ],
@@ -463,31 +1641,118 @@
         "small_bowel_resection": {
           "question": "Approach and anastomosis?",
           "options": [
-            {"label": "Open with anastomosis", "cpt_code": "44120", "description": "Enterectomy, resection of small intestine; single resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60", "K63.1"]},
-            {"label": "Open, each additional resection", "cpt_code": "44121", "description": "Enterectomy, resection of small intestine; each additional resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60"]},
-            {"label": "Laparoscopic with anastomosis", "cpt_code": "44202", "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, single resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60", "K63.1"]},
-            {"label": "Laparoscopic, each additional", "cpt_code": "44203", "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, each additional small intestine resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60"]}
+            {
+              "label": "Open with anastomosis",
+              "cpt_code": "44120",
+              "description": "Enterectomy, resection of small intestine; single resection and anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C17.9",
+                "K56.60",
+                "K63.1"
+              ]
+            },
+            {
+              "label": "Open, each additional resection",
+              "cpt_code": "44121",
+              "description": "Enterectomy, resection of small intestine; each additional resection and anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C17.9",
+                "K56.60"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic with anastomosis",
+              "cpt_code": "44202",
+              "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, single resection and anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C17.9",
+                "K56.60",
+                "K63.1"
+              ]
+            },
+            {
+              "label": "Laparoscopic, each additional",
+              "cpt_code": "44203",
+              "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, each additional small intestine resection and anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C17.9",
+                "K56.60"
+              ]
+            }
           ]
         },
         "small_bowel_lysis": {
           "question": "Approach?",
           "options": [
-            {"label": "Open lysis of adhesions", "cpt_code": "44005", "description": "Enterolysis (freeing of intestinal adhesion)", "modifiers": [], "icd10": ["K56.50", "K66.0"]},
-            {"label": "Laparoscopic lysis", "cpt_code": "44180", "description": "Laparoscopy, surgical, enterolysis (freeing of intestinal adhesion)", "modifiers": [], "icd10": ["K56.50", "K66.0"]}
+            {
+              "label": "Open lysis of adhesions",
+              "cpt_code": "44005",
+              "description": "Enterolysis (freeing of intestinal adhesion)",
+              "modifiers": [],
+              "icd10": [
+                "K56.50",
+                "K66.0"
+              ]
+            },
+            {
+              "label": "Laparoscopic/Robotic lysis",
+              "cpt_code": "44180",
+              "description": "Laparoscopy, surgical, enterolysis (freeing of intestinal adhesion)",
+              "modifiers": [],
+              "icd10": [
+                "K56.50",
+                "K66.0"
+              ]
+            }
           ]
         },
         "small_bowel_enterotomy": {
           "cpt_code": "44020",
           "description": "Enterotomy, small intestine, other than duodenum; for exploration, foreign body removal, or biopsy",
           "modifiers": [],
-          "icd10": ["K56.60", "T18.3", "K63.9"]
+          "icd10": [
+            "K56.60",
+            "T18.3",
+            "K63.9"
+          ]
         },
         "small_bowel_enterostomy": {
           "question": "Type of enterostomy?",
           "options": [
-            {"label": "Ileostomy", "cpt_code": "44310", "description": "Ileostomy or jejunostomy, non-tube", "modifiers": [], "icd10": ["K91.40", "K94.10"]},
-            {"label": "Jejunostomy", "cpt_code": "44310", "description": "Ileostomy or jejunostomy, non-tube", "modifiers": [], "icd10": ["K91.40", "K94.13"]},
-            {"label": "Tube jejunostomy", "cpt_code": "44015", "description": "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method", "modifiers": [], "icd10": ["K91.40", "Z93.4"]}
+            {
+              "label": "Ileostomy",
+              "cpt_code": "44310",
+              "description": "Ileostomy or jejunostomy, non-tube",
+              "modifiers": [],
+              "icd10": [
+                "K91.40",
+                "K94.10"
+              ]
+            },
+            {
+              "label": "Jejunostomy",
+              "cpt_code": "44310",
+              "description": "Ileostomy or jejunostomy, non-tube",
+              "modifiers": [],
+              "icd10": [
+                "K91.40",
+                "K94.13"
+              ]
+            },
+            {
+              "label": "Tube jejunostomy",
+              "cpt_code": "44015",
+              "description": "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method",
+              "modifiers": [],
+              "icd10": [
+                "K91.40",
+                "Z93.4"
+              ]
+            }
           ]
         }
       }
@@ -499,11 +1764,26 @@
         {
           "question": "Type of trauma procedure?",
           "options": [
-            {"label": "Exploratory laparotomy", "next": "trauma_ex_lap"},
-            {"label": "Chest tube", "next": "trauma_chest_tube"},
-            {"label": "Central line", "next": "trauma_central_line"},
-            {"label": "Arterial line", "next": "trauma_arterial_line"},
-            {"label": "Laceration repair", "next": "trauma_laceration"}
+            {
+              "label": "Exploratory laparotomy",
+              "next": "trauma_ex_lap"
+            },
+            {
+              "label": "Chest tube",
+              "next": "trauma_chest_tube"
+            },
+            {
+              "label": "Central line",
+              "next": "trauma_central_line"
+            },
+            {
+              "label": "Arterial line",
+              "next": "trauma_arterial_line"
+            },
+            {
+              "label": "Laceration repair",
+              "next": "trauma_laceration"
+            }
           ]
         }
       ],
@@ -512,39 +1792,190 @@
           "cpt_code": "49000",
           "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
           "modifiers": [],
-          "icd10": ["S36.90XA", "S31.600A", "T14.8XXA"]
+          "icd10": [
+            "S36.90XA",
+            "S31.600A",
+            "T14.8XXA"
+          ]
         },
         "trauma_chest_tube": {
           "question": "Complexity?",
           "options": [
-            {"label": "Simple thoracostomy", "cpt_code": "32551", "description": "Tube thoracostomy, includes connection to drainage system", "modifiers": ["-LT", "-RT"], "icd10": ["S27.0XXA", "J94.8", "S22.9XXA"]},
-            {"label": "Open thoracotomy with drainage", "cpt_code": "32020", "description": "Thoracotomy, with or without pleural biopsy", "modifiers": ["-LT", "-RT"], "icd10": ["S27.0XXA", "J94.2"]}
+            {
+              "label": "Simple thoracostomy",
+              "cpt_code": "32551",
+              "description": "Tube thoracostomy, includes connection to drainage system",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S27.0XXA",
+                "J94.8",
+                "S22.9XXA"
+              ]
+            },
+            {
+              "label": "Open thoracotomy with drainage",
+              "cpt_code": "32020",
+              "description": "Thoracotomy, with or without pleural biopsy",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S27.0XXA",
+                "J94.2"
+              ]
+            }
           ]
         },
         "trauma_central_line": {
           "question": "Location?",
           "options": [
-            {"label": "Subclavian", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
-            {"label": "Internal jugular", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
-            {"label": "Femoral", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]}
+            {
+              "label": "Subclavian",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T14.8XXA",
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Internal jugular",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T14.8XXA",
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Femoral",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T14.8XXA",
+                "Z45.2"
+              ]
+            }
           ]
         },
         "trauma_arterial_line": {
           "question": "Location?",
           "options": [
-            {"label": "Radial artery", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
-            {"label": "Femoral artery", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
-            {"label": "Open arterial cannulation", "cpt_code": "36625", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; cutdown", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]}
+            {
+              "label": "Radial artery",
+              "cpt_code": "36620",
+              "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T14.8XXA",
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Femoral artery",
+              "cpt_code": "36620",
+              "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T14.8XXA",
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Open arterial cannulation",
+              "cpt_code": "36625",
+              "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; cutdown",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T14.8XXA",
+                "Z45.2"
+              ]
+            }
           ]
         },
         "trauma_laceration": {
           "question": "Size and location?",
           "options": [
-            {"label": "Simple repair 2.5cm or less", "cpt_code": "12001", "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.5 cm or less", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
-            {"label": "Simple repair 2.6-7.5cm", "cpt_code": "12002", "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.6 cm to 7.5 cm", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
-            {"label": "Simple repair 7.6-12.5cm", "cpt_code": "12004", "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 7.6 cm to 12.5 cm", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
-            {"label": "Intermediate repair 2.5cm or less", "cpt_code": "12031", "description": "Repair, intermediate, wounds of scalp, axillae, trunk and/or extremities; 2.5 cm or less", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
-            {"label": "Complex repair 1.1-2.5cm", "cpt_code": "13100", "description": "Repair, complex, trunk; 1.1 cm to 2.5 cm", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]}
+            {
+              "label": "Simple repair 2.5cm or less",
+              "cpt_code": "12001",
+              "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S01.00XA",
+                "S31.000A",
+                "S41.00XA"
+              ]
+            },
+            {
+              "label": "Simple repair 2.6-7.5cm",
+              "cpt_code": "12002",
+              "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.6 cm to 7.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "S01.00XA",
+                "S31.000A",
+                "S41.00XA"
+              ]
+            },
+            {
+              "label": "Simple repair 7.6-12.5cm",
+              "cpt_code": "12004",
+              "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 7.6 cm to 12.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "S01.00XA",
+                "S31.000A",
+                "S41.00XA"
+              ]
+            },
+            {
+              "label": "Intermediate repair 2.5cm or less",
+              "cpt_code": "12031",
+              "description": "Repair, intermediate, wounds of scalp, axillae, trunk and/or extremities; 2.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S01.00XA",
+                "S31.000A",
+                "S41.00XA"
+              ]
+            },
+            {
+              "label": "Complex repair 1.1-2.5cm",
+              "cpt_code": "13100",
+              "description": "Repair, complex, trunk; 1.1 cm to 2.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "S01.00XA",
+                "S31.000A",
+                "S41.00XA"
+              ]
+            }
           ]
         }
       }
@@ -556,8 +1987,14 @@
         {
           "question": "Complexity?",
           "options": [
-            {"label": "Simple I&D", "next": "abscess_simple"},
-            {"label": "Complex I&D", "next": "abscess_complex"}
+            {
+              "label": "Simple I&D",
+              "next": "abscess_simple"
+            },
+            {
+              "label": "Complex I&D",
+              "next": "abscess_complex"
+            }
           ]
         }
       ],
@@ -565,18 +2002,82 @@
         "abscess_simple": {
           "question": "Location?",
           "options": [
-            {"label": "Skin/subcutaneous", "cpt_code": "10060", "description": "Incision and drainage of abscess; simple or single", "modifiers": [], "icd10": ["L02.90", "L02.91", "L02.93"]},
-            {"label": "Perirectal", "cpt_code": "46050", "description": "Incision and drainage, perirectal or perianal abscess; superficial", "modifiers": [], "icd10": ["K61.0", "K61.1"]},
-            {"label": "Bartholin gland", "cpt_code": "56420", "description": "Incision and drainage of Bartholin's gland abscess", "modifiers": [], "icd10": ["N75.1"]}
+            {
+              "label": "Skin/subcutaneous",
+              "cpt_code": "10060",
+              "description": "Incision and drainage of abscess; simple or single",
+              "modifiers": [],
+              "icd10": [
+                "L02.90",
+                "L02.91",
+                "L02.93"
+              ]
+            },
+            {
+              "label": "Perirectal",
+              "cpt_code": "46050",
+              "description": "Incision and drainage, perirectal or perianal abscess; superficial",
+              "modifiers": [],
+              "icd10": [
+                "K61.0",
+                "K61.1"
+              ]
+            },
+            {
+              "label": "Bartholin gland",
+              "cpt_code": "56420",
+              "description": "Incision and drainage of Bartholin's gland abscess",
+              "modifiers": [],
+              "icd10": [
+                "N75.1"
+              ]
+            }
           ]
         },
         "abscess_complex": {
           "question": "Location and complexity?",
           "options": [
-            {"label": "Deep/complicated skin", "cpt_code": "10061", "description": "Incision and drainage of abscess; complicated or multiple", "modifiers": [], "icd10": ["L02.90", "L02.91", "L02.93"]},
-            {"label": "Intra-abdominal", "cpt_code": "49060", "description": "Drainage of retroperitoneal abscess, open", "modifiers": [], "icd10": ["K68.19", "K65.1"]},
-            {"label": "Perirectal, deep", "cpt_code": "46060", "description": "Incision and drainage, perirectal or perianal abscess; deep intramuscular", "modifiers": [], "icd10": ["K61.2", "K61.3"]},
-            {"label": "Pilonidal", "cpt_code": "10080", "description": "Incision and drainage of pilonidal cyst; simple", "modifiers": [], "icd10": ["L05.91", "L05.92"]}
+            {
+              "label": "Deep/complicated skin",
+              "cpt_code": "10061",
+              "description": "Incision and drainage of abscess; complicated or multiple",
+              "modifiers": [],
+              "icd10": [
+                "L02.90",
+                "L02.91",
+                "L02.93"
+              ]
+            },
+            {
+              "label": "Intra-abdominal",
+              "cpt_code": "49060",
+              "description": "Drainage of retroperitoneal abscess, open",
+              "modifiers": [],
+              "icd10": [
+                "K68.19",
+                "K65.1"
+              ]
+            },
+            {
+              "label": "Perirectal, deep",
+              "cpt_code": "46060",
+              "description": "Incision and drainage, perirectal or perianal abscess; deep intramuscular",
+              "modifiers": [],
+              "icd10": [
+                "K61.2",
+                "K61.3"
+              ]
+            },
+            {
+              "label": "Pilonidal",
+              "cpt_code": "10080",
+              "description": "Incision and drainage of pilonidal cyst; simple",
+              "modifiers": [],
+              "icd10": [
+                "L05.91",
+                "L05.92"
+              ]
+            }
           ]
         }
       }
@@ -588,8 +2089,14 @@
         {
           "question": "Type of endoscopy?",
           "options": [
-            {"label": "EGD (Upper endoscopy)", "next": "endoscopy_egd"},
-            {"label": "Colonoscopy", "next": "endoscopy_colonoscopy"}
+            {
+              "label": "EGD (Upper endoscopy)",
+              "next": "endoscopy_egd"
+            },
+            {
+              "label": "Colonoscopy",
+              "next": "endoscopy_colonoscopy"
+            }
           ]
         }
       ],
@@ -597,19 +2104,96 @@
         "endoscopy_egd": {
           "question": "Additional procedures?",
           "options": [
-            {"label": "Diagnostic EGD", "cpt_code": "43235", "description": "Esophagogastroduodenoscopy, flexible, transoral; diagnostic, including collection of specimen(s) by brushing or washing", "modifiers": [], "icd10": ["K92.2", "R13.10", "K21.9"]},
-            {"label": "EGD with biopsy", "cpt_code": "43239", "description": "Esophagogastroduodenoscopy, flexible, transoral; with biopsy, single or multiple", "modifiers": [], "icd10": ["K92.2", "R13.10", "K27.9"]},
-            {"label": "EGD with dilation", "cpt_code": "43249", "description": "Esophagogastroduodenoscopy, flexible, transoral; with transendoscopic balloon dilation", "modifiers": [], "icd10": ["K22.2", "K22.3"]},
-            {"label": "EGD with stent placement", "cpt_code": "43266", "description": "Esophagogastroduodenoscopy, flexible, transoral; with placement of endoscopic stent", "modifiers": [], "icd10": ["C15.9", "C16.9", "K22.2"]}
+            {
+              "label": "Diagnostic EGD",
+              "cpt_code": "43235",
+              "description": "Esophagogastroduodenoscopy, flexible, transoral; diagnostic, including collection of specimen(s) by brushing or washing",
+              "modifiers": [],
+              "icd10": [
+                "K92.2",
+                "R13.10",
+                "K21.9"
+              ]
+            },
+            {
+              "label": "EGD with biopsy",
+              "cpt_code": "43239",
+              "description": "Esophagogastroduodenoscopy, flexible, transoral; with biopsy, single or multiple",
+              "modifiers": [],
+              "icd10": [
+                "K92.2",
+                "R13.10",
+                "K27.9"
+              ]
+            },
+            {
+              "label": "EGD with dilation",
+              "cpt_code": "43249",
+              "description": "Esophagogastroduodenoscopy, flexible, transoral; with transendoscopic balloon dilation",
+              "modifiers": [],
+              "icd10": [
+                "K22.2",
+                "K22.3"
+              ]
+            },
+            {
+              "label": "EGD with stent placement",
+              "cpt_code": "43266",
+              "description": "Esophagogastroduodenoscopy, flexible, transoral; with placement of endoscopic stent",
+              "modifiers": [],
+              "icd10": [
+                "C15.9",
+                "C16.9",
+                "K22.2"
+              ]
+            }
           ]
         },
         "endoscopy_colonoscopy": {
           "question": "Additional procedures?",
           "options": [
-            {"label": "Diagnostic colonoscopy", "cpt_code": "45378", "description": "Colonoscopy, flexible; diagnostic, including collection of specimen(s) by brushing or washing", "modifiers": [], "icd10": ["R19.5", "K63.5", "Z12.11"]},
-            {"label": "Colonoscopy with biopsy", "cpt_code": "45380", "description": "Colonoscopy, flexible; with biopsy, single or multiple", "modifiers": [], "icd10": ["R19.5", "K63.5", "D12.6"]},
-            {"label": "Colonoscopy with polypectomy", "cpt_code": "45385", "description": "Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique", "modifiers": [], "icd10": ["D12.6", "K63.5"]},
-            {"label": "Colonoscopy with stent", "cpt_code": "45389", "description": "Colonoscopy, flexible; with endoscopic stent placement", "modifiers": [], "icd10": ["C18.9", "K56.60"]}
+            {
+              "label": "Diagnostic colonoscopy",
+              "cpt_code": "45378",
+              "description": "Colonoscopy, flexible; diagnostic, including collection of specimen(s) by brushing or washing",
+              "modifiers": [],
+              "icd10": [
+                "R19.5",
+                "K63.5",
+                "Z12.11"
+              ]
+            },
+            {
+              "label": "Colonoscopy with biopsy",
+              "cpt_code": "45380",
+              "description": "Colonoscopy, flexible; with biopsy, single or multiple",
+              "modifiers": [],
+              "icd10": [
+                "R19.5",
+                "K63.5",
+                "D12.6"
+              ]
+            },
+            {
+              "label": "Colonoscopy with polypectomy",
+              "cpt_code": "45385",
+              "description": "Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique",
+              "modifiers": [],
+              "icd10": [
+                "D12.6",
+                "K63.5"
+              ]
+            },
+            {
+              "label": "Colonoscopy with stent",
+              "cpt_code": "45389",
+              "description": "Colonoscopy, flexible; with endoscopic stent placement",
+              "modifiers": [],
+              "icd10": [
+                "C18.9",
+                "K56.60"
+              ]
+            }
           ]
         }
       }
@@ -621,11 +2205,26 @@
         {
           "question": "Type of access?",
           "options": [
-            {"label": "Central venous catheter", "next": "vascular_central"},
-            {"label": "Arterial line", "next": "vascular_arterial"},
-            {"label": "PICC line", "next": "vascular_picc"},
-            {"label": "Port placement", "next": "vascular_port"},
-            {"label": "AV fistula", "next": "vascular_fistula"}
+            {
+              "label": "Central venous catheter",
+              "next": "vascular_central"
+            },
+            {
+              "label": "Arterial line",
+              "next": "vascular_arterial"
+            },
+            {
+              "label": "PICC line",
+              "next": "vascular_picc"
+            },
+            {
+              "label": "Port placement",
+              "next": "vascular_port"
+            },
+            {
+              "label": "AV fistula",
+              "next": "vascular_fistula"
+            }
           ]
         }
       ],
@@ -633,38 +2232,161 @@
         "vascular_central": {
           "question": "Location?",
           "options": [
-            {"label": "Internal jugular", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
-            {"label": "Subclavian", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
-            {"label": "Femoral", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]}
+            {
+              "label": "Internal jugular",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Subclavian",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Femoral",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z45.2"
+              ]
+            }
           ]
         },
         "vascular_arterial": {
           "question": "Approach and location?",
           "options": [
-            {"label": "Percutaneous radial", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
-            {"label": "Percutaneous femoral", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
-            {"label": "Open/cutdown", "cpt_code": "36625", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; cutdown", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]}
+            {
+              "label": "Percutaneous radial",
+              "cpt_code": "36620",
+              "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Percutaneous femoral",
+              "cpt_code": "36620",
+              "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Open/cutdown",
+              "cpt_code": "36625",
+              "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; cutdown",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z45.2"
+              ]
+            }
           ]
         },
         "vascular_picc": {
           "cpt_code": "36568",
           "description": "Insertion of peripherally inserted central venous catheter (PICC), without subcutaneous port or pump; age 5 years or older",
-          "modifiers": ["-LT", "-RT"],
-          "icd10": ["Z45.2"]
+          "modifiers": [
+            "-LT",
+            "-RT"
+          ],
+          "icd10": [
+            "Z45.2"
+          ]
         },
         "vascular_port": {
           "question": "Type of port?",
           "options": [
-            {"label": "Subcutaneous port", "cpt_code": "36561", "description": "Insertion of tunneled centrally inserted central venous access device with subcutaneous port; age 5 years or older", "modifiers": [], "icd10": ["Z45.2"]},
-            {"label": "Arterial port", "cpt_code": "36640", "description": "Arterial catheterization for prolonged infusion therapy (chemotherapy), cutdown", "modifiers": [], "icd10": ["Z45.2"]}
+            {
+              "label": "Subcutaneous port",
+              "cpt_code": "36561",
+              "description": "Insertion of tunneled centrally inserted central venous access device with subcutaneous port; age 5 years or older",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Arterial port",
+              "cpt_code": "36640",
+              "description": "Arterial catheterization for prolonged infusion therapy (chemotherapy), cutdown",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2"
+              ]
+            }
           ]
         },
         "vascular_fistula": {
           "question": "Type of access?",
           "options": [
-            {"label": "Radiocephalic fistula", "cpt_code": "36821", "description": "Arteriovenous anastomosis, open; direct, any site", "modifiers": ["-LT", "-RT"], "icd10": ["N18.6", "Z99.2"]},
-            {"label": "Brachiocephalic fistula", "cpt_code": "36821", "description": "Arteriovenous anastomosis, open; direct, any site", "modifiers": ["-LT", "-RT"], "icd10": ["N18.6", "Z99.2"]},
-            {"label": "AV graft", "cpt_code": "36830", "description": "Creation of arteriovenous fistula by other than direct arteriovenous anastomosis; autogenous graft", "modifiers": ["-LT", "-RT"], "icd10": ["N18.6", "Z99.2"]}
+            {
+              "label": "Radiocephalic fistula",
+              "cpt_code": "36821",
+              "description": "Arteriovenous anastomosis, open; direct, any site",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N18.6",
+                "Z99.2"
+              ]
+            },
+            {
+              "label": "Brachiocephalic fistula",
+              "cpt_code": "36821",
+              "description": "Arteriovenous anastomosis, open; direct, any site",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N18.6",
+                "Z99.2"
+              ]
+            },
+            {
+              "label": "AV graft",
+              "cpt_code": "36830",
+              "description": "Creation of arteriovenous fistula by other than direct arteriovenous anastomosis; autogenous graft",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N18.6",
+                "Z99.2"
+              ]
+            }
           ]
         }
       }
@@ -676,8 +2398,14 @@
         {
           "question": "Type of fracture repair?",
           "options": [
-            {"label": "Closed reduction", "next": "ortho_closed"},
-            {"label": "Open reduction internal fixation", "next": "ortho_orif"}
+            {
+              "label": "Closed reduction",
+              "next": "ortho_closed"
+            },
+            {
+              "label": "Open reduction internal fixation",
+              "next": "ortho_orif"
+            }
           ]
         }
       ],
@@ -685,18 +2413,100 @@
         "ortho_closed": {
           "question": "Location?",
           "options": [
-            {"label": "Radius/Ulna shaft", "cpt_code": "25535", "description": "Closed treatment of radial shaft fracture and closed treatment of ulnar shaft fracture; with manipulation", "modifiers": ["-LT", "-RT"], "icd10": ["S52.301A", "S52.201A"]},
-            {"label": "Femur shaft", "cpt_code": "27502", "description": "Closed treatment of femoral shaft fracture, with manipulation, with or without skin or skeletal traction", "modifiers": ["-LT", "-RT"], "icd10": ["S72.301A"]},
-            {"label": "Tibia/Fibula shaft", "cpt_code": "27750", "description": "Closed treatment of tibial shaft fracture; with manipulation, with or without skeletal traction", "modifiers": ["-LT", "-RT"], "icd10": ["S82.201A", "S82.401A"]}
+            {
+              "label": "Radius/Ulna shaft",
+              "cpt_code": "25535",
+              "description": "Closed treatment of radial shaft fracture and closed treatment of ulnar shaft fracture; with manipulation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S52.301A",
+                "S52.201A"
+              ]
+            },
+            {
+              "label": "Femur shaft",
+              "cpt_code": "27502",
+              "description": "Closed treatment of femoral shaft fracture, with manipulation, with or without skin or skeletal traction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.301A"
+              ]
+            },
+            {
+              "label": "Tibia/Fibula shaft",
+              "cpt_code": "27750",
+              "description": "Closed treatment of tibial shaft fracture; with manipulation, with or without skeletal traction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.201A",
+                "S82.401A"
+              ]
+            }
           ]
         },
         "ortho_orif": {
           "question": "Location?",
           "options": [
-            {"label": "Hip fracture", "cpt_code": "27245", "description": "Open treatment of intertrochanteric, peritrochanteric, or subtrochanteric femoral fracture; with intramedullary implant", "modifiers": ["-LT", "-RT"], "icd10": ["S72.101A", "S72.141A"]},
-            {"label": "Ankle fracture", "cpt_code": "27766", "description": "Open treatment of medial malleolus fracture, includes internal fixation, when performed", "modifiers": ["-LT", "-RT"], "icd10": ["S82.51XA", "S82.61XA"]},
-            {"label": "Wrist fracture", "cpt_code": "25609", "description": "Open treatment of distal radial intra-articular fracture or epiphyseal separation; with internal fixation of 3 or more fragments", "modifiers": ["-LT", "-RT"], "icd10": ["S52.501A", "S52.511A"]},
-            {"label": "Humerus shaft", "cpt_code": "24515", "description": "Open treatment of humeral shaft fracture with plate/screws, with or without cerclage", "modifiers": ["-LT", "-RT"], "icd10": ["S42.301A"]}
+            {
+              "label": "Hip fracture",
+              "cpt_code": "27245",
+              "description": "Open treatment of intertrochanteric, peritrochanteric, or subtrochanteric femoral fracture; with intramedullary implant",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.101A",
+                "S72.141A"
+              ]
+            },
+            {
+              "label": "Ankle fracture",
+              "cpt_code": "27766",
+              "description": "Open treatment of medial malleolus fracture, includes internal fixation, when performed",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.51XA",
+                "S82.61XA"
+              ]
+            },
+            {
+              "label": "Wrist fracture",
+              "cpt_code": "25609",
+              "description": "Open treatment of distal radial intra-articular fracture or epiphyseal separation; with internal fixation of 3 or more fragments",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S52.501A",
+                "S52.511A"
+              ]
+            },
+            {
+              "label": "Humerus shaft",
+              "cpt_code": "24515",
+              "description": "Open treatment of humeral shaft fracture with plate/screws, with or without cerclage",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.301A"
+              ]
+            }
           ]
         }
       }
@@ -708,11 +2518,26 @@
         {
           "question": "Type of procedure?",
           "options": [
-            {"label": "Lymph node biopsy", "next": "general_lymph_node"},
-            {"label": "Tracheostomy", "next": "general_tracheostomy"},
-            {"label": "Feeding tube", "next": "general_feeding_tube"},
-            {"label": "Paracentesis", "next": "general_paracentesis"},
-            {"label": "Thoracentesis", "next": "general_thoracentesis"}
+            {
+              "label": "Lymph node biopsy",
+              "next": "general_lymph_node"
+            },
+            {
+              "label": "Tracheostomy",
+              "next": "general_tracheostomy"
+            },
+            {
+              "label": "Feeding tube",
+              "next": "general_feeding_tube"
+            },
+            {
+              "label": "Paracentesis",
+              "next": "general_paracentesis"
+            },
+            {
+              "label": "Thoracentesis",
+              "next": "general_thoracentesis"
+            }
           ]
         }
       ],
@@ -720,39 +2545,165 @@
         "general_lymph_node": {
           "question": "Approach?",
           "options": [
-            {"label": "Open biopsy", "cpt_code": "38500", "description": "Biopsy or excision of lymph node(s); open, superficial", "modifiers": [], "icd10": ["R59.9", "C77.2", "D36.0"]},
-            {"label": "Deep lymph node", "cpt_code": "38510", "description": "Biopsy or excision of lymph node(s); open, deep cervical node(s)", "modifiers": [], "icd10": ["R59.0", "C77.0", "D36.0"]},
-            {"label": "Core needle biopsy", "cpt_code": "38505", "description": "Needle or trocar biopsy, lymph node; deep (eg, internal mammary, spinal accessory, iliac, hypogastric, obturator, parametrial, parasternal, sacral, or lumbar)", "modifiers": [], "icd10": ["R59.9", "C77.2", "D36.0"]}
+            {
+              "label": "Open biopsy",
+              "cpt_code": "38500",
+              "description": "Biopsy or excision of lymph node(s); open, superficial",
+              "modifiers": [],
+              "icd10": [
+                "R59.9",
+                "C77.2",
+                "D36.0"
+              ]
+            },
+            {
+              "label": "Deep lymph node",
+              "cpt_code": "38510",
+              "description": "Biopsy or excision of lymph node(s); open, deep cervical node(s)",
+              "modifiers": [],
+              "icd10": [
+                "R59.0",
+                "C77.0",
+                "D36.0"
+              ]
+            },
+            {
+              "label": "Core needle biopsy",
+              "cpt_code": "38505",
+              "description": "Needle or trocar biopsy, lymph node; deep (eg, internal mammary, spinal accessory, iliac, hypogastric, obturator, parametrial, parasternal, sacral, or lumbar)",
+              "modifiers": [],
+              "icd10": [
+                "R59.9",
+                "C77.2",
+                "D36.0"
+              ]
+            }
           ]
         },
         "general_tracheostomy": {
           "question": "Approach?",
           "options": [
-            {"label": "Open tracheostomy", "cpt_code": "31600", "description": "Tracheostomy, planned (separate procedure);", "modifiers": [], "icd10": ["Z93.0", "J44.0"]},
-            {"label": "Percutaneous tracheostomy", "cpt_code": "31601", "description": "Tracheostomy, planned (separate procedure); younger than 2 years", "modifiers": [], "icd10": ["Z93.0", "J44.0"]},
-            {"label": "Emergency tracheostomy", "cpt_code": "31603", "description": "Tracheostomy, emergency procedure; transtracheal", "modifiers": [], "icd10": ["Z93.0", "J44.0"]}
+            {
+              "label": "Open tracheostomy",
+              "cpt_code": "31600",
+              "description": "Tracheostomy, planned (separate procedure);",
+              "modifiers": [],
+              "icd10": [
+                "Z93.0",
+                "J44.0"
+              ]
+            },
+            {
+              "label": "Percutaneous tracheostomy",
+              "cpt_code": "31601",
+              "description": "Tracheostomy, planned (separate procedure); younger than 2 years",
+              "modifiers": [],
+              "icd10": [
+                "Z93.0",
+                "J44.0"
+              ]
+            },
+            {
+              "label": "Emergency tracheostomy",
+              "cpt_code": "31603",
+              "description": "Tracheostomy, emergency procedure; transtracheal",
+              "modifiers": [],
+              "icd10": [
+                "Z93.0",
+                "J44.0"
+              ]
+            }
           ]
         },
         "general_feeding_tube": {
           "question": "Type of feeding tube?",
           "options": [
-            {"label": "PEG (percutaneous)", "cpt_code": "43246", "description": "Esophagogastroduodenoscopy, flexible, transoral; with directed placement of percutaneous gastrostomy tube", "modifiers": [], "icd10": ["Z93.1", "K91.89"]},
-            {"label": "Open gastrostomy", "cpt_code": "43830", "description": "Gastrostomy, open; without construction of gastric tube", "modifiers": [], "icd10": ["Z93.1", "K91.89"]},
-            {"label": "Jejunostomy tube", "cpt_code": "44015", "description": "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method", "modifiers": [], "icd10": ["Z93.4", "K91.89"]}
+            {
+              "label": "PEG (percutaneous)",
+              "cpt_code": "43246",
+              "description": "Esophagogastroduodenoscopy, flexible, transoral; with directed placement of percutaneous gastrostomy tube",
+              "modifiers": [],
+              "icd10": [
+                "Z93.1",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Open gastrostomy",
+              "cpt_code": "43830",
+              "description": "Gastrostomy, open; without construction of gastric tube",
+              "modifiers": [],
+              "icd10": [
+                "Z93.1",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Jejunostomy tube",
+              "cpt_code": "44015",
+              "description": "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method",
+              "modifiers": [],
+              "icd10": [
+                "Z93.4",
+                "K91.89"
+              ]
+            }
           ]
         },
         "general_paracentesis": {
           "question": "Complexity?",
           "options": [
-            {"label": "Initial paracentesis", "cpt_code": "49082", "description": "Abdominal paracentesis (diagnostic or therapeutic); without imaging guidance", "modifiers": [], "icd10": ["R18.8", "K65.2"]},
-            {"label": "With imaging guidance", "cpt_code": "49083", "description": "Abdominal paracentesis (diagnostic or therapeutic); with imaging guidance", "modifiers": [], "icd10": ["R18.8", "K65.2"]}
+            {
+              "label": "Initial paracentesis",
+              "cpt_code": "49082",
+              "description": "Abdominal paracentesis (diagnostic or therapeutic); without imaging guidance",
+              "modifiers": [],
+              "icd10": [
+                "R18.8",
+                "K65.2"
+              ]
+            },
+            {
+              "label": "With imaging guidance",
+              "cpt_code": "49083",
+              "description": "Abdominal paracentesis (diagnostic or therapeutic); with imaging guidance",
+              "modifiers": [],
+              "icd10": [
+                "R18.8",
+                "K65.2"
+              ]
+            }
           ]
         },
         "general_thoracentesis": {
           "question": "Complexity?",
           "options": [
-            {"label": "Initial thoracentesis", "cpt_code": "32554", "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; without imaging guidance", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "R09.1"]},
-            {"label": "With imaging guidance", "cpt_code": "32555", "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; with imaging guidance", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "R09.1"]}
+            {
+              "label": "Initial thoracentesis",
+              "cpt_code": "32554",
+              "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; without imaging guidance",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "J94.8",
+                "R09.1"
+              ]
+            },
+            {
+              "label": "With imaging guidance",
+              "cpt_code": "32555",
+              "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; with imaging guidance",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "J94.8",
+                "R09.1"
+              ]
+            }
           ]
         }
       }
