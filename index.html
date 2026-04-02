@@ -481,6 +481,7 @@
 
         /* ICD-10 Browser */
         .icd-browser {
+            display: none;
             background: white;
             border: 1px solid var(--gray-200);
             border-radius: 12px;
@@ -793,9 +794,9 @@
                     <span class="tagline">Find the exact CPT or ICD-10 code in seconds</span>
                 </div>
                 <nav class="nav">
-                    <a href="#" onclick="showSection('home')" class="nav-link active">CPT Codes</a>
-                    <a href="#" onclick="showSection('icd10')" class="nav-link">ICD-10 Codes</a>
-                    <a href="#" onclick="showSection('about')" class="nav-link">About</a>
+                    <a href="#" onclick="event.preventDefault();showSection('home')" class="nav-link active">CPT Codes</a>
+                    <a href="#" onclick="event.preventDefault();showSection('icd10')" class="nav-link">ICD-10 Codes</a>
+                    <a href="#" onclick="event.preventDefault();showSection('about')" class="nav-link">About</a>
                 </nav>
             </div>
         </div>
@@ -932,10 +933,10 @@
             
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="#" onclick="showSection('about')">About</a>
+                    <a href="#" onclick="event.preventDefault();showSection('about')">About</a>
                     <a href="#">Privacy</a>
                     <a href="#">Terms</a>
-                    <a href="mailto:contact@clinicalcaselog.com">Contact</a>
+                    <a href="mailto:support@freecptcodefinder.com">Contact</a>
                 </div>
                 <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
                 <div class="disclaimer">
@@ -2002,7 +2003,7 @@
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
-            event.target?.classList.add('active');
+            document.querySelector(`.nav-link[onclick*="${section}"]`)?.classList.add('active');
 
             // Hide all sections
             document.getElementById('decisionTree').classList.remove('active');
