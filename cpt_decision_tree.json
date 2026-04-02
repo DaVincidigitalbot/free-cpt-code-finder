@@ -2707,6 +2707,301 @@
           ]
         }
       }
+    },
+    {
+      "name": "Cardiothoracic Surgery",
+      "specialty": "Cardiothoracic Surgery",
+      "questions": [
+        {
+          "question": "Type of cardiothoracic procedure?",
+          "options": [
+            {"label": "CABG (Coronary Artery Bypass)", "next": "cabg_questions"},
+            {"label": "Valve Surgery", "next": "valve_questions"},
+            {"label": "Thoracotomy", "next": "thoracotomy_questions"},
+            {"label": "Lung Resection", "next": "lung_resection_questions"},
+            {"label": "ECMO", "next": "ecmo_questions"},
+            {"label": "Pericardial Procedures", "next": "pericardial_questions"},
+            {"label": "Chest Wall Resection", "next": "chest_wall_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "cabg_questions": {
+          "question": "Number of vessels and approach?",
+          "options": [
+            {"label": "Single vessel, on-pump", "cpt_code": "33533", "description": "Coronary artery bypass, using venous graft(s); single coronary venous graft", "modifiers": [], "icd10": ["I25.10", "I25.119"], "work_rvu": 22.85},
+            {"label": "Double vessel, on-pump", "cpt_code": "33534", "description": "Coronary artery bypass, using venous graft(s); 2 coronary venous grafts", "modifiers": [], "icd10": ["I25.10", "I25.119"], "work_rvu": 28.45},
+            {"label": "Triple vessel, on-pump", "cpt_code": "33535", "description": "Coronary artery bypass, using venous graft(s); 3 coronary venous grafts", "modifiers": [], "icd10": ["I25.10", "I25.119"], "work_rvu": 32.85},
+            {"label": "Quadruple vessel, on-pump", "cpt_code": "33536", "description": "Coronary artery bypass, using venous graft(s); 4 or more coronary venous grafts", "modifiers": [], "icd10": ["I25.10", "I25.119"], "work_rvu": 36.45},
+            {"label": "Single vessel with arterial graft", "cpt_code": "33533", "description": "Coronary artery bypass, using arterial graft(s); single coronary arterial graft", "modifiers": ["-22"], "icd10": ["I25.10", "I25.119"], "work_rvu": 24.85},
+            {"label": "Off-pump CABG", "cpt_code": "33533", "description": "Coronary artery bypass without cardiopulmonary bypass", "modifiers": ["-22"], "icd10": ["I25.10", "I25.119"], "work_rvu": 28.85}
+          ]
+        },
+        "valve_questions": {
+          "question": "Type of valve procedure?",
+          "options": [
+            {"label": "Aortic valve replacement (open)", "cpt_code": "33405", "description": "Replacement, aortic valve", "modifiers": [], "icd10": ["I35.0", "I35.9"], "work_rvu": 42.85},
+            {"label": "TAVR (Transcatheter aortic)", "cpt_code": "33361", "description": "Transcatheter aortic valve replacement (TAVR/TAVI)", "modifiers": [], "icd10": ["I35.0", "I35.9"], "work_rvu": 28.85},
+            {"label": "Mitral valve replacement", "cpt_code": "33430", "description": "Replacement, mitral valve", "modifiers": [], "icd10": ["I34.9", "I05.9"], "work_rvu": 48.85},
+            {"label": "Mitral valve repair", "cpt_code": "33420", "description": "Valvuloplasty, mitral valve; reconstruction", "modifiers": [], "icd10": ["I34.9", "I05.9"], "work_rvu": 42.85},
+            {"label": "TMVR (Transcatheter mitral)", "cpt_code": "33418", "description": "Transcatheter mitral valve repair", "modifiers": [], "icd10": ["I34.9", "I05.9"], "work_rvu": 32.85},
+            {"label": "Tricuspid valve replacement", "cpt_code": "33465", "description": "Replacement, tricuspid valve", "modifiers": [], "icd10": ["I36.9", "I07.9"], "work_rvu": 38.85}
+          ]
+        },
+        "thoracotomy_questions": {
+          "question": "Purpose and complexity?",
+          "options": [
+            {"label": "Exploratory thoracotomy", "cpt_code": "32100", "description": "Thoracotomy, with exploration", "modifiers": ["-LT", "-RT"], "icd10": ["R94.2", "Z51.11"], "work_rvu": 18.85},
+            {"label": "Thoracotomy with lung biopsy", "cpt_code": "32096", "description": "Thoracotomy, with diagnostic biopsy(ies) of lung infiltrate(s)", "modifiers": ["-LT", "-RT"], "icd10": ["R91.8", "J84.10"], "work_rvu": 22.85},
+            {"label": "Thoracotomy with decortication", "cpt_code": "32220", "description": "Decortication, pulmonary (separate procedure); total", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "J86.9"], "work_rvu": 38.85}
+          ]
+        },
+        "lung_resection_questions": {
+          "question": "Type and approach of lung resection?",
+          "options": [
+            {"label": "Open lobectomy", "cpt_code": "32480", "description": "Removal of lung, other than pneumonectomy; single lobe (lobectomy)", "modifiers": ["-LT", "-RT"], "icd10": ["C78.00", "J43.9"], "work_rvu": 32.85},
+            {"label": "VATS/Robotic lobectomy", "cpt_code": "32663", "description": "Thoracoscopy, surgical; with lobectomy", "modifiers": ["-LT", "-RT"], "icd10": ["C78.00", "J43.9"], "work_rvu": 28.85},
+            {"label": "Pneumonectomy", "cpt_code": "32440", "description": "Removal of lung; pneumonectomy", "modifiers": ["-LT", "-RT"], "icd10": ["C78.00", "C78.01"], "work_rvu": 48.85},
+            {"label": "Open wedge resection", "cpt_code": "32505", "description": "Thoracotomy, with therapeutic wedge resection", "modifiers": ["-LT", "-RT"], "icd10": ["C78.00", "R91.8"], "work_rvu": 22.85},
+            {"label": "VATS/Robotic wedge resection", "cpt_code": "32666", "description": "Thoracoscopy, surgical; with therapeutic wedge resection", "modifiers": ["-LT", "-RT"], "icd10": ["C78.00", "R91.8"], "work_rvu": 18.85}
+          ]
+        },
+        "ecmo_questions": {
+          "question": "Type of ECMO procedure?",
+          "options": [
+            {"label": "ECMO cannulation, central", "cpt_code": "33946", "description": "Extracorporeal membrane oxygenation (ECMO)/extracorporeal life support (ECLS) provided by physician; insertion of peripheral (arterial and/or venous) cannula(e), percutaneous", "modifiers": [], "icd10": ["J96.00", "I50.9"], "work_rvu": 8.85},
+            {"label": "ECMO cannulation, peripheral", "cpt_code": "33947", "description": "Extracorporeal membrane oxygenation (ECMO)/extracorporeal life support (ECLS) provided by physician; insertion of peripheral (arterial and/or venous) cannula(e), open", "modifiers": [], "icd10": ["J96.00", "I50.9"], "work_rvu": 12.85},
+            {"label": "ECMO decannulation", "cpt_code": "33965", "description": "Extracorporeal membrane oxygenation (ECMO)/extracorporeal life support (ECLS) provided by physician; removal of peripheral (arterial and/or venous) cannula(e), percutaneous", "modifiers": [], "icd10": ["Z45.2"], "work_rvu": 4.85}
+          ]
+        },
+        "pericardial_questions": {
+          "question": "Type of pericardial procedure?",
+          "options": [
+            {"label": "Subxiphoid pericardial window", "cpt_code": "33025", "description": "Pericardiotomy for removal of clot or foreign body (primary procedure)", "modifiers": [], "icd10": ["I31.9", "I30.9"], "work_rvu": 12.85},
+            {"label": "Thoracoscopic pericardial window", "cpt_code": "32659", "description": "Thoracoscopy, surgical; with pericardial window, for drainage", "modifiers": ["-LT", "-RT"], "icd10": ["I31.9", "I30.9"], "work_rvu": 15.85}
+          ]
+        },
+        "chest_wall_questions": {
+          "cpt_code": "21601",
+          "description": "Excision of chest wall tumor including ribs",
+          "modifiers": [],
+          "icd10": ["C76.1", "D21.3"],
+          "work_rvu": 28.85
+        },
+        "mediastinoscopy_questions": {
+          "question": "With or without biopsy?",
+          "options": [
+            {"label": "Mediastinoscopy, diagnostic", "cpt_code": "39400", "description": "Mediastinoscopy; includes biopsy(ies), when performed", "modifiers": [], "icd10": ["R59.0", "C77.1"], "work_rvu": 8.85},
+            {"label": "Mediastinoscopy with biopsy", "cpt_code": "39402", "description": "Mediastinoscopy; with lymph node biopsy(ies)", "modifiers": [], "icd10": ["R59.0", "C77.1"], "work_rvu": 10.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Surgical/Medical Critical Care",
+      "specialty": "Critical Care Medicine",
+      "questions": [
+        {
+          "question": "Type of critical care procedure?",
+          "options": [
+            {"label": "Critical Care Time", "next": "critical_care_time"},
+            {"label": "Central Line Access", "next": "central_line_critical"},
+            {"label": "Pulmonary Procedures", "next": "pulmonary_critical"},
+            {"label": "Cardiac Procedures", "next": "cardiac_critical"},
+            {"label": "Drainage Procedures", "next": "drainage_critical"},
+            {"label": "Lumbar Puncture", "next": "lumbar_puncture_critical"}
+          ]
+        }
+      ],
+      "branches": {
+        "critical_care_time": {
+          "question": "Duration of critical care?",
+          "options": [
+            {"label": "First 30-74 minutes", "cpt_code": "99291", "description": "Critical care, evaluation and management of the critically ill or critically injured patient; first 30-74 minutes", "modifiers": [], "icd10": ["Z51.11"], "work_rvu": 4.50},
+            {"label": "Each additional 30 minutes", "cpt_code": "99292", "description": "Critical care, evaluation and management of the critically ill or critically injured patient; each additional 30 minutes", "modifiers": [], "icd10": ["Z51.11"], "work_rvu": 2.25}
+          ]
+        },
+        "central_line_critical": {
+          "question": "Location and complexity?",
+          "options": [
+            {"label": "Internal jugular", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"], "work_rvu": 2.95},
+            {"label": "Subclavian", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"], "work_rvu": 2.95},
+            {"label": "Femoral", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"], "work_rvu": 2.95},
+            {"label": "Arterial line placement", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"], "work_rvu": 1.85}
+          ]
+        },
+        "pulmonary_critical": {
+          "question": "Type of pulmonary procedure?",
+          "options": [
+            {"label": "Pulmonary artery catheter (Swan-Ganz)", "cpt_code": "93503", "description": "Insertion and placement of flow directed catheter (eg, Swan-Ganz) for monitoring purposes", "modifiers": [], "icd10": ["Z51.11", "I50.9"], "work_rvu": 3.85},
+            {"label": "Bronchoscopy, diagnostic", "cpt_code": "31622", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; diagnostic", "modifiers": [], "icd10": ["R05", "J44.0"], "work_rvu": 2.75},
+            {"label": "Bronchoscopy with BAL", "cpt_code": "31624", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with bronchial alveolar lavage", "modifiers": [], "icd10": ["J18.9", "J44.0"], "work_rvu": 3.15},
+            {"label": "Bronchoscopy with biopsy", "cpt_code": "31625", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with bronchial or endobronchial biopsy(s), single or multiple sites", "modifiers": [], "icd10": ["C78.00", "R91.8"], "work_rvu": 3.85},
+            {"label": "Bronchoscopy with foreign body removal", "cpt_code": "31635", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with removal of foreign body", "modifiers": [], "icd10": ["T17.8XXA"], "work_rvu": 4.85}
+          ]
+        },
+        "cardiac_critical": {
+          "question": "Type of cardiac procedure?",
+          "options": [
+            {"label": "Temporary pacing wire, transvenous", "cpt_code": "33210", "description": "Insertion or replacement of temporary transvenous single chamber cardiac electrode or pacemaker catheter", "modifiers": [], "icd10": ["I49.5", "I44.2"], "work_rvu": 3.85},
+            {"label": "Intra-aortic balloon pump placement", "cpt_code": "33967", "description": "Insertion of intra-aortic balloon assist device, percutaneous", "modifiers": [], "icd10": ["I50.9", "I21.9"], "work_rvu": 4.85}
+          ]
+        },
+        "drainage_critical": {
+          "question": "Type of drainage procedure?",
+          "options": [
+            {"label": "Chest tube insertion", "cpt_code": "32551", "description": "Tube thoracostomy, includes connection to drainage system", "modifiers": ["-LT", "-RT"], "icd10": ["S27.0XXA", "J94.8"], "work_rvu": 3.65},
+            {"label": "Paracentesis, diagnostic", "cpt_code": "49082", "description": "Abdominal paracentesis (diagnostic or therapeutic); without imaging guidance", "modifiers": [], "icd10": ["R18.8", "K65.2"], "work_rvu": 1.85},
+            {"label": "Paracentesis, therapeutic", "cpt_code": "49083", "description": "Abdominal paracentesis (diagnostic or therapeutic); with imaging guidance", "modifiers": [], "icd10": ["R18.8", "K65.2"], "work_rvu": 2.15},
+            {"label": "Thoracentesis, diagnostic", "cpt_code": "32554", "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; without imaging guidance", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "R09.1"], "work_rvu": 1.95},
+            {"label": "Thoracentesis, therapeutic", "cpt_code": "32555", "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; with imaging guidance", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "R09.1"], "work_rvu": 2.25}
+          ]
+        },
+        "lumbar_puncture_critical": {
+          "cpt_code": "62270",
+          "description": "Spinal puncture, lumbar, diagnostic",
+          "modifiers": [],
+          "icd10": ["G93.2", "R51.9"],
+          "work_rvu": 2.15
+        }
+      }
+    },
+    {
+      "name": "Airway Management",
+      "specialty": "Anesthesiology/Critical Care",
+      "questions": [
+        {
+          "question": "Type of airway procedure?",
+          "options": [
+            {"label": "Intubation", "next": "intubation_questions"},
+            {"label": "Tracheostomy", "next": "tracheostomy_airway"},
+            {"label": "Bronchoscopy", "next": "bronchoscopy_airway"},
+            {"label": "Laryngoscopy", "next": "laryngoscopy_airway"}
+          ]
+        }
+      ],
+      "branches": {
+        "intubation_questions": {
+          "question": "Type of intubation?",
+          "options": [
+            {"label": "Standard endotracheal intubation", "cpt_code": "31500", "description": "Intubation, endotracheal, emergency procedure", "modifiers": [], "icd10": ["J96.00", "T71.9XXA"], "work_rvu": 1.85},
+            {"label": "Fiberoptic intubation (difficult airway)", "cpt_code": "31500", "description": "Intubation, endotracheal, emergency procedure", "modifiers": ["-22"], "icd10": ["J96.00", "T71.9XXA"], "work_rvu": 2.85}
+          ]
+        },
+        "tracheostomy_airway": {
+          "question": "Type and urgency?",
+          "options": [
+            {"label": "Open tracheostomy, planned", "cpt_code": "31600", "description": "Tracheostomy, planned (separate procedure)", "modifiers": [], "icd10": ["Z93.0", "J44.0"], "work_rvu": 5.95},
+            {"label": "Percutaneous tracheostomy", "cpt_code": "31601", "description": "Tracheostomy, planned (separate procedure); younger than 2 years", "modifiers": [], "icd10": ["Z93.0", "J44.0"], "work_rvu": 7.25},
+            {"label": "Emergency cricothyrotomy", "cpt_code": "31603", "description": "Tracheostomy, emergency procedure; transtracheal", "modifiers": [], "icd10": ["Z93.0", "J44.0"], "work_rvu": 4.85},
+            {"label": "Tracheostomy change", "cpt_code": "31502", "description": "Tracheotomy tube change prior to establishment of fistulous tract", "modifiers": [], "icd10": ["Z93.0"], "work_rvu": 1.85},
+            {"label": "Tracheostomy revision", "cpt_code": "31613", "description": "Tracheostoma revision; simple, without flap rotation", "modifiers": [], "icd10": ["Z93.0", "J95.03"], "work_rvu": 3.85}
+          ]
+        },
+        "bronchoscopy_airway": {
+          "question": "Purpose of bronchoscopy?",
+          "options": [
+            {"label": "Diagnostic bronchoscopy", "cpt_code": "31622", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; diagnostic", "modifiers": [], "icd10": ["R05", "J44.0"], "work_rvu": 2.75},
+            {"label": "Therapeutic with lavage", "cpt_code": "31624", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with bronchial alveolar lavage", "modifiers": [], "icd10": ["J18.9", "J44.0"], "work_rvu": 3.15},
+            {"label": "Therapeutic with biopsy", "cpt_code": "31625", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with bronchial or endobronchial biopsy(s), single or multiple sites", "modifiers": [], "icd10": ["C78.00", "R91.8"], "work_rvu": 3.85},
+            {"label": "Therapeutic with stent placement", "cpt_code": "31631", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with placement of tracheal stent(s)", "modifiers": [], "icd10": ["C78.00", "J39.8"], "work_rvu": 6.85},
+            {"label": "Foreign body removal", "cpt_code": "31635", "description": "Bronchoscopy, rigid or flexible, including fluoroscopic guidance, when performed; with removal of foreign body", "modifiers": [], "icd10": ["T17.8XXA"], "work_rvu": 4.85}
+          ]
+        },
+        "laryngoscopy_airway": {
+          "question": "Type of laryngoscopy?",
+          "options": [
+            {"label": "Direct laryngoscopy, diagnostic", "cpt_code": "31515", "description": "Laryngoscopy direct, with or without tracheoscopy; for aspiration", "modifiers": [], "icd10": ["R49.0", "J38.6"], "work_rvu": 1.85},
+            {"label": "Indirect laryngoscopy", "cpt_code": "31505", "description": "Laryngoscopy, indirect; diagnostic", "modifiers": [], "icd10": ["R49.0", "J38.6"], "work_rvu": 0.85},
+            {"label": "Laryngoscopy with biopsy", "cpt_code": "31510", "description": "Laryngoscopy, indirect, with biopsy", "modifiers": [], "icd10": ["C32.9", "D14.1"], "work_rvu": 2.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Emergent General Surgery",
+      "specialty": "Emergency Surgery/Trauma",
+      "questions": [
+        {
+          "question": "Type of emergency surgery?",
+          "options": [
+            {"label": "Exploratory Laparotomy", "next": "emergency_ex_lap"},
+            {"label": "Damage Control Surgery", "next": "damage_control"},
+            {"label": "Organ-Specific Trauma", "next": "organ_trauma"},
+            {"label": "Fasciotomy", "next": "fasciotomy_questions"},
+            {"label": "Emergency Hernia", "next": "emergency_hernia"},
+            {"label": "Perforated Viscus", "next": "perforated_viscus"},
+            {"label": "Vascular Emergency", "next": "vascular_emergency"},
+            {"label": "Necrotizing Fasciitis", "next": "necrotizing_fasciitis"}
+          ]
+        }
+      ],
+      "branches": {
+        "emergency_ex_lap": {
+          "question": "Indication and findings?",
+          "options": [
+            {"label": "Trauma exploratory laparotomy", "cpt_code": "49000", "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)", "modifiers": [], "icd10": ["S36.90XA", "S31.600A"], "work_rvu": 11.25},
+            {"label": "Non-trauma exploratory", "cpt_code": "49000", "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)", "modifiers": [], "icd10": ["K92.2", "R10.0"], "work_rvu": 11.25},
+            {"label": "Negative laparotomy (trauma)", "cpt_code": "49000", "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)", "modifiers": [], "icd10": ["S36.90XA", "Z87.891"], "work_rvu": 11.25}
+          ]
+        },
+        "damage_control": {
+          "question": "Type of damage control?",
+          "options": [
+            {"label": "Abbreviated laparotomy", "cpt_code": "49000", "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)", "modifiers": ["-52"], "icd10": ["S36.90XA", "T14.8XXA"], "work_rvu": 8.25},
+            {"label": "Temporary abdominal closure", "cpt_code": "49013", "description": "Preperitoneal packing for hemorrhage associated with pelvic trauma", "modifiers": [], "icd10": ["S37.90XA", "T79.2XXA"], "work_rvu": 12.85}
+          ]
+        },
+        "organ_trauma": {
+          "question": "Organ injured?",
+          "options": [
+            {"label": "Splenectomy, total", "cpt_code": "38100", "description": "Splenectomy; total (separate procedure)", "modifiers": [], "icd10": ["S36.00XA", "D73.5"], "work_rvu": 18.85},
+            {"label": "Splenectomy, partial", "cpt_code": "38101", "description": "Splenectomy; partial (separate procedure)", "modifiers": [], "icd10": ["S36.00XA"], "work_rvu": 16.85},
+            {"label": "Liver laceration repair, simple", "cpt_code": "47350", "description": "Management of liver hemorrhage; simple repair of liver wound or injury", "modifiers": [], "icd10": ["S36.113A"], "work_rvu": 15.85},
+            {"label": "Liver laceration repair, complex", "cpt_code": "47360", "description": "Management of liver hemorrhage; complex repair of liver wound or injury, with or without hepatic artery ligation", "modifiers": [], "icd10": ["S36.113A"], "work_rvu": 28.85},
+            {"label": "Liver packing", "cpt_code": "47362", "description": "Management of liver hemorrhage; re-exploration of hepatic wound for removal of packing", "modifiers": [], "icd10": ["S36.113A"], "work_rvu": 22.85},
+            {"label": "Diaphragm repair, traumatic", "cpt_code": "39501", "description": "Repair, laceration of diaphragm, any approach", "modifiers": [], "icd10": ["S27.803A"], "work_rvu": 15.85}
+          ]
+        },
+        "fasciotomy_questions": {
+          "question": "Location and extent?",
+          "options": [
+            {"label": "Upper extremity, single compartment", "cpt_code": "25020", "description": "Decompression fasciotomy, forearm and/or wrist, flexor OR extensor compartment; without debridement of nonviable muscle and/or nerve", "modifiers": ["-LT", "-RT"], "icd10": ["T79.A0XA", "M79.A11"], "work_rvu": 8.85},
+            {"label": "Upper extremity, multiple compartments", "cpt_code": "25023", "description": "Decompression fasciotomy, forearm and/or wrist, flexor AND extensor compartment; without debridement of nonviable muscle and/or nerve", "modifiers": ["-LT", "-RT"], "icd10": ["T79.A0XA", "M79.A11"], "work_rvu": 12.85},
+            {"label": "Lower extremity, single compartment", "cpt_code": "27600", "description": "Decompression fasciotomy, leg; anterior and/or lateral compartments only", "modifiers": ["-LT", "-RT"], "icd10": ["T79.A0XA", "M79.A21"], "work_rvu": 10.85},
+            {"label": "Lower extremity, multiple compartments", "cpt_code": "27601", "description": "Decompression fasciotomy, leg; posterior compartment(s) only", "modifiers": ["-LT", "-RT"], "icd10": ["T79.A0XA", "M79.A21"], "work_rvu": 14.85}
+          ]
+        },
+        "emergency_hernia": {
+          "question": "Type and complexity?",
+          "options": [
+            {"label": "Incarcerated inguinal with bowel resection", "cpt_code": "49507", "description": "Repair initial inguinal hernia, age 5 years or older; incarcerated or strangulated", "modifiers": ["-22"], "icd10": ["K40.00", "K40.10"], "work_rvu": 14.85},
+            {"label": "Strangulated ventral with bowel resection", "cpt_code": "49561", "description": "Repair initial incisional or ventral hernia; incarcerated or strangulated", "modifiers": ["-22"], "icd10": ["K43.0", "K43.1"], "work_rvu": 22.85}
+          ]
+        },
+        "perforated_viscus": {
+          "question": "Location of perforation?",
+          "options": [
+            {"label": "Perforated peptic ulcer, Graham patch", "cpt_code": "43840", "description": "Gastrorrhaphy, suture of perforated duodenal or gastric ulcer, wound, or injury", "modifiers": [], "icd10": ["K25.1", "K25.5"], "work_rvu": 14.85},
+            {"label": "Perforated ulcer with vagotomy", "cpt_code": "43840", "description": "Gastrorrhaphy, suture of perforated duodenal or gastric ulcer, wound, or injury", "modifiers": ["-51"], "icd10": ["K25.1", "K25.5"], "work_rvu": 18.85}
+          ]
+        },
+        "vascular_emergency": {
+          "question": "Type of vascular emergency?",
+          "options": [
+            {"label": "Acute mesenteric ischemia, embolectomy", "cpt_code": "34151", "description": "Embolectomy or thrombectomy, with or without catheter; renal, celiac, mesenteric, aortoiliac artery, by abdominal incision", "modifiers": [], "icd10": ["K55.0", "K55.1"], "work_rvu": 18.85},
+            {"label": "Acute mesenteric ischemia with bowel resection", "cpt_code": "44120", "description": "Enterectomy, resection of small intestine; single resection and anastomosis", "modifiers": ["-22"], "icd10": ["K55.0", "K55.1"], "work_rvu": 22.85}
+          ]
+        },
+        "necrotizing_fasciitis": {
+          "question": "Body region and extent?",
+          "options": [
+            {"label": "Necrotizing fasciitis, trunk, extensive", "cpt_code": "11043", "description": "Debridement, muscle and/or fascia (includes epidermis, dermis, and subcutaneous tissue, if performed); first 20 sq cm or less", "modifiers": ["-22"], "icd10": ["M72.6", "A49.9"], "work_rvu": 5.85},
+            {"label": "Necrotizing fasciitis, extremity", "cpt_code": "11043", "description": "Debridement, muscle and/or fascia (includes epidermis, dermis, and subcutaneous tissue, if performed); first 20 sq cm or less", "modifiers": ["-LT", "-RT", "-22"], "icd10": ["M72.6", "A49.9"], "work_rvu": 5.85},
+            {"label": "Necrotizing fasciitis, perineum (Fournier's)", "cpt_code": "11043", "description": "Debridement, muscle and/or fascia (includes epidermis, dermis, and subcutaneous tissue, if performed); first 20 sq cm or less", "modifiers": ["-22"], "icd10": ["N49.3", "M72.6"], "work_rvu": 8.85}
+          ]
+        }
+      }
     }
   ]
 }
