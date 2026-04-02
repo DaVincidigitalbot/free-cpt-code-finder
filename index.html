@@ -2462,9 +2462,13 @@
                                     <span style="font-size:24px;font-weight:700;color:#2563eb;">${r.code}</span>
                                     <span style="font-size:13px;color:#6b7280;margin-left:12px;">${r.category}</span>
                                 </div>
-                                <button onclick="copyCode('${r.code}')" style="background:#2563eb;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Copy Code</button>
+                                <div style="display:flex;gap:8px;">
+                                    <button onclick="copyCode('${r.code}')" style="background:#2563eb;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Copy Code</button>
+                                    <button onclick="addToRVUCalculator('${r.code}')" style="background:#10b981;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Add to RVU</button>
+                                </div>
                             </div>
                             <p style="color:#374151;margin-top:8px;font-size:15px;">${r.description}</p>
+                            ${getRVUInfo(r.code)}
                             ${r.modifiers ? `<p style="color:#6b7280;font-size:13px;margin-top:8px;">Modifiers: ${Array.isArray(r.modifiers) ? r.modifiers.join(', ') : r.modifiers}</p>` : ''}
                             ${r.icd10 ? `<p style="color:#6b7280;font-size:13px;margin-top:4px;">Related ICD-10: ${Array.isArray(r.icd10) ? r.icd10.join(', ') : r.icd10}</p>` : ''}
                         </div>`;
@@ -2577,6 +2581,8 @@
                         <p style="font-size:18px;color:#374151;font-weight:500;">${result.description || result.label}</p>
                     </div>
                     
+                    ${getRVUInfo(result.cpt_code)}
+                    
                     ${result.modifiers ? `
                     <div style="background:#f8fafc;border-radius:10px;padding:16px;margin-bottom:16px;">
                         <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:4px;">COMMON MODIFIERS</p>
@@ -2589,8 +2595,9 @@
                         <p style="color:#374151;">${Array.isArray(result.icd10) ? result.icd10.join(', ') : result.icd10}</p>
                     </div>` : ''}
                     
-                    <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+                    <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
                         <button onclick="copyCode('${result.cpt_code}')" style="background:#2563eb;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">Copy CPT Code</button>
+                        <button onclick="addToRVUCalculator('${result.cpt_code}')" style="background:#10b981;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">Add to RVU Calculator</button>
                         <button onclick="resetDecisionTree()" style="background:#f1f5f9;color:#374151;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:500;">Search Again</button>
                     </div>
                 </div>`;
@@ -2628,6 +2635,284 @@
             });
             html += '</div>';
             container.innerHTML = html;
+        }
+
+        // RVU Calculator Functions
+        function setupRVUSearch() {
+            const searchInput = document.getElementById('rvuSearchInput');
+            
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(rvuSearchTimeout);
+                const query = e.target.value.trim();
+
+                if (query.length < 2) {
+                    document.getElementById('rvuSearchResults').innerHTML = '';
+                    return;
+                }
+
+                rvuSearchTimeout = setTimeout(() => {
+                    performRVUSearch(query);
+                }, 300);
+            });
+        }
+
+        function performRVUSearch(query) {
+            if (!RVU_DATA) return;
+            
+            const results = [];
+            const searchLower = query.toLowerCase();
+
+            // Search RVU database
+            Object.entries(RVU_DATA.codes).forEach(([code, data]) => {
+                if (code.includes(searchLower) || 
+                    data.description.toLowerCase().includes(searchLower)) {
+                    results.push({
+                        code: code,
+                        description: data.description,
+                        work_rvu: data.work_rvu,
+                        pe_rvu: data.pe_rvu,
+                        mp_rvu: data.mp_rvu,
+                        total_rvu: data.total_rvu,
+                        global_period: data.global_period
+                    });
+                }
+            });
+
+            displayRVUSearchResults(results.slice(0, 6));
+        }
+
+        function displayRVUSearchResults(results) {
+            const container = document.getElementById('rvuSearchResults');
+            
+            if (results.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:1rem;">No CPT codes found matching your search.</p>';
+                return;
+            }
+
+            let html = '<div style="display:grid;gap:8px;">';
+            results.forEach(r => {
+                html += `
+                    <div class="search-suggestion" onclick="addProcedure('${r.code}')">
+                        <span class="cpt-code">${r.code}</span>
+                        <span class="work-rvu">${r.work_rvu} wRVU</span>
+                        <div style="clear:both;color:#6b7280;font-size:0.875rem;margin-top:4px;">${r.description}</div>
+                    </div>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function addProcedure(cptCode) {
+            if (!RVU_DATA || !RVU_DATA.codes[cptCode]) return;
+            
+            const procedureData = RVU_DATA.codes[cptCode];
+            const procedureId = Date.now() + Math.random();
+            
+            const procedure = {
+                id: procedureId,
+                code: cptCode,
+                description: procedureData.description,
+                work_rvu: procedureData.work_rvu,
+                pe_rvu: procedureData.pe_rvu,
+                mp_rvu: procedureData.mp_rvu,
+                total_rvu: procedureData.total_rvu,
+                modifier: 'none',
+                isPrimary: procedureList.length === 0
+            };
+            
+            procedureList.push(procedure);
+            updateProcedureDisplay();
+            calculateTotals();
+            
+            // Clear search
+            document.getElementById('rvuSearchInput').value = '';
+            document.getElementById('rvuSearchResults').innerHTML = '';
+        }
+
+        function updateProcedureDisplay() {
+            const container = document.getElementById('procedureList');
+            
+            if (procedureList.length === 0) {
+                container.innerHTML = '<div class="empty-state">Search and add CPT codes above to calculate RVUs</div>';
+                return;
+            }
+            
+            let html = '';
+            procedureList.forEach((proc, index) => {
+                const adjustedWorkRVU = calculateAdjustedWorkRVU(proc, index);
+                
+                html += `
+                    <div class="procedure-item">
+                        <div class="cpt-code">${proc.code}</div>
+                        <div class="description">${proc.description}</div>
+                        <div class="work-rvu">${adjustedWorkRVU.toFixed(2)}</div>
+                        <select class="modifier-select" onchange="updateModifier('${proc.id}', this.value)">
+                            <option value="none" ${proc.modifier === 'none' ? 'selected' : ''}>No Modifier</option>
+                            <option value="-51" ${proc.modifier === '-51' ? 'selected' : ''}>-51 (Multiple procedures)</option>
+                            <option value="-59" ${proc.modifier === '-59' ? 'selected' : ''}>-59 (Distinct procedure)</option>
+                            <option value="-62" ${proc.modifier === '-62' ? 'selected' : ''}>-62 (Two surgeons)</option>
+                            <option value="-80" ${proc.modifier === '-80' ? 'selected' : ''}>-80 (Assistant surgeon)</option>
+                            <option value="-22" ${proc.modifier === '-22' ? 'selected' : ''}>-22 (Increased procedure)</option>
+                        </select>
+                        <div style="text-align:center;color:#6b7280;font-size:0.875rem;">${proc.isPrimary ? 'Primary' : 'Additional'}</div>
+                        <button class="remove-btn" onclick="removeProcedure('${proc.id}')">×</button>
+                    </div>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function calculateAdjustedWorkRVU(procedure, index) {
+            let adjustedRVU = procedure.work_rvu;
+            
+            // Apply -51 modifier logic automatically for multiple procedures
+            if (!procedure.isPrimary && procedure.modifier === 'none') {
+                if (index === 1) {
+                    adjustedRVU *= 0.5; // 50% for second procedure
+                } else if (index > 1) {
+                    adjustedRVU *= 0.25; // 25% for third+ procedures
+                }
+            } else {
+                // Apply manual modifier adjustments
+                switch (procedure.modifier) {
+                    case '-51':
+                        adjustedRVU *= 0.5;
+                        break;
+                    case '-62':
+                        adjustedRVU *= 0.625; // Two surgeons split
+                        break;
+                    case '-80':
+                        adjustedRVU *= 0.16; // Assistant surgeon
+                        break;
+                    case '-22':
+                        adjustedRVU *= 1.25; // Increased difficulty
+                        break;
+                    // -59 doesn't change RVU value, just billing logic
+                }
+            }
+            
+            return adjustedRVU;
+        }
+
+        function updateModifier(procedureId, modifier) {
+            const procedure = procedureList.find(p => p.id === procedureId);
+            if (procedure) {
+                procedure.modifier = modifier;
+                updateProcedureDisplay();
+                calculateTotals();
+            }
+        }
+
+        function removeProcedure(procedureId) {
+            procedureList = procedureList.filter(p => p.id !== procedureId);
+            
+            // Reassign primary if we removed the first procedure
+            if (procedureList.length > 0) {
+                procedureList[0].isPrimary = true;
+                procedureList.forEach((proc, index) => {
+                    proc.isPrimary = index === 0;
+                });
+            }
+            
+            updateProcedureDisplay();
+            calculateTotals();
+        }
+
+        function calculateTotals() {
+            if (procedureList.length === 0) {
+                document.getElementById('rvuTotals').style.display = 'none';
+                return;
+            }
+            
+            let totalWorkRVU = 0;
+            let totalPERVU = 0;
+            let totalMPRVU = 0;
+            
+            procedureList.forEach((proc, index) => {
+                totalWorkRVU += calculateAdjustedWorkRVU(proc, index);
+                totalPERVU += proc.pe_rvu;
+                totalMPRVU += proc.mp_rvu;
+            });
+            
+            const totalRVU = totalWorkRVU + totalPERVU + totalMPRVU;
+            const estimatedPayment = totalRVU * RVU_DATA.conversion_factor;
+            
+            document.getElementById('totalWorkRVU').textContent = totalWorkRVU.toFixed(2);
+            document.getElementById('totalPERVU').textContent = totalPERVU.toFixed(2);
+            document.getElementById('totalMPRVU').textContent = totalMPRVU.toFixed(2);
+            document.getElementById('totalRVU').textContent = totalRVU.toFixed(2);
+            document.getElementById('estimatedPayment').textContent = '$' + estimatedPayment.toFixed(2);
+            
+            document.getElementById('rvuTotals').style.display = 'block';
+        }
+
+        function clearAllProcedures() {
+            procedureList = [];
+            updateProcedureDisplay();
+            calculateTotals();
+        }
+
+        function printRVUSummary() {
+            window.print();
+        }
+
+        function copyRVUResults() {
+            if (procedureList.length === 0) return;
+            
+            let text = "RVU Calculation Summary\n";
+            text += "=====================\n\n";
+            
+            procedureList.forEach((proc, index) => {
+                const adjustedRVU = calculateAdjustedWorkRVU(proc, index);
+                text += `${proc.code}: ${proc.description}\n`;
+                text += `  Work RVU: ${adjustedRVU.toFixed(2)}\n`;
+                if (proc.modifier !== 'none') {
+                    text += `  Modifier: ${proc.modifier}\n`;
+                }
+                text += "\n";
+            });
+            
+            const totalWorkRVU = parseFloat(document.getElementById('totalWorkRVU').textContent);
+            const totalRVU = parseFloat(document.getElementById('totalRVU').textContent);
+            const estimatedPayment = document.getElementById('estimatedPayment').textContent;
+            
+            text += `Total Work RVU: ${totalWorkRVU.toFixed(2)}\n`;
+            text += `Total RVU: ${totalRVU.toFixed(2)}\n`;
+            text += `Estimated Reimbursement: ${estimatedPayment}\n`;
+            text += `\nBased on ${RVU_DATA.year} CMS Physician Fee Schedule\n`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('RVU summary copied to clipboard!');
+            });
+        }
+
+        // Helper functions for RVU integration
+        function getRVUInfo(cptCode) {
+            if (!RVU_DATA || !RVU_DATA.codes[cptCode]) {
+                return '';
+            }
+            
+            const rvu = RVU_DATA.codes[cptCode];
+            const estimatedPayment = (rvu.total_rvu * RVU_DATA.conversion_factor).toFixed(2);
+            
+            return `<div style="background:#e0f2fe;padding:12px;border-radius:8px;margin-top:12px;">
+                <p style="color:#0277bd;font-size:13px;font-weight:600;margin-bottom:8px;">RVU VALUES (2026)</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;">
+                    <div><span style="font-size:12px;color:#546e7a;">Work RVU:</span><br><strong style="color:#0277bd;">${rvu.work_rvu}</strong></div>
+                    <div><span style="font-size:12px;color:#546e7a;">Total RVU:</span><br><strong style="color:#0277bd;">${rvu.total_rvu}</strong></div>
+                    <div><span style="font-size:12px;color:#546e7a;">Est. Payment:</span><br><strong style="color:#2e7d32;">$${estimatedPayment}</strong></div>
+                </div>
+            </div>`;
+        }
+
+        function addToRVUCalculator(cptCode) {
+            // Switch to RVU calculator section
+            showSection('rvu');
+            
+            // Add the procedure
+            setTimeout(() => {
+                addProcedure(cptCode);
+            }, 100);
         }
 
         // Initialize - show first ICD-10 system
