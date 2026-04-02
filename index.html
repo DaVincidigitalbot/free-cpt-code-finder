@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly</title>
+    <meta name="description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree helps you find the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.">
+    <meta name="keywords" content="CPT codes, CPT code finder, free CPT lookup, ICD-10 codes, ICD-10 finder, surgical CPT codes, medical billing codes, procedure codes, CPT code search, find CPT code, what CPT code for hernia, CPT code for appendectomy, medical coding, free medical coding tool">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
+    <meta property="og:description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree helps you find the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://freecptcodefinder.com">
+    <meta property="og:image" content="https://freecptcodefinder.com/og-image.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-blue: #2563EB;
+            --primary-blue-dark: #1E40AF;
+            --light-blue: #EFF6FF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --green-500: #10B981;
+            --red-500: #EF4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: white;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, serif;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--gray-900);
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .tagline {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-left: 1rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Ad Units */
+        .ad-unit {
+            background: var(--gray-100);
+            border: 2px dashed var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .ad-unit.banner { height: 90px; }
+        .ad-unit.sidebar { height: 250px; width: 300px; }
+        .ad-unit.in-feed { height: 200px; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.125rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 50;
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-100);
+            transition: background 0.2s;
+        }
+
+        .search-result-item:hover {
+            background: var(--gray-50);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-code {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.125rem;
+        }
+
+        .search-result-desc {
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+        }
+
+        /* Quick Access Buttons */
+        .quick-access {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .quick-btn {
+            background: white;
+            border: 2px solid var(--gray-300);
+            color: var(--gray-700);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .quick-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background: var(--light-blue);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .content-area {
+            min-height: 600px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        /* Decision Tree Interface */
+        .decision-tree {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .decision-tree.active {
+            display: block;
+        }
+
+        .tree-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .tree-title {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .tree-specialty {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-bar {
+            background: var(--gray-200);
+            height: 8px;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: var(--primary-blue);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .tree-question {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .tree-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .tree-option {
+            background: white;
+            border: 2px solid var(--gray-300);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .tree-option:hover {
+            border-color: var(--primary-blue);
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .tree-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-blue-dark);
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn.secondary:hover {
+            background: var(--gray-50);
+        }
+
+        /* CPT Result Display */
+        .cpt-result {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .cpt-result.active {
+            display: block;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .cpt-code-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .cpt-description {
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+        }
+
+        .result-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .result-section h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-800);
+        }
+
+        .modifier-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .modifier-tag, .icd-tag {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .icd-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .icd-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gray-50);
+            border-radius: 6px;
+        }
+
+        .copy-btn {
+            background: var(--green-500);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #059669;
+        }
+
+        .copy-btn.copied {
+            background: var(--gray-400);
+        }
+
+        /* ICD-10 Browser */
+        .icd-browser {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .icd-browser.active {
+            display: block;
+        }
+
+        .icd-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .icd-tab {
+            background: transparent;
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray-600);
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .icd-tab:hover, .icd-tab.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        .icd-system {
+            display: none;
+        }
+
+        .icd-system.active {
+            display: block;
+        }
+
+        .system-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .system-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .system-range {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .icd-search {
+            margin-bottom: 1.5rem;
+        }
+
+        .icd-search input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .icd-codes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .icd-code-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .icd-code-item:hover {
+            background: var(--light-blue);
+        }
+
+        .icd-code-info {
+            flex: 1;
+        }
+
+        .icd-code {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1rem;
+        }
+
+        .icd-desc {
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--gray-50);
+            padding: 3rem 0;
+            margin-top: 3rem;
+            display: none;
+        }
+
+        .about-section.active {
+            display: block;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .about-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-800);
+            color: var(--gray-300);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .disclaimer {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .sidebar {
+                order: -1;
+                position: static;
+            }
+
+            .ad-unit.sidebar {
+                width: 100%;
+                height: 200px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tagline {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+            .nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .cpt-code-display {
+                font-size: 2rem;
+            }
+
+            .quick-access {
+                gap: 0.5rem;
+            }
+
+            .quick-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .tree-actions {
+                flex-direction: column;
+            }
+
+            .icd-tabs {
+                flex-direction: column;
+            }
+
+            .icd-tab {
+                text-align: left;
+            }
+        }
+
+        @media print {
+            .header, .nav, .footer, .sidebar, .ad-unit, .btn, .copy-btn {
+                display: none !important;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cpt-result, .decision-tree, .icd-browser {
+                display: block !important;
+                border: 1px solid black;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Loading states */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Replace with Google AdSense code after approval -->
+            <div class="ad-unit banner" data-slot="top-banner">
+                AdSense Top Banner (728x90)
+            </div>
+            
+            <div class="header-content">
+                <div>
+                    <a href="#" class="logo">Free CPT Code Finder</a>
+                    <span class="tagline">Find the exact CPT or ICD-10 code in seconds</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" onclick="showSection('home')" class="nav-link active">CPT Codes</a>
+                    <a href="#" onclick="showSection('icd10')" class="nav-link">ICD-10 Codes</a>
+                    <a href="#" onclick="showSection('about')" class="nav-link">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find CPT & ICD-10 Codes Fast</h1>
+            <p>Interactive decision tree guides you to the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.</p>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search CPT or ICD-10 codes..." autocomplete="off">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            
+            <div class="quick-access">
+                <button class="quick-btn" onclick="startDecisionTree('Hernia Repair')">Hernia Repair</button>
+                <button class="quick-btn" onclick="startDecisionTree('Appendectomy')">Appendectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree('Cholecystectomy')">Cholecystectomy</button>
+                <button class="quick-btn" onclick="startDecisionTree('Wound Debridement')">Wound Care</button>
+                <button class="quick-btn" onclick="startDecisionTree('Breast Surgery')">Breast Surgery</button>
+                <button class="quick-btn" onclick="startDecisionTree('Thyroidectomy')">Thyroidectomy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-area">
+            <!-- Decision Tree Interface -->
+            <div id="decisionTree" class="decision-tree">
+                <div class="tree-header">
+                    <div class="tree-title" id="treeTitle">Select a Category</div>
+                    <div class="tree-specialty" id="treeSpecialty">General Surgery</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                <div class="tree-question" id="treeQuestion">Choose a procedure category to begin</div>
+                <div class="tree-options" id="treeOptions"></div>
+                <div class="tree-actions">
+                    <button class="btn secondary" id="backBtn" onclick="goBack()" style="display: none;">← Back</button>
+                    <button class="btn secondary" onclick="resetTree()">Start Over</button>
+                </div>
+                
+                <!-- Replace with Google AdSense code after approval -->
+                <div class="ad-unit in-feed" data-slot="between-results" style="margin-top: 2rem;">
+                    AdSense In-Feed Ad
+                </div>
+            </div>
+
+            <!-- CPT Result Display -->
+            <div id="cptResult" class="cpt-result">
+                <div class="result-header">
+                    <div class="cpt-code-display" id="resultCode">49505</div>
+                    <div class="cpt-description" id="resultDescription">Repair initial inguinal hernia, age 5 years or older; reducible</div>
+                    <button class="copy-btn" onclick="copyToClipboard('code')">Copy Code</button>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Common Modifiers</h3>
+                    <div class="modifier-tags" id="resultModifiers"></div>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Related ICD-10 Diagnosis Codes</h3>
+                    <div class="icd-list" id="resultICD10"></div>
+                </div>
+                
+                <div class="tree-actions" style="margin-top: 2rem;">
+                    <button class="btn" onclick="resetTree()">Find Another Code</button>
+                    <button class="btn secondary" onclick="window.print()">Print Results</button>
+                </div>
+            </div>
+
+            <!-- ICD-10 Browser -->
+            <div id="icdBrowser" class="icd-browser">
+                <h2>ICD-10 Code Browser</h2>
+                <p style="color: var(--gray-600); margin-bottom: 2rem;">Browse ICD-10 diagnosis codes by body system</p>
+                
+                <div class="icd-tabs">
+                    <button class="icd-tab active" onclick="showICD10System('digestive_system')">Digestive</button>
+                    <button class="icd-tab" onclick="showICD10System('endocrine_system')">Endocrine</button>
+                    <button class="icd-tab" onclick="showICD10System('circulatory_system')">Circulatory</button>
+                    <button class="icd-tab" onclick="showICD10System('respiratory_system')">Respiratory</button>
+                    <button class="icd-tab" onclick="showICD10System('musculoskeletal_system')">Musculoskeletal</button>
+                    <button class="icd-tab" onclick="showICD10System('injury_trauma_system')">Injury/Trauma</button>
+                    <button class="icd-tab" onclick="showICD10System('neoplasm_system')">Neoplasms</button>
+                </div>
+                
+                <div id="icdSystems"></div>
+            </div>
+
+            <!-- About Section -->
+            <div id="aboutSection" class="about-section">
+                <div class="container">
+                    <div class="about-content">
+                        <h2>About Free CPT Code Finder</h2>
+                        <p>Built by <strong>Dr. Graydon Stallard, DO</strong> — a practicing General, Trauma, and Critical Care surgeon with years of experience in medical coding and billing.</p>
+                        <p>This tool was created to help healthcare providers, medical students, residents, and coding professionals quickly find accurate CPT procedure codes and their corresponding ICD-10 diagnosis codes.</p>
+                        <p>Part of <a href="https://clinicalcaselog.com" class="about-link" target="_blank">Clinical Case Log, LLC</a> — dedicated to improving surgical education and practice management through innovative digital tools.</p>
+                        <p><strong>Why this tool exists:</strong> Medical coding shouldn't be complicated. Our interactive decision tree guides you through the same logical process surgeons use when selecting procedures, ensuring you find the most accurate code every time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Replace with Google AdSense code after approval -->
+            <div class="ad-unit sidebar" data-slot="sidebar-ad">
+                AdSense Sidebar (300x250)
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Replace with Google AdSense code after approval -->
+            <div class="ad-unit banner" data-slot="bottom-banner">
+                AdSense Bottom Banner (728x90)
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" onclick="showSection('about')">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="mailto:contact@clinicalcaselog.com">Contact</a>
+                </div>
+                <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong> This tool is for educational and reference purposes only. Always verify codes with the current AMA CPT codebook and CMS ICD-10 guidelines. Coding decisions should be made by qualified medical coding professionals based on complete clinical documentation.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Embedded JSON data to avoid CORS issues
+        const CPT_DATA = {
+  "categories": [
+    {
+      "name": "Hernia Repair",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "What type of hernia?",
+          "options": [
+            {"label": "Inguinal", "next": "inguinal_questions"},
+            {"label": "Ventral/Incisional", "next": "ventral_questions"},
+            {"label": "Umbilical", "next": "umbilical_questions"},
+            {"label": "Femoral", "next": "femoral_questions"},
+            {"label": "Hiatal", "next": "hiatal_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "inguinal_questions": {
+          "question": "Initial or recurrent?",
+          "options": [
+            {"label": "Initial", "next": "inguinal_initial"},
+            {"label": "Recurrent", "next": "inguinal_recurrent"}
+          ]
+        },
+        "inguinal_initial": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "next": "inguinal_open"},
+            {"label": "Laparoscopic", "next": "inguinal_lap"}
+          ]
+        },
+        "inguinal_recurrent": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "next": "inguinal_recurrent_open"},
+            {"label": "Laparoscopic", "next": "inguinal_recurrent_lap"}
+          ]
+        },
+        "inguinal_open": {
+          "question": "Age and complexity?",
+          "options": [
+            {"label": "5 years or older", "cpt_code": "49505", "description": "Repair initial inguinal hernia, age 5 years or older; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90", "K40.91"]},
+            {"label": "Incarcerated/strangulated", "cpt_code": "49507", "description": "Repair initial inguinal hernia, age 5 years or older; incarcerated or strangulated", "modifiers": ["-LT", "-RT"], "icd10": ["K40.00", "K40.10"]},
+            {"label": "Under 5 years", "cpt_code": "49500", "description": "Repair initial inguinal hernia, younger than age 5 years; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90", "K40.91"]}
+          ]
+        },
+        "inguinal_lap": {
+          "question": "Bilateral?",
+          "options": [
+            {"label": "Unilateral", "cpt_code": "49650", "description": "Laparoscopy, surgical; repair of inguinal hernia, initial", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90", "K40.91"]},
+            {"label": "Bilateral", "cpt_code": "49651", "description": "Laparoscopy, surgical; repair of inguinal hernia, initial, bilateral", "modifiers": [], "icd10": ["K40.20", "K40.30"]}
+          ]
+        },
+        "inguinal_recurrent_open": {
+          "cpt_code": "49520",
+          "description": "Repair recurrent inguinal hernia, any age; reducible",
+          "modifiers": ["-LT", "-RT"],
+          "icd10": ["K40.90", "K40.91"]
+        },
+        "inguinal_recurrent_lap": {
+          "cpt_code": "49651", 
+          "description": "Laparoscopy, surgical; repair of recurrent inguinal hernia",
+          "modifiers": ["-LT", "-RT"],
+          "icd10": ["K40.90", "K40.91"]
+        },
+        "ventral_questions": {
+          "question": "Size of defect?",
+          "options": [
+            {"label": "Less than 3 cm", "next": "ventral_small"},
+            {"label": "3-10 cm", "next": "ventral_medium"},
+            {"label": "Greater than 10 cm", "next": "ventral_large"}
+          ]
+        },
+        "ventral_small": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "cpt_code": "49560", "description": "Repair initial incisional or ventral hernia; reducible", "modifiers": [], "icd10": ["K43.9"]},
+            {"label": "Laparoscopic", "cpt_code": "49652", "description": "Laparoscopy, surgical; repair initial ventral hernia", "modifiers": [], "icd10": ["K43.9"]}
+          ]
+        },
+        "ventral_medium": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "cpt_code": "49561", "description": "Repair initial incisional or ventral hernia; incarcerated or strangulated", "modifiers": [], "icd10": ["K43.0", "K43.1"]},
+            {"label": "Laparoscopic", "cpt_code": "49653", "description": "Laparoscopy, surgical; repair ventral hernia 3-10 cm", "modifiers": [], "icd10": ["K43.9"]}
+          ]
+        },
+        "ventral_large": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "cpt_code": "49566", "description": "Repair recurrent incisional or ventral hernia; reducible", "modifiers": [], "icd10": ["K43.2"]},
+            {"label": "Laparoscopic", "cpt_code": "49654", "description": "Laparoscopy, surgical; repair ventral hernia >10 cm", "modifiers": [], "icd10": ["K43.9"]}
+          ]
+        },
+        "umbilical_questions": {
+          "question": "Age and complexity?",
+          "options": [
+            {"label": "5 years or older, reducible", "cpt_code": "49585", "description": "Repair umbilical hernia, age 5 years or older; reducible", "modifiers": [], "icd10": ["K42.9"]},
+            {"label": "5 years or older, incarcerated", "cpt_code": "49587", "description": "Repair umbilical hernia, age 5 years or older; incarcerated or strangulated", "modifiers": [], "icd10": ["K42.0", "K42.1"]},
+            {"label": "Under 5 years", "cpt_code": "49580", "description": "Repair umbilical hernia, younger than age 5 years; reducible", "modifiers": [], "icd10": ["K42.9"]}
+          ]
+        },
+        "femoral_questions": {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Initial repair", "cpt_code": "49550", "description": "Repair initial femoral hernia, any age; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K41.90", "K41.91"]},
+            {"label": "Incarcerated/strangulated", "cpt_code": "49553", "description": "Repair initial femoral hernia, any age; incarcerated or strangulated", "modifiers": ["-LT", "-RT"], "icd10": ["K41.00", "K41.10"]},
+            {"label": "Recurrent", "cpt_code": "49555", "description": "Repair recurrent femoral hernia; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K41.90", "K41.91"]}
+          ]
+        },
+        "hiatal_questions": {
+          "question": "Type of hiatal hernia?",
+          "options": [
+            {"label": "Sliding (Type I)", "cpt_code": "43280", "description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty", "modifiers": [], "icd10": ["K44.9"]},
+            {"label": "Paraesophageal (Type II-IV)", "cpt_code": "43281", "description": "Laparoscopy, surgical, repair of paraesophageal hernia", "modifiers": [], "icd10": ["K44.0", "K44.1"]},
+            {"label": "Open approach", "cpt_code": "43324", "description": "Esophagogastric fundoplasty (eg, Nissen, Belsey IV, Hill procedures)", "modifiers": [], "icd10": ["K44.9"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Appendectomy",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "next": "appendectomy_open"},
+            {"label": "Laparoscopic", "next": "appendectomy_lap"}
+          ]
+        }
+      ],
+      "branches": {
+        "appendectomy_open": {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Simple appendectomy", "cpt_code": "44970", "description": "Laparoscopy, surgical, appendectomy", "modifiers": [], "icd10": ["K35.9", "K36", "K37"]},
+            {"label": "With abscess/peritonitis", "cpt_code": "44960", "description": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis", "modifiers": [], "icd10": ["K35.0", "K35.1", "K35.2", "K35.3"]}
+          ]
+        },
+        "appendectomy_lap": {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Simple laparoscopic", "cpt_code": "44970", "description": "Laparoscopy, surgical, appendectomy", "modifiers": [], "icd10": ["K35.9", "K36", "K37"]},
+            {"label": "With abscess/complicated", "cpt_code": "44979", "description": "Unlisted laparoscopy procedure, appendix", "modifiers": [], "icd10": ["K35.0", "K35.1", "K35.2"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cholecystectomy",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open", "next": "cholecystectomy_open"},
+            {"label": "Laparoscopic", "next": "cholecystectomy_lap"}
+          ]
+        }
+      ],
+      "branches": {
+        "cholecystectomy_open": {
+          "question": "Additional procedures?",
+          "options": [
+            {"label": "Simple cholecystectomy", "cpt_code": "47600", "description": "Cholecystectomy", "modifiers": [], "icd10": ["K80.20", "K80.70", "K87"]},
+            {"label": "With cholangiography", "cpt_code": "47605", "description": "Cholecystectomy; with cholangiography", "modifiers": [], "icd10": ["K80.20", "K80.70"]},
+            {"label": "With exploration of CBD", "cpt_code": "47610", "description": "Cholecystectomy with exploration of common duct", "modifiers": [], "icd10": ["K80.30", "K80.50"]}
+          ]
+        },
+        "cholecystectomy_lap": {
+          "question": "Additional procedures?",
+          "options": [
+            {"label": "Simple laparoscopic", "cpt_code": "47562", "description": "Laparoscopy, surgical; cholecystectomy", "modifiers": [], "icd10": ["K80.20", "K80.70", "K87"]},
+            {"label": "With cholangiography", "cpt_code": "47563", "description": "Laparoscopy, surgical; cholecystectomy with cholangiography", "modifiers": [], "icd10": ["K80.20", "K80.70"]},
+            {"label": "With exploration/removal of CBD stone", "cpt_code": "47564", "description": "Laparoscopy, surgical; cholecystectomy with exploration of common duct", "modifiers": [], "icd10": ["K80.30", "K80.50"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Wound Debridement",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Depth of debridement?",
+          "options": [
+            {"label": "Skin/Epidermis", "next": "debridement_skin"},
+            {"label": "Subcutaneous tissue", "next": "debridement_subq"},
+            {"label": "Muscle and/or fascia", "next": "debridement_muscle"},
+            {"label": "Bone", "next": "debridement_bone"}
+          ]
+        }
+      ],
+      "branches": {
+        "debridement_skin": {
+          "question": "Surface area?",
+          "options": [
+            {"label": "First 20 sq cm or less", "cpt_code": "11042", "description": "Debridement, subcutaneous tissue; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909", "T14.8"]},
+            {"label": "Each additional 20 sq cm", "cpt_code": "11045", "description": "Debridement, subcutaneous tissue; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909"]}
+          ]
+        },
+        "debridement_subq": {
+          "question": "Surface area?",
+          "options": [
+            {"label": "First 20 sq cm or less", "cpt_code": "11042", "description": "Debridement, subcutaneous tissue; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909", "T14.8"]},
+            {"label": "Each additional 20 sq cm", "cpt_code": "11045", "description": "Debridement, subcutaneous tissue; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909"]}
+          ]
+        },
+        "debridement_muscle": {
+          "question": "Surface area?",
+          "options": [
+            {"label": "First 20 sq cm or less", "cpt_code": "11043", "description": "Debridement, muscle and/or fascia; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909", "M79.3"]},
+            {"label": "Each additional 20 sq cm", "cpt_code": "11046", "description": "Debridement, muscle and/or fascia; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["L89.90", "L97.909"]}
+          ]
+        },
+        "debridement_bone": {
+          "question": "Surface area?",
+          "options": [
+            {"label": "First 20 sq cm or less", "cpt_code": "11044", "description": "Debridement, bone; first 20 sq cm or less", "modifiers": ["-LT", "-RT"], "icd10": ["M86.9", "L89.90", "L97.909"]},
+            {"label": "Each additional 20 sq cm", "cpt_code": "11047", "description": "Debridement, bone; each additional 20 sq cm", "modifiers": ["-LT", "-RT"], "icd10": ["M86.9", "L89.90"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Excision of Skin/Soft Tissue",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Benign or malignant?",
+          "options": [
+            {"label": "Benign", "next": "excision_benign"},
+            {"label": "Malignant", "next": "excision_malignant"}
+          ]
+        }
+      ],
+      "branches": {
+        "excision_benign": {
+          "question": "Location?",
+          "options": [
+            {"label": "Trunk/Extremity", "next": "benign_trunk"},
+            {"label": "Scalp/Neck/Hands/Feet/Genitalia", "next": "benign_scalp"},
+            {"label": "Face/Ears/Eyelids/Nose/Lips", "next": "benign_face"}
+          ]
+        },
+        "excision_malignant": {
+          "question": "Location?",
+          "options": [
+            {"label": "Trunk/Extremity", "next": "malignant_trunk"},
+            {"label": "Scalp/Neck/Hands/Feet/Genitalia", "next": "malignant_scalp"},
+            {"label": "Face/Ears/Eyelids/Nose/Lips", "next": "malignant_face"}
+          ]
+        },
+        "benign_trunk": {
+          "question": "Size (including margins)?",
+          "options": [
+            {"label": "0.5 cm or less", "cpt_code": "11400", "description": "Excision, benign lesion including margins, trunk/extremity; 0.5 cm or less", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "0.6-1.0 cm", "cpt_code": "11401", "description": "Excision, benign lesion including margins, trunk/extremity; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "1.1-2.0 cm", "cpt_code": "11402", "description": "Excision, benign lesion including margins, trunk/extremity; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "2.1-3.0 cm", "cpt_code": "11403", "description": "Excision, benign lesion including margins, trunk/extremity; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "3.1-4.0 cm", "cpt_code": "11404", "description": "Excision, benign lesion including margins, trunk/extremity; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "Over 4.0 cm", "cpt_code": "11406", "description": "Excision, benign lesion including margins, trunk/extremity; over 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]}
+          ]
+        },
+        "benign_scalp": {
+          "question": "Size (including margins)?",
+          "options": [
+            {"label": "0.5 cm or less", "cpt_code": "11420", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 0.5 cm or less", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "0.6-1.0 cm", "cpt_code": "11421", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "1.1-2.0 cm", "cpt_code": "11422", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "2.1-3.0 cm", "cpt_code": "11423", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "3.1-4.0 cm", "cpt_code": "11424", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "Over 4.0 cm", "cpt_code": "11426", "description": "Excision, benign lesion including margins, scalp/neck/hands/feet/genitalia; over 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]}
+          ]
+        },
+        "benign_face": {
+          "question": "Size (including margins)?",
+          "options": [
+            {"label": "0.5 cm or less", "cpt_code": "11440", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 0.5 cm or less", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "0.6-1.0 cm", "cpt_code": "11441", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "1.1-2.0 cm", "cpt_code": "11442", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "2.1-3.0 cm", "cpt_code": "11443", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "3.1-4.0 cm", "cpt_code": "11444", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]},
+            {"label": "Over 4.0 cm", "cpt_code": "11446", "description": "Excision, benign lesion including margins, face/ears/eyelids/nose/lips; over 4.0 cm", "modifiers": [], "icd10": ["D23.9", "L72.9"]}
+          ]
+        },
+        "malignant_trunk": {
+          "question": "Size (including margins)?",
+          "options": [
+            {"label": "0.5 cm or less", "cpt_code": "11600", "description": "Excision, malignant lesion including margins, trunk/extremity; 0.5 cm or less", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
+            {"label": "0.6-1.0 cm", "cpt_code": "11601", "description": "Excision, malignant lesion including margins, trunk/extremity; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
+            {"label": "1.1-2.0 cm", "cpt_code": "11602", "description": "Excision, malignant lesion including margins, trunk/extremity; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
+            {"label": "2.1-3.0 cm", "cpt_code": "11603", "description": "Excision, malignant lesion including margins, trunk/extremity; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
+            {"label": "3.1-4.0 cm", "cpt_code": "11604", "description": "Excision, malignant lesion including margins, trunk/extremity; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]},
+            {"label": "Over 4.0 cm", "cpt_code": "11606", "description": "Excision, malignant lesion including margins, trunk/extremity; over 4.0 cm", "modifiers": [], "icd10": ["C44.509", "C44.599"]}
+          ]
+        },
+        "malignant_scalp": {
+          "question": "Size (including margins)?",
+          "options": [
+            {"label": "0.5 cm or less", "cpt_code": "11620", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 0.5 cm or less", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
+            {"label": "0.6-1.0 cm", "cpt_code": "11621", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
+            {"label": "1.1-2.0 cm", "cpt_code": "11622", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
+            {"label": "2.1-3.0 cm", "cpt_code": "11623", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
+            {"label": "3.1-4.0 cm", "cpt_code": "11624", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]},
+            {"label": "Over 4.0 cm", "cpt_code": "11626", "description": "Excision, malignant lesion including margins, scalp/neck/hands/feet/genitalia; over 4.0 cm", "modifiers": [], "icd10": ["C44.40", "C44.509"]}
+          ]
+        },
+        "malignant_face": {
+          "question": "Size (including margins)?",
+          "options": [
+            {"label": "0.5 cm or less", "cpt_code": "11640", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 0.5 cm or less", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
+            {"label": "0.6-1.0 cm", "cpt_code": "11641", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
+            {"label": "1.1-2.0 cm", "cpt_code": "11642", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
+            {"label": "2.1-3.0 cm", "cpt_code": "11643", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
+            {"label": "3.1-4.0 cm", "cpt_code": "11644", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; 3.1 to 4.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]},
+            {"label": "Over 4.0 cm", "cpt_code": "11646", "description": "Excision, malignant lesion including margins, face/ears/eyelids/nose/lips; over 4.0 cm", "modifiers": [], "icd10": ["C44.309", "C44.399"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Breast Surgery",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Biopsy", "next": "breast_biopsy"},
+            {"label": "Lumpectomy", "next": "breast_lumpectomy"},
+            {"label": "Mastectomy", "next": "breast_mastectomy"}
+          ]
+        }
+      ],
+      "branches": {
+        "breast_biopsy": {
+          "question": "Type of biopsy?",
+          "options": [
+            {"label": "Core needle biopsy", "cpt_code": "19083", "description": "Biopsy, breast, with placement of breast localization device", "modifiers": ["-LT", "-RT"], "icd10": ["N63.10", "N63.20", "R92.8"]},
+            {"label": "Open surgical biopsy", "cpt_code": "19101", "description": "Biopsy of breast; open, incisional", "modifiers": ["-LT", "-RT"], "icd10": ["N63.10", "N63.20", "R92.8"]},
+            {"label": "Vacuum-assisted biopsy", "cpt_code": "19083", "description": "Biopsy, breast, with placement of breast localization device", "modifiers": ["-LT", "-RT"], "icd10": ["N63.10", "N63.20", "R92.8"]}
+          ]
+        },
+        "breast_lumpectomy": {
+          "question": "Additional procedures?",
+          "options": [
+            {"label": "Simple lumpectomy", "cpt_code": "19301", "description": "Mastectomy, partial", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912", "D05.90"]},
+            {"label": "With sentinel lymph node biopsy", "cpt_code": "19302", "description": "Mastectomy, partial, with axillary lymphadenectomy", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]},
+            {"label": "With wire localization", "cpt_code": "19125", "description": "Excision of breast lesion identified by preoperative placement of radiological marker", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]}
+          ]
+        },
+        "breast_mastectomy": {
+          "question": "Type of mastectomy?",
+          "options": [
+            {"label": "Simple/Total", "cpt_code": "19303", "description": "Mastectomy, simple, complete", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912", "D05.90"]},
+            {"label": "Modified radical", "cpt_code": "19307", "description": "Mastectomy, modified radical, including axillary lymph nodes", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]},
+            {"label": "Radical", "cpt_code": "19305", "description": "Mastectomy, radical, including pectoral muscles, axillary lymph nodes", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"]},
+            {"label": "Skin-sparing", "cpt_code": "19304", "description": "Mastectomy, subcutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912", "Z40.01"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Thyroidectomy",
+      "specialty": "General Surgery", 
+      "questions": [
+        {
+          "question": "Extent of resection?",
+          "options": [
+            {"label": "Total thyroidectomy", "next": "thyroid_total"},
+            {"label": "Partial thyroidectomy/Lobectomy", "next": "thyroid_partial"}
+          ]
+        }
+      ],
+      "branches": {
+        "thyroid_total": {
+          "question": "Additional procedures?",
+          "options": [
+            {"label": "Total thyroidectomy", "cpt_code": "60240", "description": "Thyroidectomy, total or complete", "modifiers": [], "icd10": ["E04.9", "C73", "E05.90"]},
+            {"label": "With lymph node dissection", "cpt_code": "60252", "description": "Thyroidectomy, total or subtotal for malignancy; with limited neck dissection", "modifiers": [], "icd10": ["C73"]},
+            {"label": "With radical neck dissection", "cpt_code": "60254", "description": "Thyroidectomy, total or subtotal for malignancy; with radical neck dissection", "modifiers": [], "icd10": ["C73"]}
+          ]
+        },
+        "thyroid_partial": {
+          "question": "Type of partial resection?",
+          "options": [
+            {"label": "Lobectomy, unilateral", "cpt_code": "60220", "description": "Total thyroid lobectomy, unilateral; with or without isthmusectomy", "modifiers": [], "icd10": ["E04.1", "C73", "E04.9"]},
+            {"label": "Lobectomy with contralateral subtotal", "cpt_code": "60225", "description": "Total thyroid lobectomy, unilateral; with contralateral subtotal lobectomy, including isthmusectomy", "modifiers": [], "icd10": ["E04.9", "C73"]},
+            {"label": "Partial lobectomy", "cpt_code": "60210", "description": "Partial thyroid lobectomy, unilateral; with or without isthmusectomy", "modifiers": [], "icd10": ["E04.1", "D34"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Colectomy",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Location of resection?",
+          "options": [
+            {"label": "Right/Cecum/Ascending", "next": "colectomy_right"},
+            {"label": "Left/Descending", "next": "colectomy_left"}, 
+            {"label": "Sigmoid", "next": "colectomy_sigmoid"},
+            {"label": "Total/Subtotal", "next": "colectomy_total"}
+          ]
+        }
+      ],
+      "branches": {
+        "colectomy_right": {
+          "question": "Approach and anastomosis?",
+          "options": [
+            {"label": "Open with anastomosis", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2", "K57.92"]},
+            {"label": "Open without anastomosis", "cpt_code": "44141", "description": "Colectomy, partial; with skin level cecostomy or colostomy", "modifiers": [], "icd10": ["C18.0", "C18.2"]},
+            {"label": "Laparoscopic with anastomosis", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2", "K57.92"]},
+            {"label": "Laparoscopic without anastomosis", "cpt_code": "44206", "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment", "modifiers": [], "icd10": ["C18.0", "C18.2"]}
+          ]
+        },
+        "colectomy_left": {
+          "question": "Approach and anastomosis?",
+          "options": [
+            {"label": "Open with anastomosis", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7", "K57.92"]},
+            {"label": "Open without anastomosis", "cpt_code": "44141", "description": "Colectomy, partial; with skin level cecostomy or colostomy", "modifiers": [], "icd10": ["C18.6", "C18.7"]},
+            {"label": "Laparoscopic with anastomosis", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7", "K57.92"]},
+            {"label": "Laparoscopic without anastomosis", "cpt_code": "44206", "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment", "modifiers": [], "icd10": ["C18.6", "C18.7"]}
+          ]
+        },
+        "colectomy_sigmoid": {
+          "question": "Approach and anastomosis?",
+          "options": [
+            {"label": "Open with anastomosis", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C19", "C18.7", "K57.32"]},
+            {"label": "Open without anastomosis", "cpt_code": "44141", "description": "Colectomy, partial; with skin level cecostomy or colostomy", "modifiers": [], "icd10": ["C19", "C18.7"]},
+            {"label": "Laparoscopic with anastomosis", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C19", "C18.7", "K57.32"]},
+            {"label": "Laparoscopic without anastomosis", "cpt_code": "44206", "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment", "modifiers": [], "icd10": ["C19", "C18.7"]}
+          ]
+        },
+        "colectomy_total": {
+          "question": "Approach and procedure?",
+          "options": [
+            {"label": "Total abdominal colectomy", "cpt_code": "44150", "description": "Colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy", "modifiers": [], "icd10": ["C18.9", "K59.39", "K51.90"]},
+            {"label": "Total with proctectomy", "cpt_code": "44155", "description": "Colectomy, total, abdominal, with proctectomy; with ileostomy", "modifiers": [], "icd10": ["C19", "C20", "K51.90"]},
+            {"label": "Laparoscopic total", "cpt_code": "44210", "description": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy", "modifiers": [], "icd10": ["C18.9", "K59.39", "K51.90"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Small Bowel",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Resection", "next": "small_bowel_resection"},
+            {"label": "Lysis of adhesions", "next": "small_bowel_lysis"},
+            {"label": "Enterotomy", "next": "small_bowel_enterotomy"},
+            {"label": "Enterostomy", "next": "small_bowel_enterostomy"}
+          ]
+        }
+      ],
+      "branches": {
+        "small_bowel_resection": {
+          "question": "Approach and anastomosis?",
+          "options": [
+            {"label": "Open with anastomosis", "cpt_code": "44120", "description": "Enterectomy, resection of small intestine; single resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60", "K63.1"]},
+            {"label": "Open, each additional resection", "cpt_code": "44121", "description": "Enterectomy, resection of small intestine; each additional resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60"]},
+            {"label": "Laparoscopic with anastomosis", "cpt_code": "44202", "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, single resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60", "K63.1"]},
+            {"label": "Laparoscopic, each additional", "cpt_code": "44203", "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, each additional small intestine resection and anastomosis", "modifiers": [], "icd10": ["C17.9", "K56.60"]}
+          ]
+        },
+        "small_bowel_lysis": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open lysis of adhesions", "cpt_code": "44005", "description": "Enterolysis (freeing of intestinal adhesion)", "modifiers": [], "icd10": ["K56.50", "K66.0"]},
+            {"label": "Laparoscopic lysis", "cpt_code": "44180", "description": "Laparoscopy, surgical, enterolysis (freeing of intestinal adhesion)", "modifiers": [], "icd10": ["K56.50", "K66.0"]}
+          ]
+        },
+        "small_bowel_enterotomy": {
+          "cpt_code": "44020",
+          "description": "Enterotomy, small intestine, other than duodenum; for exploration, foreign body removal, or biopsy",
+          "modifiers": [],
+          "icd10": ["K56.60", "T18.3", "K63.9"]
+        },
+        "small_bowel_enterostomy": {
+          "question": "Type of enterostomy?",
+          "options": [
+            {"label": "Ileostomy", "cpt_code": "44310", "description": "Ileostomy or jejunostomy, non-tube", "modifiers": [], "icd10": ["K91.40", "K94.10"]},
+            {"label": "Jejunostomy", "cpt_code": "44310", "description": "Ileostomy or jejunostomy, non-tube", "modifiers": [], "icd10": ["K91.40", "K94.13"]},
+            {"label": "Tube jejunostomy", "cpt_code": "44015", "description": "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method", "modifiers": [], "icd10": ["K91.40", "Z93.4"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Trauma",
+      "specialty": "General Surgery/Trauma",
+      "questions": [
+        {
+          "question": "Type of trauma procedure?",
+          "options": [
+            {"label": "Exploratory laparotomy", "next": "trauma_ex_lap"},
+            {"label": "Chest tube", "next": "trauma_chest_tube"},
+            {"label": "Central line", "next": "trauma_central_line"},
+            {"label": "Arterial line", "next": "trauma_arterial_line"},
+            {"label": "Laceration repair", "next": "trauma_laceration"}
+          ]
+        }
+      ],
+      "branches": {
+        "trauma_ex_lap": {
+          "cpt_code": "49000",
+          "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "modifiers": [],
+          "icd10": ["S36.90XA", "S31.600A", "T14.8XXA"]
+        },
+        "trauma_chest_tube": {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Simple thoracostomy", "cpt_code": "32551", "description": "Tube thoracostomy, includes connection to drainage system", "modifiers": ["-LT", "-RT"], "icd10": ["S27.0XXA", "J94.8", "S22.9XXA"]},
+            {"label": "Open thoracotomy with drainage", "cpt_code": "32020", "description": "Thoracotomy, with or without pleural biopsy", "modifiers": ["-LT", "-RT"], "icd10": ["S27.0XXA", "J94.2"]}
+          ]
+        },
+        "trauma_central_line": {
+          "question": "Location?",
+          "options": [
+            {"label": "Subclavian", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
+            {"label": "Internal jugular", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
+            {"label": "Femoral", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]}
+          ]
+        },
+        "trauma_arterial_line": {
+          "question": "Location?",
+          "options": [
+            {"label": "Radial artery", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
+            {"label": "Femoral artery", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]},
+            {"label": "Open arterial cannulation", "cpt_code": "36625", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; cutdown", "modifiers": ["-LT", "-RT"], "icd10": ["T14.8XXA", "Z45.2"]}
+          ]
+        },
+        "trauma_laceration": {
+          "question": "Size and location?",
+          "options": [
+            {"label": "Simple repair 2.5cm or less", "cpt_code": "12001", "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.5 cm or less", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
+            {"label": "Simple repair 2.6-7.5cm", "cpt_code": "12002", "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.6 cm to 7.5 cm", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
+            {"label": "Simple repair 7.6-12.5cm", "cpt_code": "12004", "description": "Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 7.6 cm to 12.5 cm", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
+            {"label": "Intermediate repair 2.5cm or less", "cpt_code": "12031", "description": "Repair, intermediate, wounds of scalp, axillae, trunk and/or extremities; 2.5 cm or less", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]},
+            {"label": "Complex repair 1.1-2.5cm", "cpt_code": "13100", "description": "Repair, complex, trunk; 1.1 cm to 2.5 cm", "modifiers": [], "icd10": ["S01.00XA", "S31.000A", "S41.00XA"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Abscess",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Simple I&D", "next": "abscess_simple"},
+            {"label": "Complex I&D", "next": "abscess_complex"}
+          ]
+        }
+      ],
+      "branches": {
+        "abscess_simple": {
+          "question": "Location?",
+          "options": [
+            {"label": "Skin/subcutaneous", "cpt_code": "10060", "description": "Incision and drainage of abscess; simple or single", "modifiers": [], "icd10": ["L02.90", "L02.91", "L02.93"]},
+            {"label": "Perirectal", "cpt_code": "46050", "description": "Incision and drainage, perirectal or perianal abscess; superficial", "modifiers": [], "icd10": ["K61.0", "K61.1"]},
+            {"label": "Bartholin gland", "cpt_code": "56420", "description": "Incision and drainage of Bartholin's gland abscess", "modifiers": [], "icd10": ["N75.1"]}
+          ]
+        },
+        "abscess_complex": {
+          "question": "Location and complexity?",
+          "options": [
+            {"label": "Deep/complicated skin", "cpt_code": "10061", "description": "Incision and drainage of abscess; complicated or multiple", "modifiers": [], "icd10": ["L02.90", "L02.91", "L02.93"]},
+            {"label": "Intra-abdominal", "cpt_code": "49060", "description": "Drainage of retroperitoneal abscess, open", "modifiers": [], "icd10": ["K68.19", "K65.1"]},
+            {"label": "Perirectal, deep", "cpt_code": "46060", "description": "Incision and drainage, perirectal or perianal abscess; deep intramuscular", "modifiers": [], "icd10": ["K61.2", "K61.3"]},
+            {"label": "Pilonidal", "cpt_code": "10080", "description": "Incision and drainage of pilonidal cyst; simple", "modifiers": [], "icd10": ["L05.91", "L05.92"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Endoscopy",
+      "specialty": "General Surgery/Gastroenterology",
+      "questions": [
+        {
+          "question": "Type of endoscopy?",
+          "options": [
+            {"label": "EGD (Upper endoscopy)", "next": "endoscopy_egd"},
+            {"label": "Colonoscopy", "next": "endoscopy_colonoscopy"}
+          ]
+        }
+      ],
+      "branches": {
+        "endoscopy_egd": {
+          "question": "Additional procedures?",
+          "options": [
+            {"label": "Diagnostic EGD", "cpt_code": "43235", "description": "Esophagogastroduodenoscopy, flexible, transoral; diagnostic, including collection of specimen(s) by brushing or washing", "modifiers": [], "icd10": ["K92.2", "R13.10", "K21.9"]},
+            {"label": "EGD with biopsy", "cpt_code": "43239", "description": "Esophagogastroduodenoscopy, flexible, transoral; with biopsy, single or multiple", "modifiers": [], "icd10": ["K92.2", "R13.10", "K27.9"]},
+            {"label": "EGD with dilation", "cpt_code": "43249", "description": "Esophagogastroduodenoscopy, flexible, transoral; with transendoscopic balloon dilation", "modifiers": [], "icd10": ["K22.2", "K22.3"]},
+            {"label": "EGD with stent placement", "cpt_code": "43266", "description": "Esophagogastroduodenoscopy, flexible, transoral; with placement of endoscopic stent", "modifiers": [], "icd10": ["C15.9", "C16.9", "K22.2"]}
+          ]
+        },
+        "endoscopy_colonoscopy": {
+          "question": "Additional procedures?",
+          "options": [
+            {"label": "Diagnostic colonoscopy", "cpt_code": "45378", "description": "Colonoscopy, flexible; diagnostic, including collection of specimen(s) by brushing or washing", "modifiers": [], "icd10": ["R19.5", "K63.5", "Z12.11"]},
+            {"label": "Colonoscopy with biopsy", "cpt_code": "45380", "description": "Colonoscopy, flexible; with biopsy, single or multiple", "modifiers": [], "icd10": ["R19.5", "K63.5", "D12.6"]},
+            {"label": "Colonoscopy with polypectomy", "cpt_code": "45385", "description": "Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique", "modifiers": [], "icd10": ["D12.6", "K63.5"]},
+            {"label": "Colonoscopy with stent", "cpt_code": "45389", "description": "Colonoscopy, flexible; with endoscopic stent placement", "modifiers": [], "icd10": ["C18.9", "K56.60"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Vascular Access",
+      "specialty": "General Surgery/Vascular",
+      "questions": [
+        {
+          "question": "Type of access?",
+          "options": [
+            {"label": "Central venous catheter", "next": "vascular_central"},
+            {"label": "Arterial line", "next": "vascular_arterial"},
+            {"label": "PICC line", "next": "vascular_picc"},
+            {"label": "Port placement", "next": "vascular_port"},
+            {"label": "AV fistula", "next": "vascular_fistula"}
+          ]
+        }
+      ],
+      "branches": {
+        "vascular_central": {
+          "question": "Location?",
+          "options": [
+            {"label": "Internal jugular", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
+            {"label": "Subclavian", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
+            {"label": "Femoral", "cpt_code": "36556", "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]}
+          ]
+        },
+        "vascular_arterial": {
+          "question": "Approach and location?",
+          "options": [
+            {"label": "Percutaneous radial", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
+            {"label": "Percutaneous femoral", "cpt_code": "36620", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; percutaneous", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]},
+            {"label": "Open/cutdown", "cpt_code": "36625", "description": "Arterial catheterization or cannulation for sampling, monitoring or transfusion; cutdown", "modifiers": ["-LT", "-RT"], "icd10": ["Z45.2"]}
+          ]
+        },
+        "vascular_picc": {
+          "cpt_code": "36568",
+          "description": "Insertion of peripherally inserted central venous catheter (PICC), without subcutaneous port or pump; age 5 years or older",
+          "modifiers": ["-LT", "-RT"],
+          "icd10": ["Z45.2"]
+        },
+        "vascular_port": {
+          "question": "Type of port?",
+          "options": [
+            {"label": "Subcutaneous port", "cpt_code": "36561", "description": "Insertion of tunneled centrally inserted central venous access device with subcutaneous port; age 5 years or older", "modifiers": [], "icd10": ["Z45.2"]},
+            {"label": "Arterial port", "cpt_code": "36640", "description": "Arterial catheterization for prolonged infusion therapy (chemotherapy), cutdown", "modifiers": [], "icd10": ["Z45.2"]}
+          ]
+        },
+        "vascular_fistula": {
+          "question": "Type of access?",
+          "options": [
+            {"label": "Radiocephalic fistula", "cpt_code": "36821", "description": "Arteriovenous anastomosis, open; direct, any site", "modifiers": ["-LT", "-RT"], "icd10": ["N18.6", "Z99.2"]},
+            {"label": "Brachiocephalic fistula", "cpt_code": "36821", "description": "Arteriovenous anastomosis, open; direct, any site", "modifiers": ["-LT", "-RT"], "icd10": ["N18.6", "Z99.2"]},
+            {"label": "AV graft", "cpt_code": "36830", "description": "Creation of arteriovenous fistula by other than direct arteriovenous anastomosis; autogenous graft", "modifiers": ["-LT", "-RT"], "icd10": ["N18.6", "Z99.2"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Common Orthopedic",
+      "specialty": "Orthopedic Surgery",
+      "questions": [
+        {
+          "question": "Type of fracture repair?",
+          "options": [
+            {"label": "Closed reduction", "next": "ortho_closed"},
+            {"label": "Open reduction internal fixation", "next": "ortho_orif"}
+          ]
+        }
+      ],
+      "branches": {
+        "ortho_closed": {
+          "question": "Location?",
+          "options": [
+            {"label": "Radius/Ulna shaft", "cpt_code": "25535", "description": "Closed treatment of radial shaft fracture and closed treatment of ulnar shaft fracture; with manipulation", "modifiers": ["-LT", "-RT"], "icd10": ["S52.301A", "S52.201A"]},
+            {"label": "Femur shaft", "cpt_code": "27502", "description": "Closed treatment of femoral shaft fracture, with manipulation, with or without skin or skeletal traction", "modifiers": ["-LT", "-RT"], "icd10": ["S72.301A"]},
+            {"label": "Tibia/Fibula shaft", "cpt_code": "27750", "description": "Closed treatment of tibial shaft fracture; with manipulation, with or without skeletal traction", "modifiers": ["-LT", "-RT"], "icd10": ["S82.201A", "S82.401A"]}
+          ]
+        },
+        "ortho_orif": {
+          "question": "Location?",
+          "options": [
+            {"label": "Hip fracture", "cpt_code": "27245", "description": "Open treatment of intertrochanteric, peritrochanteric, or subtrochanteric femoral fracture; with intramedullary implant", "modifiers": ["-LT", "-RT"], "icd10": ["S72.101A", "S72.141A"]},
+            {"label": "Ankle fracture", "cpt_code": "27766", "description": "Open treatment of medial malleolus fracture, includes internal fixation, when performed", "modifiers": ["-LT", "-RT"], "icd10": ["S82.51XA", "S82.61XA"]},
+            {"label": "Wrist fracture", "cpt_code": "25609", "description": "Open treatment of distal radial intra-articular fracture or epiphyseal separation; with internal fixation of 3 or more fragments", "modifiers": ["-LT", "-RT"], "icd10": ["S52.501A", "S52.511A"]},
+            {"label": "Humerus shaft", "cpt_code": "24515", "description": "Open treatment of humeral shaft fracture with plate/screws, with or without cerclage", "modifiers": ["-LT", "-RT"], "icd10": ["S42.301A"]}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Common General",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Lymph node biopsy", "next": "general_lymph_node"},
+            {"label": "Tracheostomy", "next": "general_tracheostomy"},
+            {"label": "Feeding tube", "next": "general_feeding_tube"},
+            {"label": "Paracentesis", "next": "general_paracentesis"},
+            {"label": "Thoracentesis", "next": "general_thoracentesis"}
+          ]
+        }
+      ],
+      "branches": {
+        "general_lymph_node": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open biopsy", "cpt_code": "38500", "description": "Biopsy or excision of lymph node(s); open, superficial", "modifiers": [], "icd10": ["R59.9", "C77.2", "D36.0"]},
+            {"label": "Deep lymph node", "cpt_code": "38510", "description": "Biopsy or excision of lymph node(s); open, deep cervical node(s)", "modifiers": [], "icd10": ["R59.0", "C77.0", "D36.0"]},
+            {"label": "Core needle biopsy", "cpt_code": "38505", "description": "Needle or trocar biopsy, lymph node; deep (eg, internal mammary, spinal accessory, iliac, hypogastric, obturator, parametrial, parasternal, sacral, or lumbar)", "modifiers": [], "icd10": ["R59.9", "C77.2", "D36.0"]}
+          ]
+        },
+        "general_tracheostomy": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open tracheostomy", "cpt_code": "31600", "description": "Tracheostomy, planned (separate procedure);", "modifiers": [], "icd10": ["Z93.0", "J44.0"]},
+            {"label": "Percutaneous tracheostomy", "cpt_code": "31601", "description": "Tracheostomy, planned (separate procedure); younger than 2 years", "modifiers": [], "icd10": ["Z93.0", "J44.0"]},
+            {"label": "Emergency tracheostomy", "cpt_code": "31603", "description": "Tracheostomy, emergency procedure; transtracheal", "modifiers": [], "icd10": ["Z93.0", "J44.0"]}
+          ]
+        },
+        "general_feeding_tube": {
+          "question": "Type of feeding tube?",
+          "options": [
+            {"label": "PEG (percutaneous)", "cpt_code": "43246", "description": "Esophagogastroduodenoscopy, flexible, transoral; with directed placement of percutaneous gastrostomy tube", "modifiers": [], "icd10": ["Z93.1", "K91.89"]},
+            {"label": "Open gastrostomy", "cpt_code": "43830", "description": "Gastrostomy, open; without construction of gastric tube", "modifiers": [], "icd10": ["Z93.1", "K91.89"]},
+
+            {"label": "Jejunostomy tube", "cpt_code": "44015", "description": "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method", "modifiers": [], "icd10": ["Z93.4", "K91.89"]}
+          ]
+        },
+        "general_paracentesis": {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Initial paracentesis", "cpt_code": "49082", "description": "Abdominal paracentesis (diagnostic or therapeutic); without imaging guidance", "modifiers": [], "icd10": ["R18.8", "K65.2"]},
+            {"label": "With imaging guidance", "cpt_code": "49083", "description": "Abdominal paracentesis (diagnostic or therapeutic); with imaging guidance", "modifiers": [], "icd10": ["R18.8", "K65.2"]}
+          ]
+        },
+        "general_thoracentesis": {
+          "question": "Complexity?",
+          "options": [
+            {"label": "Initial thoracentesis", "cpt_code": "32554", "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; without imaging guidance", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "R09.1"]},
+            {"label": "With imaging guidance", "cpt_code": "32555", "description": "Thoracentesis, needle or catheter, aspiration of the pleural space; with imaging guidance", "modifiers": ["-LT", "-RT"], "icd10": ["J94.8", "R09.1"]}
+          ]
+        }
+      }
+    }
+  ]
+};
+
+        const ICD10_DATA = {
+  "digestive_system": {
+    "code_range": "K00-K95",
+    "description": "Diseases of the digestive system",
+    "codes": [
+      {"code": "K21.9", "description": "Gastro-esophageal reflux disease without esophagitis"},
+      {"code": "K25.9", "description": "Gastric ulcer, unspecified as acute or chronic, without hemorrhage or perforation"},
+      {"code": "K27.9", "description": "Peptic ulcer, site unspecified, unspecified as acute or chronic, without hemorrhage or perforation"},
+      {"code": "K29.70", "description": "Gastritis, unspecified, without bleeding"},
+      {"code": "K35.9", "description": "Acute appendicitis, unspecified"},
+      {"code": "K35.0", "description": "Acute appendicitis with generalized peritonitis"},
+      {"code": "K35.1", "description": "Acute appendicitis with peritoneal abscess"},
+      {"code": "K35.2", "description": "Acute appendicitis with generalized peritonitis, without abscess"},
+      {"code": "K35.3", "description": "Acute appendicitis with localized peritonitis"},
+      {"code": "K36", "description": "Other appendicitis"},
+      {"code": "K37", "description": "Unspecified appendicitis"},
+      {"code": "K40.90", "description": "Unilateral inguinal hernia, without obstruction or gangrene, not specified as recurrent"},
+      {"code": "K40.91", "description": "Unilateral inguinal hernia, without obstruction or gangrene, recurrent"},
+      {"code": "K40.00", "description": "Bilateral inguinal hernia, with obstruction, without gangrene, not specified as recurrent"},
+      {"code": "K40.10", "description": "Bilateral inguinal hernia, with gangrene, not specified as recurrent"},
+      {"code": "K41.90", "description": "Unilateral femoral hernia, without obstruction or gangrene, not specified as recurrent"},
+      {"code": "K41.91", "description": "Unilateral femoral hernia, without obstruction or gangrene, recurrent"},
+      {"code": "K42.9", "description": "Umbilical hernia without obstruction or gangrene"},
+      {"code": "K43.9", "description": "Ventral hernia without obstruction or gangrene"},
+      {"code": "K44.9", "description": "Diaphragmatic hernia without obstruction or gangrene"},
+      {"code": "K56.50", "description": "Intestinal adhesions with obstruction, unspecified"},
+      {"code": "K56.60", "description": "Other and unspecified intestinal obstruction"},
+      {"code": "K57.92", "description": "Diverticulosis of intestine, part unspecified, without perforation or abscess without bleeding"},
+      {"code": "K57.32", "description": "Diverticulosis of large intestine without perforation or abscess without bleeding"},
+      {"code": "K59.00", "description": "Constipation, unspecified"},
+      {"code": "K59.1", "description": "Diarrhea, unspecified"},
+      {"code": "K63.5", "description": "Polyp of colon"},
+      {"code": "K66.0", "description": "Peritoneal adhesions"},
+      {"code": "K80.20", "description": "Calculus of gallbladder without cholangitis or cholecystitis, without obstruction"},
+      {"code": "K80.30", "description": "Calculus of bile duct without cholangitis or cholecystitis, without obstruction"},
+      {"code": "K80.70", "description": "Calculus of gallbladder and bile duct without cholangitis or cholecystitis, without obstruction"},
+      {"code": "K87", "description": "Disorders of gallbladder, biliary tract and pancreas in diseases classified elsewhere"},
+      {"code": "K92.2", "description": "Gastrointestinal hemorrhage, unspecified"}
+    ]
+  },
+  "endocrine_system": {
+    "code_range": "E00-E89",
+    "description": "Endocrine, nutritional and metabolic diseases",
+    "codes": [
+      {"code": "E03.9", "description": "Hypothyroidism, unspecified"},
+      {"code": "E04.1", "description": "Nontoxic single thyroid nodule"},
+      {"code": "E04.2", "description": "Nontoxic multinodular goiter"},
+      {"code": "E04.9", "description": "Nontoxic goiter, unspecified"},
+      {"code": "E05.90", "description": "Thyrotoxicosis, unspecified without thyrotoxic crisis"},
+      {"code": "E06.3", "description": "Autoimmune thyroiditis"},
+      {"code": "E10.9", "description": "Type 1 diabetes mellitus without complications"},
+      {"code": "E11.9", "description": "Type 2 diabetes mellitus without complications"},
+      {"code": "E11.40", "description": "Type 2 diabetes mellitus with diabetic neuropathy, unspecified"},
+      {"code": "E11.51", "description": "Type 2 diabetes mellitus with diabetic peripheral angiopathy without gangrene"},
+      {"code": "E11.65", "description": "Type 2 diabetes mellitus with hyperglycemia"},
+      {"code": "E13.9", "description": "Other specified diabetes mellitus without complications"},
+      {"code": "E21.0", "description": "Primary hyperparathyroidism"},
+      {"code": "E21.3", "description": "Hyperparathyroidism, unspecified"},
+      {"code": "E25.9", "description": "Adrenogenital disorder, unspecified"},
+      {"code": "E27.40", "description": "Unspecified adrenocortical insufficiency"},
+      {"code": "E28.2", "description": "Polycystic ovarian syndrome"},
+      {"code": "E66.9", "description": "Obesity, unspecified"},
+      {"code": "E66.01", "description": "Morbid (severe) obesity due to excess calories"},
+      {"code": "E78.5", "description": "Hyperlipidemia, unspecified"},
+      {"code": "E78.00", "description": "Pure hypercholesterolemia, unspecified"},
+      {"code": "E83.40", "description": "Disorders of magnesium metabolism, unspecified"},
+      {"code": "E83.52", "description": "Hypercalcemia"},
+      {"code": "E86.0", "description": "Dehydration"},
+      {"code": "E87.1", "description": "Hypo-osmolality and hyponatremia"},
+      {"code": "E87.2", "description": "Acidosis"},
+      {"code": "E87.5", "description": "Hyperkalemia"},
+      {"code": "E87.6", "description": "Hypokalemia"},
+      {"code": "E87.70", "description": "Fluid overload, unspecified"},
+      {"code": "E89.0", "description": "Postprocedural hypothyroidism"}
+    ]
+  },
+  "circulatory_system": {
+    "code_range": "I00-I99",
+    "description": "Diseases of the circulatory system",
+    "codes": [
+      {"code": "I10", "description": "Essential (primary) hypertension"},
+      {"code": "I11.0", "description": "Hypertensive heart disease with heart failure"},
+      {"code": "I11.9", "description": "Hypertensive heart disease without heart failure"},
+      {"code": "I20.9", "description": "Angina pectoris, unspecified"},
+      {"code": "I21.9", "description": "Acute myocardial infarction, unspecified"},
+      {"code": "I25.10", "description": "Atherosclerotic heart disease of native coronary artery without angina pectoris"},
+      {"code": "I25.119", "description": "Atherosclerotic heart disease of native coronary artery with unspecified angina pectoris"},
+      {"code": "I35.0", "description": "Nonrheumatic aortic (valve) stenosis"},
+      {"code": "I36.9", "description": "Nonrheumatic mitral valve disorder, unspecified"},
+      {"code": "I42.0", "description": "Dilated cardiomyopathy"},
+      {"code": "I42.9", "description": "Cardiomyopathy, unspecified"},
+      {"code": "I48.0", "description": "Paroxysmal atrial fibrillation"},
+      {"code": "I48.91", "description": "Unspecified atrial fibrillation"},
+      {"code": "I50.9", "description": "Heart failure, unspecified"},
+      {"code": "I50.1", "description": "Left ventricular failure, unspecified"},
+      {"code": "I63.9", "description": "Cerebral infarction, unspecified"},
+      {"code": "I70.0", "description": "Atherosclerosis of aorta"},
+      {"code": "I70.209", "description": "Unspecified atherosclerosis of native arteries of extremities, unspecified extremity"},
+      {"code": "I73.9", "description": "Peripheral vascular disease, unspecified"},
+      {"code": "I74.3", "description": "Embolism and thrombosis of arteries of the lower extremities"},
+      {"code": "I80.10", "description": "Phlebitis and thrombophlebitis of unspecified femoral vein"},
+      {"code": "I82.40", "description": "Acute embolism and thrombosis of unspecified deep veins of lower extremity"},
+      {"code": "I82.890", "description": "Acute embolism and thrombosis of other specified veins"},
+      {"code": "I83.10", "description": "Varicose veins of unspecified lower extremity with inflammation"},
+      {"code": "I87.2", "description": "Venous insufficiency (chronic) (peripheral)"},
+      {"code": "I95.9", "description": "Hypotension, unspecified"},
+      {"code": "I97.110", "description": "Postprocedural cardiac insufficiency following cardiac surgery"},
+      {"code": "I97.191", "description": "Other postprocedural cardiac functional disturbances following cardiac surgery"},
+      {"code": "I97.610", "description": "Postprocedural hemorrhage of a circulatory system organ or structure following a circulatory system procedure"},
+      {"code": "I99.9", "description": "Unspecified disorder of circulatory system"}
+    ]
+  },
+  "respiratory_system": {
+    "code_range": "J00-J99",
+    "description": "Diseases of the respiratory system",
+    "codes": [
+      {"code": "J06.9", "description": "Acute upper respiratory infection, unspecified"},
+      {"code": "J18.9", "description": "Pneumonia, unspecified organism"},
+      {"code": "J20.9", "description": "Acute bronchitis, unspecified"},
+      {"code": "J44.0", "description": "Chronic obstructive pulmonary disease with acute lower respiratory infection"},
+      {"code": "J44.1", "description": "Chronic obstructive pulmonary disease with (acute) exacerbation"},
+      {"code": "J45.9", "description": "Asthma, unspecified"},
+      {"code": "J45.40", "description": "Moderate persistent asthma, uncomplicated"},
+      {"code": "J93.11", "description": "Primary spontaneous pneumothorax"},
+      {"code": "J93.83", "description": "Other pneumothorax"},
+      {"code": "J94.2", "description": "Hemothorax"},
+      {"code": "J94.8", "description": "Other specified pleural conditions"},
+      {"code": "J95.02", "description": "Mechanical complication of tracheostomy"},
+      {"code": "J95.821", "description": "Acute postprocedural respiratory failure"},
+      {"code": "J96.00", "description": "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia"},
+      {"code": "J96.90", "description": "Respiratory failure, unspecified, unspecified whether with hypoxia or hypercapnia"},
+      {"code": "R06.00", "description": "Dyspnea, unspecified"},
+      {"code": "R06.02", "description": "Shortness of breath"},
+      {"code": "R05", "description": "Cough"},
+      {"code": "R09.1", "description": "Pleuritic pain"},
+      {"code": "R09.2", "description": "Respiratory arrest"},
+      {"code": "R09.3", "description": "Abnormal sputum"},
+      {"code": "R50.9", "description": "Fever, unspecified"},
+      {"code": "Z87.891", "description": "Personal history of nicotine dependence"},
+      {"code": "Z93.0", "description": "Tracheostomy status"},
+      {"code": "J15.9", "description": "Unspecified bacterial pneumonia"},
+      {"code": "J12.9", "description": "Viral pneumonia, unspecified"},
+      {"code": "J69.0", "description": "Pneumonitis due to inhalation of food and vomit"},
+      {"code": "J81.0", "description": "Acute pulmonary edema"},
+      {"code": "J98.4", "description": "Other disorders of lung"},
+      {"code": "J98.9", "description": "Respiratory disorder, unspecified"},
+      {"code": "J22", "description": "Unspecified acute lower respiratory infection"}
+    ]
+  },
+  "musculoskeletal_system": {
+    "code_range": "M00-M99",
+    "description": "Diseases of the musculoskeletal system and connective tissue",
+    "codes": [
+      {"code": "M06.9", "description": "Rheumatoid arthritis, unspecified"},
+      {"code": "M15.9", "description": "Polyosteoarthritis, unspecified"},
+      {"code": "M17.9", "description": "Osteoarthritis of knee, unspecified"},
+      {"code": "M19.90", "description": "Unspecified osteoarthritis, unspecified site"},
+      {"code": "M25.50", "description": "Pain in unspecified joint"},
+      {"code": "M25.561", "description": "Pain in right knee"},
+      {"code": "M25.562", "description": "Pain in left knee"},
+      {"code": "M48.06", "description": "Spinal stenosis, lumbar region"},
+      {"code": "M51.36", "description": "Other intervertebral disc degeneration, lumbar region"},
+      {"code": "M53.3", "description": "Sacrococcygeal disorders, not elsewhere classified"},
+      {"code": "M54.16", "description": "Radiculopathy, lumbar region"},
+      {"code": "M54.17", "description": "Radiculopathy, lumbosacral region"},
+      {"code": "M54.2", "description": "Cervicalgia"},
+      {"code": "M54.5", "description": "Low back pain"},
+      {"code": "M54.9", "description": "Dorsalgia, unspecified"},
+      {"code": "M62.830", "description": "Muscle spasm of back"},
+      {"code": "M70.60", "description": "Trochanteric bursitis, unspecified hip"},
+      {"code": "M75.30", "description": "Calcific tendinitis of unspecified shoulder"},
+      {"code": "M79.1", "description": "Myalgia"},
+      {"code": "M79.3", "description": "Panniculitis, unspecified"},
+      {"code": "M79.603", "description": "Pain in arm, unspecified"},
+      {"code": "M79.606", "description": "Pain in leg, unspecified"},
+      {"code": "M84.40", "description": "Pathological fracture, unspecified site"},
+      {"code": "M86.9", "description": "Osteomyelitis, unspecified"},
+      {"code": "M89.9", "description": "Disorder of bone, unspecified"},
+      {"code": "M99.9", "description": "Biomechanical lesion, unspecified"},
+      {"code": "M25.9", "description": "Joint disorder, unspecified"},
+      {"code": "M71.9", "description": "Bursopathy, unspecified"},
+      {"code": "M77.9", "description": "Enthesopathy, unspecified"},
+      {"code": "M23.90", "description": "Unspecified internal derangement of unspecified knee"},
+      {"code": "M65.9", "description": "Synovitis and tenosynovitis, unspecified"}
+    ]
+  },
+  "injury_trauma_system": {
+    "code_range": "S00-T88",
+    "description": "Injury, poisoning and certain other consequences of external causes",
+    "codes": [
+      {"code": "S01.00XA", "description": "Unspecified open wound of scalp, initial encounter"},
+      {"code": "S06.0X0A", "description": "Concussion without loss of consciousness, initial encounter"},
+      {"code": "S22.9XXA", "description": "Fracture of bony thorax, part unspecified, initial encounter"},
+      {"code": "S27.0XXA", "description": "Traumatic pneumothorax, initial encounter"},
+      {"code": "S31.000A", "description": "Unspecified open wound of lower back and pelvis without penetration into retroperitoneum, initial encounter"},
+      {"code": "S31.600A", "description": "Unspecified open wound of abdominal wall, unspecified quadrant without penetration into peritoneal cavity, initial encounter"},
+      {"code": "S36.90XA", "description": "Unspecified injury of unspecified intra-abdominal organ, initial encounter"},
+      {"code": "S41.00XA", "description": "Unspecified open wound of unspecified shoulder, initial encounter"},
+      {"code": "S42.301A", "description": "Unspecified fracture of shaft of humerus, right arm, initial encounter"},
+      {"code": "S52.201A", "description": "Unspecified fracture of shaft of ulna, right arm, initial encounter"},
+      {"code": "S52.301A", "description": "Unspecified fracture of shaft of radius, right arm, initial encounter"},
+      {"code": "S52.501A", "description": "Unspecified fracture of the lower end of radius, right arm, initial encounter"},
+      {"code": "S52.511A", "description": "Displaced fracture of right radial styloid process, initial encounter"},
+      {"code": "S72.101A", "description": "Unspecified trochanteric fracture of right femur, initial encounter"},
+      {"code": "S72.141A", "description": "Displaced intertrochanteric fracture of right femur, initial encounter"},
+      {"code": "S72.301A", "description": "Unspecified fracture of shaft of femur, right leg, initial encounter"},
+      {"code": "S82.201A", "description": "Unspecified fracture of shaft of right tibia, initial encounter"},
+      {"code": "S82.401A", "description": "Unspecified fracture of shaft of right fibula, initial encounter"},
+      {"code": "S82.51XA", "description": "Fracture of medial malleolus of right tibia, initial encounter"},
+      {"code": "S82.61XA", "description": "Fracture of lateral malleolus of right fibula, initial encounter"},
+      {"code": "T14.8XXA", "description": "Other injury of unspecified body region, initial encounter"},
+      {"code": "T18.3XXA", "description": "Foreign body in small intestine, initial encounter"},
+      {"code": "T79.A0XA", "description": "Compartment syndrome, unspecified, initial encounter"},
+      {"code": "T81.4XXA", "description": "Infection following a procedure, initial encounter"},
+      {"code": "T81.30XA", "description": "Disruption of wound, unspecified, initial encounter"},
+      {"code": "T81.31XA", "description": "Disruption of external operation (surgical) wound, not elsewhere classified, initial encounter"},
+      {"code": "T84.50XA", "description": "Infection and inflammatory reaction due to unspecified internal joint prosthesis, initial encounter"},
+      {"code": "T85.79XA", "description": "Infection and inflammatory reaction due to other internal prosthetic devices, implants and grafts, initial encounter"},
+      {"code": "Z87.891", "description": "Personal history of nicotine dependence"},
+      {"code": "Z51.11", "description": "Encounter for antineoplastic chemotherapy"},
+      {"code": "Z98.890", "description": "Other specified postprocedural states"}
+    ]
+  },
+  "neoplasm_system": {
+    "code_range": "C00-D49",
+    "description": "Neoplasms",
+    "codes": [
+      {"code": "C15.9", "description": "Malignant neoplasm of esophagus, unspecified"},
+      {"code": "C16.9", "description": "Malignant neoplasm of stomach, unspecified"},
+      {"code": "C17.9", "description": "Malignant neoplasm of small intestine, unspecified"},
+      {"code": "C18.0", "description": "Malignant neoplasm of cecum"},
+      {"code": "C18.2", "description": "Malignant neoplasm of ascending colon"},
+      {"code": "C18.6", "description": "Malignant neoplasm of descending colon"},
+      {"code": "C18.7", "description": "Malignant neoplasm of sigmoid colon"},
+      {"code": "C18.9", "description": "Malignant neoplasm of colon, unspecified"},
+      {"code": "C19", "description": "Malignant neoplasm of rectosigmoid junction"},
+      {"code": "C20", "description": "Malignant neoplasm of rectum"},
+      {"code": "C22.0", "description": "Liver cell carcinoma"},
+      {"code": "C22.9", "description": "Malignant neoplasm of liver, unspecified"},
+      {"code": "C25.9", "description": "Malignant neoplasm of pancreas, unspecified"},
+      {"code": "C44.309", "description": "Unspecified malignant neoplasm of skin of other parts of face"},
+      {"code": "C44.399", "description": "Other malignant neoplasm of skin of other parts of face"},
+      {"code": "C44.40", "description": "Unspecified malignant neoplasm of skin of scalp and neck"},
+      {"code": "C44.509", "description": "Unspecified malignant neoplasm of skin of trunk"},
+      {"code": "C44.599", "description": "Other malignant neoplasm of skin of trunk"},
+      {"code": "C50.911", "description": "Malignant neoplasm of unspecified site of right female breast"},
+      {"code": "C50.912", "description": "Malignant neoplasm of unspecified site of left female breast"},
+      {"code": "C73", "description": "Malignant neoplasm of thyroid gland"},
+      {"code": "C77.0", "description": "Secondary and unspecified malignant neoplasm of lymph nodes of head, face and neck"},
+      {"code": "C77.2", "description": "Secondary and unspecified malignant neoplasm of intra-abdominal lymph nodes"},
+      {"code": "C78.00", "description": "Secondary malignant neoplasm of unspecified lung"},
+      {"code": "C78.7", "description": "Secondary malignant neoplasm of liver and intrahepatic bile duct"},
+      {"code": "C80.1", "description": "Malignant neoplasm, unspecified"},
+      {"code": "D05.90", "description": "Unspecified type of carcinoma in situ of unspecified breast"},
+      {"code": "D12.6", "description": "Benign neoplasm of colon, unspecified"},
+      {"code": "D22.9", "description": "Melanocytic nevus, unspecified"},
+      {"code": "D23.9", "description": "Other benign neoplasm of skin, unspecified"},
+      {"code": "D34", "description": "Benign neoplasm of thyroid gland"},
+      {"code": "D36.0", "description": "Benign neoplasm of lymph nodes"},
+      {"code": "D48.1", "description": "Neoplasm of uncertain behavior of connective and other soft tissue"}
+    ]
+  }
+};
+
+        // Global state
+        let currentSection = 'home';
+        let currentCategory = null;
+        let currentBranch = null;
+        let decisionPath = [];
+        let searchTimeout = null;
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
+            showSection('home');
+            setupSearch();
+            initializeICD10Browser();
+            
+            // Add touch-friendly interactions for mobile
+            if ('ontouchstart' in window) {
+                document.body.classList.add('touch-device');
+            }
+        }
+
+        function showSection(section) {
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target?.classList.add('active');
+
+            // Hide all sections
+            document.getElementById('decisionTree').classList.remove('active');
+            document.getElementById('cptResult').classList.remove('active');
+            document.getElementById('icdBrowser').classList.remove('active');
+            document.getElementById('aboutSection').classList.remove('active');
+
+            // Show appropriate section
+            switch(section) {
+                case 'home':
+                    document.getElementById('decisionTree').classList.add('active');
+                    resetTree();
+                    break;
+                case 'icd10':
+                    document.getElementById('icdBrowser').classList.add('active');
+                    break;
+                case 'about':
+                    document.getElementById('aboutSection').classList.add('active');
+                    break;
+            }
+
+            currentSection = section;
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(searchTimeout);
+                const query = e.target.value.trim();
+
+                if (query.length < 2) {
+                    hideSearchResults();
+                    return;
+                }
+
+                searchTimeout = setTimeout(() => {
+                    performSearch(query);
+                }, 300);
+            });
+
+            // Hide search results when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container')) {
+                    hideSearchResults();
+                }
+            });
+
+            // Handle keyboard navigation
+            searchInput.addEventListener('keydown', function(e) {
+                const results = searchResults.querySelectorAll('.search-result-item');
+                const active = searchResults.querySelector('.search-result-item.active');
+                let index = Array.from(results).indexOf(active);
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    index = index < results.length - 1 ? index + 1 : 0;
+                    setActiveResult(results, index);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    index = index > 0 ? index - 1 : results.length - 1;
+                    setActiveResult(results, index);
+                } else if (e.key === 'Enter' && active) {
+                    e.preventDefault();
+                    active.click();
+                }
+            });
+        }
+
+        function performSearch(query) {
+            const results = [];
+            const searchLower = query.toLowerCase();
+
+            // Search CPT codes
+            CPT_DATA.categories.forEach(category => {
+                // Search category name
+                if (category.name.toLowerCase().includes(searchLower)) {
+                    results.push({
+                        type: 'category',
+                        code: category.name,
+                        description: `${category.specialty} - Start decision tree`,
+                        category: category.name
+                    });
+                }
+
+                // Search all CPT codes in branches
+                searchCPTBranches(category.branches, searchLower, results, category.name);
+            });
+
+            // Search ICD-10 codes
+            Object.values(ICD10_DATA).forEach(system => {
+                system.codes.forEach(code => {
+                    if (code.code.toLowerCase().includes(searchLower) || 
+                        code.description.toLowerCase().includes(searchLower)) {
+                        results.push({
+                            type: 'icd10',
+                            code: code.code,
+                            description: code.description,
+                            system: system.description
+                        });
+                    }
+                });
+            });
+
+            displaySearchResults(results.slice(0, 8)); // Limit to 8 results
+        }
+
+        function searchCPTBranches(branches, query, results, categoryName) {
+            Object.values(branches).forEach(branch => {
+                if (branch.cpt_code) {
+                    // Direct CPT result
+                    if (branch.cpt_code.includes(query) || 
+                        branch.description.toLowerCase().includes(query)) {
+                        results.push({
+                            type: 'cpt',
+                            code: branch.cpt_code,
+                            description: branch.description,
+                            category: categoryName,
+                            modifiers: branch.modifiers,
+                            icd10: branch.icd10
+                        });
+                    }
+                }
+                if (branch.options) {
+                    branch.options.forEach(opt => {
+                        if (opt.cpt_code) {
+                            if (opt.cpt_code.includes(query) || 
+                                (opt.description && opt.description.toLowerCase().includes(query)) ||
+                                opt.label.toLowerCase().includes(query)) {
+                                results.push({
+                                    type: 'cpt',
+                                    code: opt.cpt_code,
+                                    description: opt.description || opt.label,
+                                    category: categoryName,
+                                    modifiers: opt.modifiers,
+                                    icd10: opt.icd10
+                                });
+                            }
+                        }
+                        if (opt.next && branches[opt.next]) {
+                            searchCPTBranches({[opt.next]: branches[opt.next]}, query, results, categoryName);
+                        }
+                    });
+                }
+            });
+        }
+
+        function displaySearchResults(results) {
+            const container = document.getElementById('searchResults');
+            if (results.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No results found. Try a different search term or browse categories below.</p>';
+                container.style.display = 'block';
+                return;
+            }
+
+            let html = '<div style="display:grid;gap:16px;">';
+            results.forEach(r => {
+                if (r.type === 'cpt') {
+                    html += `
+                        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:start;gap:16px;flex-wrap:wrap;">
+                                <div>
+                                    <span style="font-size:24px;font-weight:700;color:#2563eb;">${r.code}</span>
+                                    <span style="font-size:13px;color:#6b7280;margin-left:12px;">${r.category}</span>
+                                </div>
+                                <button onclick="copyCode('${r.code}')" style="background:#2563eb;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Copy Code</button>
+                            </div>
+                            <p style="color:#374151;margin-top:8px;font-size:15px;">${r.description}</p>
+                            ${r.modifiers ? `<p style="color:#6b7280;font-size:13px;margin-top:8px;">Modifiers: ${Array.isArray(r.modifiers) ? r.modifiers.join(', ') : r.modifiers}</p>` : ''}
+                            ${r.icd10 ? `<p style="color:#6b7280;font-size:13px;margin-top:4px;">Related ICD-10: ${Array.isArray(r.icd10) ? r.icd10.join(', ') : r.icd10}</p>` : ''}
+                        </div>`;
+                } else if (r.type === 'icd10') {
+                    html += `
+                        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:start;gap:16px;flex-wrap:wrap;">
+                                <div>
+                                    <span style="font-size:24px;font-weight:700;color:#16a34a;">${r.code}</span>
+                                    <span style="font-size:13px;color:#6b7280;margin-left:12px;">${r.system}</span>
+                                </div>
+                                <button onclick="copyCode('${r.code}')" style="background:#16a34a;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Copy Code</button>
+                            </div>
+                            <p style="color:#374151;margin-top:8px;font-size:15px;">${r.description}</p>
+                        </div>`;
+                }
+            });
+            html += '</div>';
+            container.innerHTML = html;
+            container.style.display = 'block';
+        }
+
+        function copyCode(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.target;
+                const orig = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#16a34a';
+                setTimeout(() => { btn.textContent = orig; btn.style.background = '#2563eb'; }, 1500);
+            });
+        }
+
+        // Decision Tree Navigation
+        function startDecisionTree(categoryIndex) {
+            const category = cptData.categories[categoryIndex];
+            currentCategory = category;
+            currentPath = [];
+            document.getElementById('searchResults').style.display = 'none';
+            
+            const container = document.getElementById('decisionTree');
+            container.style.display = 'block';
+            container.scrollIntoView({ behavior: 'smooth' });
+            
+            showQuestion(category.questions[0], category.branches, category.name);
+        }
+
+        function showQuestion(questionObj, branches, categoryName) {
+            const container = document.getElementById('decisionTree');
+            let html = `
+                <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:32px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+                        <h3 style="font-size:20px;font-weight:700;color:#1e293b;">${categoryName}</h3>
+                        <button onclick="resetDecisionTree()" style="background:#f1f5f9;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;color:#64748b;">Start Over</button>
+                    </div>
+                    ${currentPath.length > 0 ? `<button onclick="goBack()" style="background:none;border:none;color:#2563eb;cursor:pointer;font-size:14px;margin-bottom:16px;">← Back</button>` : ''}
+                    <p style="font-size:18px;color:#374151;margin-bottom:24px;font-weight:500;">${questionObj.question}</p>
+                    <div style="display:grid;gap:12px;">`;
+            
+            questionObj.options.forEach((opt, i) => {
+                if (opt.cpt_code) {
+                    // Terminal node — show result directly
+                    html += `<button onclick='showCPTResult(${JSON.stringify(opt).replace(/'/g, "\\'")})'
+                        style="text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:16px 20px;cursor:pointer;font-size:15px;color:#374151;transition:all 0.2s;"
+                        onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" 
+                        onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">
+                        ${opt.label}
+                    </button>`;
+                } else if (opt.next && branches[opt.next]) {
+                    html += `<button onclick='navigateBranch("${opt.next}", ${JSON.stringify(branches).replace(/'/g, "\\'")}, "${categoryName}", ${JSON.stringify(questionObj).replace(/'/g, "\\'")})'
+                        style="text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:16px 20px;cursor:pointer;font-size:15px;color:#374151;transition:all 0.2s;"
+                        onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" 
+                        onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">
+                        ${opt.label} →
+                    </button>`;
+                }
+            });
+            
+            html += '</div></div>';
+            container.innerHTML = html;
+        }
+
+        function navigateBranch(branchKey, branches, categoryName, prevQuestion) {
+            currentPath.push({ branchKey, branches, categoryName, prevQuestion });
+            const branch = branches[branchKey];
+            if (branch) {
+                showQuestion(branch, branches, categoryName);
+            }
+        }
+
+        function goBack() {
+            if (currentPath.length > 0) {
+                const prev = currentPath.pop();
+                showQuestion(prev.prevQuestion, prev.branches, prev.categoryName);
+            }
+        }
+
+        function showCPTResult(result) {
+            const container = document.getElementById('decisionTree');
+            let html = `
+                <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:32px;">
+                    <div style="text-align:center;margin-bottom:24px;">
+                        <div style="font-size:48px;font-weight:800;color:#2563eb;margin-bottom:8px;">${result.cpt_code}</div>
+                        <p style="font-size:18px;color:#374151;font-weight:500;">${result.description || result.label}</p>
+                    </div>
+                    
+                    ${result.modifiers ? `
+                    <div style="background:#f8fafc;border-radius:10px;padding:16px;margin-bottom:16px;">
+                        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:4px;">COMMON MODIFIERS</p>
+                        <p style="color:#374151;">${Array.isArray(result.modifiers) ? result.modifiers.join(', ') : result.modifiers}</p>
+                    </div>` : ''}
+                    
+                    ${result.icd10 ? `
+                    <div style="background:#f0fdf4;border-radius:10px;padding:16px;margin-bottom:16px;">
+                        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:4px;">RELATED ICD-10 CODES</p>
+                        <p style="color:#374151;">${Array.isArray(result.icd10) ? result.icd10.join(', ') : result.icd10}</p>
+                    </div>` : ''}
+                    
+                    <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+                        <button onclick="copyCode('${result.cpt_code}')" style="background:#2563eb;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">Copy CPT Code</button>
+                        <button onclick="resetDecisionTree()" style="background:#f1f5f9;color:#374151;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:500;">Search Again</button>
+                    </div>
+                </div>`;
+            container.innerHTML = html;
+        }
+
+        function resetDecisionTree() {
+            document.getElementById('decisionTree').style.display = 'none';
+            document.getElementById('decisionTree').innerHTML = '';
+            currentPath = [];
+            currentCategory = null;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ICD-10 Tab switching
+        function switchICD10Tab(system) {
+            document.querySelectorAll('.icd-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const data = icd10Data[system];
+            if (!data) return;
+            
+            const container = document.getElementById('icd10Content');
+            let html = `<h3 style="font-size:18px;font-weight:600;color:#1e293b;margin-bottom:16px;">${data.description} (${data.code_range})</h3>`;
+            html += '<div style="display:grid;gap:8px;">';
+            data.codes.forEach(c => {
+                html += `
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;">
+                        <div>
+                            <span style="font-weight:700;color:#16a34a;margin-right:12px;">${c.code}</span>
+                            <span style="color:#374151;font-size:14px;">${c.description}</span>
+                        </div>
+                        <button onclick="copyCode('${c.code}')" style="background:#16a34a;color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;">Copy</button>
+                    </div>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Initialize - show first ICD-10 system
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstTab = document.querySelector('.icd-tab');
+            if (firstTab) firstTab.click();
+        });
+    </script>
+</body>
+</html>
