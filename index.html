@@ -1068,7 +1068,7 @@
                 <div class="tree-options" id="treeOptions"></div>
                 <div class="tree-actions">
                     <button class="btn secondary" id="backBtn" onclick="goBack()" style="display: none;">← Back</button>
-                    <button class="btn secondary" onclick="resetTree()">Start Over</button>
+                    <button class="btn secondary" onclick="resetDecisionTree()">Start Over</button>
                 </div>
                 
                 <!-- Replace with Google AdSense code after approval -->
@@ -1096,7 +1096,7 @@
                 </div>
                 
                 <div class="tree-actions" style="margin-top: 2rem;">
-                    <button class="btn" onclick="resetTree()">Find Another Code</button>
+                    <button class="btn" onclick="resetDecisionTree()">Find Another Code</button>
                     <button class="btn secondary" onclick="window.print()">Print Results</button>
                 </div>
             </div>
@@ -2308,7 +2308,6 @@
             showSection('home');
             setupSearch();
             setupRVUSearch();
-            initializeICD10Browser();
             loadRVUData();
             
             // Add touch-friendly interactions for mobile
@@ -2352,7 +2351,7 @@
             switch(section) {
                 case 'home':
                     document.getElementById('decisionTree').classList.add('active');
-                    resetTree();
+                    resetDecisionTree();
                     break;
                 case 'icd10':
                     document.getElementById('icdBrowser').classList.add('active');
@@ -2557,9 +2556,9 @@
             // Accept both index number and name string
             let category;
             if (typeof categoryIndex === 'number') {
-                category = cptData.categories[categoryIndex];
+                category = CPT_DATA.categories[categoryIndex];
             } else {
-                category = cptData.categories.find(c => c.name === categoryIndex);
+                category = CPT_DATA.categories.find(c => c.name === categoryIndex);
             }
             if (!category) return;
             currentCategory = category;
@@ -2668,7 +2667,7 @@
             document.querySelectorAll('.icd-tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
             
-            const data = icd10Data[system];
+            const data = ICD10_DATA[system];
             if (!data) return;
             
             const container = document.getElementById('icd10Content');
@@ -2967,10 +2966,6 @@
         }
 
         // Initialize - show first ICD-10 system
-        document.addEventListener('DOMContentLoaded', () => {
-            const firstTab = document.querySelector('.icd-tab');
-            if (firstTab) firstTab.click();
-        });
-    </script>
+            </script>
 </body>
 </html>
