@@ -3002,6 +3002,634 @@
           ]
         }
       }
+    },
+    {
+      "name": "HPB Surgery",
+      "specialty": "Hepato-Pancreato-Biliary Surgery",
+      "questions": [
+        {
+          "question": "Type of HPB procedure?",
+          "options": [
+            {"label": "Whipple/Pancreaticoduodenectomy", "next": "whipple_questions"},
+            {"label": "Distal Pancreatectomy", "next": "distal_panc_questions"},
+            {"label": "Liver Resection", "next": "liver_resection_questions"},
+            {"label": "Biliary Reconstruction", "next": "biliary_questions"},
+            {"label": "Liver Ablation", "next": "liver_ablation_questions"},
+            {"label": "Pancreatic Pseudocyst", "next": "pseudocyst_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "whipple_questions": {
+          "question": "Type of pancreaticoduodenectomy?",
+          "options": [
+            {"label": "Classic Whipple", "cpt_code": "48150", "description": "Pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (Whipple-type procedure)", "modifiers": [], "icd10": ["C25.9", "C22.1", "C24.0"], "work_rvu": 62.85},
+            {"label": "Pylorus-preserving pancreaticoduodenectomy", "cpt_code": "48153", "description": "Pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, Whipple-type procedure)", "modifiers": [], "icd10": ["C25.9", "C22.1", "C24.0"], "work_rvu": 58.85}
+          ]
+        },
+        "distal_panc_questions": {
+          "question": "Approach and extent?",
+          "options": [
+            {"label": "Open distal pancreatectomy", "cpt_code": "48140", "description": "Pancreatectomy, distal subtotal", "modifiers": [], "icd10": ["C25.9", "D13.6"], "work_rvu": 32.85},
+            {"label": "Distal pancreatectomy with splenectomy", "cpt_code": "48140", "description": "Pancreatectomy, distal subtotal", "modifiers": ["-51"], "icd10": ["C25.9", "D13.6"], "work_rvu": 38.85},
+            {"label": "Laparoscopic distal pancreatectomy", "cpt_code": "48999", "description": "Unlisted procedure, pancreas", "modifiers": [], "icd10": ["C25.9", "D13.6"], "work_rvu": 28.85}
+          ]
+        },
+        "liver_resection_questions": {
+          "question": "Extent of liver resection?",
+          "options": [
+            {"label": "Wedge resection", "cpt_code": "47100", "description": "Biopsy of liver, wedge", "modifiers": [], "icd10": ["C22.0", "D13.4"], "work_rvu": 12.85},
+            {"label": "Segmentectomy (1-2 segments)", "cpt_code": "47120", "description": "Hepatectomy, resection of liver; partial lobectomy", "modifiers": [], "icd10": ["C22.0", "D13.4"], "work_rvu": 28.85},
+            {"label": "Right hepatectomy", "cpt_code": "47130", "description": "Hepatectomy, resection of liver; total right lobectomy", "modifiers": [], "icd10": ["C22.0", "D13.4"], "work_rvu": 48.85},
+            {"label": "Left hepatectomy", "cpt_code": "47125", "description": "Hepatectomy, resection of liver; total left lobectomy", "modifiers": [], "icd10": ["C22.0", "D13.4"], "work_rvu": 42.85},
+            {"label": "Trisegmentectomy", "cpt_code": "47130", "description": "Hepatectomy, resection of liver; total right lobectomy", "modifiers": ["-22"], "icd10": ["C22.0", "D13.4"], "work_rvu": 58.85}
+          ]
+        },
+        "biliary_questions": {
+          "question": "Type of biliary procedure?",
+          "options": [
+            {"label": "Hepaticojejunostomy", "cpt_code": "47760", "description": "Anastomosis, of extrahepatic biliary ducts and gastrointestinal tract", "modifiers": [], "icd10": ["C24.0", "K83.1"], "work_rvu": 32.85},
+            {"label": "Common bile duct exploration, open", "cpt_code": "47610", "description": "Cholecystectomy with exploration of common duct", "modifiers": [], "icd10": ["K80.50", "K80.30"], "work_rvu": 18.85},
+            {"label": "CBD exploration with T-tube", "cpt_code": "47610", "description": "Cholecystectomy with exploration of common duct", "modifiers": ["-51"], "icd10": ["K80.50", "K80.30"], "work_rvu": 22.85},
+            {"label": "Cholangiocarcinoma resection", "cpt_code": "47999", "description": "Unlisted procedure, biliary tract", "modifiers": [], "icd10": ["C24.0", "C22.1"], "work_rvu": 52.85}
+          ]
+        },
+        "liver_ablation_questions": {
+          "question": "Type of ablation?",
+          "options": [
+            {"label": "Open liver ablation, RFA", "cpt_code": "47370", "description": "Laparoscopy, surgical, ablation of 1 or more liver tumor(s); radiofrequency", "modifiers": ["-22"], "icd10": ["C22.0", "C78.7"], "work_rvu": 22.85},
+            {"label": "Laparoscopic RFA", "cpt_code": "47370", "description": "Laparoscopy, surgical, ablation of 1 or more liver tumor(s); radiofrequency", "modifiers": [], "icd10": ["C22.0", "C78.7"], "work_rvu": 18.85},
+            {"label": "Percutaneous ablation", "cpt_code": "47382", "description": "Ablation, 1 or more liver tumor(s), percutaneous, radiofrequency", "modifiers": [], "icd10": ["C22.0", "C78.7"], "work_rvu": 8.85}
+          ]
+        },
+        "pseudocyst_questions": {
+          "question": "Drainage approach?",
+          "options": [
+            {"label": "Endoscopic pseudocyst drainage", "cpt_code": "43240", "description": "Esophagogastroduodenoscopy, flexible, transoral; with transmural drainage of pseudocyst", "modifiers": [], "icd10": ["K86.3"], "work_rvu": 12.85},
+            {"label": "Open cystogastrostomy", "cpt_code": "48510", "description": "External drainage, pseudocyst of pancreas; open", "modifiers": [], "icd10": ["K86.3"], "work_rvu": 22.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Colorectal Surgery",
+      "specialty": "Colorectal Surgery",
+      "questions": [
+        {
+          "question": "Type of colorectal procedure?",
+          "options": [
+            {"label": "Right Hemicolectomy", "next": "right_hemi_questions"},
+            {"label": "Left Hemicolectomy", "next": "left_hemi_questions"},
+            {"label": "Sigmoid Colectomy", "next": "sigmoid_questions"},
+            {"label": "Low Anterior Resection", "next": "lar_questions"},
+            {"label": "APR/Total Proctocolectomy", "next": "apr_questions"},
+            {"label": "Hartmann/Ostomy", "next": "hartmann_questions"},
+            {"label": "Anorectal Procedures", "next": "anorectal_questions"},
+            {"label": "Rectal Prolapse", "next": "prolapse_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "right_hemi_questions": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open right hemicolectomy", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2"], "work_rvu": 18.85},
+            {"label": "Laparoscopic right hemicolectomy", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2"], "work_rvu": 21.25},
+            {"label": "Robotic right hemicolectomy", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.0", "C18.2"], "work_rvu": 21.25}
+          ]
+        },
+        "left_hemi_questions": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open left hemicolectomy", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7"], "work_rvu": 18.85},
+            {"label": "Laparoscopic left hemicolectomy", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7"], "work_rvu": 21.25},
+            {"label": "Robotic left hemicolectomy", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.6", "C18.7"], "work_rvu": 21.25}
+          ]
+        },
+        "sigmoid_questions": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open sigmoid colectomy", "cpt_code": "44140", "description": "Colectomy, partial; with anastomosis", "modifiers": [], "icd10": ["C18.7", "K57.32"], "work_rvu": 18.85},
+            {"label": "Laparoscopic sigmoid colectomy", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.7", "K57.32"], "work_rvu": 21.25},
+            {"label": "Robotic sigmoid colectomy", "cpt_code": "44205", "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis", "modifiers": [], "icd10": ["C18.7", "K57.32"], "work_rvu": 21.25}
+          ]
+        },
+        "lar_questions": {
+          "question": "Approach and diversion?",
+          "options": [
+            {"label": "Open LAR", "cpt_code": "45113", "description": "Proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, includes loop ileostomy", "modifiers": [], "icd10": ["C19", "C20"], "work_rvu": 32.85},
+            {"label": "Laparoscopic LAR", "cpt_code": "45395", "description": "Laparoscopy, surgical; proctectomy, complete, combined abdominoperineal", "modifiers": [], "icd10": ["C19", "C20"], "work_rvu": 28.85},
+            {"label": "LAR with diverting ileostomy", "cpt_code": "45113", "description": "Proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, includes loop ileostomy", "modifiers": [], "icd10": ["C19", "C20"], "work_rvu": 35.85}
+          ]
+        },
+        "apr_questions": {
+          "question": "Extent of resection?",
+          "options": [
+            {"label": "Abdominoperineal resection", "cpt_code": "45110", "description": "Proctectomy; complete, combined abdominoperineal, with colostomy", "modifiers": [], "icd10": ["C19", "C20"], "work_rvu": 32.85},
+            {"label": "Total proctocolectomy with ileostomy", "cpt_code": "44155", "description": "Colectomy, total, abdominal, with proctectomy; with ileostomy", "modifiers": [], "icd10": ["C18.9", "K51.90"], "work_rvu": 42.85},
+            {"label": "Proctocolectomy with IPAA (J-pouch)", "cpt_code": "44212", "description": "Laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis", "modifiers": [], "icd10": ["K51.90", "D12.6"], "work_rvu": 52.85}
+          ]
+        },
+        "hartmann_questions": {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Hartmann procedure", "cpt_code": "44143", "description": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure)", "modifiers": [], "icd10": ["C18.7", "K57.20"], "work_rvu": 22.85},
+            {"label": "Hartmann reversal", "cpt_code": "44625", "description": "Closure of enterostomy, large or small intestine", "modifiers": [], "icd10": ["Z93.3"], "work_rvu": 18.85},
+            {"label": "Ileostomy creation", "cpt_code": "44310", "description": "Ileostomy or jejunostomy, non-tube", "modifiers": [], "icd10": ["K91.40"], "work_rvu": 9.25},
+            {"label": "Colostomy creation", "cpt_code": "44320", "description": "Colostomy or skin level cecostomy", "modifiers": [], "icd10": ["K91.40"], "work_rvu": 8.85}
+          ]
+        },
+        "anorectal_questions": {
+          "question": "Type of anorectal procedure?",
+          "options": [
+            {"label": "Internal hemorrhoidectomy", "cpt_code": "46221", "description": "Hemorrhoidectomy, internal, by rubber band ligation(s)", "modifiers": [], "icd10": ["K64.8"], "work_rvu": 2.85},
+            {"label": "External hemorrhoidectomy", "cpt_code": "46083", "description": "Incision of thrombosed hemorrhoid, external", "modifiers": [], "icd10": ["K64.5"], "work_rvu": 3.25},
+            {"label": "Stapled hemorrhoidopexy (PPH)", "cpt_code": "46947", "description": "Hemorrhoidopexy (eg, for prolapsing internal hemorrhoids) by stapling", "modifiers": [], "icd10": ["K64.1"], "work_rvu": 8.85},
+            {"label": "Lateral internal sphincterotomy", "cpt_code": "46080", "description": "Sphincterotomy, anal, division of sphincter (separate procedure)", "modifiers": [], "icd10": ["K60.2"], "work_rvu": 4.25},
+            {"label": "Fistulotomy", "cpt_code": "46270", "description": "Surgical treatment of anal fistula (fistulectomy/fistulotomy); subcutaneous", "modifiers": [], "icd10": ["K60.3"], "work_rvu": 5.85},
+            {"label": "Seton placement", "cpt_code": "46020", "description": "Placement of seton", "modifiers": [], "icd10": ["K60.3"], "work_rvu": 3.85},
+            {"label": "Pilonidal cyst excision", "cpt_code": "11770", "description": "Excision of pilonidal cyst or sinus; simple", "modifiers": [], "icd10": ["L05.91"], "work_rvu": 5.85},
+            {"label": "TAMIS (transanal excision)", "cpt_code": "0184T", "description": "Excision of rectal tumor, transanal endoscopic microsurgical approach", "modifiers": [], "icd10": ["D12.7", "C20"], "work_rvu": 12.85}
+          ]
+        },
+        "prolapse_questions": {
+          "question": "Approach to prolapse repair?",
+          "options": [
+            {"label": "Perineal proctosigmoidectomy (Altemeier)", "cpt_code": "45130", "description": "Excision of rectal procidentia, with anastomosis; perineal approach", "modifiers": [], "icd10": ["K62.3"], "work_rvu": 18.85},
+            {"label": "Abdominal rectopexy", "cpt_code": "45540", "description": "Proctopexy (eg, for prolapse); abdominal approach", "modifiers": [], "icd10": ["K62.3"], "work_rvu": 22.85},
+            {"label": "Laparoscopic rectopexy", "cpt_code": "45395", "description": "Laparoscopy, surgical; proctectomy, complete, combined abdominoperineal", "modifiers": [], "icd10": ["K62.3"], "work_rvu": 18.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "OB/GYN",
+      "specialty": "Obstetrics and Gynecology",
+      "questions": [
+        {
+          "question": "Type of OB/GYN procedure?",
+          "options": [
+            {"label": "Cesarean Section", "next": "cesarean_questions"},
+            {"label": "Hysterectomy", "next": "hysterectomy_questions"},
+            {"label": "Oophorectomy/Salpingectomy", "next": "adnexal_questions"},
+            {"label": "Myomectomy", "next": "myomectomy_questions"},
+            {"label": "D&C/Hysteroscopy", "next": "dc_questions"},
+            {"label": "Ectopic Pregnancy", "next": "ectopic_questions"},
+            {"label": "Other Gynecologic", "next": "other_gyn_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "cesarean_questions": {
+          "question": "Type of cesarean section?",
+          "options": [
+            {"label": "Primary cesarean, low transverse", "cpt_code": "59510", "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care", "modifiers": [], "icd10": ["O82", "O34.21"], "work_rvu": 22.85},
+            {"label": "Repeat cesarean section", "cpt_code": "59510", "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care", "modifiers": [], "icd10": ["O82", "O34.219"], "work_rvu": 22.85},
+            {"label": "Classical cesarean section", "cpt_code": "59510", "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care", "modifiers": ["-22"], "icd10": ["O82", "O65.5"], "work_rvu": 28.85}
+          ]
+        },
+        "hysterectomy_questions": {
+          "question": "Approach and extent?",
+          "options": [
+            {"label": "Total abdominal hysterectomy", "cpt_code": "58150", "description": "Total abdominal hysterectomy (corpus and cervix), with or without removal of tube(s), with or without removal of ovary(s)", "modifiers": [], "icd10": ["N92.0", "D25.9"], "work_rvu": 17.66},
+            {"label": "Total vaginal hysterectomy", "cpt_code": "58260", "description": "Vaginal hysterectomy, for uterus 250 g or less", "modifiers": [], "icd10": ["N92.0", "D25.9"], "work_rvu": 15.56},
+            {"label": "Laparoscopic hysterectomy", "cpt_code": "58541", "description": "Laparoscopy, surgical, supracervical hysterectomy, for uterus 250 g or less", "modifiers": [], "icd10": ["N92.0", "D25.9"], "work_rvu": 15.87},
+            {"label": "Robotic hysterectomy", "cpt_code": "58541", "description": "Laparoscopy, surgical, supracervical hysterectomy, for uterus 250 g or less", "modifiers": [], "icd10": ["N92.0", "D25.9"], "work_rvu": 15.87},
+            {"label": "Radical hysterectomy", "cpt_code": "58210", "description": "Radical abdominal hysterectomy, with bilateral total pelvic lymphadenectomy and para-aortic lymph node sampling", "modifiers": [], "icd10": ["C53.9", "C54.1"], "work_rvu": 33.25}
+          ]
+        },
+        "adnexal_questions": {
+          "question": "Procedure and approach?",
+          "options": [
+            {"label": "Unilateral oophorectomy, open", "cpt_code": "58940", "description": "Oophorectomy, partial or total, unilateral or bilateral", "modifiers": ["-LT", "-RT"], "icd10": ["N83.20", "C56.9"], "work_rvu": 8.55},
+            {"label": "Bilateral oophorectomy", "cpt_code": "58940", "description": "Oophorectomy, partial or total, unilateral or bilateral", "modifiers": [], "icd10": ["N83.20", "C56.9"], "work_rvu": 11.45},
+            {"label": "Laparoscopic oophorectomy", "cpt_code": "58661", "description": "Laparoscopy, surgical; with removal of adnexal structures (partial or total oophorectomy and/or salpingectomy)", "modifiers": [], "icd10": ["N83.20", "C56.9"], "work_rvu": 9.95},
+            {"label": "Salpingectomy, unilateral", "cpt_code": "58700", "description": "Salpingectomy, complete or partial, unilateral or bilateral (separate procedure)", "modifiers": ["-LT", "-RT"], "icd10": ["N83.6", "C57.0"], "work_rvu": 7.85},
+            {"label": "Tubal ligation, laparoscopic", "cpt_code": "58670", "description": "Laparoscopy, surgical; with fulguration of oviducts (with or without transection)", "modifiers": [], "icd10": ["Z30.2"], "work_rvu": 7.15},
+            {"label": "Postpartum tubal ligation", "cpt_code": "58605", "description": "Ligation or transection of fallopian tube(s), abdominal or vaginal approach, postpartum, unilateral or bilateral", "modifiers": [], "icd10": ["Z30.2"], "work_rvu": 6.85}
+          ]
+        },
+        "myomectomy_questions": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Abdominal myomectomy", "cpt_code": "58140", "description": "Myomectomy, excision of fibroid tumor(s) of uterus, 1 to 4 intramural myomas with total weight of 250 g or less and/or removal of surface myomas", "modifiers": [], "icd10": ["D25.9"], "work_rvu": 16.72},
+            {"label": "Laparoscopic myomectomy", "cpt_code": "58545", "description": "Laparoscopy, surgical, myomectomy, excision; 1 to 4 intramural myomas with total weight of 250 g or less and/or removal of surface myomas", "modifiers": [], "icd10": ["D25.9"], "work_rvu": 18.64},
+            {"label": "Hysteroscopic myomectomy", "cpt_code": "58558", "description": "Hysteroscopy, surgical; with sampling (biopsy) of endometrium and/or polypectomy, with or without D & C", "modifiers": [], "icd10": ["D25.1"], "work_rvu": 6.99}
+          ]
+        },
+        "dc_questions": {
+          "question": "Procedure type?",
+          "options": [
+            {"label": "D&C, diagnostic", "cpt_code": "58120", "description": "Dilation and curettage, diagnostic and/or therapeutic (nonobstetrical)", "modifiers": [], "icd10": ["N92.0", "N93.8"], "work_rvu": 4.05},
+            {"label": "D&C with hysteroscopy", "cpt_code": "58558", "description": "Hysteroscopy, surgical; with sampling (biopsy) of endometrium and/or polypectomy, with or without D & C", "modifiers": [], "icd10": ["N92.0", "N84.0"], "work_rvu": 6.99}
+          ]
+        },
+        "ectopic_questions": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Laparoscopic salpingectomy for ectopic", "cpt_code": "59151", "description": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or oophorectomy", "modifiers": [], "icd10": ["O00.10"], "work_rvu": 11.05},
+            {"label": "Laparoscopic salpingostomy for ectopic", "cpt_code": "59150", "description": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/or oophorectomy", "modifiers": [], "icd10": ["O00.10"], "work_rvu": 9.25}
+          ]
+        },
+        "other_gyn_questions": {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Vaginal cerclage (McDonald)", "cpt_code": "57700", "description": "Cerclage of uterine cervix, nonobstetrical", "modifiers": [], "icd10": ["N88.3", "O34.30"], "work_rvu": 5.35},
+            {"label": "Abdominal cerclage", "cpt_code": "59325", "description": "Cerclage of cervix, during pregnancy; abdominal", "modifiers": [], "icd10": ["O34.30"], "work_rvu": 12.85},
+            {"label": "Bartholin cyst I&D", "cpt_code": "56420", "description": "Incision and drainage of Bartholin's gland abscess", "modifiers": [], "icd10": ["N75.1"], "work_rvu": 3.25},
+            {"label": "Bartholin cyst marsupialization", "cpt_code": "56440", "description": "Marsupialization of Bartholin's gland cyst", "modifiers": [], "icd10": ["N75.0"], "work_rvu": 4.85},
+            {"label": "Anterior/posterior colporrhaphy", "cpt_code": "57240", "description": "Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele", "modifiers": [], "icd10": ["N81.10", "N81.85"], "work_rvu": 12.25},
+            {"label": "Sacrocolpopexy", "cpt_code": "57425", "description": "Laparoscopy, surgical, colpopexy (suspension of vaginal apex)", "modifiers": [], "icd10": ["N81.4"], "work_rvu": 17.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Surgical Oncology",
+      "specialty": "Surgical Oncology",
+      "questions": [
+        {
+          "question": "Type of oncologic procedure?",
+          "options": [
+            {"label": "Wide Local Excision", "next": "wide_excision_questions"},
+            {"label": "Sentinel Lymph Node Biopsy", "next": "slnb_questions"},
+            {"label": "Lymph Node Dissection", "next": "lymph_dissection_questions"},
+            {"label": "Soft Tissue Sarcoma", "next": "sarcoma_questions"},
+            {"label": "Melanoma Excision", "next": "melanoma_questions"},
+            {"label": "Complex Oncologic", "next": "complex_onc_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "wide_excision_questions": {
+          "question": "Location and size?",
+          "options": [
+            {"label": "WLE trunk, ≤2cm", "cpt_code": "11602", "description": "Excision, malignant lesion including margins, trunk/arms/legs; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C43.59", "C44.509"], "work_rvu": 3.25},
+            {"label": "WLE trunk, 2.1-4cm", "cpt_code": "11603", "description": "Excision, malignant lesion including margins, trunk/arms/legs; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C43.59", "C44.509"], "work_rvu": 3.95},
+            {"label": "WLE trunk, >4cm", "cpt_code": "11606", "description": "Excision, malignant lesion including margins, trunk/arms/legs; over 4.0 cm", "modifiers": [], "icd10": ["C43.59", "C44.509"], "work_rvu": 6.25},
+            {"label": "WLE extremity with margins", "cpt_code": "11606", "description": "Excision, malignant lesion including margins, trunk/arms/legs; over 4.0 cm", "modifiers": ["-LT", "-RT"], "icd10": ["C43.60", "C44.60"], "work_rvu": 6.25}
+          ]
+        },
+        "slnb_questions": {
+          "question": "Location?",
+          "options": [
+            {"label": "Breast SLNB", "cpt_code": "38500", "description": "Biopsy or excision of lymph node(s); open, superficial", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C50.912"], "work_rvu": 3.85},
+            {"label": "Melanoma SLNB, axilla", "cpt_code": "38500", "description": "Biopsy or excision of lymph node(s); open, superficial", "modifiers": ["-LT", "-RT"], "icd10": ["C43.59"], "work_rvu": 3.85},
+            {"label": "Melanoma SLNB, groin", "cpt_code": "38500", "description": "Biopsy or excision of lymph node(s); open, superficial", "modifiers": ["-LT", "-RT"], "icd10": ["C43.70"], "work_rvu": 3.85}
+          ]
+        },
+        "lymph_dissection_questions": {
+          "question": "Type of lymph node dissection?",
+          "options": [
+            {"label": "Axillary LND, levels I-II", "cpt_code": "38740", "description": "Axillary lymphadenectomy; superficial", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C43.59"], "work_rvu": 9.25},
+            {"label": "Axillary LND, levels I-III", "cpt_code": "38745", "description": "Axillary lymphadenectomy; complete", "modifiers": ["-LT", "-RT"], "icd10": ["C50.911", "C43.59"], "work_rvu": 14.55},
+            {"label": "Inguinal lymphadenectomy", "cpt_code": "38760", "description": "Inguinofemoral lymphadenectomy, superficial, including Cloquet's node (separate procedure)", "modifiers": ["-LT", "-RT"], "icd10": ["C43.70", "C51.9"], "work_rvu": 15.85},
+            {"label": "Radical neck dissection", "cpt_code": "38720", "description": "Cervical lymphadenectomy (complete)", "modifiers": ["-LT", "-RT"], "icd10": ["C76.0", "C77.0"], "work_rvu": 19.25},
+            {"label": "Modified radical neck dissection", "cpt_code": "38724", "description": "Cervical lymphadenectomy (modified radical neck dissection)", "modifiers": ["-LT", "-RT"], "icd10": ["C76.0", "C77.0"], "work_rvu": 16.85},
+            {"label": "Selective neck dissection", "cpt_code": "38700", "description": "Suprahyoid lymphadenectomy", "modifiers": ["-LT", "-RT"], "icd10": ["C76.0", "C77.0"], "work_rvu": 12.85}
+          ]
+        },
+        "sarcoma_questions": {
+          "question": "Size and depth?",
+          "options": [
+            {"label": "Superficial sarcoma <5cm", "cpt_code": "11406", "description": "Excision, benign lesion including margins, trunk/arms/legs; over 4.0 cm", "modifiers": [], "icd10": ["C49.9"], "work_rvu": 4.95},
+            {"label": "Deep sarcoma <5cm", "cpt_code": "21930", "description": "Excision, tumor, soft tissue of back or flank, subfascial (eg, intramuscular); 5 cm or greater", "modifiers": [], "icd10": ["C49.9"], "work_rvu": 18.85},
+            {"label": "Large sarcoma >5cm", "cpt_code": "21930", "description": "Excision, tumor, soft tissue of back or flank, subfascial (eg, intramuscular); 5 cm or greater", "modifiers": ["-22"], "icd10": ["C49.9"], "work_rvu": 28.85},
+            {"label": "Retroperitoneal sarcoma", "cpt_code": "49203", "description": "Excision or destruction, open, intra-abdominal tumors, cysts or endometriomas, 1 or more peritoneal, mesenteric, or retroperitoneal primary or secondary tumors; largest tumor 5 cm diameter or less", "modifiers": [], "icd10": ["C48.0"], "work_rvu": 22.85}
+          ]
+        },
+        "melanoma_questions": {
+          "question": "Size and additional procedures?",
+          "options": [
+            {"label": "Melanoma WLE ≤1cm", "cpt_code": "11601", "description": "Excision, malignant lesion including margins, trunk/arms/legs; 0.6 to 1.0 cm", "modifiers": [], "icd10": ["C43.9"], "work_rvu": 2.65},
+            {"label": "Melanoma WLE 1-2cm", "cpt_code": "11602", "description": "Excision, malignant lesion including margins, trunk/arms/legs; 1.1 to 2.0 cm", "modifiers": [], "icd10": ["C43.9"], "work_rvu": 3.25},
+            {"label": "Melanoma WLE >2cm", "cpt_code": "11603", "description": "Excision, malignant lesion including margins, trunk/arms/legs; 2.1 to 3.0 cm", "modifiers": [], "icd10": ["C43.9"], "work_rvu": 3.95},
+            {"label": "Melanoma WLE + SLNB", "cpt_code": "11603", "description": "Excision, malignant lesion including margins, trunk/arms/legs; 2.1 to 3.0 cm", "modifiers": ["-51"], "icd10": ["C43.9"], "work_rvu": 7.80}
+          ]
+        },
+        "complex_onc_questions": {
+          "question": "Type of complex procedure?",
+          "options": [
+            {"label": "Cytoreductive surgery (debulking)", "cpt_code": "58952", "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy", "modifiers": [], "icd10": ["C78.6"], "work_rvu": 28.85},
+            {"label": "HIPEC (heated chemotherapy)", "cpt_code": "58952", "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy", "modifiers": ["-22"], "icd10": ["C78.6"], "work_rvu": 42.85},
+            {"label": "Adrenalectomy, open", "cpt_code": "60540", "description": "Adrenalectomy, partial or complete, or exploration of adrenal gland with or without biopsy, transabdominal, lumbar or dorsal (separate procedure)", "modifiers": ["-LT", "-RT"], "icd10": ["C74.90", "D35.00"], "work_rvu": 20.85},
+            {"label": "Laparoscopic adrenalectomy", "cpt_code": "60650", "description": "Laparoscopy, surgical, with adrenalectomy, partial or complete, or exploration of adrenal gland with or without biopsy, transabdominal, lumbar or dorsal", "modifiers": ["-LT", "-RT"], "icd10": ["C74.90", "D35.00"], "work_rvu": 22.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Gynecologic Oncology",
+      "specialty": "Gynecologic Oncology",
+      "questions": [
+        {
+          "question": "Type of gynecologic oncology procedure?",
+          "options": [
+            {"label": "Radical Hysterectomy", "next": "radical_hyst_questions"},
+            {"label": "Ovarian Cancer Debulking", "next": "ovarian_debulking_questions"},
+            {"label": "Vulvectomy", "next": "vulvectomy_questions"},
+            {"label": "Cone Biopsy/LEEP", "next": "cone_questions"},
+            {"label": "Pelvic Exenteration", "next": "exenteration_questions"},
+            {"label": "Omentectomy", "next": "omentectomy_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "radical_hyst_questions": {
+          "question": "Extent of dissection?",
+          "options": [
+            {"label": "Type II radical hysterectomy", "cpt_code": "58210", "description": "Radical abdominal hysterectomy, with bilateral total pelvic lymphadenectomy and para-aortic lymph node sampling", "modifiers": [], "icd10": ["C53.9"], "work_rvu": 33.25},
+            {"label": "Type III radical hysterectomy", "cpt_code": "58210", "description": "Radical abdominal hysterectomy, with bilateral total pelvic lymphadenectomy and para-aortic lymph node sampling", "modifiers": ["-22"], "icd10": ["C53.9"], "work_rvu": 42.25},
+            {"label": "Laparoscopic radical hysterectomy", "cpt_code": "58548", "description": "Laparoscopy, surgical, with radical hysterectomy", "modifiers": [], "icd10": ["C53.9"], "work_rvu": 28.85}
+          ]
+        },
+        "ovarian_debulking_questions": {
+          "question": "Extent of debulking?",
+          "options": [
+            {"label": "Optimal debulking (<1cm residual)", "cpt_code": "58952", "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy", "modifiers": [], "icd10": ["C56.9"], "work_rvu": 28.85},
+            {"label": "Suboptimal debulking with bowel resection", "cpt_code": "58952", "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy", "modifiers": ["-22", "-51"], "icd10": ["C56.9"], "work_rvu": 45.85},
+            {"label": "Secondary cytoreduction", "cpt_code": "58956", "description": "Bilateral salpingo-oophorectomy with total omentectomy for malignancy", "modifiers": [], "icd10": ["C56.9"], "work_rvu": 22.85}
+          ]
+        },
+        "vulvectomy_questions": {
+          "question": "Extent of vulvectomy?",
+          "options": [
+            {"label": "Partial vulvectomy", "cpt_code": "56620", "description": "Vulvectomy partial, unilateral", "modifiers": ["-LT", "-RT"], "icd10": ["C51.9"], "work_rvu": 8.85},
+            {"label": "Radical vulvectomy", "cpt_code": "56630", "description": "Vulvectomy, radical, partial", "modifiers": [], "icd10": ["C51.9"], "work_rvu": 16.85},
+            {"label": "Radical vulvectomy with inguinal LND", "cpt_code": "56637", "description": "Vulvectomy, radical, complete, with inguinofemoral lymphadenectomy", "modifiers": [], "icd10": ["C51.9"], "work_rvu": 25.85}
+          ]
+        },
+        "cone_questions": {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Cold knife cone biopsy", "cpt_code": "57520", "description": "Conization of cervix, with or without fulguration, with or without dilation and curettage, with or without repair; cold knife or laser", "modifiers": [], "icd10": ["N87.9", "C53.9"], "work_rvu": 7.05},
+            {"label": "LEEP procedure", "cpt_code": "57522", "description": "Conization of cervix, with or without fulguration, with or without dilation and curettage, with or without repair; loop electrode excision", "modifiers": [], "icd10": ["N87.9", "C53.9"], "work_rvu": 5.15}
+          ]
+        },
+        "exenteration_questions": {
+          "question": "Type of exenteration?",
+          "options": [
+            {"label": "Anterior pelvic exenteration", "cpt_code": "58240", "description": "Pelvic exenteration for gynecologic malignancy, with total abdominal hysterectomy or cervicectomy", "modifiers": [], "icd10": ["C53.9", "C54.1"], "work_rvu": 52.85},
+            {"label": "Posterior pelvic exenteration", "cpt_code": "58240", "description": "Pelvic exenteration for gynecologic malignancy, with total abdominal hysterectomy or cervicectomy", "modifiers": ["-22"], "icd10": ["C53.9", "C54.1"], "work_rvu": 58.85},
+            {"label": "Total pelvic exenteration", "cpt_code": "58240", "description": "Pelvic exenteration for gynecologic malignancy, with total abdominal hysterectomy or cervicectomy", "modifiers": ["-22"], "icd10": ["C53.9", "C54.1"], "work_rvu": 68.85}
+          ]
+        },
+        "omentectomy_questions": {
+          "question": "Extent of omentectomy?",
+          "options": [
+            {"label": "Infracolic omentectomy", "cpt_code": "49255", "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)", "modifiers": [], "icd10": ["C78.6"], "work_rvu": 12.85},
+            {"label": "Total omentectomy", "cpt_code": "49255", "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)", "modifiers": ["-22"], "icd10": ["C78.6"], "work_rvu": 18.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Pediatric Surgery",
+      "specialty": "Pediatric Surgery",
+      "questions": [
+        {
+          "question": "Type of pediatric procedure?",
+          "options": [
+            {"label": "Pyloromyotomy", "next": "pyloromyotomy_questions"},
+            {"label": "Pediatric Hernia", "next": "ped_hernia_questions"},
+            {"label": "Orchiopexy", "next": "orchiopexy_questions"},
+            {"label": "Pediatric Appendectomy", "next": "ped_appendix_questions"},
+            {"label": "Circumcision", "next": "circumcision_questions"},
+            {"label": "Congenital Anomalies", "next": "congenital_questions"},
+            {"label": "Hirschsprung Disease", "next": "hirschsprung_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "pyloromyotomy_questions": {
+          "question": "Approach?",
+          "options": [
+            {"label": "Open pyloromyotomy (Ramstedt)", "cpt_code": "43520", "description": "Pyloromyotomy, cutting of pyloric muscle (Fredet-Ramstedt type operation)", "modifiers": [], "icd10": ["Q40.0"], "work_rvu": 12.85},
+            {"label": "Laparoscopic pyloromyotomy", "cpt_code": "43659", "description": "Unlisted laparoscopy procedure, stomach", "modifiers": [], "icd10": ["Q40.0"], "work_rvu": 10.85}
+          ]
+        },
+        "ped_hernia_questions": {
+          "question": "Type and complexity?",
+          "options": [
+            {"label": "Inguinal hernia repair, infant", "cpt_code": "49500", "description": "Repair initial inguinal hernia, younger than age 5 years; reducible", "modifiers": ["-LT", "-RT"], "icd10": ["K40.90"], "work_rvu": 5.25},
+            {"label": "Umbilical hernia repair, pediatric", "cpt_code": "49580", "description": "Repair umbilical hernia, younger than age 5 years; reducible", "modifiers": [], "icd10": ["K42.9"], "work_rvu": 4.25},
+            {"label": "Incarcerated pediatric inguinal hernia", "cpt_code": "49501", "description": "Repair initial inguinal hernia, younger than age 5 years; incarcerated or strangulated", "modifiers": ["-LT", "-RT"], "icd10": ["K40.00"], "work_rvu": 8.85}
+          ]
+        },
+        "orchiopexy_questions": {
+          "question": "Location of testis?",
+          "options": [
+            {"label": "Inguinal orchiopexy", "cpt_code": "54640", "description": "Orchiopexy, inguinal approach, with or without hernia repair", "modifiers": ["-LT", "-RT"], "icd10": ["Q53.9"], "work_rvu": 9.85},
+            {"label": "Abdominal orchiopexy (Fowler-Stephens)", "cpt_code": "54650", "description": "Orchiopexy, abdominal approach, for intra-abdominal testis (eg, Fowler-Stephens)", "modifiers": ["-LT", "-RT"], "icd10": ["Q53.1"], "work_rvu": 14.85},
+            {"label": "Laparoscopic orchiopexy", "cpt_code": "54692", "description": "Laparoscopy, surgical; orchiopexy for intra-abdominal testis", "modifiers": ["-LT", "-RT"], "icd10": ["Q53.1"], "work_rvu": 12.85}
+          ]
+        },
+        "ped_appendix_questions": {
+          "question": "Approach and complexity?",
+          "options": [
+            {"label": "Open pediatric appendectomy", "cpt_code": "44970", "description": "Laparoscopy, surgical, appendectomy", "modifiers": [], "icd10": ["K35.9"], "work_rvu": 8.25},
+            {"label": "Laparoscopic pediatric appendectomy", "cpt_code": "44970", "description": "Laparoscopy, surgical, appendectomy", "modifiers": [], "icd10": ["K35.9"], "work_rvu": 8.25},
+            {"label": "Perforated appendicitis, pediatric", "cpt_code": "44960", "description": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis", "modifiers": [], "icd10": ["K35.0"], "work_rvu": 12.85}
+          ]
+        },
+        "circumcision_questions": {
+          "question": "Age and technique?",
+          "options": [
+            {"label": "Newborn circumcision (Gomco)", "cpt_code": "54150", "description": "Circumcision, using clamp or other device with regional dorsal penile or ring block", "modifiers": [], "icd10": ["Z41.2"], "work_rvu": 1.85},
+            {"label": "Newborn circumcision (Plastibell)", "cpt_code": "54150", "description": "Circumcision, using clamp or other device with regional dorsal penile or ring block", "modifiers": [], "icd10": ["Z41.2"], "work_rvu": 1.85},
+            {"label": "Circumcision, older child", "cpt_code": "54161", "description": "Circumcision, surgical excision other than clamp, device, or dorsal slit; older than 28 days of age", "modifiers": [], "icd10": ["Z41.2"], "work_rvu": 4.85}
+          ]
+        },
+        "congenital_questions": {
+          "question": "Type of congenital anomaly?",
+          "options": [
+            {"label": "Gastrostomy tube, pediatric", "cpt_code": "43830", "description": "Gastrostomy, open; without construction of gastric tube (separate procedure)", "modifiers": [], "icd10": ["Z93.1"], "work_rvu": 8.25},
+            {"label": "Laparoscopic Nissen fundoplication", "cpt_code": "43280", "description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty (eg, Nissen, Toupet procedures)", "modifiers": [], "icd10": ["K21.9"], "work_rvu": 14.85},
+            {"label": "CDH repair (congenital diaphragmatic hernia)", "cpt_code": "39503", "description": "Repair, neonatal diaphragmatic hernia, with or without chest tube insertion and with or without creation of ventral hernia", "modifiers": [], "icd10": ["Q79.0"], "work_rvu": 22.85},
+            {"label": "Ladd procedure (malrotation)", "cpt_code": "44055", "description": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)", "modifiers": [], "icd10": ["Q43.3"], "work_rvu": 18.85},
+            {"label": "Intussusception reduction, operative", "cpt_code": "44050", "description": "Reduction of intussusception (separate procedure)", "modifiers": [], "icd10": ["K56.1"], "work_rvu": 12.85},
+            {"label": "Meckel diverticulectomy", "cpt_code": "44800", "description": "Excision of Meckel's diverticulum (diverticulectomy) or omphalomesenteric duct", "modifiers": [], "icd10": ["Q43.0"], "work_rvu": 14.85}
+          ]
+        },
+        "hirschsprung_questions": {
+          "question": "Type of pull-through procedure?",
+          "options": [
+            {"label": "Soave endorectal pull-through", "cpt_code": "45120", "description": "Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis", "modifiers": [], "icd10": ["Q43.1"], "work_rvu": 32.85},
+            {"label": "Swenson pull-through", "cpt_code": "45121", "description": "Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy", "modifiers": [], "icd10": ["Q43.1"], "work_rvu": 38.85},
+            {"label": "Duhamel procedure", "cpt_code": "45119", "description": "Proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, J-pouch), with diverting enterostomy", "modifiers": [], "icd10": ["Q43.1"], "work_rvu": 42.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "OMFS (Oral & Maxillofacial Surgery)",
+      "specialty": "Oral & Maxillofacial Surgery",
+      "questions": [
+        {
+          "question": "Type of OMFS procedure?",
+          "options": [
+            {"label": "Mandible Fracture", "next": "mandible_fracture_questions"},
+            {"label": "Maxillary Fracture", "next": "maxilla_fracture_questions"},
+            {"label": "Orbital/Zygoma Fracture", "next": "orbital_fracture_questions"},
+            {"label": "TMJ Procedures", "next": "tmj_questions"},
+            {"label": "Tooth Extraction", "next": "extraction_questions"},
+            {"label": "Oral Infections", "next": "oral_infection_questions"},
+            {"label": "Oral Pathology", "next": "oral_pathology_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "mandible_fracture_questions": {
+          "question": "Location and approach?",
+          "options": [
+            {"label": "Mandible angle fracture, ORIF", "cpt_code": "21465", "description": "Open treatment of mandibular fracture; compound or complex, with internal fixation", "modifiers": [], "icd10": ["S02.65XA"], "work_rvu": 18.85},
+            {"label": "Mandible body fracture, ORIF", "cpt_code": "21470", "description": "Open treatment of mandibular fracture; complicated (comminuted or involving dental alveolus), with internal fixation", "modifiers": [], "icd10": ["S02.600A"], "work_rvu": 22.85},
+            {"label": "Bilateral mandible fractures", "cpt_code": "21470", "description": "Open treatment of mandibular fracture; complicated (comminuted or involving dental alveolus), with internal fixation", "modifiers": ["-50"], "icd10": ["S02.91XA"], "work_rvu": 34.28},
+            {"label": "Condylar fracture, closed reduction", "cpt_code": "21451", "description": "Closed treatment of mandibular fracture; without interdental fixation", "modifiers": [], "icd10": ["S02.61XA"], "work_rvu": 8.85},
+            {"label": "Symphysis fracture, ORIF", "cpt_code": "21470", "description": "Open treatment of mandibular fracture; complicated (comminuted or involving dental alveolus), with internal fixation", "modifiers": [], "icd10": ["S02.66XA"], "work_rvu": 22.85}
+          ]
+        },
+        "maxilla_fracture_questions": {
+          "question": "Le Fort classification?",
+          "options": [
+            {"label": "Le Fort I fracture, ORIF", "cpt_code": "21421", "description": "Open treatment of palatal or maxillary fracture (LeFort I)", "modifiers": [], "icd10": ["S02.401A"], "work_rvu": 24.85},
+            {"label": "Le Fort II fracture, ORIF", "cpt_code": "21422", "description": "Open treatment of palatal or maxillary fracture (LeFort II); plate/screw fixation", "modifiers": [], "icd10": ["S02.412A"], "work_rvu": 32.85},
+            {"label": "Le Fort III fracture, ORIF", "cpt_code": "21423", "description": "Open treatment of palatal or maxillary fracture (LeFort III)", "modifiers": [], "icd10": ["S02.413A"], "work_rvu": 42.85},
+            {"label": "Panfacial fractures", "cpt_code": "21423", "description": "Open treatment of palatal or maxillary fracture (LeFort III)", "modifiers": ["-22"], "icd10": ["S02.92XA"], "work_rvu": 58.85}
+          ]
+        },
+        "orbital_fracture_questions": {
+          "question": "Location and extent?",
+          "options": [
+            {"label": "Orbital floor fracture", "cpt_code": "21395", "description": "Open treatment of orbital floor fracture; with implant", "modifiers": ["-LT", "-RT"], "icd10": ["S02.3XXA"], "work_rvu": 22.85},
+            {"label": "Zygoma fracture, ORIF", "cpt_code": "21365", "description": "Open treatment of complicated (eg, comminuted or involving cranial nerve foramina) fracture(s) of malar area, including zygomatic arch and malar tripod; with bone graft", "modifiers": ["-LT", "-RT"], "icd10": ["S02.402A"], "work_rvu": 28.85},
+            {"label": "Tripod fracture (ZMC)", "cpt_code": "21366", "description": "Open treatment of complicated (eg, comminuted or involving cranial nerve foramina) fracture(s) of malar area, including zygomatic arch and malar tripod, with multiple surgical approaches", "modifiers": ["-LT", "-RT"], "icd10": ["S02.402A"], "work_rvu": 32.85}
+          ]
+        },
+        "tmj_questions": {
+          "question": "Type of TMJ procedure?",
+          "options": [
+            {"label": "TMJ arthroscopy", "cpt_code": "29804", "description": "Arthroscopy, temporomandibular joint, surgical", "modifiers": ["-LT", "-RT"], "icd10": ["M26.60"], "work_rvu": 14.85},
+            {"label": "TMJ arthroplasty, open", "cpt_code": "21010", "description": "Arthrotomy, temporomandibular joint", "modifiers": ["-LT", "-RT"], "icd10": ["M26.60"], "work_rvu": 18.85},
+            {"label": "TMJ total joint replacement", "cpt_code": "21243", "description": "Reconstruction of mandible or maxilla, endosteal implant (eg, blade, cylinder); partial (3 or fewer teeth)", "modifiers": ["-LT", "-RT"], "icd10": ["M26.69"], "work_rvu": 32.85}
+          ]
+        },
+        "extraction_questions": {
+          "question": "Complexity and number?",
+          "options": [
+            {"label": "Simple extraction, single tooth", "cpt_code": "41899", "description": "Unlisted procedure, dentoalveolar structures", "modifiers": [], "icd10": ["K08.89"], "work_rvu": 2.85},
+            {"label": "Surgical extraction, single tooth", "cpt_code": "41899", "description": "Unlisted procedure, dentoalveolar structures", "modifiers": [], "icd10": ["K08.89"], "work_rvu": 4.85},
+            {"label": "Multiple extractions", "cpt_code": "41899", "description": "Unlisted procedure, dentoalveolar structures", "modifiers": ["-22"], "icd10": ["K08.89"], "work_rvu": 8.85},
+            {"label": "Impacted tooth, soft tissue", "cpt_code": "41899", "description": "Unlisted procedure, dentoalveolar structures", "modifiers": [], "icd10": ["K01.1"], "work_rvu": 6.85},
+            {"label": "Impacted tooth, partial bony", "cpt_code": "41899", "description": "Unlisted procedure, dentoalveolar structures", "modifiers": [], "icd10": ["K01.1"], "work_rvu": 8.85},
+            {"label": "Impacted tooth, full bony", "cpt_code": "41899", "description": "Unlisted procedure, dentoalveolar structures", "modifiers": [], "icd10": ["K01.1"], "work_rvu": 12.85}
+          ]
+        },
+        "oral_infection_questions": {
+          "question": "Location and extent?",
+          "options": [
+            {"label": "Simple intraoral abscess I&D", "cpt_code": "41800", "description": "Drainage of abscess, cyst, hematoma from dentoalveolar structures", "modifiers": [], "icd10": ["K12.2"], "work_rvu": 4.85},
+            {"label": "Submandibular space I&D", "cpt_code": "21025", "description": "Excision of bone (eg, for osteomyelitis or bone abscess); mandible", "modifiers": [], "icd10": ["K12.2"], "work_rvu": 12.85},
+            {"label": "Ludwig's angina I&D", "cpt_code": "21025", "description": "Excision of bone (eg, for osteomyelitis or bone abscess); mandible", "modifiers": ["-22"], "icd10": ["K12.2"], "work_rvu": 18.85}
+          ]
+        },
+        "oral_pathology_questions": {
+          "question": "Type of procedure?",
+          "options": [
+            {"label": "Oral lesion biopsy", "cpt_code": "40490", "description": "Biopsy of lip", "modifiers": [], "icd10": ["K13.70"], "work_rvu": 3.85},
+            {"label": "Jaw reconstruction, bone graft", "cpt_code": "21215", "description": "Graft, bone; mandible (includes obtaining graft)", "modifiers": [], "icd10": ["M89.9"], "work_rvu": 24.85},
+            {"label": "Microvascular free flap reconstruction", "cpt_code": "15756", "description": "Free muscle or myocutaneous flap with microvascular anastomosis", "modifiers": [], "icd10": ["M89.9"], "work_rvu": 52.85}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Neurosurgery",
+      "specialty": "Neurosurgery",
+      "questions": [
+        {
+          "question": "Type of neurosurgical procedure?",
+          "options": [
+            {"label": "Craniotomy", "next": "craniotomy_questions"},
+            {"label": "Burr Hole Procedures", "next": "burr_hole_questions"},
+            {"label": "Shunt Procedures", "next": "shunt_questions"},
+            {"label": "Spinal Fusion", "next": "spinal_fusion_questions"},
+            {"label": "Laminectomy/Discectomy", "next": "decompress_questions"},
+            {"label": "Peripheral Nerve", "next": "peripheral_nerve_questions"},
+            {"label": "ICP Monitoring", "next": "icp_monitor_questions"}
+          ]
+        }
+      ],
+      "branches": {
+        "craniotomy_questions": {
+          "question": "Indication for craniotomy?",
+          "options": [
+            {"label": "Brain tumor resection", "cpt_code": "61510", "description": "Craniectomy, trephination, bone flap craniotomy; for excision of brain tumor, supratentorial, except meningioma", "modifiers": [], "icd10": ["C71.9", "D33.0"], "work_rvu": 42.85},
+            {"label": "Epidural hematoma evacuation", "cpt_code": "61313", "description": "Craniectomy or craniotomy, evacuation of hematoma, supratentorial; epidural", "modifiers": [], "icd10": ["S06.4X0A"], "work_rvu": 28.85},
+            {"label": "Subdural hematoma evacuation", "cpt_code": "61314", "description": "Craniectomy or craniotomy, evacuation of hematoma, supratentorial; subdural", "modifiers": [], "icd10": ["S06.5X0A"], "work_rvu": 32.85},
+            {"label": "Intracerebral hematoma evacuation", "cpt_code": "61315", "description": "Craniectomy or craniotomy, evacuation of hematoma, supratentorial; intracerebral", "modifiers": [], "icd10": ["S06.360A"], "work_rvu": 38.85},
+            {"label": "Aneurysm clipping", "cpt_code": "61700", "description": "Surgery of intracranial aneurysm, intracranial approach; carotid circulation", "modifiers": [], "icd10": ["I67.1"], "work_rvu": 58.85},
+            {"label": "AVM resection", "cpt_code": "61680", "description": "Surgery of intracranial arteriovenous malformation; supratentorial, simple", "modifiers": [], "icd10": ["Q28.2"], "work_rvu": 52.85}
+          ]
+        },
+        "burr_hole_questions": {
+          "question": "Purpose of burr hole?",
+          "options": [
+            {"label": "Chronic subdural hematoma drainage", "cpt_code": "61154", "description": "Burr hole(s) with evacuation and/or drainage of hematoma, extradural or subdural", "modifiers": [], "icd10": ["S06.5X0A"], "work_rvu": 12.85},
+            {"label": "ICP monitor placement", "cpt_code": "61107", "description": "Twist drill hole for subdural or ventricular puncture", "modifiers": [], "icd10": ["G93.2"], "work_rvu": 4.85},
+            {"label": "EVD placement (external ventricular drain)", "cpt_code": "61020", "description": "Ventricular puncture through previous burr hole, fontanelle, suture, or implanted ventricular catheter/reservoir", "modifiers": [], "icd10": ["G91.9"], "work_rvu": 8.85},
+            {"label": "Brain biopsy, stereotactic", "cpt_code": "61140", "description": "Burr hole(s) or trephine; with biopsy of brain or intracranial lesion", "modifiers": [], "icd10": ["C71.9"], "work_rvu": 22.85}
+          ]
+        },
+        "shunt_questions": {
+          "question": "Type of shunt procedure?",
+          "options": [
+            {"label": "VP shunt placement", "cpt_code": "62223", "description": "Creation of shunt; ventriculo-peritoneal", "modifiers": [], "icd10": ["G91.9"], "work_rvu": 18.85},
+            {"label": "VP shunt revision", "cpt_code": "62225", "description": "Replacement or irrigation of ventricular catheter", "modifiers": [], "icd10": ["T85.03XA"], "work_rvu": 12.85},
+            {"label": "Shunt removal", "cpt_code": "62256", "description": "Removal of complete cerebrospinal fluid shunt system; without replacement", "modifiers": [], "icd10": ["T85.09XA"], "work_rvu": 14.85}
+          ]
+        },
+        "spinal_fusion_questions": {
+          "question": "Location and levels?",
+          "options": [
+            {"label": "Cervical ACDF, 1 level", "cpt_code": "22551", "description": "Arthrodesis, anterior interbody, including disc space preparation, discectomy, osteophytectomy and decompression of spinal cord and/or nerve roots; cervical below C2", "modifiers": [], "icd10": ["M50.30"], "work_rvu": 22.85},
+            {"label": "Cervical ACDF, 2 levels", "cpt_code": "22552", "description": "Arthrodesis, anterior interbody, including disc space preparation, discectomy, osteophytectomy and decompression of spinal cord and/or nerve roots; cervical below C2, each additional interspace", "modifiers": [], "icd10": ["M50.30"], "work_rvu": 32.85},
+            {"label": "Cervical posterior fusion", "cpt_code": "22600", "description": "Arthrodesis, posterior or posterolateral technique, single level; cervical below C2 segment", "modifiers": [], "icd10": ["M50.30"], "work_rvu": 28.85},
+            {"label": "Lumbar PLIF, 1 level", "cpt_code": "22630", "description": "Arthrodesis, posterior interbody technique, including laminectomy and/or discectomy to prepare interspace (other than for decompression), single interspace; lumbar", "modifiers": [], "icd10": ["M51.36"], "work_rvu": 32.85},
+            {"label": "Lumbar TLIF, 1 level", "cpt_code": "22630", "description": "Arthrodesis, posterior interbody technique, including laminectomy and/or discectomy to prepare interspace (other than for decompression), single interspace; lumbar", "modifiers": [], "icd10": ["M51.36"], "work_rvu": 32.85},
+            {"label": "Lumbar ALIF, 1 level", "cpt_code": "22558", "description": "Arthrodesis, anterior interbody technique, including minimal discectomy to prepare interspace (other than for decompression); lumbar", "modifiers": [], "icd10": ["M51.36"], "work_rvu": 28.85}
+          ]
+        },
+        "decompress_questions": {
+          "question": "Location and extent?",
+          "options": [
+            {"label": "Cervical laminectomy, single level", "cpt_code": "63045", "description": "Laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve roots [eg, spinal or lateral recess stenosis]), single vertebral segment; cervical", "modifiers": [], "icd10": ["M48.02"], "work_rvu": 22.85},
+            {"label": "Lumbar laminectomy, single level", "cpt_code": "63047", "description": "Laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve roots [eg, spinal or lateral recess stenosis]), single vertebral segment; lumbar", "modifiers": [], "icd10": ["M48.06"], "work_rvu": 20.85},
+            {"label": "Lumbar laminectomy, multiple levels", "cpt_code": "63048", "description": "Laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve roots [eg, spinal or lateral recess stenosis]), single vertebral segment; each additional segment, cervical, thoracic, or lumbar", "modifiers": [], "icd10": ["M48.06"], "work_rvu": 28.85},
+            {"label": "Cervical discectomy, open", "cpt_code": "63075", "description": "Discectomy, anterior, with decompression of spinal cord and/or nerve roots, including osteophytectomy; cervical, single interspace", "modifiers": [], "icd10": ["M50.30"], "work_rvu": 18.85},
+            {"label": "Lumbar discectomy, microdiscectomy", "cpt_code": "63030", "description": "Laminotomy (hemilaminectomy), with decompression of nerve roots, including partial facetectomy, foraminotomy, and/or excision of herniated intervertebral disc; 1 interspace, lumbar", "modifiers": [], "icd10": ["M51.36"], "work_rvu": 16.85}
+          ]
+        },
+        "peripheral_nerve_questions": {
+          "question": "Type of nerve procedure?",
+          "options": [
+            {"label": "Carpal tunnel release, open", "cpt_code": "64721", "description": "Neuroplasty and/or transposition; median nerve at carpal tunnel", "modifiers": ["-LT", "-RT"], "icd10": ["G56.00"], "work_rvu": 8.85},
+            {"label": "Carpal tunnel release, endoscopic", "cpt_code": "29848", "description": "Endoscopy, wrist, surgical; with release of transverse carpal ligament", "modifiers": ["-LT", "-RT"], "icd10": ["G56.00"], "work_rvu": 6.85},
+            {"label": "Ulnar nerve decompression, cubital tunnel", "cpt_code": "64718", "description": "Neuroplasty and/or transposition; ulnar nerve at elbow", "modifiers": ["-LT", "-RT"], "icd10": ["G56.20"], "work_rvu": 12.85},
+            {"label": "Ulnar nerve transposition", "cpt_code": "64718", "description": "Neuroplasty and/or transposition; ulnar nerve at elbow", "modifiers": ["-LT", "-RT", "-22"], "icd10": ["G56.20"], "work_rvu": 16.85},
+            {"label": "Spinal cord stimulator trial", "cpt_code": "63650", "description": "Percutaneous implantation of neurostimulator electrode array, epidural", "modifiers": [], "icd10": ["M25.50"], "work_rvu": 8.85},
+            {"label": "Spinal cord stimulator, permanent", "cpt_code": "63655", "description": "Laminectomy for implantation of neurostimulator electrodes, plate/paddle, epidural", "modifiers": [], "icd10": ["M25.50"], "work_rvu": 18.85}
+          ]
+        },
+        "icp_monitor_questions": {
+          "question": "Type of ICP monitoring?",
+          "options": [
+            {"label": "Intraparenchymal ICP monitor", "cpt_code": "61107", "description": "Twist drill hole for subdural or ventricular puncture", "modifiers": [], "icd10": ["G93.2"], "work_rvu": 4.85},
+            {"label": "Intraventricular ICP monitor (EVD)", "cpt_code": "61020", "description": "Ventricular puncture through previous burr hole, fontanelle, suture, or implanted ventricular catheter/reservoir", "modifiers": [], "icd10": ["G93.2"], "work_rvu": 8.85},
+            {"label": "Decompressive craniectomy", "cpt_code": "61322", "description": "Craniectomy, decompressive, with or without duraplasty, for treatment of intracranial hypertension, without evacuation of associated intraparenchymal hematoma; without lobectomy", "modifiers": [], "icd10": ["G93.2"], "work_rvu": 38.85}
+          ]
+        }
+      }
     }
   ]
 }
