@@ -3933,16 +3933,16 @@
 
         <div class="ai-messages" id="aiMessages">
             <div class="ai-msg system">
-                Describe your procedure in plain English and I'll find the right CPT code.
+                Ask me anything about surgical CPT coding, billing, modifiers, or reimbursement. I'll answer like your practice's coding specialist.
             </div>
         </div>
 
         <div class="ai-suggestions" id="aiSuggestions">
-            <span class="ai-suggestion" onclick="aiSuggest(this)">Lap chole</span>
-            <span class="ai-suggestion" onclick="aiSuggest(this)">Open inguinal hernia repair</span>
-            <span class="ai-suggestion" onclick="aiSuggest(this)">Wound debridement</span>
-            <span class="ai-suggestion" onclick="aiSuggest(this)">I&D of abscess</span>
-            <span class="ai-suggestion" onclick="aiSuggest(this)">Central line placement</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">How do I code a lap chole with cholangiogram?</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">When should I use modifier 22?</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Can I bill E/M same day as surgery?</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Wound debridement coding by depth</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Ex lap + splenectomy — how to bill</span>
         </div>
 
         <div class="ai-input-area">
@@ -4035,7 +4035,7 @@
     // Format search results for display
     function formatResults(results, query) {
         if (!results.length) {
-            return `I couldn't find a matching CPT code for "${query}". Try describing the procedure differently, or use the decision tree above for step-by-step guidance.`;
+            return `I couldn't find a matching CPT code for "${query}". Try:\n• Describing the procedure differently (e.g., "lap chole" instead of "gallbladder removal")\n• Using the decision tree above for step-by-step guidance\n• Asking a billing question like "When do I use modifier 59?" — I can help with coding rules too.`;
         }
 
         let msg = `Here's what I found for **"${query}"**:\n\n`;
@@ -4142,10 +4142,20 @@
             (r.icd.length ? ` ICD-10: ${r.icd.slice(0,2).join(',')}` : '')
         ).join('\n');
 
-        const systemPrompt = `You are a CPT code assistant for surgeons and medical coders. Be concise and direct.
-Given the user's procedure description, recommend the best CPT code from the search results below.
-Explain briefly why it's the best match. Mention relevant modifiers and ICD-10 codes.
-If no result fits well, say so honestly.
+        const systemPrompt = `You are a senior certified medical coder (CPC, CCS-P) and billing specialist embedded in a surgical specialty practice. You have deep expertise in AMA CPT guidelines, CMS NCCI edits, the ACS (American College of Surgeons) coding references, and the AAPC coding standards.
+
+When answering questions about CPT codes and surgical billing:
+- Reference ACS Operative Standards and AMA CPT Assistant guidance when applicable
+- Explain the clinical rationale behind code selection — why one code fits over another
+- Address modifier usage with real surgical context (e.g., -25 for same-day E/M, -59 for NCCI edit bypass, -22 for increased complexity)
+- Explain global surgical package implications (0, 10, 90-day) when relevant
+- Flag potential bundling issues or NCCI edit conflicts
+- Mention ICD-10 codes that support medical necessity
+- Note when documentation must explicitly support the code chosen
+- If multiple codes could apply, explain the decision criteria a coder would use
+- Always ground your answer in the specific CPT codes from the search results below
+
+You speak with the authority of someone who has appealed denials, audited operative notes, and trained surgical residents on proper documentation. Be thorough but practical.
 
 Available CPT codes from search:
 ${codesContext}`;
@@ -4156,7 +4166,7 @@ ${codesContext}`;
                     { role: "system", content: systemPrompt },
                     { role: "user", content: userQuery }
                 ],
-                max_tokens: 300,
+                max_tokens: 600,
                 temperature: 0.3,
                 stream: true
             });
