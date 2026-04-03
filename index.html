@@ -28,6 +28,15 @@
     <!-- Favicon (emoji fallback) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
 
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PLACEHOLDER');
+    </script>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -1918,8 +1927,8 @@
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#" onclick="showSection('legal')">Terms of Use</a></li>
-                        <li><a href="#" onclick="showSection('legal')">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Use</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
                         <li><a href="#" onclick="showSection('legal')">Medical Disclaimer</a></li>
                         <li><a href="#" onclick="showSection('legal')">Copyright Notice</a></li>
                     </ul>
@@ -1943,7 +1952,7 @@
 
     <!-- Cookie Consent Banner -->
     <div id="cookieConsent" class="cookie-consent">
-        <p>This site uses cookies to improve your experience and analyze usage.</p>
+        <p>This site uses cookies for analytics (Google Analytics) and advertising (Google AdSense). Third-party vendors, including Google, use cookies to serve ads based on your browsing history. By clicking "Accept," you consent to the use of cookies. <a href="/privacy.html" style="color:#60A5FA;">Privacy Policy</a></p>
         <button onclick="acceptCookies()" style="cursor:pointer;">Accept</button>
     </div>
 

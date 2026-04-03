@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} — Free CPT Code Finder</title>
+    <meta name="description" content="{{META_DESC}}">
+    <meta name="keywords" content="{{KEYWORDS}}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://freecptcodefinder.com/blog/{{FILENAME}}">
+    <meta property="og:title" content="{{TITLE}} — Free CPT Code Finder">
+    <meta property="og:description" content="{{META_DESC}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://freecptcodefinder.com/blog/{{FILENAME}}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PLACEHOLDER');</script>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#1F2937;background:#FAFBFC}
+        .header{background:#fff;border-bottom:1px solid #E5E7EB;padding:1rem 0;position:sticky;top:0;z-index:100}
+        .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .logo{font-size:1.3rem;font-weight:700;color:#2563EB;text-decoration:none}
+        .nav{display:flex;gap:1.5rem;align-items:center}
+        .nav a{color:#6B7280;text-decoration:none;font-size:0.9rem;font-weight:500}
+        .nav a:hover{color:#2563EB}
+        .container{max-width:800px;margin:0 auto;padding:0 1.5rem}
+        .breadcrumb{padding:1rem 0;font-size:0.8rem;color:#6B7280}
+        .breadcrumb a{color:#2563EB;text-decoration:none}
+        .article{padding:1rem 0 4rem}
+        .article h1{font-size:2.2rem;font-weight:800;color:#111827;margin-bottom:0.75rem;line-height:1.2}
+        .article-meta{display:flex;gap:1rem;align-items:center;color:#6B7280;font-size:0.85rem;margin-bottom:2rem;flex-wrap:wrap}
+        .article-meta .author{font-weight:600;color:#374151}
+        .article h2{font-size:1.5rem;font-weight:700;color:#111827;margin:2.5rem 0 1rem}
+        .article h3{font-size:1.15rem;font-weight:600;color:#111827;margin:1.5rem 0 0.75rem}
+        .article p{color:#374151;margin-bottom:1.25rem}
+        .article ul,.article ol{padding-left:1.5rem;margin-bottom:1.25rem}
+        .article li{margin-bottom:0.5rem;color:#374151}
+        .article strong{color:#111827}
+        .article a{color:#2563EB}
+        .article blockquote{border-left:4px solid #2563EB;padding:1rem 1.5rem;background:#EFF6FF;border-radius:0 8px 8px 0;margin:1.5rem 0;font-style:italic;color:#374151}
+        .code-box{background:#F3F4F6;border:1px solid #E5E7EB;border-radius:10px;padding:1.25rem;margin:1.5rem 0}
+        .code-box .cpt{font-size:1.5rem;font-weight:800;color:#2563EB}
+        .code-box .desc{color:#374151;margin-top:0.25rem}
+        .code-box .detail{font-size:0.85rem;color:#6B7280;margin-top:0.5rem}
+        .cta-box{background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #BBF7D0;border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
+        .cta-box a{display:inline-block;background:#2563EB;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:0.75rem}
+        .cta-box a:hover{background:#1E40AF}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th{background:#F3F4F6;padding:10px 12px;text-align:left;font-weight:600;color:#111827;border-bottom:2px solid #E5E7EB}
+        td{padding:10px 12px;border-bottom:1px solid #F3F4F6;color:#374151}
+        tr:hover td{background:#FAFBFC}
+        .related{background:#F9FAFB;border-top:1px solid #E5E7EB;padding:2rem 0;margin-top:3rem}
+        .related h3{font-size:1.1rem;font-weight:700;color:#111827;margin-bottom:1rem}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+        .related-card{background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:1rem;text-decoration:none;transition:border-color 0.2s}
+        .related-card:hover{border-color:#2563EB}
+        .related-card h4{color:#111827;font-size:0.95rem;margin-bottom:0.25rem}
+        .related-card p{color:#6B7280;font-size:0.8rem;margin:0}
+        .sidebar-ad{background:#FAFAFB;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;margin:2rem 0;text-align:center;color:#9CA3AF;font-size:0.75rem;min-height:250px;display:flex;align-items:center;justify-content:center}
+        .sidebar-ad::before{content:'Advertisement'}
+        .footer{background:#111827;color:#9CA3AF;padding:2rem 1.5rem;font-size:0.8rem}
+        .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .footer a{color:#60A5FA;text-decoration:none}
+        @media(max-width:640px){
+            .article h1{font-size:1.6rem}
+            .article h2{font-size:1.25rem}
+            .header-inner{flex-direction:column;align-items:flex-start}
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">🔍 FreeCPTCodeFinder</a>
+            <nav class="nav">
+                <a href="/">CPT Finder</a>
+                <a href="/blog/">Coding Guides</a>
+                <a href="/privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> → <a href="/blog/">Coding Guides</a> → {{BREADCRUMB}}
+            </div>
+        </div>
+
+        <article class="article">
+            <div class="container">
+                <!-- ARTICLE CONTENT GOES HERE -->
+                {{CONTENT}}
+            </div>
+        </article>
+
+        <section class="related">
+            <div class="container">
+                <h3>Related Guides</h3>
+                <div class="related-grid">
+                    {{RELATED_LINKS}}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
+                <p style="margin-top:4px">CPT® is a registered trademark of the American Medical Association.</p>
+            </div>
+            <div>
+                <a href="/">CPT Finder</a> &middot;
+                <a href="/blog/">Guides</a> &middot;
+                <a href="/privacy.html">Privacy</a> &middot;
+                <a href="/terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
