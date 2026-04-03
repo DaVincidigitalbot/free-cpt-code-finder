@@ -2464,7 +2464,7 @@
                                 </div>
                                 <div style="display:flex;gap:8px;">
                                     <button onclick="copyCode('${r.code}')" style="background:#2563eb;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Copy Code</button>
-                                    <button onclick="addToRVUCalculator('${r.code}')" style="background:#10b981;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Add to RVU</button>
+                                    <button onclick="addToRVUCalculator('${r.code}')" style="background:#10b981;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">+ Add to Case</button>
                                 </div>
                             </div>
                             <p style="color:#374151;margin-top:8px;font-size:15px;">${r.description}</p>
@@ -2628,7 +2628,7 @@
                     
                     <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
                         <button onclick="copyCode('${result.cpt_code}')" style="background:#2563eb;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">Copy CPT Code</button>
-                        <button onclick="addToRVUCalculator('${result.cpt_code}')" style="background:#10b981;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">Add to RVU Calculator</button>
+                        <button onclick="addToRVUCalculator('${result.cpt_code}')" style="background:#10b981;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">+ Add to Case</button>
                         <button onclick="resetDecisionTree()" style="background:#f1f5f9;color:#374151;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:500;">Search Again</button>
                     </div>
                 </div>`;
@@ -2918,6 +2918,11 @@
         }
 
         function addToRVUCalculator(cptCode) {
+            // Add to Case Builder tray (persistent bottom bar)
+            if (typeof addToCase === 'function') {
+                addToCase(cptCode);
+            }
+            
             // Switch to RVU calculator section
             showSection('rvu');
             
@@ -3012,6 +3017,419 @@
 
         // Initialize - show first ICD-10 system
             </script>
+
+    <!-- ============================================ -->
+    <!-- Case Builder - Sticky wRVU Accumulator Tray -->
+    <!-- ============================================ -->
+    <style>
+        /* Case Builder Tray */
+        .case-tray {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 2px solid #2563EB;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+            z-index: 9990;
+            transition: transform 0.3s ease;
+            transform: translateY(100%);
+        }
+        .case-tray.visible {
+            transform: translateY(0);
+        }
+        .case-tray-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            cursor: pointer;
+            user-select: none;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .case-tray-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .case-tray-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #2563EB;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .case-tray-count {
+            background: #2563EB;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            min-width: 20px;
+            text-align: center;
+        }
+        .case-tray-stats {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .case-stat {
+            text-align: center;
+        }
+        .case-stat-label {
+            font-size: 0.65rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .case-stat-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gray-900);
+        }
+        .case-stat-value.wrvu { color: #2563EB; }
+        .case-stat-value.money { color: #059669; }
+        .case-tray-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: transform 0.3s;
+            padding: 4px;
+        }
+        .case-tray.expanded .case-tray-toggle {
+            transform: rotate(180deg);
+        }
+        .case-tray-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .case-tray-clear {
+            background: none;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-600);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .case-tray-clear:hover { border-color: #EF4444; color: #EF4444; }
+        .case-tray-copy {
+            background: #2563EB;
+            border: none;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .case-tray-copy:hover { background: #1E40AF; }
+
+        /* Expanded procedure list */
+        .case-tray-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+        }
+        .case-tray.expanded .case-tray-detail {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .case-proc {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.82rem;
+        }
+        .case-proc:last-child { border-bottom: none; }
+        .case-proc-order {
+            font-size: 0.7rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            width: 20px;
+            text-align: center;
+        }
+        .case-proc-code {
+            font-weight: 700;
+            color: #2563EB;
+            min-width: 50px;
+        }
+        .case-proc-desc {
+            flex: 1;
+            color: var(--gray-700);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .case-proc-mod {
+            min-width: 100px;
+        }
+        .case-proc-mod select {
+            font-size: 0.75rem;
+            padding: 3px 6px;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            background: white;
+        }
+        .case-proc-wrvu {
+            font-weight: 700;
+            color: #2563EB;
+            min-width: 55px;
+            text-align: right;
+        }
+        .case-proc-remove {
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 0 4px;
+        }
+        .case-proc-remove:hover { color: #EF4444; }
+
+        /* Adjust AI fab position when tray is visible */
+        .case-tray.visible ~ .ai-fab {
+            bottom: 80px;
+        }
+        .case-tray.visible.expanded ~ .ai-fab {
+            bottom: 80px;
+        }
+        /* Also adjust AI panel */
+        .case-tray.visible ~ .ai-panel {
+            bottom: 148px;
+        }
+
+        @media (max-width: 640px) {
+            .case-tray-bar { padding: 8px 12px; gap: 8px; }
+            .case-tray-stats { gap: 10px; }
+            .case-stat-value { font-size: 0.95rem; }
+            .case-proc { padding: 6px 12px; font-size: 0.78rem; }
+            .case-proc-desc { max-width: 120px; }
+        }
+    </style>
+
+    <!-- Case Builder Tray HTML -->
+    <div class="case-tray" id="caseTray">
+        <div class="case-tray-bar" onclick="toggleCaseTray()">
+            <div class="case-tray-left">
+                <div class="case-tray-title">
+                    📋 Case Builder
+                    <span class="case-tray-count" id="caseProcCount">0</span>
+                </div>
+                <div class="case-tray-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-label">Work RVU</div>
+                        <div class="case-stat-value wrvu" id="caseWRVU">0.00</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-label">Total RVU</div>
+                        <div class="case-stat-value" id="caseTotalRVU">0.00</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-label">Est. Payment</div>
+                        <div class="case-stat-value money" id="casePayment">$0.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-tray-right">
+                <button class="case-tray-copy" onclick="event.stopPropagation();copyCaseSummary()" title="Copy summary">📋 Copy</button>
+                <button class="case-tray-clear" onclick="event.stopPropagation();clearCase()" title="Clear all">Clear</button>
+                <button class="case-tray-toggle" id="caseTrayToggle">▲</button>
+            </div>
+        </div>
+        <div class="case-tray-detail" id="caseTrayDetail"></div>
+    </div>
+
+    <script>
+    // ============================
+    // Case Builder - Persistent wRVU Accumulator
+    // ============================
+    let caseProcs = [];
+
+    function addToCase(cptCode) {
+        if (!RVU_DATA || !RVU_DATA.codes[cptCode]) {
+            // Even without RVU data, still add it
+            const cptEntry = findCPTInTree(cptCode);
+            if (!cptEntry) return;
+            caseProcs.push({
+                id: Date.now() + Math.random(),
+                code: cptCode,
+                description: cptEntry.desc || 'Unknown procedure',
+                work_rvu: 0, pe_rvu: 0, mp_rvu: 0, total_rvu: 0,
+                modifier: 'none',
+                isPrimary: caseProcs.length === 0
+            });
+        } else {
+            const data = RVU_DATA.codes[cptCode];
+            caseProcs.push({
+                id: Date.now() + Math.random(),
+                code: cptCode,
+                description: data.description,
+                work_rvu: data.work_rvu,
+                pe_rvu: data.pe_rvu,
+                mp_rvu: data.mp_rvu,
+                total_rvu: data.total_rvu,
+                modifier: 'none',
+                isPrimary: caseProcs.length === 0
+            });
+        }
+        updateCaseTray();
+        // Also add to RVU calculator for consistency
+        addProcedure(cptCode);
+    }
+
+    function findCPTInTree(code) {
+        if (typeof CPT_DATA === 'undefined') return null;
+        let found = null;
+        function search(obj) {
+            if (found) return;
+            if (obj && obj.cpt_code === code) {
+                found = { code: obj.cpt_code, desc: obj.description };
+                return;
+            }
+            if (obj && typeof obj === 'object') {
+                Object.values(obj).forEach(v => search(v));
+            }
+            if (Array.isArray(obj)) {
+                obj.forEach(item => search(item));
+            }
+        }
+        search(CPT_DATA);
+        return found;
+    }
+
+    function removeCaseProc(procId) {
+        caseProcs = caseProcs.filter(p => p.id !== procId);
+        if (caseProcs.length > 0) {
+            caseProcs[0].isPrimary = true;
+            caseProcs.forEach((p, i) => { p.isPrimary = i === 0; });
+        }
+        updateCaseTray();
+    }
+
+    function updateCaseMod(procId, mod) {
+        const proc = caseProcs.find(p => p.id === procId);
+        if (proc) { proc.modifier = mod; updateCaseTray(); }
+    }
+
+    function getCaseAdjustedWRVU(proc, index) {
+        let rvu = proc.work_rvu;
+        if (!proc.isPrimary && proc.modifier === 'none') {
+            rvu *= (index === 1) ? 0.5 : 0.25;
+        } else {
+            switch (proc.modifier) {
+                case '-51': rvu *= 0.5; break;
+                case '-62': rvu *= 0.625; break;
+                case '-80': rvu *= 0.16; break;
+                case '-22': rvu *= 1.25; break;
+            }
+        }
+        return rvu;
+    }
+
+    function updateCaseTray() {
+        const tray = document.getElementById('caseTray');
+        const detail = document.getElementById('caseTrayDetail');
+
+        if (caseProcs.length === 0) {
+            tray.classList.remove('visible', 'expanded');
+            return;
+        }
+
+        tray.classList.add('visible');
+
+        // Calculate totals
+        let totalWRVU = 0, totalPE = 0, totalMP = 0;
+        caseProcs.forEach((p, i) => {
+            totalWRVU += getCaseAdjustedWRVU(p, i);
+            totalPE += p.pe_rvu;
+            totalMP += p.mp_rvu;
+        });
+        const totalRVU = totalWRVU + totalPE + totalMP;
+        const payment = totalRVU * (RVU_DATA ? RVU_DATA.conversion_factor : 33.89);
+
+        document.getElementById('caseProcCount').textContent = caseProcs.length;
+        document.getElementById('caseWRVU').textContent = totalWRVU.toFixed(2);
+        document.getElementById('caseTotalRVU').textContent = totalRVU.toFixed(2);
+        document.getElementById('casePayment').textContent = '$' + payment.toFixed(2);
+
+        // Build detail list
+        let html = '';
+        caseProcs.forEach((p, i) => {
+            const adjRVU = getCaseAdjustedWRVU(p, i);
+            html += `
+                <div class="case-proc">
+                    <span class="case-proc-order">${i === 0 ? '★' : (i+1)}</span>
+                    <span class="case-proc-code">${p.code}</span>
+                    <span class="case-proc-desc" title="${p.description}">${p.description}</span>
+                    <span class="case-proc-mod">
+                        <select onchange="updateCaseMod(${p.id}, this.value)" onclick="event.stopPropagation()">
+                            <option value="none" ${p.modifier==='none'?'selected':''}>No mod</option>
+                            <option value="-51" ${p.modifier==='-51'?'selected':''}>-51 Multiple</option>
+                            <option value="-59" ${p.modifier==='-59'?'selected':''}>-59 Distinct</option>
+                            <option value="-62" ${p.modifier==='-62'?'selected':''}>-62 Two surgeons</option>
+                            <option value="-80" ${p.modifier==='-80'?'selected':''}>-80 Assistant</option>
+                            <option value="-22" ${p.modifier==='-22'?'selected':''}>-22 Increased</option>
+                        </select>
+                    </span>
+                    <span class="case-proc-wrvu">${adjRVU.toFixed(2)} wRVU</span>
+                    <button class="case-proc-remove" onclick="event.stopPropagation();removeCaseProc(${p.id})" title="Remove">&times;</button>
+                </div>`;
+        });
+        detail.innerHTML = html;
+    }
+
+    function toggleCaseTray() {
+        document.getElementById('caseTray').classList.toggle('expanded');
+    }
+
+    function clearCase() {
+        if (caseProcs.length > 0 && !confirm('Clear all procedures from this case?')) return;
+        caseProcs = [];
+        updateCaseTray();
+    }
+
+    function copyCaseSummary() {
+        if (caseProcs.length === 0) return;
+        let text = 'CASE SUMMARY\n============\n\n';
+        let totalWRVU = 0;
+        caseProcs.forEach((p, i) => {
+            const adj = getCaseAdjustedWRVU(p, i);
+            totalWRVU += adj;
+            text += `${i === 0 ? '[Primary] ' : ''}CPT ${p.code}: ${p.description}\n`;
+            text += `  Work RVU: ${adj.toFixed(2)}`;
+            if (p.modifier !== 'none') text += ` (${p.modifier})`;
+            text += '\n\n';
+        });
+        const totalRVU = caseProcs.reduce((s, p) => s + p.pe_rvu + p.mp_rvu, 0) + totalWRVU;
+        const payment = totalRVU * (RVU_DATA ? RVU_DATA.conversion_factor : 33.89);
+        text += `TOTALS\n------\n`;
+        text += `Procedures: ${caseProcs.length}\n`;
+        text += `Total Work RVU: ${totalWRVU.toFixed(2)}\n`;
+        text += `Total RVU: ${totalRVU.toFixed(2)}\n`;
+        text += `Est. Payment: $${payment.toFixed(2)}\n`;
+        text += `\nBased on ${RVU_DATA ? RVU_DATA.year : '2026'} CMS Physician Fee Schedule (CF: $${RVU_DATA ? RVU_DATA.conversion_factor : '33.89'})\n`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.querySelector('.case-tray-copy');
+            const orig = btn.innerHTML;
+            btn.innerHTML = '✅ Copied!';
+            setTimeout(() => { btn.innerHTML = orig; }, 1500);
+        });
+    }
+    </script>
 
     <!-- ============================================ -->
     <!-- AI CPT Assistant - Powered by Qwen 2.5 (WebLLM) -->
@@ -3403,7 +3821,8 @@
             msg += `**CPT ${r.code}** — ${r.descRaw}\n`;
             if (r.mods.length) msg += `  Modifiers: ${r.mods.join(', ')}\n`;
             if (r.icd.length) msg += `  Common ICD-10: ${r.icd.slice(0, 3).join(', ')}\n`;
-            msg += `  Category: ${r.cat}\n\n`;
+            msg += `  Category: ${r.cat}\n`;
+            msg += `  <button onclick="addToRVUCalculator('${r.code}')" style="background:#10b981;color:white;border:none;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem;font-weight:600;margin:4px 0;">+ Add to Case</button>\n\n`;
         });
 
         if (results.length > 5) {
