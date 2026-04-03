@@ -2188,116 +2188,928 @@
       "specialty": "Orthopedic Surgery",
       "questions": [
         {
-          "question": "Type of fracture repair?",
+          "question": "What type of orthopedic procedure?",
           "options": [
             {
-              "label": "Closed reduction",
-              "next": "ortho_closed"
+              "label": "Fracture repair",
+              "next": "fracture_type"
             },
             {
-              "label": "Open reduction internal fixation",
-              "next": "ortho_orif"
+              "label": "Joint procedures",
+              "next": "joint_type"
+            },
+            {
+              "label": "Soft tissue / tendon repair",
+              "next": "soft_tissue"
+            },
+            {
+              "label": "Amputation",
+              "next": "amputation"
+            },
+            {
+              "label": "Hardware removal",
+              "next": "hardware_removal"
             }
           ]
         }
       ],
       "branches": {
-        "ortho_closed": {
-          "question": "Location?",
+        "fracture_type": {
+          "question": "Which bone / region?",
           "options": [
             {
-              "label": "Radius/Ulna shaft",
-              "cpt_code": "25535",
-              "description": "Closed treatment of radial shaft fracture and closed treatment of ulnar shaft fracture; with manipulation",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "S52.301A",
-                "S52.201A"
-              ]
+              "label": "Hip / femur",
+              "next": "hip_fracture"
             },
             {
-              "label": "Femur shaft",
-              "cpt_code": "27502",
-              "description": "Closed treatment of femoral shaft fracture, with manipulation, with or without skin or skeletal traction",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "S72.301A"
-              ]
+              "label": "Tibia / fibula (lower leg)",
+              "next": "tib_fib"
             },
             {
-              "label": "Tibia/Fibula shaft",
-              "cpt_code": "27750",
-              "description": "Closed treatment of tibial shaft fracture; with manipulation, with or without skeletal traction",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "S82.201A",
-                "S82.401A"
-              ]
+              "label": "Ankle",
+              "next": "ankle_fracture"
+            },
+            {
+              "label": "Wrist / distal radius",
+              "next": "wrist_fracture"
+            },
+            {
+              "label": "Humerus (upper arm)",
+              "next": "humerus_fracture"
+            },
+            {
+              "label": "Clavicle",
+              "next": "clavicle_fracture"
+            },
+            {
+              "label": "Pelvic / acetabulum",
+              "next": "pelvis_fracture"
+            },
+            {
+              "label": "Spine fracture",
+              "next": "spine_fracture"
             }
           ]
         },
-        "ortho_orif": {
-          "question": "Location?",
+        "hip_fracture": {
+          "question": "Type of hip/femur fracture treatment?",
           "options": [
             {
-              "label": "Hip fracture",
-              "cpt_code": "27245",
-              "description": "Open treatment of intertrochanteric, peritrochanteric, or subtrochanteric femoral fracture; with intramedullary implant",
+              "label": "Closed reduction with percutaneous pinning",
+              "cpt_code": "27235",
+              "description": "Percutaneous skeletal fixation of femoral fracture, proximal end, neck",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.001A",
+                "S72.009A"
+              ],
+              "work_rvu": 8.0
+            },
+            {
+              "label": "Open reduction internal fixation (ORIF) femoral neck",
+              "cpt_code": "27236",
+              "description": "ORIF of femoral fracture, proximal end, neck, internal fixation or prosthetic replacement",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.001A",
+                "S72.002A"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Intertrochanteric fracture \u2014 ORIF with plate/screws",
+              "cpt_code": "27244",
+              "description": "Treatment of intertrochanteric fracture with plate/screw implant",
               "modifiers": [
                 "-LT",
                 "-RT"
               ],
               "icd10": [
                 "S72.101A",
-                "S72.141A"
-              ]
+                "S72.109A"
+              ],
+              "work_rvu": 13.18
             },
             {
-              "label": "Ankle fracture",
-              "cpt_code": "27766",
-              "description": "Open treatment of medial malleolus fracture, includes internal fixation, when performed",
+              "label": "Intertrochanteric fracture \u2014 intramedullary nail",
+              "cpt_code": "27245",
+              "description": "Treatment of intertrochanteric fracture with intramedullary implant",
               "modifiers": [
                 "-LT",
                 "-RT"
               ],
               "icd10": [
-                "S82.51XA",
-                "S82.61XA"
-              ]
+                "S72.101A",
+                "S72.102A"
+              ],
+              "work_rvu": 14.37
             },
             {
-              "label": "Wrist fracture",
-              "cpt_code": "25609",
-              "description": "Open treatment of distal radial intra-articular fracture or epiphyseal separation; with internal fixation of 3 or more fragments",
+              "label": "Femoral shaft fracture \u2014 ORIF",
+              "cpt_code": "27506",
+              "description": "ORIF of femoral shaft fracture with plate/screws",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.301A",
+                "S72.302A"
+              ],
+              "work_rvu": 16.8
+            },
+            {
+              "label": "Femoral shaft fracture \u2014 intramedullary nail",
+              "cpt_code": "27507",
+              "description": "ORIF femoral shaft with intramedullary nail",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.301A",
+                "S72.309A"
+              ],
+              "work_rvu": 16.8
+            },
+            {
+              "label": "Hip hemiarthroplasty (partial hip replacement)",
+              "cpt_code": "27125",
+              "description": "Hemiarthroplasty, hip, partial (femoral stem prosthesis)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S72.001A",
+                "M84.359A"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Total hip arthroplasty (total hip replacement)",
+              "cpt_code": "27130",
+              "description": "Total hip arthroplasty (replacement)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M16.11",
+                "M16.12",
+                "S72.001A"
+              ],
+              "work_rvu": 20.72
+            }
+          ]
+        },
+        "tib_fib": {
+          "question": "Tibia/fibula fracture treatment?",
+          "options": [
+            {
+              "label": "Tibial shaft \u2014 closed reduction / casting",
+              "cpt_code": "27750",
+              "description": "Closed treatment of tibial shaft fracture with manipulation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.201A"
+              ],
+              "work_rvu": 5.04
+            },
+            {
+              "label": "Tibial shaft \u2014 ORIF (plate/screws)",
+              "cpt_code": "27758",
+              "description": "ORIF of tibial shaft fracture with plate/screws",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.201A",
+                "S82.202A"
+              ],
+              "work_rvu": 15.56
+            },
+            {
+              "label": "Tibial shaft \u2014 intramedullary nail",
+              "cpt_code": "27759",
+              "description": "Treatment of tibial shaft fracture with intramedullary nail",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.201A"
+              ],
+              "work_rvu": 14.37
+            },
+            {
+              "label": "Tibial plateau \u2014 ORIF",
+              "cpt_code": "27536",
+              "description": "ORIF of tibial plateau fracture, bicondylar with/without internal fixation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.101A",
+                "S82.102A"
+              ],
+              "work_rvu": 18.38
+            },
+            {
+              "label": "Fibula fracture \u2014 closed reduction",
+              "cpt_code": "27780",
+              "description": "Closed treatment of proximal fibula or shaft fracture",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.101A"
+              ],
+              "work_rvu": 2.56
+            },
+            {
+              "label": "Fibula fracture \u2014 ORIF",
+              "cpt_code": "27784",
+              "description": "ORIF of proximal fibula or shaft fracture",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.101A",
+                "S82.109A"
+              ],
+              "work_rvu": 9.17
+            }
+          ]
+        },
+        "ankle_fracture": {
+          "question": "Ankle fracture treatment?",
+          "options": [
+            {
+              "label": "Unimalleolar \u2014 closed reduction",
+              "cpt_code": "27810",
+              "description": "Closed treatment of bimalleolar ankle fracture with manipulation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.891A"
+              ],
+              "work_rvu": 4.42
+            },
+            {
+              "label": "Unimalleolar \u2014 ORIF",
+              "cpt_code": "27792",
+              "description": "ORIF of distal fibula (lateral malleolus)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.61XA",
+                "S82.62XA"
+              ],
+              "work_rvu": 10.33
+            },
+            {
+              "label": "Bimalleolar \u2014 ORIF",
+              "cpt_code": "27814",
+              "description": "ORIF of bimalleolar ankle fracture",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.841A",
+                "S82.842A"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Trimalleolar \u2014 ORIF",
+              "cpt_code": "27822",
+              "description": "ORIF of trimalleolar ankle fracture, medial AND lateral malleoli with posterior lip fixation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S82.851A",
+                "S82.852A"
+              ],
+              "work_rvu": 16.24
+            },
+            {
+              "label": "Syndesmosis repair (tightrope/screw)",
+              "cpt_code": "27829",
+              "description": "ORIF of distal tibiofibular joint (syndesmosis)",
+              "modifiers": [
+                "-59",
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S83.131A"
+              ],
+              "work_rvu": 8.56
+            }
+          ]
+        },
+        "wrist_fracture": {
+          "question": "Wrist/distal radius fracture treatment?",
+          "options": [
+            {
+              "label": "Closed reduction / casting",
+              "cpt_code": "25605",
+              "description": "Closed treatment of distal radius fracture with manipulation",
               "modifiers": [
                 "-LT",
                 "-RT"
               ],
               "icd10": [
                 "S52.501A",
-                "S52.511A"
-              ]
+                "S52.509A"
+              ],
+              "work_rvu": 4.42
             },
             {
-              "label": "Humerus shaft",
-              "cpt_code": "24515",
-              "description": "Open treatment of humeral shaft fracture with plate/screws, with or without cerclage",
+              "label": "ORIF with volar plate",
+              "cpt_code": "25607",
+              "description": "ORIF of distal radius fracture with plate/screws",
               "modifiers": [
                 "-LT",
                 "-RT"
               ],
               "icd10": [
-                "S42.301A"
-              ]
+                "S52.501A",
+                "S52.502A"
+              ],
+              "work_rvu": 11.36
+            },
+            {
+              "label": "ORIF distal radius + ulnar styloid",
+              "cpt_code": "25609",
+              "description": "ORIF of distal radius fracture with fixation of distal radioulnar joint",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S52.501A",
+                "S52.601A"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Scaphoid fracture \u2014 closed treatment",
+              "cpt_code": "25622",
+              "description": "Closed treatment of scaphoid fracture",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S62.001A"
+              ],
+              "work_rvu": 2.56
+            },
+            {
+              "label": "Scaphoid fracture \u2014 ORIF",
+              "cpt_code": "25628",
+              "description": "ORIF of scaphoid fracture",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S62.001A",
+                "S62.002A"
+              ],
+              "work_rvu": 10.33
+            }
+          ]
+        },
+        "humerus_fracture": {
+          "question": "Humerus fracture treatment?",
+          "options": [
+            {
+              "label": "Proximal humerus \u2014 closed treatment",
+              "cpt_code": "23605",
+              "description": "Closed treatment of proximal humerus fracture with manipulation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.201A"
+              ],
+              "work_rvu": 5.04
+            },
+            {
+              "label": "Proximal humerus \u2014 ORIF",
+              "cpt_code": "23615",
+              "description": "ORIF of proximal humerus fracture with internal fixation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.201A",
+                "S42.202A"
+              ],
+              "work_rvu": 14.37
+            },
+            {
+              "label": "Humeral shaft \u2014 ORIF",
+              "cpt_code": "24516",
+              "description": "ORIF of humeral shaft fracture with plate/screws",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.301A",
+                "S42.302A"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Distal humerus (supracondylar) \u2014 ORIF",
+              "cpt_code": "24586",
+              "description": "ORIF of periarticular fracture of distal humerus",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.401A",
+                "S42.402A"
+              ],
+              "work_rvu": 16.24
+            },
+            {
+              "label": "Shoulder hemiarthroplasty (reverse/anatomic)",
+              "cpt_code": "23472",
+              "description": "Arthroplasty, glenohumeral joint; total shoulder (glenoid and humeral)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.201A",
+                "M19.011"
+              ],
+              "work_rvu": 20.72
+            }
+          ]
+        },
+        "clavicle_fracture": {
+          "question": "Clavicle fracture treatment?",
+          "options": [
+            {
+              "label": "Closed treatment (sling)",
+              "cpt_code": "23500",
+              "description": "Closed treatment of clavicle fracture without manipulation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.001A",
+                "S42.009A"
+              ],
+              "work_rvu": 1.58
+            },
+            {
+              "label": "ORIF with plate",
+              "cpt_code": "23515",
+              "description": "ORIF of clavicle fracture with internal fixation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S42.001A",
+                "S42.002A"
+              ],
+              "work_rvu": 10.33
+            }
+          ]
+        },
+        "pelvis_fracture": {
+          "question": "Pelvic/acetabular fracture treatment?",
+          "options": [
+            {
+              "label": "Pelvic fracture \u2014 closed treatment",
+              "cpt_code": "27193",
+              "description": "Closed treatment of pelvic ring fracture",
+              "modifiers": [],
+              "icd10": [
+                "S32.10XA",
+                "S32.19XA"
+              ],
+              "work_rvu": 3.18
+            },
+            {
+              "label": "Pelvic fracture \u2014 ORIF",
+              "cpt_code": "27217",
+              "description": "ORIF of pelvic ring fracture, anterior",
+              "modifiers": [],
+              "icd10": [
+                "S32.10XA",
+                "S32.19XA"
+              ],
+              "work_rvu": 16.24
+            },
+            {
+              "label": "Acetabular fracture \u2014 ORIF",
+              "cpt_code": "27226",
+              "description": "ORIF of posterior acetabular wall fracture",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S32.401A",
+                "S32.402A"
+              ],
+              "work_rvu": 20.72
+            },
+            {
+              "label": "External fixation of pelvis",
+              "cpt_code": "20690",
+              "description": "Application of uniplane external fixation system",
+              "modifiers": [],
+              "icd10": [
+                "S32.10XA",
+                "S32.9XXA"
+              ],
+              "work_rvu": 6.37
+            }
+          ]
+        },
+        "spine_fracture": {
+          "question": "Spine fracture treatment?",
+          "options": [
+            {
+              "label": "Vertebroplasty (percutaneous cement)",
+              "cpt_code": "22510",
+              "description": "Percutaneous vertebroplasty, 1 vertebral body, thoracic",
+              "modifiers": [],
+              "icd10": [
+                "M80.08XA",
+                "S22.009A"
+              ],
+              "work_rvu": 7.52
+            },
+            {
+              "label": "Kyphoplasty (balloon)",
+              "cpt_code": "22513",
+              "description": "Percutaneous vertebral augmentation (kyphoplasty), 1 vertebral body, thoracic",
+              "modifiers": [],
+              "icd10": [
+                "M80.08XA",
+                "S22.009A"
+              ],
+              "work_rvu": 9.17
+            },
+            {
+              "label": "Posterior spinal fusion \u2014 see Neurosurgery category",
+              "next": "spine_note"
+            }
+          ]
+        },
+        "spine_note": {
+          "question": "For spinal fusion procedures, use the Neurosurgery category (index 25) which has complete fusion decision trees by approach and level.",
+          "options": [
+            {
+              "label": "Go to Neurosurgery",
+              "cpt_code": "22612",
+              "description": "See Neurosurgery category for complete spinal fusion codes (ACDF, PLIF, TLIF, ALIF by level)",
+              "modifiers": [],
+              "icd10": [
+                "M43.16"
+              ],
+              "work_rvu": 23.53
+            }
+          ]
+        },
+        "joint_type": {
+          "question": "Which joint procedure?",
+          "options": [
+            {
+              "label": "Total knee arthroplasty (TKA)",
+              "cpt_code": "27447",
+              "description": "Total knee arthroplasty",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M17.11",
+                "M17.12"
+              ],
+              "work_rvu": 20.72
+            },
+            {
+              "label": "Revision total knee arthroplasty",
+              "cpt_code": "27487",
+              "description": "Revision of total knee arthroplasty",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "T84.04XA",
+                "M96.661"
+              ],
+              "work_rvu": 25.77
+            },
+            {
+              "label": "Total hip arthroplasty (THA)",
+              "cpt_code": "27130",
+              "description": "Total hip arthroplasty",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M16.11",
+                "M16.12"
+              ],
+              "work_rvu": 20.72
+            },
+            {
+              "label": "Knee arthroscopy \u2014 diagnostic",
+              "cpt_code": "29870",
+              "description": "Arthroscopy, knee, diagnostic",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M23.91",
+                "M23.92"
+              ],
+              "work_rvu": 4.42
+            },
+            {
+              "label": "Knee arthroscopy \u2014 meniscectomy",
+              "cpt_code": "29881",
+              "description": "Arthroscopy, knee, with meniscectomy",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M23.201",
+                "M23.211"
+              ],
+              "work_rvu": 6.37
+            },
+            {
+              "label": "Knee arthroscopy \u2014 ACL reconstruction",
+              "cpt_code": "29888",
+              "description": "Arthroscopically aided ACL repair/reconstruction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S83.511A",
+                "S83.512A"
+              ],
+              "work_rvu": 14.37
+            },
+            {
+              "label": "Shoulder arthroscopy \u2014 rotator cuff repair",
+              "cpt_code": "29827",
+              "description": "Arthroscopy, shoulder, with rotator cuff repair",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M75.111",
+                "M75.121"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Shoulder arthroscopy \u2014 Bankart/labral repair",
+              "cpt_code": "29806",
+              "description": "Arthroscopy, shoulder, with capsulorrhaphy/Bankart repair",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S43.401A",
+                "M24.411"
+              ],
+              "work_rvu": 11.36
+            }
+          ]
+        },
+        "soft_tissue": {
+          "question": "Which soft tissue / tendon procedure?",
+          "options": [
+            {
+              "label": "Achilles tendon repair",
+              "cpt_code": "27650",
+              "description": "Repair, primary, open, Achilles tendon",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S86.011A",
+                "S86.012A"
+              ],
+              "work_rvu": 9.17
+            },
+            {
+              "label": "Rotator cuff repair \u2014 open",
+              "cpt_code": "23412",
+              "description": "Repair of ruptured musculotendinous cuff, open, chronic",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M75.111",
+                "M75.121"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Carpal tunnel release \u2014 see Neurosurgery",
+              "cpt_code": "64721",
+              "description": "Neuroplasty and/or transposition; median nerve at carpal tunnel",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "G56.01",
+                "G56.02"
+              ],
+              "work_rvu": 5.67
+            },
+            {
+              "label": "Trigger finger release",
+              "cpt_code": "26055",
+              "description": "Tendon sheath incision (trigger finger release)",
+              "modifiers": [
+                "-F1 to -F0"
+              ],
+              "icd10": [
+                "M65.31",
+                "M65.321"
+              ],
+              "work_rvu": 3.5
+            },
+            {
+              "label": "Biceps tenodesis",
+              "cpt_code": "23430",
+              "description": "Tenodesis of long tendon of biceps",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "M75.21",
+                "M75.22"
+              ],
+              "work_rvu": 8.56
+            },
+            {
+              "label": "Flexor tendon repair (hand)",
+              "cpt_code": "26356",
+              "description": "Repair of flexor tendon in zone 2, primary",
+              "modifiers": [
+                "-F1 to -F0"
+              ],
+              "icd10": [
+                "S66.001A"
+              ],
+              "work_rvu": 10.33
+            }
+          ]
+        },
+        "amputation": {
+          "question": "Level of amputation?",
+          "options": [
+            {
+              "label": "Finger amputation",
+              "cpt_code": "26910",
+              "description": "Amputation, metacarpal, with finger",
+              "modifiers": [
+                "-F1 to -F0"
+              ],
+              "icd10": [
+                "S68.111A",
+                "S68.112A"
+              ],
+              "work_rvu": 6.37
+            },
+            {
+              "label": "Toe amputation",
+              "cpt_code": "28810",
+              "description": "Amputation, metatarsal, with toe",
+              "modifiers": [
+                "-T0 to -T9"
+              ],
+              "icd10": [
+                "E11.52",
+                "I70.261"
+              ],
+              "work_rvu": 5.67
+            },
+            {
+              "label": "Below knee amputation (BKA)",
+              "cpt_code": "27880",
+              "description": "Amputation, leg, through tibia and fibula",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.261",
+                "E11.52",
+                "I70.262"
+              ],
+              "work_rvu": 11.36
+            },
+            {
+              "label": "Above knee amputation (AKA)",
+              "cpt_code": "27590",
+              "description": "Amputation, thigh, through femur",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.261",
+                "E11.52"
+              ],
+              "work_rvu": 13.18
+            },
+            {
+              "label": "Forearm amputation",
+              "cpt_code": "25900",
+              "description": "Amputation, forearm, through radius and ulna",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "S58.011A"
+              ],
+              "work_rvu": 10.33
+            }
+          ]
+        },
+        "hardware_removal": {
+          "question": "Hardware removal location?",
+          "options": [
+            {
+              "label": "Hardware removal \u2014 superficial (plate, screws, pins)",
+              "cpt_code": "20680",
+              "description": "Removal of implant; deep (plate, screw, rod)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z47.2",
+                "T84.199A"
+              ],
+              "work_rvu": 5.04
+            },
+            {
+              "label": "External fixator removal",
+              "cpt_code": "20694",
+              "description": "Removal of external fixation system under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "Z47.2"
+              ],
+              "work_rvu": 3.18
             }
           ]
         }
