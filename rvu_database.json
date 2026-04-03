@@ -2770,6 +2770,87 @@
       "total_rvu": 0,
       "global_period": "YYY",
       "note": "Unlisted code \u2014 RVU determined by carrier on individual basis (by report)"
+    },
+    "97607": {
+      "description": "Negative pressure wound therapy, \u226450 sq cm",
+      "work_rvu": 0.51,
+      "pe_rvu": 1.52,
+      "mp_rvu": 0.04,
+      "total_rvu": 2.07,
+      "global_period": 0,
+      "is_addon": false
+    },
+    "97608": {
+      "description": "Negative pressure wound therapy, >50 sq cm",
+      "work_rvu": 0.6,
+      "pe_rvu": 1.67,
+      "mp_rvu": 0.05,
+      "total_rvu": 2.32,
+      "global_period": 0,
+      "is_addon": false
+    },
+    "49002": {
+      "description": "Reopening of recent laparotomy",
+      "work_rvu": 9.44,
+      "pe_rvu": 8.58,
+      "mp_rvu": 0.62,
+      "total_rvu": 18.64,
+      "global_period": 90,
+      "is_addon": false
+    },
+    "49568": {
+      "description": "Implantation of mesh or other prosthesis for open incisional or ventral hernia repair (add-on)",
+      "work_rvu": 4.88,
+      "pe_rvu": 0.0,
+      "mp_rvu": 0.55,
+      "total_rvu": 5.43,
+      "global_period": "ZZZ",
+      "is_addon": true
+    },
+    "21811": {
+      "description": "Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs",
+      "work_rvu": 17.61,
+      "pe_rvu": 15.99,
+      "mp_rvu": 2.17,
+      "total_rvu": 35.77,
+      "global_period": 90,
+      "is_addon": false
+    },
+    "21812": {
+      "description": "Open treatment of rib fracture(s), each additional 3 ribs (add-on)",
+      "work_rvu": 5.0,
+      "pe_rvu": 0.0,
+      "mp_rvu": 0.62,
+      "total_rvu": 5.62,
+      "global_period": "ZZZ",
+      "is_addon": true
+    },
+    "32601": {
+      "description": "Thoracoscopy, diagnostic; lungs, pericardial sac, mediastinal or pleural space, without biopsy",
+      "work_rvu": 6.61,
+      "pe_rvu": 6.01,
+      "mp_rvu": 0.81,
+      "total_rvu": 13.43,
+      "global_period": 10,
+      "is_addon": false
+    },
+    "49905": {
+      "description": "Omental flap, intra-abdominal (add-on)",
+      "work_rvu": 5.67,
+      "pe_rvu": 0.0,
+      "mp_rvu": 0.7,
+      "total_rvu": 6.37,
+      "global_period": "ZZZ",
+      "is_addon": true
+    },
+    "15734": {
+      "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk",
+      "work_rvu": 16.19,
+      "pe_rvu": 14.71,
+      "mp_rvu": 2.0,
+      "total_rvu": 32.9,
+      "global_period": 90,
+      "is_addon": false
     }
   }
 }

@@ -3381,18 +3381,85 @@
         if (proc) { proc.modifier = mod; updateCaseTray(); }
     }
 
+    // ============================
+    // Smart Multi-Procedure Ranking Engine
+    // ============================
+    
+    function isAddOnCode(proc) {
+        // Add-on codes have ZZZ global period — never get MPPR reduction
+        if (!RVU_DATA || !RVU_DATA.codes[proc.code]) return false;
+        const entry = RVU_DATA.codes[proc.code];
+        return entry.is_addon === true || entry.global_period === 'ZZZ';
+    }
+
+    function rankAndSortProcedures() {
+        if (caseProcs.length === 0) return;
+
+        // Separate add-on codes from regular procedures
+        const addons = caseProcs.filter(p => isAddOnCode(p));
+        const regular = caseProcs.filter(p => !isAddOnCode(p));
+
+        // Sort regular procedures by wRVU descending (highest = primary)
+        regular.sort((a, b) => b.work_rvu - a.work_rvu);
+
+        // Assign roles
+        regular.forEach((p, i) => {
+            p.isPrimary = i === 0;
+            p._role = i === 0 ? 'primary' : 'secondary';
+            p._roleLabel = i === 0 ? '★ Primary' : (i === 1 ? '② Secondary' : `③ Additional (#${i + 1})`);
+            p._roleExplain = i === 0 
+                ? 'Highest wRVU — receives full credit'
+                : `Ranked #${i + 1} by wRVU — multiple procedure reduction applies`;
+        });
+
+        addons.forEach(p => {
+            p.isPrimary = false;
+            p._role = 'addon';
+            p._roleLabel = '⊕ Add-on';
+            p._roleExplain = 'Add-on code (ZZZ global) — no MPPR reduction, always full wRVU';
+        });
+
+        // Reassemble: regular sorted by wRVU, then add-ons at end
+        caseProcs.length = 0;
+        caseProcs.push(...regular, ...addons);
+    }
+
     function getCaseAdjustedWRVU(proc, index) {
         let rvu = proc.work_rvu;
-        if (!proc.isPrimary && proc.modifier === 'none') {
-            rvu *= (index === 1) ? 0.5 : 0.25;
-        } else {
+
+        // Add-on codes always get 100% — no MPPR reduction
+        if (isAddOnCode(proc)) {
+            // Still apply manual modifiers if set
+            if (proc.modifier === '-62') rvu *= 0.625;
+            else if (proc.modifier === '-80') rvu *= 0.16;
+            else if (proc.modifier === '-22') rvu *= 1.25;
+            return rvu;
+        }
+
+        // Primary procedure = 100%
+        if (proc._role === 'primary' && proc.modifier === 'none') {
+            return rvu;
+        }
+
+        // Manual modifier overrides auto-reduction
+        if (proc.modifier !== 'none') {
             switch (proc.modifier) {
                 case '-51': rvu *= 0.5; break;
+                case '-59': break; // No reduction, distinct procedure
                 case '-62': rvu *= 0.625; break;
                 case '-80': rvu *= 0.16; break;
                 case '-22': rvu *= 1.25; break;
             }
+            return rvu;
         }
+
+        // Auto MPPR for secondary/additional (no manual modifier)
+        // Find this proc's rank among regular (non-addon) procedures
+        const regularProcs = caseProcs.filter(p => !isAddOnCode(p));
+        const rank = regularProcs.indexOf(proc);
+        if (rank === 1) rvu *= 0.5;      // 2nd procedure = 50%
+        else if (rank >= 2) rvu *= 0.25;  // 3rd+ = 25%
+
         return rvu;
     }
 
@@ -3405,17 +3472,17 @@
             return;
         }
 
-        // Auto-sort: highest wRVU first (maximizes reimbursement)
-        // Only auto-sort procedures without manual modifiers
-        caseProcs.sort((a, b) => b.work_rvu - a.work_rvu);
-        caseProcs.forEach((p, i) => { p.isPrimary = i === 0; });
+        // Smart ranking: sort by billing hierarchy, not entry order
+        rankAndSortProcedures();
 
         tray.classList.add('visible');
 
         // Calculate totals
         let totalWRVU = 0, totalPE = 0, totalMP = 0;
+        let totalRawWRVU = 0;
         caseProcs.forEach((p, i) => {
             totalWRVU += getCaseAdjustedWRVU(p, i);
+            totalRawWRVU += p.work_rvu;
             totalPE += p.pe_rvu;
             totalMP += p.mp_rvu;
         });
@@ -3427,13 +3494,20 @@
         document.getElementById('caseTotalRVU').textContent = totalRVU.toFixed(2);
         document.getElementById('casePayment').textContent = '$' + payment.toFixed(2);
 
-        // Build detail list
+        // Build detail list with smart role labels
         let html = '';
         caseProcs.forEach((p, i) => {
             const adjRVU = getCaseAdjustedWRVU(p, i);
+            const rawRVU = p.work_rvu;
+            const isReduced = Math.abs(adjRVU - rawRVU) > 0.01;
+            const roleLabel = p._roleLabel || (i === 0 ? '★ Primary' : '② Secondary');
+            const roleExplain = p._roleExplain || '';
+            const roleBg = p._role === 'primary' ? '#EFF6FF' : (p._role === 'addon' ? '#F0FDF4' : 'transparent');
+            const roleColor = p._role === 'primary' ? '#2563EB' : (p._role === 'addon' ? '#059669' : '#6B7280');
+
             html += `
-                <div class="case-proc">
-                    <span class="case-proc-order">${i === 0 ? '★' : (i+1)}</span>
+                <div class="case-proc" style="background:${roleBg};">
+                    <span class="case-proc-order" style="color:${roleColor};font-size:0.65rem;min-width:70px;" title="${roleExplain}">${roleLabel}</span>
                     <span class="case-proc-code">${p.code}</span>
                     <span class="case-proc-desc" title="${p.description}">${p.description}</span>
                     <span class="case-proc-mod">
@@ -3446,10 +3520,23 @@
                             <option value="-22" ${p.modifier==='-22'?'selected':''}>-22 Increased</option>
                         </select>
                     </span>
-                    <span class="case-proc-wrvu">${adjRVU.toFixed(2)} wRVU</span>
+                    <span class="case-proc-wrvu" style="min-width:85px;text-align:right;">
+                        ${isReduced ? `<span style="text-decoration:line-through;color:#9CA3AF;font-size:0.7rem;">${rawRVU.toFixed(2)}</span> ` : ''}
+                        <strong>${adjRVU.toFixed(2)}</strong>
+                    </span>
                     <button class="case-proc-remove" onclick="event.stopPropagation();removeCaseProc(${p.id})" title="Remove">&times;</button>
                 </div>`;
         });
+
+        // Add summary row showing raw vs adjusted
+        const savings = totalRawWRVU - totalWRVU;
+        if (caseProcs.length > 1 && savings > 0.01) {
+            html += `<div style="padding:6px 20px;font-size:0.72rem;color:#6B7280;text-align:right;border-top:1px solid var(--gray-200);">
+                Raw total: ${totalRawWRVU.toFixed(2)} wRVU → Adjusted: <strong style="color:#2563EB;">${totalWRVU.toFixed(2)}</strong> wRVU
+                <span title="Procedures auto-ranked by wRVU. Highest-value code gets full credit. MPPR applied to secondary codes. Add-on codes (ZZZ) are not reduced." style="cursor:help;margin-left:4px;">ℹ️</span>
+            </div>`;
+        }
+
         detail.innerHTML = html;
     }
 
