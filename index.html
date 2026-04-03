@@ -2928,17 +2928,40 @@
 
         function addToRVUCalculator(cptCode) {
             // Add to Case Builder tray (persistent bottom bar)
+            // addToCase already calls addProcedure internally, so we DON'T call it again
             if (typeof addToCase === 'function') {
                 addToCase(cptCode);
+            } else {
+                // Fallback if Case Builder not loaded
+                addProcedure(cptCode);
             }
             
-            // Switch to RVU calculator section
-            showSection('rvu');
+            // DON'T switch sections — let user keep browsing and adding more procedures
+            // The Case Builder tray at the bottom shows the running total
             
-            // Add the procedure
-            setTimeout(() => {
-                addProcedure(cptCode);
-            }, 100);
+            // Visual feedback: flash the case tray
+            const tray = document.getElementById('caseTray');
+            if (tray) {
+                tray.style.transition = 'box-shadow 0.2s';
+                tray.style.boxShadow = '0 -4px 30px rgba(37, 99, 235, 0.4)';
+                setTimeout(() => { tray.style.boxShadow = ''; }, 800);
+            }
+            
+            // Show brief confirmation toast
+            showAddedToast(cptCode);
+        }
+        
+        function showAddedToast(cptCode) {
+            let toast = document.getElementById('cptToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'cptToast';
+                toast.style.cssText = 'position:fixed;top:20px;right:20px;background:#059669;color:white;padding:10px 20px;border-radius:8px;font-size:0.9rem;font-weight:600;z-index:10000;opacity:0;transition:opacity 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.15);';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = `✓ CPT ${cptCode} added to case`;
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2000);
         }
 
         // Scroll Effects
@@ -3253,12 +3276,22 @@
                 </div>
             </div>
             <div class="case-tray-right">
+                <button class="case-tray-copy" onclick="event.stopPropagation();toggleCaseSearch()" title="Add another procedure" style="background:#059669;">+ Add Procedure</button>
                 <button class="case-tray-copy" onclick="event.stopPropagation();copyCaseSummary()" title="Copy summary">📋 Copy</button>
                 <button class="case-tray-clear" onclick="event.stopPropagation();clearCase()" title="Clear all">Clear</button>
                 <button class="case-tray-toggle" id="caseTrayToggle">▲</button>
             </div>
         </div>
         <div class="case-tray-detail" id="caseTrayDetail"></div>
+        <div class="case-tray-search" id="caseTraySearch" style="display:none;padding:10px 20px;border-top:1px solid var(--gray-200);background:white;">
+            <div style="display:flex;gap:8px;">
+                <input type="text" id="caseSearchInput" placeholder="Add procedure — search by CPT code or name..."
+                    style="flex:1;border:1px solid var(--gray-300);border-radius:8px;padding:8px 12px;font-size:0.85rem;font-family:inherit;outline:none;"
+                    oninput="searchCaseProc(this.value)" autocomplete="off">
+                <button onclick="toggleCaseSearch()" style="background:none;border:1px solid var(--gray-300);border-radius:8px;padding:4px 12px;cursor:pointer;color:var(--gray-500);font-size:0.85rem;">Close</button>
+            </div>
+            <div id="caseSearchResults" style="max-height:200px;overflow-y:auto;margin-top:6px;"></div>
+        </div>
     </div>
 
     <script>
@@ -3295,8 +3328,23 @@
             });
         }
         updateCaseTray();
-        // Also add to RVU calculator for consistency
-        addProcedure(cptCode);
+        // Sync to RVU calculator's internal list (no duplicate — direct push)
+        if (RVU_DATA && RVU_DATA.codes[cptCode]) {
+            const pd = RVU_DATA.codes[cptCode];
+            procedureList.push({
+                id: Date.now() + Math.random(),
+                code: cptCode,
+                description: pd.description,
+                work_rvu: pd.work_rvu,
+                pe_rvu: pd.pe_rvu,
+                mp_rvu: pd.mp_rvu,
+                total_rvu: pd.total_rvu,
+                modifier: 'none',
+                isPrimary: procedureList.length === 0
+            });
+            updateProcedureDisplay();
+            calculateTotals();
+        }
     }
 
     function findCPTInTree(code) {
@@ -3408,6 +3456,81 @@
         if (caseProcs.length > 0 && !confirm('Clear all procedures from this case?')) return;
         caseProcs = [];
         updateCaseTray();
+    }
+
+    function toggleCaseSearch() {
+        const searchPanel = document.getElementById('caseTraySearch');
+        if (searchPanel.style.display === 'none') {
+            searchPanel.style.display = 'block';
+            document.getElementById('caseSearchInput').focus();
+            // Make sure tray is expanded
+            document.getElementById('caseTray').classList.add('expanded');
+        } else {
+            searchPanel.style.display = 'none';
+            document.getElementById('caseSearchInput').value = '';
+            document.getElementById('caseSearchResults').innerHTML = '';
+        }
+    }
+
+    let caseSearchTimeout;
+    function searchCaseProc(query) {
+        clearTimeout(caseSearchTimeout);
+        const container = document.getElementById('caseSearchResults');
+        if (query.length < 2) { container.innerHTML = ''; return; }
+        
+        caseSearchTimeout = setTimeout(() => {
+            const results = [];
+            const q = query.toLowerCase();
+            
+            // Search RVU database
+            if (RVU_DATA && RVU_DATA.codes) {
+                Object.entries(RVU_DATA.codes).forEach(([code, data]) => {
+                    if (code.includes(q) || data.description.toLowerCase().includes(q)) {
+                        results.push({ code, desc: data.description, wrvu: data.work_rvu });
+                    }
+                });
+            }
+            
+            // Also search CPT decision tree for codes not in RVU database
+            if (typeof CPT_DATA !== 'undefined') {
+                function searchTree(obj) {
+                    if (!obj) return;
+                    if (obj.cpt_code && (obj.cpt_code.includes(q) || (obj.description || '').toLowerCase().includes(q))) {
+                        if (!results.find(r => r.code === obj.cpt_code)) {
+                            results.push({ code: obj.cpt_code, desc: obj.description || '', wrvu: RVU_DATA?.codes?.[obj.cpt_code]?.work_rvu || '—' });
+                        }
+                    }
+                    if (obj.options) obj.options.forEach(o => searchTree(o));
+                    if (obj.branches) Object.values(obj.branches).forEach(b => searchTree(b));
+                    if (obj.questions) obj.questions.forEach(q => searchTree(q));
+                    if (obj.categories) obj.categories.forEach(c => searchTree(c));
+                }
+                searchTree(CPT_DATA);
+            }
+            
+            const top = results.slice(0, 8);
+            if (!top.length) {
+                container.innerHTML = '<p style="color:#9CA3AF;font-size:0.8rem;padding:8px;">No results found</p>';
+                return;
+            }
+            
+            let html = '';
+            top.forEach(r => {
+                html += `<div onclick="addCaseFromSearch('${r.code}')" style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;cursor:pointer;border-radius:6px;font-size:0.82rem;transition:background 0.15s;" onmouseover="this.style.background='#EFF6FF'" onmouseout="this.style.background=''">
+                    <div><strong style="color:#2563EB;">${r.code}</strong> <span style="color:#6B7280;">${r.desc}</span></div>
+                    <span style="color:#2563EB;font-weight:600;font-size:0.78rem;">${r.wrvu} wRVU</span>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }, 200);
+    }
+
+    function addCaseFromSearch(cptCode) {
+        addToCase(cptCode);
+        document.getElementById('caseSearchInput').value = '';
+        document.getElementById('caseSearchResults').innerHTML = '';
+        document.getElementById('caseSearchInput').focus();
+        showAddedToast(cptCode);
     }
 
     function copyCaseSummary() {
