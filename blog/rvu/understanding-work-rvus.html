@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Work RVUs: What Every Surgeon Needs to Know — Free CPT Code Finder</title>
+    <meta name="description" content="Complete guide to work RVUs (wRVUs): calculation methods, conversion factor, practice expense and malpractice components, compensation benchmarking for surgeons.">
+    <meta name="keywords" content="work RVUs, wRVU calculation, surgeon compensation, RVU benchmarking, conversion factor, practice expense RVUs, malpractice RVUs, productivity metrics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://freecptcodefinder.com/blog/rvu/understanding-work-rvus.html">
+    <meta property="og:title" content="Understanding Work RVUs: What Every Surgeon Needs to Know — Free CPT Code Finder">
+    <meta property="og:description" content="Complete guide to work RVUs (wRVUs): calculation methods, conversion factor, practice expense and malpractice components, compensation benchmarking for surgeons.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://freecptcodefinder.com/blog/rvu/understanding-work-rvus.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PLACEHOLDER');</script>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#1F2937;background:#FAFBFC}
+        .header{background:#fff;border-bottom:1px solid #E5E7EB;padding:1rem 0;position:sticky;top:0;z-index:100}
+        .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .logo{font-size:1.3rem;font-weight:700;color:#2563EB;text-decoration:none}
+        .nav{display:flex;gap:1.5rem;align-items:center}
+        .nav a{color:#6B7280;text-decoration:none;font-size:0.9rem;font-weight:500}
+        .nav a:hover{color:#2563EB}
+        .container{max-width:800px;margin:0 auto;padding:0 1.5rem}
+        .breadcrumb{padding:1rem 0;font-size:0.8rem;color:#6B7280}
+        .breadcrumb a{color:#2563EB;text-decoration:none}
+        .article{padding:1rem 0 4rem}
+        .article h1{font-size:2.2rem;font-weight:800;color:#111827;margin-bottom:0.75rem;line-height:1.2}
+        .article-meta{display:flex;gap:1rem;align-items:center;color:#6B7280;font-size:0.85rem;margin-bottom:2rem;flex-wrap:wrap}
+        .article-meta .author{font-weight:600;color:#374151}
+        .article h2{font-size:1.5rem;font-weight:700;color:#111827;margin:2.5rem 0 1rem}
+        .article h3{font-size:1.15rem;font-weight:600;color:#111827;margin:1.5rem 0 0.75rem}
+        .article p{color:#374151;margin-bottom:1.25rem}
+        .article ul,.article ol{padding-left:1.5rem;margin-bottom:1.25rem}
+        .article li{margin-bottom:0.5rem;color:#374151}
+        .article strong{color:#111827}
+        .article a{color:#2563EB}
+        .article blockquote{border-left:4px solid #2563EB;padding:1rem 1.5rem;background:#EFF6FF;border-radius:0 8px 8px 0;margin:1.5rem 0;font-style:italic;color:#374151}
+        .code-box{background:#F3F4F6;border:1px solid #E5E7EB;border-radius:10px;padding:1.25rem;margin:1.5rem 0}
+        .code-box .cpt{font-size:1.5rem;font-weight:800;color:#2563EB}
+        .code-box .desc{color:#374151;margin-top:0.25rem}
+        .code-box .detail{font-size:0.85rem;color:#6B7280;margin-top:0.5rem}
+        .cta-box{background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #BBF7D0;border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
+        .cta-box a{display:inline-block;background:#2563EB;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:0.75rem}
+        .cta-box a:hover{background:#1E40AF}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th{background:#F3F4F6;padding:10px 12px;text-align:left;font-weight:600;color:#111827;border-bottom:2px solid #E5E7EB}
+        td{padding:10px 12px;border-bottom:1px solid #F3F4F6;color:#374151}
+        tr:hover td{background:#FAFBFC}
+        .related{background:#F9FAFB;border-top:1px solid #E5E7EB;padding:2rem 0;margin-top:3rem}
+        .related h3{font-size:1.1rem;font-weight:700;color:#111827;margin-bottom:1rem}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+        .related-card{background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:1rem;text-decoration:none;transition:border-color 0.2s}
+        .related-card:hover{border-color:#2563EB}
+        .related-card h4{color:#111827;font-size:0.95rem;margin-bottom:0.25rem}
+        .related-card p{color:#6B7280;font-size:0.8rem;margin:0}
+        .sidebar-ad{background:#FAFAFB;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;margin:2rem 0;text-align:center;color:#9CA3AF;font-size:0.75rem;min-height:250px;display:flex;align-items:center;justify-content:center}
+        .sidebar-ad::before{content:'Advertisement'}
+        .footer{background:#111827;color:#9CA3AF;padding:2rem 1.5rem;font-size:0.8rem}
+        .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .footer a{color:#60A5FA;text-decoration:none}
+        @media(max-width:640px){
+            .article h1{font-size:1.6rem}
+            .article h2{font-size:1.25rem}
+            .header-inner{flex-direction:column;align-items:flex-start}
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">🔍 FreeCPTCodeFinder</a>
+            <nav class="nav">
+                <a href="/">CPT Finder</a>
+                <a href="/blog/">Coding Guides</a>
+                <a href="/privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> → <a href="/blog/">Coding Guides</a> → Understanding Work RVUs
+            </div>
+        </div>
+
+        <article class="article">
+            <div class="container">
+                <h1>Understanding Work RVUs: What Every Surgeon Needs to Know</h1>
+                <div class="article-meta">
+                    <span class="author">Medical Coding Team</span>
+                    <span>•</span>
+                    <span>Updated April 2026</span>
+                    <span>•</span>
+                    <span>14 min read</span>
+                </div>
+
+                <p>Work Relative Value Units (wRVUs) are the foundation of physician compensation in today's healthcare landscape. Whether you're negotiating a contract, evaluating productivity, or planning your surgical schedule, understanding how wRVUs are calculated and applied is crucial for maximizing your earning potential and career success.</p>
+
+                <h2>What Are Work RVUs (wRVUs)?</h2>
+
+                <p>Work RVUs represent the relative amount of physician work involved in providing a specific service. Developed by Harvard researchers and refined by the American Medical Association's RVU Update Committee (RUC), wRVUs attempt to quantify the time, effort, technical skill, physical effort, mental effort, and stress associated with each medical service.</p>
+
+                <blockquote>
+                Work RVUs are designed to be specialty-neutral, allowing fair comparison of physician productivity across different medical disciplines.
+                </blockquote>
+
+                <p>The wRVU system forms the backbone of the Medicare Physician Fee Schedule and influences most commercial payer reimbursement models. For surgeons, wRVUs directly correlate with compensation in most employment and partnership arrangements.</p>
+
+                <h2>The Three Components of Total RVUs</h2>
+
+                <p>Every CPT code is assigned three types of RVUs that together determine the total relative value:</p>
+
+                <h3>1. Work RVUs (wRVU)</h3>
+
+                <p>This represents the physician's work and accounts for approximately 50-52% of the total RVU value. Work RVUs consider:</p>
+
+                <ul>
+                    <li><strong>Pre-service time:</strong> Patient evaluation, procedure planning, obtaining consent</li>
+                    <li><strong>Intra-service time:</strong> Time spent performing the actual procedure</li>
+                    <li><strong>Post-service time:</strong> Immediate post-procedure care, documentation, communication</li>
+                    <li><strong>Intensity factors:</strong> Technical skill, physical effort, mental effort, and psychological stress</li>
+                </ul>
+
+                <div class="code-box">
+                    <div class="cpt">44160 - Colectomy, partial</div>
+                    <div class="desc">Work RVU: 22.85</div>
+                    <div class="detail">High wRVU reflecting complexity and time investment</div>
+                </div>
+
+                <h3>2. Practice Expense RVUs (PE RVU)</h3>
+
+                <p>Practice expense RVUs cover the non-physician costs of providing a service, including:</p>
+
+                <ul>
+                    <li>Staff time and wages</li>
+                    <li>Medical equipment and supplies</li>
+                    <li>Office space and utilities</li>
+                    <li>Administrative costs</li>
+                </ul>
+
+                <p>PE RVUs are calculated differently for facility vs. non-facility settings. Surgical procedures performed in hospitals typically have lower PE RVUs since the facility bears most practice expense costs.</p>
+
+                <h3>3. Malpractice RVUs (MP RVU)</h3>
+
+                <p>Malpractice RVUs reflect the professional liability insurance costs associated with different procedures. Surgery typically carries higher malpractice risk and therefore higher MP RVUs compared to cognitive services.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>RVU Component</th>
+                            <th>% of Total</th>
+                            <th>What It Covers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Work RVU</td>
+                            <td>~52%</td>
+                            <td>Physician time, effort, and skill</td>
+                        </tr>
+                        <tr>
+                            <td>Practice Expense RVU</td>
+                            <td>~44%</td>
+                            <td>Staff, equipment, supplies, overhead</td>
+                        </tr>
+                        <tr>
+                            <td>Malpractice RVU</td>
+                            <td>~4%</td>
+                            <td>Professional liability insurance costs</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>How wRVUs Are Calculated</h2>
+
+                <p>The RUC uses a sophisticated methodology to determine wRVUs for each CPT code:</p>
+
+                <h3>Survey-Based Time Estimates</h3>
+
+                <p>Physician specialists survey actual practitioners to determine typical times for:</p>
+                <ul>
+                    <li><strong>Pre-service time:</strong> History, exam, decision-making, consent</li>
+                    <li><strong>Intra-service time:</strong> Skin-to-skin time or procedure time</li>
+                    <li><strong>Post-service time:</strong> Immediate care, monitoring, documentation</li>
+                </ul>
+
+                <h3>Intensity Weighting</h3>
+
+                <p>Time estimates are adjusted for intensity factors using a 1-5 scale:</p>
+
+                <ul>
+                    <li><strong>Mental effort and judgment:</strong> Complexity of decision-making</li>
+                    <li><strong>Technical skill required:</strong> Training and dexterity needed</li>
+                    <li><strong>Physical effort:</strong> Stamina and physical demands</li>
+                    <li><strong>Psychological stress:</strong> Risk of adverse outcome</li>
+                </ul>
+
+                <h3>Cross-Specialty Comparisons</h3>
+
+                <p>The RUC ensures that procedures requiring similar physician work receive comparable wRVUs regardless of specialty. Reference procedures serve as anchors for maintaining consistency across the fee schedule.</p>
+
+                <div class="cta-box">
+                    <h3>Track Your wRVU Performance</h3>
+                    <p>Search CPT codes instantly to see work RVU values and optimize your productivity.</p>
+                    <a href="https://freecptcodefinder.com/">Calculate Your wRVUs →</a>
+                </div>
+
+                <h2>The Medicare Conversion Factor</h2>
+
+                <p>To convert RVUs into actual dollars, CMS applies a conversion factor that translates relative values into payment amounts. The 2026 Medicare Physician Fee Schedule conversion factor is <strong>$32.7476</strong> per RVU.</p>
+
+                <div class="code-box">
+                    <div class="cpt">Payment Calculation Formula</div>
+                    <div class="desc">Total Payment = (Work RVU + PE RVU + MP RVU) × Conversion Factor × Geographic Adjustment</div>
+                    <div class="detail">Geographic Practice Cost Indices (GPCIs) adjust for regional cost differences</div>
+                </div>
+
+                <h3>Sample Payment Calculation</h3>
+
+                <p>For CPT 44160 (partial colectomy) in a national average location:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>RVU Value</th>
+                            <th>Payment (×$32.75)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Work RVU</td>
+                            <td>22.85</td>
+                            <td>$748.34</td>
+                        </tr>
+                        <tr>
+                            <td>PE RVU (facility)</td>
+                            <td>5.12</td>
+                            <td>$167.68</td>
+                        </tr>
+                        <tr>
+                            <td>MP RVU</td>
+                            <td>2.89</td>
+                            <td>$94.65</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>30.86</strong></td>
+                            <td><strong>$1,010.67</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Why wRVUs Matter for Compensation</h2>
+
+                <p>Most physician compensation models today incorporate wRVUs as a primary productivity metric:</p>
+
+                <h3>Academic Medical Centers</h3>
+
+                <p>Academic positions typically use wRVU-based compensation formulas such as:</p>
+                <ul>
+                    <li>Base salary plus wRVU incentives above a threshold</li>
+                    <li>Percentage of collections with wRVU productivity requirements</li>
+                    <li>Tiered wRVU rates with higher rates at increased production levels</li>
+                </ul>
+
+                <h3>Hospital Employment</h3>
+
+                <p>Hospital-employed surgeons often receive:</p>
+                <ul>
+                    <li>Guaranteed base salary for 1-2 years</li>
+                    <li>Transition to wRVU-based compensation</li>
+                    <li>Quality and citizenship bonuses on top of wRVU payments</li>
+                </ul>
+
+                <h3>Private Practice</h3>
+
+                <p>Private practice compensation may include:</p>
+                <ul>
+                    <li>Partnership distributions based on wRVU production</li>
+                    <li>Buy-in calculations using historical wRVU performance</li>
+                    <li>Call coverage assignments proportional to wRVU capacity</li>
+                </ul>
+
+                <h2>wRVU Benchmarking and Performance Metrics</h2>
+
+                <p>Understanding your wRVU performance relative to national benchmarks is crucial for career planning and contract negotiations:</p>
+
+                <h3>General Surgery wRVU Benchmarks (Annual)</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Percentile</th>
+                            <th>wRVUs</th>
+                            <th>Performance Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25th</td>
+                            <td>4,200</td>
+                            <td>Below average</td>
+                        </tr>
+                        <tr>
+                            <td>50th (median)</td>
+                            <td>5,800</td>
+                            <td>Average</td>
+                        </tr>
+                        <tr>
+                            <td>75th</td>
+                            <td>7,500</td>
+                            <td>Above average</td>
+                        </tr>
+                        <tr>
+                            <td>90th</td>
+                            <td>9,200</td>
+                            <td>High performer</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Factors Affecting wRVU Production</h3>
+
+                <ul>
+                    <li><strong>Case mix:</strong> Complex procedures generate more wRVUs per case</li>
+                    <li><strong>Operating room access:</strong> Block time and scheduling efficiency</li>
+                    <li><strong>Call coverage:</strong> Emergency and trauma cases add wRVU volume</li>
+                    <li><strong>Subspecialization:</strong> Specialized procedures often have higher wRVUs</li>
+                    <li><strong>Practice efficiency:</strong> Reduced documentation time allows more patient care</li>
+                </ul>
+
+                <h2>Maximizing Your wRVU Performance</h2>
+
+                <p>Strategic approaches to optimize wRVU production include:</p>
+
+                <h3>Case Selection and Scheduling</h3>
+
+                <ul>
+                    <li>Identify high-wRVU procedures within your expertise</li>
+                    <li>Optimize OR scheduling to maximize case volume</li>
+                    <li>Develop efficient workflows for common procedures</li>
+                    <li>Consider subspecialty training for higher-value procedures</li>
+                </ul>
+
+                <h3>Documentation and Coding</h3>
+
+                <ul>
+                    <li>Ensure accurate CPT code selection reflects work performed</li>
+                    <li>Document complications and additional procedures appropriately</li>
+                    <li>Use appropriate modifiers to capture additional wRVUs</li>
+                    <li>Work closely with coding staff to optimize code selection</li>
+                </ul>
+
+                <h3>Practice Management</h3>
+
+                <ul>
+                    <li>Negotiate adequate OR time and support staff</li>
+                    <li>Streamline pre-operative and post-operative workflows</li>
+                    <li>Implement systems to reduce administrative burden</li>
+                    <li>Track wRVU performance monthly and adjust strategies accordingly</li>
+                </ul>
+
+                <div class="sidebar-ad"></div>
+
+                <h2>Common wRVU Misconceptions</h2>
+
+                <p>Several myths about wRVUs can lead to poor decision-making:</p>
+
+                <h3>Myth: Higher wRVUs Always Mean Higher Income</h3>
+
+                <p><strong>Reality:</strong> Conversion rates vary significantly between employers. A position with lower wRVU rates but higher volume might be more lucrative than high-rate/low-volume opportunities.</p>
+
+                <h3>Myth: wRVUs Perfectly Reflect Physician Value</h3>
+
+                <p><strong>Reality:</strong> wRVUs measure specific procedural work but don't capture research, teaching, administrative duties, or quality outcomes that add significant value.</p>
+
+                <h3>Myth: All wRVUs Are Equal</h3>
+
+                <p><strong>Reality:</strong> The effort required to generate wRVUs varies significantly. Some procedures may be more physically or mentally demanding per wRVU than others.</p>
+
+                <h2>Future of wRVU Systems</h2>
+
+                <p>The healthcare industry continues to evolve toward value-based care, which may impact traditional wRVU compensation:</p>
+
+                <h3>Quality Metrics Integration</h3>
+
+                <p>Many organizations now combine wRVU productivity with quality measures:</p>
+                <ul>
+                    <li>Surgical site infection rates</li>
+                    <li>Readmission rates</li>
+                    <li>Patient satisfaction scores</li>
+                    <li>Cost efficiency metrics</li>
+                </ul>
+
+                <h3>Alternative Productivity Measures</h3>
+
+                <p>Some organizations experiment with alternatives to pure wRVU models:</p>
+                <ul>
+                    <li>Case-based compensation for specific procedures</li>
+                    <li>Time-based productivity measurements</li>
+                    <li>Outcome-based bonus structures</li>
+                    <li>Team-based productivity incentives</li>
+                </ul>
+
+                <div class="cta-box">
+                    <h3>Master wRVU Optimization</h3>
+                    <p>Access comprehensive CPT code data with wRVU values to make informed career and scheduling decisions.</p>
+                    <a href="https://freecptcodefinder.com/">Optimize Your Performance →</a>
+                </div>
+
+                <h2>Negotiating wRVU-Based Contracts</h2>
+
+                <p>When evaluating wRVU-based compensation offers, consider these critical factors:</p>
+
+                <h3>Conversion Rate Analysis</h3>
+
+                <ul>
+                    <li>Compare offered rates to Medicare and commercial benchmarks</li>
+                    <li>Understand if rates are tiered or flat</li>
+                    <li>Clarify how rates change over time</li>
+                    <li>Determine if rates differ by procedure type</li>
+                </ul>
+
+                <h3>Support and Infrastructure</h3>
+
+                <ul>
+                    <li>OR access and scheduling priorities</li>
+                    <li>Administrative and coding support</li>
+                    <li>Equipment and technology availability</li>
+                    <li>Referral patterns and case mix</li>
+                </ul>
+
+                <h3>Risk Factors</h3>
+
+                <ul>
+                    <li>Minimum wRVU requirements and consequences</li>
+                    <li>Market changes affecting case volume</li>
+                    <li>Payer mix and reimbursement stability</li>
+                    <li>Competition and referral source security</li>
+                </ul>
+
+                <h2>Key Takeaways for Surgical Practice</h2>
+
+                <p>Understanding wRVUs is essential for surgical career success in today's healthcare environment:</p>
+
+                <ul>
+                    <li><strong>wRVUs quantify physician work</strong> using time, complexity, and intensity factors</li>
+                    <li><strong>Conversion factors translate wRVUs to dollars,</strong> but rates vary significantly between employers</li>
+                    <li><strong>Practice efficiency and case mix optimization</strong> directly impact wRVU production</li>
+                    <li><strong>Quality metrics increasingly complement wRVU-based compensation</strong> in value-based care models</li>
+                    <li><strong>Contract negotiation requires understanding</strong> both wRVU rates and practice support infrastructure</li>
+                </ul>
+
+                <p>Whether you're an early-career surgeon planning your practice trajectory or an experienced surgeon optimizing productivity, mastering wRVU concepts enables data-driven decisions that enhance both patient care and professional success. Regular monitoring of your wRVU performance, combined with strategic practice management, positions you for sustainable career growth in an evolving healthcare landscape.</p>
+            </div>
+        <div class="code-box">
+                    <h3 style="margin-bottom:0.75rem;">📚 Recommended Resources</h3>
+                    <ul style="list-style:none;padding:0;">
+                        <li style="margin-bottom:8px;">📖 <a href="https://www.amazon.com/dp/B0D7FTZPYQ?tag=freecptcode-20" target="_blank" rel="noopener">AMA CPT Professional Edition 2026</a> — The definitive reference</li>
+                        <li style="margin-bottom:8px;">📖 <a href="https://www.amazon.com/dp/B0D95BFRW1?tag=freecptcode-20" target="_blank" rel="noopener">ICD-10-CM Professional 2026</a> — Complete code set</li>
+                        <li>🔍 <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder.com</a> — Free interactive CPT lookup tool</li>
+                    </ul>
+                </div>
+
+                <div class="code-box" style="text-align:center;background:#EFF6FF;border-color:#2563EB;">
+                    <p style="font-weight:700;color:#111827;margin-bottom:8px;">📧 Free Coding Cheat Sheet</p>
+                    <p style="font-size:0.85rem;color:#6B7280;margin-bottom:12px;">Get our printable CPT quick-reference card for the top 50 surgical procedures — free.</p>
+                    <form style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;" onsubmit="event.preventDefault();alert('Thank you! Check your email.');">
+                        <input type="email" placeholder="you@hospital.edu" required style="padding:10px 14px;border:1px solid #D1D5DB;border-radius:8px;font-size:0.9rem;min-width:220px;">
+                        <button type="submit" style="background:#2563EB;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Send It</button>
+                    </form>
+                </div>
+
+                <div class="sidebar-ad" data-slot="article-bottom"></div>
+            </article>
+
+        <section class="related">
+            <div class="container">
+                <h3>Related Guides</h3>
+                <div class="related-grid">
+                    <a href="/blog/rvu/highest-rvu-general-surgery-procedures.html" class="related-card">
+                        <h4>Highest RVU Procedures</h4>
+                        <p>Top 20 general surgery procedures by work RVUs with productivity optimization tips.</p>
+                    </a>
+                    <a href="/blog/guides/global-surgical-package-explained.html" class="related-card">
+                        <h4>Global Surgical Package</h4>
+                        <p>Master 0-day, 10-day, and 90-day global periods with modifier usage and billing strategies.</p>
+                    </a>
+                    <a href="/blog/guides/cpt-code-breast-surgery.html" class="related-card">
+                        <h4>Breast Surgery CPT Codes</h4>
+                        <p>Complete coding guide for biopsies, lumpectomies, mastectomies, and reconstruction.</p>
+                    </a>
+                    <a href="/blog/guides/cpt-code-abscess-drainage.html" class="related-card">
+                        <h4>Abscess I&D CPT Codes</h4>
+                        <p>Simple vs complicated drainage coding with practical scenarios and billing tips.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
+                <p style="margin-top:4px">CPT® is a registered trademark of the American Medical Association.</p>
+            </div>
+            <div>
+                <a href="/">CPT Finder</a> &middot;
+                <a href="/blog/">Guides</a> &middot;
+                <a href="/privacy.html">Privacy</a> &middot;
+                <a href="/terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
