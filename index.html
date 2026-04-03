@@ -1495,6 +1495,17 @@
             }
         }
 
+    
+        #searchResults {
+            position: relative;
+            z-index: 100;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -1922,7 +1933,7 @@
     <!-- Cookie Consent Banner -->
     <div id="cookieConsent" class="cookie-consent">
         <p>This site uses cookies to improve your experience and analyze usage.</p>
-        <button onclick="acceptCookies()">Accept</button>
+        <button onclick="acceptCookies()" style="cursor:pointer;">Accept</button>
     </div>
 
     <script>
@@ -3098,6 +3109,12 @@
             });
         }
 
+
+        function hideSearchResults() {
+            document.getElementById('searchResults').style.display = 'none';
+            document.getElementById('searchResults').innerHTML = '';
+        }
+
         function performSearch(query) {
             const results = [];
             const searchLower = query.toLowerCase();
@@ -3177,6 +3194,7 @@
         }
 
         function displaySearchResults(results) {
+            document.getElementById('searchResults').style.display = 'block';
             const container = document.getElementById('searchResults');
             if (results.length === 0) {
                 container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No results found. Try a different search term or browse categories below.</p>';
@@ -3678,6 +3696,8 @@
 
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'accepted');
+            const banner = document.getElementById('cookieBanner') || document.querySelector('.cookie-banner') || document.querySelector('[class*=cookie]');
+            if (banner) banner.style.display = 'none';
             document.getElementById('cookieConsent').style.display = 'none';
         }
 
