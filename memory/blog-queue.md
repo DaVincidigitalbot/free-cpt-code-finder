@@ -50,3 +50,20 @@
 
 ## PUBLISHED
 (Articles will be checked off and dated as they go live)
+
+## OUTPATIENT / E/M / ALL SPECIALTIES (NEW EXPANSION)
+- [ ] 99214 vs 99215: Why Most Providers Underbill → /blog/guides/99214-vs-99215-underbilling.html
+- [ ] 99496 vs 99495: Most Underused Codes in Medicine → /blog/guides/tcm-codes-99495-99496.html
+- [ ] Modifier 25: Office Visit with Procedure → /blog/modifiers/modifier-25-office-procedures.html
+- [ ] Global Period Rules Simply Explained → /blog/guides/global-period-rules-money.html
+- [ ] Top 10 Missed CPT Codes All Specialties → /blog/guides/top-10-missed-cpt-codes.html
+- [ ] Chronic Care Management (99490) Billing Guide → /blog/guides/chronic-care-management-99490.html
+- [ ] How to Bill Time-Based E/M Visits → /blog/guides/time-based-em-billing.html
+- [ ] G2211 Add-On Code: What It Is and When to Use It → /blog/guides/g2211-add-on-code.html
+- [ ] Annual Wellness Visit (G0438/G0439) Coding Guide → /blog/guides/annual-wellness-visit-coding.html
+- [ ] Remote Patient Monitoring CPT Codes (99453-99458) → /blog/guides/remote-patient-monitoring-cpt.html
+- [ ] Advance Care Planning (99497) Billing Guide → /blog/guides/advance-care-planning-99497.html
+- [ ] Prolonged Services (99417) — When and How to Bill → /blog/guides/prolonged-services-99417.html
+- [ ] Primary Care Most Common CPT Codes → /blog/guides/primary-care-common-cpt-codes.html
+- [ ] Emergency Medicine CPT Coding Guide → /blog/guides/emergency-medicine-cpt-codes.html
+- [ ] Dermatology Office Procedure Coding → /blog/guides/dermatology-procedure-coding.html
