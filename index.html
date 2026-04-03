@@ -3405,6 +3405,11 @@
             return;
         }
 
+        // Auto-sort: highest wRVU first (maximizes reimbursement)
+        // Only auto-sort procedures without manual modifiers
+        caseProcs.sort((a, b) => b.work_rvu - a.work_rvu);
+        caseProcs.forEach((p, i) => { p.isPrimary = i === 0; });
+
         tray.classList.add('visible');
 
         // Calculate totals
