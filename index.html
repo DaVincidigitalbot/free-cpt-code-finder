@@ -1506,6 +1506,10 @@
             overflow-y: auto;
         }
 
+    
+        .dt-btn { transition: all 0.2s; }
+        .dt-btn:hover { border-color: #2563eb !important; background: #eff6ff !important; }
+
     </style>
 </head>
 <body>
@@ -3311,9 +3315,9 @@
                 const btnStyle = 'text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:16px 20px;cursor:pointer;font-size:15px;color:#374151;transition:all 0.2s;';
                 
                 if (opt.cpt_code) {
-                    html += '<button onclick="showResultByIndex(' + i + ')" style="' + btnStyle + '" onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">' + opt.label + '</button>';
+                    html += '<button onclick="showResultByIndex(' + i + ')" style="' + btnStyle + '" onmouseover="this.style.borderColor=\'#2563eb\';this.style.background=\'#eff6ff\'" onmouseout="this.style.borderColor=\'#e2e8f0\';this.style.background=\'#f8fafc\'">' + opt.label + '</button>';
                 } else if (opt.next && currentBranches[opt.next]) {
-                    html += '<button onclick="navigateBranch('' + opt.next + '')" style="' + btnStyle + '" onmouseover="this.style.borderColor='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'">' + opt.label + ' →</button>';
+                    html += '<button onclick="navigateBranch(\'' + opt.next + '\')" class="dt-btn" style="' + btnStyle + '">' + opt.label + ' →</button>';
                 }
             });
             
