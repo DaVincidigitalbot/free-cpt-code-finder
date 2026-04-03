@@ -4325,15 +4325,24 @@
               "work_rvu": 8.25
             },
             {
-              "label": "Temporary abdominal closure with negative pressure wound therapy (e.g., AbThera/wound VAC)",
-              "cpt_code": "49013",
-              "description": "Preperitoneal packing for hemorrhage associated with pelvic trauma",
+              "label": "Temporary abdominal closure / negative pressure therapy (AbThera)",
               "modifiers": [],
               "icd10": [
                 "S37.90XA",
                 "T79.2XXA"
               ],
-              "work_rvu": 12.85
+              "work_rvu": 12.85,
+              "next": "wound_vac_management"
+            },
+            {
+              "label": "Preperitoneal packing for pelvic hemorrhage",
+              "cpt_code": "49013",
+              "description": "Preperitoneal packing for hemorrhage associated with pelvic trauma",
+              "modifiers": [],
+              "icd10": [
+                "S36.81XA",
+                "S32.10XA"
+              ]
             }
           ]
         },
@@ -4603,9 +4612,9 @@
           "question": "What wound VAC management is needed?",
           "options": [
             {
-              "label": "Initial placement of negative pressure dressing (AbThera)",
-              "cpt_code": "49013",
-              "description": "Temporary abdominal closure with negative pressure wound therapy (AbThera/wound VAC) \u2014 includes initial placement of prosthetic mesh, wound VAC system, or other temporary closure device",
+              "label": "Initial placement of NPWT/AbThera (open abdomen)",
+              "cpt_code": "49999",
+              "description": "Unlisted procedure, abdomen \u2014 used for initial placement of temporary abdominal closure with NPWT (AbThera/wound VAC). Submit with operative report and comparable code (e.g., 49568 mesh implant) for pricing.",
               "modifiers": [
                 "-22 if extensive/complex"
               ],
