@@ -7451,6 +7451,1144 @@
           ]
         }
       }
+    },
+    {
+      "name": "Interventional Cardiology",
+      "specialty": "Cardiology",
+      "questions": [
+        {
+          "question": "Type of interventional cardiology procedure?",
+          "options": [
+            {
+              "label": "Coronary Angiography / Catheterization",
+              "next": "cath_questions"
+            },
+            {
+              "label": "Percutaneous Coronary Intervention (PCI/Stent)",
+              "next": "pci_questions"
+            },
+            {
+              "label": "Structural Heart (TAVR, MitraClip, ASD/PFO)",
+              "next": "structural_questions"
+            },
+            {
+              "label": "Peripheral Vascular Intervention",
+              "next": "peripheral_vasc_questions"
+            },
+            {
+              "label": "Electrophysiology (EP) / Pacemaker / ICD",
+              "next": "ep_questions"
+            },
+            {
+              "label": "Intra-Aortic Balloon Pump / Mechanical Support",
+              "next": "mech_support_questions"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "cath_questions": {
+          "question": "Type of catheterization?",
+          "options": [
+            {
+              "label": "Left heart catheterization only",
+              "cpt_code": "93452",
+              "description": "Left heart catheterization including intraprocedural injection(s) for left ventriculography, imaging supervision and interpretation, when performed",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I20.0"
+              ]
+            },
+            {
+              "label": "Right heart catheterization only",
+              "cpt_code": "93451",
+              "description": "Right heart catheterization including measurement(s) of oxygen saturation and cardiac output, when performed",
+              "modifiers": [],
+              "icd10": [
+                "I27.0",
+                "I50.9"
+              ]
+            },
+            {
+              "label": "Combined left and right heart cath",
+              "cpt_code": "93453",
+              "description": "Combined right and left heart catheterization including intraprocedural injection(s) for left ventriculography, imaging supervision and interpretation, when performed",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I50.9"
+              ]
+            },
+            {
+              "label": "Coronary angiography (add-on to cath)",
+              "cpt_code": "93454",
+              "description": "Catheter placement in coronary artery(s) for coronary angiography, including intraprocedural injection(s) for coronary angiography, imaging supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I20.9"
+              ]
+            },
+            {
+              "label": "Coronary angiography with left heart cath",
+              "cpt_code": "93458",
+              "description": "Catheter placement in coronary artery(s) for coronary angiography, including intraprocedural injection(s) for coronary angiography and left heart catheterization",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I20.0"
+              ]
+            },
+            {
+              "label": "Coronary angiography with right and left heart cath",
+              "cpt_code": "93460",
+              "description": "Catheter placement in coronary artery(s) for coronary angiography, including intraprocedural injection(s) for coronary angiography, and left and right heart catheterization",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I50.9"
+              ]
+            }
+          ]
+        },
+        "pci_questions": {
+          "question": "Type of PCI / coronary intervention?",
+          "options": [
+            {
+              "label": "PCI, single major coronary artery or branch",
+              "cpt_code": "92928",
+              "description": "Percutaneous transcatheter placement of intracoronary stent(s), with coronary angioplasty when performed; single major coronary artery or branch",
+              "modifiers": [
+                "-LC",
+                "-LD",
+                "-RC"
+              ],
+              "icd10": [
+                "I25.10",
+                "I21.09"
+              ]
+            },
+            {
+              "label": "PCI, each additional branch of major coronary artery (add-on)",
+              "cpt_code": "92929",
+              "description": "Percutaneous transcatheter placement of intracoronary stent(s), with coronary angioplasty when performed; each additional branch of a major coronary artery (add-on)",
+              "modifiers": [
+                "-LC",
+                "-LD",
+                "-RC"
+              ],
+              "icd10": [
+                "I25.10"
+              ]
+            },
+            {
+              "label": "PTCA (balloon angioplasty) single vessel",
+              "cpt_code": "92920",
+              "description": "Percutaneous transluminal coronary angioplasty; single major coronary artery or branch",
+              "modifiers": [
+                "-LC",
+                "-LD",
+                "-RC"
+              ],
+              "icd10": [
+                "I25.10",
+                "I25.110"
+              ]
+            },
+            {
+              "label": "PTCA each additional vessel (add-on)",
+              "cpt_code": "92921",
+              "description": "Percutaneous transluminal coronary angioplasty; each additional branch of a major coronary artery (add-on)",
+              "modifiers": [],
+              "icd10": [
+                "I25.10"
+              ]
+            },
+            {
+              "label": "Coronary atherectomy, single vessel",
+              "cpt_code": "92924",
+              "description": "Percutaneous transluminal coronary atherectomy, with coronary angioplasty when performed; single major coronary artery or branch",
+              "modifiers": [
+                "-LC",
+                "-LD",
+                "-RC"
+              ],
+              "icd10": [
+                "I25.10"
+              ]
+            },
+            {
+              "label": "Coronary thrombectomy",
+              "cpt_code": "92973",
+              "description": "Percutaneous transluminal coronary thrombectomy mechanical",
+              "modifiers": [],
+              "icd10": [
+                "I21.09",
+                "I21.19"
+              ]
+            },
+            {
+              "label": "Intravascular ultrasound (IVUS) coronary (add-on)",
+              "cpt_code": "92978",
+              "description": "Intravascular ultrasound (coronary vessel or graft) during diagnostic evaluation and/or therapeutic intervention; initial vessel",
+              "modifiers": [],
+              "icd10": [
+                "I25.10"
+              ]
+            },
+            {
+              "label": "FFR (Fractional Flow Reserve) (add-on)",
+              "cpt_code": "93571",
+              "description": "Intravascular Doppler velocity and/or pressure derived coronary flow reserve measurement during coronary angiography; initial vessel",
+              "modifiers": [],
+              "icd10": [
+                "I25.10"
+              ]
+            }
+          ]
+        },
+        "structural_questions": {
+          "question": "Type of structural heart procedure?",
+          "options": [
+            {
+              "label": "TAVR (Transcatheter Aortic Valve Replacement)",
+              "cpt_code": "33361",
+              "description": "Transcatheter aortic valve replacement (TAVR/TAVI); percutaneous femoral artery approach",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "I35.2"
+              ]
+            },
+            {
+              "label": "TAVR, transapical approach",
+              "cpt_code": "33362",
+              "description": "Transcatheter aortic valve replacement (TAVR/TAVI); open axillary artery approach",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "I35.2"
+              ]
+            },
+            {
+              "label": "MitraClip (Transcatheter mitral valve repair)",
+              "cpt_code": "33418",
+              "description": "Transcatheter mitral valve repair, percutaneous approach, including transseptal puncture when performed; initial prosthesis",
+              "modifiers": [],
+              "icd10": [
+                "I34.0",
+                "I34.1"
+              ]
+            },
+            {
+              "label": "Transcatheter tricuspid valve repair",
+              "cpt_code": "33419",
+              "description": "Transcatheter tricuspid valve repair, percutaneous approach",
+              "modifiers": [],
+              "icd10": [
+                "I36.1"
+              ]
+            },
+            {
+              "label": "ASD closure (transcatheter)",
+              "cpt_code": "93580",
+              "description": "Percutaneous transcatheter closure of congenital interatrial communication (ASD)",
+              "modifiers": [],
+              "icd10": [
+                "Q21.1"
+              ]
+            },
+            {
+              "label": "PFO closure (transcatheter)",
+              "cpt_code": "93583",
+              "description": "Percutaneous transcatheter closure of patent foramen ovale (PFO)",
+              "modifiers": [],
+              "icd10": [
+                "Q21.1",
+                "I63.9"
+              ]
+            },
+            {
+              "label": "Left atrial appendage closure (Watchman)",
+              "cpt_code": "33340",
+              "description": "Percutaneous transcatheter closure of the left atrial appendage with implant",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I48.0"
+              ]
+            },
+            {
+              "label": "Balloon valvuloplasty, aortic",
+              "cpt_code": "92986",
+              "description": "Percutaneous balloon valvuloplasty; aortic valve",
+              "modifiers": [],
+              "icd10": [
+                "I35.0"
+              ]
+            },
+            {
+              "label": "Balloon valvuloplasty, mitral",
+              "cpt_code": "92987",
+              "description": "Percutaneous balloon valvuloplasty; mitral valve",
+              "modifiers": [],
+              "icd10": [
+                "I34.2",
+                "I05.0"
+              ]
+            }
+          ]
+        },
+        "peripheral_vasc_questions": {
+          "question": "Type of peripheral vascular intervention?",
+          "options": [
+            {
+              "label": "Iliac artery angioplasty/stent",
+              "cpt_code": "37220",
+              "description": "Revascularization, endovascular, open or percutaneous, iliac artery, unilateral, initial vessel; with transluminal angioplasty",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.0",
+                "I74.5"
+              ]
+            },
+            {
+              "label": "Iliac artery stent placement",
+              "cpt_code": "37221",
+              "description": "Revascularization, endovascular, open or percutaneous, iliac artery, unilateral, initial vessel; with transluminal stent placement",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.0"
+              ]
+            },
+            {
+              "label": "Femoral/popliteal angioplasty",
+              "cpt_code": "37224",
+              "description": "Revascularization, endovascular, open or percutaneous, femoral, popliteal artery(s), unilateral; with transluminal angioplasty",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.201",
+                "I70.211"
+              ]
+            },
+            {
+              "label": "Femoral/popliteal stent",
+              "cpt_code": "37226",
+              "description": "Revascularization, endovascular, open or percutaneous, femoral, popliteal artery(s), unilateral; with transluminal stent placement",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.201"
+              ]
+            },
+            {
+              "label": "Tibial/peroneal angioplasty",
+              "cpt_code": "37228",
+              "description": "Revascularization, endovascular, open or percutaneous, tibial, peroneal artery, unilateral, initial vessel; with transluminal angioplasty",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.231",
+                "I70.241"
+              ]
+            },
+            {
+              "label": "Tibial/peroneal stent",
+              "cpt_code": "37230",
+              "description": "Revascularization, endovascular, open or percutaneous, tibial, peroneal artery, unilateral, initial vessel; with transluminal stent placement",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.231"
+              ]
+            },
+            {
+              "label": "Carotid artery stenting",
+              "cpt_code": "37215",
+              "description": "Transcatheter placement of intravascular stent(s), cervical carotid artery, open or percutaneous, including angioplasty, when performed, and radiological supervision and interpretation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I65.21",
+                "I65.22"
+              ]
+            },
+            {
+              "label": "Renal artery angioplasty/stent",
+              "cpt_code": "37236",
+              "description": "Transcatheter placement of an intravascular stent(s), open or percutaneous, including radiological supervision and interpretation and including angioplasty within the same vessel; initial artery",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I70.1",
+                "I15.0"
+              ]
+            },
+            {
+              "label": "Venous angioplasty/stent (e.g., iliac vein)",
+              "cpt_code": "37238",
+              "description": "Transcatheter placement of an intravascular stent(s), open or percutaneous, including radiological supervision and interpretation; initial vein",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "I87.1",
+                "I82.401"
+              ]
+            }
+          ]
+        },
+        "ep_questions": {
+          "question": "Type of EP / device procedure?",
+          "options": [
+            {
+              "label": "Permanent pacemaker, single chamber",
+              "cpt_code": "33206",
+              "description": "Insertion of new or replacement of permanent pacemaker with transvenous electrode(s); atrial",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "I44.1"
+              ]
+            },
+            {
+              "label": "Permanent pacemaker, dual chamber",
+              "cpt_code": "33208",
+              "description": "Insertion of new or replacement of permanent pacemaker with transvenous electrode(s); atrial and ventricular",
+              "modifiers": [],
+              "icd10": [
+                "I44.2",
+                "I49.5"
+              ]
+            },
+            {
+              "label": "ICD (defibrillator), single chamber",
+              "cpt_code": "33249",
+              "description": "Insertion or replacement of permanent implantable defibrillator system with transvenous lead(s), single or dual chamber",
+              "modifiers": [],
+              "icd10": [
+                "I47.2",
+                "I46.9"
+              ]
+            },
+            {
+              "label": "Biventricular pacemaker (CRT-P)",
+              "cpt_code": "33224",
+              "description": "Insertion of pacing electrode, cardiac venous system, for left ventricular pacing, with attachment to previously placed pacemaker or implantable defibrillator pulse generator",
+              "modifiers": [],
+              "icd10": [
+                "I50.9",
+                "I42.0"
+              ]
+            },
+            {
+              "label": "EP study, comprehensive",
+              "cpt_code": "93620",
+              "description": "Comprehensive electrophysiologic evaluation including insertion and repositioning of multiple electrode catheters with induction or attempted induction of arrhythmia",
+              "modifiers": [],
+              "icd10": [
+                "I47.1",
+                "I47.2",
+                "I48.91"
+              ]
+            },
+            {
+              "label": "Catheter ablation (SVT/AFib)",
+              "cpt_code": "93656",
+              "description": "Comprehensive electrophysiologic evaluation including transseptal catheterizations, insertion and repositioning of multiple electrode catheters with intracardiac catheter ablation of atrial fibrillation",
+              "modifiers": [],
+              "icd10": [
+                "I48.0",
+                "I48.91"
+              ]
+            },
+            {
+              "label": "Catheter ablation (VT)",
+              "cpt_code": "93654",
+              "description": "Comprehensive electrophysiologic evaluation with insertion and repositioning of multiple electrode catheters, induction or attempted induction of arrhythmia with right or left ventricular pacing/recording, and catheter ablation of ventricular tachycardia",
+              "modifiers": [],
+              "icd10": [
+                "I47.2"
+              ]
+            },
+            {
+              "label": "Leadless pacemaker (Micra)",
+              "cpt_code": "33274",
+              "description": "Transcatheter insertion or replacement of permanent leadless pacemaker, right ventricular, including imaging guidance and device evaluation",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "I44.1"
+              ]
+            },
+            {
+              "label": "Subcutaneous ICD (S-ICD)",
+              "cpt_code": "33270",
+              "description": "Insertion or replacement of permanent subcutaneous implantable defibrillator system, with subcutaneous electrode",
+              "modifiers": [],
+              "icd10": [
+                "I47.2",
+                "I46.9"
+              ]
+            }
+          ]
+        },
+        "mech_support_questions": {
+          "question": "Type of mechanical circulatory support?",
+          "options": [
+            {
+              "label": "Intra-aortic balloon pump (IABP) insertion",
+              "cpt_code": "33967",
+              "description": "Insertion of intra-aortic balloon assist device, percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "I50.9",
+                "R57.0"
+              ]
+            },
+            {
+              "label": "IABP removal",
+              "cpt_code": "33968",
+              "description": "Removal of intra-aortic balloon assist device, percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "I50.9"
+              ]
+            },
+            {
+              "label": "Impella / percutaneous ventricular assist device",
+              "cpt_code": "33990",
+              "description": "Insertion of ventricular assist device, percutaneous including radiological supervision and interpretation; left heart, arterial access only",
+              "modifiers": [],
+              "icd10": [
+                "I50.9",
+                "R57.0"
+              ]
+            },
+            {
+              "label": "Impella removal",
+              "cpt_code": "33992",
+              "description": "Removal of percutaneous ventricular assist device at separate and distinct session",
+              "modifiers": [],
+              "icd10": [
+                "I50.9"
+              ]
+            },
+            {
+              "label": "ECMO cannulation, peripheral (see also Cardiothoracic)",
+              "cpt_code": "33947",
+              "description": "Extracorporeal membrane oxygenation (ECMO)/extracorporeal life support (ECLS) provided by physician; insertion of peripheral cannula(e), percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "J96.00",
+                "R57.0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Interventional Radiology",
+      "specialty": "Radiology",
+      "questions": [
+        {
+          "question": "Type of interventional radiology procedure?",
+          "options": [
+            {
+              "label": "Vascular Access (Ports, Tunneled Lines, PICC)",
+              "next": "ir_access_questions"
+            },
+            {
+              "label": "Embolization",
+              "next": "ir_embolization_questions"
+            },
+            {
+              "label": "Drainage / Aspiration",
+              "next": "ir_drainage_questions"
+            },
+            {
+              "label": "Biopsy (Image-Guided)",
+              "next": "ir_biopsy_questions"
+            },
+            {
+              "label": "Thrombolysis / Thrombectomy",
+              "next": "ir_thrombolysis_questions"
+            },
+            {
+              "label": "IVC Filter",
+              "next": "ir_ivc_questions"
+            },
+            {
+              "label": "Dialysis Access Intervention",
+              "next": "ir_dialysis_questions"
+            },
+            {
+              "label": "Biliary Intervention",
+              "next": "ir_biliary_questions"
+            },
+            {
+              "label": "GI / GU Intervention",
+              "next": "ir_gi_gu_questions"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "ir_access_questions": {
+          "question": "Type of vascular access procedure?",
+          "options": [
+            {
+              "label": "Tunneled central venous catheter insertion",
+              "cpt_code": "36558",
+              "description": "Insertion of tunneled centrally inserted central venous catheter, without subcutaneous port or pump; age 5 years or older",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2",
+                "C80.1"
+              ]
+            },
+            {
+              "label": "Non-tunneled central venous catheter",
+              "cpt_code": "36556",
+              "description": "Insertion of non-tunneled centrally inserted central venous catheter; age 5 years or older",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2",
+                "R57.0"
+              ]
+            },
+            {
+              "label": "Subcutaneous port insertion (Port-a-Cath)",
+              "cpt_code": "36561",
+              "description": "Insertion of tunneled centrally inserted central venous access device, with subcutaneous port; age 5 years or older",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2",
+                "C80.1"
+              ]
+            },
+            {
+              "label": "PICC line insertion",
+              "cpt_code": "36569",
+              "description": "Insertion of peripherally inserted central venous catheter (PICC), without subcutaneous port or pump; age 5 years or older",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Tunneled catheter removal",
+              "cpt_code": "36589",
+              "description": "Removal of tunneled central venous catheter, without subcutaneous port or pump",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Port removal",
+              "cpt_code": "36590",
+              "description": "Removal of tunneled central venous access device, with subcutaneous port or pump",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Catheter exchange over guidewire",
+              "cpt_code": "36584",
+              "description": "Replacement, complete, of a peripherally inserted central venous catheter (PICC), without subcutaneous port or pump, through same venous access",
+              "modifiers": [],
+              "icd10": [
+                "T80.218A",
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "Fluoroscopic guidance for central venous access",
+              "cpt_code": "77001",
+              "description": "Fluoroscopic guidance for central venous access device placement, replacement, or removal",
+              "modifiers": [
+                "-26"
+              ],
+              "icd10": []
+            }
+          ]
+        },
+        "ir_embolization_questions": {
+          "question": "Type of embolization?",
+          "options": [
+            {
+              "label": "Arterial embolization, non-CNS, non-head/neck (e.g., GI bleed, trauma)",
+              "cpt_code": "37242",
+              "description": "Vascular embolization or occlusion, inclusive of all radiological supervision and interpretation, intraprocedural roadmapping, and imaging guidance; arterial, other than hemorrhage or tumor",
+              "modifiers": [],
+              "icd10": [
+                "K92.2",
+                "K62.5"
+              ]
+            },
+            {
+              "label": "Arterial embolization for hemorrhage",
+              "cpt_code": "37244",
+              "description": "Vascular embolization or occlusion, inclusive of all radiological supervision and interpretation; for arterial or venous hemorrhage or lymphatic extravasation",
+              "modifiers": [],
+              "icd10": [
+                "K92.2",
+                "R58",
+                "S36.039A"
+              ]
+            },
+            {
+              "label": "Arterial embolization for tumor (TACE, Y-90 delivery)",
+              "cpt_code": "37243",
+              "description": "Vascular embolization or occlusion, inclusive of all radiological supervision and interpretation; for tumors, organ ischemia, or infarction",
+              "modifiers": [],
+              "icd10": [
+                "C22.0",
+                "C78.7"
+              ]
+            },
+            {
+              "label": "Venous embolization (e.g., varicocele, gonadal vein)",
+              "cpt_code": "37241",
+              "description": "Vascular embolization or occlusion, inclusive of all radiological supervision and interpretation; venous, other than hemorrhage",
+              "modifiers": [],
+              "icd10": [
+                "I86.1"
+              ]
+            },
+            {
+              "label": "Uterine fibroid embolization (UFE)",
+              "cpt_code": "37243",
+              "description": "Vascular embolization or occlusion for tumors or organ ischemia \u2014 used for uterine fibroid embolization",
+              "modifiers": [],
+              "icd10": [
+                "D25.9"
+              ]
+            }
+          ]
+        },
+        "ir_drainage_questions": {
+          "question": "Type of drainage / aspiration?",
+          "options": [
+            {
+              "label": "Percutaneous abscess drainage, CT/US guided",
+              "cpt_code": "49405",
+              "description": "Image-guided fluid collection drainage by catheter, visceral (e.g., kidney, liver, spleen, lung/mediastinum), percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "K65.1",
+                "K75.0"
+              ]
+            },
+            {
+              "label": "Percutaneous abscess drainage, peritoneal/retroperitoneal",
+              "cpt_code": "49406",
+              "description": "Image-guided fluid collection drainage by catheter, peritoneal or retroperitoneal, percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "K65.1",
+                "K68.12"
+              ]
+            },
+            {
+              "label": "Thoracentesis with imaging guidance",
+              "cpt_code": "32557",
+              "description": "Pleural drainage, percutaneous, with insertion of indwelling catheter; with imaging guidance",
+              "modifiers": [],
+              "icd10": [
+                "J91.0",
+                "J90"
+              ]
+            },
+            {
+              "label": "Paracentesis with imaging guidance",
+              "cpt_code": "49083",
+              "description": "Abdominal paracentesis (diagnostic or therapeutic); with imaging guidance",
+              "modifiers": [],
+              "icd10": [
+                "R18.8",
+                "K70.31"
+              ]
+            },
+            {
+              "label": "Percutaneous nephrostomy tube placement",
+              "cpt_code": "50432",
+              "description": "Placement of nephrostomy catheter, percutaneous, including diagnostic nephrostogram and/or ureterogram when performed, imaging guidance and all associated radiological supervision and interpretation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N13.1",
+                "N13.2"
+              ]
+            },
+            {
+              "label": "Percutaneous cholecystostomy tube",
+              "cpt_code": "47490",
+              "description": "Cholecystostomy, percutaneous, complete procedure, including imaging guidance, catheter placement, cholecystogram when performed, and radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "K81.0",
+                "K80.00"
+              ]
+            }
+          ]
+        },
+        "ir_biopsy_questions": {
+          "question": "Location of image-guided biopsy?",
+          "options": [
+            {
+              "label": "Liver biopsy, percutaneous",
+              "cpt_code": "47000",
+              "description": "Biopsy of liver, needle; percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "K76.0",
+                "R16.0",
+                "C22.0"
+              ]
+            },
+            {
+              "label": "Lung/mediastinal biopsy, percutaneous",
+              "cpt_code": "32405",
+              "description": "Biopsy, lung or mediastinum, percutaneous needle",
+              "modifiers": [],
+              "icd10": [
+                "R91.1",
+                "C34.90"
+              ]
+            },
+            {
+              "label": "Kidney biopsy, percutaneous",
+              "cpt_code": "50200",
+              "description": "Renal biopsy; percutaneous, by trocar or needle",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N18.9",
+                "C64.9"
+              ]
+            },
+            {
+              "label": "Bone biopsy, percutaneous",
+              "cpt_code": "20225",
+              "description": "Biopsy, bone, trocar, or needle; deep (e.g., vertebral body, femur)",
+              "modifiers": [],
+              "icd10": [
+                "M89.9",
+                "C79.51"
+              ]
+            },
+            {
+              "label": "Soft tissue mass biopsy, deep",
+              "cpt_code": "20206",
+              "description": "Biopsy, muscle, percutaneous needle",
+              "modifiers": [],
+              "icd10": [
+                "R22.9",
+                "D49.2"
+              ]
+            },
+            {
+              "label": "CT guidance for needle placement",
+              "cpt_code": "77012",
+              "description": "Computed tomography guidance for needle placement (e.g., biopsy, aspiration, injection, localization device), radiological supervision and interpretation",
+              "modifiers": [
+                "-26"
+              ],
+              "icd10": []
+            },
+            {
+              "label": "Ultrasound guidance for biopsy",
+              "cpt_code": "76942",
+              "description": "Ultrasonic guidance for needle placement (e.g., biopsy, aspiration, injection, localization device), imaging supervision and interpretation",
+              "modifiers": [
+                "-26"
+              ],
+              "icd10": []
+            }
+          ]
+        },
+        "ir_thrombolysis_questions": {
+          "question": "Type of thrombolysis / thrombectomy?",
+          "options": [
+            {
+              "label": "Catheter-directed thrombolysis, arterial, initial day",
+              "cpt_code": "37211",
+              "description": "Transcatheter therapy, arterial infusion for thrombolysis other than coronary or intracranial, any method, including radiological supervision and interpretation, initial treatment day",
+              "modifiers": [],
+              "icd10": [
+                "I74.3",
+                "I74.5"
+              ]
+            },
+            {
+              "label": "Catheter-directed thrombolysis, arterial, subsequent day",
+              "cpt_code": "37212",
+              "description": "Transcatheter therapy, arterial infusion for thrombolysis, subsequent treatment day",
+              "modifiers": [],
+              "icd10": [
+                "I74.3"
+              ]
+            },
+            {
+              "label": "Catheter-directed thrombolysis, venous (DVT), initial day",
+              "cpt_code": "37212",
+              "description": "Transcatheter therapy, venous infusion for thrombolysis, initial treatment day",
+              "modifiers": [],
+              "icd10": [
+                "I82.401",
+                "I82.411"
+              ]
+            },
+            {
+              "label": "Mechanical thrombectomy, arterial",
+              "cpt_code": "37184",
+              "description": "Primary percutaneous transluminal mechanical thrombectomy, noncoronary, non-intracranial, arterial or arterial bypass graft, including fluoroscopic guidance and intraprocedural pharmacological thrombolytic injection; initial vessel",
+              "modifiers": [],
+              "icd10": [
+                "I74.3",
+                "I74.5"
+              ]
+            },
+            {
+              "label": "Mechanical thrombectomy, venous",
+              "cpt_code": "37187",
+              "description": "Percutaneous transluminal mechanical thrombectomy, vein(s), including intraprocedural pharmacological thrombolytic injections and fluoroscopic guidance",
+              "modifiers": [],
+              "icd10": [
+                "I82.401",
+                "I26.99"
+              ]
+            },
+            {
+              "label": "Pulmonary embolism thrombectomy, catheter-directed",
+              "cpt_code": "37187",
+              "description": "Percutaneous transluminal mechanical thrombectomy, vein(s) \u2014 used for catheter-directed PE treatment",
+              "modifiers": [],
+              "icd10": [
+                "I26.99",
+                "I26.09"
+              ]
+            }
+          ]
+        },
+        "ir_ivc_questions": {
+          "question": "Type of IVC filter procedure?",
+          "options": [
+            {
+              "label": "IVC filter placement",
+              "cpt_code": "37191",
+              "description": "Insertion of intravascular vena cava filter, endovascular approach including vascular access, vessel selection, and radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "I82.401",
+                "I26.99"
+              ]
+            },
+            {
+              "label": "IVC filter retrieval/removal",
+              "cpt_code": "37193",
+              "description": "Retrieval (removal) of intravascular vena cava filter, endovascular approach including vascular access, vessel selection, and radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "Z45.2"
+              ]
+            },
+            {
+              "label": "IVC filter repositioning",
+              "cpt_code": "37192",
+              "description": "Repositioning of intravascular vena cava filter, endovascular approach",
+              "modifiers": [],
+              "icd10": [
+                "T82.525A"
+              ]
+            }
+          ]
+        },
+        "ir_dialysis_questions": {
+          "question": "Type of dialysis access intervention?",
+          "options": [
+            {
+              "label": "Dialysis circuit angioplasty (fistula/graft)",
+              "cpt_code": "36902",
+              "description": "Introduction of needle(s) and/or catheter(s), dialysis circuit, with diagnostic angiography of the dialysis circuit, including all direct puncture(s) and catheter placement(s), injection(s) of contrast, all necessary imaging from the arterial anastomosis and adjacent artery through entire venous outflow; with transluminal balloon angioplasty, peripheral dialysis segment",
+              "modifiers": [],
+              "icd10": [
+                "T82.858A",
+                "I77.1"
+              ]
+            },
+            {
+              "label": "Dialysis circuit thrombectomy",
+              "cpt_code": "36904",
+              "description": "Percutaneous transluminal mechanical thrombectomy and/or infusion for thrombolysis, dialysis circuit, any method, including all imaging and radiological supervision and interpretation, diagnostic angiography, fluoroscopic guidance, catheter placement, and intraprocedural pharmacological thrombolytic injection(s)",
+              "modifiers": [],
+              "icd10": [
+                "T82.868A"
+              ]
+            },
+            {
+              "label": "Dialysis circuit stent placement (add-on)",
+              "cpt_code": "36906",
+              "description": "Percutaneous transluminal mechanical thrombectomy and/or infusion for thrombolysis, dialysis circuit; with transluminal balloon angioplasty and stent placement within the dialysis circuit (add-on)",
+              "modifiers": [],
+              "icd10": [
+                "T82.858A"
+              ]
+            },
+            {
+              "label": "Tunneled dialysis catheter insertion",
+              "cpt_code": "36558",
+              "description": "Insertion of tunneled centrally inserted central venous catheter, without subcutaneous port or pump; age 5 years or older \u2014 for dialysis access",
+              "modifiers": [],
+              "icd10": [
+                "Z49.01",
+                "N18.6"
+              ]
+            }
+          ]
+        },
+        "ir_biliary_questions": {
+          "question": "Type of biliary intervention?",
+          "options": [
+            {
+              "label": "Percutaneous transhepatic cholangiography (PTC)",
+              "cpt_code": "47500",
+              "description": "Injection procedure for percutaneous transhepatic cholangiography",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "K80.50"
+              ]
+            },
+            {
+              "label": "Percutaneous biliary drainage, external",
+              "cpt_code": "47510",
+              "description": "Introduction of percutaneous transhepatic catheter for biliary drainage",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "C24.0"
+              ]
+            },
+            {
+              "label": "Percutaneous biliary drainage, internal-external",
+              "cpt_code": "47511",
+              "description": "Introduction of percutaneous transhepatic stent for internal and external biliary drainage",
+              "modifiers": [],
+              "icd10": [
+                "K83.1"
+              ]
+            },
+            {
+              "label": "Biliary stent placement, percutaneous",
+              "cpt_code": "47538",
+              "description": "Placement of stent(s) into a bile duct, percutaneous, including diagnostic cholangiography, imaging guidance, and all associated radiological supervision and interpretation; existing access",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "C24.0"
+              ]
+            },
+            {
+              "label": "Biliary stone extraction, percutaneous",
+              "cpt_code": "47544",
+              "description": "Removal of calculi/debris from biliary duct(s) and/or gallbladder, percutaneous, including destruction of calculi, any method",
+              "modifiers": [],
+              "icd10": [
+                "K80.50",
+                "K80.10"
+              ]
+            }
+          ]
+        },
+        "ir_gi_gu_questions": {
+          "question": "Type of GI or GU interventional procedure?",
+          "options": [
+            {
+              "label": "Gastrostomy tube placement, percutaneous (PRG)",
+              "cpt_code": "49440",
+              "description": "Insertion of gastrostomy tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+              "modifiers": [],
+              "icd10": [
+                "K21.0",
+                "R13.10"
+              ]
+            },
+            {
+              "label": "Gastrostomy tube exchange",
+              "cpt_code": "49450",
+              "description": "Replacement of gastrostomy or cecostomy (or other colonic) tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+              "modifiers": [],
+              "icd10": [
+                "Z43.1"
+              ]
+            },
+            {
+              "label": "Gastrojejunostomy tube conversion",
+              "cpt_code": "49446",
+              "description": "Conversion of gastrostomy tube to gastro-jejunostomy tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+              "modifiers": [],
+              "icd10": [
+                "K21.0"
+              ]
+            },
+            {
+              "label": "Ureteral stent placement, percutaneous",
+              "cpt_code": "50693",
+              "description": "Placement of ureteral stent, percutaneous, including diagnostic nephrostogram and/or ureterogram, imaging guidance, and all associated radiological supervision and interpretation; new access, with separate nephrostomy catheter",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "N13.1",
+                "N20.1"
+              ]
+            },
+            {
+              "label": "Nephrostomy tube exchange",
+              "cpt_code": "50435",
+              "description": "Exchange nephrostomy catheter, percutaneous, including diagnostic nephrostogram and/or ureterogram when performed, imaging guidance and all associated radiological supervision and interpretation",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "Z43.6"
+              ]
+            }
+          ]
+        }
+      }
     }
   ]
 }

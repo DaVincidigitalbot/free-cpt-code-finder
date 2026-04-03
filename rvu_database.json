@@ -2860,6 +2860,263 @@
       "total_rvu": 0.0,
       "global_period": "YYY",
       "is_addon": false
+    },
+    "93451": {
+      "description": "Right heart catheterization",
+      "work_rvu": 2.8,
+      "pe_rvu": 7.5,
+      "mp_rvu": 0.25,
+      "total_rvu": 10.55,
+      "global_period": 0
+    },
+    "93452": {
+      "description": "Left heart catheterization",
+      "work_rvu": 3.5,
+      "pe_rvu": 9.41,
+      "mp_rvu": 0.31,
+      "total_rvu": 13.22,
+      "global_period": 0
+    },
+    "93453": {
+      "description": "Combined right and left heart catheterization",
+      "work_rvu": 4.22,
+      "pe_rvu": 11.3,
+      "mp_rvu": 0.37,
+      "total_rvu": 15.89,
+      "global_period": 0
+    },
+    "93454": {
+      "description": "Coronary angiography",
+      "work_rvu": 3.9,
+      "pe_rvu": 10.46,
+      "mp_rvu": 0.34,
+      "total_rvu": 14.7,
+      "global_period": 0
+    },
+    "93458": {
+      "description": "Coronary angiography with left heart cath",
+      "work_rvu": 5.9,
+      "pe_rvu": 15.82,
+      "mp_rvu": 0.52,
+      "total_rvu": 22.24,
+      "global_period": 0
+    },
+    "93460": {
+      "description": "Coronary angiography with right and left heart cath",
+      "work_rvu": 6.7,
+      "pe_rvu": 17.97,
+      "mp_rvu": 0.59,
+      "total_rvu": 25.26,
+      "global_period": 0
+    },
+    "92920": {
+      "description": "Percutaneous transluminal coronary angioplasty; single vessel",
+      "work_rvu": 8.28,
+      "pe_rvu": 32.0,
+      "mp_rvu": 1.5,
+      "total_rvu": 41.78,
+      "global_period": 0
+    },
+    "92928": {
+      "description": "PCI with coronary stent; single vessel",
+      "work_rvu": 10.09,
+      "pe_rvu": 39.0,
+      "mp_rvu": 1.83,
+      "total_rvu": 50.92,
+      "global_period": 0
+    },
+    "92929": {
+      "description": "PCI with coronary stent; each additional branch (add-on)",
+      "work_rvu": 4.63,
+      "pe_rvu": 0.0,
+      "mp_rvu": 0.84,
+      "total_rvu": 5.47,
+      "global_period": "ZZZ",
+      "is_addon": true
+    },
+    "33340": {
+      "description": "Left atrial appendage closure (Watchman)",
+      "work_rvu": 15.0,
+      "pe_rvu": 0.0,
+      "mp_rvu": 2.73,
+      "total_rvu": 17.73,
+      "global_period": 90
+    },
+    "33274": {
+      "description": "Leadless pacemaker insertion (Micra)",
+      "work_rvu": 9.55,
+      "pe_rvu": 0.0,
+      "mp_rvu": 1.74,
+      "total_rvu": 11.29,
+      "global_period": 90
+    },
+    "93620": {
+      "description": "Comprehensive EP study",
+      "work_rvu": 8.58,
+      "pe_rvu": 16.0,
+      "mp_rvu": 0.75,
+      "total_rvu": 25.33,
+      "global_period": 0
+    },
+    "93656": {
+      "description": "EP eval with catheter ablation of atrial fibrillation",
+      "work_rvu": 18.5,
+      "pe_rvu": 35.0,
+      "mp_rvu": 3.36,
+      "total_rvu": 56.86,
+      "global_period": 90
+    },
+    "33990": {
+      "description": "Percutaneous ventricular assist device (Impella) insertion",
+      "work_rvu": 7.5,
+      "pe_rvu": 20.11,
+      "mp_rvu": 0.66,
+      "total_rvu": 28.27,
+      "global_period": 0
+    },
+    "37220": {
+      "description": "Iliac artery angioplasty",
+      "work_rvu": 7.16,
+      "pe_rvu": 27.56,
+      "mp_rvu": 1.3,
+      "total_rvu": 36.02,
+      "global_period": 0
+    },
+    "37221": {
+      "description": "Iliac artery stent placement",
+      "work_rvu": 8.72,
+      "pe_rvu": 33.57,
+      "mp_rvu": 1.59,
+      "total_rvu": 43.88,
+      "global_period": 0
+    },
+    "37224": {
+      "description": "Femoral/popliteal angioplasty",
+      "work_rvu": 7.16,
+      "pe_rvu": 27.56,
+      "mp_rvu": 1.3,
+      "total_rvu": 36.02,
+      "global_period": 0
+    },
+    "37226": {
+      "description": "Femoral/popliteal stent placement",
+      "work_rvu": 8.72,
+      "pe_rvu": 33.57,
+      "mp_rvu": 1.59,
+      "total_rvu": 43.88,
+      "global_period": 0
+    },
+    "37215": {
+      "description": "Carotid artery stenting",
+      "work_rvu": 12.55,
+      "pe_rvu": 48.31,
+      "mp_rvu": 2.28,
+      "total_rvu": 63.14,
+      "global_period": 0
+    },
+    "37242": {
+      "description": "Arterial embolization, non-hemorrhage",
+      "work_rvu": 7.5,
+      "pe_rvu": 28.88,
+      "mp_rvu": 1.36,
+      "total_rvu": 37.74,
+      "global_period": 0
+    },
+    "37244": {
+      "description": "Arterial embolization for hemorrhage",
+      "work_rvu": 9.0,
+      "pe_rvu": 34.65,
+      "mp_rvu": 1.64,
+      "total_rvu": 45.29,
+      "global_period": 0
+    },
+    "37243": {
+      "description": "Arterial embolization for tumor",
+      "work_rvu": 8.25,
+      "pe_rvu": 31.77,
+      "mp_rvu": 1.5,
+      "total_rvu": 41.52,
+      "global_period": 0
+    },
+    "49405": {
+      "description": "Image-guided visceral abscess drainage",
+      "work_rvu": 3.86,
+      "pe_rvu": 5.64,
+      "mp_rvu": 0.39,
+      "total_rvu": 9.89,
+      "global_period": 0
+    },
+    "49406": {
+      "description": "Image-guided peritoneal/retroperitoneal drainage",
+      "work_rvu": 3.86,
+      "pe_rvu": 5.64,
+      "mp_rvu": 0.39,
+      "total_rvu": 9.89,
+      "global_period": 0
+    },
+    "37191": {
+      "description": "IVC filter placement",
+      "work_rvu": 3.5,
+      "pe_rvu": 13.48,
+      "mp_rvu": 0.64,
+      "total_rvu": 17.62,
+      "global_period": 0
+    },
+    "37193": {
+      "description": "IVC filter retrieval",
+      "work_rvu": 4.5,
+      "pe_rvu": 17.33,
+      "mp_rvu": 0.82,
+      "total_rvu": 22.65,
+      "global_period": 0
+    },
+    "37184": {
+      "description": "Mechanical thrombectomy, arterial",
+      "work_rvu": 8.0,
+      "pe_rvu": 30.81,
+      "mp_rvu": 1.45,
+      "total_rvu": 40.26,
+      "global_period": 0
+    },
+    "37187": {
+      "description": "Mechanical thrombectomy, venous",
+      "work_rvu": 7.0,
+      "pe_rvu": 26.96,
+      "mp_rvu": 1.27,
+      "total_rvu": 35.23,
+      "global_period": 0
+    },
+    "36902": {
+      "description": "Dialysis circuit angioplasty",
+      "work_rvu": 5.68,
+      "pe_rvu": 21.87,
+      "mp_rvu": 1.03,
+      "total_rvu": 28.58,
+      "global_period": 0
+    },
+    "47510": {
+      "description": "Percutaneous biliary drainage, external",
+      "work_rvu": 5.5,
+      "pe_rvu": 21.18,
+      "mp_rvu": 1.0,
+      "total_rvu": 27.68,
+      "global_period": 0
+    },
+    "49440": {
+      "description": "Percutaneous gastrostomy tube placement",
+      "work_rvu": 4.08,
+      "pe_rvu": 15.71,
+      "mp_rvu": 0.74,
+      "total_rvu": 20.53,
+      "global_period": 0
+    },
+    "50432": {
+      "description": "Percutaneous nephrostomy tube placement",
+      "work_rvu": 5.07,
+      "pe_rvu": 19.52,
+      "mp_rvu": 0.92,
+      "total_rvu": 25.51,
+      "global_period": 0
     }
   }
 }
