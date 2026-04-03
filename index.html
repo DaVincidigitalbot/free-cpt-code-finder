@@ -3234,16 +3234,24 @@
         }
         .case-proc-remove:hover { color: #EF4444; }
 
-        /* Adjust AI fab position when tray is visible */
+        /* Move AI fab to LEFT side when case tray is visible so it doesn't cover wRVU values */
         .case-tray.visible ~ .ai-fab {
             bottom: 80px;
+            right: auto;
+            left: 24px;
         }
         .case-tray.visible.expanded ~ .ai-fab {
             bottom: 80px;
+            right: auto;
+            left: 24px;
         }
         /* Also adjust AI panel */
         .case-tray.visible ~ .ai-panel {
             bottom: 148px;
+        }
+        .case-tray.visible ~ .ai-panel {
+            right: auto;
+            left: 24px;
         }
 
         @media (max-width: 640px) {
@@ -3911,9 +3919,11 @@
             }
             .ai-fab {
                 bottom: 16px;
-                right: 16px;
-                width: 52px;
-                height: 52px;
+                left: 16px;
+                right: auto;
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
             }
         }
     </style>
