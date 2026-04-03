@@ -3012,5 +3012,617 @@
 
         // Initialize - show first ICD-10 system
             </script>
+
+    <!-- ============================================ -->
+    <!-- AI CPT Assistant - Powered by Qwen 2.5 (WebLLM) -->
+    <!-- ============================================ -->
+    <style>
+        /* AI Chat Floating Button */
+        .ai-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ai-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(37, 99, 235, 0.5);
+        }
+        .ai-fab .badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #10B981;
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 5px;
+            border-radius: 8px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        /* AI Chat Panel */
+        .ai-panel {
+            position: fixed;
+            bottom: 96px;
+            right: 24px;
+            width: 400px;
+            max-height: 560px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+            z-index: 9998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+        .ai-panel.open { display: flex; }
+
+        .ai-panel-header {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            color: white;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ai-panel-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .ai-panel-header .ai-subtitle {
+            font-size: 0.7rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+        .ai-panel-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0 4px;
+            opacity: 0.8;
+        }
+        .ai-panel-close:hover { opacity: 1; }
+
+        .ai-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 200px;
+            max-height: 380px;
+            background: #FAFBFC;
+        }
+
+        .ai-msg {
+            max-width: 88%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        .ai-msg.user {
+            align-self: flex-end;
+            background: #2563EB;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .ai-msg.assistant {
+            align-self: flex-start;
+            background: white;
+            color: var(--gray-800);
+            border: 1px solid var(--gray-200);
+            border-bottom-left-radius: 4px;
+        }
+        .ai-msg.system {
+            align-self: center;
+            background: var(--light-blue);
+            color: var(--gray-600);
+            font-size: 0.78rem;
+            text-align: center;
+            border-radius: 8px;
+            padding: 6px 12px;
+        }
+        .ai-msg code {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #2563EB;
+        }
+
+        .ai-input-area {
+            display: flex;
+            gap: 8px;
+            padding: 12px 14px;
+            border-top: 1px solid var(--gray-200);
+            background: white;
+        }
+        .ai-input-area input {
+            flex: 1;
+            border: 1px solid var(--gray-300);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .ai-input-area input:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .ai-input-area button {
+            background: #2563EB;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: background 0.2s;
+        }
+        .ai-input-area button:hover { background: #1E40AF; }
+        .ai-input-area button:disabled {
+            background: var(--gray-300);
+            cursor: not-allowed;
+        }
+
+        /* Loading animation */
+        .ai-typing {
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px 0;
+        }
+        .ai-typing span {
+            width: 7px;
+            height: 7px;
+            background: var(--gray-400);
+            border-radius: 50%;
+            animation: aiBounce 1.4s infinite ease-in-out both;
+        }
+        .ai-typing span:nth-child(1) { animation-delay: -0.32s; }
+        .ai-typing span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes aiBounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Progress bar for model loading */
+        .ai-progress {
+            padding: 16px;
+            text-align: center;
+        }
+        .ai-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--gray-200);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        .ai-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563EB, #7C3AED);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .ai-progress-text {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        /* Suggested prompts */
+        .ai-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 0 14px 10px;
+        }
+        .ai-suggestion {
+            background: var(--light-blue);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #2563EB;
+            padding: 5px 10px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .ai-suggestion:hover {
+            background: rgba(37, 99, 235, 0.15);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 480px) {
+            .ai-panel {
+                right: 8px;
+                left: 8px;
+                bottom: 88px;
+                width: auto;
+                max-height: 70vh;
+            }
+            .ai-fab {
+                bottom: 16px;
+                right: 16px;
+                width: 52px;
+                height: 52px;
+            }
+        }
+    </style>
+
+    <!-- AI Chat Button -->
+    <button class="ai-fab" id="aiFab" onclick="toggleAIPanel()" title="AI CPT Assistant">
+        🤖
+        <span class="badge">AI</span>
+    </button>
+
+    <!-- AI Chat Panel -->
+    <div class="ai-panel" id="aiPanel">
+        <div class="ai-panel-header">
+            <div>
+                <h3>🤖 AI CPT Assistant</h3>
+                <div class="ai-subtitle">Powered by Qwen 2.5 — runs in your browser</div>
+            </div>
+            <button class="ai-panel-close" onclick="toggleAIPanel()">&times;</button>
+        </div>
+
+        <div class="ai-messages" id="aiMessages">
+            <div class="ai-msg system">
+                Describe your procedure in plain English and I'll find the right CPT code.
+            </div>
+        </div>
+
+        <div class="ai-suggestions" id="aiSuggestions">
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Lap chole</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Open inguinal hernia repair</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Wound debridement</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">I&D of abscess</span>
+            <span class="ai-suggestion" onclick="aiSuggest(this)">Central line placement</span>
+        </div>
+
+        <div class="ai-input-area">
+            <input type="text" id="aiInput" placeholder="e.g., laparoscopic appendectomy"
+                   onkeydown="if(event.key==='Enter')sendAIMessage()">
+            <button id="aiSendBtn" onclick="sendAIMessage()">Send</button>
+        </div>
+    </div>
+
+    <script type="module">
+    // ============================
+    // AI CPT Assistant - WebLLM Integration
+    // ============================
+
+    // Build searchable CPT database from existing page data
+    const AI_CPT_DB = [];
+    (function buildDB() {
+        if (typeof CPT_DATA === 'undefined') return;
+        function extract(obj, cat) {
+            if (!obj) return;
+            if (obj.cpt_code) {
+                AI_CPT_DB.push({
+                    code: obj.cpt_code,
+                    desc: (obj.description || '').toLowerCase(),
+                    descRaw: obj.description || '',
+                    cat: cat,
+                    mods: obj.modifiers || [],
+                    icd: obj.icd10 || [],
+                    label: (obj.label || '').toLowerCase()
+                });
+            }
+            if (obj.options) obj.options.forEach(o => extract(o, cat));
+            if (obj.branches) Object.values(obj.branches).forEach(b => extract(b, cat));
+            if (obj.questions) obj.questions.forEach(q => extract(q, cat));
+        }
+        if (CPT_DATA && CPT_DATA.categories) {
+            CPT_DATA.categories.forEach(c => extract(c, c.name));
+        }
+    })();
+
+    // Fast fuzzy search
+    function searchCPT(query) {
+        const q = query.toLowerCase().replace(/[^a-z0-9\s]/g, '');
+        const terms = q.split(/\s+/).filter(t => t.length > 1);
+        if (!terms.length) return [];
+
+        // Expand common abbreviations
+        const abbrevs = {
+            'lap': 'laparoscop', 'chole': 'cholecystectomy', 'appy': 'appendectomy',
+            'inguinal': 'inguinal', 'hernia': 'hernia', 'open': 'open',
+            'robotic': 'robotic', 'id': 'incision drainage', 'i&d': 'incision drainage',
+            'abd': 'abdominal', 'egd': 'endoscop', 'cva': 'cerebrovascular',
+            'cabg': 'coronary artery bypass', 'trach': 'tracheostomy',
+            'chest': 'thorac', 'central': 'central', 'picc': 'peripherally inserted',
+            'feeding': 'feeding tube', 'gtube': 'gastrostomy', 'jtube': 'jejunostomy',
+            'colectomy': 'colectomy', 'mastectomy': 'mastectomy', 'thyroid': 'thyroid',
+            'small bowel': 'small bowel', 'colon': 'colon', 'rectal': 'rect',
+            'ventral': 'ventral', 'umbilical': 'umbilical', 'femoral': 'femoral',
+            'breast': 'breast', 'biopsy': 'biopsy', 'excision': 'excision',
+            'debridement': 'debridement', 'wound': 'wound', 'skin': 'skin',
+            'abscess': 'abscess', 'drain': 'drain', 'paracentesis': 'paracentesis',
+            'thoracentesis': 'thoracentesis', 'intubation': 'intubation',
+            'cricothyrotomy': 'cricothyrotomy', 'chest tube': 'chest tube'
+        };
+
+        const expanded = terms.map(t => abbrevs[t] || t);
+
+        const scored = AI_CPT_DB.map(entry => {
+            let score = 0;
+            const haystack = entry.desc + ' ' + entry.label + ' ' + entry.cat.toLowerCase();
+            expanded.forEach(term => {
+                if (haystack.includes(term)) score += 3;
+                else {
+                    // Partial match
+                    const words = haystack.split(/\s+/);
+                    words.forEach(w => {
+                        if (w.startsWith(term) || term.startsWith(w)) score += 1;
+                    });
+                }
+            });
+            // Exact code match
+            if (entry.code === q.replace(/\s/g, '')) score += 10;
+            return { ...entry, score };
+        }).filter(e => e.score > 0);
+
+        scored.sort((a, b) => b.score - a.score);
+        return scored.slice(0, 8);
+    }
+
+    // Format search results for display
+    function formatResults(results, query) {
+        if (!results.length) {
+            return `I couldn't find a matching CPT code for "${query}". Try describing the procedure differently, or use the decision tree above for step-by-step guidance.`;
+        }
+
+        let msg = `Here's what I found for **"${query}"**:\n\n`;
+        const top = results.slice(0, 5);
+
+        top.forEach((r, i) => {
+            msg += `**CPT ${r.code}** — ${r.descRaw}\n`;
+            if (r.mods.length) msg += `  Modifiers: ${r.mods.join(', ')}\n`;
+            if (r.icd.length) msg += `  Common ICD-10: ${r.icd.slice(0, 3).join(', ')}\n`;
+            msg += `  Category: ${r.cat}\n\n`;
+        });
+
+        if (results.length > 5) {
+            msg += `*+${results.length - 5} more results. Try being more specific.*`;
+        }
+
+        return msg;
+    }
+
+    // Convert markdown-like to simple HTML
+    function mdToHtml(text) {
+        return text
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/`(.+?)`/g, '<code>$1</code>')
+            .replace(/\n/g, '<br>');
+    }
+
+    // ============================
+    // WebLLM Engine (lazy loaded)
+    // ============================
+    let webllmEngine = null;
+    let webllmLoading = false;
+    let webllmReady = false;
+    let webllmFailed = false;
+
+    const SELECTED_MODEL = "Qwen2.5-1.5B-Instruct-q4f16_1-MLC";
+
+    async function initWebLLM() {
+        if (webllmReady || webllmLoading) return;
+        webllmLoading = true;
+
+        addAIMessage('system', '⏳ Loading AI model (~1.6 GB one-time download)...');
+
+        const progressEl = document.createElement('div');
+        progressEl.className = 'ai-progress';
+        progressEl.id = 'aiProgress';
+        progressEl.innerHTML = `
+            <div class="ai-progress-bar"><div class="ai-progress-fill" id="aiProgressFill"></div></div>
+            <div class="ai-progress-text" id="aiProgressText">Initializing WebGPU...</div>
+        `;
+        document.getElementById('aiMessages').appendChild(progressEl);
+        scrollAI();
+
+        try {
+            const webllm = await import('https://esm.run/@mlc-ai/web-llm');
+
+            const engine = await webllm.CreateMLCEngine(SELECTED_MODEL, {
+                initProgressCallback: (progress) => {
+                    const fill = document.getElementById('aiProgressFill');
+                    const text = document.getElementById('aiProgressText');
+                    if (fill && progress.progress !== undefined) {
+                        fill.style.width = (progress.progress * 100) + '%';
+                    }
+                    if (text && progress.text) {
+                        text.textContent = progress.text;
+                    }
+                }
+            });
+
+            webllmEngine = engine;
+            webllmReady = true;
+            webllmLoading = false;
+
+            // Remove progress bar
+            const prog = document.getElementById('aiProgress');
+            if (prog) prog.remove();
+
+            addAIMessage('system', '✅ AI ready! Model cached in your browser for next time.');
+
+        } catch (err) {
+            console.error('WebLLM init failed:', err);
+            webllmLoading = false;
+            webllmFailed = true;
+
+            const prog = document.getElementById('aiProgress');
+            if (prog) prog.remove();
+
+            addAIMessage('system',
+                '⚠️ AI model couldn\'t load (requires WebGPU — Chrome/Edge on a modern GPU). ' +
+                'No worries — I\'ll use smart search to find your CPT codes!'
+            );
+        }
+    }
+
+    // Generate with LLM
+    async function generateWithLLM(userQuery, searchResults) {
+        if (!webllmEngine) return null;
+
+        const codesContext = searchResults.slice(0, 5).map(r =>
+            `CPT ${r.code}: ${r.descRaw} [${r.cat}]` +
+            (r.mods.length ? ` Modifiers: ${r.mods.join(',')}` : '') +
+            (r.icd.length ? ` ICD-10: ${r.icd.slice(0,2).join(',')}` : '')
+        ).join('\n');
+
+        const systemPrompt = `You are a CPT code assistant for surgeons and medical coders. Be concise and direct.
+Given the user's procedure description, recommend the best CPT code from the search results below.
+Explain briefly why it's the best match. Mention relevant modifiers and ICD-10 codes.
+If no result fits well, say so honestly.
+
+Available CPT codes from search:
+${codesContext}`;
+
+        try {
+            const reply = await webllmEngine.chat.completions.create({
+                messages: [
+                    { role: "system", content: systemPrompt },
+                    { role: "user", content: userQuery }
+                ],
+                max_tokens: 300,
+                temperature: 0.3,
+                stream: true
+            });
+
+            let fullText = '';
+            const msgEl = addAIMessage('assistant', '');
+
+            for await (const chunk of reply) {
+                const delta = chunk.choices[0]?.delta?.content || '';
+                fullText += delta;
+                msgEl.innerHTML = mdToHtml(fullText);
+                scrollAI();
+            }
+
+            return fullText;
+        } catch (err) {
+            console.error('LLM generation error:', err);
+            return null;
+        }
+    }
+
+    // ============================
+    // Chat UI Functions
+    // ============================
+    window.toggleAIPanel = function() {
+        const panel = document.getElementById('aiPanel');
+        panel.classList.toggle('open');
+        if (panel.classList.contains('open') && !webllmReady && !webllmLoading && !webllmFailed) {
+            // Try to load WebLLM when panel opens
+            initWebLLM();
+        }
+        if (panel.classList.contains('open')) {
+            document.getElementById('aiInput').focus();
+        }
+    };
+
+    function addAIMessage(role, text) {
+        const container = document.getElementById('aiMessages');
+        const el = document.createElement('div');
+        el.className = `ai-msg ${role}`;
+        el.innerHTML = role === 'user' ? text : mdToHtml(text);
+        container.appendChild(el);
+        scrollAI();
+        return el;
+    }
+
+    function scrollAI() {
+        const container = document.getElementById('aiMessages');
+        requestAnimationFrame(() => { container.scrollTop = container.scrollHeight; });
+    }
+
+    function showTyping() {
+        const container = document.getElementById('aiMessages');
+        const el = document.createElement('div');
+        el.className = 'ai-msg assistant';
+        el.id = 'aiTyping';
+        el.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
+        container.appendChild(el);
+        scrollAI();
+    }
+
+    function hideTyping() {
+        const el = document.getElementById('aiTyping');
+        if (el) el.remove();
+    }
+
+    window.sendAIMessage = async function() {
+        const input = document.getElementById('aiInput');
+        const btn = document.getElementById('aiSendBtn');
+        const query = input.value.trim();
+        if (!query) return;
+
+        // Hide suggestions after first message
+        const sugg = document.getElementById('aiSuggestions');
+        if (sugg) sugg.style.display = 'none';
+
+        addAIMessage('user', query);
+        input.value = '';
+        btn.disabled = true;
+
+        // Always do a fast search first
+        const results = searchCPT(query);
+
+        if (webllmReady) {
+            // Use LLM for a smart response
+            showTyping();
+            const llmResponse = await generateWithLLM(query, results);
+            hideTyping();
+
+            if (!llmResponse) {
+                // Fallback to formatted results
+                addAIMessage('assistant', formatResults(results, query));
+            }
+        } else {
+            // Smart search only (no LLM)
+            showTyping();
+            await new Promise(r => setTimeout(r, 300)); // Brief delay for UX
+            hideTyping();
+            addAIMessage('assistant', formatResults(results, query));
+        }
+
+        btn.disabled = false;
+        input.focus();
+    };
+
+    window.aiSuggest = function(el) {
+        document.getElementById('aiInput').value = el.textContent;
+        window.sendAIMessage();
+    };
+    </script>
 </body>
 </html>
