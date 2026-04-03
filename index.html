@@ -3278,11 +3278,15 @@
             
             const container = document.getElementById('decisionTree');
             container.style.display = 'block';
-            container.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             
             currentBranches = category.branches;
             currentCategoryName = category.name;
             currentQuestionStack = [];
+            
+            // Hide category buttons, show decision tree in their place
+            document.querySelectorAll('.quick-access').forEach(el => el.style.display = 'none');
+            
             showQuestion(category.questions[0], category.branches, category.name);
         }
 
@@ -3395,6 +3399,8 @@
         function resetDecisionTree() {
             document.getElementById('decisionTree').style.display = 'none';
             document.getElementById('decisionTree').innerHTML = '';
+            // Show category buttons again
+            document.querySelectorAll('.quick-access').forEach(el => el.style.display = '');
             currentPath = [];
             currentQuestionStack = [];
             tempResults = [];
