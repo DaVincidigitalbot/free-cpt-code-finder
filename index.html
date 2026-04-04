@@ -1546,8 +1546,8 @@
                     <a href="#" onclick="event.preventDefault();showSection('icd10')" class="nav-link">ICD-10 Codes</a>
                     <a href="#" onclick="event.preventDefault();showSection('rvu')" class="nav-link">RVU Calculator</a>
                     <a href="/blog/" class="nav-link">Blog</a>
-                    <a href="#" onclick="event.preventDefault();showSection('about')" class="nav-link">About</a>
-                    <a href="#" onclick="event.preventDefault();showSection('legal')" class="nav-link">Legal</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="/terms.html" class="nav-link">Legal</a>
                 </nav>
             </div>
         </div>
@@ -2316,12 +2316,15 @@
 
             currentSection = section;
             
-            // Smooth scroll to main content
+            // Smooth scroll to main content with header offset
             if (section !== 'home') {
-                document.querySelector('.main-content')?.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
+                const mainContent = document.querySelector('.main-content');
+                if (mainContent) {
+                    const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
+                    const rect = mainContent.getBoundingClientRect();
+                    const targetY = window.pageYOffset + rect.top - headerHeight - 10;
+                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
             } else {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -2531,7 +2534,20 @@
             
             const container = document.getElementById('decisionTree');
             container.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Scroll to decision tree with offset for sticky header + ad banner
+            setTimeout(() => {
+                const rect = container.getBoundingClientRect();
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
+                const offset = headerHeight + 20; // header + padding
+                const targetY = window.pageYOffset + rect.top - offset;
+                window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                
+                // Brief highlight to orient user
+                container.style.transition = 'box-shadow 0.3s';
+                container.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.3)';
+                setTimeout(() => { container.style.boxShadow = ''; }, 1500);
+            }, 100);
             
             currentBranches = category.branches;
             currentCategoryName = category.name;
