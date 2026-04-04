@@ -166,62 +166,6 @@
             "K40.91"
           ]
         },
-        "ventral_questions": {
-          "question": "Size of defect?",
-          "options": [
-            {
-              "label": "Less than 3 cm",
-              "next": "ventral_small"
-            },
-            {
-              "label": "3-10 cm",
-              "next": "ventral_medium"
-            },
-            {
-              "label": "Greater than 10 cm",
-              "next": "ventral_large"
-            }
-          ]
-        },
-        "ventral_small": {
-          "question": "Approach?",
-          "options": [
-            {
-              "label": "Open",
-              "next": "ventral_small_open_release"
-            },
-            {
-              "label": "Laparoscopic/Robotic / Robotic",
-              "next": "ventral_small_laparoscopic_robotic___robotic_release"
-            }
-          ]
-        },
-        "ventral_medium": {
-          "question": "Approach?",
-          "options": [
-            {
-              "label": "Open",
-              "next": "ventral_medium_open_release"
-            },
-            {
-              "label": "Laparoscopic/Robotic / Robotic",
-              "next": "ventral_medium_laparoscopic_robotic___robotic_release"
-            }
-          ]
-        },
-        "ventral_large": {
-          "question": "Approach?",
-          "options": [
-            {
-              "label": "Open",
-              "next": "ventral_large_open_release"
-            },
-            {
-              "label": "Laparoscopic/Robotic / Robotic",
-              "next": "ventral_large_laparoscopic_robotic___robotic_release"
-            }
-          ]
-        },
         "umbilical_questions": {
           "question": "Age and complexity?",
           "options": [
@@ -384,419 +328,6 @@
             }
           ]
         },
-        "ventral_small_open_release": {
-          "question": "CPT 49560 (Open small ventral hernia repair) selected.\n\nAbdominal wall release / component separation?",
-          "options": [
-            {
-              "label": "No release \u2014 use CPT 49560 only",
-              "cpt_code": "49560",
-              "description": "Repair initial incisional or ventral hernia; reducible",
-              "modifiers": [],
-              "icd10": [
-                "K43.9"
-              ]
-            },
-            {
-              "label": "Unilateral retrorectus release (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus release. Bill WITH 49560 (hernia repair). Add 49560 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49560"
-            },
-            {
-              "label": "Bilateral retrorectus release (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus release. Bill 15734 \u00d7 2 (per side) WITH 49560. Add 49560 first, then add 15734 twice (or use -50 bilateral modifier).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49560",
-              "bilateral": true
-            },
-            {
-              "label": "Unilateral TAR (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR (transversus abdominis release). Bill WITH 49560. Add 49560 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49560"
-            },
-            {
-              "label": "Bilateral TAR (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR (transversus abdominis release). Bill 15734 \u00d7 2 (per side) WITH 49560. Add 49560 first, then add 15734 twice (or use -50).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49560",
-              "bilateral": true
-            }
-          ]
-        },
-        "ventral_small_laparoscopic_robotic___robotic_release": {
-          "question": "CPT 49652 (Laparoscopic/Robotic / Robotic small ventral hernia repair) selected.\n\nAbdominal wall release / component separation?",
-          "options": [
-            {
-              "label": "No release \u2014 use CPT 49652 only",
-              "cpt_code": "49652",
-              "description": "Laparoscopy, surgical; repair initial ventral hernia",
-              "modifiers": [],
-              "icd10": [
-                "K43.9"
-              ]
-            },
-            {
-              "label": "Unilateral retrorectus release (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus release. Bill WITH 49652 (hernia repair). Add 49652 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49652"
-            },
-            {
-              "label": "Bilateral retrorectus release (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus release. Bill 15734 \u00d7 2 (per side) WITH 49652. Add 49652 first, then add 15734 twice (or use -50 bilateral modifier).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49652",
-              "bilateral": true
-            },
-            {
-              "label": "Unilateral TAR (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR (transversus abdominis release). Bill WITH 49652. Add 49652 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49652"
-            },
-            {
-              "label": "Bilateral TAR (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR (transversus abdominis release). Bill 15734 \u00d7 2 (per side) WITH 49652. Add 49652 first, then add 15734 twice (or use -50).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49652",
-              "bilateral": true
-            }
-          ]
-        },
-        "ventral_medium_open_release": {
-          "question": "CPT 49561 (Open medium ventral hernia repair) selected.\n\nAbdominal wall release / component separation?",
-          "options": [
-            {
-              "label": "No release \u2014 use CPT 49561 only",
-              "cpt_code": "49561",
-              "description": "Repair initial incisional or ventral hernia; incarcerated or strangulated",
-              "modifiers": [],
-              "icd10": [
-                "K43.0",
-                "K43.1"
-              ]
-            },
-            {
-              "label": "Unilateral retrorectus release (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus release. Bill WITH 49561 (hernia repair). Add 49561 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.0",
-                "K43.1"
-              ],
-              "_also_add": "49561"
-            },
-            {
-              "label": "Bilateral retrorectus release (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus release. Bill 15734 \u00d7 2 (per side) WITH 49561. Add 49561 first, then add 15734 twice (or use -50 bilateral modifier).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.0",
-                "K43.1"
-              ],
-              "_also_add": "49561",
-              "bilateral": true
-            },
-            {
-              "label": "Unilateral TAR (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR (transversus abdominis release). Bill WITH 49561. Add 49561 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.0",
-                "K43.1"
-              ],
-              "_also_add": "49561"
-            },
-            {
-              "label": "Bilateral TAR (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR (transversus abdominis release). Bill 15734 \u00d7 2 (per side) WITH 49561. Add 49561 first, then add 15734 twice (or use -50).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.0",
-                "K43.1"
-              ],
-              "_also_add": "49561",
-              "bilateral": true
-            }
-          ]
-        },
-        "ventral_medium_laparoscopic_robotic___robotic_release": {
-          "question": "CPT 49653 (Laparoscopic/Robotic / Robotic medium ventral hernia repair) selected.\n\nAbdominal wall release / component separation?",
-          "options": [
-            {
-              "label": "No release \u2014 use CPT 49653 only",
-              "cpt_code": "49653",
-              "description": "Laparoscopy, surgical; repair ventral hernia 3-10 cm",
-              "modifiers": [],
-              "icd10": [
-                "K43.9"
-              ]
-            },
-            {
-              "label": "Unilateral retrorectus release (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus release. Bill WITH 49653 (hernia repair). Add 49653 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49653"
-            },
-            {
-              "label": "Bilateral retrorectus release (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus release. Bill 15734 \u00d7 2 (per side) WITH 49653. Add 49653 first, then add 15734 twice (or use -50 bilateral modifier).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49653",
-              "bilateral": true
-            },
-            {
-              "label": "Unilateral TAR (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR (transversus abdominis release). Bill WITH 49653. Add 49653 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49653"
-            },
-            {
-              "label": "Bilateral TAR (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR (transversus abdominis release). Bill 15734 \u00d7 2 (per side) WITH 49653. Add 49653 first, then add 15734 twice (or use -50).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49653",
-              "bilateral": true
-            }
-          ]
-        },
-        "ventral_large_open_release": {
-          "question": "CPT 49566 (Open large ventral hernia repair) selected.\n\nAbdominal wall release / component separation?",
-          "options": [
-            {
-              "label": "No release \u2014 use CPT 49566 only",
-              "cpt_code": "49566",
-              "description": "Repair recurrent incisional or ventral hernia; reducible",
-              "modifiers": [],
-              "icd10": [
-                "K43.2"
-              ]
-            },
-            {
-              "label": "Unilateral retrorectus release (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus release. Bill WITH 49566 (hernia repair). Add 49566 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.2"
-              ],
-              "_also_add": "49566"
-            },
-            {
-              "label": "Bilateral retrorectus release (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus release. Bill 15734 \u00d7 2 (per side) WITH 49566. Add 49566 first, then add 15734 twice (or use -50 bilateral modifier).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.2"
-              ],
-              "_also_add": "49566",
-              "bilateral": true
-            },
-            {
-              "label": "Unilateral TAR (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR (transversus abdominis release). Bill WITH 49566. Add 49566 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.2"
-              ],
-              "_also_add": "49566"
-            },
-            {
-              "label": "Bilateral TAR (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR (transversus abdominis release). Bill 15734 \u00d7 2 (per side) WITH 49566. Add 49566 first, then add 15734 twice (or use -50).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.2"
-              ],
-              "_also_add": "49566",
-              "bilateral": true
-            }
-          ]
-        },
-        "ventral_large_laparoscopic_robotic___robotic_release": {
-          "question": "CPT 49654 (Laparoscopic/Robotic / Robotic large ventral hernia repair) selected.\n\nAbdominal wall release / component separation?",
-          "options": [
-            {
-              "label": "No release \u2014 use CPT 49654 only",
-              "cpt_code": "49654",
-              "description": "Laparoscopy, surgical; repair ventral hernia >10 cm",
-              "modifiers": [],
-              "icd10": [
-                "K43.9"
-              ]
-            },
-            {
-              "label": "Unilateral retrorectus release (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus release. Bill WITH 49654 (hernia repair). Add 49654 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49654"
-            },
-            {
-              "label": "Bilateral retrorectus release (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus release. Bill 15734 \u00d7 2 (per side) WITH 49654. Add 49654 first, then add 15734 twice (or use -50 bilateral modifier).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49654",
-              "bilateral": true
-            },
-            {
-              "label": "Unilateral TAR (+ 15734 \u00d7 1)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR (transversus abdominis release). Bill WITH 49654. Add 49654 to case first, then add 15734.",
-              "modifiers": [
-                "-LT or -RT",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49654"
-            },
-            {
-              "label": "Bilateral TAR (+ 15734 \u00d7 2)",
-              "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR (transversus abdominis release). Bill 15734 \u00d7 2 (per side) WITH 49654. Add 49654 first, then add 15734 twice (or use -50).",
-              "modifiers": [
-                "-50",
-                "-59"
-              ],
-              "icd10": [
-                "K43.9"
-              ],
-              "_also_add": "49654",
-              "bilateral": true
-            }
-          ]
-        },
         "umbilical_49585_release": {
           "question": "CPT 49585 (5 years or older, reducible umbilical hernia repair) selected.\n\nAbdominal wall release / component separation?",
           "options": [
@@ -934,6 +465,1973 @@
                 "K42.1"
               ],
               "_also_add": "49587",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_questions": {
+          "question": "Ventral / Incisional Hernia \u2014 Initial or Recurrent?",
+          "options": [
+            {
+              "label": "Initial (first-time repair)",
+              "next": "ventral_initial"
+            },
+            {
+              "label": "Recurrent (prior repair at this site)",
+              "next": "ventral_recurrent"
+            }
+          ]
+        },
+        "ventral_initial": {
+          "question": "Hernia status?",
+          "options": [
+            {
+              "label": "Reducible",
+              "next": "ventral_initial_reducible"
+            },
+            {
+              "label": "Incarcerated / Strangulated",
+              "next": "ventral_initial_incarcerated"
+            }
+          ]
+        },
+        "ventral_recurrent": {
+          "question": "Hernia status?",
+          "options": [
+            {
+              "label": "Reducible",
+              "next": "ventral_recurrent_reducible"
+            },
+            {
+              "label": "Incarcerated / Strangulated",
+              "next": "ventral_recurrent_incarcerated"
+            }
+          ]
+        },
+        "ventral_initial_reducible": {
+          "question": "Size of defect?",
+          "options": [
+            {
+              "label": "Less than 3 cm",
+              "next": "ventral_init_red_small"
+            },
+            {
+              "label": "3\u201310 cm",
+              "next": "ventral_init_red_medium"
+            },
+            {
+              "label": "Greater than 10 cm",
+              "next": "ventral_init_red_large"
+            }
+          ]
+        },
+        "ventral_init_red_small": {
+          "question": "Approach? (initial, reducible, <3 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_init_red_small_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_init_red_small_lap_release"
+            }
+          ]
+        },
+        "ventral_init_red_small_open_release": {
+          "question": "CPT 49591 \u2014 Repair initial incisional/ventral hernia, reducible; <3 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49591 only",
+              "cpt_code": "49591",
+              "description": "Repair initial incisional/ventral hernia, reducible; <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49591.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49591"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49591.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49591",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49591.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49591"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49591.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49591",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_red_small_lap_release": {
+          "question": "CPT 49652 \u2014 Lap repair initial ventral hernia; <3 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49652 only",
+              "cpt_code": "49652",
+              "description": "Lap repair initial ventral hernia; <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49652.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49652"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49652.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49652",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49652.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49652"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49652.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49652",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_red_medium": {
+          "question": "Approach? (initial, reducible, 3-10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_init_red_medium_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_init_red_medium_lap_release"
+            }
+          ]
+        },
+        "ventral_init_red_medium_open_release": {
+          "question": "CPT 49593 \u2014 Repair initial incisional/ventral hernia, reducible; 3-10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49593 only",
+              "cpt_code": "49593",
+              "description": "Repair initial incisional/ventral hernia, reducible; 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49593.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49593"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49593.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49593",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49593.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49593"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49593.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49593",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_red_medium_lap_release": {
+          "question": "CPT 49653 \u2014 Lap repair initial ventral hernia; 3-10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49653 only",
+              "cpt_code": "49653",
+              "description": "Lap repair initial ventral hernia; 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49653.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49653"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49653.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49653",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49653.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49653"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49653.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49653",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_red_large": {
+          "question": "Approach? (initial, reducible, >10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_init_red_large_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_init_red_large_lap_release"
+            }
+          ]
+        },
+        "ventral_init_red_large_open_release": {
+          "question": "CPT 49595 \u2014 Repair initial incisional/ventral hernia, reducible; >10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49595 only",
+              "cpt_code": "49595",
+              "description": "Repair initial incisional/ventral hernia, reducible; >10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49595.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49595"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49595.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49595",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49595.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49595"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49595.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49595",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_red_large_lap_release": {
+          "question": "CPT 49654 \u2014 Lap repair initial ventral hernia; >10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49654 only",
+              "cpt_code": "49654",
+              "description": "Lap repair initial ventral hernia; >10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49654.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49654"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49654.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49654",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49654.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49654"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49654.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.9",
+                "K43.2"
+              ],
+              "_also_add": "49654",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_initial_incarcerated": {
+          "question": "Size of defect?",
+          "options": [
+            {
+              "label": "Less than 3 cm",
+              "next": "ventral_init_inc_small"
+            },
+            {
+              "label": "3\u201310 cm",
+              "next": "ventral_init_inc_medium"
+            },
+            {
+              "label": "Greater than 10 cm",
+              "next": "ventral_init_inc_large"
+            }
+          ]
+        },
+        "ventral_init_inc_small": {
+          "question": "Approach? (initial, incarcerated, <3 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_init_inc_small_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_init_inc_small_lap_release"
+            }
+          ]
+        },
+        "ventral_init_inc_small_open_release": {
+          "question": "CPT 49592 \u2014 Repair initial incisional/ventral hernia, incarcerated/strangulated; <3 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49592 only",
+              "cpt_code": "49592",
+              "description": "Repair initial incisional/ventral hernia, incarcerated/strangulated; <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49592.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49592"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49592.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49592",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49592.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49592"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49592.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49592",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_inc_small_lap_release": {
+          "question": "CPT 49652 \u2014 Lap repair ventral hernia; <3 cm (use -22 for incarceration)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49652 only",
+              "cpt_code": "49652",
+              "description": "Lap repair ventral hernia; <3 cm (use -22 for incarceration)",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49652.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49652"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49652.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49652",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49652.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49652"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49652.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49652",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_inc_medium": {
+          "question": "Approach? (initial, incarcerated, 3-10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_init_inc_medium_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_init_inc_medium_lap_release"
+            }
+          ]
+        },
+        "ventral_init_inc_medium_open_release": {
+          "question": "CPT 49594 \u2014 Repair initial incisional/ventral hernia, incarcerated/strangulated; 3-10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49594 only",
+              "cpt_code": "49594",
+              "description": "Repair initial incisional/ventral hernia, incarcerated/strangulated; 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49594.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49594"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49594.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49594",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49594.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49594"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49594.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49594",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_inc_medium_lap_release": {
+          "question": "CPT 49653 \u2014 Lap repair ventral hernia; 3-10 cm (use -22 for incarceration)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49653 only",
+              "cpt_code": "49653",
+              "description": "Lap repair ventral hernia; 3-10 cm (use -22 for incarceration)",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49653.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49653"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49653.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49653",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49653.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49653"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49653.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49653",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_inc_large": {
+          "question": "Approach? (initial, incarcerated, >10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_init_inc_large_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_init_inc_large_lap_release"
+            }
+          ]
+        },
+        "ventral_init_inc_large_open_release": {
+          "question": "CPT 49596 \u2014 Repair initial incisional/ventral hernia, incarcerated/strangulated; >10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49596 only",
+              "cpt_code": "49596",
+              "description": "Repair initial incisional/ventral hernia, incarcerated/strangulated; >10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49596.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49596"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49596.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49596",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49596.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49596"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49596.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49596",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_init_inc_large_lap_release": {
+          "question": "CPT 49654 \u2014 Lap repair ventral hernia; >10 cm (use -22 for incarceration)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49654 only",
+              "cpt_code": "49654",
+              "description": "Lap repair ventral hernia; >10 cm (use -22 for incarceration)",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49654.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49654"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49654.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49654",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49654.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49654"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49654.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49654",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_recurrent_reducible": {
+          "question": "Size of defect?",
+          "options": [
+            {
+              "label": "Less than 3 cm",
+              "next": "ventral_rec_red_small"
+            },
+            {
+              "label": "3\u201310 cm",
+              "next": "ventral_rec_red_medium"
+            },
+            {
+              "label": "Greater than 10 cm",
+              "next": "ventral_rec_red_large"
+            }
+          ]
+        },
+        "ventral_rec_red_small": {
+          "question": "Approach? (recurrent, reducible, <3 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_rec_red_small_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_rec_red_small_lap_release"
+            }
+          ]
+        },
+        "ventral_rec_red_small_open_release": {
+          "question": "CPT 49613 \u2014 Repair recurrent incisional/ventral hernia, reducible; <3 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49613 only",
+              "cpt_code": "49613",
+              "description": "Repair recurrent incisional/ventral hernia, reducible; <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49613.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49613"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49613.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49613",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49613.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49613"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49613.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49613",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_red_small_lap_release": {
+          "question": "CPT 49656 \u2014 Lap repair recurrent ventral hernia; <3 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49656 only",
+              "cpt_code": "49656",
+              "description": "Lap repair recurrent ventral hernia; <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49656.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49656"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49656.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49656",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49656.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49656"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49656.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49656",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_red_medium": {
+          "question": "Approach? (recurrent, reducible, 3-10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_rec_red_medium_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_rec_red_medium_lap_release"
+            }
+          ]
+        },
+        "ventral_rec_red_medium_open_release": {
+          "question": "CPT 49615 \u2014 Repair recurrent incisional/ventral hernia, reducible; 3-10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49615 only",
+              "cpt_code": "49615",
+              "description": "Repair recurrent incisional/ventral hernia, reducible; 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49615.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49615"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49615.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49615",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49615.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49615"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49615.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49615",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_red_medium_lap_release": {
+          "question": "CPT 49657 \u2014 Lap repair recurrent ventral hernia; 3-10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49657 only",
+              "cpt_code": "49657",
+              "description": "Lap repair recurrent ventral hernia; 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_red_large": {
+          "question": "Approach? (recurrent, reducible, >10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_rec_red_large_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_rec_red_large_lap_release"
+            }
+          ]
+        },
+        "ventral_rec_red_large_open_release": {
+          "question": "CPT 49617 \u2014 Repair recurrent incisional/ventral hernia, reducible; >10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49617 only",
+              "cpt_code": "49617",
+              "description": "Repair recurrent incisional/ventral hernia, reducible; >10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49617.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49617"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49617.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49617",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49617.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49617"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49617.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49617",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_red_large_lap_release": {
+          "question": "CPT 49657 \u2014 Lap repair recurrent ventral hernia; >10 cm (use -22 if appropriate)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49657 only",
+              "cpt_code": "49657",
+              "description": "Lap repair recurrent ventral hernia; >10 cm (use -22 if appropriate)",
+              "modifiers": [],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.2",
+                "K43.9"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_recurrent_incarcerated": {
+          "question": "Size of defect?",
+          "options": [
+            {
+              "label": "Less than 3 cm",
+              "next": "ventral_rec_inc_small"
+            },
+            {
+              "label": "3\u201310 cm",
+              "next": "ventral_rec_inc_medium"
+            },
+            {
+              "label": "Greater than 10 cm",
+              "next": "ventral_rec_inc_large"
+            }
+          ]
+        },
+        "ventral_rec_inc_small": {
+          "question": "Approach? (recurrent, incarcerated, <3 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_rec_inc_small_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_rec_inc_small_lap_release"
+            }
+          ]
+        },
+        "ventral_rec_inc_small_open_release": {
+          "question": "CPT 49614 \u2014 Repair recurrent incisional/ventral hernia, incarcerated/strangulated; <3 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49614 only",
+              "cpt_code": "49614",
+              "description": "Repair recurrent incisional/ventral hernia, incarcerated/strangulated; <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49614.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49614"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49614.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49614",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49614.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49614"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49614.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49614",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_inc_small_lap_release": {
+          "question": "CPT 49656 \u2014 Lap repair recurrent ventral hernia; <3 cm (use -22)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49656 only",
+              "cpt_code": "49656",
+              "description": "Lap repair recurrent ventral hernia; <3 cm (use -22)",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49656.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49656"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49656.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49656",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49656.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49656"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49656.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49656",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_inc_medium": {
+          "question": "Approach? (recurrent, incarcerated, 3-10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_rec_inc_medium_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_rec_inc_medium_lap_release"
+            }
+          ]
+        },
+        "ventral_rec_inc_medium_open_release": {
+          "question": "CPT 49616 \u2014 Repair recurrent incisional/ventral hernia, incarcerated/strangulated; 3-10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49616 only",
+              "cpt_code": "49616",
+              "description": "Repair recurrent incisional/ventral hernia, incarcerated/strangulated; 3-10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49616.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49616"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49616.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49616",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49616.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49616"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49616.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49616",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_inc_medium_lap_release": {
+          "question": "CPT 49657 \u2014 Lap repair recurrent ventral hernia; 3-10 cm (use -22)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49657 only",
+              "cpt_code": "49657",
+              "description": "Lap repair recurrent ventral hernia; 3-10 cm (use -22)",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_inc_large": {
+          "question": "Approach? (recurrent, incarcerated, >10 cm)",
+          "options": [
+            {
+              "label": "Open",
+              "next": "ventral_rec_inc_large_open_release"
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "ventral_rec_inc_large_lap_release"
+            }
+          ]
+        },
+        "ventral_rec_inc_large_open_release": {
+          "question": "CPT 49618 \u2014 Repair recurrent incisional/ventral hernia, incarcerated/strangulated; >10 cm\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49618 only",
+              "cpt_code": "49618",
+              "description": "Repair recurrent incisional/ventral hernia, incarcerated/strangulated; >10 cm",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49618.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49618"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49618.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49618",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49618.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49618"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49618.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49618",
+              "bilateral": true
+            }
+          ]
+        },
+        "ventral_rec_inc_large_lap_release": {
+          "question": "CPT 49657 \u2014 Lap repair recurrent ventral hernia; >10 cm (use -22)\n\nAbdominal wall release / component separation?",
+          "options": [
+            {
+              "label": "No release \u2014 CPT 49657 only",
+              "cpt_code": "49657",
+              "description": "Lap repair recurrent ventral hernia; >10 cm (use -22)",
+              "modifiers": [],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ]
+            },
+            {
+              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657",
+              "bilateral": true
+            },
+            {
+              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49657.",
+              "modifiers": [
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657"
+            },
+            {
+              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "cpt_code": "15734",
+              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49657.",
+              "modifiers": [
+                "-50",
+                "-59"
+              ],
+              "icd10": [
+                "K43.0",
+                "K43.1"
+              ],
+              "_also_add": "49657",
               "bilateral": true
             }
           ]
