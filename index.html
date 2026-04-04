@@ -2581,11 +2581,24 @@
             }
 
             const container = document.getElementById('decisionTree');
+            
+            // Build "Current Case" summary if procedures have been added
+            let caseSummaryHtml = '';
+            if (typeof caseProcs !== 'undefined' && caseProcs.length > 0) {
+                caseSummaryHtml = `<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:12px 16px;margin-bottom:16px;">
+                    <div style="font-size:12px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">📋 Current Case (${caseProcs.length} procedure${caseProcs.length > 1 ? 's' : ''})</div>`;
+                caseProcs.forEach(p => {
+                    caseSummaryHtml += `<div style="font-size:13px;color:#374151;padding:2px 0;"><strong style="color:#2563EB;">${p.code}</strong> — ${p.description ? p.description.substring(0, 50) : ''} <span style="color:#059669;font-weight:600;">${p.work_rvu} wRVU</span></div>`;
+                });
+                caseSummaryHtml += `<div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;padding-top:6px;border-top:1px solid #BBF7D0;">Select another procedure below to add to this case</div></div>`;
+            }
+            
             let html = `
                 <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:32px;">
+                    ${caseSummaryHtml}
                     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
                         <h3 style="font-size:20px;font-weight:700;color:#1e293b;">${currentCategoryName}</h3>
-                        <button onclick="resetDecisionTree()" style="background:#f1f5f9;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;color:#64748b;">Start Over</button>
+                        <button onclick="resetDecisionTree()" style="background:#f1f5f9;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;color:#64748b;">Done</button>
                     </div>
                     ${currentQuestionStack.length > 0 ? '<button onclick="goBack()" style="background:none;border:none;color:#2563eb;cursor:pointer;font-size:14px;margin-bottom:16px;">← Back</button>' : ''}
                     <p style="font-size:18px;color:#374151;margin-bottom:24px;font-weight:500;">${questionObj.question}</p>
@@ -2699,7 +2712,8 @@
                     <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
                         <button onclick="copyCode('${result.cpt_code}')" style="background:#2563eb;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">Copy CPT Code</button>
                         <button onclick="${addBtnAction}" style="background:#10b981;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">${addBtnLabel}</button>
-                        <button onclick="resetDecisionTree()" style="background:#f1f5f9;color:#374151;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:500;">Search Again</button>
+                        <button onclick="addAndContinue('${result.cpt_code}', ${result.bilateral ? 'true' : 'false'}, '${result._also_add || ''}')" style="background:#7C3AED;color:white;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">+ Add & Pick Another</button>
+                        <button onclick="resetDecisionTree()" style="background:#f1f5f9;color:#374151;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:500;">Done</button>
                     </div>
                 </div>`;
             container.innerHTML = html;
@@ -2716,6 +2730,38 @@
                     }, 150);
                 }
             }, 150);
+        }
+        
+        // Add to case and return to the SAME specialty to pick another procedure
+        function addAndContinue(code, isBilateral, alsoAdd) {
+            // Add the current code(s) to the case
+            if (alsoAdd) {
+                addToRVUCalculator(alsoAdd);
+                setTimeout(() => addToRVUCalculator(code), 100);
+                if (isBilateral) {
+                    setTimeout(() => addToRVUCalculator(code), 200);
+                }
+            } else if (isBilateral) {
+                addToRVUCalculator(code);
+                setTimeout(() => addToRVUCalculator(code), 100);
+            } else {
+                addToRVUCalculator(code);
+            }
+            
+            // Return to the SAME specialty's first question (not reset to all categories)
+            setTimeout(() => {
+                if (currentCategory && currentCategory.questions && currentCategory.questions[0]) {
+                    currentQuestionStack = [];
+                    showQuestion(currentCategory.questions[0], currentCategory.branches, currentCategory.name);
+                    
+                    // Scroll to decision tree
+                    const container = document.getElementById('decisionTree');
+                    const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
+                    const rect = container.getBoundingClientRect();
+                    const targetY = window.pageYOffset + rect.top - headerHeight - 20;
+                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
+            }, 300);
         }
         
         // Helper: add bilateral procedure (same code twice)
