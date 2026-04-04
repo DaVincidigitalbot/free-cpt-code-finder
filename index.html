@@ -2556,6 +2556,10 @@
             currentCategoryName = category.name;
             currentQuestionStack = [];
             
+            // Dim AI fab so it doesn't cover procedure names
+            const fab = document.getElementById('aiFab');
+            if (fab) fab.classList.add('dimmed');
+            
             // Hide category buttons, show decision tree in their place
             document.querySelectorAll('.quick-access').forEach(el => el.style.display = 'none');
             
@@ -2739,7 +2743,27 @@
             tempResults = [];
             currentCategory = null;
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Restore AI fab visibility
+            const fab = document.getElementById('aiFab');
+            if (fab) fab.classList.remove('dimmed');
         }
+        
+        // Auto-dim AI fab when decision tree content is visible
+        function updateAIFabVisibility() {
+            const fab = document.getElementById('aiFab');
+            if (!fab) return;
+            const tree = document.getElementById('decisionTree');
+            const treeVisible = tree && tree.style.display !== 'none' && tree.innerHTML.trim() !== '';
+            if (treeVisible) {
+                fab.classList.add('dimmed');
+            } else {
+                fab.classList.remove('dimmed');
+            }
+        }
+        // Check visibility on scroll
+        window.addEventListener('scroll', function() {
+            updateAIFabVisibility();
+        }, { passive: true });
 
 
 
@@ -3316,16 +3340,23 @@
         }
         .case-proc-remove:hover { color: #EF4444; }
 
-        /* Move AI fab to LEFT side when case tray is visible so it doesn't cover wRVU values */
+        /* Move AI fab above case tray when visible */
         .case-tray.visible ~ .ai-fab {
-            bottom: 80px;
-            right: auto;
-            left: 24px;
+            bottom: 72px;
+            right: 24px;
         }
         .case-tray.visible.expanded ~ .ai-fab {
-            bottom: 80px;
-            right: auto;
-            left: 24px;
+            bottom: 72px;
+            right: 24px;
+            opacity: 0.3;
+            width: 32px;
+            height: 32px;
+            font-size: 0.85rem;
+        }
+        .case-tray.visible.expanded ~ .ai-fab:hover {
+            opacity: 0.9;
+            width: 44px;
+            height: 44px;
         }
         /* Also adjust AI panel */
         .case-tray.visible ~ .ai-panel {
@@ -3757,37 +3788,54 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            width: 60px;
-            height: 60px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
             color: white;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
-            z-index: 9999;
+            box-shadow: 0 2px 12px rgba(37, 99, 235, 0.3);
+            z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s, width 0.2s, height 0.2s;
+            opacity: 0.85;
         }
         .ai-fab:hover {
             transform: scale(1.08);
-            box-shadow: 0 6px 28px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+            opacity: 1;
+        }
+        /* Auto-dim when decision tree is active */
+        .ai-fab.dimmed {
+            opacity: 0.3;
+            width: 32px;
+            height: 32px;
+            font-size: 0.85rem;
+            pointer-events: auto;
+        }
+        .ai-fab.dimmed:hover {
+            opacity: 0.9;
+            width: 44px;
+            height: 44px;
+            font-size: 1.1rem;
         }
         .ai-fab .badge {
             position: absolute;
-            top: -2px;
-            right: -2px;
+            top: -4px;
+            right: -4px;
             background: #10B981;
             color: white;
-            font-size: 0.6rem;
-            padding: 2px 5px;
-            border-radius: 8px;
+            font-size: 0.55rem;
+            padding: 1px 4px;
+            border-radius: 6px;
             font-weight: 700;
             letter-spacing: 0.02em;
         }
+        .ai-fab.dimmed .badge { display: none; }
 
         /* AI Chat Panel */
         .ai-panel {
@@ -4001,11 +4049,17 @@
             }
             .ai-fab {
                 bottom: 16px;
-                left: 16px;
-                right: auto;
-                width: 48px;
-                height: 48px;
-                font-size: 1.2rem;
+                right: 16px;
+                left: auto;
+                width: 38px;
+                height: 38px;
+                font-size: 0.95rem;
+                opacity: 0.7;
+            }
+            .ai-fab:hover, .ai-fab:active {
+                opacity: 1;
+                width: 44px;
+                height: 44px;
             }
         }
     </style>
