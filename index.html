@@ -2897,10 +2897,9 @@
             
             // Apply -51 modifier logic automatically for multiple procedures
             if (!procedure.isPrimary && procedure.modifier === 'none') {
-                if (index === 1) {
-                    adjustedRVU *= 0.5; // 50% for second procedure
-                } else if (index > 1) {
-                    adjustedRVU *= 0.25; // 25% for third+ procedures
+                // CMS MPPR: primary = 100%, ALL secondary procedures = 50%
+                if (index >= 1) {
+                    adjustedRVU *= 0.5; // 50% for ALL secondary procedures
                 }
             } else {
                 // Apply manual modifier adjustments
@@ -3530,10 +3529,10 @@
         regular.forEach((p, i) => {
             p.isPrimary = i === 0;
             p._role = i === 0 ? 'primary' : 'secondary';
-            p._roleLabel = i === 0 ? '★ Primary' : (i === 1 ? '② Secondary' : `③ Additional (#${i + 1})`);
+            p._roleLabel = i === 0 ? '★ Primary' : `② Secondary (#${i + 1})`;
             p._roleExplain = i === 0 
-                ? 'Highest wRVU — receives full credit'
-                : `Ranked #${i + 1} by wRVU — multiple procedure reduction applies`;
+                ? 'Highest wRVU — receives full (100%) credit'
+                : `Ranked #${i + 1} by wRVU — CMS MPPR: 50% of full wRVU`;
         });
 
         addons.forEach(p => {
@@ -3581,8 +3580,8 @@
         // Find this proc's rank among regular (non-addon) procedures
         const regularProcs = caseProcs.filter(p => !isAddOnCode(p));
         const rank = regularProcs.indexOf(proc);
-        if (rank === 1) rvu *= 0.5;      // 2nd procedure = 50%
-        else if (rank >= 2) rvu *= 0.25;  // 3rd+ = 25%
+        // CMS MPPR: primary = 100%, ALL secondary procedures = 50%
+        if (rank >= 1) rvu *= 0.5;
 
         return rvu;
     }
