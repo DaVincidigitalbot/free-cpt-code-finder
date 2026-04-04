@@ -3515,24 +3515,45 @@
         return entry.is_addon === true || entry.global_period === 'ZZZ';
     }
 
+    // Distinct reconstructive codes — billed at full wRVU with modifier -59
+    // These are NOT subject to standard MPPR when paired with hernia repairs
+    function isDistinctReconstructive(proc) {
+        // 15734 (myofascial flap/component separation) is a distinct reconstructive
+        // procedure when performed with hernia repair — per ACS/AHSQC guidelines
+        return proc.code === '15734';
+    }
+
     function rankAndSortProcedures() {
         if (caseProcs.length === 0) return;
 
-        // Separate add-on codes from regular procedures
+        // Separate into 3 tiers:
+        // 1. Add-on codes (ZZZ) — always 100%, no reduction
+        // 2. Distinct reconstructive (15734) — 100% each, billed with -59
+        // 3. Regular procedures — standard MPPR (primary 100%, secondary 50%)
         const addons = caseProcs.filter(p => isAddOnCode(p));
-        const regular = caseProcs.filter(p => !isAddOnCode(p));
+        const reconstructive = caseProcs.filter(p => !isAddOnCode(p) && isDistinctReconstructive(p));
+        const regular = caseProcs.filter(p => !isAddOnCode(p) && !isDistinctReconstructive(p));
 
         // Sort regular procedures by wRVU descending (highest = primary)
         regular.sort((a, b) => b.work_rvu - a.work_rvu);
+        reconstructive.sort((a, b) => b.work_rvu - a.work_rvu);
 
         // Assign roles
         regular.forEach((p, i) => {
-            p.isPrimary = i === 0;
+            p.isPrimary = i === 0 && reconstructive.length === 0;
             p._role = i === 0 ? 'primary' : 'secondary';
             p._roleLabel = i === 0 ? '★ Primary' : `② Secondary (#${i + 1})`;
             p._roleExplain = i === 0 
                 ? 'Highest wRVU — receives full (100%) credit'
                 : `Ranked #${i + 1} by wRVU — CMS MPPR: 50% of full wRVU`;
+        });
+
+        // Distinct reconstructive procedures: full wRVU each, billed with -59
+        reconstructive.forEach((p, i) => {
+            p.isPrimary = false;
+            p._role = 'reconstructive';
+            p._roleLabel = `🔧 Reconstructive (#${i + 1})`;
+            p._roleExplain = 'Component separation / myofascial release (15734) — distinct reconstructive procedure, billed at full wRVU with modifier -59. NOT subject to standard MPPR per ACS guidelines.';
         });
 
         addons.forEach(p => {
@@ -3542,9 +3563,9 @@
             p._roleExplain = 'Add-on code (ZZZ global) — no MPPR reduction, always full wRVU';
         });
 
-        // Reassemble: regular sorted by wRVU, then add-ons at end
+        // Reassemble: regular (primary first), then reconstructive (full value), then add-ons
         caseProcs.length = 0;
-        caseProcs.push(...regular, ...addons);
+        caseProcs.push(...regular, ...reconstructive, ...addons);
     }
 
     function getCaseAdjustedWRVU(proc, index) {
@@ -3552,7 +3573,15 @@
 
         // Add-on codes always get 100% — no MPPR reduction
         if (isAddOnCode(proc)) {
-            // Still apply manual modifiers if set
+            if (proc.modifier === '-62') rvu *= 0.625;
+            else if (proc.modifier === '-80') rvu *= 0.16;
+            else if (proc.modifier === '-22') rvu *= 1.25;
+            return rvu;
+        }
+
+        // Distinct reconstructive procedures (15734 component separation)
+        // get full wRVU — billed with -59, not subject to standard MPPR
+        if (isDistinctReconstructive(proc)) {
             if (proc.modifier === '-62') rvu *= 0.625;
             else if (proc.modifier === '-80') rvu *= 0.16;
             else if (proc.modifier === '-22') rvu *= 1.25;
@@ -3625,8 +3654,8 @@
             const isReduced = Math.abs(adjRVU - rawRVU) > 0.01;
             const roleLabel = p._roleLabel || (i === 0 ? '★ Primary' : '② Secondary');
             const roleExplain = p._roleExplain || '';
-            const roleBg = p._role === 'primary' ? '#EFF6FF' : (p._role === 'addon' ? '#F0FDF4' : 'transparent');
-            const roleColor = p._role === 'primary' ? '#2563EB' : (p._role === 'addon' ? '#059669' : '#6B7280');
+            const roleBg = p._role === 'primary' ? '#EFF6FF' : (p._role === 'reconstructive' ? '#FDF4FF' : (p._role === 'addon' ? '#F0FDF4' : 'transparent'));
+            const roleColor = p._role === 'primary' ? '#2563EB' : (p._role === 'reconstructive' ? '#7C3AED' : (p._role === 'addon' ? '#059669' : '#6B7280'));
 
             html += `
                 <div class="case-proc" style="background:${roleBg};">
