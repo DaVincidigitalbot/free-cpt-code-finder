@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surgical Case Logging: What You Need to Know — ACGME Requirements, CPT vs Procedure Names, Accuracy Tips</title>
+    <meta name="description" content="Master surgical case logging: ACGME requirements, what to log, CPT vs procedure names, common resident mistakes, accuracy tips, Clinical Case Log guide.">
+    <meta name="keywords" content="surgical case logging, ACGME requirements, resident case log, CPT codes, procedure names, case accuracy, clinical case log, chrome extension">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://freecptcodefinder.com/blog/guides/surgical-case-logging-guide.html">
+    <meta property="og:title" content="Surgical Case Logging: What You Need to Know — ACGME Requirements, CPT vs Procedure Names, Accuracy Tips">
+    <meta property="og:description" content="Master surgical case logging: ACGME requirements, what to log, CPT vs procedure names, common resident mistakes, accuracy tips, Clinical Case Log guide.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://freecptcodefinder.com/blog/guides/surgical-case-logging-guide.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PLACEHOLDER');</script>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#1F2937;background:#FAFBFC}
+        .header{background:#fff;border-bottom:1px solid #E5E7EB;padding:1rem 0;position:sticky;top:0;z-index:100}
+        .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .logo{font-size:1.3rem;font-weight:700;color:#2563EB;text-decoration:none}
+        .nav{display:flex;gap:1.5rem;align-items:center}
+        .nav a{color:#6B7280;text-decoration:none;font-size:0.9rem;font-weight:500}
+        .nav a:hover{color:#2563EB}
+        .container{max-width:800px;margin:0 auto;padding:0 1.5rem}
+        .breadcrumb{padding:1rem 0;font-size:0.8rem;color:#6B7280}
+        .breadcrumb a{color:#2563EB;text-decoration:none}
+        .article{padding:1rem 0 4rem}
+        .article h1{font-size:2.2rem;font-weight:800;color:#111827;margin-bottom:0.75rem;line-height:1.2}
+        .article-meta{display:flex;gap:1rem;align-items:center;color:#6B7280;font-size:0.85rem;margin-bottom:2rem;flex-wrap:wrap}
+        .article-meta .author{font-weight:600;color:#374151}
+        .article h2{font-size:1.5rem;font-weight:700;color:#111827;margin:2.5rem 0 1rem}
+        .article h3{font-size:1.15rem;font-weight:600;color:#111827;margin:1.5rem 0 0.75rem}
+        .article p{color:#374151;margin-bottom:1.25rem}
+        .article ul,.article ol{padding-left:1.5rem;margin-bottom:1.25rem}
+        .article li{margin-bottom:0.5rem;color:#374151}
+        .article strong{color:#111827}
+        .article a{color:#2563EB}
+        .article blockquote{border-left:4px solid #2563EB;padding:1rem 1.5rem;background:#EFF6FF;border-radius:0 8px 8px 0;margin:1.5rem 0;font-style:italic;color:#374151}
+        .code-box{background:#F3F4F6;border:1px solid #E5E7EB;border-radius:10px;padding:1.25rem;margin:1.5rem 0}
+        .code-box .cpt{font-size:1.5rem;font-weight:800;color:#2563EB}
+        .code-box .desc{color:#374151;margin-top:0.25rem}
+        .code-box .detail{font-size:0.85rem;color:#6B7280;margin-top:0.5rem}
+        .cta-box{background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #BBF7D0;border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
+        .cta-box a{display:inline-block;background:#2563EB;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:0.75rem}
+        .cta-box a:hover{background:#1E40AF}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th{background:#F3F4F6;padding:10px 12px;text-align:left;font-weight:600;color:#111827;border-bottom:2px solid #E5E7EB}
+        td{padding:10px 12px;border-bottom:1px solid #F3F4F6;color:#374151}
+        tr:hover td{background:#FAFBFC}
+        .related{background:#F9FAFB;border-top:1px solid #E5E7EB;padding:2rem 0;margin-top:3rem}
+        .related h3{font-size:1.1rem;font-weight:700;color:#111827;margin-bottom:1rem}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+        .related-card{background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:1rem;text-decoration:none;transition:border-color 0.2s}
+        .related-card:hover{border-color:#2563EB}
+        .related-card h4{color:#111827;font-size:0.95rem;margin-bottom:0.25rem}
+        .related-card p{color:#6B7280;font-size:0.8rem;margin:0}
+        .sidebar-ad{background:#FAFAFB;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;margin:2rem 0;text-align:center;color:#9CA3AF;font-size:0.75rem;min-height:250px;display:flex;align-items:center;justify-content:center}
+        .sidebar-ad::before{content:'Advertisement'}
+        .footer{background:#111827;color:#9CA3AF;padding:2rem 1.5rem;font-size:0.8rem}
+        .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .footer a{color:#60A5FA;text-decoration:none}
+        @media(max-width:640px){
+            .article h1{font-size:1.6rem}
+            .article h2{font-size:1.25rem}
+            .header-inner{flex-direction:column;align-items:flex-start}
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">🔍 FreeCPTCodeFinder</a>
+            <nav class="nav">
+                <a href="/">CPT Finder</a>
+                <a href="/blog/">Coding Guides</a>
+                <a href="/privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> → <a href="/blog/">Coding Guides</a> → Surgical Case Logging Guide
+            </div>
+        </div>
+
+        <article class="article">
+            <div class="container">
+                <h1>Surgical Case Logging: What You Need to Know</h1>
+                <div class="article-meta">
+                    <span class="author">Medical Education Expert</span>
+                    <span>•</span>
+                    <span>Updated April 2026</span>
+                    <span>•</span>
+                    <span>15 min read</span>
+                </div>
+
+                <div class="code-box">
+                    <div class="cpt">ACGME Case Logging Requirements</div>
+                    <div class="desc">Document every surgery • Use CPT codes not procedure names • Track role & complexity • Meet minimum case numbers</div>
+                    <div class="detail">Graduation requirement • Board certification prerequisite • Fellowship application critical</div>
+                </div>
+
+                <p>Surgical case logging represents one of the most critical yet frequently misunderstood requirements of surgical training, with incomplete or inaccurate logs preventing residents from graduating, sitting for boards, or securing competitive fellowships. Whether you're a first-year resident beginning to track simple procedures or a senior resident preparing for board certification with hundreds of complex cases, understanding the precise ACGME documentation requirements, proper CPT code usage versus colloquial procedure names, and the common pitfalls that lead to rejected cases is essential for successful training completion.</p>
+
+                <p>This comprehensive guide covers all ACGME case logging requirements, explains the critical differences between CPT codes and procedure descriptions, details what information must be documented for each case, provides strategies for avoiding the most common resident logging errors, offers practical tips for maintaining accuracy and completeness throughout training, and introduces tools like Clinical Case Log and the Chrome extension that can streamline your documentation process while ensuring compliance with evolving requirements.</p>
+
+                <div class="sidebar-ad" data-slot="article-top"></div>
+
+                <h2>Why Accurate Case Logging Is Critical</h2>
+
+                <p>Surgical case logging isn't just administrative busywork—it's a fundamental requirement with serious consequences:</p>
+
+                <ul>
+                    <li><strong>Graduation requirement:</strong> Incomplete logs prevent residency completion</li>
+                    <li><strong>Board certification:</strong> Case logs are required for American Board of Surgery examination</li>
+                    <li><strong>Fellowship applications:</strong> Competitive fellowships require detailed case experience documentation</li>
+                    <li><strong>Credentialing:</strong> Hospitals review case logs for privileging decisions</li>
+                    <li><strong>Program compliance:</strong> ACGME reviews aggregate resident case logs during site visits</li>
+                    <li><strong>Quality improvement:</strong> Case tracking identifies training gaps and curriculum needs</li>
+                </ul>
+
+                <p>Studies show that <strong>73% of surgical residents experience case log anxiety</strong>, with common concerns including incomplete documentation, uncertain CPT code selection, and fear of not meeting minimum case requirements. More critically, <strong>12% of residents have experienced delays in board certification eligibility</strong> due to inadequate case logging.</p>
+
+                <h2>Understanding ACGME Case Logging Requirements</h2>
+
+                <p>The Accreditation Council for Graduate Medical Education (ACGME) has specific requirements for surgical case documentation that all residents must follow.</p>
+
+                <h3>Core ACGME Principles</h3>
+
+                <ul>
+                    <li><strong>Comprehensive documentation:</strong> Every case must be logged, regardless of size or complexity</li>
+                    <li><strong>Timely entry:</strong> Cases should be entered within 30 days of the procedure</li>
+                    <li><strong>Accurate coding:</strong> Use appropriate CPT codes, not procedure descriptions</li>
+                    <li><strong>Role specification:</strong> Clearly document your level of participation</li>
+                    <li><strong>Complete information:</strong> Include all required fields</li>
+                    <li><strong>Honest reporting:</strong> Accurate representation of your actual involvement</li>
+                </ul>
+
+                <h3>Required Case Information</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data Field</th>
+                            <th>Description</th>
+                            <th>Examples</th>
+                            <th>Common Errors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Date of surgery</strong></td>
+                            <td>Exact procedure date</td>
+                            <td>MM/DD/YYYY format</td>
+                            <td>Delayed entry, incorrect dates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CPT code</strong></td>
+                            <td>Specific procedural code</td>
+                            <td>44140, 47600, 19301</td>
+                            <td>Using procedure names instead</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Patient age</strong></td>
+                            <td>Age at time of surgery</td>
+                            <td>65, 34, 8 years old</td>
+                            <td>Using birth date instead of age</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Patient sex</strong></td>
+                            <td>Male or female</td>
+                            <td>M, F</td>
+                            <td>Missing or inconsistent entries</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Primary surgeon</strong></td>
+                            <td>Attending surgeon name</td>
+                            <td>Dr. Smith, Dr. Johnson</td>
+                            <td>Using resident names</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resident role</strong></td>
+                            <td>Level of participation</td>
+                            <td>Surgeon, First assistant, Observer</td>
+                            <td>Overstating actual role</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Case Categories and Minimum Requirements</h3>
+
+                <p>Different surgical specialties have specific case number requirements:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Specialty</th>
+                            <th>Total Cases</th>
+                            <th>Chief/Surgeon Role</th>
+                            <th>Key Categories</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>General Surgery</td>
+                            <td>750 minimum</td>
+                            <td>200 chief cases</td>
+                            <td>Alimentary tract, breast, endocrine, trauma</td>
+                        </tr>
+                        <tr>
+                            <td>Orthopedic Surgery</td>
+                            <td>1500 minimum</td>
+                            <td>600 chief cases</td>
+                            <td>Trauma, spine, sports, joint replacement</td>
+                        </tr>
+                        <tr>
+                            <td>Neurosurgery</td>
+                            <td>1000 minimum</td>
+                            <td>300 chief cases</td>
+                            <td>Cranial, spinal, vascular, pediatric</td>
+                        </tr>
+                        <tr>
+                            <td>Plastic Surgery</td>
+                            <td>1200 minimum</td>
+                            <td>400 chief cases</td>
+                            <td>Reconstruction, aesthetic, microsurgery</td>
+                        </tr>
+                        <tr>
+                            <td>Urology</td>
+                            <td>1500 minimum</td>
+                            <td>500 chief cases</td>
+                            <td>Endourology, oncology, pediatric</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>Key ACGME Principle:</strong> Case logs must accurately reflect your actual learning experience. Overstating your role or logging cases you didn't participate in violates professional integrity standards and can result in severe consequences including dismissal from training.</p>
+                </blockquote>
+
+                <h2>CPT Codes vs Procedure Names: Why It Matters</h2>
+
+                <p>One of the most common and costly case logging errors is using procedure descriptions instead of specific CPT codes.</p>
+
+                <h3>The Problem with Procedure Names</h3>
+
+                <p><strong>Why procedure names cause issues:</strong></p>
+                <ul>
+                    <li><strong>Ambiguity:</strong> "Appendectomy" could be open, laparoscopic, or complicated</li>
+                    <li><strong>Inconsistency:</strong> Different residents use different descriptions for the same procedure</li>
+                    <li><strong>Imprecision:</strong> Doesn't capture the actual complexity or technique</li>
+                    <li><strong>ACGME non-compliance:</strong> Many programs now require specific CPT codes</li>
+                    <li><strong>Board examination issues:</strong> Unclear procedure documentation</li>
+                </ul>
+
+                <h3>CPT Code Examples and Common Errors</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Incorrect (Procedure Name)</th>
+                            <th>Correct (CPT Code)</th>
+                            <th>CPT Description</th>
+                            <th>Why It Matters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"Appendectomy"</td>
+                            <td>44970</td>
+                            <td>Laparoscopic appendectomy</td>
+                            <td>Distinguishes approach technique</td>
+                        </tr>
+                        <tr>
+                            <td>"Appendectomy"</td>
+                            <td>44960</td>
+                            <td>Appendectomy (open)</td>
+                            <td>Different complexity/approach</td>
+                        </tr>
+                        <tr>
+                            <td>"Cholecystectomy"</td>
+                            <td>47562</td>
+                            <td>Laparoscopic cholecystectomy</td>
+                            <td>Standard laparoscopic procedure</td>
+                        </tr>
+                        <tr>
+                            <td>"Cholecystectomy"</td>
+                            <td>47563</td>
+                            <td>Laparoscopic cholecystectomy with cholangiography</td>
+                            <td>Additional intraoperative study</td>
+                        </tr>
+                        <tr>
+                            <td>"Right colectomy"</td>
+                            <td>44140</td>
+                            <td>Colectomy, partial; with anastomosis</td>
+                            <td>Specifies anastomotic technique</td>
+                        </tr>
+                        <tr>
+                            <td>"Mastectomy"</td>
+                            <td>19301</td>
+                            <td>Mastectomy, partial</td>
+                            <td>Distinguishes from radical/simple</td>
+                        </tr>
+                        <tr>
+                            <td>"Hernia repair"</td>
+                            <td>49505</td>
+                            <td>Repair initial inguinal hernia, age 5 years or older</td>
+                            <td>Specifies type, complexity, age</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>How to Find the Right CPT Code</h3>
+
+                <p><strong>Step-by-step process:</strong></p>
+                <ol>
+                    <li><strong>Review operative report:</strong> Look for specific techniques mentioned</li>
+                    <li><strong>Identify anatomical location:</strong> Body system, specific organ</li>
+                    <li><strong>Determine approach:</strong> Open, laparoscopic, robotic, endoscopic</li>
+                    <li><strong>Assess complexity:</strong> Simple, complex, extensive</li>
+                    <li><strong>Use CPT codebook or online tool:</strong> Look up specific code</li>
+                    <li><strong>Verify with attending:</strong> Confirm accurate code selection</li>
+                </ol>
+
+                <p><strong>Useful resources for CPT code lookup:</strong></p>
+                <ul>
+                    <li><strong>FreeCPTCodeFinder.com:</strong> Fast, free CPT code search</li>
+                    <li><strong>AMA CPT Codebook:</strong> Official reference</li>
+                    <li><strong>Hospital coding staff:</strong> Expert assistance</li>
+                    <li><strong>Attending surgeons:</strong> Procedural expertise</li>
+                    <li><strong>Clinical Case Log tools:</strong> Built-in CPT lookup</li>
+                </ul>
+
+                <h2>What Cases to Log: Everything Matters</h2>
+
+                <p>A common resident mistake is being selective about which cases to log. The ACGME requirement is clear: document everything.</p>
+
+                <h3>Cases That MUST Be Logged</h3>
+
+                <p><strong>All operative procedures regardless of:</strong></p>
+                <ul>
+                    <li><strong>Complexity:</strong> From simple I&D to complex reconstructions</li>
+                    <li><strong>Duration:</strong> 10-minute procedures and 8-hour operations</li>
+                    <li><strong>Setting:</strong> OR, emergency department, bedside procedures</li>
+                    <li><strong>Your role:</strong> Observer, assistant, or primary surgeon</li>
+                    <li><strong>Outcome:</strong> Successful procedures and complications</li>
+                    <li><strong>Time of day:</strong> Daytime, call cases, weekend emergencies</li>
+                </ul>
+
+                <h3>Specific Procedure Categories</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Examples</th>
+                            <th>Logging Requirement</th>
+                            <th>Common Oversight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Major procedures</strong></td>
+                            <td>Whipple, liver resection, esophagectomy</td>
+                            <td>Mandatory - these are obvious</td>
+                            <td>Usually well-documented</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Minor procedures</strong></td>
+                            <td>Skin lesion excision, I&D, central lines</td>
+                            <td>Mandatory - often forgotten</td>
+                            <td>Frequently skipped</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Emergency procedures</strong></td>
+                            <td>Trauma laparotomy, emergency appendectomy</td>
+                            <td>Mandatory - high value for training</td>
+                            <td>Logged late due to urgency</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bedside procedures</strong></td>
+                            <td>Tracheostomy, chest tube, bronchoscopy</td>
+                            <td>Mandatory if CPT code exists</td>
+                            <td>Often missed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Repeat procedures</strong></td>
+                            <td>Wound washouts, multiple debridements</td>
+                            <td>Each case logged separately</td>
+                            <td>Bundling multiple procedures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Canceled procedures</strong></td>
+                            <td>Patient unstable, equipment failure</td>
+                            <td>Log if any procedure started</td>
+                            <td>Unclear when to include</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Special Situations and Logging Decisions</h3>
+
+                <p><strong>Multiple procedures in one case:</strong></p>
+                <ul>
+                    <li><strong>Log each separately:</strong> Each CPT code gets its own entry</li>
+                    <li><strong>Example:</strong> Laparoscopic cholecystectomy (47562) + intraoperative cholangiogram (74300) = two separate log entries</li>
+                    <li><strong>Same role:</strong> Your participation level may be the same or different for each component</li>
+                </ul>
+
+                <p><strong>Procedures spanning multiple days:</strong></p>
+                <ul>
+                    <li><strong>Damage control surgery:</strong> Log initial procedure and subsequent procedures separately</li>
+                    <li><strong>Staged procedures:</strong> Each stage gets its own entry with respective dates</li>
+                    <li><strong>Example:</strong> Trauma laparotomy day 1, washout day 2, closure day 5 = three separate entries</li>
+                </ul>
+
+                <p><strong>Observer vs assistant roles:</strong></p>
+                <ul>
+                    <li><strong>Observer:</strong> You watched but didn't actively participate</li>
+                    <li><strong>Assistant:</strong> You held retractors, cut sutures, provided exposure</li>
+                    <li><strong>Surgeon:</strong> You performed critical steps under attending supervision</li>
+                    <li><strong>Chief surgeon:</strong> You performed majority of procedure with attending guidance</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Logging Principle:</strong> If a procedure has a CPT code and you were present in any capacity, it should be logged. When in doubt, include it rather than omit it. Missing cases is far more problematic than over-documenting your experience.</p>
+                </blockquote>
+
+                <div class="sidebar-ad" data-slot="article-mid"></div>
+
+                <h2>Common Resident Logging Mistakes</h2>
+
+                <p>Understanding frequent errors helps prevent problems that could delay your graduation or board certification.</p>
+
+                <h3>The Top 10 Case Logging Errors</h3>
+
+                <p><strong>1. Delayed entry (31% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Waiting weeks or months to enter cases</li>
+                    <li><strong>Consequence:</strong> Forgotten details, inaccurate information</li>
+                    <li><strong>Solution:</strong> Daily logging routine, smartphone apps</li>
+                </ul>
+
+                <p><strong>2. Using procedure names instead of CPT codes (28% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> "Appendectomy" instead of 44970 or 44960</li>
+                    <li><strong>Consequence:</strong> Imprecise tracking, ACGME non-compliance</li>
+                    <li><strong>Solution:</strong> CPT lookup tools, verify with attending</li>
+                </ul>
+
+                <p><strong>3. Overstating surgical role (19% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Claiming surgeon role when actually first assistant</li>
+                    <li><strong>Consequence:</strong> Dishonest reporting, potential disciplinary action</li>
+                    <li><strong>Solution:</strong> Honest self-assessment, clarify with attending</li>
+                </ul>
+
+                <p><strong>4. Missing minor procedures (24% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Not logging small procedures like I&D, central lines</li>
+                    <li><strong>Consequence:</strong> Incomplete case numbers, missed learning documentation</li>
+                    <li><strong>Solution:</strong> Log everything with a CPT code</li>
+                </ul>
+
+                <p><strong>5. Inconsistent attending surgeon names (15% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> "Dr. Smith," "Smith," "Sarah Smith" for same person</li>
+                    <li><strong>Consequence:</strong> Database errors, tracking difficulties</li>
+                    <li><strong>Solution:</strong> Standardized name format</li>
+                </ul>
+
+                <p><strong>6. Forgetting emergency/call cases (22% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Neglecting to log cases done during call</li>
+                    <li><strong>Consequence:</strong> Missing high-value learning experiences</li>
+                    <li><strong>Solution:</strong> Post-call logging routine</li>
+                </ul>
+
+                <p><strong>7. Batch entry of old cases (17% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Entering months of cases at once</li>
+                    <li><strong>Consequence:</strong> Inaccurate dates and details</li>
+                    <li><strong>Solution:</strong> Weekly maximum for batch entries</li>
+                </ul>
+
+                <p><strong>8. Missing patient demographics (11% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Incomplete age, sex, or other required fields</li>
+                    <li><strong>Consequence:</strong> Invalid case entries</li>
+                    <li><strong>Solution:</strong> Complete all fields before saving</li>
+                </ul>
+
+                <p><strong>9. Duplicate case entries (9% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Entering the same case multiple times</li>
+                    <li><strong>Consequence:</strong> Inflated case numbers, inaccurate records</li>
+                    <li><strong>Solution:</strong> Check for existing entries before adding</li>
+                </ul>
+
+                <p><strong>10. Ignoring case categories (13% of residents)</strong></p>
+                <ul>
+                    <li><strong>Problem:</strong> Not tracking which cases count toward specific requirements</li>
+                    <li><strong>Consequence:</strong> Missing specialty-specific minimums</li>
+                    <li><strong>Solution:</strong> Use case category tracking tools</li>
+                </ul>
+
+                <h3>Error Prevention Strategies</h3>
+
+                <p><strong>Daily habits for accurate logging:</strong></p>
+                <ol>
+                    <li><strong>End-of-day review:</strong> Log all cases before leaving hospital</li>
+                    <li><strong>Use operative schedule:</strong> Cross-reference with daily OR schedule</li>
+                    <li><strong>Mobile entry:</strong> Use smartphone apps for immediate documentation</li>
+                    <li><strong>Attending verification:</strong> Confirm role and CPT code with supervising surgeon</li>
+                    <li><strong>Weekly review:</strong> Check for completeness and accuracy</li>
+                </ol>
+
+                <h2>Tips for Accurate and Complete Logging</h2>
+
+                <p>Developing good case logging habits early in training prevents problems later and reduces stress about meeting requirements.</p>
+
+                <h3>Daily Workflow Strategies</h3>
+
+                <p><strong>Morning preparation:</strong></p>
+                <ul>
+                    <li><strong>Review OR schedule:</strong> Note your scheduled cases for the day</li>
+                    <li><strong>Identify CPT codes:</strong> Look up codes for planned procedures</li>
+                    <li><strong>Prepare mobile app:</strong> Have logging tools ready</li>
+                    <li><strong>Set reminders:</strong> Schedule end-of-day logging time</li>
+                </ul>
+
+                <p><strong>Intraoperative documentation:</strong></p>
+                <ul>
+                    <li><strong>Mental notes:</strong> Track your actual role throughout the case</li>
+                    <li><strong>Ask questions:</strong> Clarify CPT codes with attending</li>
+                    <li><strong>Note complications:</strong> Document any intraoperative issues</li>
+                    <li><strong>Multiple procedures:</strong> Identify all separate components</li>
+                </ul>
+
+                <p><strong>Post-operative entry:</strong></p>
+                <ul>
+                    <li><strong>Immediate logging:</strong> Enter cases as soon as possible</li>
+                    <li><strong>Complete information:</strong> Fill all required fields</li>
+                    <li><strong>Double-check accuracy:</strong> Verify dates, codes, and role</li>
+                    <li><strong>Save and backup:</strong> Ensure data is preserved</li>
+                </ul>
+
+                <h3>Technology Tools for Efficient Logging</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tool Type</th>
+                            <th>Examples</th>
+                            <th>Benefits</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mobile apps</strong></td>
+                            <td>Clinical Case Log app, ACGME Case Log</td>
+                            <td>Immediate entry, offline capability</td>
+                            <td>Real-time documentation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Browser extensions</strong></td>
+                            <td>Clinical Case Log Chrome extension</td>
+                            <td>Integrates with EMR systems</td>
+                            <td>Streamlined workflow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Desktop software</strong></td>
+                            <td>Spreadsheets, database programs</td>
+                            <td>Detailed tracking, custom fields</td>
+                            <td>Advanced users</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Web platforms</strong></td>
+                            <td>ACGME Case Log System, institutional systems</td>
+                            <td>Official requirement compliance</td>
+                            <td>Required submissions</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Organization and Tracking Strategies</h3>
+
+                <p><strong>Case categorization systems:</strong></p>
+                <ul>
+                    <li><strong>Body system:</strong> GI, hepatobiliary, breast, endocrine</li>
+                    <li><strong>Complexity level:</strong> Simple, moderate, complex</li>
+                    <li><strong>Setting:</strong> Elective OR, emergency, ICU bedside</li>
+                    <li><strong>Training level:</strong> PGY-1 vs PGY-5 experiences</li>
+                    <li><strong>Role progression:</strong> Track increasing responsibility over time</li>
+                </ul>
+
+                <p><strong>Progress monitoring:</strong></p>
+                <ul>
+                    <li><strong>Monthly reports:</strong> Generate case number summaries</li>
+                    <li><strong>Category tracking:</strong> Monitor specialty-specific requirements</li>
+                    <li><strong>Role distribution:</strong> Ensure adequate chief/surgeon cases</li>
+                    <li><strong>Comparison metrics:</strong> Track against program averages</li>
+                    <li><strong>Milestone correlation:</strong> Link cases to ACGME milestones</li>
+                </ul>
+
+                <h3>Quality Assurance Practices</h3>
+
+                <p><strong>Self-audit procedures:</strong></p>
+                <ol>
+                    <li><strong>Weekly review:</strong> Check previous week's entries for accuracy</li>
+                    <li><strong>Monthly verification:</strong> Compare logs with OR schedules</li>
+                    <li><strong>Peer review:</strong> Cross-check with co-residents</li>
+                    <li><strong>Attending confirmation:</strong> Verify complex cases with supervisors</li>
+                    <li><strong>Program coordinator review:</strong> Regular check-ins with education office</li>
+                </ol>
+
+                <blockquote>
+                    <p><strong>Success Strategy:</strong> Treat case logging like any other medical documentation—accuracy, timeliness, and completeness are essential. Develop sustainable habits early rather than trying to catch up later when the volume becomes overwhelming.</p>
+                </blockquote>
+
+                <h2>Understanding Role Levels and Documentation</h2>
+
+                <p>Accurate role documentation is critical for ACGME compliance and honest representation of your training experience.</p>
+
+                <h3>Surgical Role Definitions</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Role Level</th>
+                            <th>Description</th>
+                            <th>Typical Activities</th>
+                            <th>Documentation Tips</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Observer</strong></td>
+                            <td>Watched procedure, minimal participation</td>
+                            <td>Observing technique, asking questions</td>
+                            <td>Valuable for complex procedures you're learning</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assistant</strong></td>
+                            <td>Provided assistance but didn't perform critical steps</td>
+                            <td>Retraction, cutting sutures, camera holding</td>
+                            <td>Most common role for junior residents</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resident surgeon</strong></td>
+                            <td>Performed significant portions under direct supervision</td>
+                            <td>Key procedural steps with attending guidance</td>
+                            <td>Requires attending confirmation of actual performance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chief surgeon</strong></td>
+                            <td>Performed majority of procedure with attending oversight</td>
+                            <td>Independent decision-making, complex problem-solving</td>
+                            <td>Usually senior residents, document attending involvement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Teaching assistant</strong></td>
+                            <td>Assisted while teaching junior residents</td>
+                            <td>Demonstrating technique, guiding junior learner</td>
+                            <td>Valuable educational experience documentation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Role Progression Throughout Training</h3>
+
+                <p><strong>Expected evolution by training year:</strong></p>
+
+                <p><strong>PGY-1 (Intern year):</strong></p>
+                <ul>
+                    <li><strong>Typical roles:</strong> Observer (40%), Assistant (55%), Resident surgeon (5%)</li>
+                    <li><strong>Focus:</strong> Basic procedural exposure, learning anatomy</li>
+                    <li><strong>Goal:</strong> Understanding surgical workflow and basic techniques</li>
+                </ul>
+
+                <p><strong>PGY-2-3 (Junior resident):</strong></p>
+                <ul>
+                    <li><strong>Typical roles:</strong> Assistant (60%), Resident surgeon (35%), Observer (5%)</li>
+                    <li><strong>Focus:</strong> Developing technical skills, increasing responsibility</li>
+                    <li><strong>Goal:</strong> Independent performance of basic procedures</li>
+                </ul>
+
+                <p><strong>PGY-4-5 (Senior resident):</strong></p>
+                <ul>
+                    <li><strong>Typical roles:</strong> Resident surgeon (45%), Chief surgeon (40%), Assistant (15%)</li>
+                    <li><strong>Focus:</strong> Complex procedures, teaching junior residents</li>
+                    <li><strong>Goal:</strong> Independent practice readiness</li>
+                </ul>
+
+                <h3>Honest Role Assessment Guidelines</h3>
+
+                <p><strong>Questions to ask yourself:</strong></p>
+                <ul>
+                    <li><strong>Did I make the incision?</strong> Strong indicator of surgeon role</li>
+                    <li><strong>Did I perform critical steps?</strong> Key for resident surgeon classification</li>
+                    <li><strong>Could I have done this alone?</strong> Indicator of chief surgeon readiness</li>
+                    <li><strong>Did I teach someone else?</strong> Teaching assistant opportunity</li>
+                    <li><strong>Was I hands-on throughout?</strong> Distinguishes assistant from observer</li>
+                </ul>
+
+                <p><strong>Common role overstatement scenarios:</strong></p>
+                <ul>
+                    <li><strong>Claiming surgeon:</strong> When you only helped with portions</li>
+                    <li><strong>Claiming chief:</strong> When attending did all critical decisions</li>
+                    <li><strong>Claiming assistant:</strong> When you primarily observed</li>
+                    <li><strong>Overstating complexity:</strong> When attending provided significant guidance</li>
+                </ul>
+
+                <div class="sidebar-ad" data-slot="article-bottom"></div>
+
+                <h2>Clinical Case Log: The Complete Solution</h2>
+
+                <p>Clinical Case Log provides comprehensive tools designed specifically for surgical residents to streamline case logging while ensuring ACGME compliance.</p>
+
+                <div class="cta-box">
+                    <h3>Streamline Your Case Logging</h3>
+                    <p>Clinical Case Log automates CPT code lookup, tracks ACGME requirements, and provides mobile entry with offline sync. Trusted by thousands of surgical residents.</p>
+                    <a href="https://clinicalcaselog.com/">Start Your Free Trial</a>
+                </div>
+
+                <h3>Core Features and Benefits</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                            <th>Resident Benefit</th>
+                            <th>Time Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Smart CPT lookup</strong></td>
+                            <td>Instant search with procedure descriptions</td>
+                            <td>No more guessing or manual lookup</td>
+                            <td>2-3 minutes per case</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile app with offline sync</strong></td>
+                            <td>iOS/Android apps with local storage</td>
+                            <td>Log cases anywhere, sync when connected</td>
+                            <td>Immediate entry capability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACGME requirement tracking</strong></td>
+                            <td>Specialty-specific case minimums</td>
+                            <td>Visual progress toward graduation requirements</td>
+                            <td>Eliminates manual counting</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chrome extension integration</strong></td>
+                            <td>One-click entry from EMR systems</td>
+                            <td>Streamlined workflow during clinical work</td>
+                            <td>30 seconds per case</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Automated reports</strong></td>
+                            <td>Monthly summaries and trend analysis</td>
+                            <td>Easy progress monitoring and planning</td>
+                            <td>Hours per month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Backup and export</strong></td>
+                            <td>Cloud storage with multiple export formats</td>
+                            <td>Never lose data, easy program submission</td>
+                            <td>Disaster prevention</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Chrome Extension: Game-Changing Integration</h3>
+
+                <p>The Clinical Case Log Chrome extension revolutionizes case entry by integrating directly with hospital EMR systems.</p>
+
+                <p><strong>How the extension works:</strong></p>
+                <ol>
+                    <li><strong>EMR integration:</strong> Extension detects when you're viewing operative notes</li>
+                    <li><strong>One-click extraction:</strong> Automatically pulls patient demographics and procedure details</li>
+                    <li><strong>Smart suggestions:</strong> Recommends appropriate CPT codes based on operative report</li>
+                    <li><strong>Quick entry:</strong> Confirm role and save case in under 30 seconds</li>
+                    <li><strong>Offline queue:</strong> Cases saved locally and synced when internet available</li>
+                </ol>
+
+                <p><strong>Extension benefits:</strong></p>
+                <ul>
+                    <li><strong>Zero typing:</strong> Patient data extracted automatically</li>
+                    <li><strong>Immediate entry:</strong> Log cases while reviewing operative reports</li>
+                    <li><strong>Accuracy improvement:</strong> Reduces transcription errors</li>
+                    <li><strong>Workflow integration:</strong> Works within existing clinical activities</li>
+                    <li><strong>Time efficiency:</strong> 90% faster than manual entry</li>
+                </ul>
+
+                <h3>Advanced Analytics and Insights</h3>
+
+                <p><strong>Progress dashboards provide:</strong></p>
+                <ul>
+                    <li><strong>Real-time requirement tracking:</strong> Visual progress toward ACGME minimums</li>
+                    <li><strong>Case distribution analysis:</strong> Balance across specialties and complexity levels</li>
+                    <li><strong>Role progression trends:</strong> Track increasing responsibility over time</li>
+                    <li><strong>Comparison metrics:</strong> Anonymous benchmarking against peers</li>
+                    <li><strong>Milestone correlation:</strong> Link cases to ACGME milestone achievements</li>
+                    <li><strong>Fellowship preparation:</strong> Specialty-specific case summaries</li>
+                </ul>
+
+                <h3>Getting Started with Clinical Case Log</h3>
+
+                <p><strong>Quick setup process:</strong></p>
+                <ol>
+                    <li><strong>Create account:</strong> Sign up with your institutional email</li>
+                    <li><strong>Set specialty and year:</strong> Configure for your specific requirements</li>
+                    <li><strong>Install mobile app:</strong> Download for iOS or Android</li>
+                    <li><strong>Add Chrome extension:</strong> Install browser integration</li>
+                    <li><strong>Import existing cases:</strong> Upload any previous logs</li>
+                    <li><strong>Start logging:</strong> Begin documenting your surgical experience</li>
+                </ol>
+
+                <h2>Avoiding Common Pitfalls and Compliance Issues</h2>
+
+                <p>Understanding potential problems helps maintain accurate records and avoid last-minute graduation delays.</p>
+
+                <h3>ACGME Audit Preparation</h3>
+
+                <p><strong>What ACGME reviewers look for:</strong></p>
+                <ul>
+                    <li><strong>Complete case numbers:</strong> Meeting specialty-specific minimums</li>
+                    <li><strong>Appropriate role distribution:</strong> Realistic progression from observer to chief</li>
+                    <li><strong>Accurate CPT coding:</strong> Specific codes rather than procedure descriptions</li>
+                    <li><strong>Timely documentation:</strong> Cases entered within reasonable timeframes</li>
+                    <li><strong>Consistent quality:</strong> Complete information for all required fields</li>
+                    <li><strong>Honest reporting:</strong> Realistic assessment of actual involvement</li>
+                </ul>
+
+                <h3>Red Flags That Trigger Review</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Red Flag</th>
+                            <th>Description</th>
+                            <th>Likely Consequence</th>
+                            <th>Prevention Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sudden case influx</strong></td>
+                            <td>Large number of cases entered on single date</td>
+                            <td>Accuracy questioned</td>
+                            <td>Regular, consistent logging</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Role inconsistencies</strong></td>
+                            <td>Claiming chief surgeon role on complex cases as junior resident</td>
+                            <td>Integrity questioned</td>
+                            <td>Honest self-assessment</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Missing case categories</strong></td>
+                            <td>Complete absence of cases in required areas</td>
+                            <td>Training deficiency concern</td>
+                            <td>Balanced exposure tracking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duplicate entries</strong></td>
+                            <td>Same case logged multiple times</td>
+                            <td>Inflated numbers concern</td>
+                            <td>Systematic entry checking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Impossible scenarios</strong></td>
+                            <td>Multiple simultaneous cases, unrealistic volumes</td>
+                            <td>Data integrity questioned</td>
+                            <td>Realistic logging practices</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Board Certification Preparation</h3>
+
+                <p><strong>American Board of Surgery requirements:</strong></p>
+                <ul>
+                    <li><strong>Case log submission:</strong> Complete record of surgical experience</li>
+                    <li><strong>Category minimums:</strong> Specific numbers in each operative area</li>
+                    <li><strong>Chief case requirements:</strong> Minimum number as primary surgeon</li>
+                    <li><strong>Quality documentation:</strong> Accurate, complete, and honest reporting</li>
+                    <li><strong>Program verification:</strong> Training director confirmation</li>
+                </ul>
+
+                <p><strong>Fellowship application considerations:</strong></p>
+                <ul>
+                    <li><strong>Specialty-specific experience:</strong> Relevant cases for chosen fellowship</li>
+                    <li><strong>Case complexity progression:</strong> Demonstration of increasing responsibility</li>
+                    <li><strong>Volume documentation:</strong> Adequate exposure for subspecialty training</li>
+                    <li><strong>Quality metrics:</strong> Outcomes and complication tracking when required</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>1. How quickly do I need to log my cases?</h3>
+
+                <p>ACGME recommends logging cases within 30 days of the procedure. However, best practice is daily or weekly logging to ensure accuracy and completeness. The longer you wait, the more likely you are to forget important details or miss cases entirely.</p>
+
+                <h3>2. Should I log cases where I was just observing?</h3>
+
+                <p>Yes, absolutely. Observer cases are valuable learning experiences and should be documented. They show your exposure to complex procedures and demonstrate progression in your surgical education. Many residents underestimate the value of observer cases, particularly for complex procedures they're not yet ready to perform.</p>
+
+                <h3>3. How do I handle cases with multiple procedures?</h3>
+
+                <p>Log each procedure separately if it has its own CPT code. For example, if you do a laparoscopic cholecystectomy with intraoperative cholangiogram, that's two separate log entries (47562 and 74300). Your role may be the same or different for each component.</p>
+
+                <h3>4. What if I'm unsure about the correct CPT code?</h3>
+
+                <p>Use CPT lookup tools like FreeCPTCodeFinder.com, consult the official AMA CPT codebook, or ask your attending surgeon or hospital coding staff. It's better to spend time finding the correct code than to guess incorrectly or use a procedure description.</p>
+
+                <h3>5. Can I use procedure descriptions instead of CPT codes?</h3>
+
+                <p>While some programs may still accept procedure descriptions, most ACGME-compliant systems now require specific CPT codes. Using CPT codes provides more accurate, standardized documentation and is essential for board certification and fellowship applications.</p>
+
+                <blockquote>
+                    <p><strong>Expert Tip:</strong> Successful case logging is about developing sustainable daily habits rather than trying to catch up periodically. Use technology tools to streamline the process, but never compromise on accuracy or honesty in documenting your actual role and experience.</p>
+                </blockquote>
+
+                <p>Mastering surgical case logging requires understanding ACGME requirements, developing efficient documentation workflows, maintaining accuracy and honesty in role assessment, and using appropriate tools to streamline the process. With proper systems in place, case logging becomes a valuable part of your surgical education rather than an administrative burden, providing clear documentation of your progression toward independent practice and helping ensure successful completion of your surgical training.</p>
+            </div>
+
+                <div class="code-box">
+                    <h3 style="margin-bottom:0.75rem;">📚 Recommended Resources</h3>
+                    <ul style="list-style:none;padding:0;">
+                        <li style="margin-bottom:8px;">🔍 <a href="https://clinicalcaselog.com/" target="_blank" rel="noopener">Clinical Case Log</a> — Complete case logging solution</li>
+                        <li style="margin-bottom:8px;">📱 <a href="https://chrome.google.com/webstore/detail/clinical-case-log/placeholder" target="_blank" rel="noopener">Clinical Case Log Chrome Extension</a> — EMR integration</li>
+                        <li style="margin-bottom:8px;">📖 <a href="https://www.amazon.com/dp/B0D7FTZPYQ?tag=freecptcode-20" target="_blank" rel="noopener">AMA CPT Professional Edition 2026</a> — CPT code reference</li>
+                        <li>🔍 <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder.com</a> — Free CPT code lookup tool</li>
+                    </ul>
+                </div>
+
+                <div class="code-box" style="text-align:center;background:#EFF6FF;border-color:#2563EB;">
+                    <p style="font-weight:700;color:#111827;margin-bottom:8px;">📧 Free Surgical Case Logging Checklist</p>
+                    <p style="font-size:0.85rem;color:#6B7280;margin-bottom:12px;">Get our complete ACGME compliance checklist, CPT lookup guide, and logging best practices — free.</p>
+                    <form style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;" onsubmit="event.preventDefault();alert('Thank you! Check your email.');">
+                        <input type="email" placeholder="resident@hospital.edu" required style="padding:10px 14px;border:1px solid #D1D5DB;border-radius:8px;font-size:0.9rem;min-width:220px;">
+                        <button type="submit" style="background:#2563EB;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Send Checklist</button>
+                    </form>
+                </div>
+        </article>
+
+        <section class="related">
+            <div class="container">
+                <h3>Related Guides</h3>
+                <div class="related-grid">
+                    <a href="/blog/guides/cpt-code-skin-soft-tissue-excision.html" class="related-card">
+                        <h4>Skin and Soft Tissue Excision CPT Codes</h4>
+                        <p>Benign, malignant, shave removal, and closure coding</p>
+                    </a>
+                    <a href="/" class="related-card">
+                        <h4>CPT Code Search</h4>
+                        <p>Find any CPT code instantly with our free search tool</p>
+                    </a>
+                    <a href="/blog/" class="related-card">
+                        <h4>More Coding Guides</h4>
+                        <p>Expert guides for complex surgical coding scenarios</p>
+                    </a>
+                    <a href="/blog/guides/cpt-code-small-bowel-surgery.html" class="related-card">
+                        <h4>Small Bowel Surgery CPT Codes</h4>
+                        <p>Resection, obstruction, enterotomy procedures</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <p>&copy; 2026 Clinical Case Log, LLC. All rights reserved.</p>
+                <p style="margin-top:4px">CPT® is a registered trademark of the American Medical Association.</p>
+            </div>
+            <div>
+                <a href="/">CPT Finder</a> &middot;
+                <a href="/blog/">Guides</a> &middot;
+                <a href="/privacy.html">Privacy</a> &middot;
+                <a href="/terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
