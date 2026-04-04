@@ -3534,27 +3534,40 @@
         const reconstructive = caseProcs.filter(p => !isAddOnCode(p) && isDistinctReconstructive(p));
         const regular = caseProcs.filter(p => !isAddOnCode(p) && !isDistinctReconstructive(p));
 
-        // Sort regular procedures by wRVU descending (highest = primary)
+        // Sort by wRVU descending
         regular.sort((a, b) => b.work_rvu - a.work_rvu);
         reconstructive.sort((a, b) => b.work_rvu - a.work_rvu);
 
-        // Assign roles
-        regular.forEach((p, i) => {
-            p.isPrimary = i === 0 && reconstructive.length === 0;
-            p._role = i === 0 ? 'primary' : 'secondary';
-            p._roleLabel = i === 0 ? '★ Primary' : `② Secondary (#${i + 1})`;
-            p._roleExplain = i === 0 
-                ? 'Highest wRVU — receives full (100%) credit'
-                : `Ranked #${i + 1} by wRVU — CMS MPPR: 50% of full wRVU`;
-        });
-
-        // Distinct reconstructive procedures: full wRVU each, billed with -59
-        reconstructive.forEach((p, i) => {
-            p.isPrimary = false;
-            p._role = 'reconstructive';
-            p._roleLabel = `🔧 Reconstructive (#${i + 1})`;
-            p._roleExplain = 'Component separation / myofascial release (15734) — distinct reconstructive procedure, billed at full wRVU with modifier -59. NOT subject to standard MPPR per ACS guidelines.';
-        });
+        // When reconstructive (15734) is present, IT is the primary/dominant procedure
+        // The hernia repair becomes secondary to the reconstruction
+        if (reconstructive.length > 0) {
+            // Reconstructive = primary, first one is THE primary
+            reconstructive.forEach((p, i) => {
+                p.isPrimary = i === 0;
+                p._role = 'reconstructive';
+                p._roleLabel = i === 0 ? '★ Primary (Reconstructive)' : `🔧 Reconstructive (#${i + 1})`;
+                p._roleExplain = i === 0
+                    ? 'Component separation (15734) is the dominant procedure in abdominal wall reconstruction — billed as primary at full wRVU'
+                    : 'Additional reconstructive unit (15734) — distinct procedure, full wRVU with -59';
+            });
+            // Hernia repairs become secondary
+            regular.forEach((p, i) => {
+                p.isPrimary = false;
+                p._role = 'secondary';
+                p._roleLabel = `② Hernia Repair`;
+                p._roleExplain = 'Hernia repair is secondary to the abdominal wall reconstruction — full wRVU (billed as co-procedure)';
+            });
+        } else {
+            // No reconstructive present — standard ranking
+            regular.forEach((p, i) => {
+                p.isPrimary = i === 0;
+                p._role = i === 0 ? 'primary' : 'secondary';
+                p._roleLabel = i === 0 ? '★ Primary' : `② Secondary (#${i + 1})`;
+                p._roleExplain = i === 0 
+                    ? 'Highest wRVU — receives full (100%) credit'
+                    : `Ranked #${i + 1} by wRVU — CMS MPPR: 50% of full wRVU`;
+            });
+        }
 
         addons.forEach(p => {
             p.isPrimary = false;
@@ -3563,9 +3576,13 @@
             p._roleExplain = 'Add-on code (ZZZ global) — no MPPR reduction, always full wRVU';
         });
 
-        // Reassemble: regular (primary first), then reconstructive (full value), then add-ons
+        // Reassemble: reconstructive first (primary), then hernia/regular, then add-ons
         caseProcs.length = 0;
-        caseProcs.push(...regular, ...reconstructive, ...addons);
+        if (reconstructive.length > 0) {
+            caseProcs.push(...reconstructive, ...regular, ...addons);
+        } else {
+            caseProcs.push(...regular, ...addons);
+        }
     }
 
     function getCaseAdjustedWRVU(proc, index) {
