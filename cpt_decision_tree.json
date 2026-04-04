@@ -5429,73 +5429,27 @@
           "options": [
             {
               "label": "Single vessel, on-pump",
-              "cpt_code": "33533",
-              "description": "Coronary artery bypass, using venous graft(s); single coronary venous graft",
-              "modifiers": [],
-              "icd10": [
-                "I25.10",
-                "I25.119"
-              ],
-              "work_rvu": 22.85
+              "next": "cabg_single_vessel_on-pump_harvest"
             },
             {
               "label": "Double vessel, on-pump",
-              "cpt_code": "33534",
-              "description": "Coronary artery bypass, using venous graft(s); 2 coronary venous grafts",
-              "modifiers": [],
-              "icd10": [
-                "I25.10",
-                "I25.119"
-              ],
-              "work_rvu": 28.45
+              "next": "cabg_double_vessel_on-pump_harvest"
             },
             {
               "label": "Triple vessel, on-pump",
-              "cpt_code": "33535",
-              "description": "Coronary artery bypass, using venous graft(s); 3 coronary venous grafts",
-              "modifiers": [],
-              "icd10": [
-                "I25.10",
-                "I25.119"
-              ],
-              "work_rvu": 32.85
+              "next": "cabg_triple_vessel_on-pump_harvest"
             },
             {
               "label": "Quadruple vessel, on-pump",
-              "cpt_code": "33536",
-              "description": "Coronary artery bypass, using venous graft(s); 4 or more coronary venous grafts",
-              "modifiers": [],
-              "icd10": [
-                "I25.10",
-                "I25.119"
-              ],
-              "work_rvu": 36.45
+              "next": "cabg_quadruple_vessel_on-pump_harvest"
             },
             {
               "label": "Single vessel with arterial graft",
-              "cpt_code": "33533",
-              "description": "Coronary artery bypass, using arterial graft(s); single coronary arterial graft",
-              "modifiers": [
-                "-22"
-              ],
-              "icd10": [
-                "I25.10",
-                "I25.119"
-              ],
-              "work_rvu": 24.85
+              "next": "cabg_single_vessel_with_arterial_graft_harvest"
             },
             {
               "label": "Off-pump CABG",
-              "cpt_code": "33533",
-              "description": "Coronary artery bypass without cardiopulmonary bypass",
-              "modifiers": [
-                "-22"
-              ],
-              "icd10": [
-                "I25.10",
-                "I25.119"
-              ],
-              "work_rvu": 28.85
+              "next": "cabg_off-pump_cabg_harvest"
             }
           ]
         },
@@ -5793,6 +5747,230 @@
                 "C77.1"
               ],
               "work_rvu": 10.85
+            }
+          ]
+        },
+        "cabg_single_vessel_on-pump_harvest": {
+          "question": "CPT 33533 (Single vessel, on-pump) selected.\n\nWas a saphenous vein harvested? If so, how?",
+          "options": [
+            {
+              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "cpt_code": "33533",
+              "description": "Coronary artery bypass, using venous graft(s); single coronary venous graft. Open saphenous vein harvest is included in the primary CABG CPT code and is NOT billed separately.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            },
+            {
+              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "cpt_code": "33508",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ],
+              "_also_add": "33533"
+            },
+            {
+              "label": "No vein harvested (arterial conduit only)",
+              "cpt_code": "33533",
+              "description": "Coronary artery bypass, using venous graft(s); single coronary venous graft. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            }
+          ]
+        },
+        "cabg_double_vessel_on-pump_harvest": {
+          "question": "CPT 33534 (Double vessel, on-pump) selected.\n\nWas a saphenous vein harvested? If so, how?",
+          "options": [
+            {
+              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "cpt_code": "33534",
+              "description": "Coronary artery bypass, using venous graft(s); 2 coronary venous grafts. Open saphenous vein harvest is included in the primary CABG CPT code and is NOT billed separately.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            },
+            {
+              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "cpt_code": "33508",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33534). Separately billable. Bill 33534 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ],
+              "_also_add": "33534"
+            },
+            {
+              "label": "No vein harvested (arterial conduit only)",
+              "cpt_code": "33534",
+              "description": "Coronary artery bypass, using venous graft(s); 2 coronary venous grafts. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            }
+          ]
+        },
+        "cabg_triple_vessel_on-pump_harvest": {
+          "question": "CPT 33535 (Triple vessel, on-pump) selected.\n\nWas a saphenous vein harvested? If so, how?",
+          "options": [
+            {
+              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "cpt_code": "33535",
+              "description": "Coronary artery bypass, using venous graft(s); 3 coronary venous grafts. Open saphenous vein harvest is included in the primary CABG CPT code and is NOT billed separately.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            },
+            {
+              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "cpt_code": "33508",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33535). Separately billable. Bill 33535 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ],
+              "_also_add": "33535"
+            },
+            {
+              "label": "No vein harvested (arterial conduit only)",
+              "cpt_code": "33535",
+              "description": "Coronary artery bypass, using venous graft(s); 3 coronary venous grafts. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            }
+          ]
+        },
+        "cabg_quadruple_vessel_on-pump_harvest": {
+          "question": "CPT 33536 (Quadruple vessel, on-pump) selected.\n\nWas a saphenous vein harvested? If so, how?",
+          "options": [
+            {
+              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "cpt_code": "33536",
+              "description": "Coronary artery bypass, using venous graft(s); 4 or more coronary venous grafts. Open saphenous vein harvest is included in the primary CABG CPT code and is NOT billed separately.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            },
+            {
+              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "cpt_code": "33508",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33536). Separately billable. Bill 33536 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ],
+              "_also_add": "33536"
+            },
+            {
+              "label": "No vein harvested (arterial conduit only)",
+              "cpt_code": "33536",
+              "description": "Coronary artery bypass, using venous graft(s); 4 or more coronary venous grafts. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            }
+          ]
+        },
+        "cabg_single_vessel_with_arterial_graft_harvest": {
+          "question": "CPT 33533 (Single vessel with arterial graft) selected.\n\nWas a saphenous vein harvested? If so, how?",
+          "options": [
+            {
+              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "cpt_code": "33533",
+              "description": "Coronary artery bypass, using arterial graft(s); single coronary arterial graft. Open saphenous vein harvest is included in the primary CABG CPT code and is NOT billed separately.",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            },
+            {
+              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "cpt_code": "33508",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ],
+              "_also_add": "33533"
+            },
+            {
+              "label": "No vein harvested (arterial conduit only)",
+              "cpt_code": "33533",
+              "description": "Coronary artery bypass, using arterial graft(s); single coronary arterial graft. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            }
+          ]
+        },
+        "cabg_off-pump_cabg_harvest": {
+          "question": "CPT 33533 (Off-pump CABG) selected.\n\nWas a saphenous vein harvested? If so, how?",
+          "options": [
+            {
+              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "cpt_code": "33533",
+              "description": "Coronary artery bypass without cardiopulmonary bypass. Open saphenous vein harvest is included in the primary CABG CPT code and is NOT billed separately.",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
+            },
+            {
+              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "cpt_code": "33508",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "modifiers": [],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ],
+              "_also_add": "33533"
+            },
+            {
+              "label": "No vein harvested (arterial conduit only)",
+              "cpt_code": "33533",
+              "description": "Coronary artery bypass without cardiopulmonary bypass. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "I25.10",
+                "I25.119"
+              ]
             }
           ]
         }
