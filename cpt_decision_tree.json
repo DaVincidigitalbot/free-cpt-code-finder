@@ -10840,6 +10840,708 @@
           ]
         }
       }
+    },
+    {
+      "name": "ENT / Otolaryngology",
+      "specialty": "Otolaryngology",
+      "questions": [
+        {
+          "question": "Type of ENT procedure?",
+          "options": [
+            {
+              "label": "Sinus Surgery (FESS)",
+              "next": "ent_sinus"
+            },
+            {
+              "label": "Septoplasty / Turbinate",
+              "next": "ent_septoplasty"
+            },
+            {
+              "label": "Tonsil / Adenoid",
+              "next": "ent_tonsil"
+            },
+            {
+              "label": "Ear / Otologic",
+              "next": "ent_ear"
+            },
+            {
+              "label": "Larynx / Airway",
+              "next": "ent_larynx"
+            },
+            {
+              "label": "Head & Neck / Salivary",
+              "next": "ent_headneck"
+            },
+            {
+              "label": "Nasal Valve / Reconstruction",
+              "next": "ent_nasal_valve"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "ent_sinus": {
+          "question": "Functional Endoscopic Sinus Surgery \u2014 Select primary sinus procedure:",
+          "options": [
+            {
+              "label": "Maxillary antrostomy",
+              "next": "ent_sinus_maxillary"
+            },
+            {
+              "label": "Total ethmoidectomy (anterior + posterior)",
+              "cpt_code": "31253",
+              "description": "Nasal/sinus endoscopy with ethmoidectomy, total (anterior and posterior)",
+              "modifiers": [],
+              "icd10": [
+                "J32.9",
+                "J33.8"
+              ]
+            },
+            {
+              "label": "Anterior ethmoidectomy only",
+              "cpt_code": "31254",
+              "description": "Nasal/sinus endoscopy with ethmoidectomy, partial (anterior)",
+              "modifiers": [],
+              "icd10": [
+                "J32.2",
+                "J33.8"
+              ]
+            },
+            {
+              "label": "Frontal sinusotomy (Draf I/IIa)",
+              "cpt_code": "31276",
+              "description": "Nasal/sinus endoscopy with frontal sinus exploration",
+              "modifiers": [],
+              "icd10": [
+                "J32.1",
+                "J33.8"
+              ]
+            },
+            {
+              "label": "Sphenoidotomy",
+              "cpt_code": "31287",
+              "description": "Nasal/sinus endoscopy with sphenoidotomy",
+              "modifiers": [],
+              "icd10": [
+                "J32.3"
+              ]
+            },
+            {
+              "label": "Sphenoidotomy with tissue removal",
+              "cpt_code": "31288",
+              "description": "Nasal/sinus endoscopy with sphenoidotomy with removal of tissue",
+              "modifiers": [],
+              "icd10": [
+                "J32.3",
+                "J33.8"
+              ]
+            },
+            {
+              "label": "Diagnostic nasal endoscopy only",
+              "cpt_code": "31231",
+              "description": "Nasal endoscopy, diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "J34.89",
+                "R09.81"
+              ]
+            },
+            {
+              "label": "Endoscopy with biopsy/polypectomy/debridement",
+              "cpt_code": "31237",
+              "description": "Nasal/sinus endoscopy with biopsy, polypectomy, or debridement",
+              "modifiers": [],
+              "icd10": [
+                "J33.0",
+                "J33.8"
+              ]
+            }
+          ]
+        },
+        "ent_sinus_maxillary": {
+          "question": "Maxillary antrostomy \u2014 with or without tissue removal?",
+          "options": [
+            {
+              "label": "Maxillary antrostomy (standard)",
+              "cpt_code": "31256",
+              "description": "Nasal/sinus endoscopy with maxillary antrostomy",
+              "modifiers": [],
+              "icd10": [
+                "J32.0",
+                "J33.8"
+              ]
+            },
+            {
+              "label": "Maxillary antrostomy with removal of tissue",
+              "cpt_code": "31267",
+              "description": "Nasal/sinus endoscopy with maxillary antrostomy; with removal of tissue from maxillary sinus",
+              "modifiers": [],
+              "icd10": [
+                "J32.0",
+                "J33.0"
+              ]
+            },
+            {
+              "label": "Maxillary antrostomy with removal of antro-choanal polyp",
+              "cpt_code": "31259",
+              "description": "Nasal/sinus endoscopy with maxillary antrostomy with removal of tissue from maxillary sinus",
+              "modifiers": [],
+              "icd10": [
+                "J33.0"
+              ]
+            }
+          ]
+        },
+        "ent_septoplasty": {
+          "question": "Nasal airway procedure:",
+          "options": [
+            {
+              "label": "Septoplasty",
+              "cpt_code": "30520",
+              "description": "Septoplasty or submucous resection, with or without cartilage scoring",
+              "modifiers": [],
+              "icd10": [
+                "J34.2"
+              ]
+            },
+            {
+              "label": "Inferior turbinate reduction (submucous resection)",
+              "cpt_code": "30140",
+              "description": "Submucous resection inferior turbinate, partial or complete",
+              "modifiers": [],
+              "icd10": [
+                "J34.3"
+              ]
+            },
+            {
+              "label": "Inferior turbinate excision",
+              "cpt_code": "30130",
+              "description": "Excision inferior turbinate, partial or complete",
+              "modifiers": [],
+              "icd10": [
+                "J34.3"
+              ]
+            },
+            {
+              "label": "Septoplasty + Inferior turbinate reduction (combo)",
+              "next": "ent_septo_turb_combo"
+            }
+          ]
+        },
+        "ent_septo_turb_combo": {
+          "question": "Septoplasty + Turbinate \u2014 both will be added to your case:",
+          "options": [
+            {
+              "label": "Septoplasty (30520) + Submucous turbinate reduction (30140)",
+              "cpt_code": "30140",
+              "description": "Septoplasty (30520) + Submucous resection inferior turbinate (30140). Both codes billed. Septoplasty is typically primary by wRVU.",
+              "modifiers": [
+                "-50 if bilateral turbinates"
+              ],
+              "icd10": [
+                "J34.2",
+                "J34.3"
+              ],
+              "_also_add": "30520"
+            },
+            {
+              "label": "Septoplasty (30520) + Turbinate excision (30130)",
+              "cpt_code": "30130",
+              "description": "Septoplasty (30520) + Excision inferior turbinate (30130). Both codes billed.",
+              "modifiers": [
+                "-50 if bilateral"
+              ],
+              "icd10": [
+                "J34.2",
+                "J34.3"
+              ],
+              "_also_add": "30520"
+            }
+          ]
+        },
+        "ent_tonsil": {
+          "question": "Tonsil / Adenoid procedure \u2014 patient age?",
+          "options": [
+            {
+              "label": "Younger than 12",
+              "next": "ent_tonsil_child"
+            },
+            {
+              "label": "Age 12 or older",
+              "next": "ent_tonsil_adult"
+            }
+          ]
+        },
+        "ent_tonsil_child": {
+          "question": "Procedure (younger than 12)?",
+          "options": [
+            {
+              "label": "Tonsillectomy and adenoidectomy (T&A)",
+              "cpt_code": "42820",
+              "description": "Tonsillectomy and adenoidectomy; younger than age 12",
+              "modifiers": [],
+              "icd10": [
+                "J35.01",
+                "J35.03"
+              ]
+            },
+            {
+              "label": "Tonsillectomy only",
+              "cpt_code": "42825",
+              "description": "Tonsillectomy, primary or secondary; younger than age 12",
+              "modifiers": [],
+              "icd10": [
+                "J35.01"
+              ]
+            },
+            {
+              "label": "Adenoidectomy only (primary)",
+              "cpt_code": "42830",
+              "description": "Adenoidectomy, primary; younger than age 12",
+              "modifiers": [],
+              "icd10": [
+                "J35.02"
+              ]
+            },
+            {
+              "label": "Adenoidectomy (secondary/revision)",
+              "cpt_code": "42835",
+              "description": "Adenoidectomy, secondary; younger than age 12",
+              "modifiers": [],
+              "icd10": [
+                "J35.02"
+              ]
+            }
+          ]
+        },
+        "ent_tonsil_adult": {
+          "question": "Procedure (age 12 or older)?",
+          "options": [
+            {
+              "label": "Tonsillectomy and adenoidectomy (T&A)",
+              "cpt_code": "42821",
+              "description": "Tonsillectomy and adenoidectomy; age 12 or over",
+              "modifiers": [],
+              "icd10": [
+                "J35.01",
+                "J35.03"
+              ]
+            },
+            {
+              "label": "Tonsillectomy only",
+              "cpt_code": "42826",
+              "description": "Tonsillectomy, primary or secondary; age 12 or over",
+              "modifiers": [],
+              "icd10": [
+                "J35.01"
+              ]
+            },
+            {
+              "label": "Adenoidectomy only (primary)",
+              "cpt_code": "42831",
+              "description": "Adenoidectomy, primary; age 12 or over",
+              "modifiers": [],
+              "icd10": [
+                "J35.02"
+              ]
+            },
+            {
+              "label": "Adenoidectomy (secondary/revision)",
+              "cpt_code": "42836",
+              "description": "Adenoidectomy, secondary; age 12 or over",
+              "modifiers": [],
+              "icd10": [
+                "J35.02"
+              ]
+            }
+          ]
+        },
+        "ent_ear": {
+          "question": "Type of ear procedure?",
+          "options": [
+            {
+              "label": "Myringotomy with tubes (PE tubes)",
+              "next": "ent_ear_tubes"
+            },
+            {
+              "label": "Tympanoplasty",
+              "next": "ent_tympanoplasty"
+            },
+            {
+              "label": "Mastoidectomy",
+              "next": "ent_mastoidectomy"
+            },
+            {
+              "label": "Cerumen removal (impacted)",
+              "cpt_code": "69210",
+              "description": "Removal impacted cerumen requiring instrumentation, unilateral",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H61.20"
+              ]
+            }
+          ]
+        },
+        "ent_ear_tubes": {
+          "question": "Anesthesia type?",
+          "options": [
+            {
+              "label": "General anesthesia",
+              "cpt_code": "69436",
+              "description": "Tympanostomy with ventilating tube, general anesthesia",
+              "modifiers": [
+                "-50 if bilateral"
+              ],
+              "icd10": [
+                "H66.90",
+                "H65.90"
+              ]
+            },
+            {
+              "label": "Local/topical anesthesia",
+              "cpt_code": "69433",
+              "description": "Tympanostomy with ventilating tube, local or topical anesthesia",
+              "modifiers": [
+                "-50 if bilateral"
+              ],
+              "icd10": [
+                "H66.90",
+                "H65.90"
+              ]
+            }
+          ]
+        },
+        "ent_tympanoplasty": {
+          "question": "Tympanoplasty \u2014 with or without mastoidectomy?",
+          "options": [
+            {
+              "label": "Without mastoidectomy, without ossicular chain reconstruction",
+              "cpt_code": "69631",
+              "description": "Tympanoplasty without mastoidectomy, without ossicular chain reconstruction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H72.90"
+              ]
+            },
+            {
+              "label": "Without mastoidectomy, with ossicular chain reconstruction",
+              "cpt_code": "69632",
+              "description": "Tympanoplasty without mastoidectomy, with ossicular chain reconstruction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H72.90",
+                "H74.30"
+              ]
+            },
+            {
+              "label": "Without mastoidectomy, with prosthesis",
+              "cpt_code": "69633",
+              "description": "Tympanoplasty without mastoidectomy, with ossicular chain reconstruction and synthetic prosthesis",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H72.90",
+                "H74.30"
+              ]
+            },
+            {
+              "label": "With mastoidectomy, without ossicular reconstruction",
+              "cpt_code": "69635",
+              "description": "Tympanoplasty with mastoidectomy, without ossicular chain reconstruction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H72.90",
+                "H70.90"
+              ]
+            },
+            {
+              "label": "With mastoidectomy + ossicular reconstruction",
+              "cpt_code": "69636",
+              "description": "Tympanoplasty with mastoidectomy, with ossicular chain reconstruction",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H72.90",
+                "H70.90",
+                "H74.30"
+              ]
+            },
+            {
+              "label": "With mastoidectomy + prosthesis",
+              "cpt_code": "69637",
+              "description": "Tympanoplasty with mastoidectomy, with ossicular chain reconstruction and synthetic prosthesis",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H72.90",
+                "H70.90",
+                "H74.30"
+              ]
+            }
+          ]
+        },
+        "ent_mastoidectomy": {
+          "question": "Type of mastoidectomy?",
+          "options": [
+            {
+              "label": "Simple mastoidectomy",
+              "cpt_code": "69501",
+              "description": "Transmastoid antrotomy (simple mastoidectomy)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H70.90",
+                "H70.00"
+              ]
+            },
+            {
+              "label": "Complete mastoidectomy",
+              "cpt_code": "69502",
+              "description": "Mastoidectomy; complete",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H70.90",
+                "H70.00"
+              ]
+            },
+            {
+              "label": "Modified radical mastoidectomy",
+              "cpt_code": "69505",
+              "description": "Mastoidectomy; modified radical",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "H70.90",
+                "H71.90"
+              ]
+            }
+          ]
+        },
+        "ent_larynx": {
+          "question": "Type of laryngeal / airway procedure?",
+          "options": [
+            {
+              "label": "Direct laryngoscopy, diagnostic",
+              "cpt_code": "31525",
+              "description": "Laryngoscopy direct, diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "R49.0",
+                "J38.1"
+              ]
+            },
+            {
+              "label": "Direct laryngoscopy with microscope",
+              "cpt_code": "31526",
+              "description": "Laryngoscopy direct, with operating microscope or telescope",
+              "modifiers": [],
+              "icd10": [
+                "R49.0",
+                "J38.1"
+              ]
+            },
+            {
+              "label": "Laryngoscopy with biopsy",
+              "cpt_code": "31535",
+              "description": "Laryngoscopy, direct, operative, with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "C32.9",
+                "J38.1"
+              ]
+            },
+            {
+              "label": "Laryngoscopy with biopsy + microscope",
+              "cpt_code": "31536",
+              "description": "Laryngoscopy, direct, operative, with biopsy and operating microscope",
+              "modifiers": [],
+              "icd10": [
+                "C32.9",
+                "J38.1"
+              ]
+            },
+            {
+              "label": "Laryngoscopy with excision of tumor/vocal cord stripping",
+              "cpt_code": "31541",
+              "description": "Laryngoscopy, direct, operative, with excision of tumor and/or stripping of vocal cords",
+              "modifiers": [],
+              "icd10": [
+                "D14.1",
+                "J38.1"
+              ]
+            },
+            {
+              "label": "Microlaryngoscopy with excision",
+              "cpt_code": "31545",
+              "description": "Laryngoscopy with operating microscope, for excision of tumor, lesion, or vocal cord stripping",
+              "modifiers": [],
+              "icd10": [
+                "D14.1",
+                "J38.1"
+              ]
+            },
+            {
+              "label": "Tracheostomy (planned)",
+              "cpt_code": "31600",
+              "description": "Tracheostomy, planned (separate procedure)",
+              "modifiers": [],
+              "icd10": [
+                "J95.00",
+                "Z93.0"
+              ]
+            },
+            {
+              "label": "Tracheostomy with skin flaps",
+              "cpt_code": "31610",
+              "description": "Tracheostomy, fenestration procedure with skin flaps",
+              "modifiers": [],
+              "icd10": [
+                "J95.00",
+                "Z93.0"
+              ]
+            },
+            {
+              "label": "Tracheoplasty, cervical",
+              "cpt_code": "31750",
+              "description": "Tracheoplasty; cervical",
+              "modifiers": [],
+              "icd10": [
+                "J95.03",
+                "Q32.1"
+              ]
+            }
+          ]
+        },
+        "ent_headneck": {
+          "question": "Type of head & neck / salivary procedure?",
+          "options": [
+            {
+              "label": "Parotidectomy, superficial (lateral lobe)",
+              "cpt_code": "42415",
+              "description": "Excision of parotid tumor or gland; lateral lobe, with preservation of facial nerve",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "D11.0",
+                "C07"
+              ]
+            },
+            {
+              "label": "Parotidectomy, total",
+              "cpt_code": "42420",
+              "description": "Excision of parotid tumor or gland; total, with preservation of facial nerve",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "D11.0",
+                "C07"
+              ]
+            },
+            {
+              "label": "Partial glossectomy (<50% tongue)",
+              "cpt_code": "41120",
+              "description": "Glossectomy; less than one-half tongue",
+              "modifiers": [],
+              "icd10": [
+                "C02.9"
+              ]
+            },
+            {
+              "label": "Hemiglossectomy",
+              "cpt_code": "41130",
+              "description": "Glossectomy; hemiglossectomy",
+              "modifiers": [],
+              "icd10": [
+                "C02.9"
+              ]
+            },
+            {
+              "label": "Thyroidectomy, total (see also General Surgery)",
+              "cpt_code": "60240",
+              "description": "Thyroidectomy, total or complete",
+              "modifiers": [],
+              "icd10": [
+                "E04.9",
+                "C73"
+              ]
+            },
+            {
+              "label": "Thyroidectomy with neck dissection",
+              "cpt_code": "60252",
+              "description": "Thyroidectomy, total for malignancy; with limited neck dissection",
+              "modifiers": [],
+              "icd10": [
+                "C73"
+              ]
+            },
+            {
+              "label": "Modified radical neck dissection",
+              "cpt_code": "38724",
+              "description": "Cervical lymphadenectomy (modified radical neck dissection)",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "C76.0",
+                "C77.0"
+              ]
+            }
+          ]
+        },
+        "ent_nasal_valve": {
+          "question": "Type of nasal valve / reconstruction procedure?",
+          "options": [
+            {
+              "label": "Nasal vestibular stenosis repair (spreader graft)",
+              "cpt_code": "30465",
+              "description": "Repair nasal vestibular stenosis (eg, spreader grafting, butterfly graft)",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Nasal valve collapse repair (lateral wall implant)",
+              "cpt_code": "30468",
+              "description": "Repair nasal valve collapse with subcutaneous/submucosal lateral wall implant(s)",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            }
+          ]
+        }
+      }
     }
   ]
 }
