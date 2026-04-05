@@ -12405,7 +12405,8 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "code_family": "bowel_resection"
   },
   "44604": {
     "mod51_exempt": false,
@@ -20857,5 +20858,60 @@
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
     "code_family": "fasciotomy"
+  },
+  "51860": {
+    "description": "Cystorrhaphy, suture of bladder wound",
+    "hierarchy_tier": 2,
+    "bilateral_eligible": false,
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "addon_code": false,
+    "cosurgeon_eligible": true,
+    "assistant_allowed": true,
+    "mod51_exempt": false,
+    "inclusive_of": [
+      "49000"
+    ],
+    "never_primary_with": [],
+    "distinct_procedure_class": "surgical",
+    "code_family": "kidney",
+    "global_period_days": 90
+  },
+  "44141": {
+    "description": "Colectomy, partial with skin level cecostomy or colostomy",
+    "hierarchy_tier": 1,
+    "bilateral_eligible": false,
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "addon_code": false,
+    "cosurgeon_eligible": true,
+    "assistant_allowed": true,
+    "mod51_exempt": false,
+    "inclusive_of": [
+      "49000",
+      "44320"
+    ],
+    "never_primary_with": [],
+    "distinct_procedure_class": "surgical",
+    "code_family": "bowel_resection",
+    "global_period_days": 90
+  },
+  "49002": {
+    "description": "Reopening of recent laparotomy",
+    "hierarchy_tier": 3,
+    "bilateral_eligible": false,
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "addon_code": false,
+    "cosurgeon_eligible": true,
+    "assistant_allowed": true,
+    "mod51_exempt": false,
+    "inclusive_of": [
+      "49000"
+    ],
+    "never_primary_with": [],
+    "distinct_procedure_class": "surgical",
+    "code_family": "exploratory",
+    "global_period_days": 10
   }
 }

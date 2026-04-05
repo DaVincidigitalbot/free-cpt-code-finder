@@ -379,6 +379,7 @@ class TestModifierEngine {
 
             procedures.forEach(secondaryProc => {
                 if (primaryProc.id === secondaryProc.id) return;
+                if (secondaryProc.rank === 'included') return; // Skip suppressed procedures
                 
                 if (bundledCodes.column2_codes.includes(secondaryProc.code)) {
                     if (bundledCodes.modifier59_allowed) {
@@ -580,11 +581,13 @@ class TestModifierEngine {
             factors.push({ factor: `Unknown rules: ${unknownRules.length}`, impact: -penalty });
         }
         
+        // NCCI bundles with modifier59_allowed are resolvable (lower penalty)
+        // True unresolvable bundles are severity 'error', not 'warning'
         const ncciBundles = warnings.filter(w => w.type === 'ncci_bundle' && w.severity === 'warning');
         if (ncciBundles.length > 0) {
-            const penalty = ncciBundles.length * 30;
+            const penalty = ncciBundles.length * 10; // Reduced: resolvable with -59
             score -= penalty;
-            factors.push({ factor: `Unresolved NCCI bundles: ${ncciBundles.length}`, impact: -penalty });
+            factors.push({ factor: `Resolvable NCCI bundles: ${ncciBundles.length}`, impact: -penalty });
         }
         
         const globalViolations = warnings.filter(w => w.type === 'global_period_violation');
@@ -666,7 +669,7 @@ const scenarios = [
             modifiers: {"38100": ["-51"]},
             warnings: [],
             blockedCodes: [],
-            totalWRVU: 31.2, // 22.1 + (18.2*0.5) — 49000 included
+            totalWRVU: 33.02, // 22.1 + (18.2*0.6) — 49000 suppressed, cross-major 60%
             shouldBlock: false
         }
     },
@@ -680,11 +683,11 @@ const scenarios = [
         context: {payerType: "medicare", reducedService: {"49002": "incomplete"}},
         expected: {
             primaryCode: "49002",
-            modifiers: {"49000": ["-51"], "49002": ["-52"]}, // -52 for reduced services
+            modifiers: {"49002": ["-52"]}, // -52 for reduced services, 49000 suppressed
             warnings: [],
             blockedCodes: [],
-            totalWRVU: 15.49, // 12.8*0.8 + 10.5*0.5 = 10.24 + 5.25
-            shouldBlock: "auto"
+            totalWRVU: 10.24, // 12.8*0.8 = 10.24, 49000 suppressed (included in 49002)
+            shouldBlock: false
         }
     },
 
@@ -768,8 +771,8 @@ const scenarios = [
             modifiers: {"44320": ["-51"]},
             warnings: ["ncci_bundle"], // NCCI bundle warning
             blockedCodes: [],
-            totalWRVU: 26.9, // 20.5 + (12.8*0.5)
-            shouldBlock: false
+            totalWRVU: 26.9, // 20.5 + (12.8*0.5) — colostomy is unclassified, default 50%
+            shouldBlock: "auto"
         }
     },
 
@@ -785,7 +788,7 @@ const scenarios = [
             modifiers: {"38100": ["-51"]},
             warnings: [],
             blockedCodes: [],
-            totalWRVU: 33.9, // 24.8 + (18.2*0.5)
+            totalWRVU: 35.72, // 24.8 + (18.2*0.6) — cross-major MPPR 60%
             shouldBlock: false
         }
     },
@@ -1109,8 +1112,8 @@ const scenarios = [
         expected: {
             primaryCode: "47562",
             modifiers: {},
-            warnings: ["ncci_bundle"],
-            blockedCodes: ["49320"], // Diagnostic bundled
+            warnings: ["included_procedure"], // 49320 suppressed via inclusive_of
+            blockedCodes: ["49320"], // Diagnostic included in therapeutic
             totalWRVU: 12.8,
             shouldBlock: false
         }
@@ -1143,10 +1146,10 @@ const scenarios = [
         expected: {
             primaryCode: "44970",
             modifiers: {},
-            warnings: ["ncci_bundle"],
-            blockedCodes: ["44180"], // Typically bundled
+            warnings: ["included_procedure"], // 44180 suppressed via inclusive_of
+            blockedCodes: ["44180"], // Adhesiolysis included in appendectomy
             totalWRVU: 8.5,
-            shouldBlock: "auto"
+            shouldBlock: false
         }
     },
 
@@ -1376,7 +1379,7 @@ const scenarios = [
             modifiers: {"33535": ["-51"]},
             warnings: [],
             blockedCodes: [],
-            totalWRVU: 75.4, // 52.8 + (45.2*0.5)
+            totalWRVU: 79.92, // 52.8 + (45.2*0.6) — cross-major MPPR 60%
             shouldBlock: false
         }
     },
@@ -1624,7 +1627,7 @@ const scenarios = [
             modifiers: {}, // secondaries get -51
             warnings: [],
             blockedCodes: [],
-            totalWRVU: 53.8, // 22.1 + (20.5+18.2+14.2+10.5)*0.5 = 22.1 + 31.7
+            totalWRVU: 51.79, // 22.1 + (20.5*0.5) + (18.2*0.6) + (14.2*0.6) — 49000 suppressed, family-aware MPPR
             shouldBlock: false
         }
     }

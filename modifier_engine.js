@@ -389,6 +389,7 @@ class ModifierEngine {
 
             procedures.forEach(secondaryProc => {
                 if (primaryProc.id === secondaryProc.id) return;
+                if (secondaryProc.rank === 'included') return; // Skip suppressed procedures
                 
                 const secondaryCode = secondaryProc.code;
                 
@@ -1249,11 +1250,11 @@ class ModifierEngine {
         // Factor 2: NCCI bundles resolved (-30 per unresolved bundle)
         const ncciBundleWarnings = warnings.filter(w => w.type === 'ncci_bundle' && w.severity === 'warning');
         if (ncciBundleWarnings.length > 0) {
-            const penalty = ncciBundleWarnings.length * 30;
+            const penalty = ncciBundleWarnings.length * 10; // Reduced: resolvable with -59
             factors.push({
-                factor: `${ncciBundleWarnings.length} unresolved NCCI bundles`,
+                factor: `${ncciBundleWarnings.length} resolvable NCCI bundles (need -59 or review)`,
                 impact: -penalty,
-                description: "Bundle pairs need -59 modifier or dismissal"
+                description: "Bundle pairs resolvable with -59 modifier"
             });
             score -= penalty;
         } else if (procedures.length > 1) {
