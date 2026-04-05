@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Intelligence Engine - Test Suite</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+            line-height: 1.5;
+        }
+        .header {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .test-scenario {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .scenario-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        .scenario-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .input-codes {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .expected-results {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .actual-results {
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .test-status {
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .test-status.pass {
+            background: #dcfce7;
+            border: 1px solid #16a34a;
+            color: #16a34a;
+        }
+        .test-status.fail {
+            background: #fef2f2;
+            border: 1px solid #dc2626;
+            color: #dc2626;
+        }
+        .test-status.pending {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            color: #f59e0b;
+        }
+        .run-test-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .run-test-btn:hover {
+            background: #1e40af;
+        }
+        .run-all-btn {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .run-all-btn:hover {
+            background: #15803d;
+        }
+        .code-list {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .details {
+            font-size: 14px;
+            color: #666;
+        }
+        .modifier-breakdown {
+            margin-top: 10px;
+        }
+        .modifier-breakdown h4 {
+            margin: 10px 0 5px 0;
+            color: #374151;
+        }
+        .procedure-item {
+            background: #f9f9f9;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .procedure-code {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .procedure-modifiers {
+            color: #dc2626;
+            font-weight: 500;
+        }
+        .procedure-rank {
+            color: #16a34a;
+            font-size: 12px;
+        }
+        .test-summary {
+            background: white;
+            border: 2px solid #1e3a8a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .stat-box {
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .stat-box.passed {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+        .stat-box.failed {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+        .stat-box.pending {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧠 Modifier Intelligence Engine - Test Suite</h1>
+        <p>Validating surgical modifier auto-assignment for clinical accuracy</p>
+    </div>
+
+    <div class="test-summary" id="testSummary">
+        <h2>Test Results Summary</h2>
+        <div class="summary-stats">
+            <div class="stat-box pending" id="passedStat">
+                <div>0</div>
+                <div>Passed</div>
+            </div>
+            <div class="stat-box pending" id="failedStat">
+                <div>0</div>
+                <div>Failed</div>
+            </div>
+            <div class="stat-box pending" id="pendingStat">
+                <div>10</div>
+                <div>Pending</div>
+            </div>
+        </div>
+    </div>
+
+    <button class="run-all-btn" onclick="runAllTests()">🚀 Run All Tests</button>
+
+    <!-- Test Scenarios -->
+    <div class="test-scenario">
+        <div class="scenario-title">Test 1: Exploratory Laparotomy + Splenectomy + Wound VAC</div>
+        <div class="scenario-description">Multiple procedures with different priorities. Should rank by wRVU and apply -51 to secondary procedures.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • 49000 - Exploratory laparotomy (11.25 wRVU)<br>
+                • 38100 - Splenectomy, total (18.85 wRVU)<br>
+                • 97606 - Wound VAC >50 sq cm (1.68 wRVU)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • 38100: PRIMARY (100% wRVU) - No modifier<br>
+            • 49000: SECONDARY (-51) - 50% MPPR reduction<br>
+            • 97606: SECONDARY (-51) - 50% MPPR reduction<br>
+            • Total adjusted wRVU: ~24.39
+        </div>
+
+        <div class="actual-results" id="test1-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(1)">Run Test 1</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 2: Bilateral Inguinal Hernia Repair</div>
+        <div class="scenario-description">Bilateral procedure should use modifier -50, single line item, 150% wRVU.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • 49505 - Inguinal hernia repair (bilateral context)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • 49505: -50 (Bilateral procedure)<br>
+            • 150% wRVU payment<br>
+            • NOT two separate line items with -RT/-LT
+        </div>
+
+        <div class="actual-results" id="test2-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(2)">Run Test 2</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 3: Unilateral vs Bilateral Sinus Surgery</div>
+        <div class="scenario-description">Should apply laterality modifiers for unilateral, or -50 for bilateral sinus procedures.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • 31256 - Ethmoidectomy (unilateral scenario)<br>
+                • 31256 - Ethmoidectomy (bilateral scenario)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • Unilateral: Generate laterality question (Right vs Left)<br>
+            • Bilateral: Apply -50 modifier, 150% wRVU
+        </div>
+
+        <div class="actual-results" id="test3-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(3)">Run Test 3</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 4: Colon Resection + Stoma Creation</div>
+        <div class="scenario-description">NCCI bundle pair - should flag potential -59 need with user prompt.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • 44140 - Colon resection<br>
+                • 44320 - Colostomy creation
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • 44140: PRIMARY procedure<br>
+            • 44320: SECONDARY (-51) + NCCI bundle warning<br>
+            • Generate question: "Separate site/session?" for potential -59
+        </div>
+
+        <div class="actual-results" id="test4-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(4)">Run Test 4</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 5: Return to OR for Bleeding</div>
+        <div class="scenario-description">Should prompt for return to OR context and apply appropriate modifier.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • Same procedure as initial (return scenario)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • Generate question: "Same physician?" → -76<br>
+            • "Different physician?" → -77<br>
+            • "Unplanned return for complication?" → -78
+        </div>
+
+        <div class="actual-results" id="test5-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(5)">Run Test 5</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 6: Staged Second-Look Procedure</div>
+        <div class="scenario-description">Planned staged procedure should get modifier -58.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • Planned second-look (staged context)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • Generate question about staged vs unplanned<br>
+            • If staged/planned → -58 modifier
+        </div>
+
+        <div class="actual-results" id="test6-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(6)">Run Test 6</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 7: Co-Surgeon Case</div>
+        <div class="scenario-description">Co-surgeon scenario should apply -62, 62.5% wRVU each surgeon.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • Complex procedure with co-surgeon
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • Generate surgeon role question<br>
+            • If co-surgeon → -62 modifier<br>
+            • 62.5% wRVU adjustment
+        </div>
+
+        <div class="actual-results" id="test7-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(7)">Run Test 7</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 8: Assistant Surgeon Case</div>
+        <div class="scenario-description">Assistant surgeon scenario should apply -80, 16% wRVU.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • Procedure with assistant surgeon
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • Generate surgeon role question<br>
+            • If assistant → -80 modifier<br>
+            • 16% wRVU adjustment
+        </div>
+
+        <div class="actual-results" id="test8-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(8)">Run Test 8</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 9: Hernia Repair + Mesh (Add-on Code)</div>
+        <div class="scenario-description">Add-on code should NEVER get -51, always bills at full wRVU.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • 49505 - Inguinal hernia repair<br>
+                • 49568 - Mesh implant (add-on code)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • 49505: PRIMARY procedure<br>
+            • 49568: ADD-ON (no -51, full wRVU)<br>
+            • No NCCI bundle warning (correct bundling)
+        </div>
+
+        <div class="actual-results" id="test9-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(9)">Run Test 9</button>
+    </div>
+
+    <div class="test-scenario">
+        <div class="scenario-title">Test 10: Component Separation + Hernia Repair</div>
+        <div class="scenario-description">15734 should rank as PRIMARY reconstructive, hernia repair becomes secondary.</div>
+        
+        <div class="input-codes">
+            <strong>Input Codes:</strong>
+            <div class="code-list">
+                • 15734 - Component separation (20.22 wRVU)<br>
+                • 49593 - Ventral hernia repair (15.56 wRVU)
+            </div>
+        </div>
+
+        <div class="expected-results">
+            <strong>Expected Results:</strong><br>
+            • 15734: PRIMARY (distinct reconstructive, 100% wRVU)<br>
+            • 49593: SECONDARY (-51, 50% MPPR reduction)<br>
+            • Total: ~23.00 wRVU
+        </div>
+
+        <div class="actual-results" id="test10-results">
+            <div class="test-status pending">Click "Run Test" to see results</div>
+        </div>
+
+        <button class="run-test-btn" onclick="runTest(10)">Run Test 10</button>
+    </div>
+
+    <!-- Load Engine and Run Tests -->
+    <script src="./modifier_engine.js"></script>
+    <script>
+        let testResults = {
+            passed: 0,
+            failed: 0,
+            pending: 10
+        };
+
+        // Test data for each scenario
+        const testScenarios = {
+            1: {
+                procedures: [
+                    { code: '49000', description: 'Exploratory laparotomy', work_rvu: 11.25 },
+                    { code: '38100', description: 'Splenectomy, total', work_rvu: 18.85 },
+                    { code: '97606', description: 'Wound VAC >50 sq cm', work_rvu: 1.68 }
+                ],
+                context: {},
+                expectedResults: {
+                    primaryCode: '38100',
+                    secondaryCount: 2,
+                    modifiers: {
+                        '38100': [],
+                        '49000': ['-51'],
+                        '97606': ['-51']
+                    },
+                    totalWRVU: 24.39
+                }
+            },
+            2: {
+                procedures: [
+                    { code: '49505', description: 'Inguinal hernia repair', work_rvu: 10.0 }
+                ],
+                context: { bilateral: { '49505': true } },
+                expectedResults: {
+                    modifiers: {
+                        '49505': ['-50']
+                    },
+                    bilateralApplied: true
+                }
+            },
+            3: {
+                procedures: [
+                    { code: '31256', description: 'Ethmoidectomy', work_rvu: 12.0 }
+                ],
+                context: { laterality: { '31256': 'right' } },
+                expectedResults: {
+                    modifiers: {
+                        '31256': ['-RT']
+                    },
+                    lateralityQuestions: true
+                }
+            },
+            4: {
+                procedures: [
+                    { code: '44140', description: 'Colon resection', work_rvu: 18.85 },
+                    { code: '44320', description: 'Colostomy creation', work_rvu: 8.85 }
+                ],
+                context: {},
+                expectedResults: {
+                    bundleWarnings: true,
+                    ncciBundleDetected: true,
+                    modifiers: {
+                        '44140': [],
+                        '44320': ['-51']
+                    }
+                }
+            },
+            9: {
+                procedures: [
+                    { code: '49505', description: 'Inguinal hernia repair', work_rvu: 10.0 },
+                    { code: '49568', description: 'Mesh implant', work_rvu: 3.5 }
+                ],
+                context: {},
+                expectedResults: {
+                    addOnDetected: true,
+                    modifiers: {
+                        '49505': [],
+                        '49568': []
+                    },
+                    meshNoBundleWarning: true
+                }
+            },
+            10: {
+                procedures: [
+                    { code: '15734', description: 'Component separation', work_rvu: 20.22 },
+                    { code: '49593', description: 'Ventral hernia repair', work_rvu: 15.56 }
+                ],
+                context: {},
+                expectedResults: {
+                    primaryCode: '15734',
+                    reconstructivePrimary: true,
+                    modifiers: {
+                        '15734': [],
+                        '49593': ['-51']
+                    },
+                    totalWRVU: 23.0
+                }
+            }
+        };
+
+        async function runTest(testNumber) {
+            const scenario = testScenarios[testNumber];
+            if (!scenario) {
+                console.error(`Test ${testNumber} not defined`);
+                return;
+            }
+
+            const resultsDiv = document.getElementById(`test${testNumber}-results`);
+            resultsDiv.innerHTML = '<div class="test-status pending">Running test...</div>';
+
+            try {
+                // Initialize engine if not already done
+                if (!window.ModifierEngine.modifierRules) {
+                    await window.ModifierEngine.initialize();
+                }
+
+                // Run analysis
+                const analysis = window.ModifierEngine.analyze(scenario.procedures, scenario.context);
+                
+                // Display results
+                displayTestResults(testNumber, analysis, scenario.expectedResults);
+                
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="test-status fail">TEST FAILED</div>
+                    <div class="details">Error: ${error.message}</div>
+                `;
+                updateTestStats('failed');
+            }
+        }
+
+        function displayTestResults(testNumber, actualResults, expectedResults) {
+            const resultsDiv = document.getElementById(`test${testNumber}-results`);
+            
+            let passed = true;
+            let details = [];
+
+            // Analyze results and compare to expected
+            const analysis = analyzeTestResults(actualResults, expectedResults);
+            passed = analysis.passed;
+            details = analysis.details;
+
+            const statusClass = passed ? 'pass' : 'fail';
+            const statusText = passed ? 'TEST PASSED ✅' : 'TEST FAILED ❌';
+
+            resultsDiv.innerHTML = `
+                <div class="test-status ${statusClass}">${statusText}</div>
+                <div class="modifier-breakdown">
+                    <h4>Actual Results:</h4>
+                    ${formatActualResults(actualResults)}
+                    <h4>Analysis:</h4>
+                    ${details.map(d => `<div class="details ${d.type}">${d.message}</div>`).join('')}
+                </div>
+            `;
+
+            updateTestStats(passed ? 'passed' : 'failed');
+        }
+
+        function formatActualResults(results) {
+            let html = '<div class="procedure-item">';
+            html += `<div><strong>Summary:</strong> ${results.summary.procedureCount} procedures, ${results.summary.modifierCount} modifiers</div>`;
+            html += `<div><strong>Total wRVU:</strong> ${results.summary.totalWRVU}</div>`;
+            
+            html += '<h4>Procedures:</h4>';
+            results.procedures.forEach(proc => {
+                html += `
+                    <div class="procedure-item">
+                        <span class="procedure-code">${proc.code}</span> - ${proc.description}<br>
+                        <span class="procedure-rank">Rank: ${proc.rank.toUpperCase()}</span><br>
+                        <span class="procedure-modifiers">Modifiers: ${proc.modifiers.length ? proc.modifiers.join(', ') : 'None'}</span><br>
+                        <span class="details">wRVU: ${proc.work_rvu} → ${proc.adjustedWRVU.toFixed(2)}</span>
+                        ${proc.adjustmentFactors?.length ? `<br><span class="details">Adjustments: ${proc.adjustmentFactors.join(', ')}</span>` : ''}
+                    </div>
+                `;
+            });
+
+            if (results.questions?.length > 0) {
+                html += '<h4>Questions Generated:</h4>';
+                results.questions.forEach(q => {
+                    html += `<div class="details">• ${q.question}</div>`;
+                });
+            }
+
+            if (results.warnings?.length > 0) {
+                html += '<h4>Warnings:</h4>';
+                results.warnings.forEach(w => {
+                    html += `<div class="details ${w.severity}">• ${w.message}</div>`;
+                });
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function analyzeTestResults(actual, expected) {
+            let passed = true;
+            let details = [];
+
+            // Check primary procedure
+            if (expected.primaryCode) {
+                const primaryProc = actual.procedures.find(p => p.rank === 'primary');
+                if (!primaryProc || primaryProc.code !== expected.primaryCode) {
+                    passed = false;
+                    details.push({
+                        type: 'error',
+                        message: `Expected primary: ${expected.primaryCode}, got: ${primaryProc?.code || 'none'}`
+                    });
+                } else {
+                    details.push({
+                        type: 'success',
+                        message: `✅ Correct primary procedure: ${expected.primaryCode}`
+                    });
+                }
+            }
+
+            // Check modifiers
+            if (expected.modifiers) {
+                for (const [code, expectedMods] of Object.entries(expected.modifiers)) {
+                    const proc = actual.procedures.find(p => p.code === code);
+                    if (!proc) {
+                        passed = false;
+                        details.push({
+                            type: 'error',
+                            message: `Procedure ${code} not found in results`
+                        });
+                        continue;
+                    }
+
+                    const actualMods = proc.modifiers || [];
+                    const expectedModsSet = new Set(expectedMods);
+                    const actualModsSet = new Set(actualMods);
+
+                    if (expectedModsSet.size !== actualModsSet.size || 
+                        ![...expectedModsSet].every(m => actualModsSet.has(m))) {
+                        passed = false;
+                        details.push({
+                            type: 'error',
+                            message: `${code}: Expected modifiers [${expectedMods.join(', ')}], got [${actualMods.join(', ')}]`
+                        });
+                    } else {
+                        details.push({
+                            type: 'success',
+                            message: `✅ ${code}: Correct modifiers [${expectedMods.join(', ') || 'none'}]`
+                        });
+                    }
+                }
+            }
+
+            // Check other criteria
+            if (expected.secondaryCount !== undefined) {
+                const secondaryCount = actual.procedures.filter(p => p.rank === 'secondary').length;
+                if (secondaryCount !== expected.secondaryCount) {
+                    passed = false;
+                    details.push({
+                        type: 'error',
+                        message: `Expected ${expected.secondaryCount} secondary procedures, got ${secondaryCount}`
+                    });
+                } else {
+                    details.push({
+                        type: 'success',
+                        message: `✅ Correct secondary procedure count: ${expected.secondaryCount}`
+                    });
+                }
+            }
+
+            if (expected.bundleWarnings && !actual.warnings?.some(w => w.type === 'ncci_bundle')) {
+                passed = false;
+                details.push({
+                    type: 'error',
+                    message: 'Expected NCCI bundle warning but none found'
+                });
+            } else if (expected.bundleWarnings) {
+                details.push({
+                    type: 'success',
+                    message: '✅ NCCI bundle warning correctly generated'
+                });
+            }
+
+            if (expected.totalWRVU !== undefined) {
+                const actualTotal = actual.summary.totalWRVU;
+                const tolerance = 0.5; // Allow some rounding difference
+                if (Math.abs(actualTotal - expected.totalWRVU) > tolerance) {
+                    passed = false;
+                    details.push({
+                        type: 'error',
+                        message: `Expected total wRVU ~${expected.totalWRVU}, got ${actualTotal}`
+                    });
+                } else {
+                    details.push({
+                        type: 'success',
+                        message: `✅ Total wRVU within expected range: ${actualTotal}`
+                    });
+                }
+            }
+
+            return { passed, details };
+        }
+
+        function updateTestStats(result) {
+            if (result === 'passed') {
+                testResults.passed++;
+                testResults.pending--;
+            } else if (result === 'failed') {
+                testResults.failed++;
+                testResults.pending--;
+            }
+
+            // Update display
+            document.getElementById('passedStat').innerHTML = `
+                <div>${testResults.passed}</div>
+                <div>Passed</div>
+            `;
+            document.getElementById('passedStat').className = 'stat-box ' + (testResults.passed > 0 ? 'passed' : 'pending');
+
+            document.getElementById('failedStat').innerHTML = `
+                <div>${testResults.failed}</div>
+                <div>Failed</div>
+            `;
+            document.getElementById('failedStat').className = 'stat-box ' + (testResults.failed > 0 ? 'failed' : 'pending');
+
+            document.getElementById('pendingStat').innerHTML = `
+                <div>${testResults.pending}</div>
+                <div>Pending</div>
+            `;
+            document.getElementById('pendingStat').className = 'stat-box ' + (testResults.pending > 0 ? 'pending' : 'passed');
+        }
+
+        async function runAllTests() {
+            // Reset stats
+            testResults = { passed: 0, failed: 0, pending: 10 };
+            
+            // Run tests that have scenarios defined
+            const testNumbers = [1, 2, 3, 4, 9, 10]; // Only tests with defined scenarios
+            
+            for (const testNumber of testNumbers) {
+                await runTest(testNumber);
+                // Small delay between tests
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+
+            // Update remaining tests to "Not implemented"
+            for (let i = 1; i <= 10; i++) {
+                if (!testNumbers.includes(i)) {
+                    const resultsDiv = document.getElementById(`test${i}-results`);
+                    resultsDiv.innerHTML = `
+                        <div class="test-status pending">Test scenario not yet implemented</div>
+                        <div class="details">This test requires more complex context handling (surgeon roles, return to OR scenarios, etc.)</div>
+                    `;
+                }
+            }
+        }
+
+        // Initialize engine when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await window.ModifierEngine.initialize();
+                console.log('✅ Modifier Engine initialized and ready for testing');
+            } catch (error) {
+                console.error('❌ Failed to initialize Modifier Engine:', error);
+            }
+        });
+    </script>
+</body>
+</html>

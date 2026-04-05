@@ -1,0 +1,252 @@
+{
+  "bundles": {
+    "49505": {
+      "column2_codes": ["49568"],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "49568 is add-on code, never gets -59"
+    },
+    "49507": {
+      "column2_codes": ["49568"],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)", 
+      "modifier59_allowed": false,
+      "reason": "49568 is add-on code, never gets -59"
+    },
+    "49520": {
+      "column2_codes": ["49568"],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "49568 is add-on code, never gets -59"
+    },
+    "49525": {
+      "column2_codes": ["49568"],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "49568 is add-on code, never gets -59"
+    },
+    "44140": {
+      "column2_codes": ["44604", "44320"],
+      "description": "Colon resection may bundle with adhesiolysis and stoma creation",
+      "modifier59_allowed": true,
+      "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
+    },
+    "44120": {
+      "column2_codes": ["44604", "44320"],
+      "description": "Small bowel resection may bundle with adhesiolysis and stoma creation",
+      "modifier59_allowed": true,
+      "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
+    },
+    "49000": {
+      "column2_codes": ["44604", "97606"],
+      "description": "Exploratory laparotomy bundles with adhesiolysis and wound VAC",
+      "modifier59_allowed": true,
+      "reason": "Adhesiolysis during exploration typically bundled unless extensive/unrelated"
+    },
+    "38100": {
+      "column2_codes": ["44604"],
+      "description": "Splenectomy may bundle with adhesiolysis",
+      "modifier59_allowed": true,
+      "reason": "Adhesiolysis for splenic exposure typically bundled"
+    },
+    "47550": {
+      "column2_codes": ["44604"],
+      "description": "Laparoscopic cholecystectomy may bundle with adhesiolysis",
+      "modifier59_allowed": true,
+      "reason": "Adhesiolysis for gallbladder exposure typically bundled"
+    },
+    "19318": {
+      "column2_codes": ["15734"],
+      "description": "Breast reduction may bundle with tissue transfer",
+      "modifier59_allowed": true,
+      "reason": "Separate if performed for different indication"
+    },
+    "31256": {
+      "column2_codes": ["31257", "31267"],
+      "description": "Sinus procedures may bundle if performed on same side",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if performed on different sinus systems or separate sessions"
+    },
+    "49560": {
+      "column2_codes": ["15734"],
+      "description": "Ventral hernia repair with component separation",
+      "modifier59_allowed": false,
+      "reason": "Component separation (15734) is distinct reconstructive procedure - never bundled"
+    },
+    "49561": {
+      "column2_codes": ["15734"],
+      "description": "Ventral hernia repair with component separation",
+      "modifier59_allowed": false,
+      "reason": "Component separation (15734) is distinct reconstructive procedure - never bundled"
+    },
+    "60240": {
+      "column2_codes": ["60260", "60270"],
+      "description": "Thyroid lobectomy bundles with total thyroidectomy",
+      "modifier59_allowed": false,
+      "reason": "Cannot bill partial and total thyroidectomy on same side"
+    },
+    "58662": {
+      "column2_codes": ["58670", "58700"],
+      "description": "Laparoscopic procedures may bundle if performed together",
+      "modifier59_allowed": true,
+      "reason": "May use -59 if procedures are unrelated or at separate sites"
+    },
+    "10060": {
+      "column2_codes": ["10061"],
+      "description": "Simple and complex I&D typically bundled",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if performed at separate anatomic sites"
+    },
+    "11042": {
+      "column2_codes": ["11043", "11044"],
+      "description": "Debridement codes bundle if performed at same site",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if performed at separate wounds or different depths"
+    },
+    "19340": {
+      "column2_codes": ["19342", "19350"],
+      "description": "Breast reconstruction procedures may bundle",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if staged procedures or bilateral different techniques"
+    },
+    "49650": {
+      "column2_codes": ["49651", "49652"],
+      "description": "Laparoscopic hernia repairs may bundle",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if bilateral or multiple separate hernias"
+    },
+    "49653": {
+      "column2_codes": ["49654", "49655"],
+      "description": "Laparoscopic ventral hernia repairs may bundle",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if multiple separate hernias or staged procedures"
+    },
+    "47562": {
+      "column2_codes": ["47563"],
+      "description": "Laparoscopic cholecystectomy procedures may bundle",
+      "modifier59_allowed": false,
+      "reason": "Cannot bill both simple and complex cholecystectomy"
+    }
+  },
+  "common_pairs": [
+    {
+      "column1": "49505",
+      "column2": "49568",
+      "bundle_type": "addon",
+      "explanation": "Mesh insertion is add-on to hernia repair"
+    },
+    {
+      "column1": "44140", 
+      "column2": "44604",
+      "bundle_type": "integral",
+      "explanation": "Adhesiolysis typically integral to bowel resection"
+    },
+    {
+      "column1": "49000",
+      "column2": "44604", 
+      "bundle_type": "integral",
+      "explanation": "Adhesiolysis during exploratory lap typically bundled"
+    },
+    {
+      "column1": "47550",
+      "column2": "44604",
+      "bundle_type": "integral", 
+      "explanation": "Adhesiolysis for cholecystectomy exposure typically bundled"
+    },
+    {
+      "column1": "38100",
+      "column2": "44604",
+      "bundle_type": "integral",
+      "explanation": "Adhesiolysis for splenectomy exposure typically bundled"
+    },
+    {
+      "column1": "31256",
+      "column2": "31257",
+      "bundle_type": "same_session",
+      "explanation": "Multiple sinus procedures same side typically bundled"
+    },
+    {
+      "column1": "10060",
+      "column2": "10061",
+      "bundle_type": "same_site",
+      "explanation": "Simple and complex I&D same site typically bundled"
+    },
+    {
+      "column1": "11042",
+      "column2": "11043",
+      "bundle_type": "same_site",
+      "explanation": "Progressive debridement depths same site bundled"
+    },
+    {
+      "column1": "19340",
+      "column2": "19342",
+      "bundle_type": "bilateral",
+      "explanation": "Different reconstruction techniques bilateral may bundle"
+    },
+    {
+      "column1": "60240",
+      "column2": "60260",
+      "bundle_type": "mutually_exclusive",
+      "explanation": "Cannot bill partial and total thyroidectomy same side"
+    },
+    {
+      "column1": "49650",
+      "column2": "49651",
+      "bundle_type": "same_session",
+      "explanation": "Multiple laparoscopic hernia repairs may bundle"
+    },
+    {
+      "column1": "58662",
+      "column2": "58670", 
+      "bundle_type": "same_session",
+      "explanation": "Laparoscopic gynecologic procedures may bundle"
+    },
+    {
+      "column1": "49560",
+      "column2": "15734",
+      "bundle_type": "never_bundle",
+      "explanation": "Component separation never bundles - distinct reconstructive"
+    },
+    {
+      "column1": "47562",
+      "column2": "47563",
+      "bundle_type": "mutually_exclusive", 
+      "explanation": "Cannot bill both simple and complex cholecystectomy"
+    },
+    {
+      "column1": "49653",
+      "column2": "49654",
+      "bundle_type": "same_session",
+      "explanation": "Laparoscopic ventral hernia repairs may bundle"
+    },
+    {
+      "column1": "19318",
+      "column2": "15734",
+      "bundle_type": "conditional",
+      "explanation": "Breast reduction with tissue transfer - depends on indication"
+    },
+    {
+      "column1": "31267",
+      "column2": "31276", 
+      "bundle_type": "same_side",
+      "explanation": "Multiple sinus procedures same side typically bundled"
+    },
+    {
+      "column1": "44320",
+      "column2": "44140",
+      "bundle_type": "integral",
+      "explanation": "Stoma creation may be integral to bowel resection"
+    },
+    {
+      "column1": "97606",
+      "column2": "49000",
+      "bundle_type": "unrelated",
+      "explanation": "Wound VAC separate from exploratory procedure"
+    },
+    {
+      "column1": "58700",
+      "column2": "58720",
+      "bundle_type": "same_session",
+      "explanation": "Gynecologic procedures may bundle if same session"
+    }
+  ]
+}
