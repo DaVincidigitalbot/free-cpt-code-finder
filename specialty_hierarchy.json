@@ -1,0 +1,1470 @@
+{
+  "specialties": [
+    {
+      "id": "general_surgery",
+      "label": "General Surgery",
+      "icon": "\ud83d\udd2a",
+      "systems": [
+        {
+          "label": "Abdominal",
+          "groups": [
+            {
+              "label": "Hernia Repair",
+              "codes": [
+                "49505",
+                "49507",
+                "49520",
+                "49525",
+                "49550",
+                "49553",
+                "49555",
+                "49560",
+                "49561",
+                "49565",
+                "49566",
+                "49568",
+                "49570",
+                "49572",
+                "49580",
+                "49585",
+                "49587",
+                "49593",
+                "49595",
+                "49596"
+              ]
+            },
+            {
+              "label": "Bowel Resection",
+              "codes": [
+                "44120",
+                "44121",
+                "44140",
+                "44143",
+                "44155",
+                "44202",
+                "44205",
+                "44320",
+                "44141"
+              ]
+            },
+            {
+              "label": "Appendectomy",
+              "codes": [
+                "44950",
+                "44960",
+                "44970"
+              ]
+            },
+            {
+              "label": "Cholecystectomy",
+              "codes": [
+                "47562",
+                "47563",
+                "47564",
+                "47600",
+                "47605",
+                "47610"
+              ]
+            },
+            {
+              "label": "Exploratory",
+              "codes": [
+                "49000",
+                "49002"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Breast",
+          "groups": [
+            {
+              "label": "Mastectomy",
+              "codes": [
+                "19301",
+                "19302",
+                "19303",
+                "19305",
+                "19307"
+              ]
+            },
+            {
+              "label": "Reconstruction",
+              "codes": [
+                "19340",
+                "19342",
+                "19357",
+                "19361",
+                "19364",
+                "19367",
+                "19369"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Endocrine",
+          "groups": [
+            {
+              "label": "Thyroid",
+              "codes": [
+                "60220",
+                "60225",
+                "60240",
+                "60252",
+                "60254",
+                "60260",
+                "60270",
+                "60271"
+              ]
+            },
+            {
+              "label": "Parathyroid",
+              "codes": [
+                "60500",
+                "60502",
+                "60505"
+              ]
+            },
+            {
+              "label": "Adrenal",
+              "codes": [
+                "60540",
+                "60545",
+                "60650"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Wound Management",
+          "groups": [
+            {
+              "label": "Debridement",
+              "codes": [
+                "11042",
+                "11043",
+                "11044",
+                "11045",
+                "11046",
+                "11047"
+              ]
+            },
+            {
+              "label": "Wound Repair",
+              "codes": [
+                "12001",
+                "12002",
+                "12004",
+                "12031",
+                "13100"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trauma",
+      "label": "Trauma Surgery",
+      "icon": "\ud83d\ude91",
+      "systems": [
+        {
+          "label": "Thoracic Trauma",
+          "groups": [
+            {
+              "label": "Chest Tube/Thoracostomy",
+              "codes": [
+                "32551",
+                "32552",
+                "32553",
+                "32554"
+              ]
+            },
+            {
+              "label": "Thoracotomy",
+              "codes": [
+                "32100",
+                "32110",
+                "32120",
+                "32160"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Abdominal Trauma",
+          "groups": [
+            {
+              "label": "Exploratory Laparotomy",
+              "codes": [
+                "49000",
+                "49002",
+                "49010",
+                "49020"
+              ]
+            },
+            {
+              "label": "Spleen",
+              "codes": [
+                "38100",
+                "38101"
+              ]
+            },
+            {
+              "label": "Liver",
+              "codes": [
+                "47350",
+                "47360",
+                "47361"
+              ]
+            },
+            {
+              "label": "Bowel Injury",
+              "codes": [
+                "44120",
+                "44140",
+                "44604",
+                "44605"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vascular Trauma",
+          "groups": [
+            {
+              "label": "Vessel Repair",
+              "codes": [
+                "35201",
+                "35206",
+                "35207",
+                "35211",
+                "35221",
+                "35226",
+                "35231"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Fasciotomy",
+          "groups": [
+            {
+              "label": "Compartment Release",
+              "codes": [
+                "27600",
+                "27601",
+                "27602"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ent",
+      "label": "Otolaryngology (ENT)",
+      "icon": "\ud83d\udc42",
+      "systems": [
+        {
+          "label": "Sinus Surgery",
+          "groups": [
+            {
+              "label": "Endoscopic Sinus Surgery",
+              "codes": [
+                "31231",
+                "31237",
+                "31253",
+                "31254",
+                "31256",
+                "31257",
+                "31259",
+                "31267",
+                "31276",
+                "31287",
+                "31288"
+              ]
+            },
+            {
+              "label": "Septoplasty",
+              "codes": [
+                "30520"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Tonsils & Adenoids",
+          "groups": [
+            {
+              "label": "Tonsillectomy/Adenoidectomy",
+              "codes": [
+                "42820",
+                "42821",
+                "42825",
+                "42826",
+                "42830",
+                "42831",
+                "42835",
+                "42836"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Ear Surgery",
+          "groups": [
+            {
+              "label": "PE Tubes",
+              "codes": [
+                "69433",
+                "69436"
+              ]
+            },
+            {
+              "label": "Tympanoplasty",
+              "codes": [
+                "69631",
+                "69632",
+                "69633",
+                "69635",
+                "69636",
+                "69637"
+              ]
+            },
+            {
+              "label": "Mastoidectomy",
+              "codes": [
+                "69601",
+                "69602",
+                "69603",
+                "69604",
+                "69605"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orthopedic",
+      "label": "Orthopedic Surgery",
+      "icon": "\ud83e\uddb4",
+      "systems": [
+        {
+          "label": "Hip",
+          "groups": [
+            {
+              "label": "Hip Arthroplasty",
+              "codes": [
+                "27130",
+                "27132",
+                "27134",
+                "27137",
+                "27138",
+                "27125"
+              ]
+            },
+            {
+              "label": "Hip Fracture",
+              "codes": [
+                "27236",
+                "27244",
+                "27245"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Knee",
+          "groups": [
+            {
+              "label": "Knee Arthroplasty",
+              "codes": [
+                "27447",
+                "27446",
+                "27486",
+                "27487"
+              ]
+            },
+            {
+              "label": "Knee Arthroscopy",
+              "codes": [
+                "29876",
+                "29877",
+                "29880",
+                "29881",
+                "29882",
+                "29883",
+                "29888"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Shoulder",
+          "groups": [
+            {
+              "label": "Shoulder Arthroplasty",
+              "codes": [
+                "23472",
+                "23473",
+                "23474"
+              ]
+            },
+            {
+              "label": "Shoulder Arthroscopy",
+              "codes": [
+                "29823",
+                "29824",
+                "29826",
+                "29827",
+                "29828"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Spine",
+          "groups": [
+            {
+              "label": "Spinal Fusion",
+              "codes": [
+                "22551",
+                "22552",
+                "22612",
+                "22630",
+                "22633"
+              ]
+            },
+            {
+              "label": "Decompression",
+              "codes": [
+                "63047",
+                "63048"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Fractures",
+          "groups": [
+            {
+              "label": "Upper Extremity",
+              "codes": [
+                "25600",
+                "25607",
+                "25608"
+              ]
+            },
+            {
+              "label": "Lower Extremity",
+              "codes": [
+                "27500",
+                "27506",
+                "27507",
+                "27752",
+                "27759",
+                "27766",
+                "27792",
+                "27814"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Hand & Wrist",
+          "groups": [
+            {
+              "label": "Hand Procedures",
+              "codes": [
+                "26055",
+                "26160",
+                "64721",
+                "25310"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cardiothoracic",
+      "label": "Cardiothoracic Surgery",
+      "icon": "\u2764\ufe0f",
+      "systems": [
+        {
+          "label": "Cardiac",
+          "groups": [
+            {
+              "label": "CABG",
+              "codes": [
+                "33533",
+                "33534",
+                "33535",
+                "33536"
+              ]
+            },
+            {
+              "label": "Valve Surgery",
+              "codes": [
+                "33361",
+                "33362",
+                "33405",
+                "33418",
+                "33420",
+                "33430"
+              ]
+            },
+            {
+              "label": "Pacemaker/ICD",
+              "codes": [
+                "33208",
+                "33249",
+                "33285"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Thoracic",
+          "groups": [
+            {
+              "label": "Lobectomy/Pneumonectomy",
+              "codes": [
+                "32440",
+                "32442",
+                "32480",
+                "32482",
+                "32484",
+                "32486",
+                "32488"
+              ]
+            },
+            {
+              "label": "VATS Procedures",
+              "codes": [
+                "32601",
+                "32602",
+                "32604",
+                "32606",
+                "32607",
+                "32608",
+                "32609"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vascular",
+      "label": "Vascular Surgery",
+      "icon": "\ud83e\ude78",
+      "systems": [
+        {
+          "label": "Carotid",
+          "groups": [
+            {
+              "label": "Endarterectomy",
+              "codes": [
+                "35301",
+                "35390"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Aortic",
+          "groups": [
+            {
+              "label": "Open Repair",
+              "codes": [
+                "35081",
+                "35082",
+                "35102"
+              ]
+            },
+            {
+              "label": "Endovascular (EVAR)",
+              "codes": [
+                "34800",
+                "34802",
+                "34812",
+                "34820"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Peripheral",
+          "groups": [
+            {
+              "label": "Bypass Grafts",
+              "codes": [
+                "35556",
+                "35566",
+                "35571",
+                "35583",
+                "35585",
+                "35646",
+                "35654",
+                "35656"
+              ]
+            },
+            {
+              "label": "Endovascular",
+              "codes": [
+                "37228",
+                "37229",
+                "37236",
+                "37238"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Dialysis Access",
+          "groups": [
+            {
+              "label": "Fistula/Graft",
+              "codes": [
+                "36818",
+                "36819",
+                "36830",
+                "36831"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Venous",
+          "groups": [
+            {
+              "label": "Venous Procedures",
+              "codes": [
+                "37700",
+                "37718",
+                "36475",
+                "36478"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neurosurgery",
+      "label": "Neurosurgery",
+      "icon": "\ud83e\udde0",
+      "systems": [
+        {
+          "label": "Cranial",
+          "groups": [
+            {
+              "label": "Brain Tumor",
+              "codes": [
+                "61510",
+                "61518"
+              ]
+            },
+            {
+              "label": "Cerebrovascular",
+              "codes": [
+                "61700",
+                "61624",
+                "61630"
+              ]
+            },
+            {
+              "label": "Cranial Trauma",
+              "codes": [
+                "61304",
+                "61312",
+                "61710"
+              ]
+            },
+            {
+              "label": "CSF Shunt",
+              "codes": [
+                "62223",
+                "62230"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Spine",
+          "groups": [
+            {
+              "label": "Decompression",
+              "codes": [
+                "63001",
+                "63003",
+                "63005",
+                "63012",
+                "63030",
+                "63042"
+              ]
+            },
+            {
+              "label": "Fusion",
+              "codes": [
+                "22600",
+                "22610",
+                "22551"
+              ]
+            },
+            {
+              "label": "Disc Surgery",
+              "codes": [
+                "63075",
+                "63081"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Functional",
+          "groups": [
+            {
+              "label": "Neurostimulation",
+              "codes": [
+                "63650",
+                "63685",
+                "64561"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "urology",
+      "label": "Urology",
+      "icon": "\ud83d\udca7",
+      "systems": [
+        {
+          "label": "Kidney",
+          "groups": [
+            {
+              "label": "Nephrectomy",
+              "codes": [
+                "50543",
+                "50545",
+                "50546"
+              ]
+            },
+            {
+              "label": "Stone Treatment",
+              "codes": [
+                "50590",
+                "52352",
+                "52353"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Prostate",
+          "groups": [
+            {
+              "label": "TURP/PVP",
+              "codes": [
+                "52601",
+                "52630",
+                "52648"
+              ]
+            },
+            {
+              "label": "Prostatectomy",
+              "codes": [
+                "55840",
+                "55842",
+                "55866"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Bladder",
+          "groups": [
+            {
+              "label": "Cystoscopy",
+              "codes": [
+                "52000",
+                "52001",
+                "52005",
+                "52234",
+                "52235",
+                "52240"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Male Genital",
+          "groups": [
+            {
+              "label": "Procedures",
+              "codes": [
+                "54150",
+                "54520",
+                "54530",
+                "54640",
+                "55060",
+                "55250"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obgyn",
+      "label": "OB/GYN",
+      "icon": "\ud83d\udc76",
+      "systems": [
+        {
+          "label": "Gynecologic",
+          "groups": [
+            {
+              "label": "Hysterectomy",
+              "codes": [
+                "58150",
+                "58180",
+                "58200",
+                "58260",
+                "58541",
+                "58550",
+                "58571",
+                "58572"
+              ]
+            },
+            {
+              "label": "Laparoscopy",
+              "codes": [
+                "58661",
+                "58662",
+                "58670"
+              ]
+            },
+            {
+              "label": "Hysteroscopy",
+              "codes": [
+                "58558",
+                "58563",
+                "58565"
+              ]
+            },
+            {
+              "label": "Urogynecology",
+              "codes": [
+                "57260",
+                "57288"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Obstetric",
+          "groups": [
+            {
+              "label": "Delivery",
+              "codes": [
+                "59400",
+                "59409",
+                "59410",
+                "59510",
+                "59514",
+                "59515"
+              ]
+            },
+            {
+              "label": "VBAC",
+              "codes": [
+                "59610",
+                "59612",
+                "59620"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ophthalmology",
+      "label": "Ophthalmology",
+      "icon": "\ud83d\udc41\ufe0f",
+      "systems": [
+        {
+          "label": "Anterior Segment",
+          "groups": [
+            {
+              "label": "Cataract",
+              "codes": [
+                "66821",
+                "66982",
+                "66984"
+              ]
+            },
+            {
+              "label": "Glaucoma",
+              "codes": [
+                "65855",
+                "66170",
+                "66180"
+              ]
+            },
+            {
+              "label": "Cornea",
+              "codes": [
+                "65710",
+                "65730",
+                "65750",
+                "65756"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Posterior Segment",
+          "groups": [
+            {
+              "label": "Retina",
+              "codes": [
+                "67036",
+                "67040",
+                "67041",
+                "67042",
+                "67101",
+                "67107",
+                "67108",
+                "67110"
+              ]
+            },
+            {
+              "label": "Intravitreal Injection",
+              "codes": [
+                "67028"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gastroenterology",
+      "label": "Gastroenterology",
+      "icon": "\ud83e\udec1",
+      "systems": [
+        {
+          "label": "Upper GI",
+          "groups": [
+            {
+              "label": "EGD",
+              "codes": [
+                "43235",
+                "43239",
+                "43248",
+                "43249",
+                "43251",
+                "43255",
+                "43259"
+              ]
+            },
+            {
+              "label": "ERCP",
+              "codes": [
+                "43274",
+                "43275",
+                "43276",
+                "43277",
+                "43278"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Lower GI",
+          "groups": [
+            {
+              "label": "Colonoscopy",
+              "codes": [
+                "45378",
+                "45380",
+                "45381",
+                "45384",
+                "45385",
+                "45388",
+                "45390"
+              ]
+            },
+            {
+              "label": "Sigmoidoscopy",
+              "codes": [
+                "45330",
+                "45331"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Bariatric",
+          "groups": [
+            {
+              "label": "Bariatric Surgery",
+              "codes": [
+                "43644",
+                "43645",
+                "43770",
+                "43775"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interventional_radiology",
+      "label": "Interventional Radiology",
+      "icon": "\ud83d\udce1",
+      "systems": [
+        {
+          "label": "Vascular IR",
+          "groups": [
+            {
+              "label": "Embolization",
+              "codes": [
+                "37241",
+                "37242",
+                "37243",
+                "37244"
+              ]
+            },
+            {
+              "label": "IVC Filter",
+              "codes": [
+                "37191",
+                "37192",
+                "37193"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Drainage/Biopsy",
+          "groups": [
+            {
+              "label": "Abscess Drainage",
+              "codes": [
+                "49405",
+                "49406",
+                "49407"
+              ]
+            },
+            {
+              "label": "Image-Guided Biopsy",
+              "codes": [
+                "10005",
+                "10006",
+                "10009",
+                "10010"
+              ]
+            },
+            {
+              "label": "Paracentesis/Thoracentesis",
+              "codes": [
+                "49083",
+                "32557"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pain_pmr",
+      "label": "Pain Management / PM&R",
+      "icon": "\ud83d\udc89",
+      "systems": [
+        {
+          "label": "Spinal Procedures",
+          "groups": [
+            {
+              "label": "Epidural Injections",
+              "codes": [
+                "62322",
+                "62323",
+                "64483",
+                "64484"
+              ]
+            },
+            {
+              "label": "Facet Injections",
+              "codes": [
+                "64490",
+                "64491",
+                "64493",
+                "64494"
+              ]
+            },
+            {
+              "label": "Radiofrequency Ablation",
+              "codes": [
+                "64633",
+                "64634",
+                "64635",
+                "64636"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Joint Procedures",
+          "groups": [
+            {
+              "label": "Joint Injections",
+              "codes": [
+                "20600",
+                "20605",
+                "20610",
+                "20611"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Nerve Blocks",
+          "groups": [
+            {
+              "label": "Peripheral Nerve Blocks",
+              "codes": [
+                "64400",
+                "64405",
+                "64415",
+                "64447",
+                "64450",
+                "64455"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emergency_medicine",
+      "label": "Emergency Medicine",
+      "icon": "\ud83c\udfe5",
+      "systems": [
+        {
+          "label": "ED Visits",
+          "groups": [
+            {
+              "label": "ED E/M",
+              "codes": [
+                "99281",
+                "99282",
+                "99283",
+                "99284",
+                "99285"
+              ]
+            },
+            {
+              "label": "Critical Care",
+              "codes": [
+                "99291",
+                "99292"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "internal_medicine",
+      "label": "Internal Medicine",
+      "icon": "\ud83e\ude7a",
+      "systems": [
+        {
+          "label": "Office Visits",
+          "groups": [
+            {
+              "label": "New Patient",
+              "codes": [
+                "99202",
+                "99203",
+                "99204",
+                "99205"
+              ]
+            },
+            {
+              "label": "Established Patient",
+              "codes": [
+                "99211",
+                "99212",
+                "99213",
+                "99214",
+                "99215"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Hospital",
+          "groups": [
+            {
+              "label": "Initial Hospital Care",
+              "codes": [
+                "99221",
+                "99222",
+                "99223"
+              ]
+            },
+            {
+              "label": "Subsequent Hospital Care",
+              "codes": [
+                "99231",
+                "99232",
+                "99233"
+              ]
+            },
+            {
+              "label": "Discharge",
+              "codes": [
+                "99238",
+                "99239"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plastic_surgery",
+      "label": "Plastic Surgery",
+      "icon": "\u2728",
+      "systems": [
+        {
+          "label": "Reconstructive",
+          "groups": [
+            {
+              "label": "Flaps",
+              "codes": [
+                "15570",
+                "15731",
+                "15732",
+                "15733",
+                "15756",
+                "15757"
+              ]
+            },
+            {
+              "label": "Skin Grafts",
+              "codes": [
+                "15100",
+                "15120",
+                "15200",
+                "15220",
+                "15240"
+              ]
+            },
+            {
+              "label": "Component Separation",
+              "codes": [
+                "15734",
+                "15736",
+                "15738"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Breast Reconstruction",
+          "groups": [
+            {
+              "label": "Implant-Based",
+              "codes": [
+                "19340",
+                "19342",
+                "19357"
+              ]
+            },
+            {
+              "label": "Autologous",
+              "codes": [
+                "19361",
+                "19364",
+                "19367",
+                "19369"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "radiology",
+      "label": "Radiology",
+      "icon": "\ud83d\udcf7",
+      "systems": [
+        {
+          "label": "CT",
+          "groups": [
+            {
+              "label": "Head/Neck CT",
+              "codes": [
+                "70450",
+                "70460",
+                "70486",
+                "70491",
+                "70496",
+                "70498"
+              ]
+            },
+            {
+              "label": "Chest CT",
+              "codes": [
+                "71250",
+                "71260",
+                "71275"
+              ]
+            },
+            {
+              "label": "Abdomen/Pelvis CT",
+              "codes": [
+                "74150",
+                "74160",
+                "74176",
+                "74177",
+                "74178"
+              ]
+            },
+            {
+              "label": "Spine CT",
+              "codes": [
+                "72125",
+                "72131"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "MRI",
+          "groups": [
+            {
+              "label": "Brain MRI",
+              "codes": [
+                "70551",
+                "70553"
+              ]
+            },
+            {
+              "label": "Spine MRI",
+              "codes": [
+                "72141",
+                "72146",
+                "72148",
+                "72156",
+                "72157",
+                "72158"
+              ]
+            },
+            {
+              "label": "Abdomen/Pelvis MRI",
+              "codes": [
+                "74183",
+                "72197"
+              ]
+            },
+            {
+              "label": "Extremity MRI",
+              "codes": [
+                "73221",
+                "73721",
+                "73723"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Ultrasound",
+          "groups": [
+            {
+              "label": "Abdominal US",
+              "codes": [
+                "76700",
+                "76705",
+                "76770"
+              ]
+            },
+            {
+              "label": "Pelvic US",
+              "codes": [
+                "76830",
+                "76856"
+              ]
+            },
+            {
+              "label": "Breast US",
+              "codes": [
+                "76641",
+                "76642"
+              ]
+            },
+            {
+              "label": "Other US",
+              "codes": [
+                "76536",
+                "76604",
+                "76870",
+                "76881"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Nuclear Medicine",
+          "groups": [
+            {
+              "label": "PET/CT",
+              "codes": [
+                "78815",
+                "78816"
+              ]
+            },
+            {
+              "label": "Nuclear Cardiology",
+              "codes": [
+                "78451",
+                "78452",
+                "78472"
+              ]
+            },
+            {
+              "label": "Bone Scan",
+              "codes": [
+                "78300",
+                "78306"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Mammography",
+          "groups": [
+            {
+              "label": "Mammography",
+              "codes": [
+                "77065",
+                "77066",
+                "77067"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

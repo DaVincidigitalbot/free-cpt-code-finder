@@ -1,0 +1,2092 @@
+{
+  "I10": {
+    "code": "I10",
+    "description": "Essential hypertension",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99213",
+      "99214",
+      "93000"
+    ]
+  },
+  "I11.0": {
+    "code": "I11.0",
+    "description": "Hypertensive heart disease with heart failure",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93306",
+      "93452"
+    ]
+  },
+  "I20.0": {
+    "code": "I20.0",
+    "description": "Unstable angina",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99285",
+      "93458",
+      "92928"
+    ]
+  },
+  "I21.0": {
+    "code": "I21.0",
+    "description": "ST elevation MI, anterior wall",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99291",
+      "93458",
+      "92941"
+    ]
+  },
+  "I21.1": {
+    "code": "I21.1",
+    "description": "ST elevation MI, inferior wall",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99291",
+      "93458",
+      "92941"
+    ]
+  },
+  "I21.4": {
+    "code": "I21.4",
+    "description": "Non-ST elevation MI (NSTEMI)",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93458",
+      "92928"
+    ]
+  },
+  "I25.10": {
+    "code": "I25.10",
+    "description": "Coronary artery disease, native vessel",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93458",
+      "92928"
+    ]
+  },
+  "I25.110": {
+    "code": "I25.110",
+    "description": "CAD native vessel with unstable angina",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93458",
+      "92928"
+    ]
+  },
+  "I25.700": {
+    "code": "I25.700",
+    "description": "Atherosclerosis of CABG, unspecified",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93458"
+    ]
+  },
+  "I26.02": {
+    "code": "I26.02",
+    "description": "Saddle embolus of pulmonary artery with cor pulmonale",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99291",
+      "71275"
+    ]
+  },
+  "I26.09": {
+    "code": "I26.09",
+    "description": "Other pulmonary embolism with cor pulmonale",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "71275"
+    ]
+  },
+  "I26.99": {
+    "code": "I26.99",
+    "description": "Other pulmonary embolism without cor pulmonale",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "71275"
+    ]
+  },
+  "I42.0": {
+    "code": "I42.0",
+    "description": "Dilated cardiomyopathy",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93306",
+      "33249"
+    ]
+  },
+  "I44.0": {
+    "code": "I44.0",
+    "description": "First degree AV block",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99213",
+      "93000"
+    ]
+  },
+  "I44.1": {
+    "code": "I44.1",
+    "description": "Second degree AV block, type I",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99213",
+      "93000"
+    ]
+  },
+  "I44.2": {
+    "code": "I44.2",
+    "description": "Complete AV block",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93000",
+      "33208"
+    ]
+  },
+  "I48.0": {
+    "code": "I48.0",
+    "description": "Paroxysmal atrial fibrillation",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93000"
+    ]
+  },
+  "I48.1": {
+    "code": "I48.1",
+    "description": "Persistent atrial fibrillation",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93000"
+    ]
+  },
+  "I48.2": {
+    "code": "I48.2",
+    "description": "Chronic atrial fibrillation",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93000"
+    ]
+  },
+  "I48.91": {
+    "code": "I48.91",
+    "description": "Unspecified atrial fibrillation",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99213",
+      "93000"
+    ]
+  },
+  "I50.20": {
+    "code": "I50.20",
+    "description": "Unspecified systolic heart failure",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93306"
+    ]
+  },
+  "I50.22": {
+    "code": "I50.22",
+    "description": "Chronic systolic heart failure",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93306"
+    ]
+  },
+  "I50.30": {
+    "code": "I50.30",
+    "description": "Unspecified diastolic heart failure",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93306"
+    ]
+  },
+  "I50.9": {
+    "code": "I50.9",
+    "description": "Heart failure, unspecified",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93306"
+    ]
+  },
+  "I63.9": {
+    "code": "I63.9",
+    "description": "Cerebral infarction, unspecified",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99291",
+      "70553"
+    ]
+  },
+  "I65.21": {
+    "code": "I65.21",
+    "description": "Carotid artery occlusion/stenosis, right",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "35301"
+    ]
+  },
+  "I65.22": {
+    "code": "I65.22",
+    "description": "Carotid artery occlusion/stenosis, left",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "35301"
+    ]
+  },
+  "I70.0": {
+    "code": "I70.0",
+    "description": "Atherosclerosis of aorta",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "74178"
+    ]
+  },
+  "I70.201": {
+    "code": "I70.201",
+    "description": "Atherosclerosis of native arteries of extremities, unspecified",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93925"
+    ]
+  },
+  "I71.3": {
+    "code": "I71.3",
+    "description": "Abdominal aortic aneurysm, ruptured",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99291",
+      "35082"
+    ]
+  },
+  "I71.4": {
+    "code": "I71.4",
+    "description": "Abdominal aortic aneurysm, without rupture",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "34802"
+    ]
+  },
+  "I73.9": {
+    "code": "I73.9",
+    "description": "Peripheral vascular disease, unspecified",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99214",
+      "93925"
+    ]
+  },
+  "I80.10": {
+    "code": "I80.10",
+    "description": "Phlebitis of femoral vein",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93970"
+    ]
+  },
+  "I82.401": {
+    "code": "I82.401",
+    "description": "Acute DVT, femoral vein, right",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93970"
+    ]
+  },
+  "I82.402": {
+    "code": "I82.402",
+    "description": "Acute DVT, femoral vein, left",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93970"
+    ]
+  },
+  "I82.411": {
+    "code": "I82.411",
+    "description": "Acute DVT, popliteal vein, right",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99284",
+      "93970"
+    ]
+  },
+  "I87.2": {
+    "code": "I87.2",
+    "description": "Venous insufficiency, chronic",
+    "system": "cardiovascular",
+    "common_cpt_associations": [
+      "99213",
+      "93970"
+    ]
+  },
+  "J06.9": {
+    "code": "J06.9",
+    "description": "Acute upper respiratory infection, unspecified",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "J18.9": {
+    "code": "J18.9",
+    "description": "Pneumonia, unspecified organism",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99222",
+      "71046"
+    ]
+  },
+  "J20.9": {
+    "code": "J20.9",
+    "description": "Acute bronchitis, unspecified",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "J44.0": {
+    "code": "J44.0",
+    "description": "COPD with acute lower respiratory infection",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99222",
+      "71046"
+    ]
+  },
+  "J44.1": {
+    "code": "J44.1",
+    "description": "COPD with acute exacerbation",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99222",
+      "94010"
+    ]
+  },
+  "J45.20": {
+    "code": "J45.20",
+    "description": "Mild intermittent asthma, uncomplicated",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99213",
+      "94010"
+    ]
+  },
+  "J45.30": {
+    "code": "J45.30",
+    "description": "Mild persistent asthma, uncomplicated",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99213",
+      "94010"
+    ]
+  },
+  "J45.40": {
+    "code": "J45.40",
+    "description": "Moderate persistent asthma, uncomplicated",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99214",
+      "94010"
+    ]
+  },
+  "J45.50": {
+    "code": "J45.50",
+    "description": "Severe persistent asthma, uncomplicated",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99214",
+      "94010"
+    ]
+  },
+  "J80": {
+    "code": "J80",
+    "description": "Acute respiratory distress syndrome (ARDS)",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99291",
+      "71046"
+    ]
+  },
+  "J84.10": {
+    "code": "J84.10",
+    "description": "Pulmonary fibrosis, unspecified",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99214",
+      "71250",
+      "94729"
+    ]
+  },
+  "J90": {
+    "code": "J90",
+    "description": "Pleural effusion",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99222",
+      "71046",
+      "32557"
+    ]
+  },
+  "J93.0": {
+    "code": "J93.0",
+    "description": "Spontaneous tension pneumothorax",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99285",
+      "71046",
+      "32551"
+    ]
+  },
+  "J93.11": {
+    "code": "J93.11",
+    "description": "Primary spontaneous pneumothorax",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99284",
+      "71046"
+    ]
+  },
+  "J95.851": {
+    "code": "J95.851",
+    "description": "Ventilator associated pneumonia",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99291",
+      "71046"
+    ]
+  },
+  "J96.00": {
+    "code": "J96.00",
+    "description": "Acute respiratory failure",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99291",
+      "94660"
+    ]
+  },
+  "J96.01": {
+    "code": "J96.01",
+    "description": "Acute respiratory failure with hypoxia",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99291",
+      "94660"
+    ]
+  },
+  "J96.02": {
+    "code": "J96.02",
+    "description": "Acute respiratory failure with hypercapnia",
+    "system": "respiratory",
+    "common_cpt_associations": [
+      "99291",
+      "94660"
+    ]
+  },
+  "K21.0": {
+    "code": "K21.0",
+    "description": "GERD with esophagitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "43235"
+    ]
+  },
+  "K25.0": {
+    "code": "K25.0",
+    "description": "Acute gastric ulcer with hemorrhage",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "43255"
+    ]
+  },
+  "K25.4": {
+    "code": "K25.4",
+    "description": "Chronic gastric ulcer with hemorrhage",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "43255"
+    ]
+  },
+  "K26.0": {
+    "code": "K26.0",
+    "description": "Acute duodenal ulcer with hemorrhage",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "43255"
+    ]
+  },
+  "K29.00": {
+    "code": "K29.00",
+    "description": "Acute gastritis without bleeding",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "43235"
+    ]
+  },
+  "K35.80": {
+    "code": "K35.80",
+    "description": "Unspecified acute appendicitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "44970"
+    ]
+  },
+  "K40.90": {
+    "code": "K40.90",
+    "description": "Unilateral inguinal hernia, without obstruction",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "49505"
+    ]
+  },
+  "K40.91": {
+    "code": "K40.91",
+    "description": "Unilateral inguinal hernia, with obstruction",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "49505"
+    ]
+  },
+  "K43.0": {
+    "code": "K43.0",
+    "description": "Incisional hernia with obstruction",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "49560"
+    ]
+  },
+  "K43.2": {
+    "code": "K43.2",
+    "description": "Incisional hernia without obstruction",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "49560"
+    ]
+  },
+  "K50.00": {
+    "code": "K50.00",
+    "description": "Crohn's disease of small intestine",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99214",
+      "45378"
+    ]
+  },
+  "K51.00": {
+    "code": "K51.00",
+    "description": "Ulcerative pancolitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99214",
+      "45378"
+    ]
+  },
+  "K56.60": {
+    "code": "K56.60",
+    "description": "Unspecified intestinal obstruction",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "74178"
+    ]
+  },
+  "K57.20": {
+    "code": "K57.20",
+    "description": "Diverticulitis of large intestine with perforation",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "44140"
+    ]
+  },
+  "K57.30": {
+    "code": "K57.30",
+    "description": "Diverticulosis of large intestine without bleeding",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "45378"
+    ]
+  },
+  "K57.32": {
+    "code": "K57.32",
+    "description": "Diverticulitis of large intestine without bleeding",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "74177"
+    ]
+  },
+  "K59.00": {
+    "code": "K59.00",
+    "description": "Constipation, unspecified",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "K63.1": {
+    "code": "K63.1",
+    "description": "Perforation of intestine",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99291",
+      "49000"
+    ]
+  },
+  "K65.0": {
+    "code": "K65.0",
+    "description": "Generalized peritonitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99291",
+      "49000"
+    ]
+  },
+  "K65.1": {
+    "code": "K65.1",
+    "description": "Peritoneal abscess",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "49405"
+    ]
+  },
+  "K70.30": {
+    "code": "K70.30",
+    "description": "Alcoholic liver cirrhosis without ascites",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99214",
+      "76700"
+    ]
+  },
+  "K72.00": {
+    "code": "K72.00",
+    "description": "Acute hepatic failure without coma",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99291"
+    ]
+  },
+  "K74.60": {
+    "code": "K74.60",
+    "description": "Unspecified cirrhosis of liver",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99214",
+      "76700"
+    ]
+  },
+  "K80.00": {
+    "code": "K80.00",
+    "description": "Cholelithiasis with acute cholecystitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "47562"
+    ]
+  },
+  "K80.10": {
+    "code": "K80.10",
+    "description": "Cholelithiasis with chronic cholecystitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "47562"
+    ]
+  },
+  "K80.20": {
+    "code": "K80.20",
+    "description": "Cholelithiasis without cholecystitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99213",
+      "47562"
+    ]
+  },
+  "K80.50": {
+    "code": "K80.50",
+    "description": "Choledocholithiasis without cholangitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "43275"
+    ]
+  },
+  "K81.0": {
+    "code": "K81.0",
+    "description": "Acute cholecystitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "47562"
+    ]
+  },
+  "K85.00": {
+    "code": "K85.00",
+    "description": "Idiopathic acute pancreatitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99222",
+      "74177"
+    ]
+  },
+  "K85.10": {
+    "code": "K85.10",
+    "description": "Biliary acute pancreatitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99222",
+      "74177",
+      "43275"
+    ]
+  },
+  "K85.90": {
+    "code": "K85.90",
+    "description": "Acute pancreatitis, unspecified",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99222",
+      "74177"
+    ]
+  },
+  "K86.1": {
+    "code": "K86.1",
+    "description": "Chronic pancreatitis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99214",
+      "74177"
+    ]
+  },
+  "K91.30": {
+    "code": "K91.30",
+    "description": "Postprocedural intestinal obstruction",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "74178"
+    ]
+  },
+  "K92.0": {
+    "code": "K92.0",
+    "description": "Hematemesis",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "43255"
+    ]
+  },
+  "K92.1": {
+    "code": "K92.1",
+    "description": "Melena",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "45378"
+    ]
+  },
+  "K92.2": {
+    "code": "K92.2",
+    "description": "GI hemorrhage, unspecified",
+    "system": "gastrointestinal",
+    "common_cpt_associations": [
+      "99284",
+      "45378"
+    ]
+  },
+  "M17.0": {
+    "code": "M17.0",
+    "description": "Bilateral primary osteoarthritis of knee",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "27447"
+    ]
+  },
+  "M17.11": {
+    "code": "M17.11",
+    "description": "Primary osteoarthritis, right knee",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "27447"
+    ]
+  },
+  "M17.12": {
+    "code": "M17.12",
+    "description": "Primary osteoarthritis, left knee",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "27447"
+    ]
+  },
+  "M16.0": {
+    "code": "M16.0",
+    "description": "Bilateral primary osteoarthritis of hip",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "27130"
+    ]
+  },
+  "M16.11": {
+    "code": "M16.11",
+    "description": "Primary osteoarthritis, right hip",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "27130"
+    ]
+  },
+  "M16.12": {
+    "code": "M16.12",
+    "description": "Primary osteoarthritis, left hip",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "27130"
+    ]
+  },
+  "M19.011": {
+    "code": "M19.011",
+    "description": "Primary osteoarthritis, right shoulder",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "23472"
+    ]
+  },
+  "M23.201": {
+    "code": "M23.201",
+    "description": "Derangement of unspecified meniscus, right knee",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213",
+      "29881"
+    ]
+  },
+  "M23.211": {
+    "code": "M23.211",
+    "description": "Derangement of anterior horn of medial meniscus, right knee",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213",
+      "29881"
+    ]
+  },
+  "M47.812": {
+    "code": "M47.812",
+    "description": "Spondylosis without myelopathy, cervical",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "63047"
+    ]
+  },
+  "M47.816": {
+    "code": "M47.816",
+    "description": "Spondylosis without myelopathy, lumbar",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "63047"
+    ]
+  },
+  "M48.06": {
+    "code": "M48.06",
+    "description": "Spinal stenosis, lumbar",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "63047"
+    ]
+  },
+  "M50.120": {
+    "code": "M50.120",
+    "description": "Cervical disc disorder with radiculopathy, mid-cervical",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "22551"
+    ]
+  },
+  "M51.16": {
+    "code": "M51.16",
+    "description": "Lumbar disc degeneration with radiculopathy",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "63030"
+    ]
+  },
+  "M51.17": {
+    "code": "M51.17",
+    "description": "Lumbar disc degeneration with radiculopathy, lumbosacral",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "63030"
+    ]
+  },
+  "M54.5": {
+    "code": "M54.5",
+    "description": "Low back pain",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213",
+      "72148"
+    ]
+  },
+  "M54.41": {
+    "code": "M54.41",
+    "description": "Lumbago with sciatica, right side",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213",
+      "72148"
+    ]
+  },
+  "M54.42": {
+    "code": "M54.42",
+    "description": "Lumbago with sciatica, left side",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213",
+      "72148"
+    ]
+  },
+  "M75.100": {
+    "code": "M75.100",
+    "description": "Rotator cuff tear, unspecified shoulder",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "29827"
+    ]
+  },
+  "M75.110": {
+    "code": "M75.110",
+    "description": "Incomplete rotator cuff tear, right shoulder",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "29827"
+    ]
+  },
+  "M75.120": {
+    "code": "M75.120",
+    "description": "Complete rotator cuff tear, right shoulder",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99214",
+      "29827"
+    ]
+  },
+  "M76.50": {
+    "code": "M76.50",
+    "description": "Patellar tendinitis, unspecified knee",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213",
+      "20610"
+    ]
+  },
+  "M79.3": {
+    "code": "M79.3",
+    "description": "Panniculitis, unspecified",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "M84.359A": {
+    "code": "M84.359A",
+    "description": "Stress fracture, femur, initial",
+    "system": "musculoskeletal",
+    "common_cpt_associations": [
+      "99284",
+      "73721"
+    ]
+  },
+  "S06.0X0A": {
+    "code": "S06.0X0A",
+    "description": "Concussion without LOC, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99283",
+      "70450"
+    ]
+  },
+  "S06.0X1A": {
+    "code": "S06.0X1A",
+    "description": "Concussion with LOC <30 min, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "70450"
+    ]
+  },
+  "S06.5X0A": {
+    "code": "S06.5X0A",
+    "description": "Traumatic subdural hemorrhage without LOC, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "70450",
+      "61312"
+    ]
+  },
+  "S06.6X0A": {
+    "code": "S06.6X0A",
+    "description": "Traumatic subarachnoid hemorrhage without LOC, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "70450"
+    ]
+  },
+  "S12.000A": {
+    "code": "S12.000A",
+    "description": "Unspecified displaced fracture of first cervical vertebra, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "72125"
+    ]
+  },
+  "S22.000A": {
+    "code": "S22.000A",
+    "description": "Wedge compression fracture of T1 vertebra, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "72131"
+    ]
+  },
+  "S27.0XXA": {
+    "code": "S27.0XXA",
+    "description": "Traumatic pneumothorax, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "71046",
+      "32551"
+    ]
+  },
+  "S27.1XXA": {
+    "code": "S27.1XXA",
+    "description": "Traumatic hemothorax, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "71046",
+      "32551"
+    ]
+  },
+  "S27.2XXA": {
+    "code": "S27.2XXA",
+    "description": "Traumatic hemopneumothorax, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "71046",
+      "32551"
+    ]
+  },
+  "S31.001A": {
+    "code": "S31.001A",
+    "description": "Unspecified open wound of lower back, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99283"
+    ]
+  },
+  "S35.00XA": {
+    "code": "S35.00XA",
+    "description": "Injury of abdominal aorta, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99291",
+      "49000",
+      "35082"
+    ]
+  },
+  "S36.020A": {
+    "code": "S36.020A",
+    "description": "Contusion of spleen, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "74178"
+    ]
+  },
+  "S36.030A": {
+    "code": "S36.030A",
+    "description": "Laceration of spleen, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178",
+      "38100"
+    ]
+  },
+  "S36.113A": {
+    "code": "S36.113A",
+    "description": "Laceration of liver, moderate, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178",
+      "47350"
+    ]
+  },
+  "S36.115A": {
+    "code": "S36.115A",
+    "description": "Laceration of liver, major, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99291",
+      "74178",
+      "47350"
+    ]
+  },
+  "S36.400A": {
+    "code": "S36.400A",
+    "description": "Injury of small intestine, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178",
+      "44120"
+    ]
+  },
+  "S36.510A": {
+    "code": "S36.510A",
+    "description": "Injury of ascending colon, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178",
+      "44140"
+    ]
+  },
+  "S36.591A": {
+    "code": "S36.591A",
+    "description": "Injury of other part of colon, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178",
+      "44140"
+    ]
+  },
+  "S37.001A": {
+    "code": "S37.001A",
+    "description": "Unspecified injury of right kidney, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178"
+    ]
+  },
+  "S37.061A": {
+    "code": "S37.061A",
+    "description": "Major laceration of right kidney, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99291",
+      "74178",
+      "50220"
+    ]
+  },
+  "S37.20XA": {
+    "code": "S37.20XA",
+    "description": "Injury of bladder, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99285",
+      "74178",
+      "51860"
+    ]
+  },
+  "S42.001A": {
+    "code": "S42.001A",
+    "description": "Fracture of unspecified part of right clavicle, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99283",
+      "73000"
+    ]
+  },
+  "S42.201A": {
+    "code": "S42.201A",
+    "description": "Unspecified fracture of upper end of right humerus, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "73060"
+    ]
+  },
+  "S52.001A": {
+    "code": "S52.001A",
+    "description": "Unspecified fracture of upper end of right ulna, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "73080"
+    ]
+  },
+  "S52.501A": {
+    "code": "S52.501A",
+    "description": "Unspecified fracture of lower end of right radius, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "25607"
+    ]
+  },
+  "S72.001A": {
+    "code": "S72.001A",
+    "description": "Fracture of unspecified part of neck of right femur, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27236"
+    ]
+  },
+  "S72.301A": {
+    "code": "S72.301A",
+    "description": "Unspecified fracture of shaft of right femur, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27507"
+    ]
+  },
+  "S82.001A": {
+    "code": "S82.001A",
+    "description": "Unspecified fracture of right patella, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284"
+    ]
+  },
+  "S82.101A": {
+    "code": "S82.101A",
+    "description": "Unspecified fracture of upper end of right tibia, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27752"
+    ]
+  },
+  "S82.891A": {
+    "code": "S82.891A",
+    "description": "Other fracture of right lower leg, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27759"
+    ]
+  },
+  "S82.51XA": {
+    "code": "S82.51XA",
+    "description": "Displaced fracture of medial malleolus of right tibia, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27766"
+    ]
+  },
+  "S82.841A": {
+    "code": "S82.841A",
+    "description": "Displaced bimalleolar fracture of right lower leg, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27792"
+    ]
+  },
+  "S82.851A": {
+    "code": "S82.851A",
+    "description": "Displaced trimalleolar fracture of right lower leg, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99284",
+      "27814"
+    ]
+  },
+  "T07": {
+    "code": "T07",
+    "description": "Unspecified multiple injuries",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99291",
+      "74178"
+    ]
+  },
+  "T79.A11A": {
+    "code": "T79.A11A",
+    "description": "Traumatic compartment syndrome of right lower extremity, initial",
+    "system": "trauma",
+    "common_cpt_associations": [
+      "99291",
+      "27601"
+    ]
+  },
+  "C18.0": {
+    "code": "C18.0",
+    "description": "Malignant neoplasm of cecum",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "44140",
+      "45380"
+    ]
+  },
+  "C18.2": {
+    "code": "C18.2",
+    "description": "Malignant neoplasm of ascending colon",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "44140",
+      "45380"
+    ]
+  },
+  "C18.7": {
+    "code": "C18.7",
+    "description": "Malignant neoplasm of sigmoid colon",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "44140",
+      "45380"
+    ]
+  },
+  "C18.9": {
+    "code": "C18.9",
+    "description": "Malignant neoplasm of colon, unspecified",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "44140",
+      "45380"
+    ]
+  },
+  "C20": {
+    "code": "C20",
+    "description": "Malignant neoplasm of rectum",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "45380"
+    ]
+  },
+  "C22.0": {
+    "code": "C22.0",
+    "description": "Liver cell carcinoma",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "47120",
+      "74177"
+    ]
+  },
+  "C25.0": {
+    "code": "C25.0",
+    "description": "Malignant neoplasm of head of pancreas",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "48150",
+      "74177"
+    ]
+  },
+  "C25.1": {
+    "code": "C25.1",
+    "description": "Malignant neoplasm of body of pancreas",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "48140",
+      "74177"
+    ]
+  },
+  "C34.10": {
+    "code": "C34.10",
+    "description": "Malignant neoplasm of upper lobe, unspecified bronchus/lung",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "32480",
+      "71260"
+    ]
+  },
+  "C34.90": {
+    "code": "C34.90",
+    "description": "Malignant neoplasm of unspecified lung",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "32440",
+      "71260"
+    ]
+  },
+  "C50.911": {
+    "code": "C50.911",
+    "description": "Malignant neoplasm of unspecified site of right breast",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "19301"
+    ]
+  },
+  "C50.912": {
+    "code": "C50.912",
+    "description": "Malignant neoplasm of unspecified site of left breast",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "19301"
+    ]
+  },
+  "C56.1": {
+    "code": "C56.1",
+    "description": "Malignant neoplasm of right ovary",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "58943"
+    ]
+  },
+  "C56.2": {
+    "code": "C56.2",
+    "description": "Malignant neoplasm of left ovary",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "58943"
+    ]
+  },
+  "C61": {
+    "code": "C61",
+    "description": "Malignant neoplasm of prostate",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "55866"
+    ]
+  },
+  "C64.1": {
+    "code": "C64.1",
+    "description": "Malignant neoplasm of right kidney",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "50545"
+    ]
+  },
+  "C64.2": {
+    "code": "C64.2",
+    "description": "Malignant neoplasm of left kidney",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "50545"
+    ]
+  },
+  "C67.0": {
+    "code": "C67.0",
+    "description": "Malignant neoplasm of trigone of bladder",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "52234"
+    ]
+  },
+  "C73": {
+    "code": "C73",
+    "description": "Malignant neoplasm of thyroid gland",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "60240"
+    ]
+  },
+  "C80.0": {
+    "code": "C80.0",
+    "description": "Disseminated malignant neoplasm, unspecified",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "96413"
+    ]
+  },
+  "C80.1": {
+    "code": "C80.1",
+    "description": "Malignant neoplasm, unspecified",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214"
+    ]
+  },
+  "D12.6": {
+    "code": "D12.6",
+    "description": "Benign neoplasm of colon, unspecified",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99213",
+      "45385"
+    ]
+  },
+  "D25.9": {
+    "code": "D25.9",
+    "description": "Leiomyoma of uterus, unspecified",
+    "system": "neoplasms",
+    "common_cpt_associations": [
+      "99214",
+      "58150"
+    ]
+  },
+  "E08.65": {
+    "code": "E08.65",
+    "description": "Diabetes due to underlying condition with hyperglycemia",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99214",
+      "83036"
+    ]
+  },
+  "E10.65": {
+    "code": "E10.65",
+    "description": "Type 1 diabetes with hyperglycemia",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99214",
+      "83036"
+    ]
+  },
+  "E11.65": {
+    "code": "E11.65",
+    "description": "Type 2 diabetes with hyperglycemia",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99214",
+      "83036"
+    ]
+  },
+  "E11.9": {
+    "code": "E11.9",
+    "description": "Type 2 diabetes without complications",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99213",
+      "83036"
+    ]
+  },
+  "E03.9": {
+    "code": "E03.9",
+    "description": "Hypothyroidism, unspecified",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99213",
+      "84443"
+    ]
+  },
+  "E04.1": {
+    "code": "E04.1",
+    "description": "Nontoxic single thyroid nodule",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99213",
+      "76536"
+    ]
+  },
+  "E05.00": {
+    "code": "E05.00",
+    "description": "Thyrotoxicosis with diffuse goiter, without crisis",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99214",
+      "84443"
+    ]
+  },
+  "E66.01": {
+    "code": "E66.01",
+    "description": "Morbid obesity due to excess calories",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99214",
+      "43775"
+    ]
+  },
+  "E78.00": {
+    "code": "E78.00",
+    "description": "Pure hypercholesterolemia, unspecified",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99213",
+      "80061"
+    ]
+  },
+  "E78.5": {
+    "code": "E78.5",
+    "description": "Dyslipidemia, unspecified",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99213",
+      "80061"
+    ]
+  },
+  "E87.1": {
+    "code": "E87.1",
+    "description": "Hypo-osmolality and hyponatremia",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99222",
+      "84295"
+    ]
+  },
+  "E87.5": {
+    "code": "E87.5",
+    "description": "Hyperkalemia",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99222",
+      "84132"
+    ]
+  },
+  "E87.6": {
+    "code": "E87.6",
+    "description": "Hypokalemia",
+    "system": "endocrine_metabolic",
+    "common_cpt_associations": [
+      "99222",
+      "84132"
+    ]
+  },
+  "N13.1": {
+    "code": "N13.1",
+    "description": "Hydronephrosis with ureteral stricture",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "50385"
+    ]
+  },
+  "N17.9": {
+    "code": "N17.9",
+    "description": "Acute kidney failure, unspecified",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99222",
+      "82565"
+    ]
+  },
+  "N18.3": {
+    "code": "N18.3",
+    "description": "Chronic kidney disease, stage 3",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "82565"
+    ]
+  },
+  "N18.4": {
+    "code": "N18.4",
+    "description": "Chronic kidney disease, stage 4",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "82565"
+    ]
+  },
+  "N18.5": {
+    "code": "N18.5",
+    "description": "Chronic kidney disease, stage 5",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "82565"
+    ]
+  },
+  "N18.6": {
+    "code": "N18.6",
+    "description": "End stage renal disease",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "82565",
+      "36818"
+    ]
+  },
+  "N20.0": {
+    "code": "N20.0",
+    "description": "Calculus of kidney",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "50590"
+    ]
+  },
+  "N20.1": {
+    "code": "N20.1",
+    "description": "Calculus of ureter",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99284",
+      "52352"
+    ]
+  },
+  "N39.0": {
+    "code": "N39.0",
+    "description": "Urinary tract infection, site not specified",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99213",
+      "81001"
+    ]
+  },
+  "N40.0": {
+    "code": "N40.0",
+    "description": "Benign prostatic hyperplasia without LUTS",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99213",
+      "52601"
+    ]
+  },
+  "N40.1": {
+    "code": "N40.1",
+    "description": "Benign prostatic hyperplasia with LUTS",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "52601"
+    ]
+  },
+  "N41.0": {
+    "code": "N41.0",
+    "description": "Acute prostatitis",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99284",
+      "81001"
+    ]
+  },
+  "N80.0": {
+    "code": "N80.0",
+    "description": "Endometriosis of uterus",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "58662"
+    ]
+  },
+  "N81.2": {
+    "code": "N81.2",
+    "description": "Incomplete uterovaginal prolapse",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "57260"
+    ]
+  },
+  "N83.20": {
+    "code": "N83.20",
+    "description": "Unspecified ovarian cyst",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99213",
+      "76856"
+    ]
+  },
+  "N92.0": {
+    "code": "N92.0",
+    "description": "Excessive menstruation with regular cycle",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "58558"
+    ]
+  },
+  "N92.1": {
+    "code": "N92.1",
+    "description": "Excessive menstruation with irregular cycle",
+    "system": "genitourinary",
+    "common_cpt_associations": [
+      "99214",
+      "58558"
+    ]
+  },
+  "A41.9": {
+    "code": "A41.9",
+    "description": "Sepsis, unspecified organism",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99291",
+      "87070"
+    ]
+  },
+  "A41.01": {
+    "code": "A41.01",
+    "description": "Sepsis due to MRSA",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99291",
+      "87070"
+    ]
+  },
+  "B37.0": {
+    "code": "B37.0",
+    "description": "Candidal stomatitis (oral thrush)",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "J15.9": {
+    "code": "J15.9",
+    "description": "Unspecified bacterial pneumonia",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99222",
+      "71046"
+    ]
+  },
+  "K12.2": {
+    "code": "K12.2",
+    "description": "Cellulitis and abscess of mouth",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99283",
+      "10060"
+    ]
+  },
+  "L02.211": {
+    "code": "L02.211",
+    "description": "Cutaneous abscess of abdominal wall",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99283",
+      "10060"
+    ]
+  },
+  "L02.31": {
+    "code": "L02.31",
+    "description": "Cutaneous abscess of buttock",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99283",
+      "10060"
+    ]
+  },
+  "L03.011": {
+    "code": "L03.011",
+    "description": "Cellulitis of right finger",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99283"
+    ]
+  },
+  "L03.115": {
+    "code": "L03.115",
+    "description": "Cellulitis of right lower limb",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99284"
+    ]
+  },
+  "L03.116": {
+    "code": "L03.116",
+    "description": "Cellulitis of left lower limb",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99284"
+    ]
+  },
+  "L03.311": {
+    "code": "L03.311",
+    "description": "Cellulitis of abdominal wall",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99284"
+    ]
+  },
+  "N10": {
+    "code": "N10",
+    "description": "Acute pyelonephritis",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99284",
+      "81001"
+    ]
+  },
+  "T81.4XXA": {
+    "code": "T81.4XXA",
+    "description": "Infection following a procedure, initial",
+    "system": "infectious",
+    "common_cpt_associations": [
+      "99284"
+    ]
+  },
+  "G20": {
+    "code": "G20",
+    "description": "Parkinson's disease",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99214"
+    ]
+  },
+  "G30.9": {
+    "code": "G30.9",
+    "description": "Alzheimer's disease, unspecified",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99214"
+    ]
+  },
+  "G35": {
+    "code": "G35",
+    "description": "Multiple sclerosis",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99214",
+      "70553"
+    ]
+  },
+  "G40.901": {
+    "code": "G40.901",
+    "description": "Epilepsy, unspecified, not intractable, with status epilepticus",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99285"
+    ]
+  },
+  "G43.009": {
+    "code": "G43.009",
+    "description": "Migraine without aura, not intractable, without status migrainosus",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "G43.909": {
+    "code": "G43.909",
+    "description": "Migraine, unspecified, not intractable",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99213"
+    ]
+  },
+  "G45.9": {
+    "code": "G45.9",
+    "description": "Transient cerebral ischemic attack, unspecified",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99284",
+      "70553"
+    ]
+  },
+  "G47.33": {
+    "code": "G47.33",
+    "description": "Obstructive sleep apnea",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99213",
+      "94660"
+    ]
+  },
+  "G56.00": {
+    "code": "G56.00",
+    "description": "Carpal tunnel syndrome, unspecified upper limb",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99213",
+      "64721"
+    ]
+  },
+  "G89.29": {
+    "code": "G89.29",
+    "description": "Other chronic pain",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99213",
+      "64493"
+    ]
+  },
+  "G91.0": {
+    "code": "G91.0",
+    "description": "Communicating hydrocephalus",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99214",
+      "62223"
+    ]
+  },
+  "G91.1": {
+    "code": "G91.1",
+    "description": "Obstructive hydrocephalus",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99214",
+      "62223"
+    ]
+  },
+  "I61.9": {
+    "code": "I61.9",
+    "description": "Nontraumatic intracerebral hemorrhage, unspecified",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99291",
+      "70450",
+      "61312"
+    ]
+  },
+  "I62.00": {
+    "code": "I62.00",
+    "description": "Nontraumatic subdural hemorrhage",
+    "system": "neurological",
+    "common_cpt_associations": [
+      "99291",
+      "70450",
+      "61312"
+    ]
+  }
+}
