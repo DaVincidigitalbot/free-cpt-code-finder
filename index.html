@@ -3920,12 +3920,220 @@
             color: #1E293B;
         }
 
+        /* Enhanced UI Components for Billing Intelligence */
+        .billing-context-panel {
+            background: #F8FAFC;
+            border-top: 1px solid #CBD5E1;
+            padding: 12px 20px;
+            display: none;
+        }
+        
+        .billing-context-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .global-period-toggle, .payer-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .toggle-checkbox {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #94A3B8;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .toggle-checkbox:checked {
+            background: #3B82F6;
+            border-color: #3B82F6;
+        }
+        
+        .toggle-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 1px;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .payer-buttons {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .payer-btn {
+            padding: 4px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        
+        .payer-btn.active {
+            background: #3B82F6;
+            color: white;
+            border-color: #3B82F6;
+        }
+        
+        .global-period-dropdown {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        
+        .hierarchy-tier {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+        
+        .tier-1 { background: #DC2626; color: white; } /* Most complex */
+        .tier-2 { background: #EA580C; color: white; }
+        .tier-3 { background: #D97706; color: white; }
+        .tier-4 { background: #65A30D; color: white; }
+        .tier-5 { background: #059669; color: white; } /* Simplest */
+        
+        .procedure-included {
+            text-decoration: line-through;
+            color: #94A3B8;
+            background: #F1F5F9;
+        }
+        
+        .audit-trail-panel {
+            background: white;
+            border-top: 1px solid #CBD5E1;
+            padding: 0;
+            display: none;
+        }
+        
+        .audit-trail-header {
+            background: #F1F5F9;
+            padding: 10px 20px;
+            border-bottom: 1px solid #E2E8F0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .audit-trail-content {
+            padding: 12px 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.8rem;
+        }
+        
+        .audit-entry {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid #F1F5F9;
+        }
+        
+        .audit-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .audit-reason {
+            color: #64748B;
+            flex: 1;
+        }
+        
+        .audit-risk {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .risk-low { background: #D1FAE5; color: #059669; }
+        .risk-medium { background: #FEF3C7; color: #D97706; }
+        .risk-high { background: #FEE2E2; color: #DC2626; }
+        
+        .smart-suggestion {
+            background: #EBF8FF;
+            border: 1px solid #3B82F6;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .suggestion-text {
+            color: #1E40AF;
+            font-size: 0.8rem;
+            flex: 1;
+        }
+        
+        .suggestion-actions {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .suggestion-btn {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-apply {
+            background: #3B82F6;
+            color: white;
+        }
+        
+        .btn-apply:hover {
+            background: #2563EB;
+        }
+        
+        .btn-dismiss {
+            background: #F1F5F9;
+            color: #64748B;
+        }
+        
+        .btn-dismiss:hover {
+            background: #E2E8F0;
+        }
+
         @media (max-width: 640px) {
             .case-tray-bar { padding: 8px 12px; gap: 8px; }
             .case-tray-stats { gap: 10px; }
             .case-stat-value { font-size: 0.95rem; }
             .case-proc { padding: 6px 12px; font-size: 0.78rem; }
             .case-proc-desc { max-width: 120px; }
+            .billing-context-row { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
 
@@ -3959,6 +4167,30 @@
                 <button class="case-tray-toggle" id="caseTrayToggle">▲</button>
             </div>
         </div>
+        
+        <!-- Enhanced Billing Context Panel -->
+        <div class="billing-context-panel" id="billingContextPanel">
+            <div class="billing-context-row">
+                <div class="global-period-toggle">
+                    <input type="checkbox" class="toggle-checkbox" id="globalPeriodToggle" onchange="toggleGlobalPeriod()">
+                    <label for="globalPeriodToggle">Within prior surgery's global period</label>
+                    <select class="global-period-dropdown" id="globalPeriodRelationship" style="display:none;">
+                        <option value="">Select relationship...</option>
+                        <option value="staged">Staged procedure (-58)</option>
+                        <option value="unplanned_related">Unplanned return (-78)</option>
+                        <option value="unrelated">Unrelated procedure (-79)</option>
+                    </select>
+                </div>
+                <div class="payer-toggle">
+                    <span>Payer:</span>
+                    <div class="payer-buttons">
+                        <button class="payer-btn active" id="medicareBtn" onclick="selectPayer('medicare')">Medicare</button>
+                        <button class="payer-btn" id="commercialBtn" onclick="selectPayer('commercial')">Commercial</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="case-tray-detail" id="caseTrayDetail"></div>
         
         <!-- Modifier Intelligence Panel -->
@@ -3969,6 +4201,19 @@
             </div>
             <div class="modifier-panel-content" id="modifierPanelContent"></div>
             <div class="modifier-clarification-questions" id="modifierQuestions"></div>
+        </div>
+        
+        <!-- Audit Trail Panel -->
+        <div class="audit-trail-panel" id="auditTrailPanel">
+            <div class="audit-trail-header" onclick="toggleAuditTrail()">
+                <span>📋 Audit Trail</span>
+                <span id="auditTrailToggle">▼</span>
+            </div>
+            <div class="audit-trail-content" id="auditTrailContent" style="display:none;">
+                <div class="audit-entry">
+                    <span class="audit-reason">No analysis run yet</span>
+                </div>
+            </div>
         </div>
         <div class="case-tray-search" id="caseTraySearch" style="display:none;padding:10px 20px;border-top:1px solid var(--gray-200);background:white;">
             <div style="display:flex;gap:8px;">
@@ -5139,6 +5384,9 @@
         });
     }
     </script>
+    
+    <!-- Enhanced Billing Intelligence -->
+    <script src="enhanced_billing.js"></script>
 
     <!-- ============================================ -->
     <!-- AI CPT Assistant - Powered by Qwen 2.5 (WebLLM) -->
