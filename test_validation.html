@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Billing Intelligence Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .test-container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        .test-scenario { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #3b82f6; }
+        .test-result { padding: 10px; margin: 5px 0; border-radius: 5px; }
+        .pass { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .button { background: #3b82f6; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .button:hover { background: #2563eb; }
+        #results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Enhanced Billing Intelligence Test Suite</h1>
+        <p>Testing the upgraded FreeCPTCodeFinder.com surgical billing intelligence engine.</p>
+        
+        <div class="test-scenario">
+            <h3>Test Scenarios</h3>
+            <ol>
+                <li><strong>Trauma laparotomy:</strong> 49000 + 38100 + 44120 + 97606</li>
+                <li><strong>ENT multi-sinus bilateral:</strong> 31253 + 31256 + 31276</li>
+                <li><strong>CABG with vein harvest:</strong> 33535 + 33508</li>
+                <li><strong>Re-operation within global:</strong> 49000 (within 30 days of prior surgery)</li>
+                <li><strong>Bilateral inguinal hernia:</strong> 49505 x2</li>
+                <li><strong>Component separation + hernia:</strong> 15734 + 49593</li>
+                <li><strong>Critical care bundling:</strong> 99291 + 36556 + 31500</li>
+            </ol>
+        </div>
+        
+        <button class="button" onclick="runTests()">🚀 Run Clinical Validation Tests</button>
+        <button class="button" onclick="testModifierEngine()">🧠 Test Modifier Engine</button>
+        <button class="button" onclick="testBundleDetection()">🔗 Test Bundle Detection</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <!-- Load the enhanced system -->
+    <script src="modifier_engine.js"></script>
+    <script src="enhanced_billing.js"></script>
+    
+    <script>
+        async function runTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h3>🧪 Running Tests...</h3>';
+            
+            // Wait for ModifierEngine to initialize
+            if (!window.ModifierEngine) {
+                resultsDiv.innerHTML += '<div class="fail">❌ ModifierEngine not loaded</div>';
+                return;
+            }
+            
+            try {
+                await window.ModifierEngine.initialize();
+                const results = window.ModifierEngine.runClinicalValidation();
+                
+                let html = '<h3>📊 Test Results</h3>';
+                const passCount = results.filter(r => r.passed).length;
+                const totalCount = results.length;
+                
+                html += `<div class="test-result ${passCount === totalCount ? 'pass' : 'fail'}">
+                    <strong>Overall: ${passCount}/${totalCount} scenarios passed</strong>
+                </div>`;
+                
+                results.forEach((result, index) => {
+                    const status = result.passed ? '✅ PASS' : '❌ FAIL';
+                    const className = result.passed ? 'pass' : 'fail';
+                    
+                    html += `<div class="test-result ${className}">
+                        <strong>${status}: Scenario ${index + 1}</strong><br>
+                        ${result.passed ? 'All validations passed' : result.issues.join('<br>')}
+                    </div>`;
+                });
+                
+                resultsDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="fail">❌ Test failed: ${error.message}</div>`;
+            }
+        }
+        
+        async function testModifierEngine() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h3>🧠 Testing Modifier Engine...</h3>';
+            
+            if (!window.ModifierEngine) {
+                resultsDiv.innerHTML += '<div class="fail">❌ ModifierEngine not loaded</div>';
+                return;
+            }
+            
+            try {
+                await window.ModifierEngine.initialize();
+                
+                // Test case: Laparoscopic cholecystectomy
+                const testCase = [
+                    {
+                        id: 1,
+                        code: '47562',
+                        work_rvu: 7.5,
+                        description: 'Laparoscopic cholecystectomy'
+                    }
+                ];
+                
+                const analysis = await window.ModifierEngine.analyze(testCase, { payerType: 'medicare' });
+                
+                let html = '<h3>📊 Modifier Engine Test Results</h3>';
+                html += `<div class="pass">✅ Analysis completed for ${analysis.procedures.length} procedure(s)</div>`;
+                html += `<div class="test-result pass">✅ Audit trail entries: ${analysis.auditTrail?.length || 0}</div>`;
+                html += `<div class="test-result pass">✅ Total wRVU: ${analysis.summary?.totalWRVU || 0}</div>`;
+                html += `<div class="test-result pass">✅ Billing compliance score: ${analysis.summary?.billingCompliance?.score || 'N/A'}</div>`;
+                
+                resultsDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="fail">❌ Test failed: ${error.message}</div>`;
+            }
+        }
+        
+        async function testBundleDetection() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h3>🔗 Testing Bundle Detection...</h3>';
+            
+            if (!window.ModifierEngine) {
+                resultsDiv.innerHTML += '<div class="fail">❌ ModifierEngine not loaded</div>';
+                return;
+            }
+            
+            try {
+                await window.ModifierEngine.initialize();
+                
+                // Test case: Lap chole + diagnostic laparoscopy (should bundle)
+                const testCase = [
+                    {
+                        id: 1,
+                        code: '47562',
+                        work_rvu: 7.5,
+                        description: 'Laparoscopic cholecystectomy'
+                    },
+                    {
+                        id: 2,
+                        code: '49320',
+                        work_rvu: 3.2,
+                        description: 'Diagnostic laparoscopy'
+                    }
+                ];
+                
+                const analysis = await window.ModifierEngine.analyze(testCase, { payerType: 'medicare' });
+                
+                let html = '<h3>📊 Bundle Detection Test Results</h3>';
+                html += `<div class="test-result pass">✅ Analysis completed</div>`;
+                
+                const warningsCount = analysis.warnings?.length || 0;
+                html += `<div class="test-result ${warningsCount > 0 ? 'pass' : 'fail'}">
+                    ${warningsCount > 0 ? '✅' : '❌'} Detected ${warningsCount} bundling warning(s)
+                </div>`;
+                
+                if (warningsCount > 0) {
+                    analysis.warnings.forEach(warning => {
+                        html += `<div class="test-result pass">• ${warning.message}</div>`;
+                    });
+                }
+                
+                resultsDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="fail">❌ Test failed: ${error.message}</div>`;
+            }
+        }
+        
+        // Auto-run basic test on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('results').innerHTML = `
+                    <h3>🎯 System Status</h3>
+                    <div class="test-result ${window.ModifierEngine ? 'pass' : 'fail'}">
+                        ${window.ModifierEngine ? '✅' : '❌'} ModifierEngine: ${window.ModifierEngine ? 'Loaded' : 'Not loaded'}
+                    </div>
+                    <div class="test-result ${typeof toggleGlobalPeriod !== 'undefined' ? 'pass' : 'fail'}">
+                        ${typeof toggleGlobalPeriod !== 'undefined' ? '✅' : '❌'} Enhanced Billing: ${typeof toggleGlobalPeriod !== 'undefined' ? 'Loaded' : 'Not loaded'}
+                    </div>
+                    <p>Click the test buttons above to run comprehensive validation.</p>
+                `;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,525 +1,334 @@
 {
   "bundles": {
     "49505": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": ["49568"],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
       "reason": "49568 is add-on code, never gets -59"
     },
     "49507": {
-      "column2_codes": [
-        "49568"
-      ],
-      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "column2_codes": ["49568"],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)", 
       "modifier59_allowed": false,
       "reason": "49568 is add-on code, never gets -59"
     },
     "49520": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": ["49568"],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
       "reason": "49568 is add-on code, never gets -59"
     },
     "49525": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": ["49568"],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
       "reason": "49568 is add-on code, never gets -59"
     },
     "44140": {
-      "column2_codes": [
-        "44604",
-        "44320"
-      ],
+      "column2_codes": ["44604", "44320"],
       "description": "Colon resection may bundle with adhesiolysis and stoma creation",
       "modifier59_allowed": true,
       "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
     },
     "44120": {
-      "column2_codes": [
-        "44604",
-        "44320"
-      ],
+      "column2_codes": ["44604", "44320"],
       "description": "Small bowel resection may bundle with adhesiolysis and stoma creation",
       "modifier59_allowed": true,
       "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
     },
     "49000": {
-      "column2_codes": [
-        "44604",
-        "97606"
-      ],
+      "column2_codes": ["44604", "97606"],
       "description": "Exploratory laparotomy bundles with adhesiolysis and wound VAC",
       "modifier59_allowed": true,
       "reason": "Adhesiolysis during exploration typically bundled unless extensive/unrelated"
     },
     "38100": {
-      "column2_codes": [
-        "44604",
-        "49000"
-      ],
+      "column2_codes": ["44604", "49000"],
       "description": "Splenectomy may bundle with adhesiolysis and exploratory laparotomy",
       "modifier59_allowed": false,
       "reason": "49000 is typically bundled with organ-specific procedures"
     },
     "47550": {
-      "column2_codes": [
-        "44604"
-      ],
+      "column2_codes": ["44604"],
       "description": "Laparoscopic cholecystectomy may bundle with adhesiolysis",
       "modifier59_allowed": true,
       "reason": "Adhesiolysis for gallbladder exposure typically bundled"
     },
     "47562": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "47563": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Complex laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "44180": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic enterolysis bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "44202": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic enterectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "44204": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic partial colectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "44205": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic colectomy bundles with diagnostic laparoscopy",
+      "column2_codes": ["49320"],
+      "description": "Laparoscopic colectomy bundles with diagnostic laparoscopy", 
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "44212": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic total proctocolectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "49650": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "49651": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "49652": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "49653": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic ventral hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "49654": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic incisional hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "49655": {
-      "column2_codes": [
-        "49320"
-      ],
+      "column2_codes": ["49320"],
       "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "31254": {
-      "column2_codes": [
-        "31231"
-      ],
+      "column2_codes": ["31231"],
       "description": "Partial ethmoidectomy bundles with diagnostic nasal endoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
     },
     "31255": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Total ethmoidectomy bundles with diagnostic nasal endoscopy",
+      "column2_codes": ["31231"],
+      "description": "Total ethmoidectomy bundles with diagnostic nasal endoscopy", 
       "modifier59_allowed": false,
       "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
     },
     "31256": {
-      "column2_codes": [
-        "31231",
-        "31257",
-        "31267"
-      ],
+      "column2_codes": ["31231", "31257", "31267"],
       "description": "Maxillary antrostomy bundles with diagnostic endoscopy and other sinus procedures",
       "modifier59_allowed": true,
       "reason": "Use -59 if performed on different sinus systems or separate sessions"
     },
     "31267": {
-      "column2_codes": [
-        "31231"
-      ],
+      "column2_codes": ["31231"],
       "description": "Nasal/sinus endoscopy bundles with diagnostic endoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic endoscopy inherently included in therapeutic procedure"
     },
     "31276": {
-      "column2_codes": [
-        "31231"
-      ],
+      "column2_codes": ["31231"],
       "description": "Frontal sinusotomy bundles with diagnostic nasal endoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
     },
     "31287": {
-      "column2_codes": [
-        "31231"
-      ],
+      "column2_codes": ["31231"],
       "description": "Sphenoidotomy bundles with diagnostic nasal endoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
     },
     "31288": {
-      "column2_codes": [
-        "31231"
-      ],
+      "column2_codes": ["31231"],
       "description": "Sphenoidotomy bundles with diagnostic nasal endoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
     },
     "31253": {
-      "column2_codes": [
-        "31254"
-      ],
+      "column2_codes": ["31254"],
       "description": "Total ethmoidectomy includes partial ethmoidectomy",
       "modifier59_allowed": false,
       "reason": "Total ethmoidectomy inherently includes partial ethmoidectomy"
     },
     "42820": {
-      "column2_codes": [
-        "42830"
-      ],
+      "column2_codes": ["42830"],
       "description": "Tonsillectomy includes adenoidectomy",
       "modifier59_allowed": false,
       "reason": "Adenoidectomy inherently included in T&A"
     },
     "42821": {
-      "column2_codes": [
-        "42830"
-      ],
+      "column2_codes": ["42830"],
       "description": "Tonsillectomy includes adenoidectomy",
       "modifier59_allowed": false,
       "reason": "Adenoidectomy inherently included in T&A"
     },
     "30520": {
-      "column2_codes": [
-        "30140"
-      ],
+      "column2_codes": ["30140"],
       "description": "Septoplasty with turbinate reduction - allowed together with documentation",
       "modifier59_allowed": true,
       "reason": "Allowed together if extensive turbinate work documented"
     },
     "31525": {
-      "column2_codes": [
-        "31535",
-        "31536",
-        "31541",
-        "31545"
-      ],
+      "column2_codes": ["31535", "31536", "31541", "31545"],
       "description": "Direct laryngoscopy included in therapeutic laryngeal procedures",
       "modifier59_allowed": false,
       "reason": "Diagnostic laryngoscopy inherently included in therapeutic procedures"
     },
     "32551": {
-      "column2_codes": [
-        "32100"
-      ],
+      "column2_codes": ["32100"],
       "description": "Chest tube insertion bundled with thoracotomy",
       "modifier59_allowed": false,
       "reason": "Chest tube placement integral to thoracotomy"
     },
     "99291": {
-      "column2_codes": [
-        "36556",
-        "36620",
-        "31500",
-        "32551",
-        "62270"
-      ],
+      "column2_codes": ["36556", "36620", "31500", "32551", "62270"],
       "description": "Critical care includes various procedures",
       "modifier59_allowed": false,
       "reason": "These procedures are included in critical care and cannot be billed separately"
     },
     "33533": {
-      "column2_codes": [
-        "33508"
-      ],
+      "column2_codes": ["33508"],
       "description": "CABG with vein harvest - 33508 is add-on",
       "modifier59_allowed": false,
       "reason": "33508 is add-on code to CABG, not subject to -59"
     },
     "33534": {
-      "column2_codes": [
-        "33508"
-      ],
+      "column2_codes": ["33508"],
       "description": "CABG with vein harvest - 33508 is add-on",
       "modifier59_allowed": false,
       "reason": "33508 is add-on code to CABG, not subject to -59"
     },
     "33535": {
-      "column2_codes": [
-        "33508"
-      ],
+      "column2_codes": ["33508"],
       "description": "CABG with vein harvest - 33508 is add-on",
       "modifier59_allowed": false,
       "reason": "33508 is add-on code to CABG, not subject to -59"
     },
     "33536": {
-      "column2_codes": [
-        "33508"
-      ],
-      "description": "CABG with vein harvest - 33508 is add-on",
+      "column2_codes": ["33508"],
+      "description": "CABG with vein harvest - 33508 is add-on", 
       "modifier59_allowed": false,
       "reason": "33508 is add-on code to CABG, not subject to -59"
     },
     "36200": {
-      "column2_codes": [
-        "36221",
-        "36222",
-        "36223",
-        "36224",
-        "36225",
-        "36226"
-      ],
+      "column2_codes": ["36221", "36222", "36223", "36224", "36225", "36226"],
       "description": "Aortography included in endovascular procedures",
       "modifier59_allowed": false,
       "reason": "Diagnostic angiography included in therapeutic intervention"
     },
     "11042": {
-      "column2_codes": [
-        "11043",
-        "11044"
-      ],
+      "column2_codes": ["11043", "11044"],
       "description": "Debridement codes bundle if performed at same site - deeper includes shallower",
       "modifier59_allowed": true,
       "reason": "Use -59 if performed at separate wounds or different sessions"
     },
     "11043": {
-      "column2_codes": [
-        "11044"
-      ],
+      "column2_codes": ["11044"],
       "description": "Muscle debridement includes subcutaneous debridement at same site",
       "modifier59_allowed": true,
       "reason": "Use -59 if performed at separate wounds"
     },
     "44005": {
-      "column2_codes": [
-        "44120",
-        "44140",
-        "38100",
-        "47550"
-      ],
+      "column2_codes": ["44120", "44140", "38100", "47550"],
       "description": "Lysis of adhesions bundled into most abdominal procedures unless extensive",
       "modifier59_allowed": true,
       "reason": "Use -59 with -22 if adhesiolysis extensive and unrelated to primary procedure"
     },
     "12001": {
-      "column2_codes": [
-        "11042",
-        "11043",
-        "11044",
-        "44120",
-        "44140",
-        "38100"
-      ],
+      "column2_codes": ["11042", "11043", "11044", "44120", "44140", "38100"],
       "description": "Simple wound repair included in all surgical procedures",
       "modifier59_allowed": false,
       "reason": "Wound closure inherently included in surgical procedures"
     },
     "12002": {
-      "column2_codes": [
-        "11042",
-        "11043",
-        "11044",
-        "44120",
-        "44140",
-        "38100"
-      ],
-      "description": "Simple wound repair included in all surgical procedures",
+      "column2_codes": ["11042", "11043", "11044", "44120", "44140", "38100"],
+      "description": "Simple wound repair included in all surgical procedures", 
       "modifier59_allowed": false,
       "reason": "Wound closure inherently included in surgical procedures"
     },
     "12031": {
-      "column2_codes": [
-        "11042",
-        "11043",
-        "11044",
-        "44120",
-        "44140",
-        "38100"
-      ],
+      "column2_codes": ["11042", "11043", "11044", "44120", "44140", "38100"],
       "description": "Intermediate wound repair included in all surgical procedures",
       "modifier59_allowed": false,
       "reason": "Wound closure inherently included in surgical procedures"
     },
     "13100": {
-      "column2_codes": [
-        "11042",
-        "11043",
-        "11044",
-        "44120",
-        "44140",
-        "38100"
-      ],
+      "column2_codes": ["11042", "11043", "11044", "44120", "44140", "38100"],
       "description": "Complex wound repair included in all surgical procedures",
       "modifier59_allowed": false,
       "reason": "Wound closure inherently included in surgical procedures"
     },
     "19318": {
-      "column2_codes": [
-        "15734"
-      ],
+      "column2_codes": ["15734"],
       "description": "Breast reduction may bundle with tissue transfer",
       "modifier59_allowed": true,
       "reason": "Separate if performed for different indication"
     },
     "49560": {
-      "column2_codes": [
-        "15734"
-      ],
+      "column2_codes": ["15734"],
       "description": "Ventral hernia repair with component separation",
       "modifier59_allowed": false,
       "reason": "Component separation (15734) is distinct reconstructive procedure - never bundled"
     },
     "49561": {
-      "column2_codes": [
-        "15734"
-      ],
+      "column2_codes": ["15734"],
       "description": "Ventral hernia repair with component separation",
       "modifier59_allowed": false,
       "reason": "Component separation (15734) is distinct reconstructive procedure - never bundled"
     },
     "60240": {
-      "column2_codes": [
-        "60260",
-        "60270"
-      ],
+      "column2_codes": ["60260", "60270"],
       "description": "Thyroid lobectomy bundles with total thyroidectomy",
       "modifier59_allowed": false,
       "reason": "Cannot bill partial and total thyroidectomy on same side"
     },
     "58662": {
-      "column2_codes": [
-        "58670",
-        "58700"
-      ],
+      "column2_codes": ["58670", "58700"],
       "description": "Laparoscopic procedures may bundle if performed together",
       "modifier59_allowed": true,
       "reason": "May use -59 if procedures are unrelated or at separate sites"
     },
     "10060": {
-      "column2_codes": [
-        "10061"
-      ],
+      "column2_codes": ["10061"],
       "description": "Simple and complex I&D typically bundled",
       "modifier59_allowed": true,
       "reason": "Use -59 if performed at separate anatomic sites"
     },
     "19340": {
-      "column2_codes": [
-        "19342",
-        "19350"
-      ],
+      "column2_codes": ["19342", "19350"],
       "description": "Breast reconstruction procedures may bundle",
       "modifier59_allowed": true,
       "reason": "Use -59 if staged procedures or bilateral different techniques"
-    },
-    "32100": {
-      "column2_codes": [
-        "32551",
-        "32552"
-      ],
-      "description": "Thoracotomy includes chest tube insertion",
-      "modifier59_allowed": false,
-      "reason": "Chest tube is component of thoracotomy approach"
-    },
-    "92928": {
-      "column2_codes": [
-        "93458",
-        "93452",
-        "93454"
-      ],
-      "description": "PCI includes diagnostic catheterization",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic catheterization is inherent to PCI"
-    },
-    "44970": {
-      "column2_codes": [
-        "44180",
-        "44005"
-      ],
-      "description": "Appendectomy includes adhesiolysis for exposure",
-      "modifier59_allowed": true,
-      "reason": "Adhesiolysis for appendiceal exposure typically bundled, -59 if extensive/unrelated"
-    },
-    "42826": {
-      "column2_codes": [
-        "42830"
-      ],
-      "description": "Tonsillectomy includes adenoidectomy",
-      "modifier59_allowed": false,
-      "reason": "Adenoidectomy inherently included in tonsillectomy"
     }
   },
   "common_pairs": [
@@ -530,21 +339,21 @@
       "explanation": "Mesh insertion is add-on to hernia repair"
     },
     {
-      "column1": "44140",
+      "column1": "44140", 
       "column2": "44604",
       "bundle_type": "integral",
       "explanation": "Adhesiolysis typically integral to bowel resection"
     },
     {
       "column1": "49000",
-      "column2": "44604",
+      "column2": "44604", 
       "bundle_type": "integral",
       "explanation": "Adhesiolysis during exploratory lap typically bundled"
     },
     {
       "column1": "47550",
       "column2": "44604",
-      "bundle_type": "integral",
+      "bundle_type": "integral", 
       "explanation": "Adhesiolysis for cholecystectomy exposure typically bundled"
     },
     {

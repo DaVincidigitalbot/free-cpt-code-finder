@@ -1913,9 +1913,9 @@
   "15734": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": false,
+    "bilateral_eligible": true,
     "laterality_applicable": false,
-    "bilateral_method": null,
+    "bilateral_method": "modifier_50",
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
@@ -4912,7 +4912,7 @@
     "addon_code": false,
     "bilateral_eligible": true,
     "laterality_applicable": true,
-    "bilateral_method": "rt_lt",
+    "bilateral_method": "modifier_50",
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": false,
@@ -7200,7 +7200,8 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "32551"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -8428,7 +8429,9 @@
       "12004",
       "12005"
     ],
-    "never_primary_with": [],
+    "never_primary_with": [
+      "33405"
+    ],
     "specialty_bundle_rules": {
       "ent": {
         "always_with": [],
@@ -10130,7 +10133,9 @@
       "12004",
       "12005"
     ],
-    "never_primary_with": [],
+    "never_primary_with": [
+      "48140"
+    ],
     "specialty_bundle_rules": {
       "ent": {
         "always_with": [],
@@ -11057,7 +11062,8 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "42830"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -12508,7 +12514,8 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "44180"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -19889,7 +19896,10 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "93458",
+      "93452",
+      "93454"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {

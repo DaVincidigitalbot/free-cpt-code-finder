@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Compliance Test</title>
+    <script>
+        // Simple test to validate our changes are working
+        function testChanges() {
+            // Check if our new functions exist
+            const tests = [
+                { name: 'showDuplicateCPTPrompt', exists: typeof window.showDuplicateCPTPrompt !== 'undefined' },
+                { name: 'validateCase', exists: typeof window.validateCase !== 'undefined' },
+                { name: 'showPrimaryProcedureConfirmation', exists: typeof window.showPrimaryProcedureConfirmation !== 'undefined' },
+                { name: '__runBillingTests', exists: typeof window.__runBillingTests !== 'undefined' },
+                { name: 'updateCopyButtonState', exists: typeof window.updateCopyButtonState !== 'undefined' }
+            ];
+            
+            console.log('Billing Compliance Test Results:');
+            tests.forEach(test => {
+                if (test.exists) {
+                    console.log('✅', test.name, 'function exists');
+                } else {
+                    console.log('❌', test.name, 'function missing');
+                }
+            });
+            
+            // Check for CSS classes
+            const cssTests = [
+                'duplicate-cpt-modal',
+                'primary-confirmation-modal', 
+                'validation-badge',
+                'ncci-warning-banner'
+            ];
+            
+            console.log('\nCSS Class Tests:');
+            cssTests.forEach(className => {
+                // Create test element to check if CSS is applied
+                const testDiv = document.createElement('div');
+                testDiv.className = className;
+                document.body.appendChild(testDiv);
+                const styles = window.getComputedStyle(testDiv);
+                
+                if (styles.position || styles.background || styles.display) {
+                    console.log('✅', className, 'CSS exists');
+                } else {
+                    console.log('❌', className, 'CSS missing');
+                }
+                
+                document.body.removeChild(testDiv);
+            });
+        }
+        
+        window.onload = testChanges;
+    </script>
+</head>
+<body>
+    <h1>Billing Compliance Test Page</h1>
+    <p>Check console for test results</p>
+    <iframe src="index.html" width="100%" height="800" style="border: 1px solid #ccc;"></iframe>
+</body>
+</html>

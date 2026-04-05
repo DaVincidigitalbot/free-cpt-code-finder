@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Confidence System</title>
+    <script src="./modifier_engine.js"></script>
+</head>
+<body>
+    <h1>Test Confidence System</h1>
+    <button onclick="runTest()">Run Test</button>
+    <div id="results"></div>
+
+    <script>
+    async function runTest() {
+        // Initialize engine
+        await ModifierEngine.initialize();
+        
+        // Test case: bilateral hernia
+        const caseItems = [
+            {code: "49505", description: "Inguinal hernia repair", work_rvu: 12.3}
+        ];
+        
+        const context = {
+            payerType: "medicare",
+            bilateral: true
+        };
+        
+        // Run analysis
+        const analysis = ModifierEngine.analyze(caseItems, context);
+        
+        console.log('Analysis result:', analysis);
+        
+        // Display results
+        const results = document.getElementById('results');
+        results.innerHTML = `
+            <h2>Results:</h2>
+            <pre>${JSON.stringify(analysis, null, 2)}</pre>
+        `;
+    }
+    </script>
+</body>
+</html>

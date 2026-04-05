@@ -111,9 +111,6 @@ class ModifierEngine {
         // Step 10: Apply return to OR modifiers
         this.applyReturnToORModifiers(procedures, context);
 
-        // Step 10.5: Apply incomplete/reduced service modifiers  
-        this.applyReducedServiceModifiers(procedures, context);
-
         // Step 11: Auto-suggest modifiers based on intelligent analysis
         this.autoSuggestModifiers(procedures, context);
 
@@ -124,30 +121,12 @@ class ModifierEngine {
         const summary = this.generateSummary(procedures);
         this.addAuditEntry('analysis_complete', null, 'Case analysis completed', summary);
 
-        // Calculate confidence score
-        const confidence = this.calculateConfidence({
-            procedures,
-            questions: this.pendingQuestions,
-            warnings: this.collectWarnings(procedures),
-            summary
-        });
-
-        // Check for blocking issues
-        const blockingIssues = this.checkForBlockingIssues({
-            procedures,
-            questions: this.pendingQuestions,
-            warnings: this.collectWarnings(procedures),
-            confidence
-        });
-
         return {
             procedures,
             questions: this.pendingQuestions,
             warnings: this.collectWarnings(procedures),
             auditTrail: this.auditTrail,
             summary,
-            confidence,
-            blockingIssues,
             debugInfo: this.debugMode ? this.generateDebugInfo(procedures) : null
         };
     }
@@ -336,17 +315,11 @@ class ModifierEngine {
                         break;
                         
                     case 'unrelated':
-                        // E/M codes get -24, not -79
-                        if (proc.code.startsWith('99') && (proc.code.startsWith('991') || proc.code.startsWith('992') || proc.code.startsWith('993') || proc.code.startsWith('994'))) {
-                            proc.modifiers.push('-24');
-                            proc.explanations.push('Modifier -24: Unrelated E/M service during global period');
-                        } else {
-                            proc.modifiers.push('-79');
-                            proc.explanations.push('Modifier -79: Unrelated procedure during global period');
-                        }
+                        proc.modifiers.push('-79');
+                        proc.explanations.push('Modifier -79: Unrelated procedure during global period');
                         proc.auditRisk = 'low';
                         
-                        this.addAuditEntry('global_modifier', proc.code, 'Applied unrelated global period modifier');
+                        this.addAuditEntry('global_modifier', proc.code, 'Applied -79 for unrelated procedure');
                         break;
                 }
             } else {
@@ -797,7 +770,7 @@ class ModifierEngine {
             }
 
             // Check if user specified bilateral in context
-            const isBilateral = context.bilateral === true || (context.bilateral && context.bilateral[proc.code]);
+            const isBilateral = context.bilateral && context.bilateral[proc.code];
             
             if (isBilateral) {
                 if (rules.bilateral_method === 'modifier_50') {
@@ -969,32 +942,6 @@ class ModifierEngine {
     }
 
     /**
-     * Apply reduced service modifiers (-52, -53)
-     */
-    applyReducedServiceModifiers(procedures, context) {
-        if (context.reducedService) {
-            procedures.forEach(proc => {
-                switch (context.reducedService) {
-                    case 'incomplete':
-                    case 'discontinued':
-                        proc.modifiers.push('-52');
-                        proc.explanations.push('Modifier -52: Reduced services/incomplete procedure');
-                        proc.auditRisk = 'medium';
-                        this.addAuditEntry('reduced_service', proc.code, 'Applied -52 for reduced services');
-                        break;
-                        
-                    case 'discontinued_anesthesia':
-                        proc.modifiers.push('-53');
-                        proc.explanations.push('Modifier -53: Discontinued procedure due to threat to patient');
-                        proc.auditRisk = 'high';
-                        this.addAuditEntry('reduced_service', proc.code, 'Applied -53 for discontinued procedure');
-                        break;
-                }
-            });
-        }
-    }
-
-    /**
      * Calculate adjusted wRVUs based on modifiers
      */
     calculateAdjustedWRVUs(procedures) {
@@ -1029,14 +976,6 @@ class ModifierEngine {
                     case '-22':
                         adjustedWRVU *= 1.25; // Estimated increase
                         adjustmentFactors.push('Increased complexity 125% payment (estimated)');
-                        break;
-                    case '-52':
-                        adjustedWRVU *= 0.8; // Estimated reduction for incomplete procedure
-                        adjustmentFactors.push('Reduced services 80% payment (estimated)');
-                        break;
-                    case '-53':
-                        adjustedWRVU *= 0.0; // Usually no payment for discontinued
-                        adjustmentFactors.push('Discontinued procedure - typically no payment');
                         break;
                 }
             });
@@ -1164,321 +1103,6 @@ class ModifierEngine {
      */
     disableDebugMode() {
         this.debugMode = false;
-    }
-
-    /**
-     * DELIVERABLE 2: Calculate confidence score for billing accuracy
-     * @param {Object} analysis - The analysis results
-     * @returns {Object} Confidence assessment
-     */
-    calculateConfidence(analysis) {
-        let score = 100; // Start at perfect score
-        const factors = [];
-        
-        const procedures = analysis.procedures || [];
-        const warnings = analysis.warnings || [];
-        const questions = analysis.questions || [];
-        
-        // Factor 1: All procedures have known rules (+20 if true, -15 per unknown)
-        const unknownRules = procedures.filter(p => !this.modifierRules[p.code]);
-        if (unknownRules.length === 0 && procedures.length > 0) {
-            factors.push({
-                factor: "All procedures have known rules",
-                impact: +20,
-                description: "All CPT codes found in billing rules database"
-            });
-            score += 20;
-        } else {
-            const penalty = unknownRules.length * 15;
-            factors.push({
-                factor: `${unknownRules.length} procedures without known rules`,
-                impact: -penalty,
-                description: `Codes: ${unknownRules.map(p => p.code).join(', ')}`
-            });
-            score -= penalty;
-        }
-        
-        // Factor 2: NCCI bundles resolved (-30 per unresolved bundle)
-        const ncciBundleWarnings = warnings.filter(w => w.type === 'ncci_bundle' && w.severity === 'warning');
-        if (ncciBundleWarnings.length > 0) {
-            const penalty = ncciBundleWarnings.length * 30;
-            factors.push({
-                factor: `${ncciBundleWarnings.length} unresolved NCCI bundles`,
-                impact: -penalty,
-                description: "Bundle pairs need -59 modifier or dismissal"
-            });
-            score -= penalty;
-        } else if (procedures.length > 1) {
-            factors.push({
-                factor: "All NCCI bundles resolved",
-                impact: +15,
-                description: "No unresolved bundling conflicts detected"
-            });
-            score += 15;
-        }
-        
-        // Factor 3: Duplicate CPT codes resolved (-20 per duplicate without modifier)
-        const duplicateCodes = this.findDuplicateCodes(procedures);
-        const unresolvedDuplicates = duplicateCodes.filter(dup => {
-            return !dup.procedures.some(p => 
-                p.modifiers.includes('-50') || 
-                p.modifiers.includes('-RT') || 
-                p.modifiers.includes('-LT') ||
-                p.modifiers.includes('-59') ||
-                p.modifiers.includes('-76') || 
-                p.modifiers.includes('-77')
-            );
-        });
-        
-        if (unresolvedDuplicates.length > 0) {
-            const penalty = unresolvedDuplicates.length * 20;
-            factors.push({
-                factor: `${unresolvedDuplicates.length} duplicate CPT codes without modifiers`,
-                impact: -penalty,
-                description: `Codes: ${unresolvedDuplicates.map(d => d.code).join(', ')}`
-            });
-            score -= penalty;
-        } else if (duplicateCodes.length > 0) {
-            factors.push({
-                factor: "All duplicate codes properly modified",
-                impact: +10,
-                description: "Bilateral, laterality, or repeat modifiers applied"
-            });
-            score += 10;
-        }
-        
-        // Factor 4: Laterality-eligible codes have appropriate modifiers (-10 per missing)
-        const lateralityEligible = procedures.filter(p => {
-            const rules = this.modifierRules[p.code];
-            return rules && rules.laterality_applicable && !rules.inherently_bilateral;
-        });
-        
-        const missingLaterality = lateralityEligible.filter(p => 
-            !p.modifiers.includes('-50') && 
-            !p.modifiers.includes('-RT') && 
-            !p.modifiers.includes('-LT')
-        );
-        
-        if (missingLaterality.length > 0) {
-            const penalty = missingLaterality.length * 10;
-            factors.push({
-                factor: `${missingLaterality.length} laterality-eligible procedures missing RT/LT/-50`,
-                impact: -penalty,
-                description: `Codes: ${missingLaterality.map(p => p.code).join(', ')}`
-            });
-            score -= penalty;
-        } else if (lateralityEligible.length > 0) {
-            factors.push({
-                factor: "All laterality requirements satisfied",
-                impact: +10,
-                description: "Bilateral or side-specific modifiers applied"
-            });
-            score += 10;
-        }
-        
-        // Factor 5: Unresolved questions (-5 per question)
-        if (questions.length > 0) {
-            const penalty = questions.length * 5;
-            factors.push({
-                factor: `${questions.length} unresolved questions`,
-                impact: -penalty,
-                description: "User input required for complete analysis"
-            });
-            score -= penalty;
-        }
-        
-        // Factor 6: Global period violations (-25 per violation)
-        const globalViolations = warnings.filter(w => w.type === 'global_period_violation');
-        if (globalViolations.length > 0) {
-            const penalty = globalViolations.length * 25;
-            factors.push({
-                factor: `${globalViolations.length} global period violations`,
-                impact: -penalty,
-                description: "Missing -58, -78, or -79 modifiers"
-            });
-            score -= penalty;
-        }
-        
-        // Factor 7: Included procedures properly handled (+5 if any found and handled)
-        const includedProcedures = procedures.filter(p => p.rank === 'included');
-        if (includedProcedures.length > 0) {
-            factors.push({
-                factor: "Included procedures properly identified",
-                impact: +5,
-                description: `${includedProcedures.length} procedures marked as not separately billable`
-            });
-            score += 5;
-        }
-        
-        // Factor 8: Surgeon role modifiers properly applied
-        const roleErrors = warnings.filter(w => w.type === 'role_not_allowed');
-        if (roleErrors.length > 0) {
-            const penalty = roleErrors.length * 15;
-            factors.push({
-                factor: `${roleErrors.length} invalid surgeon role assignments`,
-                impact: -penalty,
-                description: "Co-surgeon or assistant not allowed for these procedures"
-            });
-            score -= penalty;
-        }
-        
-        // Ensure score stays within bounds
-        score = Math.max(0, Math.min(100, Math.round(score)));
-        
-        // Determine confidence level and recommendation
-        let overall, recommendation;
-        if (score >= 80) {
-            overall = 'high';
-            recommendation = 'Safe to submit';
-        } else if (score >= 50) {
-            overall = 'medium';
-            recommendation = 'Review recommended';
-        } else {
-            overall = 'low';
-            recommendation = 'DO NOT SUBMIT — resolve issues';
-        }
-        
-        this.addAuditEntry('confidence_calculated', null, 
-            `Confidence score calculated: ${score}%`, 
-            { overall, factorCount: factors.length }
-        );
-        
-        return {
-            overall,
-            score,
-            factors,
-            recommendation,
-            timestamp: new Date().toISOString()
-        };
-    }
-    
-    /**
-     * DELIVERABLE 3: Check for blocking issues that prevent case export
-     * @param {Object} analysis - The analysis results
-     * @returns {Array} Array of blocking issues
-     */
-    checkForBlockingIssues(analysis) {
-        const blockingIssues = [];
-        const procedures = analysis.procedures || [];
-        const warnings = analysis.warnings || [];
-        const confidence = analysis.confidence || { score: 100 };
-        
-        // 1. Duplicate CPT without modifier resolution
-        const duplicateCodes = this.findDuplicateCodes(procedures);
-        const unresolvedDuplicates = duplicateCodes.filter(dup => {
-            return !dup.procedures.some(p => 
-                p.modifiers.includes('-50') || 
-                p.modifiers.includes('-RT') || 
-                p.modifiers.includes('-LT') ||
-                p.modifiers.includes('-59') ||
-                p.modifiers.includes('-76') || 
-                p.modifiers.includes('-77')
-            );
-        });
-        
-        unresolvedDuplicates.forEach(dup => {
-            blockingIssues.push({
-                type: 'unresolved_duplicate',
-                severity: 'critical',
-                message: `Duplicate CPT code ${dup.code} without distinguishing modifier`,
-                description: "Multiple instances of same CPT require bilateral (-50), laterality (-RT/-LT), or distinct service (-59) modifier",
-                affectedCodes: [dup.code]
-            });
-        });
-        
-        // 2. NCCI bundle pair without -59 and no user dismissal
-        const criticalBundleWarnings = warnings.filter(w => 
-            w.type === 'ncci_bundle' && 
-            w.severity === 'warning' &&
-            !w.userDismissed // Would need to track user dismissals in real implementation
-        );
-        
-        criticalBundleWarnings.forEach(warning => {
-            blockingIssues.push({
-                type: 'ncci_bundle_unresolved',
-                severity: 'critical',
-                message: `NCCI bundle conflict requires resolution: ${warning.message}`,
-                description: "Apply -59 modifier if separate circumstances, or dismiss if bundling is appropriate",
-                affectedCodes: [warning.code]
-            });
-        });
-        
-        // 3. Procedure within global period without required modifier
-        const globalViolations = warnings.filter(w => w.type === 'global_period_violation');
-        globalViolations.forEach(warning => {
-            blockingIssues.push({
-                type: 'global_period_violation',
-                severity: 'critical',
-                message: `Procedure within global period requires modifier: ${warning.message}`,
-                description: "Must apply -58 (staged), -78 (unplanned return), or -79 (unrelated) modifier",
-                affectedCodes: [warning.code]
-            });
-        });
-        
-        // 4. Confidence score below 50
-        if (confidence.score < 50) {
-            blockingIssues.push({
-                type: 'low_confidence',
-                severity: 'critical',
-                message: `Case confidence too low to submit (${confidence.score}%)`,
-                description: "Multiple billing issues detected that require resolution before case can be exported",
-                affectedCodes: procedures.map(p => p.code)
-            });
-        }
-        
-        // 5. Critical warnings that should block submission
-        const criticalWarnings = warnings.filter(w => 
-            w.severity === 'error' && 
-            !['included_procedure'].includes(w.type) // Included procedures don't block, just inform
-        );
-        
-        criticalWarnings.forEach(warning => {
-            if (!blockingIssues.some(issue => issue.type === warning.type && issue.affectedCodes?.includes(warning.code))) {
-                blockingIssues.push({
-                    type: warning.type,
-                    severity: 'critical',
-                    message: warning.message,
-                    description: "Critical billing error that prevents case submission",
-                    affectedCodes: [warning.code]
-                });
-            }
-        });
-        
-        this.addAuditEntry('blocking_issues_checked', null, 
-            `Found ${blockingIssues.length} blocking issues`, 
-            { issueTypes: blockingIssues.map(i => i.type) }
-        );
-        
-        return blockingIssues;
-    }
-    
-    /**
-     * Helper: Find duplicate CPT codes in procedures
-     * @param {Array} procedures - Array of procedures
-     * @returns {Array} Array of duplicate code groups
-     */
-    findDuplicateCodes(procedures) {
-        const codeGroups = {};
-        const duplicates = [];
-        
-        procedures.forEach(proc => {
-            if (!codeGroups[proc.code]) {
-                codeGroups[proc.code] = [];
-            }
-            codeGroups[proc.code].push(proc);
-        });
-        
-        for (const [code, procs] of Object.entries(codeGroups)) {
-            if (procs.length > 1) {
-                duplicates.push({
-                    code,
-                    count: procs.length,
-                    procedures: procs
-                });
-            }
-        }
-        
-        return duplicates;
     }
 }
 

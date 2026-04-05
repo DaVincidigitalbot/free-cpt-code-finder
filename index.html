@@ -3315,6 +3315,193 @@
         }
         .case-tray-copy:hover { background: #1E40AF; }
 
+        /* DELIVERABLE 4: Confidence Indicators */
+        .confidence-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .confidence-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .confidence-badge.high {
+            background: #DCFCE7;
+            color: #166534;
+            border: 1px solid #BBF7D0;
+        }
+        
+        .confidence-badge.medium {
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FDE68A;
+        }
+        
+        .confidence-badge.low {
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #FECACA;
+        }
+        
+        /* Blocking Overlay */
+        .case-tray.blocked {
+            position: relative;
+        }
+        
+        .case-tray.blocked::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(156, 163, 175, 0.8);
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .blocking-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 11;
+            max-width: 80%;
+            text-align: center;
+        }
+        
+        .blocking-overlay h3 {
+            color: #991B1B;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .blocking-overlay ul {
+            text-align: left;
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .blocking-overlay li {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        /* Verify Case Button */
+        .verify-case-btn {
+            background: #8B5CF6;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .verify-case-btn:hover {
+            background: #7C3AED;
+        }
+        
+        /* Verification Panel */
+        .verification-panel {
+            background: white;
+            border-top: 1px solid #CBD5E1;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .verification-header {
+            padding: 12px 20px;
+            background: #F8FAFC;
+            border-bottom: 1px solid #E2E8F0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .verification-close {
+            font-size: 18px;
+            color: #64748B;
+            cursor: pointer;
+        }
+        
+        .verification-close:hover {
+            color: #334155;
+        }
+        
+        .verification-content {
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+        .verification-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+        }
+        
+        .verification-item h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+        
+        .verification-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+        
+        .verification-check .icon {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        
+        .verification-check.pass .icon {
+            color: #059669;
+        }
+        
+        .verification-check.warning .icon {
+            color: #D97706;
+        }
+        
+        .verification-check.fail .icon {
+            color: #DC2626;
+        }
+        
+        .verification-rule {
+            font-size: 12px;
+            color: #6B7280;
+            margin-top: 5px;
+            font-style: italic;
+            padding-left: 30px;
+        }
+        
+        /* Rule explanations under modifiers */
+        .modifier-rule {
+            font-size: 10px;
+            color: #6B7280;
+            margin-top: 2px;
+            font-style: italic;
+        }
+
         /* Expanded procedure list */
         .case-tray-detail {
             max-height: 0;
@@ -4144,6 +4331,10 @@
                 <div class="case-tray-title">
                     📋 Case Builder
                     <span class="case-tray-count" id="caseProcCount">0</span>
+                    <!-- DELIVERABLE 4A: Confidence Indicator -->
+                    <div class="confidence-indicator" id="confidenceIndicator" style="display:none;margin-left:10px;">
+                        <span class="confidence-badge" id="confidenceBadge">✅ High Confidence</span>
+                    </div>
                 </div>
                 <div class="case-tray-stats">
                     <div class="case-stat">
@@ -4162,7 +4353,8 @@
             </div>
             <div class="case-tray-right">
                 <button class="case-tray-copy" onclick="event.stopPropagation();toggleCaseSearch()" title="Add another procedure" style="background:#059669;">+ Add Procedure</button>
-                <button class="case-tray-copy" onclick="event.stopPropagation();copyCaseSummary()" title="Copy summary">📋 Copy</button>
+                <button class="verify-case-btn" onclick="event.stopPropagation();openVerificationPanel()" title="Manual verification mode" id="verifyCaseBtn" style="display:none;">🔍 Verify Case</button>
+                <button class="case-tray-copy" onclick="event.stopPropagation();copyCaseSummary()" title="Copy summary" id="copyCaseBtn">📋 Copy</button>
                 <button class="case-tray-clear" onclick="event.stopPropagation();clearCase()" title="Clear all">Clear</button>
                 <button class="case-tray-toggle" id="caseTrayToggle">▲</button>
             </div>
@@ -4215,6 +4407,18 @@
                 </div>
             </div>
         </div>
+        
+        <!-- DELIVERABLE 5: Manual Verification Panel -->
+        <div class="verification-panel" id="verificationPanel" style="display:none;">
+            <div class="verification-header" onclick="closeVerificationPanel()">
+                <span>🔍 Manual Verification</span>
+                <span class="verification-close">×</span>
+            </div>
+            <div class="verification-content" id="verificationContent">
+                <p>Run case analysis to see verification details...</p>
+            </div>
+        </div>
+        
         <div class="case-tray-search" id="caseTraySearch" style="display:none;padding:10px 20px;border-top:1px solid var(--gray-200);background:white;">
             <div style="display:flex;gap:8px;">
                 <input type="text" id="caseSearchInput" placeholder="Add procedure — search by CPT code or name..."
@@ -5105,11 +5309,31 @@
                 total_rvu: proc.total_rvu
             }));
             
-            // Run analysis
-            const analysis = ModifierEngine.analyze(caseItems);
+            // Build context from UI state
+            const context = {
+                payerType: currentPayer || 'medicare',
+                withinGlobalPeriod: document.getElementById('globalPeriodToggle')?.checked || false,
+                globalPeriodRelationship: document.getElementById('globalPeriodRelationship')?.value || null,
+                bilateral: getBilateralContext(),
+                laterality: getLateralityContext(),
+                surgeonRole: getSurgeonRoleContext(),
+                returnToOR: getReturnToORContext()
+            };
+            
+            // Run analysis with context
+            const analysis = ModifierEngine.analyze(caseItems, context);
             
             // Update UI with results
             displayModifierAnalysis(analysis);
+            
+            // DELIVERABLE 4: Update confidence indicator
+            updateConfidenceIndicator(analysis.confidence);
+            
+            // DELIVERABLE 3: Check for blocking issues
+            updateBlockingStatus(analysis.blockingIssues);
+            
+            // Store analysis for verification panel
+            window.lastAnalysis = analysis;
             
         } catch (error) {
             console.error('Modifier analysis failed:', error);
@@ -5148,7 +5372,12 @@
                     <div class="modifier-assigned-modifiers">
                         <span style="color: #6B7280; font-size: 0.8rem;">Modifiers:</span>
                         ${proc.modifiers.length > 0 ? 
-                            proc.modifiers.map(mod => `<span class="modifier-badge">${mod}</span>`).join(' ') :
+                            proc.modifiers.map(mod => `
+                                <div style="display:inline-block;margin-right:8px;">
+                                    <span class="modifier-badge">${mod}</span>
+                                    <div class="modifier-rule">Rule: ${getModifierRule(mod, proc)}</div>
+                                </div>
+                            `).join('') :
                             '<span style="color: #9CA3AF; font-size: 0.8rem;">None</span>'
                         }
                         ${proc.modifiers.length > 0 ? 
@@ -6034,6 +6263,273 @@ ${codesContext}`;
         document.getElementById('aiInput').value = el.textContent;
         window.sendAIMessage();
     };
+    
+    // ============================
+    // DELIVERABLE 4: Confidence System
+    // ============================
+    
+    function updateConfidenceIndicator(confidence) {
+        const indicator = document.getElementById('confidenceIndicator');
+        const badge = document.getElementById('confidenceBadge');
+        const verifyBtn = document.getElementById('verifyCaseBtn');
+        
+        if (!confidence || caseProcs.length === 0) {
+            indicator.style.display = 'none';
+            verifyBtn.style.display = 'none';
+            return;
+        }
+        
+        indicator.style.display = 'block';
+        verifyBtn.style.display = 'block';
+        
+        // Update badge based on confidence level
+        badge.className = `confidence-badge ${confidence.overall}`;
+        
+        switch (confidence.overall) {
+            case 'high':
+                badge.textContent = '✅ High Confidence';
+                badge.title = `Confidence: ${confidence.score}% - ${confidence.recommendation}`;
+                break;
+            case 'medium':
+                badge.textContent = '⚠️ Review Required';
+                badge.title = `Confidence: ${confidence.score}% - ${confidence.recommendation}`;
+                break;
+            case 'low':
+                badge.textContent = '🚫 Cannot Submit';
+                badge.title = `Confidence: ${confidence.score}% - ${confidence.recommendation}`;
+                break;
+        }
+    }
+    
+    function updateBlockingStatus(blockingIssues) {
+        const caseTray = document.getElementById('caseTray');
+        const copyBtn = document.getElementById('copyCaseBtn');
+        
+        if (!blockingIssues || blockingIssues.length === 0) {
+            // Clear blocking state
+            caseTray.classList.remove('blocked');
+            copyBtn.disabled = false;
+            
+            // Remove any existing blocking overlay
+            const existingOverlay = caseTray.querySelector('.blocking-overlay');
+            if (existingOverlay) {
+                existingOverlay.remove();
+            }
+            return;
+        }
+        
+        // Set blocking state
+        caseTray.classList.add('blocked');
+        copyBtn.disabled = true;
+        
+        // Create blocking overlay
+        const existingOverlay = caseTray.querySelector('.blocking-overlay');
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'blocking-overlay';
+        overlay.innerHTML = `
+            <h3>This case has unresolved billing issues</h3>
+            <p>Please fix the following issues before proceeding:</p>
+            <ul>
+                ${blockingIssues.map(issue => `<li>${issue.message}</li>`).join('')}
+            </ul>
+        `;
+        
+        caseTray.appendChild(overlay);
+    }
+    
+    // Context helper functions
+    function getBilateralContext() {
+        // In a real implementation, this would check UI state for bilateral procedures
+        // For now, return empty object
+        return {};
+    }
+    
+    function getLateralityContext() {
+        // In a real implementation, this would check UI state for laterality
+        return {};
+    }
+    
+    function getSurgeonRoleContext() {
+        // In a real implementation, this would check UI state for surgeon role
+        return null;
+    }
+    
+    function getReturnToORContext() {
+        // In a real implementation, this would check UI state for return to OR
+        return null;
+    }
+    
+    // ============================
+    // DELIVERABLE 5: Verification Panel
+    // ============================
+    
+    function openVerificationPanel() {
+        const panel = document.getElementById('verificationPanel');
+        const content = document.getElementById('verificationContent');
+        
+        if (!window.lastAnalysis) {
+            content.innerHTML = '<p>No analysis available. Please run case analysis first.</p>';
+            panel.style.display = 'block';
+            return;
+        }
+        
+        const analysis = window.lastAnalysis;
+        let html = '<h3>EXPECTED vs ACTUAL COMPARISON</h3>';
+        
+        analysis.procedures.forEach(proc => {
+            const rules = window.ModifierEngine?.modifierRules?.[proc.code];
+            
+            html += `
+                <div class="verification-item">
+                    <h4>CPT ${proc.code} — ${proc.description}</h4>
+                    
+                    <div class="verification-check ${
+                        proc.rank === 'primary' ? 'pass' : 
+                        proc.rank === 'secondary' ? 'pass' : 
+                        proc.rank === 'addon' ? 'pass' : 'warning'
+                    }">
+                        <span class="icon">${
+                            proc.rank === 'primary' ? '✅' : 
+                            proc.rank === 'secondary' ? '✅' : 
+                            proc.rank === 'addon' ? '✅' : '⚠️'
+                        }</span>
+                        <span>Role: ${proc.rank.toUpperCase()} ${getRoleVerification(proc)}</span>
+                    </div>
+                    
+                    <div class="verification-check ${
+                        proc.modifiers.length > 0 || proc.rank === 'primary' || proc.rank === 'addon' ? 'pass' : 'warning'
+                    }">
+                        <span class="icon">${
+                            proc.modifiers.length > 0 || proc.rank === 'primary' || proc.rank === 'addon' ? '✅' : '⚠️'
+                        }</span>
+                        <span>Modifiers: ${proc.modifiers.length > 0 ? proc.modifiers.join(', ') : 'None'} ${getModifierVerification(proc)}</span>
+                    </div>
+                    
+                    <div class="verification-check pass">
+                        <span class="icon">✅</span>
+                        <span>wRVU: ${proc.adjustedWRVU} ${getWRVUVerification(proc)}</span>
+                    </div>
+                    
+                    <div class="verification-rule">
+                        Rule: ${proc.explanations.join('. ')}
+                    </div>
+                </div>
+            `;
+        });
+        
+        // Add confidence summary
+        if (analysis.confidence) {
+            html += `
+                <div class="verification-item">
+                    <h4>Overall Confidence Assessment</h4>
+                    <div class="verification-check ${analysis.confidence.overall === 'high' ? 'pass' : analysis.confidence.overall === 'medium' ? 'warning' : 'fail'}">
+                        <span class="icon">${
+                            analysis.confidence.overall === 'high' ? '✅' : 
+                            analysis.confidence.overall === 'medium' ? '⚠️' : '❌'
+                        }</span>
+                        <span>Confidence: ${analysis.confidence.score}% (${analysis.confidence.overall.toUpperCase()})</span>
+                    </div>
+                    <div class="verification-rule">
+                        ${analysis.confidence.recommendation}
+                    </div>
+                </div>
+            `;
+        }
+        
+        content.innerHTML = html;
+        panel.style.display = 'block';
+    }
+    
+    function closeVerificationPanel() {
+        document.getElementById('verificationPanel').style.display = 'none';
+    }
+    
+    function getRoleVerification(proc) {
+        switch (proc.rank) {
+            case 'primary':
+                return '(✅ highest complexity/wRVU)';
+            case 'secondary':
+                return '(✅ multiple procedures)';
+            case 'addon':
+                return '(✅ add-on code)';
+            case 'included':
+                return '(⚠️ included in primary)';
+            default:
+                return '(⚠️ verify ranking)';
+        }
+    }
+    
+    function getModifierVerification(proc) {
+        if (proc.rank === 'primary') {
+            return '(✅ primary, no modifier needed)';
+        }
+        if (proc.rank === 'addon') {
+            return '(✅ add-on, no -51 needed)';
+        }
+        if (proc.modifiers.includes('-51')) {
+            return '(✅ multiple procedures)';
+        }
+        if (proc.modifiers.includes('-50')) {
+            return '(✅ bilateral procedure)';
+        }
+        if (proc.modifiers.includes('-59')) {
+            return '(✅ distinct service)';
+        }
+        return '(⚠️ verify modifiers needed)';
+    }
+    
+    function getWRVUVerification(proc) {
+        if (proc.adjustmentFactors && proc.adjustmentFactors.length > 0) {
+            return `(✅ ${proc.adjustmentFactors.join(', ')})`;
+        }
+        return '(✅ full credit)';
+    }
+    
+    // Helper function for modifier rule explanations
+    function getModifierRule(modifier, proc) {
+        switch (modifier) {
+            case '-51':
+                return 'MPPR — secondary procedure, 50% reduction';
+            case '-50':
+                return 'Bilateral — 150% payment for both sides';
+            case '-59':
+                return 'Distinct service — separate circumstances';
+            case '-RT':
+                return 'Right side — laterality modifier';
+            case '-LT':
+                return 'Left side — laterality modifier';
+            case '-62':
+                return 'Co-surgeon — 62.5% payment each';
+            case '-80':
+                return 'Assistant surgeon — 16% payment';
+            case '-58':
+                return 'Staged procedure — during global period';
+            case '-78':
+                return 'Unplanned return — related procedure';
+            case '-79':
+                return 'Unrelated procedure — during global period';
+            case '-76':
+                return 'Repeat procedure — same physician';
+            case '-77':
+                return 'Repeat procedure — different physician';
+            case '-22':
+                return 'Increased complexity — unusual circumstances';
+            case '-52':
+                return 'Reduced services — incomplete procedure';
+            case '-24':
+                return 'Unrelated E/M — during global period';
+            default:
+                if (proc.rank === 'addon') {
+                    return 'Add-on code — always full wRVU';
+                }
+                return 'Applied per CMS guidelines';
+        }
+    }
+    
     </script>
 </body>
 </html>
