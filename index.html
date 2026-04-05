@@ -41,6 +41,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Modifier Engine Scripts -->
+    <script src="./modifier_engine.js"></script>
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -3405,6 +3408,274 @@
             left: 24px;
         }
 
+        /* Modifier Intelligence Panel Styles */
+        .modifier-intelligence-panel {
+            background: #F8FAFC;
+            border-top: 2px solid #2563EB;
+            border-radius: 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .modifier-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        .modifier-panel-title {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .modifier-panel-toggle {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.2s;
+        }
+
+        .modifier-panel-toggle:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .modifier-panel-content {
+            padding: 0;
+        }
+
+        .modifier-procedure-item {
+            border-bottom: 1px solid #E5E7EB;
+            padding: 16px 20px;
+            background: white;
+        }
+
+        .modifier-procedure-item:last-child {
+            border-bottom: none;
+        }
+
+        .modifier-proc-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .modifier-proc-code {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #1F2937;
+            font-size: 0.95rem;
+        }
+
+        .modifier-proc-desc {
+            color: #6B7280;
+            font-size: 0.85rem;
+            flex: 1;
+        }
+
+        .modifier-proc-rank {
+            background: #EFF6FF;
+            color: #2563EB;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 1px solid #DBEAFE;
+        }
+
+        .modifier-proc-rank.primary {
+            background: #FEF3C7;
+            color: #D97706;
+            border-color: #FDE68A;
+        }
+
+        .modifier-proc-rank.addon {
+            background: #ECFDF5;
+            color: #059669;
+            border-color: #A7F3D0;
+        }
+
+        .modifier-assigned-modifiers {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .modifier-badge {
+            background: #2563EB;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .modifier-badge.override {
+            background: #F59E0B;
+            border: 1px solid #FBBF24;
+        }
+
+        .modifier-explanation {
+            color: #6B7280;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-left: 4px;
+        }
+
+        .modifier-explanation-toggle {
+            background: none;
+            border: none;
+            color: #6B7280;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 4px;
+            text-decoration: underline;
+        }
+
+        .modifier-explanation-content {
+            display: none;
+            margin-top: 6px;
+            padding: 8px 12px;
+            background: #F9FAFB;
+            border-radius: 6px;
+            border-left: 3px solid #2563EB;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: #4B5563;
+        }
+
+        .modifier-wrvu-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 0.85rem;
+        }
+
+        .modifier-wrvu-original {
+            color: #9CA3AF;
+            text-decoration: line-through;
+        }
+
+        .modifier-wrvu-adjusted {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        .modifier-wrvu-factors {
+            color: #6B7280;
+            font-size: 0.75rem;
+        }
+
+        .modifier-clarification-questions {
+            background: #FEF3C7;
+            border-top: 1px solid #FDE68A;
+            padding: 0;
+        }
+
+        .modifier-question-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #FDE68A;
+        }
+
+        .modifier-question-item:last-child {
+            border-bottom: none;
+        }
+
+        .modifier-question-text {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: #92400E;
+            font-weight: 500;
+        }
+
+        .modifier-question-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .modifier-question-btn {
+            background: white;
+            border: 1px solid #F59E0B;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: #D97706;
+            transition: all 0.2s;
+        }
+
+        .modifier-question-btn:hover {
+            background: #F59E0B;
+            color: white;
+        }
+
+        .modifier-warnings {
+            margin-top: 8px;
+        }
+
+        .modifier-warning {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .modifier-warning.warning {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #92400E;
+        }
+
+        .modifier-warning.info {
+            background: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .modifier-warning.error {
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: #DC2626;
+        }
+
+        .modifier-summary {
+            background: #F1F5F9;
+            padding: 12px 20px;
+            border-top: 1px solid #CBD5E1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .modifier-summary-left {
+            color: #475569;
+        }
+
+        .modifier-summary-right {
+            font-weight: 600;
+            color: #1E293B;
+        }
+
         @media (max-width: 640px) {
             .case-tray-bar { padding: 8px 12px; gap: 8px; }
             .case-tray-stats { gap: 10px; }
@@ -3445,6 +3716,16 @@
             </div>
         </div>
         <div class="case-tray-detail" id="caseTrayDetail"></div>
+        
+        <!-- Modifier Intelligence Panel -->
+        <div class="modifier-intelligence-panel" id="modifierIntelligencePanel" style="display:none;">
+            <div class="modifier-panel-header">
+                <span class="modifier-panel-title">🧠 Modifier Intelligence</span>
+                <button class="modifier-panel-toggle" onclick="toggleModifierPanel()" title="Toggle modifier panel">−</button>
+            </div>
+            <div class="modifier-panel-content" id="modifierPanelContent"></div>
+            <div class="modifier-clarification-questions" id="modifierQuestions"></div>
+        </div>
         <div class="case-tray-search" id="caseTraySearch" style="display:none;padding:10px 20px;border-top:1px solid var(--gray-200);background:white;">
             <div style="display:flex;gap:8px;">
                 <input type="text" id="caseSearchInput" placeholder="Add procedure — search by CPT code or name..."
@@ -3677,6 +3958,7 @@
 
         if (caseProcs.length === 0) {
             tray.classList.remove('visible', 'expanded');
+            document.getElementById('modifierIntelligencePanel').style.display = 'none';
             return;
         }
 
@@ -3684,6 +3966,9 @@
         rankAndSortProcedures();
 
         tray.classList.add('visible');
+        
+        // Run modifier analysis
+        runModifierAnalysis();
 
         // Calculate totals
         let totalWRVU = 0, totalPE = 0, totalMP = 0;
@@ -3831,6 +4116,195 @@
         document.getElementById('caseSearchResults').innerHTML = '';
         document.getElementById('caseSearchInput').focus();
         showAddedToast(cptCode);
+    }
+    
+    // ============================
+    // Modifier Intelligence Integration
+    // ============================
+    
+    async function runModifierAnalysis() {
+        if (!window.ModifierEngine) {
+            console.warn('Modifier Engine not available');
+            return;
+        }
+        
+        try {
+            // Convert caseProcs to format expected by modifier engine
+            const caseItems = caseProcs.map(proc => ({
+                id: proc.id,
+                code: proc.code,
+                description: proc.description,
+                work_rvu: proc.work_rvu,
+                pe_rvu: proc.pe_rvu,
+                mp_rvu: proc.mp_rvu,
+                total_rvu: proc.total_rvu
+            }));
+            
+            // Run analysis
+            const analysis = ModifierEngine.analyze(caseItems);
+            
+            // Update UI with results
+            displayModifierAnalysis(analysis);
+            
+        } catch (error) {
+            console.error('Modifier analysis failed:', error);
+        }
+    }
+    
+    function displayModifierAnalysis(analysis) {
+        const panel = document.getElementById('modifierIntelligencePanel');
+        const content = document.getElementById('modifierPanelContent');
+        const questions = document.getElementById('modifierQuestions');
+        
+        if (analysis.procedures.length === 0) {
+            panel.style.display = 'none';
+            return;
+        }
+        
+        panel.style.display = 'block';
+        
+        // Build procedure analysis display
+        let html = '';
+        
+        analysis.procedures.forEach(proc => {
+            const rankClass = proc.rank === 'primary' ? 'primary' : (proc.rank === 'addon' ? 'addon' : 'secondary');
+            const rankLabel = proc.rank === 'primary' ? 'PRIMARY' : 
+                            proc.rank === 'addon' ? 'ADD-ON' :
+                            proc.rank === 'reconstructive' ? 'RECONSTRUCTIVE' : 'SECONDARY';
+            
+            html += `
+                <div class="modifier-procedure-item">
+                    <div class="modifier-proc-header">
+                        <span class="modifier-proc-code">${proc.code}</span>
+                        <span class="modifier-proc-desc">${proc.description}</span>
+                        <span class="modifier-proc-rank ${rankClass}">${rankLabel}</span>
+                    </div>
+                    
+                    <div class="modifier-assigned-modifiers">
+                        <span style="color: #6B7280; font-size: 0.8rem;">Modifiers:</span>
+                        ${proc.modifiers.length > 0 ? 
+                            proc.modifiers.map(mod => `<span class="modifier-badge">${mod}</span>`).join(' ') :
+                            '<span style="color: #9CA3AF; font-size: 0.8rem;">None</span>'
+                        }
+                        ${proc.modifiers.length > 0 ? 
+                            `<button class="modifier-explanation-toggle" onclick="toggleModifierExplanation('${proc.id}')">Why?</button>` :
+                            ''
+                        }
+                    </div>
+                    
+                    <div class="modifier-explanation-content" id="explanation-${proc.id}">
+                        ${proc.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
+                    </div>
+                    
+                    <div class="modifier-wrvu-display">
+                        <span>wRVU:</span>
+                        ${proc.work_rvu !== proc.adjustedWRVU ? 
+                            `<span class="modifier-wrvu-original">${proc.work_rvu.toFixed(2)}</span>` :
+                            ''
+                        }
+                        <span class="modifier-wrvu-adjusted">${proc.adjustedWRVU.toFixed(2)}</span>
+                        ${proc.adjustmentFactors && proc.adjustmentFactors.length > 0 ? 
+                            `<span class="modifier-wrvu-factors">(${proc.adjustmentFactors.join(', ')})</span>` :
+                            ''
+                        }
+                    </div>
+                    
+                    ${proc.warnings && proc.warnings.length > 0 ? 
+                        `<div class="modifier-warnings">
+                            ${proc.warnings.map(warning => 
+                                `<div class="modifier-warning ${warning.severity}">
+                                    <span>⚠️</span>
+                                    <span>${warning.message}</span>
+                                </div>`
+                            ).join('')}
+                        </div>` :
+                        ''
+                    }
+                </div>
+            `;
+        });
+        
+        // Add summary
+        html += `
+            <div class="modifier-summary">
+                <div class="modifier-summary-left">
+                    ${analysis.summary.procedureCount} procedures • ${analysis.summary.modifierCount} modifiers
+                </div>
+                <div class="modifier-summary-right">
+                    Total wRVU: ${analysis.summary.totalWRVU}
+                </div>
+            </div>
+        `;
+        
+        content.innerHTML = html;
+        
+        // Display questions if any
+        if (analysis.questions && analysis.questions.length > 0) {
+            displayModifierQuestions(analysis.questions);
+        } else {
+            questions.style.display = 'none';
+        }
+    }
+    
+    function displayModifierQuestions(questionsList) {
+        const questionsContainer = document.getElementById('modifierQuestions');
+        
+        let html = '';
+        questionsList.forEach((question, index) => {
+            html += `
+                <div class="modifier-question-item">
+                    <div class="modifier-question-text">${question.question}</div>
+                    <div class="modifier-question-options">
+                        ${question.options.map((option, optIndex) => 
+                            `<button class="modifier-question-btn" 
+                                onclick="answerModifierQuestion(${index}, ${optIndex}, '${option}')">
+                                ${option}
+                            </button>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        });
+        
+        questionsContainer.innerHTML = html;
+        questionsContainer.style.display = html ? 'block' : 'none';
+    }
+    
+    function toggleModifierExplanation(procId) {
+        const element = document.getElementById(`explanation-${procId}`);
+        if (element) {
+            element.style.display = element.style.display === 'block' ? 'none' : 'block';
+        }
+    }
+    
+    function answerModifierQuestion(questionIndex, optionIndex, optionText) {
+        // This would typically update context and re-run analysis
+        console.log(`Question ${questionIndex}: Selected option ${optionIndex} (${optionText})`);
+        
+        // For demo purposes, just hide the question
+        const questionItems = document.querySelectorAll('.modifier-question-item');
+        if (questionItems[questionIndex]) {
+            questionItems[questionIndex].style.display = 'none';
+        }
+        
+        // In a full implementation, this would:
+        // 1. Update the analysis context with the user's response
+        // 2. Re-run the modifier analysis
+        // 3. Update the display with new recommendations
+    }
+    
+    function toggleModifierPanel() {
+        const panel = document.getElementById('modifierIntelligencePanel');
+        const content = document.getElementById('modifierPanelContent');
+        const toggle = document.querySelector('.modifier-panel-toggle');
+        
+        if (content.style.display === 'none') {
+            content.style.display = 'block';
+            toggle.textContent = '−';
+        } else {
+            content.style.display = 'none';
+            toggle.textContent = '+';
+        }
     }
 
     function copyCaseSummary() {
