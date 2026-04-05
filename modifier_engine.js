@@ -148,25 +148,27 @@ class ModifierEngine {
             summary,
             confidence,
             blockingIssues,
+            auditMode: this.generateAuditOutput(procedures, confidence, blockingIssues),
             debugInfo: this.debugMode ? this.generateDebugInfo(procedures) : null
         };
     }
 
     /**
-     * NEW: Check procedure hierarchies and identify inclusive relationships
+     * FIX 1: INHERENT PROCEDURE SUPPRESSION - Properly handle inclusive relationships
      */
     checkProcedureHierarchy(procedures) {
-        this.addAuditEntry('hierarchy_check', null, 'Checking procedure hierarchies');
+        this.addAuditEntry('hierarchy_check', null, 'Checking procedure hierarchies and inclusive relationships');
 
         // FIRST PASS: Set all hierarchy tiers from rules data
         procedures.forEach(proc => {
             const rules = this.modifierRules[proc.code];
             if (rules) {
                 proc.hierarchyTier = rules.hierarchy_tier || 3;
+                proc.codeFamily = rules.code_family || 'unclassified';
             }
         });
 
-        // SECOND PASS: Check inclusive and never_primary_with relationships
+        // SECOND PASS: Check inclusive relationships - REMOVE included procedures entirely
         procedures.forEach(proc => {
             const rules = this.modifierRules[proc.code];
             if (!rules) return;
@@ -177,20 +179,22 @@ class ModifierEngine {
                     if (otherProc.id !== proc.id && rules.inclusive_of.includes(otherProc.code)) {
                         otherProc.warnings.push({
                             type: 'included_procedure',
-                            message: `${otherProc.code} is included in ${proc.code} - cannot be billed separately`,
-                            severity: 'error'
+                            message: `${otherProc.code} included in ${proc.code} — not separately billable`,
+                            severity: 'info'
                         });
                         otherProc.rank = 'included';
-                        otherProc.auditRisk = 'high';
+                        otherProc.adjustedWRVU = 0;  // Force to $0
+                        otherProc.explanations = otherProc.explanations || [];
+                        otherProc.explanations.push(`Included in primary procedure ${proc.code} — not separately billable`);
                         
-                        this.addAuditEntry('procedure_included', proc.code, 
-                            `${otherProc.code} marked as included in ${proc.code}`, 
-                            { reason: 'hierarchy_inclusion' });
+                        this.addAuditEntry('procedure_suppressed', proc.code, 
+                            `${otherProc.code} suppressed (included in ${proc.code})`, 
+                            { reason: 'inherent_inclusion', primaryCode: proc.code });
                     }
                 });
             }
 
-            // Check never_primary_with rules
+            // Check never_primary_with rules (hierarchy demotion)
             if (rules.never_primary_with && rules.never_primary_with.length > 0) {
                 procedures.forEach(primaryProc => {
                     if (primaryProc.id !== proc.id && rules.never_primary_with.includes(primaryProc.code)) {
@@ -203,8 +207,8 @@ class ModifierEngine {
                         // Force reordering - primary procedure takes precedence
                         proc.hierarchyTier = Math.max(proc.hierarchyTier, primaryProc.hierarchyTier + 1);
                         
-                        this.addAuditEntry('hierarchy_reorder', proc.code,
-                            `Demoted ${proc.code} due to hierarchy rules`,
+                        this.addAuditEntry('hierarchy_demotion', proc.code,
+                            `${proc.code} demoted (tier→${proc.hierarchyTier}) due to ${primaryProc.code}`,
                             { primaryProcedure: primaryProc.code });
                     }
                 });
@@ -1048,8 +1052,9 @@ class ModifierEngine {
             proc.modifiers.forEach(modifier => {
                 switch (modifier) {
                     case '-51':
-                        adjustedWRVU *= 0.5;
-                        adjustmentFactors.push('MPPR 50% reduction');
+                        const reduction = proc.mpprReduction || 0.5; // Use calculated MPPR reduction
+                        adjustedWRVU *= reduction;
+                        adjustmentFactors.push(`MPPR ${Math.round(reduction * 100)}% payment`);
                         break;
                     case '-50':
                         adjustedWRVU *= 1.5;
@@ -1370,12 +1375,13 @@ class ModifierEngine {
         
         // Determine confidence level and recommendation
         let overall, recommendation;
-        if (score >= 80) {
+        // FIX 3: STRICTER CONFIDENCE THRESHOLDS
+        if (score >= 95) {
             overall = 'high';
             recommendation = 'Safe to submit';
-        } else if (score >= 50) {
+        } else if (score >= 80) {
             overall = 'medium';
-            recommendation = 'Review recommended';
+            recommendation = 'Review required before submission';
         } else {
             overall = 'low';
             recommendation = 'DO NOT SUBMIT — resolve issues';
@@ -1458,13 +1464,13 @@ class ModifierEngine {
             });
         });
         
-        // 4. Confidence score below 50
-        if (confidence.score < 50) {
+        // 4. Confidence score below 80 (UPDATED THRESHOLD)
+        if (confidence.score < 80) {
             blockingIssues.push({
                 type: 'low_confidence',
                 severity: 'critical',
-                message: `Case confidence too low to submit (${confidence.score}%)`,
-                description: "Multiple billing issues detected that require resolution before case can be exported",
+                message: `Case confidence below export threshold (${confidence.score}% < 80%)`,
+                description: "Billing issues detected - review required before export",
                 affectedCodes: procedures.map(p => p.code)
             });
         }
@@ -1522,6 +1528,109 @@ class ModifierEngine {
         }
         
         return duplicates;
+    }
+
+    /**
+     * FIX 6: AUDIT MODE OUTPUT - Generate structured justification for each CPT
+     */
+    generateAuditOutput(procedures, confidence, blockingIssues) {
+        const auditEntries = procedures.map(proc => {
+            const rules = this.modifierRules[proc.code] || {};
+            let billabilityStatus, justification, riskFactors = [];
+
+            if (proc.rank === 'included') {
+                billabilityStatus = 'NOT_BILLABLE';
+                justification = `Included in higher-order procedure - inherent component`;
+                riskFactors = ['included_service'];
+            } else if (proc.rank === 'primary') {
+                billabilityStatus = 'PRIMARY';
+                justification = `Highest wRVU (${proc.work_rvu}) and appropriate hierarchy tier (${proc.hierarchyTier})`;
+            } else if (proc.rank === 'secondary') {
+                billabilityStatus = 'SECONDARY';
+                justification = `Lower wRVU than primary, subject to MPPR reduction (${Math.round((proc.mpprReduction || 0.5) * 100)}%)`;
+                if (proc.codeFamily) {
+                    justification += ` [${proc.codeFamily} family]`;
+                }
+            } else if (proc.rank === 'addon') {
+                billabilityStatus = 'ADDON';
+                justification = 'Add-on code - full payment, no MPPR reduction';
+            } else {
+                billabilityStatus = 'UNKNOWN';
+                justification = 'Billing status could not be determined';
+                riskFactors.push('unknown_classification');
+            }
+
+            // Modifier justifications
+            const modifierJustifications = proc.modifiers.map(mod => {
+                switch (mod) {
+                    case '-50': return 'Bilateral procedure performed';
+                    case '-51': return `MPPR secondary (${Math.round((proc.mprrReduction || 0.5) * 100)}% payment)`;
+                    case '-RT': return 'Right side laterality';
+                    case '-LT': return 'Left side laterality';
+                    case '-78': return 'Unplanned return to OR during global period';
+                    case '-79': return 'Unrelated procedure during global period';
+                    case '-58': return 'Staged procedure during global period';
+                    case '-24': return 'Unrelated E/M service during global period';
+                    case '-62': return 'Co-surgeon eligible procedure';
+                    case '-80': return 'Assistant surgeon';
+                    case '-52': return 'Reduced/discontinued service';
+                    case '-76': return 'Repeat procedure, same physician';
+                    case '-77': return 'Repeat procedure, different physician';
+                    default: return `Modifier ${mod} applied per CMS guidelines`;
+                }
+            });
+
+            // Risk assessment
+            if (proc.auditRisk === 'high') riskFactors.push('high_audit_risk');
+            if (proc.warnings && proc.warnings.length > 0) {
+                proc.warnings.forEach(w => {
+                    if (w.severity === 'error') riskFactors.push('billing_error');
+                    if (w.type === 'ncci_bundle') riskFactors.push('bundle_conflict');
+                });
+            }
+            if (!rules.hierarchy_tier) riskFactors.push('unknown_rules');
+
+            return {
+                code: proc.code,
+                description: proc.description || 'Unknown procedure',
+                billabilityStatus,
+                justification,
+                modifiers: proc.modifiers,
+                modifierJustifications,
+                baseWRVU: proc.work_rvu,
+                adjustedWRVU: proc.adjustedWRVU,
+                paymentAdjustments: proc.adjustmentFactors || [],
+                codeFamily: proc.codeFamily || 'unclassified',
+                hierarchyTier: proc.hierarchyTier,
+                riskFactors,
+                auditRisk: proc.auditRisk || 'low'
+            };
+        });
+
+        return {
+            timestamp: new Date().toISOString(),
+            caseConfidence: {
+                score: confidence.score,
+                level: confidence.overall,
+                recommendation: confidence.recommendation
+            },
+            exportEligible: blockingIssues.length === 0 && confidence.score >= 80,
+            blockingIssues: blockingIssues.map(issue => ({
+                type: issue.type,
+                severity: issue.severity,
+                message: issue.message,
+                affectedCodes: issue.affectedCodes || []
+            })),
+            procedures: auditEntries,
+            summaryMetrics: {
+                totalProcedures: procedures.length,
+                billableProcedures: auditEntries.filter(p => p.billabilityStatus !== 'NOT_BILLABLE').length,
+                includedProcedures: auditEntries.filter(p => p.billabilityStatus === 'NOT_BILLABLE').length,
+                totalModifiers: auditEntries.reduce((sum, p) => sum + p.modifiers.length, 0),
+                totalWRVU: auditEntries.reduce((sum, p) => sum + (p.adjustedWRVU || 0), 0),
+                highRiskProcedures: auditEntries.filter(p => p.auditRisk === 'high').length
+            }
+        };
     }
 }
 

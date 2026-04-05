@@ -35,7 +35,8 @@
     "44140": {
       "column2_codes": [
         "44604",
-        "44320"
+        "44320",
+        "49000"
       ],
       "description": "Colon resection may bundle with adhesiolysis and stoma creation",
       "modifier59_allowed": true,
@@ -44,7 +45,8 @@
     "44120": {
       "column2_codes": [
         "44604",
-        "44320"
+        "44320",
+        "49000"
       ],
       "description": "Small bowel resection may bundle with adhesiolysis and stoma creation",
       "modifier59_allowed": true,
@@ -70,7 +72,8 @@
     },
     "47550": {
       "column2_codes": [
-        "44604"
+        "44604",
+        "49000"
       ],
       "description": "Laparoscopic cholecystectomy may bundle with adhesiolysis",
       "modifier59_allowed": true,
@@ -78,7 +81,8 @@
     },
     "47562": {
       "column2_codes": [
-        "49320"
+        "49320",
+        "49000"
       ],
       "description": "Laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
@@ -86,7 +90,8 @@
     },
     "47563": {
       "column2_codes": [
-        "49320"
+        "49320",
+        "49000"
       ],
       "description": "Complex laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
@@ -520,6 +525,238 @@
       "description": "Tonsillectomy includes adenoidectomy",
       "modifier59_allowed": false,
       "reason": "Adenoidectomy inherently included in tonsillectomy"
+    },
+    "38102": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "38102 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44141": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44141 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44143": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44143 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44144": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44144 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44145": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44145 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44146": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44146 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44147": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44147 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44150": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44150 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44155": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44155 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44160": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44160 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44604": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44604 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "44605": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "44605 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "47350": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "47350 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "47360": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "47360 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "47564": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "47564 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "48140": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "48140 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "48145": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "48145 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "48150": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "48150 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "48153": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "48153 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "50220": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "50220 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "50230": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "50230 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "50240": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "50240 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "50520": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "50520 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "51860": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "51860 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "51900": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "51900 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "35221": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "35221 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "35081": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "35081 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "39501": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "39501 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "39560": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "39560 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
     }
   },
   "common_pairs": [
