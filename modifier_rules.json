@@ -8383,7 +8383,7 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": "reconstructive",
+    "distinct_procedure_class": "surgical",
     "category": "cabg",
     "inclusive_of": [
       "12001",
@@ -8420,7 +8420,7 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": "reconstructive",
+    "distinct_procedure_class": "surgical",
     "category": "cabg",
     "inclusive_of": [
       "12001",
@@ -8459,7 +8459,7 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": "reconstructive",
+    "distinct_procedure_class": "surgical",
     "category": "cabg",
     "inclusive_of": [
       "12001",
@@ -20720,5 +20720,33 @@
     },
     "x_modifier_eligible": false,
     "hierarchy_tier": 3
+  },
+  "27602": {
+    "category": "musculoskeletal",
+    "addon_code": false,
+    "mod51_exempt": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "global_period": 90,
+    "cosurgeon_eligible": true,
+    "assistant_allowed": true,
+    "distinct_procedure_class": "surgical",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {},
+    "payer_notes": {
+      "medicare": "Standard MPFS rate",
+      "commercial": "Standard rate"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2
   }
 }

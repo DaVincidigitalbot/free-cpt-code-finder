@@ -158,12 +158,18 @@ class ModifierEngine {
     checkProcedureHierarchy(procedures) {
         this.addAuditEntry('hierarchy_check', null, 'Checking procedure hierarchies');
 
+        // FIRST PASS: Set all hierarchy tiers from rules data
+        procedures.forEach(proc => {
+            const rules = this.modifierRules[proc.code];
+            if (rules) {
+                proc.hierarchyTier = rules.hierarchy_tier || 3;
+            }
+        });
+
+        // SECOND PASS: Check inclusive and never_primary_with relationships
         procedures.forEach(proc => {
             const rules = this.modifierRules[proc.code];
             if (!rules) return;
-
-            // Set hierarchy tier
-            proc.hierarchyTier = rules.hierarchy_tier || 3;
 
             // Check if this procedure includes others (inclusive_of)
             if (rules.inclusive_of && rules.inclusive_of.length > 0) {
@@ -787,9 +793,37 @@ class ModifierEngine {
      * Check for bilateral procedures and suggest modifier -50
      */
     checkBilateralProcedures(procedures, context) {
+        // Check for duplicate codes that should be consolidated as bilateral
+        const codeCounts = {};
         procedures.forEach(proc => {
+            codeCounts[proc.code] = (codeCounts[proc.code] || 0) + 1;
+        });
+        
+        Object.entries(codeCounts).forEach(([code, count]) => {
+            if (count >= 2) {
+                const rules = this.modifierRules[code];
+                if (rules && rules.bilateral_eligible) {
+                    const dupes = procedures.filter(p => p.code === code);
+                    dupes[0].modifiers.push('-50');
+                    dupes[0].explanations.push('Modifier -50: Bilateral (consolidated from duplicate line items)');
+                    this.addAuditEntry('bilateral_consolidation', code, `Consolidated ${count} duplicate ${code} into bilateral -50`);
+                    for (let i = 1; i < dupes.length; i++) {
+                        dupes[i].rank = 'included';
+                        dupes[i].warnings.push({
+                            type: 'bilateral_consolidation',
+                            message: `Duplicate ${code} consolidated into bilateral -50`,
+                            severity: 'info'
+                        });
+                    }
+                }
+            }
+        });
+
+        procedures.forEach(proc => {
+            if (proc.rank === 'included') return;
             const rules = this.modifierRules[proc.code];
             if (!rules || !rules.bilateral_eligible) return;
+            if (proc.modifiers.includes('-50')) return;
 
             if (rules.inherently_bilateral) {
                 proc.explanations.push('Inherently bilateral procedure - no modifier -50 needed');
@@ -972,26 +1006,35 @@ class ModifierEngine {
      * Apply reduced service modifiers (-52, -53)
      */
     applyReducedServiceModifiers(procedures, context) {
-        if (context.reducedService) {
-            procedures.forEach(proc => {
-                switch (context.reducedService) {
-                    case 'incomplete':
-                    case 'discontinued':
-                        proc.modifiers.push('-52');
-                        proc.explanations.push('Modifier -52: Reduced services/incomplete procedure');
-                        proc.auditRisk = 'medium';
-                        this.addAuditEntry('reduced_service', proc.code, 'Applied -52 for reduced services');
-                        break;
-                        
-                    case 'discontinued_anesthesia':
-                        proc.modifiers.push('-53');
-                        proc.explanations.push('Modifier -53: Discontinued procedure due to threat to patient');
-                        proc.auditRisk = 'high';
-                        this.addAuditEntry('reduced_service', proc.code, 'Applied -53 for discontinued procedure');
-                        break;
-                }
-            });
-        }
+        if (!context.reducedService) return;
+        
+        procedures.forEach(proc => {
+            let serviceType;
+            if (typeof context.reducedService === 'string') {
+                serviceType = context.reducedService;
+            } else if (typeof context.reducedService === 'object' && context.reducedService[proc.code]) {
+                serviceType = context.reducedService[proc.code];
+            } else {
+                return;
+            }
+            
+            switch (serviceType) {
+                case 'incomplete':
+                case 'discontinued':
+                    proc.modifiers.push('-52');
+                    proc.explanations.push('Modifier -52: Reduced services/incomplete procedure');
+                    proc.auditRisk = 'medium';
+                    this.addAuditEntry('reduced_service', proc.code, 'Applied -52 for reduced services');
+                    break;
+                    
+                case 'discontinued_anesthesia':
+                    proc.modifiers.push('-53');
+                    proc.explanations.push('Modifier -53: Discontinued procedure due to threat to patient');
+                    proc.auditRisk = 'high';
+                    this.addAuditEntry('reduced_service', proc.code, 'Applied -53 for discontinued procedure');
+                    break;
+            }
+        });
     }
 
     /**
