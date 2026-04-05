@@ -584,6 +584,16 @@ class TestModifierEngine {
             });
         });
         
+        // Invalid surgeon role is blocking
+        const roleErrors = warnings.filter(w => w.type === 'role_not_allowed');
+        roleErrors.forEach(warning => {
+            blockingIssues.push({
+                type: 'role_not_allowed',
+                message: warning.message,
+                affectedCodes: [warning.code]
+            });
+        });
+
         // Low confidence is blocking
         if (confidence.score < 50) {
             blockingIssues.push({
@@ -1486,7 +1496,7 @@ const scenarios = [
             warnings: ["role_not_allowed"],
             blockedCodes: [],
             totalWRVU: 2.8,
-            shouldBlock: false
+            shouldBlock: true  // Invalid surgeon role MUST block
         }
     },
 
