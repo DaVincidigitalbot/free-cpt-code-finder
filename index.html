@@ -2737,23 +2737,16 @@
         
         // Add to case and return to the SAME specialty to pick another procedure
         function addAndContinue(code, isBilateral, alsoAdd) {
-            // Add the current code(s) to the case
-            // For bilateral selections from decision tree:
-            // - Add as SINGLE entry with -50 modifier (NOT two duplicate entries)
-            // - This prevents duplicate-CPT popup from triggering
-            
+            // Structured guided workflow should never create raw duplicates.
+            const structuredAdds = [];
             if (alsoAdd) {
-                // Add the hernia code first (no bilateral flag)
-                addToRVUCalculator(alsoAdd, { fromDecisionTree: true });
-                // Add component separation code with bilateral flag if applicable
-                setTimeout(() => addToRVUCalculator(code, { fromDecisionTree: true, bilateral: isBilateral }), 100);
-            } else if (isBilateral) {
-                // Bilateral selection (e.g., bilateral 15734)
-                // Add as SINGLE entry with bilateral=true, which sets modifier to -50
-                addToRVUCalculator(code, { fromDecisionTree: true, bilateral: true });
-            } else {
-                addToRVUCalculator(code, { fromDecisionTree: true });
+                structuredAdds.push({ code: alsoAdd, options: { fromDecisionTree: true, structuredSelection: true } });
             }
+            structuredAdds.push({ code, options: { fromDecisionTree: true, structuredSelection: true, bilateral: !!isBilateral } });
+
+            structuredAdds.forEach((entry, idx) => {
+                setTimeout(() => addToRVUCalculator(entry.code, entry.options), idx * 50);
+            });
             
             // Return to the SAME specialty's first question (not reset to all categories)
             setTimeout(() => {
@@ -2773,9 +2766,8 @@
         
         // Helper: add bilateral procedure (same code twice)
         function addBilateralToCase(code) {
-            // Add as SINGLE entry with bilateral flag (-50 modifier)
-            // This is from the decision tree bilateral selection button
-            addToRVUCalculator(code, { fromDecisionTree: true, bilateral: true });
+            // Structured bilateral selection from guided workflow.
+            addToRVUCalculator(code, { fromDecisionTree: true, structuredSelection: true, bilateral: true });
         }
 
         function resetDecisionTree() {
@@ -4461,24 +4453,34 @@
     let caseProcs = [];
 
     function addToCase(cptCode, options = {}) {
-        // options: { fromDecisionTree: bool, bilateral: bool }
+        // options: { fromDecisionTree: bool, structuredSelection: bool, bilateral: bool }
         const fromDecisionTree = options.fromDecisionTree || false;
+        const structuredSelection = options.structuredSelection || false;
         const isBilateral = options.bilateral || false;
         
-        // DUPLICATE CPT DETECTION
-        // Skip popup if this is a structured bilateral selection from decision tree
         const existingProc = caseProcs.find(p => p.code === cptCode);
-        if (existingProc && !fromDecisionTree) {
-            showDuplicateCPTPrompt(cptCode);
-            return;
-        }
-        
-        // If bilateral from decision tree and code already exists, apply -50 modifier instead of adding duplicate
-        if (existingProc && fromDecisionTree && isBilateral) {
+
+        // Structured bilateral selections normalize to one line with -50.
+        if (existingProc && structuredSelection && isBilateral) {
             existingProc.modifier = '-50';
             existingProc._isBilateral = true;
             existingProc._fromDecisionTree = true;
+            existingProc._structuredSelection = true;
+            existingProc._duplicateHandling = 'bilateral_single_line_-50';
+            validateCase();
             updateCaseTray();
+            return;
+        }
+
+        // Structured guided selections should only popup on genuine unexpected duplicates.
+        if (existingProc && structuredSelection && !isBilateral) {
+            showDuplicateCPTPrompt(cptCode);
+            return;
+        }
+
+        // Manual/search-driven duplicate detection.
+        if (existingProc && !structuredSelection) {
+            showDuplicateCPTPrompt(cptCode);
             return;
         }
 
@@ -4495,6 +4497,8 @@
                 isPrimary: caseProcs.length === 0,
                 _isBilateral: isBilateral,
                 _fromDecisionTree: fromDecisionTree,
+                _structuredSelection: structuredSelection,
+                _duplicateHandling: isBilateral ? 'bilateral_single_line_-50' : 'standard_single_line',
                 validationErrors: [],
                 validationWarnings: []
             });
@@ -4512,6 +4516,8 @@
                 isPrimary: caseProcs.length === 0,
                 _isBilateral: isBilateral,
                 _fromDecisionTree: fromDecisionTree,
+                _structuredSelection: structuredSelection,
+                _duplicateHandling: isBilateral ? 'bilateral_single_line_-50' : 'standard_single_line',
                 validationErrors: [],
                 validationWarnings: []
             });
