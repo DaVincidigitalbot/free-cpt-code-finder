@@ -5158,17 +5158,34 @@
 
         // Add summary row showing raw vs adjusted
         const savings = totalRawWRVU - totalWRVU;
-        if (caseProcs.length > 1) {
-            // Build audit trail display
-            let auditHtml = '';
+        if (caseProcs.length >= 1) {
+            // Build audit trail display with explicit bilateral handling
+            let auditHtml = '<div class="ranking-audit" style="margin-top:8px;padding:8px 12px;background:#f9fafb;border-radius:4px;">';
+            auditHtml += '<div style="font-weight:600;font-size:10px;color:#374151;margin-bottom:4px;">📋 Coding Audit Trail</div>';
+            
+            // Show bilateral handling explicitly
+            caseProcs.forEach(p => {
+                if (p._isBilateral || p.modifier === '-50') {
+                    auditHtml += `<div style="font-size:10px;color:#7c3aed;"><strong>${p.code}</strong> — BILATERAL (-50): single line item × 150% wRVU = ${(p.work_rvu * 1.5).toFixed(2)}</div>`;
+                    auditHtml += `<div style="font-size:9px;color:#6b7280;margin-left:12px;font-style:italic;">Site default: one line with modifier -50. Some payers may require two lines (RT/LT) — verify with payer policy.</div>`;
+                }
+            });
+            
+            // Show ranking logic
             if (rankingAuditTrail.length > 0) {
-                auditHtml = '<div class="ranking-audit" style="margin-top:8px;padding:8px 12px;background:#f9fafb;border-radius:4px;">';
-                auditHtml += '<div style="font-weight:600;font-size:10px;color:#374151;margin-bottom:4px;">Ranking Logic:</div>';
+                auditHtml += '<div style="margin-top:6px;font-weight:600;font-size:10px;color:#374151;">Ranking Logic:</div>';
                 rankingAuditTrail.forEach(a => {
                     auditHtml += `<div style="font-size:10px;"><strong>${a.code}</strong> → ${a.role} <span class="ranking-audit-reason">— ${a.reason}</span></div>`;
                 });
-                auditHtml += '</div>';
             }
+            
+            // Show MPPR explanation if applicable
+            const hasSecondary = caseProcs.some(p => p._role === 'secondary');
+            if (hasSecondary) {
+                auditHtml += '<div style="margin-top:6px;font-size:9px;color:#6b7280;font-style:italic;">MPPR: Primary procedure = 100%, secondary procedures = 50% of wRVU per CMS rules.</div>';
+            }
+            
+            auditHtml += '</div>';
             
             html += `<div style="padding:6px 20px;font-size:0.72rem;color:#6B7280;border-top:1px solid var(--gray-200);">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
