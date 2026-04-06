@@ -795,70 +795,100 @@ class ModifierEngine {
     }
 
     /**
-     * Check for bilateral procedures and suggest modifier -50
+     * Check for bilateral procedures and apply modifier -50
+     * Handles: user-selected bilateral, duplicate CPT consolidation, RT/LT pairs
      */
     checkBilateralProcedures(procedures, context) {
-        // Check for duplicate codes that should be consolidated as bilateral
+        // STEP 1: Check if user explicitly set bilateral on any procedure
+        procedures.forEach(proc => {
+            if (proc.rank === 'included' || proc.rank === 'suppressed') return;
+            if (proc.modifiers.includes('-50')) return; // Already has it
+            
+            const rules = this.modifierRules[proc.code];
+            if (!rules || !rules.bilateral_eligible) return;
+            
+            if (rules.inherently_bilateral) {
+                proc.explanations.push('Inherently bilateral procedure — no modifier -50 needed');
+                return;
+            }
+            
+            // Check if user specified bilateral via proc.bilateral or proc.laterality
+            const isBilateral = proc.bilateral === true || proc.laterality === 'bilateral';
+            
+            // Also check context.bilateral map
+            const contextBilateral = context.bilateral === true || 
+                (context.bilateral && context.bilateral[proc.code]);
+            
+            if (isBilateral || contextBilateral) {
+                if (rules.bilateral_method === 'modifier_50') {
+                    proc.modifiers.push('-50');
+                    proc.explanations.push('Modifier -50: Bilateral procedure (150% payment)');
+                    this.addAuditEntry('bilateral_mod50', proc.code, 'Applied modifier -50 for bilateral procedure');
+                } else if (rules.bilateral_method === 'rt_lt') {
+                    proc.explanations.push('Bilateral procedure — bill as separate -RT and -LT line items');
+                    this.addAuditEntry('bilateral_rtlt', proc.code, 'Bilateral requires -RT/-LT line items, not -50');
+                } else if (rules.bilateral_method === 'units_2') {
+                    proc.explanations.push('Bilateral procedure — bill as single line with units = 2');
+                    this.addAuditEntry('bilateral_units', proc.code, 'Bilateral with units = 2');
+                } else {
+                    // Default to modifier -50 if method not specified
+                    proc.modifiers.push('-50');
+                    proc.explanations.push('Modifier -50: Bilateral procedure (default)');
+                    this.addAuditEntry('bilateral_mod50_default', proc.code, 'Applied -50 (default bilateral method)');
+                }
+            }
+        });
+        
+        // STEP 2: Check for duplicate codes that should be consolidated as bilateral
+        // (L + R same code = should be -50 instead of two lines)
         const codeCounts = {};
         procedures.forEach(proc => {
+            if (proc.rank === 'included' || proc.rank === 'suppressed') return;
             codeCounts[proc.code] = (codeCounts[proc.code] || 0) + 1;
         });
         
         Object.entries(codeCounts).forEach(([code, count]) => {
             if (count >= 2) {
                 const rules = this.modifierRules[code];
-                if (rules && rules.bilateral_eligible) {
-                    const dupes = procedures.filter(p => p.code === code);
-                    dupes[0].modifiers.push('-50');
-                    dupes[0].explanations.push('Modifier -50: Bilateral (consolidated from duplicate line items)');
-                    this.addAuditEntry('bilateral_consolidation', code, `Consolidated ${count} duplicate ${code} into bilateral -50`);
+                const dupes = procedures.filter(p => p.code === code && p.rank !== 'included');
+                
+                // Check if dupes have RT + LT (should consolidate to -50 if eligible)
+                const hasRT = dupes.some(p => p.modifiers.includes('-RT') || p.laterality === 'right');
+                const hasLT = dupes.some(p => p.modifiers.includes('-LT') || p.laterality === 'left');
+                
+                if (rules && rules.bilateral_eligible && rules.bilateral_method === 'modifier_50' && hasRT && hasLT) {
+                    // Consolidate RT+LT into bilateral -50 on first entry
+                    const primary = dupes[0];
+                    primary.modifiers = primary.modifiers.filter(m => m !== '-RT' && m !== '-LT');
+                    if (!primary.modifiers.includes('-50')) {
+                        primary.modifiers.push('-50');
+                    }
+                    primary.laterality = 'bilateral';
+                    primary.explanations.push('Modifier -50: Bilateral (consolidated from RT+LT duplicate lines)');
+                    this.addAuditEntry('bilateral_consolidation', code, `Consolidated ${count} duplicate ${code} RT+LT into bilateral -50`);
+                    
+                    // Suppress other entries
                     for (let i = 1; i < dupes.length; i++) {
-                        dupes[i].rank = 'included';
+                        dupes[i].rank = 'suppressed';
+                        dupes[i].adjustedWRVU = 0;
                         dupes[i].warnings.push({
                             type: 'bilateral_consolidation',
-                            message: `Duplicate ${code} consolidated into bilateral -50`,
+                            message: `Duplicate ${code} consolidated into bilateral -50 on first line`,
                             severity: 'info'
                         });
                     }
+                } else if (rules && rules.bilateral_eligible && count >= 2 && !hasRT && !hasLT) {
+                    // Duplicate without laterality — flag for user decision
+                    dupes.forEach((proc, idx) => {
+                        if (idx > 0) {
+                            proc.warnings.push({
+                                type: 'duplicate_needs_resolution',
+                                message: `Duplicate ${code} — add laterality (RT/LT), -50 bilateral, -76/-77 repeat, or -59 distinct`,
+                                severity: 'warning'
+                            });
+                        }
+                    });
                 }
-            }
-        });
-
-        procedures.forEach(proc => {
-            if (proc.rank === 'included') return;
-            const rules = this.modifierRules[proc.code];
-            if (!rules || !rules.bilateral_eligible) return;
-            if (proc.modifiers.includes('-50')) return;
-
-            if (rules.inherently_bilateral) {
-                proc.explanations.push('Inherently bilateral procedure - no modifier -50 needed');
-                return;
-            }
-
-            // Check if user specified bilateral in context
-            const isBilateral = context.bilateral === true || (context.bilateral && context.bilateral[proc.code]);
-            
-            if (isBilateral) {
-                if (rules.bilateral_method === 'modifier_50') {
-                    proc.modifiers.push('-50');
-                    proc.explanations.push('Modifier -50: Bilateral procedure');
-                    this.addAuditEntry('bilateral_mod50', proc.code, 'Applied modifier -50 for bilateral procedure');
-                } else if (rules.bilateral_method === 'rt_lt') {
-                    // This should be handled by creating separate line items
-                    proc.explanations.push('Bilateral procedure - bill as separate -RT and -LT line items');
-                    this.addAuditEntry('bilateral_rtlt', proc.code, 'Bilateral procedure requires -RT/-LT line items');
-                } else if (rules.bilateral_method === 'units_2') {
-                    proc.explanations.push('Bilateral procedure - bill as single line item with units = 2');
-                    this.addAuditEntry('bilateral_units', proc.code, 'Bilateral procedure with units = 2');
-                }
-            } else {
-                // Generate question for user
-                this.pendingQuestions.push({
-                    type: 'bilateral',
-                    code: proc.code,
-                    question: `Was ${proc.code} performed bilaterally?`,
-                    options: ['Yes', 'No']
-                });
             }
         });
     }
@@ -1044,59 +1074,103 @@ class ModifierEngine {
 
     /**
      * Calculate adjusted wRVUs based on modifiers
+     * CMS MPPR: 100% for primary, 50% for 2nd+
+     * Bilateral (-50): 150% of base wRVU
+     * Reconstructive codes (15734): Always 100%, but counts as a procedure for MPPR ordering
      */
     calculateAdjustedWRVUs(procedures) {
+        // First pass: calculate MPPR reductions based on rank
+        const activeProcedures = procedures.filter(p => p.rank !== 'included' && p.rank !== 'suppressed' && p.rank !== 'bundled');
+        const sortedByWRVU = [...activeProcedures].sort((a, b) => (b.work_rvu || 0) - (a.work_rvu || 0));
+        
+        // Assign MPPR position
+        // CMS MPPR: 100% for highest wRVU, 50% for all subsequent
+        // Reconstructive = always 100% but DOES occupy a slot (so next procedure is 50%)
+        // Add-ons = always 100%, do NOT occupy a slot
+        let mpprPosition = 0;
+        sortedByWRVU.forEach(proc => {
+            const rules = this.modifierRules[proc.code] || {};
+            const isReconstructive = rules.distinct_procedure_class === 'reconstructive';
+            const isAddon = rules.addon_code === true;
+            
+            if (isAddon) {
+                proc.mpprReduction = 1.0; // Add-ons always 100%
+                proc.mpprPosition = 'addon';
+                // Add-ons don't increment position
+            } else if (isReconstructive) {
+                proc.mpprReduction = 1.0; // Reconstructive always 100%
+                proc.mpprPosition = 'reconstructive';
+                mpprPosition++; // BUT it occupies a slot, so next non-addon is 50%
+            } else {
+                proc.mpprReduction = mpprPosition === 0 ? 1.0 : 0.5; // Primary 100%, secondary 50%
+                proc.mpprPosition = mpprPosition;
+                mpprPosition++;
+            }
+        });
+
         procedures.forEach(proc => {
             let adjustedWRVU = proc.work_rvu || 0;
             let adjustmentFactors = [];
+            const rules = this.modifierRules[proc.code] || {};
+            const isReconstructive = rules.distinct_procedure_class === 'reconstructive';
+            const isAddon = rules.addon_code === true;
 
+            // Apply bilateral first (before MPPR)
+            if (proc.modifiers.includes('-50')) {
+                adjustedWRVU *= 1.5;
+                adjustmentFactors.push('Bilateral -50: 150% payment');
+            }
+
+            // Apply MPPR for -51 (only if not addon/reconstructive)
+            if (proc.modifiers.includes('-51') && !isAddon && !isReconstructive) {
+                const reduction = proc.mpprReduction || 0.5;
+                adjustedWRVU *= reduction;
+                adjustmentFactors.push(`MPPR -51: ${Math.round(reduction * 100)}% payment`);
+            }
+
+            // Other modifiers
             proc.modifiers.forEach(modifier => {
                 switch (modifier) {
                     case '-51':
-                        const reduction = proc.mpprReduction || 0.5; // Use calculated MPPR reduction
-                        adjustedWRVU *= reduction;
-                        adjustmentFactors.push(`MPPR ${Math.round(reduction * 100)}% payment`);
-                        break;
                     case '-50':
-                        adjustedWRVU *= 1.5;
-                        adjustmentFactors.push('Bilateral 150% payment');
+                        // Already handled above
                         break;
                     case '-62':
                         adjustedWRVU *= 0.625;
-                        adjustmentFactors.push('Co-surgeon 62.5% payment');
+                        adjustmentFactors.push('Co-surgeon -62: 62.5% payment');
                         break;
                     case '-80':
                     case '-81':
                     case '-82':
                         adjustedWRVU *= 0.16;
-                        adjustmentFactors.push('Assistant surgeon 16% payment');
+                        adjustmentFactors.push('Assistant surgeon: 16% payment');
                         break;
                     case '-AS':
                         adjustedWRVU *= 0.85;
-                        adjustmentFactors.push('Non-physician assistant 85% payment');
+                        adjustmentFactors.push('Non-physician assistant -AS: 85% payment');
                         break;
                     case '-22':
-                        adjustedWRVU *= 1.25; // Estimated increase
-                        adjustmentFactors.push('Increased complexity 125% payment (estimated)');
+                        adjustedWRVU *= 1.25;
+                        adjustmentFactors.push('Increased complexity -22: ~125% payment');
                         break;
                     case '-52':
-                        adjustedWRVU *= 0.8; // Estimated reduction for incomplete procedure
-                        adjustmentFactors.push('Reduced services 80% payment (estimated)');
+                        adjustedWRVU *= 0.8;
+                        adjustmentFactors.push('Reduced services -52: ~80% payment');
                         break;
                     case '-53':
-                        adjustedWRVU *= 0.0; // Usually no payment for discontinued
-                        adjustmentFactors.push('Discontinued procedure - typically no payment');
+                        adjustedWRVU *= 0.0;
+                        adjustmentFactors.push('Discontinued -53: no payment');
                         break;
                 }
             });
 
-            // Included procedures get zero wRVU
-            if (proc.rank === 'included') {
+            // Included/suppressed procedures get zero wRVU
+            if (proc.rank === 'included' || proc.rank === 'suppressed' || proc.rank === 'bundled') {
                 adjustedWRVU = 0;
-                adjustmentFactors.push('Included procedure - not billable separately');
+                adjustmentFactors.push('Included/bundled — not billable separately');
             }
 
-            proc.adjustedWRVU = adjustedWRVU;
+            proc.adjustedWRVU = Math.round(adjustedWRVU * 100) / 100;
             proc.adjustmentFactors = adjustmentFactors;
         });
     }

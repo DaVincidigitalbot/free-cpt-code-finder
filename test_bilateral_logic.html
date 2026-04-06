@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bilateral + Duplicate CPT Logic Tests</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a2e; color: #eee; }
+        .test { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .pass { background: #1b4332; border-left: 4px solid #2d6a4f; }
+        .fail { background: #4a1515; border-left: 4px solid #c9184a; }
+        .result { margin-top: 5px; font-size: 12px; color: #aaa; }
+        h2 { color: #00d4ff; }
+        pre { background: #0d1117; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Bilateral + Duplicate CPT Logic Tests</h1>
+    <div id="results"></div>
+
+    <script src="./modifier_engine.js"></script>
+    <script>
+    (async function() {
+        const resultsEl = document.getElementById('results');
+        const log = (msg, pass = true) => {
+            const div = document.createElement('div');
+            div.className = `test ${pass ? 'pass' : 'fail'}`;
+            div.innerHTML = `${pass ? '✅' : '❌'} ${msg}`;
+            resultsEl.appendChild(div);
+        };
+
+        // Wait for modifier engine
+        await window.ModifierEngine.initialize();
+        const engine = window.ModifierEngine;
+
+        // Helper to create procedure
+        const proc = (code, wRVU, opts = {}) => ({
+            id: Math.random().toString(36).slice(2),
+            code,
+            work_rvu: wRVU,
+            description: `Test ${code}`,
+            laterality: opts.laterality || 'none',
+            bilateral: opts.bilateral || false,
+            ...opts
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        // TEST 1: 15734 Unilateral
+        // ═══════════════════════════════════════════════════════════════
+        resultsEl.innerHTML += '<h2>Test 1: 15734 Unilateral</h2>';
+        
+        const test1 = engine.analyze([proc('15734', 20.22)], {});
+        const p1 = test1.procedures[0];
+        
+        log(`Code: 15734`);
+        log(`Base wRVU: 20.22`);
+        log(`Adjusted wRVU: ${p1.adjustedWRVU}`, p1.adjustedWRVU === 20.22);
+        log(`Rank: ${p1.rank} (expected: primary)`, p1.rank === 'primary');
+        log(`Modifiers: ${p1.modifiers.join(', ') || 'none'}`, !p1.modifiers.includes('-50'));
+        log(`Confidence: ${test1.confidence.score}%`);
+
+        // ═══════════════════════════════════════════════════════════════
+        // TEST 2: 15734 Bilateral (-50)
+        // ═══════════════════════════════════════════════════════════════
+        resultsEl.innerHTML += '<h2>Test 2: 15734 Bilateral (-50)</h2>';
+        
+        const test2 = engine.analyze([proc('15734', 20.22, { bilateral: true, laterality: 'bilateral' })], {});
+        const p2 = test2.procedures[0];
+        
+        log(`Code: 15734 bilateral`);
+        log(`Base wRVU: 20.22`);
+        log(`Expected wRVU: 30.33 (150% of 20.22)`, Math.abs(p2.adjustedWRVU - 30.33) < 0.01);
+        log(`Actual wRVU: ${p2.adjustedWRVU}`);
+        log(`Modifiers: ${p2.modifiers.join(', ')}`, p2.modifiers.includes('-50'));
+        log(`Rank: ${p2.rank}`, p2.rank === 'primary');
+
+        // ═══════════════════════════════════════════════════════════════
+        // TEST 3: 15734 x2 (duplicate entries)
+        // ═══════════════════════════════════════════════════════════════
+        resultsEl.innerHTML += '<h2>Test 3: 15734 x2 (duplicate entries - should consolidate to bilateral)</h2>';
+        
+        const test3 = engine.analyze([
+            proc('15734', 20.22, { laterality: 'left' }),
+            proc('15734', 20.22, { laterality: 'right' })
+        ], {});
+        
+        const billable3 = test3.procedures.filter(p => p.rank !== 'suppressed' && p.rank !== 'included');
+        const suppressed3 = test3.procedures.filter(p => p.rank === 'suppressed' || p.rank === 'included');
+        
+        log(`Input: 15734 (L) + 15734 (R)`);
+        log(`Billable procedures: ${billable3.length} (expected: 1)`, billable3.length === 1);
+        log(`Suppressed procedures: ${suppressed3.length} (expected: 1)`, suppressed3.length === 1);
+        
+        if (billable3.length > 0) {
+            log(`Billable entry has -50: ${billable3[0].modifiers.includes('-50')}`, billable3[0].modifiers.includes('-50'));
+            log(`Billable wRVU: ${billable3[0].adjustedWRVU} (expected: 30.33)`, Math.abs(billable3[0].adjustedWRVU - 30.33) < 0.01);
+        }
+        
+        log(`Total wRVU: ${test3.summary.totalWRVU}`);
+
+        // ═══════════════════════════════════════════════════════════════
+        // TEST 4: 15734 + another CPT (49593 hernia)
+        // ═══════════════════════════════════════════════════════════════
+        resultsEl.innerHTML += '<h2>Test 4: 15734 + 49593 (component separation + hernia)</h2>';
+        
+        const test4 = engine.analyze([
+            proc('15734', 20.22),
+            proc('49593', 18.70)
+        ], {});
+        
+        const primary4 = test4.procedures.find(p => p.rank === 'primary');
+        const secondary4 = test4.procedures.find(p => p.rank === 'secondary');
+        
+        log(`15734 wRVU: 20.22 | 49593 wRVU: 18.70`);
+        log(`Primary: ${primary4?.code} (expected: 15734 - reconstructive)`, primary4?.code === '15734');
+        log(`Secondary: ${secondary4?.code} (expected: 49593)`, secondary4?.code === '49593');
+        
+        if (primary4) {
+            log(`15734 adjusted wRVU: ${primary4.adjustedWRVU} (expected: 20.22 - 100%)`, primary4.adjustedWRVU === 20.22);
+        }
+        if (secondary4) {
+            const has51 = secondary4.modifiers.includes('-51');
+            log(`49593 has -51: ${has51}`, has51);
+            const expected49593 = 18.70 * 0.5; // MPPR 50%
+            log(`49593 adjusted wRVU: ${secondary4.adjustedWRVU} (expected: ~${expected49593.toFixed(2)} - 50% MPPR)`, Math.abs(secondary4.adjustedWRVU - expected49593) < 0.1);
+        }
+        
+        log(`Total wRVU: ${test4.summary.totalWRVU}`);
+        log(`Confidence: ${test4.confidence.score}%`);
+
+        // ═══════════════════════════════════════════════════════════════
+        // TEST 5: MPPR Validation (100%/50%/50%)
+        // ═══════════════════════════════════════════════════════════════
+        resultsEl.innerHTML += '<h2>Test 5: MPPR Validation (100%/50%/50%)</h2>';
+        
+        const test5 = engine.analyze([
+            proc('47562', 15.0),  // Primary: lap chole
+            proc('49505', 12.0), // Secondary: hernia
+            proc('10061', 5.0)   // Third: I&D
+        ], {});
+        
+        const sorted5 = [...test5.procedures].sort((a, b) => b.work_rvu - a.work_rvu);
+        
+        log(`Input: 47562 (15.0), 49505 (12.0), 10061 (5.0)`);
+        sorted5.forEach((p, i) => {
+            const expectedRate = i === 0 ? 1.0 : 0.5;
+            const expectedWRVU = p.work_rvu * expectedRate;
+            const match = Math.abs(p.adjustedWRVU - expectedWRVU) < 0.1;
+            log(`${p.code}: ${p.adjustedWRVU} wRVU (expected: ${expectedWRVU} @ ${expectedRate * 100}%)`, match);
+        });
+        
+        const totalExpected5 = 15.0 * 1.0 + 12.0 * 0.5 + 5.0 * 0.5;
+        log(`Total wRVU: ${test5.summary.totalWRVU} (expected: ${totalExpected5})`, Math.abs(test5.summary.totalWRVU - totalExpected5) < 0.1);
+
+        // ═══════════════════════════════════════════════════════════════
+        // SUMMARY
+        // ═══════════════════════════════════════════════════════════════
+        resultsEl.innerHTML += '<h2>Summary</h2>';
+        
+        const allTests = document.querySelectorAll('.test');
+        const passed = document.querySelectorAll('.pass').length;
+        const failed = document.querySelectorAll('.fail').length;
+        
+        log(`Total: ${passed} passed, ${failed} failed`, failed === 0);
+
+        // Output raw data
+        resultsEl.innerHTML += '<h2>Raw Test Data</h2>';
+        const pre = document.createElement('pre');
+        pre.textContent = JSON.stringify({
+            test1_unilateral: { wRVU: p1.adjustedWRVU, modifiers: p1.modifiers, rank: p1.rank },
+            test2_bilateral: { wRVU: p2.adjustedWRVU, modifiers: p2.modifiers, rank: p2.rank },
+            test3_duplicate: { billable: billable3.map(p => ({ code: p.code, wRVU: p.adjustedWRVU, modifiers: p.modifiers })), total: test3.summary.totalWRVU },
+            test4_combo: { procedures: test4.procedures.map(p => ({ code: p.code, rank: p.rank, wRVU: p.adjustedWRVU, modifiers: p.modifiers })), total: test4.summary.totalWRVU },
+            test5_mppr: { procedures: test5.procedures.map(p => ({ code: p.code, rank: p.rank, wRVU: p.adjustedWRVU })), total: test5.summary.totalWRVU }
+        }, null, 2);
+        resultsEl.appendChild(pre);
+    })();
+    </script>
+</body>
+</html>

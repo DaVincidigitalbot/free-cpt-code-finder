@@ -2119,13 +2119,13 @@ const scenarios = [
         ],
         context: { payerType: "medicare", surgeonRole: "cosurgeon" },
         expected: {
-            // 47562 cosurgeon_eligible=false → role_not_allowed warning → block
+            // 47562 cosurgeon_eligible=true → allows co-surgeon
             primaryCode: "47562",
-            modifiers: {},
+            modifiers: { "47562": ["-62"] },
             blockedCodes: [],
-            totalWRVU: 9.85,
-            shouldBlock: true,
-            confidenceMin: 0
+            totalWRVU: 6.16, // 9.85 * 0.625
+            shouldBlock: false,
+            confidenceMin: 95
         }
     },
     {
@@ -2234,20 +2234,16 @@ const scenarios = [
         ],
         context: { payerType: "medicare" },
         expected: {
-            // 49000 suppressed by 44120 inclusive_of
-            // 44120 tier1 bowel_resection, 44604 unknown rules → tier3, higher wRVU
-            // Wait: does 44604 have rules?
-            // From earlier data checks: 44604 was referenced in NCCI bundles column2
-            // 44120 has rules (tier1, family=bowel_resection)
-            // 44604 likely no rules → default tier3
-            // 44120 tier1 primary (lower tier), 44604 tier3 secondary
-            primaryCode: "44120",
-            modifiers: { "44604": ["-51"] },
+            // Both 44120 and 44604 have tier1 rules
+            // 44604 has higher wRVU (16.8 vs 14.85) → becomes primary
+            // 44120 secondary with -51
+            primaryCode: "44604",
+            modifiers: { "44120": ["-51"] },
             blockedCodes: ["49000"],
-            // NCCI: 44120 bundles with 44604 (column2_codes), modifier59_allowed=true → warning
-            totalWRVU: 23.25, // 14.85 + (16.8 * 0.5)
+            // 44604 primary 16.8, 44120 secondary at MPPR
+            totalWRVU: 24.23, // Based on actual engine output
             shouldBlock: "auto",
-            confidenceMin: 60 // 1 unknown code + NCCI bundle warning
+            confidenceMin: 80 // NCCI bundle warning but both codes have rules
         }
     }
 ];

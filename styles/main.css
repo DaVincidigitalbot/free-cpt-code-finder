@@ -1441,3 +1441,92 @@ body {
     break-inside: avoid;
   }
 }
+
+/* ============================================================
+   Laterality Controls (Bilateral/Left/Right)
+   ============================================================ */
+.laterality-controls {
+  display: flex;
+  gap: 4px;
+  margin: 8px 0;
+  padding: 6px 8px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+.lat-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lat-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent);
+}
+
+.lat-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-inverse);
+}
+
+.lat-btn.bilateral {
+  min-width: 28px;
+}
+
+.lat-btn.bilateral.active {
+  background: var(--info);
+  border-color: var(--info);
+}
+
+/* Laterality Badge */
+.laterality-badge {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.laterality-badge.bilateral {
+  background: var(--info);
+  color: white;
+}
+
+.laterality-badge.left {
+  background: #8b5cf6;
+  color: white;
+}
+
+.laterality-badge.right {
+  background: #ec4899;
+  color: white;
+}
+
+/* Role badges for reconstructive and addon */
+.role-reconstructive {
+  border-left: 3px solid var(--info);
+}
+
+.role-addon {
+  border-left: 3px solid #8b5cf6;
+}
+
+.case-item__role.role-reconstructive {
+  background: var(--info);
+  color: white;
+}
+
+.case-item__role.role-addon {
+  background: #8b5cf6;
+  color: white;
+}
