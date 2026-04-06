@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly</title>
+    <meta name="description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree helps you find the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.">
+    <meta name="keywords" content="CPT codes, CPT code finder, free CPT lookup, ICD-10 codes, ICD-10 finder, surgical CPT codes, medical billing codes, procedure codes, CPT code search, find CPT code, what CPT code for hernia, CPT code for appendectomy, medical coding, free medical coding tool">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
+    <meta property="og:description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree helps you find the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://freecptcodefinder.com">
+    <meta property="og:image" content="https://freecptcodefinder.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
+    <meta name="twitter:description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree built by a practicing surgeon.">
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://freecptcodefinder.com/">
+    <meta name="author" content="FreeCPTCodeFinder.com">
+    <meta name="og:site_name" content="Free CPT Code Finder">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/logo-192.png">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPFGH437ZS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NPFGH437ZS');
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/main.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "WebApplication", "MedicalWebPage"],
+        "name": "Clinical Case Log, LLC",
+        "url": "https://freecptcodefinder.com",
+        "logo": "https://freecptcodefinder.com/logo.png",
+        "description": "Free CPT Code Finder - Interactive decision tree for finding surgical procedure codes, diagnosis codes, and modifiers. Built by a practicing surgeon.",
+        "applicationCategory": "Medical coding tool",
+        "operatingSystem": "Web",
+        "author": {
+            "@type": "Person",
+            "name": "FreeCPTCodeFinder.com",
+            "jobTitle": "Medical Coding Resource"
+        },
+        "medicalSpecialty": "Surgery",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Healthcare professionals, surgeons, residents, PA/NP students, medical billing professionals"
+        },
+        "isAccessibleForFree": true,
+        "dateModified": "2026-04-05",
+        "inLanguage": "en-US",
+        "keywords": "CPT codes, ICD-10 codes, medical coding, surgical procedures, billing codes",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://freecptcodefinder.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════════════════════
+         HEADER
+         ══════════════════════════════════════════════════════ -->
+    <header class="app-header">
+        <a href="/" class="app-header__logo">
+            <img src="/logo-192.png" alt="FreeCPTCodeFinder">
+            <span class="app-header__logo-text">FreeCPTCodeFinder</span>
+        </a>
+        <span class="app-header__tagline">Find the exact CPT or ICD-10 code in seconds</span>
+
+        <nav class="app-header__nav" id="mainNav">
+            <a href="#" class="active" data-tab="search">CPT Codes</a>
+            <a href="#" data-tab="icd10">ICD-10 Codes</a>
+            <a href="/outpatient.html">Office &amp; Outpatient</a>
+            <a href="/codes/">All Codes</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about.html">About</a>
+            <a href="/terms.html">Legal</a>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════
+         SEARCH BAR
+         ══════════════════════════════════════════════════════ -->
+    <section class="search-section">
+        <div class="search-wrapper">
+            <input
+                type="text"
+                id="globalSearch"
+                class="search-bar"
+                placeholder="Search CPT codes, ICD-10 codes, procedures, specialties..."
+                autocomplete="off"
+                autofocus
+            >
+            <span class="search-icon">🔍</span>
+            <div id="searchDropdown" class="search-dropdown"></div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         MAIN TABS
+         ══════════════════════════════════════════════════════ -->
+    <div class="main-tabs" id="mainTabs">
+        <button class="main-tab active" data-tab="search">Search &amp; Browse</button>
+        <button class="main-tab" data-tab="icd10">ICD-10 Codes</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         3-COLUMN LAYOUT
+         ══════════════════════════════════════════════════════ -->
+    <div class="app-layout">
+
+        <!-- LEFT SIDEBAR: Specialty Navigator -->
+        <aside class="app-layout__sidebar" id="sidebar">
+            <div class="sidebar-title">SPECIALTIES</div>
+            <div id="sidebarBreadcrumb" class="sidebar-breadcrumb"></div>
+            <div id="specialtyList" class="specialty-list"></div>
+        </aside>
+
+        <!-- CENTER: Search Results / Procedure Browser -->
+        <main class="app-layout__main" id="mainContent">
+
+            <!-- Search / Browse tab -->
+            <div id="tabSearch">
+                <div class="results-header">
+                    <span class="results-count" id="resultsCount">Browse specialties or search above</span>
+                </div>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- ICD-10 Section (inside main for flow) -->
+            <div id="tabICD10" class="hidden">
+                <div class="icd10-section visible" id="icd10Section">
+                    <div class="icd10-section__header">
+                        <span class="icd10-section__title">ICD-10 Code Browser</span>
+                        <input type="text" id="icd10Search" class="icd10-search-bar" placeholder="Search ICD-10 codes...">
+                    </div>
+                    <div class="icd10-tabs" id="icd10Tabs"></div>
+                    <div class="icd10-results" id="icd10Results"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT PANEL: Case Builder + Audit -->
+        <aside class="app-layout__panel" id="casePanel">
+            <div class="case-panel">
+                <div class="case-panel__header">
+                    <span class="case-panel__title">⚡ Case Builder</span>
+                    <div class="case-panel__actions">
+                        <button class="btn btn--sm btn--secondary" id="closePanelBtn" style="display:none">&times;</button>
+                    </div>
+                </div>
+                <div class="case-panel__body" id="caseBody">
+                    <!-- CaseBuilder renders here -->
+                </div>
+                <div id="auditContainer">
+                    <!-- AuditPanel renders here -->
+                </div>
+                <div class="case-panel__footer" id="caseFooter">
+                    <!-- Footer (totals, export) renders here -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         MOBILE FABs
+         ══════════════════════════════════════════════════════ -->
+    <button class="mobile-fab mobile-fab--sidebar" id="fabSidebar" aria-label="Specialties">📂</button>
+    <button class="mobile-fab mobile-fab--case" id="fabCase" aria-label="Case Builder">📋</button>
+
+    <!-- ══════════════════════════════════════════════════════
+         FOOTER
+         ══════════════════════════════════════════════════════ -->
+    <footer style="background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;margin-top:0;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:24px;">
+                <div>
+                    <h4 style="color:var(--accent);font-size:0.8125rem;margin-bottom:12px;font-weight:700;">Tools</h4>
+                    <div style="display:flex;flex-direction:column;gap:6px;">
+                        <a href="/" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">CPT Code Finder</a>
+                        <a href="#" data-tab="icd10" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">ICD-10 Browser</a>
+                        <a href="/outpatient.html" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Office &amp; Outpatient</a>
+                        <a href="/blog/" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Coding Blog</a>
+                        <a href="https://clinicalcaselog.com" target="_blank" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Clinical Case Log</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent);font-size:0.8125rem;margin-bottom:12px;font-weight:700;">Company</h4>
+                    <div style="display:flex;flex-direction:column;gap:6px;">
+                        <a href="/about.html" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">About</a>
+                        <a href="mailto:support@freecptcodefinder.com" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Contact Support</a>
+                        <a href="mailto:ads@freecptcodefinder.com" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Advertising</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent);font-size:0.8125rem;margin-bottom:12px;font-weight:700;">Legal</h4>
+                    <div style="display:flex;flex-direction:column;gap:6px;">
+                        <a href="/terms.html" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Terms of Use</a>
+                        <a href="/privacy.html" style="color:var(--text-secondary);text-decoration:none;font-size:0.8125rem;">Privacy Policy</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent);font-size:0.8125rem;margin-bottom:12px;font-weight:700;">Trust</h4>
+                    <div style="display:flex;flex-direction:column;gap:6px;font-size:0.75rem;color:var(--text-muted);">
+                        <span>AMA CPT® Referenced</span>
+                        <span>CMS RVU Data</span>
+                        <span>NCCI Compliant</span>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top:1px solid var(--border);padding-top:16px;text-align:center;">
+                <p style="color:var(--text-muted);font-size:0.75rem;margin-bottom:8px;">© 2026 Clinical Case Log, LLC. All rights reserved.</p>
+                <p style="color:var(--text-muted);font-size:0.6875rem;max-width:700px;margin:0 auto;line-height:1.6;">
+                    <strong>Disclaimer:</strong> This tool is for educational and reference purposes only. Always verify codes with the current AMA CPT codebook and CMS ICD-10 guidelines. Coding decisions should be made by qualified medical coding professionals based on complete clinical documentation.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════════════════
+         SCRIPTS
+         ══════════════════════════════════════════════════════ -->
+    <!-- Modifier Engine (existing) -->
+    <script src="./modifier_engine.js"></script>
+
+    <!-- New modules -->
+    <script src="./js/search_engine.js"></script>
+    <script src="./js/specialty_navigator.js"></script>
+    <script src="./js/case_builder.js"></script>
+    <script src="./js/icd10_engine.js"></script>
+    <script src="./js/audit_panel.js"></script>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ─── Instances ───────────────────────────────────────
+        const searchEngine    = new UnifiedSearchEngine();
+        const specialtyNav    = new SpecialtyNavigator();
+        const caseBuilder     = new CaseBuilder();
+        const icd10Engine     = new ICD10Engine();
+        const auditPanel      = new AuditPanel();
+        let modifierEngine    = null;
+
+        // ─── DOM refs ────────────────────────────────────────
+        const searchInput     = document.getElementById('globalSearch');
+        const searchDropdown  = document.getElementById('searchDropdown');
+        const resultsGrid     = document.getElementById('resultsGrid');
+        const resultsCount    = document.getElementById('resultsCount');
+        const caseBody        = document.getElementById('caseBody');
+        const caseFooter      = document.getElementById('caseFooter');
+        const auditContainer  = document.getElementById('auditContainer');
+        const specialtyList   = document.getElementById('specialtyList');
+        const breadcrumb      = document.getElementById('sidebarBreadcrumb');
+        const icd10Section    = document.getElementById('icd10Section');
+        const icd10Tabs       = document.getElementById('icd10Tabs');
+        const icd10Results    = document.getElementById('icd10Results');
+        const icd10Search     = document.getElementById('icd10Search');
+
+        // ─── Init ────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 FreeCPTCodeFinder v2 — Initializing...');
+
+            // Init modifier engine
+            try {
+                modifierEngine = new ModifierEngine();
+                await modifierEngine.initialize();
+                console.log('✅ ModifierEngine ready');
+            } catch (e) {
+                console.warn('⚠ ModifierEngine failed to init:', e);
+            }
+
+            // Init search engine
+            await searchEngine.initialize();
+            searchEngine.onResultClick = handleSearchResultClick;
+            searchEngine.bindToInput(searchInput, searchDropdown);
+
+            // Init case builder
+            caseBuilder.modifierEngine = modifierEngine;
+            caseBuilder.searchEngine = searchEngine;
+            caseBuilder.auditPanel = auditPanel;
+            caseBuilder.initialize(caseBody, caseFooter);
+
+            // Init audit panel
+            auditPanel.initialize(auditContainer);
+
+            // Init specialty navigator
+            specialtyNav.searchEngine = searchEngine;
+            specialtyNav.caseBuilder = caseBuilder;
+            await specialtyNav.initialize(specialtyList, breadcrumb);
+
+            // Init ICD-10 engine
+            icd10Engine.searchEngine = searchEngine;
+            icd10Engine.caseBuilder = caseBuilder;
+            await icd10Engine.initialize(icd10Section, icd10Tabs, icd10Results, icd10Search);
+
+            // Render initial popular codes
+            renderPopularCodes();
+
+            // Wire up tabs, FABs, mobile
+            setupTabs();
+            setupMobile();
+
+            console.log('✅ All engines initialized');
+        });
+
+        // ─── Search result click handler ─────────────────────
+        function handleSearchResultClick(item) {
+            if (item.type === 'cpt') {
+                caseBuilder.addProcedure(item);
+                renderCodeDetail(item);
+            } else if (item.type === 'icd10') {
+                switchTab('icd10');
+                // Could scroll to the code
+            }
+        }
+
+        // ─── Render code detail in main area ─────────────────
+        function renderCodeDetail(item) {
+            resultsGrid.innerHTML = `
+                <div class="code-card" style="grid-column:1/-1;cursor:default;">
+                    <div class="code-card__header">
+                        <span class="code-card__code" style="font-size:2rem">${item.code}</span>
+                        <span class="code-card__wrvu" style="font-size:1rem">${item.wRVU.toFixed(2)} wRVU</span>
+                    </div>
+                    <div class="code-card__desc" style="font-size:1rem;color:var(--text-primary);margin-bottom:16px">${item.description}</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px">
+                        <div>
+                            <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Work RVU</div>
+                            <div style="font-family:var(--font-mono);font-weight:700;color:var(--info)">${item.wRVU.toFixed(2)}</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">PE RVU</div>
+                            <div style="font-family:var(--font-mono);font-weight:700;color:var(--text-secondary)">${(item.peRVU || 0).toFixed(2)}</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">MP RVU</div>
+                            <div style="font-family:var(--font-mono);font-weight:700;color:var(--text-secondary)">${(item.mpRVU || 0).toFixed(2)}</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Total RVU</div>
+                            <div style="font-family:var(--font-mono);font-weight:700;color:var(--accent)">${(item.totalRVU || 0).toFixed(2)}</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Global Period</div>
+                            <div style="font-family:var(--font-mono);font-weight:700;color:var(--text-secondary)">${item.globalPeriod || 0} days</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Est. Payment</div>
+                            <div style="font-family:var(--font-mono);font-weight:700;color:var(--success)">$${((item.totalRVU || 0) * 33.89).toFixed(0)}</div>
+                        </div>
+                    </div>
+                    <div class="code-card__footer">
+                        <span class="specialty-pill">${item.specialty || item.category}</span>
+                        <span class="global-pill">Global: ${item.globalPeriod || 0}d</span>
+                    </div>
+                </div>
+            `;
+            resultsCount.textContent = `Viewing: CPT ${item.code}`;
+        }
+
+        // ─── Render popular codes on load ────────────────────
+        function renderPopularCodes() {
+            const popularCodes = [
+                '47562','44970','49505','10060','10061','99291','11042','44140',
+                '49000','38100','32551','36556','43235','45378','60240','19301',
+                '44120','27447','27130','44310','99213','99223','99232','99238'
+            ];
+
+            let html = '';
+            let count = 0;
+            for (const code of popularCodes) {
+                const item = searchEngine.getCPT(code);
+                if (!item) continue;
+                count++;
+                html += renderCodeCard(item);
+            }
+
+            if (html) {
+                resultsGrid.innerHTML = html;
+                resultsCount.textContent = `${count} popular procedure codes`;
+                attachCardHandlers();
+            }
+        }
+
+        function renderCodeCard(item) {
+            const specialtyClass = item.category === 'E/M' ? 'specialty-pill--em'
+                : item.category === 'Radiology' ? 'specialty-pill--radiology'
+                : item.category === 'Pathology' ? 'specialty-pill--pathology'
+                : '';
+            return `
+                <div class="code-card" data-code="${item.code}">
+                    <div class="code-card__header">
+                        <span class="code-card__code">${item.code}</span>
+                        <span class="code-card__wrvu">${item.wRVU.toFixed(2)} wRVU</span>
+                    </div>
+                    <div class="code-card__desc">${item.description.length > 100 ? item.description.slice(0,100) + '...' : item.description}</div>
+                    <div class="code-card__footer">
+                        <span class="specialty-pill ${specialtyClass}">${item.specialty || item.category}</span>
+                        <span class="global-pill">${item.globalPeriod || 0}d</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function attachCardHandlers() {
+            resultsGrid.querySelectorAll('.code-card[data-code]').forEach(card => {
+                card.addEventListener('click', () => {
+                    const code = card.dataset.code;
+                    const item = searchEngine.getCPT(code);
+                    if (item) {
+                        caseBuilder.addProcedure(item);
+                        renderCodeDetail(item);
+                    }
+                });
+            });
+        }
+
+        // ─── Also render grid from search ────────────────────
+        // Listen for search input to show results in grid too
+        let gridDebounce = null;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(gridDebounce);
+            gridDebounce = setTimeout(() => {
+                const q = searchInput.value.trim();
+                if (q.length < 2) {
+                    renderPopularCodes();
+                    return;
+                }
+                const results = searchEngine.search(q);
+                const cptResults = results.filter(r => r.type === 'cpt');
+                if (cptResults.length === 0) {
+                    resultsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted)">No CPT codes found. Try a different search term.</div>';
+                    resultsCount.textContent = '0 results';
+                    return;
+                }
+                let html = '';
+                cptResults.slice(0, 30).forEach(item => {
+                    html += renderCodeCard(item);
+                });
+                resultsGrid.innerHTML = html;
+                resultsCount.textContent = `${cptResults.length} result${cptResults.length > 1 ? 's' : ''} for "${q}"`;
+                attachCardHandlers();
+            }, 200);
+        });
+
+        // ─── Tab switching ───────────────────────────────────
+        function setupTabs() {
+            document.querySelectorAll('[data-tab]').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchTab(el.dataset.tab);
+                });
+            });
+        }
+
+        function switchTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.main-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.tab === tab);
+            });
+            document.querySelectorAll('.app-header__nav a[data-tab]').forEach(a => {
+                a.classList.toggle('active', a.dataset.tab === tab);
+            });
+
+            // Show/hide content
+            document.getElementById('tabSearch').classList.toggle('hidden', tab !== 'search');
+            document.getElementById('tabICD10').classList.toggle('hidden', tab !== 'icd10');
+
+            if (tab === 'icd10') {
+                icd10Engine.show();
+            }
+        }
+
+        // ─── Mobile controls ─────────────────────────────────
+        function setupMobile() {
+            const sidebar = document.getElementById('sidebar');
+            const casePanel = document.getElementById('casePanel');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('mainNav');
+            const fabSidebar = document.getElementById('fabSidebar');
+            const fabCase = document.getElementById('fabCase');
+            const closePanel = document.getElementById('closePanelBtn');
+
+            menuBtn.addEventListener('click', () => {
+                nav.classList.toggle('mobile-open');
+            });
+
+            fabSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('mobile-open');
+                casePanel.classList.remove('mobile-open');
+            });
+
+            fabCase.addEventListener('click', () => {
+                casePanel.classList.toggle('mobile-open');
+                sidebar.classList.remove('mobile-open');
+                closePanel.style.display = 'inline-flex';
+            });
+
+            closePanel.addEventListener('click', () => {
+                casePanel.classList.remove('mobile-open');
+                closePanel.style.display = 'none';
+            });
+
+            // Close overlays on outside click
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    if (!sidebar.contains(e.target) && !fabSidebar.contains(e.target)) {
+                        sidebar.classList.remove('mobile-open');
+                    }
+                }
+                if (window.innerWidth <= 1200) {
+                    if (!casePanel.contains(e.target) && !fabCase.contains(e.target)) {
+                        casePanel.classList.remove('mobile-open');
+                    }
+                }
+                if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+                    nav.classList.remove('mobile-open');
+                }
+            });
+        }
+
+    })();
+    </script>
+
+</body>
+</html>
