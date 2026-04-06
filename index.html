@@ -2738,17 +2738,21 @@
         // Add to case and return to the SAME specialty to pick another procedure
         function addAndContinue(code, isBilateral, alsoAdd) {
             // Add the current code(s) to the case
+            // For bilateral selections from decision tree:
+            // - Add as SINGLE entry with -50 modifier (NOT two duplicate entries)
+            // - This prevents duplicate-CPT popup from triggering
+            
             if (alsoAdd) {
-                addToRVUCalculator(alsoAdd);
-                setTimeout(() => addToRVUCalculator(code), 100);
-                if (isBilateral) {
-                    setTimeout(() => addToRVUCalculator(code), 200);
-                }
+                // Add the hernia code first (no bilateral flag)
+                addToRVUCalculator(alsoAdd, { fromDecisionTree: true });
+                // Add component separation code with bilateral flag if applicable
+                setTimeout(() => addToRVUCalculator(code, { fromDecisionTree: true, bilateral: isBilateral }), 100);
             } else if (isBilateral) {
-                addToRVUCalculator(code);
-                setTimeout(() => addToRVUCalculator(code), 100);
+                // Bilateral selection (e.g., bilateral 15734)
+                // Add as SINGLE entry with bilateral=true, which sets modifier to -50
+                addToRVUCalculator(code, { fromDecisionTree: true, bilateral: true });
             } else {
-                addToRVUCalculator(code);
+                addToRVUCalculator(code, { fromDecisionTree: true });
             }
             
             // Return to the SAME specialty's first question (not reset to all categories)
@@ -3076,11 +3080,11 @@
             </div>`;
         }
 
-        function addToRVUCalculator(cptCode) {
+        function addToRVUCalculator(cptCode, options = {}) {
             // Add to Case Builder tray (persistent bottom bar)
-            // addToCase already calls addProcedure internally, so we DON'T call it again
+            // options: { fromDecisionTree: bool, bilateral: bool }
             if (typeof addToCase === 'function') {
-                addToCase(cptCode);
+                addToCase(cptCode, options);
             } else {
                 // Fallback if Case Builder not loaded
                 addProcedure(cptCode);
@@ -4457,11 +4461,25 @@
     // ============================
     let caseProcs = [];
 
-    function addToCase(cptCode) {
+    function addToCase(cptCode, options = {}) {
+        // options: { fromDecisionTree: bool, bilateral: bool }
+        const fromDecisionTree = options.fromDecisionTree || false;
+        const isBilateral = options.bilateral || false;
+        
         // DUPLICATE CPT DETECTION
+        // Skip popup if this is a structured bilateral selection from decision tree
         const existingProc = caseProcs.find(p => p.code === cptCode);
-        if (existingProc) {
+        if (existingProc && !fromDecisionTree) {
             showDuplicateCPTPrompt(cptCode);
+            return;
+        }
+        
+        // If bilateral from decision tree and code already exists, apply -50 modifier instead of adding duplicate
+        if (existingProc && fromDecisionTree && isBilateral) {
+            existingProc.modifier = '-50';
+            existingProc._isBilateral = true;
+            existingProc._fromDecisionTree = true;
+            updateCaseTray();
             return;
         }
 
@@ -4474,8 +4492,10 @@
                 code: cptCode,
                 description: cptEntry.desc || 'Unknown procedure',
                 work_rvu: 0, pe_rvu: 0, mp_rvu: 0, total_rvu: 0,
-                modifier: 'none',
+                modifier: isBilateral ? '-50' : 'none',
                 isPrimary: caseProcs.length === 0,
+                _isBilateral: isBilateral,
+                _fromDecisionTree: fromDecisionTree,
                 validationErrors: [],
                 validationWarnings: []
             });
@@ -4489,8 +4509,10 @@
                 pe_rvu: data.pe_rvu,
                 mp_rvu: data.mp_rvu,
                 total_rvu: data.total_rvu,
-                modifier: 'none',
+                modifier: isBilateral ? '-50' : 'none',
                 isPrimary: caseProcs.length === 0,
+                _isBilateral: isBilateral,
+                _fromDecisionTree: fromDecisionTree,
                 validationErrors: [],
                 validationWarnings: []
             });
@@ -4874,6 +4896,12 @@
     function getCaseAdjustedWRVU(proc, index) {
         let rvu = proc.work_rvu;
 
+        // BILATERAL MODIFIER (-50) = 150% of base wRVU
+        // Apply first before any other adjustments
+        if (proc.modifier === '-50' || proc._isBilateral) {
+            rvu *= 1.5;
+        }
+
         // Add-on codes always get 100% — no MPPR reduction
         if (isAddOnCode(proc)) {
             if (proc.modifier === '-62') rvu *= 0.625;
@@ -4892,12 +4920,12 @@
         }
 
         // Primary procedure = 100%
-        if (proc._role === 'primary' && proc.modifier === 'none') {
+        if (proc._role === 'primary' && (proc.modifier === 'none' || proc.modifier === '-50')) {
             return rvu;
         }
 
         // Manual modifier overrides auto-reduction
-        if (proc.modifier !== 'none') {
+        if (proc.modifier !== 'none' && proc.modifier !== '-50') {
             switch (proc.modifier) {
                 case '-51': rvu *= 0.5; break;
                 case '-59': break; // No reduction, distinct procedure
