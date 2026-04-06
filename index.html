@@ -3707,62 +3707,83 @@
             font-size: 0.8rem;
         }
         
-        /* Primary Procedure Confirmation Modal */
-        .primary-confirmation-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 10000;
+        /* Ranking Adjustment Panel (non-interruptive) */
+        .ranking-adjust-panel {
+            position: absolute;
+            bottom: 100%;
+            right: 20px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            width: 300px;
+            z-index: 9999;
+            margin-bottom: 8px;
+        }
+        .ranking-adjust-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+            border-radius: 8px 8px 0 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+        }
+        .ranking-adjust-body {
+            padding: 12px;
+        }
+        .ranking-radio-option {
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-        .primary-confirmation-content {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            z-index: 10001;
-            position: relative;
-        }
-        .primary-confirmation-backdrop {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 10000;
-        }
-        .primary-confirmation-header h3 {
-            margin: 0 0 8px 0;
-            color: #1F2937;
-        }
-        .primary-confirmation-header p {
-            margin: 0;
-            color: #6B7280;
-        }
-        .primary-confirmation-options {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        .primary-confirm-btn {
-            background: #2563EB;
-            color: white;
-            border: none;
-            padding: 10px 20px;
+            gap: 8px;
+            padding: 8px 10px;
+            margin: 4px 0;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: 500;
-            flex: 1;
+            font-size: 12px;
+            transition: background 0.15s;
         }
-        .primary-confirm-btn:hover {
-            background: #1D4ED8;
+        .ranking-radio-option:hover {
+            background: #f3f4f6;
+        }
+        .ranking-radio-option.active {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+        }
+        .ranking-radio-option input {
+            margin: 0;
+        }
+        
+        /* Ranking audit trail in case summary */
+        .ranking-audit {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 4px;
+            padding-left: 4px;
+            border-left: 2px solid #d1d5db;
+        }
+        .ranking-audit-reason {
+            color: #059669;
+            font-style: italic;
+        }
+        
+        /* Small adjust button in tray */
+        .ranking-adjust-btn {
+            background: none;
+            border: 1px solid #d1d5db;
+            color: #6b7280;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+        .ranking-adjust-btn:hover {
+            background: #f3f4f6;
+            color: #374151;
         }
         .primary-select-btn {
             background: #F3F4F6;
@@ -4475,9 +4496,10 @@
             });
         }
         
-        // Check for primary procedure confirmation after 2+ procedures
-        if (caseProcs.length === 2 && !window.primaryConfirmed) {
-            setTimeout(() => showPrimaryProcedureConfirmation(), 500);
+        // Automatic ranking — no confirmation popup needed
+        // Primary procedure is determined automatically by surgical logic
+        if (caseProcs.length >= 2) {
+            rankAndSortProcedures();
         }
         
         updateCaseTray();
@@ -4622,98 +4644,90 @@
         updateCaseTray();
     }
 
-    // PRIMARY PROCEDURE CONFIRMATION
-    let primaryConfirmed = false;
+    // ============================
+    // AUTOMATIC PRIMARY PROCEDURE RANKING (NO POPUPS)
+    // Deterministic ranking based on surgical logic, not user prompts
+    // ============================
     
-    function showPrimaryProcedureConfirmation() {
-        if (window.primaryConfirmed) return;
-        
-        // Find highest wRVU procedure
-        const sortedProcs = [...caseProcs].sort((a, b) => (b.work_rvu || 0) - (a.work_rvu || 0));
-        const highestProc = sortedProcs[0];
-        
-        if (!highestProc) return;
-        
-        const modal = document.createElement('div');
-        modal.className = 'primary-confirmation-modal';
-        modal.innerHTML = `
-            <div class="primary-confirmation-content">
-                <div class="primary-confirmation-header">
-                    <h3>🎯 Primary Procedure Confirmation</h3>
-                    <p>Is <strong>${highestProc.code}</strong> (${highestProc.work_rvu} wRVU) the primary procedure?</p>
-                </div>
-                <div class="primary-confirmation-options">
-                    <button onclick="confirmPrimaryProcedure('${highestProc.id}', true)" class="primary-confirm-btn">
-                        Yes, that's correct
-                    </button>
-                    <button onclick="showPrimarySelectionList()" class="primary-select-btn">
-                        Choose different primary
-                    </button>
-                </div>
-            </div>
-            <div class="primary-confirmation-backdrop" onclick="confirmPrimaryProcedure('${highestProc.id}', true)"></div>
-        `;
-        document.body.appendChild(modal);
+    // Ranking is now FULLY AUTOMATIC — no confirmation popups
+    // Primary determined by: surgical role > wRVU > input order
+    
+    // Track ranking audit trail
+    let rankingAuditTrail = [];
+    
+    function addRankingAudit(code, role, reason) {
+        rankingAuditTrail.push({ code, role, reason, timestamp: Date.now() });
     }
     
-    function showPrimarySelectionList() {
-        const modal = document.querySelector('.primary-confirmation-modal');
-        if (!modal) return;
+    function clearRankingAudit() {
+        rankingAuditTrail = [];
+    }
+    
+    // Manual override function (accessible via small button in case summary)
+    function manuallySetPrimary(procId) {
+        const proc = caseProcs.find(p => p.id == procId);
+        if (!proc) return;
         
-        let html = `
-            <div class="primary-confirmation-content">
-                <div class="primary-confirmation-header">
-                    <h3>🎯 Select Primary Procedure</h3>
-                    <p>Choose which procedure should be primary:</p>
-                </div>
-                <div class="primary-selection-list">
-        `;
-        
-        caseProcs.forEach(proc => {
-            html += `
-                <label class="primary-radio-option">
-                    <input type="radio" name="primarySelection" value="${proc.id}">
-                    <span><strong>${proc.code}</strong> - ${proc.description} (${proc.work_rvu || 0} wRVU)</span>
-                </label>
-            `;
+        // Clear all primary flags
+        caseProcs.forEach(p => {
+            p.isPrimary = false;
+            p._manualOverride = false;
         });
         
-        html += `
-                </div>
-                <button onclick="confirmSelectedPrimary()" class="primary-confirm-btn">
-                    Confirm Selection
-                </button>
-            </div>
-            <div class="primary-confirmation-backdrop" onclick="dismissPrimaryModal()"></div>
-        `;
+        // Set selected as primary with manual override flag
+        proc.isPrimary = true;
+        proc._manualOverride = true;
         
-        modal.innerHTML = html;
-    }
-    
-    function confirmSelectedPrimary() {
-        const selected = document.querySelector('input[name="primarySelection"]:checked');
-        if (!selected) return;
+        addRankingAudit(proc.code, 'primary', 'Manual override by user');
         
-        const selectedId = parseInt(selected.value);
-        confirmPrimaryProcedure(selectedId, false);
-    }
-    
-    function confirmPrimaryProcedure(primaryId, isAutoConfirm) {
-        window.primaryConfirmed = true;
-        
-        // Update primary designation
-        caseProcs.forEach(proc => {
-            proc.isPrimary = proc.id === primaryId;
-        });
-        
-        dismissPrimaryModal();
         validateCase();
         updateCaseTray();
     }
     
-    function dismissPrimaryModal() {
-        const modal = document.querySelector('.primary-confirmation-modal');
-        if (modal) modal.remove();
+    // Show ranking adjustment panel (non-interruptive)
+    function toggleRankingPanel() {
+        const existingPanel = document.querySelector('.ranking-adjust-panel');
+        if (existingPanel) {
+            existingPanel.remove();
+            return;
+        }
+        
+        if (caseProcs.length < 2) return;
+        
+        let html = `<div class="ranking-adjust-panel">
+            <div class="ranking-adjust-header">
+                <span>⚙️ Adjust Ranking</span>
+                <button onclick="toggleRankingPanel()" style="background:none;border:none;cursor:pointer;font-size:16px;">✕</button>
+            </div>
+            <div class="ranking-adjust-body">
+                <p style="font-size:11px;color:#6b7280;margin-bottom:8px;">Select primary procedure (optional override):</p>`;
+        
+        caseProcs.forEach(proc => {
+            const isCurrentPrimary = proc.isPrimary;
+            const isManual = proc._manualOverride;
+            html += `<label class="ranking-radio-option ${isCurrentPrimary ? 'active' : ''}">
+                <input type="radio" name="rankingOverride" value="${proc.id}" ${isCurrentPrimary ? 'checked' : ''} onchange="manuallySetPrimary(${proc.id})">
+                <span><strong>${proc.code}</strong> - ${(proc.work_rvu || 0).toFixed(2)} wRVU ${isCurrentPrimary ? (isManual ? '(manual)' : '(auto)') : ''}</span>
+            </label>`;
+        });
+        
+        html += `<button onclick="resetToAutoRanking()" style="margin-top:8px;font-size:11px;padding:4px 8px;background:#f3f4f6;border:1px solid #d1d5db;border-radius:4px;cursor:pointer;">↺ Reset to Auto</button>
+            </div>
+        </div>`;
+        
+        const tray = document.querySelector('.case-tray');
+        if (tray) tray.insertAdjacentHTML('beforeend', html);
+    }
+    
+    function resetToAutoRanking() {
+        caseProcs.forEach(p => {
+            p._manualOverride = false;
+        });
+        clearRankingAudit();
+        rankAndSortProcedures();
+        validateCase();
+        updateCaseTray();
+        toggleRankingPanel(); // Close panel
     }
 
     // ============================
@@ -4737,6 +4751,20 @@
 
     function rankAndSortProcedures() {
         if (caseProcs.length === 0) return;
+        
+        // Check for manual override — if user set primary manually, respect it
+        const hasManualOverride = caseProcs.some(p => p._manualOverride && p.isPrimary);
+        if (hasManualOverride) {
+            // Manual override active — just re-sort but keep manual primary
+            const manualPrimary = caseProcs.find(p => p._manualOverride && p.isPrimary);
+            caseProcs.forEach(p => {
+                if (p !== manualPrimary) p.isPrimary = false;
+            });
+            return;
+        }
+        
+        // Clear previous audit
+        clearRankingAudit();
 
         // Separate into 3 tiers:
         // 1. Add-on codes (ZZZ) — always 100%, no reduction
@@ -4750,34 +4778,74 @@
         regular.sort((a, b) => b.work_rvu - a.work_rvu);
         reconstructive.sort((a, b) => b.work_rvu - a.work_rvu);
 
-        // When reconstructive (15734) is present, IT is the primary/dominant procedure
-        // The hernia repair becomes secondary to the reconstruction
-        if (reconstructive.length > 0) {
-            // Reconstructive = primary, first one is THE primary
+        // HERNIA-SPECIFIC RULE: Hernia repair is ALWAYS primary, component separation is adjunct
+        // This matches clinical coding practice — the hernia repair (4961x) is the principal operation
+        // Hernia repair CPT code patterns (ventral, inguinal, umbilical, incisional)
+        // 4950x-4957x: inguinal/femoral hernia repairs
+        // 4958x-4966x: ventral/incisional/umbilical hernia repairs
+        const herniaRegex = /^(495|496)/;
+        const hasHerniaRepair = regular.some(p => herniaRegex.test(p.code));
+        
+        if (hasHerniaRepair && reconstructive.length > 0) {
+            // Hernia + Component Separation scenario
+            // Hernia repair = PRIMARY (principal operative procedure)
+            // Component separation (15734) = SECONDARY (adjunct reconstructive)
+            regular.forEach((p, i) => {
+                const isHernia = herniaRegex.test(p.code);
+                if (isHernia && !regular.slice(0, i).some(pr => herniaRegex.test(pr.code))) {
+                    // First hernia code = primary
+                    p.isPrimary = true;
+                    p._role = 'primary';
+                    p._roleLabel = '★ Primary';
+                    p._roleExplain = 'Hernia repair is the principal operative procedure';
+                    addRankingAudit(p.code, 'primary', 'Principal operative procedure (hernia repair)');
+                } else {
+                    p.isPrimary = false;
+                    p._role = 'secondary';
+                    p._roleLabel = '② Secondary';
+                    p._roleExplain = isHernia 
+                        ? 'Additional hernia repair — 50% MPPR'
+                        : 'Additional procedure — 50% MPPR';
+                    addRankingAudit(p.code, 'secondary', 'Additional procedure — MPPR applies');
+                }
+            });
+            
+            // Reconstructive (15734) = adjunct, but gets full wRVU (distinct procedure class)
+            reconstructive.forEach((p, i) => {
+                p.isPrimary = false;
+                p._role = 'reconstructive_adjunct';
+                p._roleLabel = '🔧 Adjunct (Reconstructive)';
+                p._roleExplain = 'Component separation (15734) is adjunct to hernia repair — distinct procedure class, full wRVU with -59';
+                addRankingAudit(p.code, 'adjunct', 'Adjunct reconstructive procedure — distinct class, full wRVU');
+            });
+        } else if (reconstructive.length > 0 && !hasHerniaRepair) {
+            // Standalone reconstructive (no hernia repair) — reconstructive is primary
             reconstructive.forEach((p, i) => {
                 p.isPrimary = i === 0;
-                p._role = 'reconstructive';
+                p._role = i === 0 ? 'primary' : 'reconstructive';
                 p._roleLabel = i === 0 ? '★ Primary (Reconstructive)' : `🔧 Reconstructive (#${i + 1})`;
                 p._roleExplain = i === 0
-                    ? 'Component separation (15734) is the dominant procedure in abdominal wall reconstruction — billed as primary at full wRVU'
-                    : 'Additional reconstructive unit (15734) — distinct procedure, full wRVU with -59';
+                    ? 'Component separation (15734) is primary when performed standalone'
+                    : 'Additional reconstructive unit — distinct procedure, full wRVU';
+                addRankingAudit(p.code, i === 0 ? 'primary' : 'reconstructive', i === 0 ? 'Primary standalone reconstructive' : 'Additional reconstructive unit');
             });
-            // Hernia repairs become secondary
             regular.forEach((p, i) => {
                 p.isPrimary = false;
                 p._role = 'secondary';
-                p._roleLabel = `② Hernia Repair`;
-                p._roleExplain = 'Hernia repair is secondary to the abdominal wall reconstruction — full wRVU (billed as co-procedure)';
+                p._roleLabel = `② Secondary (#${i + 1})`;
+                p._roleExplain = `Ranked by wRVU — CMS MPPR: 50%`;
+                addRankingAudit(p.code, 'secondary', 'Secondary procedure — MPPR 50%');
             });
         } else {
-            // No reconstructive present — standard ranking
+            // No reconstructive — standard ranking by wRVU
             regular.forEach((p, i) => {
                 p.isPrimary = i === 0;
                 p._role = i === 0 ? 'primary' : 'secondary';
                 p._roleLabel = i === 0 ? '★ Primary' : `② Secondary (#${i + 1})`;
                 p._roleExplain = i === 0 
                     ? 'Highest wRVU — receives full (100%) credit'
-                    : `Ranked #${i + 1} by wRVU — CMS MPPR: 50% of full wRVU`;
+                    : `Ranked #${i + 1} by wRVU — CMS MPPR: 50%`;
+                addRankingAudit(p.code, i === 0 ? 'primary' : 'secondary', i === 0 ? 'Highest wRVU — primary' : `#${i + 1} by wRVU — 50% MPPR`);
             });
         }
 
@@ -4786,15 +4854,21 @@
             p._role = 'addon';
             p._roleLabel = '⊕ Add-on';
             p._roleExplain = 'Add-on code (ZZZ global) — no MPPR reduction, always full wRVU';
+            addRankingAudit(p.code, 'addon', 'Add-on code — always 100%');
         });
 
-        // Reassemble: reconstructive first (primary), then hernia/regular, then add-ons
+        // Reassemble: primary first, then others by role
+        const primary = caseProcs.find(p => p.isPrimary);
+        const others = caseProcs.filter(p => !p.isPrimary);
+        
         caseProcs.length = 0;
-        if (reconstructive.length > 0) {
-            caseProcs.push(...reconstructive, ...regular, ...addons);
-        } else {
-            caseProcs.push(...regular, ...addons);
-        }
+        if (primary) caseProcs.push(primary);
+        // Sort others: regular secondary, then reconstructive adjuncts, then add-ons
+        const sortedOthers = [...others].sort((a, b) => {
+            const roleOrder = { secondary: 0, reconstructive_adjunct: 1, reconstructive: 1, addon: 2 };
+            return (roleOrder[a._role] || 0) - (roleOrder[b._role] || 0);
+        });
+        caseProcs.push(...sortedOthers);
     }
 
     function getCaseAdjustedWRVU(proc, index) {
@@ -4991,8 +5065,8 @@
             const isReduced = Math.abs(adjRVU - rawRVU) > 0.01;
             const roleLabel = p._roleLabel || (i === 0 ? '★ Primary' : '② Secondary');
             const roleExplain = p._roleExplain || '';
-            const roleBg = p._role === 'primary' ? '#EFF6FF' : (p._role === 'reconstructive' ? '#FDF4FF' : (p._role === 'addon' ? '#F0FDF4' : 'transparent'));
-            const roleColor = p._role === 'primary' ? '#2563EB' : (p._role === 'reconstructive' ? '#7C3AED' : (p._role === 'addon' ? '#059669' : '#6B7280'));
+            const roleBg = p._role === 'primary' ? '#EFF6FF' : (p._role === 'reconstructive' || p._role === 'reconstructive_adjunct' ? '#FDF4FF' : (p._role === 'addon' ? '#F0FDF4' : 'transparent'));
+            const roleColor = p._role === 'primary' ? '#2563EB' : (p._role === 'reconstructive' || p._role === 'reconstructive_adjunct' ? '#7C3AED' : (p._role === 'addon' ? '#059669' : '#6B7280'));
             
             // Validation styling
             let validationBg = roleBg;
@@ -5057,10 +5131,26 @@
 
         // Add summary row showing raw vs adjusted
         const savings = totalRawWRVU - totalWRVU;
-        if (caseProcs.length > 1 && savings > 0.01) {
-            html += `<div style="padding:6px 20px;font-size:0.72rem;color:#6B7280;text-align:right;border-top:1px solid var(--gray-200);">
-                Raw total: ${totalRawWRVU.toFixed(2)} wRVU → Adjusted: <strong style="color:#2563EB;">${totalWRVU.toFixed(2)}</strong> wRVU
-                <span title="Procedures auto-ranked by wRVU. Highest-value code gets full credit. MPPR applied to secondary codes. Add-on codes (ZZZ) are not reduced." style="cursor:help;margin-left:4px;">ℹ️</span>
+        if (caseProcs.length > 1) {
+            // Build audit trail display
+            let auditHtml = '';
+            if (rankingAuditTrail.length > 0) {
+                auditHtml = '<div class="ranking-audit" style="margin-top:8px;padding:8px 12px;background:#f9fafb;border-radius:4px;">';
+                auditHtml += '<div style="font-weight:600;font-size:10px;color:#374151;margin-bottom:4px;">Ranking Logic:</div>';
+                rankingAuditTrail.forEach(a => {
+                    auditHtml += `<div style="font-size:10px;"><strong>${a.code}</strong> → ${a.role} <span class="ranking-audit-reason">— ${a.reason}</span></div>`;
+                });
+                auditHtml += '</div>';
+            }
+            
+            html += `<div style="padding:6px 20px;font-size:0.72rem;color:#6B7280;border-top:1px solid var(--gray-200);">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>
+                        ${savings > 0.01 ? `Raw: ${totalRawWRVU.toFixed(2)} → Adjusted: <strong style="color:#2563EB;">${totalWRVU.toFixed(2)}</strong> wRVU` : `Total: <strong style="color:#2563EB;">${totalWRVU.toFixed(2)}</strong> wRVU`}
+                    </span>
+                    <button onclick="toggleRankingPanel()" class="ranking-adjust-btn" title="Adjust procedure ranking">⚙️ Adjust</button>
+                </div>
+                ${auditHtml}
             </div>`;
         }
 
@@ -5078,7 +5168,7 @@
     function clearCase() {
         if (caseProcs.length > 0 && !confirm('Clear all procedures from this case?')) return;
         caseProcs = [];
-        window.primaryConfirmed = false; // Reset primary confirmation flag
+        clearRankingAudit(); // Reset ranking audit
         updateCaseTray();
     }
 
