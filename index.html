@@ -2773,10 +2773,9 @@
         
         // Helper: add bilateral procedure (same code twice)
         function addBilateralToCase(code) {
-            addToRVUCalculator(code);
-            setTimeout(() => {
-                addToRVUCalculator(code);
-            }, 150);
+            // Add as SINGLE entry with bilateral flag (-50 modifier)
+            // This is from the decision tree bilateral selection button
+            addToRVUCalculator(code, { fromDecisionTree: true, bilateral: true });
         }
 
         function resetDecisionTree() {
