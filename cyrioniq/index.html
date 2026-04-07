@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyrionIQ | Clinical Intelligence Platform</title>
+  <meta name="description" content="CyrionIQ is the clinical intelligence platform behind Free CPT Code Finder and Clinical Case Log.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0B1F2A;
+      --accent: #2F80ED;
+      --background: #FFFFFF;
+      --text: #12202b;
+      --muted: #5b6b76;
+      --border: #e6edf2;
+      --shadow: 0 10px 30px rgba(11, 31, 42, 0.08);
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.96);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+    .hex {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+    .brand-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .brand-title strong { color: var(--accent); }
+    .brand-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .hero {
+      padding: 84px 0 56px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef5ff;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      color: var(--primary);
+      max-width: 760px;
+      margin-bottom: 18px;
+    }
+    .lead {
+      max-width: 760px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 46px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-secondary { background: #eef5ff; color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .card p { color: var(--muted); }
+    .sites {
+      padding: 18px 0 72px;
+    }
+    .sites a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="/cyrioniq/">
+        <span class="hex">⬢</span>
+        <span>
+          <div class="brand-title">Cyrion<strong>IQ</strong>™</div>
+          <div class="brand-sub">Clinical Intelligence Platform</div>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Powered by CyrionIQ</div>
+      <h1>Clinical intelligence infrastructure for coding, case logging, and surgeon-facing tools.</h1>
+      <p class="lead">CyrionIQ powers Free CPT Code Finder and Clinical Case Log with a cleaner, smarter platform layer for clinical education, coding logic, and workflow automation.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/">Explore Platform</a>
+        <a class="btn btn-secondary" href="#learn-more">Learn More About CyrionIQ</a>
+      </div>
+
+      <div class="grid" id="learn-more">
+        <div class="card">
+          <h3>Clinical Intelligence</h3>
+          <p>Builds surgeon-grade tools for coding, case logging, and decision support without bloated interfaces.</p>
+        </div>
+        <div class="card">
+          <h3>Platform Consistency</h3>
+          <p>Unifies product design, branding, and operational logic across both domains while preserving existing SEO assets.</p>
+        </div>
+        <div class="card">
+          <h3>Practical Utility</h3>
+          <p>Focuses on real workflow compression, faster code lookup, better case capture, and cleaner user trust signals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sites">
+      <div class="grid">
+        <div class="card">
+          <h3>Free CPT Code Finder</h3>
+          <p>Searchable CPT and ICD toolset for fast clinical coding reference.</p>
+          <p style="margin-top:12px;"><a href="/">Go to Free CPT Code Finder</a></p>
+        </div>
+        <div class="card">
+          <h3>Clinical Case Log</h3>
+          <p>Case logging and export infrastructure designed for training, oversight, and cleaner clinical workflow capture.</p>
+          <p style="margin-top:12px;"><a href="https://clinicalcaselog.com/">Go to Clinical Case Log</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
