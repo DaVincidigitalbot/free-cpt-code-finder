@@ -4898,6 +4898,73 @@
         caseProcs.push(...sortedOthers);
     }
 
+    function isHerniaCode(code) {
+        return /^(495|496)/.test(code || '');
+    }
+
+    function isHerniaComponentSeparationCase() {
+        return caseProcs.some(p => isHerniaCode(p.code)) && caseProcs.some(p => p.code === '15734');
+    }
+
+    function getHernia15734RiskProfile(proc) {
+        const bilateral = proc._isBilateral || proc.modifier === '-50';
+        const strongDoc = proc._docStrength === 'strong';
+        const minimalDoc = proc._docStrength === 'minimal';
+
+        if (proc.code !== '15734') {
+            return {
+                confidence: 'High',
+                risk: 'Moderate',
+                bundling: 'Not bundled based on current rule set',
+                mppr: proc._role === 'primary' ? 'Clearly applicable' : 'Variable',
+                defensibility: 'Principal hernia repair code selected from structured pathway',
+                challenge: 'May be challenged if size, recurrence, or incarceration/strangulation are not clearly documented.',
+                docs: [
+                    'Hernia type and location',
+                    'Initial vs recurrent status',
+                    'Defect size documented',
+                    'Reducible vs incarcerated/strangulated status',
+                    'Operative approach documented'
+                ]
+            };
+        }
+
+        if (minimalDoc) {
+            return {
+                confidence: 'Low',
+                risk: 'High',
+                bundling: 'Likely challenged',
+                mppr: bilateral ? 'Payer-dependent' : 'Variable',
+                defensibility: '15734 may not be defensible if the operative note only describes routine mobilization or minimal release.',
+                challenge: 'High payer scrutiny if fascial advancement and true component separation are not clearly documented.',
+                docs: [
+                    'Distinct fascial advancement described',
+                    'Release plane documented',
+                    'Why routine closure was insufficient',
+                    bilateral ? 'Bilateral work documented by side' : 'Side-specific work documented'
+                ]
+            };
+        }
+
+        return {
+            confidence: strongDoc ? 'High' : 'Moderate',
+            risk: bilateral ? 'High' : 'Moderate',
+            bundling: strongDoc ? 'Conditionally billable with strong documentation' : 'Conditionally bundled / documentation-dependent',
+            mppr: bilateral ? 'Payer-dependent' : 'Variable',
+            defensibility: bilateral
+                ? 'Bilateral component separation is being treated under the site default as a single line with -50. This is documentation-sensitive and payer-variable.'
+                : 'Unilateral component separation is treated as distinct reconstructive work when the note supports true fascial advancement beyond routine exposure/closure.',
+            challenge: 'May be challenged if the note fails to distinguish reconstructive release from inherent hernia exposure/closure.',
+            docs: [
+                'Fascial advancement clearly documented',
+                'Release plane documented',
+                'Reconstructive necessity documented',
+                bilateral ? 'Bilateral work documented on both sides' : 'Side documented',
+                'Work exceeds routine exposure/closure'
+            ]
+        };
+    }
+
     function getCaseAdjustedWRVU(proc, index) {
         let rvu = proc.work_rvu;
 
@@ -4916,7 +4983,8 @@
         }
 
         // Distinct reconstructive procedures (15734 component separation)
-        // get full wRVU — billed with -59, not subject to standard MPPR
+        // Hernia module default: 15734 is adjunct reconstructive, documentation-dependent,
+        // and not automatically subjected to standard MPPR in this site rule set.
         if (isDistinctReconstructive(proc)) {
             if (proc.modifier === '-62') rvu *= 0.625;
             else if (proc.modifier === '-80') rvu *= 0.16;
@@ -5169,14 +5237,37 @@
             let auditHtml = '<div class="ranking-audit" style="margin-top:8px;padding:8px 12px;background:#f9fafb;border-radius:4px;">';
             auditHtml += '<div style="font-weight:600;font-size:10px;color:#374151;margin-bottom:4px;">📋 Coding Audit Trail</div>';
             
-            // Show bilateral handling explicitly
-            caseProcs.forEach(p => {
-                if (p._isBilateral || p.modifier === '-50') {
-                    auditHtml += `<div style="font-size:10px;color:#7c3aed;"><strong>${p.code}</strong> — BILATERAL (-50): single line item × 150% wRVU = ${(p.work_rvu * 1.5).toFixed(2)}</div>`;
-                    auditHtml += `<div style="font-size:9px;color:#6b7280;margin-left:12px;font-style:italic;">Site default: one line with modifier -50. Some payers may require two lines (RT/LT) — verify with payer policy.</div>`;
-                }
-            });
-            
+            // Hernia + component separation gold-standard module output
+            if (isHerniaComponentSeparationCase()) {
+                auditHtml += '<div style="margin-top:6px;font-weight:600;font-size:10px;color:#374151;">Hernia Defensibility Module:</div>';
+                caseProcs.forEach(p => {
+                    const profile = getHernia15734RiskProfile(p);
+                    const adjusted = getCaseAdjustedWRVU(p, 0).toFixed(2);
+                    auditHtml += `<div style="margin-top:6px;padding:6px 8px;background:#fff;border:1px solid #e5e7eb;border-radius:4px;">`;
+                    auditHtml += `<div style="font-size:10px;"><strong>${p.code}</strong> ${p.modifier && p.modifier !== 'none' ? '(' + p.modifier + ')' : ''} — <strong>${p._role || 'selected'}</strong></div>`;
+                    auditHtml += `<div style="font-size:9px;color:#374151;">Confidence: <strong>${profile.confidence}</strong> | Risk: <strong>${profile.risk}</strong></div>`;
+                    auditHtml += `<div style="font-size:9px;color:#374151;">Bundling: ${profile.bundling}</div>`;
+                    auditHtml += `<div style="font-size:9px;color:#374151;">MPPR: ${profile.mppr}</div>`;
+                    auditHtml += `<div style="font-size:9px;color:#374151;">Why billable: ${profile.defensibility}</div>`;
+                    auditHtml += `<div style="font-size:9px;color:#7f1d1d;">Challenge point: ${profile.challenge}</div>`;
+                    auditHtml += `<div style="font-size:9px;color:#374151;">wRVU: ${p.work_rvu.toFixed(2)} → ${adjusted}</div>`;
+                    if (p._isBilateral || p.modifier === '-50') {
+                        auditHtml += `<div style="font-size:9px;color:#6b21a8;">Bilateral handling: site default = single line with -50. May vary by payer.</div>`;
+                    }
+                    auditHtml += `<div style="font-size:9px;color:#374151;">Documentation needed:</div>`;
+                    auditHtml += '<ul style="margin:2px 0 0 16px;padding:0;">' + profile.docs.map(d => `<li style="font-size:9px;color:#374151;">${d}</li>`).join('') + '</ul>';
+                    auditHtml += `</div>`;
+                });
+            } else {
+                // Show bilateral handling explicitly
+                caseProcs.forEach(p => {
+                    if (p._isBilateral || p.modifier === '-50') {
+                        auditHtml += `<div style="font-size:10px;color:#7c3aed;"><strong>${p.code}</strong> — BILATERAL (-50): single line item × 150% wRVU = ${(p.work_rvu * 1.5).toFixed(2)}</div>`;
+                        auditHtml += `<div style="font-size:9px;color:#6b7280;margin-left:12px;font-style:italic;">Site default: one line with modifier -50. Some payers may require two lines (RT/LT) — verify with payer policy.</div>`;
+                    }
+                });
+            }
+
             // Show ranking logic
             if (rankingAuditTrail.length > 0) {
                 auditHtml += '<div style="margin-top:6px;font-weight:600;font-size:10px;color:#374151;">Ranking Logic:</div>';
@@ -5188,7 +5279,7 @@
             // Show MPPR explanation if applicable
             const hasSecondary = caseProcs.some(p => p._role === 'secondary');
             if (hasSecondary) {
-                auditHtml += '<div style="margin-top:6px;font-size:9px;color:#6b7280;font-style:italic;">MPPR: Primary procedure = 100%, secondary procedures = 50% of wRVU per CMS rules.</div>';
+                auditHtml += '<div style="margin-top:6px;font-size:9px;color:#6b7280;font-style:italic;">MPPR note: based on current rule set. Standard secondary procedures are typically reduced; reconstructive adjunct handling may vary by payer and documentation support.</div>';
             }
             
             auditHtml += '</div>';
