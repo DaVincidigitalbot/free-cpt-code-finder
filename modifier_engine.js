@@ -22,22 +22,34 @@ class ModifierEngine {
      * Initialize the engine by loading rule data
      */
     async initialize() {
+        const perfToken = window.PerfProfiler?.start('ModifierEngine.initialize', { blocksUI: false, category: 'fetch' });
         try {
             // Load modifier rules and NCCI bundles
+            const rulesFetchToken = window.PerfProfiler?.start('fetch:modifier_rules.json', { blocksUI: false, category: 'fetch' });
+            const bundlesFetchToken = window.PerfProfiler?.start('fetch:ncci_bundles.json', { blocksUI: false, category: 'fetch' });
             const [rulesResponse, bundlesResponse] = await Promise.all([
                 fetch('./modifier_rules.json'),
                 fetch('./ncci_bundles.json')
             ]);
+            window.PerfProfiler?.end(rulesFetchToken, { status: rulesResponse.status });
+            window.PerfProfiler?.end(bundlesFetchToken, { status: bundlesResponse.status });
 
+            const rulesParseToken = window.PerfProfiler?.start('parse:modifier_rules.json', { blocksUI: false, category: 'parse' });
             this.modifierRules = await rulesResponse.json();
+            window.PerfProfiler?.end(rulesParseToken, { ruleCount: Object.keys(this.modifierRules).length });
+
+            const bundlesParseToken = window.PerfProfiler?.start('parse:ncci_bundles.json', { blocksUI: false, category: 'parse' });
             this.ncciBundles = await bundlesResponse.json();
+            window.PerfProfiler?.end(bundlesParseToken, { bundleCount: Object.keys(this.ncciBundles.bundles).length });
             
             console.log('🧠 Enhanced Modifier Intelligence Engine initialized successfully');
             console.log(`📊 Loaded ${Object.keys(this.modifierRules).length} CPT rules`);
             console.log(`📊 Loaded ${Object.keys(this.ncciBundles.bundles).length} NCCI bundles`);
+            window.PerfProfiler?.end(perfToken, { ruleCount: Object.keys(this.modifierRules).length, bundleCount: Object.keys(this.ncciBundles.bundles).length });
             return true;
         } catch (error) {
             console.error('❌ Failed to initialize Enhanced Modifier Engine:', error);
+            window.PerfProfiler?.end(perfToken, { error: error.message });
             return false;
         }
     }
@@ -49,11 +61,14 @@ class ModifierEngine {
      * @returns {Object} Analysis results with modifier assignments and explanations
      */
     analyze(caseItems, context = {}) {
+        const perfToken = window.PerfProfiler?.start('ModifierEngine.analyze', { blocksUI: true, category: 'compute', caseCount: caseItems?.length || 0 });
         if (!this.modifierRules || !this.ncciBundles) {
+            window.PerfProfiler?.end(perfToken, { error: 'not_initialized' });
             throw new Error('Enhanced Modifier Engine not initialized. Call initialize() first.');
         }
 
         if (!caseItems || caseItems.length === 0) {
+            window.PerfProfiler?.end(perfToken, { caseCount: 0, skipped: 'empty case' });
             return { 
                 procedures: [], 
                 questions: [], 
@@ -140,7 +155,7 @@ class ModifierEngine {
             confidence
         });
 
-        return {
+        const result = {
             procedures,
             questions: this.pendingQuestions,
             warnings: this.collectWarnings(procedures),
@@ -151,6 +166,13 @@ class ModifierEngine {
             auditMode: this.generateAuditOutput(procedures, confidence, blockingIssues),
             debugInfo: this.debugMode ? this.generateDebugInfo(procedures) : null
         };
+        window.PerfProfiler?.end(perfToken, {
+            caseCount: procedures.length,
+            questionCount: this.pendingQuestions.length,
+            warningCount: result.warnings.length,
+            auditEntries: this.auditTrail.length
+        });
+        return result;
     }
 
     /**

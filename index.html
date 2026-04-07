@@ -42,6 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Modifier Engine Scripts -->
+    <script src="./performance_profiler.js"></script>
     <script src="./modifier_engine.js"></script>
     
     <!-- Schema.org Structured Data -->
@@ -2259,18 +2260,25 @@
 
         // Load RVU database
         async function loadRVUData() {
+            const perfToken = window.PerfProfiler?.start('loadRVUData', { blocksUI: false, category: 'fetch' });
             try {
+                const fetchToken = window.PerfProfiler?.start('fetch:rvu_database.json', { blocksUI: false, category: 'fetch' });
                 const response = await fetch('rvu_database.json');
+                window.PerfProfiler?.end(fetchToken, { status: response.status });
+                const parseToken = window.PerfProfiler?.start('parse:rvu_database.json', { blocksUI: false, category: 'parse' });
                 RVU_DATA = await response.json();
+                window.PerfProfiler?.end(parseToken, { codeCount: Object.keys(RVU_DATA.codes || {}).length });
             } catch (error) {
                 console.error('Failed to load RVU data:', error);
-                // Fallback - create minimal data structure
                 RVU_DATA = {
                     conversion_factor: 33.89,
                     year: 2026,
                     codes: {}
                 };
+                if (perfToken) window.PerfProfiler?.end(perfToken, { error: error.message });
+                return;
             }
+            window.PerfProfiler?.end(perfToken, { codeCount: Object.keys(RVU_DATA.codes || {}).length });
         }
 
         function showSection(section) {
@@ -2344,7 +2352,7 @@
 
                 searchTimeout = setTimeout(() => {
                     performSearch(query);
-                }, 300);
+                }, 180);
             });
 
             // Hide search results when clicking outside
@@ -2382,6 +2390,7 @@
         }
 
         function performSearch(query) {
+            const perfToken = window.PerfProfiler?.start('performSearch', { blocksUI: true, category: 'search' });
             const results = [];
             const searchLower = query.toLowerCase();
 
@@ -2417,6 +2426,7 @@
             });
 
             displaySearchResults(results.slice(0, 8)); // Limit to 8 results
+            window.PerfProfiler?.end(perfToken, { queryLength: query.length, resultCount: results.length });
         }
 
         function searchCPTBranches(branches, query, results, categoryName) {
@@ -2460,11 +2470,13 @@
         }
 
         function displaySearchResults(results) {
+            const perfToken = window.PerfProfiler?.start('displaySearchResults', { blocksUI: true, category: 'render' });
             document.getElementById('searchResults').style.display = 'block';
             const container = document.getElementById('searchResults');
             if (results.length === 0) {
                 container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No results found. Try a different search term or browse categories below.</p>';
                 container.style.display = 'block';
+                window.PerfProfiler?.end(perfToken, { resultCount: 0 });
                 return;
             }
 
@@ -2505,6 +2517,7 @@
             html += '</div>';
             container.innerHTML = html;
             container.style.display = 'block';
+            window.PerfProfiler?.end(perfToken, { resultCount: results.length });
         }
 
         function copyCode(code) {
@@ -2619,6 +2632,7 @@
             
             html += '</div></div>';
             container.innerHTML = html;
+            window.PerfProfiler?.end(perfToken, { resultCount: results.length });
         }
 
         function showResultByIndex(idx) {
@@ -2819,12 +2833,16 @@
 
                 rvuSearchTimeout = setTimeout(() => {
                     performRVUSearch(query);
-                }, 300);
+                }, 180);
             });
         }
 
         function performRVUSearch(query) {
-            if (!RVU_DATA) return;
+            const perfToken = window.PerfProfiler?.start('performRVUSearch', { blocksUI: true, category: 'search' });
+            if (!RVU_DATA) {
+                window.PerfProfiler?.end(perfToken, { skipped: 'RVU_DATA unavailable' });
+                return;
+            }
             
             const results = [];
             const searchLower = query.toLowerCase();
@@ -2846,13 +2864,16 @@
             });
 
             displayRVUSearchResults(results.slice(0, 6));
+            window.PerfProfiler?.end(perfToken, { queryLength: query.length, resultCount: results.length });
         }
 
         function displayRVUSearchResults(results) {
+            const perfToken = window.PerfProfiler?.start('displayRVUSearchResults', { blocksUI: true, category: 'render' });
             const container = document.getElementById('rvuSearchResults');
             
             if (results.length === 0) {
                 container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:1rem;">No CPT codes found matching your search.</p>';
+                window.PerfProfiler?.end(perfToken, { resultCount: 0 });
                 return;
             }
 
@@ -2867,6 +2888,7 @@
             });
             html += '</div>';
             container.innerHTML = html;
+            window.PerfProfiler?.end(perfToken, { resultCount: results.length });
         }
 
         function addProcedure(cptCode) {
@@ -3072,6 +3094,7 @@
         }
 
         function addToRVUCalculator(cptCode, options = {}) {
+            const perfToken = window.PerfProfiler?.start('addToRVUCalculator', { blocksUI: true, category: 'workflow', cptCode });
             // Add to Case Builder tray (persistent bottom bar)
             // options: { fromDecisionTree: bool, bilateral: bool }
             if (typeof addToCase === 'function') {
@@ -3094,6 +3117,7 @@
             
             // Show brief confirmation toast
             showAddedToast(cptCode);
+            window.PerfProfiler?.end(perfToken, { cptCode, bilateral: !!options.bilateral });
         }
         
         function showAddedToast(cptCode) {
@@ -4453,6 +4477,7 @@
     let caseProcs = [];
 
     function addToCase(cptCode, options = {}) {
+        const perfToken = window.PerfProfiler?.start('addToCase', { blocksUI: true, category: 'workflow', cptCode });
         // options: { fromDecisionTree: bool, structuredSelection: bool, bilateral: bool }
         const fromDecisionTree = options.fromDecisionTree || false;
         const structuredSelection = options.structuredSelection || false;
@@ -4469,18 +4494,21 @@
             existingProc._duplicateHandling = 'bilateral_single_line_-50';
             validateCase();
             updateCaseTray();
+            window.PerfProfiler?.end(perfToken, { cptCode, normalizedBilateral: true, caseCount: caseProcs.length });
             return;
         }
 
         // Structured guided selections should only popup on genuine unexpected duplicates.
         if (existingProc && structuredSelection && !isBilateral) {
             showDuplicateCPTPrompt(cptCode);
+            window.PerfProfiler?.end(perfToken, { cptCode, duplicatePrompt: true, structuredSelection: true });
             return;
         }
 
         // Manual/search-driven duplicate detection.
         if (existingProc && !structuredSelection) {
             showDuplicateCPTPrompt(cptCode);
+            window.PerfProfiler?.end(perfToken, { cptCode, duplicatePrompt: true, structuredSelection: false });
             return;
         }
 
@@ -4530,6 +4558,7 @@
         }
         
         updateCaseTray();
+        window.PerfProfiler?.end(perfToken, { cptCode, caseCount: caseProcs.length, bilateral: isBilateral });
         // Sync to RVU calculator's internal list (no duplicate — direct push)
         if (RVU_DATA && RVU_DATA.codes[cptCode]) {
             const pd = RVU_DATA.codes[cptCode];
@@ -4777,7 +4806,11 @@
     }
 
     function rankAndSortProcedures() {
-        if (caseProcs.length === 0) return;
+        const perfToken = window.PerfProfiler?.start('rankAndSortProcedures', { blocksUI: true, category: 'compute', caseCount: caseProcs.length });
+        if (caseProcs.length === 0) {
+            window.PerfProfiler?.end(perfToken, { skipped: 'empty case' });
+            return;
+        }
         
         // Check for manual override — if user set primary manually, respect it
         const hasManualOverride = caseProcs.some(p => p._manualOverride && p.isPrimary);
@@ -4787,6 +4820,7 @@
             caseProcs.forEach(p => {
                 if (p !== manualPrimary) p.isPrimary = false;
             });
+            window.PerfProfiler?.end(perfToken, { manualOverride: true, caseCount: caseProcs.length });
             return;
         }
         
@@ -4896,6 +4930,7 @@
             return (roleOrder[a._role] || 0) - (roleOrder[b._role] || 0);
         });
         caseProcs.push(...sortedOthers);
+        window.PerfProfiler?.end(perfToken, { caseCount: caseProcs.length });
     }
 
     function isHerniaCode(code) {
@@ -5021,6 +5056,7 @@
 
     // REAL-TIME VALIDATION ENGINE
     function validateCase() {
+        const perfToken = window.PerfProfiler?.start('validateCase', { blocksUI: true, category: 'compute', caseCount: caseProcs.length });
         caseProcs.forEach(proc => {
             proc.validationErrors = [];
             proc.validationWarnings = [];
@@ -5061,6 +5097,9 @@
 
         // Update copy button state
         updateCopyButtonState();
+        const errorCount = caseProcs.reduce((sum, proc) => sum + proc.validationErrors.length, 0);
+        const warningCount = caseProcs.reduce((sum, proc) => sum + proc.validationWarnings.length, 0);
+        window.PerfProfiler?.end(perfToken, { caseCount: caseProcs.length, errorCount, warningCount });
     }
 
     function checkNCCIValidation() {
@@ -5110,12 +5149,14 @@
     }
 
     function updateCaseTray() {
+        const perfToken = window.PerfProfiler?.start('updateCaseTray', { blocksUI: true, category: 'render', caseCount: caseProcs.length });
         const tray = document.getElementById('caseTray');
         const detail = document.getElementById('caseTrayDetail');
 
         if (caseProcs.length === 0) {
             tray.classList.remove('visible', 'expanded');
             document.getElementById('modifierIntelligencePanel').style.display = 'none';
+            window.PerfProfiler?.end(perfToken, { caseCount: 0, hidden: true });
             return;
         }
 
@@ -5296,6 +5337,7 @@
         }
 
         detail.innerHTML = html;
+        window.PerfProfiler?.end(perfToken, { caseCount: caseProcs.length, errorCount, warningCount });
     }
     
     function applyModifier59(procId) {
@@ -5511,11 +5553,19 @@
     
     // Auto-validate on load
     document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            if (typeof window.__validateImplementation === 'function') {
-                window.__validateImplementation();
-            }
-        }, 2000);
+        if (typeof requestIdleCallback === 'function') {
+            requestIdleCallback(function() {
+                if (typeof window.__validateImplementation === 'function') {
+                    window.__validateImplementation();
+                }
+            }, { timeout: 1500 });
+        } else {
+            setTimeout(function() {
+                if (typeof window.__validateImplementation === 'function') {
+                    window.__validateImplementation();
+                }
+            }, 500);
+        }
     });
     
     // ============================
@@ -5523,8 +5573,10 @@
     // ============================
     
     async function runModifierAnalysis() {
+        const perfToken = window.PerfProfiler?.start('runModifierAnalysis', { blocksUI: true, category: 'compute', caseCount: caseProcs.length });
         if (!window.ModifierEngine) {
             console.warn('Modifier Engine not available');
+            window.PerfProfiler?.end(perfToken, { skipped: 'ModifierEngine unavailable' });
             return;
         }
         
@@ -5565,19 +5617,23 @@
             
             // Store analysis for verification panel
             window.lastAnalysis = analysis;
+            window.PerfProfiler?.end(perfToken, { caseCount: caseItems.length, questionCount: analysis.questions?.length || 0, warningCount: analysis.warnings?.length || 0 });
             
         } catch (error) {
             console.error('Modifier analysis failed:', error);
+            window.PerfProfiler?.end(perfToken, { error: error.message, caseCount: caseProcs.length });
         }
     }
     
     function displayModifierAnalysis(analysis) {
+        const perfToken = window.PerfProfiler?.start('displayModifierAnalysis', { blocksUI: true, category: 'render', procedureCount: analysis?.procedures?.length || 0 });
         const panel = document.getElementById('modifierIntelligencePanel');
         const content = document.getElementById('modifierPanelContent');
         const questions = document.getElementById('modifierQuestions');
         
         if (analysis.procedures.length === 0) {
             panel.style.display = 'none';
+            window.PerfProfiler?.end(perfToken, { hidden: true, procedureCount: 0 });
             return;
         }
         
@@ -5669,6 +5725,7 @@
         } else {
             questions.style.display = 'none';
         }
+        window.PerfProfiler?.end(perfToken, { procedureCount: analysis.procedures.length, questionCount: analysis.questions?.length || 0 });
     }
     
     function displayModifierQuestions(questionsList) {
@@ -6452,10 +6509,14 @@ ${codesContext}`;
     }
 
     window.sendAIMessage = async function() {
+        const perfToken = window.PerfProfiler?.start('sendAIMessage', { blocksUI: true, category: 'chat' });
         const input = document.getElementById('aiInput');
         const btn = document.getElementById('aiSendBtn');
         const query = input.value.trim();
-        if (!query) return;
+        if (!query) {
+            window.PerfProfiler?.end(perfToken, { skipped: 'empty query' });
+            return;
+        }
 
         // Hide suggestions after first message
         const sugg = document.getElementById('aiSuggestions');
@@ -6466,7 +6527,9 @@ ${codesContext}`;
         btn.disabled = true;
 
         // Always do a fast search first
+        const searchToken = window.PerfProfiler?.start('searchCPT', { blocksUI: true, category: 'chat-search' });
         const results = searchCPT(query);
+        window.PerfProfiler?.end(searchToken, { queryLength: query.length, resultCount: results.length });
 
         if (webllmReady) {
             // Use LLM for a smart response
@@ -6481,13 +6544,13 @@ ${codesContext}`;
         } else {
             // Smart search only (no LLM)
             showTyping();
-            await new Promise(r => setTimeout(r, 300)); // Brief delay for UX
             hideTyping();
             addAIMessage('assistant', formatResults(results, query));
         }
 
         btn.disabled = false;
         input.focus();
+        window.PerfProfiler?.end(perfToken, { queryLength: query.length, resultCount: results.length, llmReady: !!webllmReady });
     };
 
     window.aiSuggest = function(el) {
