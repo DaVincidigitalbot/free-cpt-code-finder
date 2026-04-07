@@ -3477,6 +3477,91 @@
       }
     },
     {
+      "name": "Diagnostic Laparoscopy",
+      "specialty": "General Surgery/Trauma",
+      "questions": [
+        {
+          "question": "Indication?",
+          "options": [
+            {
+              "label": "Abdominal mass",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Small bowel obstruction",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Intussusception",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Generalized abdominal pain",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Right upper quadrant pain",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Left upper quadrant pain",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Right lower quadrant pain",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Left lower quadrant pain",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Right abdominal pain",
+              "next": "diag_lap_approach"
+            },
+            {
+              "label": "Left abdominal pain",
+              "next": "diag_lap_approach"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "diag_lap_approach": {
+          "question": "Approach?",
+          "options": [
+            {
+              "label": "Laparoscopic diagnostic laparoscopy",
+              "cpt_code": "49320",
+              "description": "Diagnostic laparoscopy of abdomen/peritoneum",
+              "modifiers": [],
+              "icd10": ["R10.84", "R10.11", "R10.12", "R10.31", "R10.32", "R10.9", "K56.609", "K56.1", "R19.00"],
+              "work_rvu": 6.0,
+              "builder_note": "Diagnostic laparoscopy assigned CPT 49320"
+            },
+            {
+              "label": "Robotic diagnostic laparoscopy",
+              "cpt_code": "49320",
+              "description": "Diagnostic laparoscopy of abdomen/peritoneum",
+              "modifiers": [],
+              "icd10": ["R10.84", "R10.11", "R10.12", "R10.31", "R10.32", "R10.9", "K56.609", "K56.1", "R19.00"],
+              "work_rvu": 6.0,
+              "builder_note": "Robotic approach does not change CPT code"
+            },
+            {
+              "label": "Open exploration",
+              "cpt_code": "49000",
+              "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+              "modifiers": [],
+              "icd10": ["R10.84", "R10.11", "R10.12", "R10.31", "R10.32", "R10.9", "K56.609", "K56.1", "R19.00"],
+              "work_rvu": 11.25,
+              "builder_note": "Open exploration assigned CPT 49000"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "Small Bowel",
       "specialty": "General Surgery",
       "questions": [

@@ -20913,5 +20913,71 @@
     "distinct_procedure_class": "surgical",
     "code_family": "exploratory",
     "global_period_days": 10
+  },
+  "49320": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "diagnostic",
+    "category": "diagnostic-laparoscopy",
+    "inclusive_of": [],
+    "never_primary_with": [
+      "44005",
+      "44120",
+      "44121",
+      "44140",
+      "44143",
+      "44144",
+      "44970",
+      "44950",
+      "47562",
+      "47563",
+      "47564"
+    ],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": [
+          "44005",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44144",
+          "44970",
+          "44950",
+          "47562",
+          "47563",
+          "47564"
+        ]
+      },
+      "trauma": {
+        "always_with": [],
+        "never_with": [
+          "44005",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44144",
+          "44970",
+          "44950",
+          "47562",
+          "47563",
+          "47564"
+        ]
+      }
+    },
+    "payer_notes": {
+      "medicare": "Diagnostic laparoscopy is not separately billable when a therapeutic abdominal laparoscopic procedure is performed",
+      "commercial": "Robotic approach does not change CPT code; therapeutic procedure overrides diagnostic laparoscopy"
+    },
+    "description": "Diagnostic laparoscopy of abdomen/peritoneum"
   }
 }

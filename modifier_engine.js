@@ -116,6 +116,7 @@ class ModifierEngine {
 
         // Step 7: Check for NCCI bundles and enhanced bundling logic
         this.checkEnhancedNCCIBundles(procedures, context);
+        this.applyDiagnosticLaparoscopyOverride(procedures, context);
 
         // Step 8: Apply laterality modifiers (-RT/-LT)
         this.applyLateralityModifiers(procedures, context);
@@ -1200,6 +1201,31 @@ class ModifierEngine {
     /**
      * Generate case summary
      */
+
+    applyDiagnosticLaparoscopyOverride(procedures, context = {}) {
+        const diagnosticCodes = new Set(['49320']);
+        const therapeuticCodes = new Set(['44005', '44120', '44121', '44140', '44143', '44144', '44970', '44950', '47562', '47563', '47564']);
+        const hasDiagnosticLap = procedures.some(proc => diagnosticCodes.has(String(proc.code)));
+        const therapeuticProcedures = procedures.filter(proc => therapeuticCodes.has(String(proc.code)));
+        if (!hasDiagnosticLap || therapeuticProcedures.length === 0) return;
+
+        procedures.forEach(proc => {
+            if (!diagnosticCodes.has(String(proc.code))) return;
+            proc.rank = 'bundled';
+            proc.adjustedWRVU = 0;
+            proc.allowed = false;
+            proc.exclusionReason = 'Diagnostic laparoscopy is not separately billable when a therapeutic procedure is performed';
+            proc.internalNote = 'Diagnostic vs therapeutic distinction: therapeutic procedure overrides CPT 49320';
+            proc.suppressed = true;
+            proc.bundledInto = therapeuticProcedures.map(tp => tp.code).join(', ');
+            if (Array.isArray(proc.auditTrail)) {
+                proc.auditTrail.push('Diagnostic laparoscopy removed because a therapeutic abdominal procedure was performed');
+            } else {
+                proc.auditTrail = ['Diagnostic laparoscopy removed because a therapeutic abdominal procedure was performed'];
+            }
+        });
+    }
+
     generateSummary(procedures) {
         const billableProcedures = procedures.filter(p => p.rank !== 'included');
         const totalWRVU = billableProcedures.reduce((sum, proc) => sum + proc.adjustedWRVU, 0);
