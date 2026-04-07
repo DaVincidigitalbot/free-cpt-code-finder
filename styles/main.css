@@ -13,41 +13,41 @@
 
 :root {
   /* Core palette */
-  --bg-primary: #0a0f1c;
-  --bg-secondary: #0f1629;
-  --bg-card: #1a2332;
-  --bg-card-hover: #1f2b3d;
-  --bg-elevated: #243044;
-  --bg-input: #141d2e;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f4f8ff;
+  --bg-elevated: #f8fafc;
+  --bg-input: #ffffff;
 
   /* Accent */
-  --accent: #00d4aa;
-  --accent-dim: rgba(0, 212, 170, 0.15);
-  --accent-glow: rgba(0, 212, 170, 0.25);
-  --accent-hover: #00eabb;
+  --accent: #2F80ED;
+  --accent-dim: rgba(47, 128, 237, 0.1);
+  --accent-glow: rgba(47, 128, 237, 0.18);
+  --accent-hover: #1f6fd6;
 
   /* Semantic */
-  --success: #00d4aa;
-  --warning: #f5a623;
-  --danger: #ff6b6b;
-  --info: #5b9aff;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #2F80ED;
 
   /* Text */
-  --text-primary: #e8ecf1;
-  --text-secondary: #8899aa;
-  --text-muted: #5a6b7d;
-  --text-inverse: #0a0f1c;
+  --text-primary: #0B1F2A;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
 
   /* Borders */
-  --border: #1e2d40;
-  --border-light: #283a50;
-  --border-accent: rgba(0, 212, 170, 0.3);
+  --border: #e2e8f0;
+  --border-light: #cbd5e1;
+  --border-accent: rgba(47, 128, 237, 0.22);
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(0, 212, 170, 0.15);
+  --shadow-sm: 0 2px 6px rgba(11, 31, 42, 0.05);
+  --shadow-md: 0 8px 24px rgba(11, 31, 42, 0.08);
+  --shadow-lg: 0 18px 40px rgba(11, 31, 42, 0.12);
+  --shadow-glow: 0 0 0 4px rgba(47, 128, 237, 0.12);
 
   /* Layout */
   --sidebar-width: 280px;
@@ -71,7 +71,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg-primary);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
@@ -103,10 +103,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(10, 15, 28, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(11, 31, 42, 0.08);
   height: var(--header-height);
   display: flex;
   align-items: center;
@@ -129,7 +129,7 @@ body {
 .app-header__logo-text {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--text-primary);
   letter-spacing: -0.02em;
 }
 
