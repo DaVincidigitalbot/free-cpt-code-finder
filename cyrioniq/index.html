@@ -13,137 +13,213 @@
       --primary: #0B1F2A;
       --accent: #2F80ED;
       --background: #FFFFFF;
+      --surface: rgba(255,255,255,0.78);
+      --surface-strong: #ffffff;
       --text: #12202b;
       --muted: #5b6b76;
-      --border: #e6edf2;
-      --shadow: 0 10px 30px rgba(11, 31, 42, 0.08);
+      --border: rgba(255,255,255,0.18);
+      --line: #e6edf2;
+      --glow: rgba(47, 128, 237, 0.18);
+      --shadow-soft: 0 14px 42px rgba(11, 31, 42, 0.08);
+      --shadow-card: 0 18px 46px rgba(11, 31, 42, 0.10);
       --radius: 10px;
+      --radius-lg: 18px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--background);
+      background:
+        radial-gradient(circle at top left, rgba(47, 128, 237, 0.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(11, 31, 42, 0.08), transparent 24%),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 34%, #fbfdff 100%);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
     }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
     header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.72);
       position: sticky;
       top: 0;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(11, 31, 42, 0.04);
+      z-index: 20;
     }
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      padding: 20px 0;
       gap: 16px;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
       color: var(--primary);
     }
     .hex {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #fff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      box-shadow: var(--shadow);
+      box-shadow: 0 14px 30px rgba(47, 128, 237, 0.24);
     }
     .brand-title {
-      font-size: 1.5rem;
+      font-size: 1.58rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
     .brand-title strong { color: var(--accent); }
     .brand-sub {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 700;
+      margin-top: 2px;
     }
     .hero {
-      padding: 84px 0 56px;
+      padding: 108px 0 64px;
+      position: relative;
+    }
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.68) 100%);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-shell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 15%, var(--glow), transparent 26%);
+      pointer-events: none;
     }
     .eyebrow {
       display: inline-block;
-      margin-bottom: 18px;
-      padding: 8px 12px;
+      margin-bottom: 20px;
+      padding: 8px 14px;
       border-radius: 999px;
-      background: #eef5ff;
+      background: rgba(47, 128, 237, 0.10);
       color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     h1 {
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.065em;
       color: var(--primary);
-      max-width: 760px;
-      margin-bottom: 18px;
+      max-width: 860px;
+      margin-bottom: 22px;
     }
     .lead {
       max-width: 760px;
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       color: var(--muted);
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
     .cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 46px;
+      margin-bottom: 24px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
+      padding: 15px 24px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 700;
-      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-secondary { background: #eef5ff; color: var(--accent); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #123548 100%);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(11, 31, 42, 0.18);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.78);
+      color: var(--primary);
+      border: 1px solid #dce8f3;
+      box-shadow: 0 10px 26px rgba(11, 31, 42, 0.06);
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding-top: 6px;
+    }
+    .proof span strong {
+      color: var(--primary);
+      display: block;
+      font-size: 1.05rem;
+    }
+    .section-title {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-      margin-top: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
     }
     .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      background: #fff;
-      box-shadow: var(--shadow);
+      border: 1px solid #edf2f7;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      background: rgba(255,255,255,0.86);
+      box-shadow: var(--shadow-card);
     }
     .card h3 {
       font-size: 1.02rem;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: var(--primary);
+      letter-spacing: -0.02em;
     }
     .card p { color: var(--muted); }
     .sites {
-      padding: 18px 0 72px;
+      padding: 8px 0 86px;
     }
     .sites a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 700;
+    }
+    .feature-note {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    @media (max-width: 720px) {
+      .wrap { padding: 0 20px; }
+      .hero { padding-top: 72px; }
+      .hero-shell { padding: 28px; border-radius: 22px; }
+      h1 { font-size: 2.7rem; }
+      .proof { gap: 14px; }
     }
   </style>
 </head>
@@ -162,26 +238,39 @@
 
   <main class="wrap">
     <section class="hero">
-      <div class="eyebrow">Powered by CyrionIQ</div>
-      <h1>Clinical intelligence infrastructure for coding, case logging, and surgeon-facing tools.</h1>
-      <p class="lead">CyrionIQ powers Free CPT Code Finder and Clinical Case Log with a cleaner, smarter platform layer for clinical education, coding logic, and workflow automation.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/">Explore Platform</a>
-        <a class="btn btn-secondary" href="#learn-more">Learn More About CyrionIQ</a>
+      <div class="hero-shell">
+        <div class="eyebrow">Where intuition and IQ live</div>
+        <h1>Clinical intelligence with a sharper edge.</h1>
+        <p class="lead">CyrionIQ is the premium intelligence layer behind surgeon-facing digital products, translating complexity into cleaner coding, cleaner case capture, and cleaner operational judgment.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/">Explore Platform</a>
+          <a class="btn btn-secondary" href="#learn-more">Learn More About CyrionIQ</a>
+        </div>
+        <div class="proof">
+          <span><strong>Premium clarity</strong>Built for trust, speed, and signal.</span>
+          <span><strong>Clinical utility</strong>Surgeon-relevant workflows, not generic SaaS fluff.</span>
+          <span><strong>Platform discipline</strong>One intelligence layer across both products.</span>
+        </div>
       </div>
 
       <div class="grid" id="learn-more">
         <div class="card">
-          <h3>Clinical Intelligence</h3>
-          <p>Builds surgeon-grade tools for coding, case logging, and decision support without bloated interfaces.</p>
+          <div class="section-title">Clinical Intelligence</div>
+          <h3>Decision support that respects judgment.</h3>
+          <p>CyrionIQ is designed to elevate clinical and coding workflows without pretending to replace expertise. It sharpens the signal and removes drag.</p>
+          <div class="feature-note">Fast lookup, precise structure, cleaner interfaces.</div>
         </div>
         <div class="card">
-          <h3>Platform Consistency</h3>
-          <p>Unifies product design, branding, and operational logic across both domains while preserving existing SEO assets.</p>
+          <div class="section-title">Platform Layer</div>
+          <h3>One system, multiple products.</h3>
+          <p>Free CPT Code Finder and Clinical Case Log now sit under a more coherent platform identity, making the ecosystem feel intentional, stable, and premium.</p>
+          <div class="feature-note">Shared design language, shared trust layer, shared standards.</div>
         </div>
         <div class="card">
-          <h3>Practical Utility</h3>
-          <p>Focuses on real workflow compression, faster code lookup, better case capture, and cleaner user trust signals.</p>
+          <div class="section-title">Positioning</div>
+          <h3>Less noise. More signal.</h3>
+          <p>The brand is built to feel precise, modern, and quietly intelligent, the place where clinical intuition meets structured execution.</p>
+          <div class="feature-note">This is the intelligence layer, not the side label.</div>
         </div>
       </div>
     </section>
@@ -189,14 +278,16 @@
     <section class="sites">
       <div class="grid">
         <div class="card">
+          <div class="section-title">Product</div>
           <h3>Free CPT Code Finder</h3>
-          <p>Searchable CPT and ICD toolset for fast clinical coding reference.</p>
-          <p style="margin-top:12px;"><a href="/">Go to Free CPT Code Finder</a></p>
+          <p>Searchable CPT and ICD tools built for fast clinical coding reference without the clutter and friction of legacy coding sites.</p>
+          <p style="margin-top:14px;"><a href="/">Go to Free CPT Code Finder</a></p>
         </div>
         <div class="card">
+          <div class="section-title">Product</div>
           <h3>Clinical Case Log</h3>
           <p>Case logging and export infrastructure designed for training, oversight, and cleaner clinical workflow capture.</p>
-          <p style="margin-top:12px;"><a href="https://clinicalcaselog.com/">Go to Clinical Case Log</a></p>
+          <p style="margin-top:14px;"><a href="https://clinicalcaselog.com/">Go to Clinical Case Log</a></p>
         </div>
       </div>
     </section>
