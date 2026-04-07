@@ -116,6 +116,7 @@ class ModifierEngine {
 
         // Step 7: Check for NCCI bundles and enhanced bundling logic
         this.checkEnhancedNCCIBundles(procedures, context);
+        this.applyHiatalHerniaOverrides(procedures, context);
         this.applyDiagnosticLaparoscopyOverride(procedures, context);
 
         // Step 8: Apply laterality modifiers (-RT/-LT)
@@ -1202,11 +1203,52 @@ class ModifierEngine {
      * Generate case summary
      */
 
+    applyHiatalHerniaOverrides(procedures, context = {}) {
+        const fundoplastyCodes = new Set(['43280', '43324']);
+        const paraesophagealRepairCodes = new Set(['43281', '43282', '43332', '43333', '43334', '43335', '43336', '43337']);
+        const repairProcedures = procedures.filter(proc => paraesophagealRepairCodes.has(String(proc.code)));
+        const fundoplastyProcedures = procedures.filter(proc => fundoplastyCodes.has(String(proc.code)));
+
+        if (repairProcedures.length === 0 || fundoplastyProcedures.length === 0) return;
+
+        const minimallyInvasiveRepair = repairProcedures.find(proc => ['43281', '43282'].includes(String(proc.code)));
+
+        if (minimallyInvasiveRepair && String(minimallyInvasiveRepair.code) === '43281' && context.hiatalMesh === true) {
+            minimallyInvasiveRepair.code = '43282';
+            minimallyInvasiveRepair.originalCode = minimallyInvasiveRepair.originalCode || '43281';
+            minimallyInvasiveRepair.internalNote = 'Upcoded to 43282 because mesh reinforcement was explicitly documented';
+            minimallyInvasiveRepair.description = 'Laparoscopic/robotic repair paraesophageal hiatal hernia, includes fundoplasty when performed, with mesh';
+        }
+
+        const preferredRepair = minimallyInvasiveRepair || repairProcedures[0];
+
+        fundoplastyProcedures.forEach(proc => {
+            proc.rank = 'bundled';
+            proc.adjustedWRVU = 0;
+            proc.allowed = false;
+            proc.exclusionReason = 'Fundoplasty is bundled into definitive paraesophageal hiatal hernia repair';
+            proc.internalNote = `Paraesophageal hernia repair supersedes stand-alone fundoplasty, keep ${preferredRepair.code}`;
+            proc.suppressed = true;
+            proc.bundledInto = preferredRepair.code;
+            proc.auditTrail = Array.isArray(proc.auditTrail) ? proc.auditTrail : [];
+            proc.auditTrail.push(`Bundled into paraesophageal hernia repair ${preferredRepair.code}`);
+        });
+
+    }
+
     applyDiagnosticLaparoscopyOverride(procedures, context = {}) {
         const diagnosticCodes = new Set(['49320']);
-        const therapeuticCodes = new Set(['44005', '44120', '44121', '44140', '44143', '44144', '44970', '44950', '47562', '47563', '47564']);
+        const therapeuticCodes = new Set([
+            '43280', '43281', '43282', '43324', '43332', '43333', '43334', '43335', '43336', '43337',
+            '44005', '44120', '44121', '44140', '44143', '44144', '44950', '44970', '47562', '47563', '47564'
+        ]);
         const hasDiagnosticLap = procedures.some(proc => diagnosticCodes.has(String(proc.code)));
-        const therapeuticProcedures = procedures.filter(proc => therapeuticCodes.has(String(proc.code)));
+        const therapeuticProcedures = procedures.filter(proc => {
+            const code = String(proc.code);
+            const numericCode = Number(code);
+            if (therapeuticCodes.has(code)) return true;
+            return Number.isFinite(numericCode) && ((numericCode >= 43280 && numericCode <= 43337) || (numericCode >= 43600 && numericCode <= 49999)) && code !== '49320';
+        });
         if (!hasDiagnosticLap || therapeuticProcedures.length === 0) return;
 
         procedures.forEach(proc => {

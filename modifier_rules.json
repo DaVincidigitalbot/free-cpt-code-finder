@@ -11517,7 +11517,8 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "49320"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -11554,7 +11555,9 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "43280",
+      "49320"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -11572,7 +11575,8 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "description": "Laparoscopic/robotic repair paraesophageal hiatal hernia, includes fundoplasty when performed, without mesh"
   },
   "43324": {
     "mod51_exempt": false,
@@ -11591,7 +11595,8 @@
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "49320"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -20979,5 +20984,304 @@
       "commercial": "Robotic approach does not change CPT code; therapeutic procedure overrides diagnostic laparoscopy"
     },
     "description": "Diagnostic laparoscopy of abdomen/peritoneum"
+  },
+  "43282": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43281",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Laparoscopic/robotic repair paraesophageal hiatal hernia, includes fundoplasty when performed, with mesh"
+  },
+  "43332": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43324",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Open repair paraesophageal hiatal hernia via laparotomy, without mesh"
+  },
+  "43333": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43324",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Open repair paraesophageal hiatal hernia via laparotomy, with mesh"
+  },
+  "43334": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43324",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Open repair paraesophageal hiatal hernia via thoracotomy, without mesh"
+  },
+  "43335": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43324",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Open repair paraesophageal hiatal hernia via thoracotomy, with mesh"
+  },
+  "43336": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43324",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Open repair paraesophageal hiatal hernia via thoracoabdominal approach, without mesh"
+  },
+  "43337": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "hernia",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "43280",
+      "43324",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "description": "Open repair paraesophageal hiatal hernia via thoracoabdominal approach, with mesh"
+  },
+  "43499": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "global_days": 90,
+    "modifier_22_allowed": true,
+    "multiple_procedure_discount": true,
+    "hierarchy_tier": 2,
+    "inclusive_of": [
+      "49320"
+    ]
   }
 }
