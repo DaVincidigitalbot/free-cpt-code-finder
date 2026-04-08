@@ -3,9 +3,9 @@
 Last updated: 2026-04-06
 
 ## Decision 1: FreeCPTCodeFinder is the primary focus
-- Direction: prioritize FreeCPTCodeFinder over ClinicalCaseLog for near-term product work
+- Direction: prioritize FreeCPTCodeFinder over Avenyx for near-term product work
 - Why: more traffic, easier monetization, simpler delivery model
-- Tradeoff: ClinicalCaseLog remains important but secondary
+- Tradeoff: Avenyx remains important but secondary
 
 ## Decision 2: Keep architecture static/client-side for now
 - Direction: continue as static HTML/JS app without backend dependency

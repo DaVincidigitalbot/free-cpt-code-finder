@@ -1,8 +1,8 @@
 # CLINICAL CASE LOG MEMORY
 
 Last updated: 2026-04-06
-Project: ClinicalCaseLog.com
-Repo location: `~/Desktop/ClinicalCaseLog/`
+Project: Avenyx.com
+Repo location: `~/Desktop/Avenyx/`
 
 ## What exists
 - Flask/Gunicorn app on Render

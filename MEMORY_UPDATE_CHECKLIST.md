@@ -12,7 +12,7 @@ Use this after every meaningful change.
 - CPT / decision tree / search / add flow → `cpt_engine_memory.md`
 - modifiers / NCCI / ranking / bilateral / global-period logic → `modifier_engine_memory.md`
 - audit / defensibility / confidence / blocking / billing risk → `audit_defensibility_memory.md`
-- ClinicalCaseLog product, subscription, admin, account state → `clinicalcaselog_memory.md`
+- Avenyx product, subscription, admin, account state → `clinicalcaselog_memory.md`
 - admin auth / RBAC / security / privilege changes → `admin_system_memory.md`
 
 ## 3. What to capture

@@ -1,10 +1,10 @@
 # ADMIN SYSTEM MEMORY
 
 Last updated: 2026-04-06
-Scope: admin/security/account-control memory across active products, especially ClinicalCaseLog.
+Scope: admin/security/account-control memory across active products, especially Avenyx.
 
 ## What exists
-- admin endpoint/access pattern for ClinicalCaseLog
+- admin endpoint/access pattern for Avenyx
 - live Stripe-backed subscription environment
 - operational need for secure admin and role-bound access
 - expectation of secure admin RBAC direction even if not fully formalized in this repo
@@ -20,7 +20,7 @@ Scope: admin/security/account-control memory across active products, especially 
 - document privilege changes, account-role changes, or security-hardening decisions here
 
 ## Known limitations
-- this memory file is partly anticipatory because admin logic lives more directly in ClinicalCaseLog repo than FreeCPTCodeFinder repo
+- this memory file is partly anticipatory because admin logic lives more directly in Avenyx repo than FreeCPTCodeFinder repo
 - full RBAC implementation details are not captured here yet and must be added when touched
 
 ## What to update after changes
