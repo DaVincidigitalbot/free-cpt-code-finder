@@ -16,21 +16,21 @@
         *{box-sizing:border-box;margin:0;padding:0}
         body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#1F2937;background:#FFFFFF}
         .header{background:#fff;border-bottom:1px solid #E6EAF0;padding:1rem 0;position:sticky;top:0;z-index:100}
-        .container{max-width:800px;margin:0 auto;padding:0 1.5rem}
-        .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center}
+        .container{max-width:800px;margin:0 auto;padding:0 1.5rem;width:100%;min-width:0}
+        .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;min-width:0}
         .logo{font-size:1.3rem;font-weight:700;color:#2563EB;text-decoration:none}
         .nav{display:flex;gap:1.5rem;align-items:center}
         .nav a{color:#6B7280;text-decoration:none;font-size:0.9rem;font-weight:500}
         .nav a:hover{color:#2563EB}
-        .content{padding:3rem 0 4rem}
-        h1{font-size:2rem;font-weight:700;color:#0B1220;margin-bottom:1.5rem}
+        .content{padding:3rem 0 4rem;overflow-x:hidden}
+        h1{font-size:2rem;font-weight:700;color:#0B1220;margin-bottom:1.5rem;overflow-wrap:anywhere}
         h2{font-size:1.25rem;font-weight:600;color:#0B1220;margin:2rem 0 0.75rem}
-        p{color:#374151;margin-bottom:1rem}
+        p{color:#374151;margin-bottom:1rem;overflow-wrap:anywhere;word-break:break-word}
         ul{padding-left:1.5rem;margin-bottom:1rem}
-        li{margin-bottom:0.5rem;color:#374151}
+        li{margin-bottom:0.5rem;color:#374151;overflow-wrap:anywhere;word-break:break-word}
         strong{color:#0B1220}
         a{color:#2563EB}
-        .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin:2rem 0}
+        .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin:2rem 0;width:100%}
         .stat-card{background:#EFF6FF;border-radius:12px;padding:1.5rem;text-align:center}
         .stat-number{font-size:2rem;font-weight:800;color:#2563EB}
         .stat-label{font-size:0.85rem;color:#6B7280;margin-top:0.25rem}
@@ -60,6 +60,7 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   color: var(--cyr-navy) !important;
   background: var(--cyr-white) !important;
+  overflow-x: hidden;
 }
 a { color: var(--cyr-blue); }
 button, .btn, .cta-button, .cta-primary, .subscribe-btn, .demo-button {
@@ -115,6 +116,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  min-width: 0;
 }
 .cyr-brand {
   display: inline-flex;
@@ -123,6 +125,8 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
   text-decoration: none;
   color: var(--cyr-navy);
   min-height: 24px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .cyr-brand img {
   width: 24px;
@@ -226,11 +230,18 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
 }
 .cyrionyx-footer-products span { display: block; }
 @media (max-width: 767px) {
+  .container { padding: 0 1rem; }
+  .content { padding: 2rem 0 3rem; }
   .cyrionyx-header-inner { padding: 12px 16px; }
-  .cyr-brand img { width: 24px; height: 24px; }
-  .cyr-wordmark { font-size: 15px; }
+  .cyr-brand img { width: 24px; height: 24px; flex: 0 0 auto; }
+  .cyr-wordmark { font-size: 15px; min-width: 0; overflow-wrap: anywhere; }
   .cyr-nav { display: none; }
-  .cyr-menu-button { display: inline-flex; align-items: center; justify-content: center; }
+  .cyr-menu-button { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .cyr-mobile-drawer { padding: 12px 16px 20px; }
+  h1 { font-size: 1.75rem; line-height: 1.2; }
+  h2 { font-size: 1.125rem; }
+  p, li { overflow-wrap: anywhere; word-break: break-word; }
 }
 
 </style>
@@ -251,7 +262,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
         </div>
       </div>
       <a class="cyr-nav-link" href="/about.html">About</a>
-      <a class="cyr-nav-link" href="https://freecptcodefinder.com/contact.html">Login</a>
+      <a class="cyr-nav-link" href="/contact.html">Contact</a>
     </nav>
     <button class="cyr-menu-button" type="button" aria-label="Open menu">☰</button>
   </div>
@@ -262,7 +273,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
       <a href="https://freecptcodefinder.com/">Cyrionyx</a>
     </div>
     <a href="/about.html">About</a>
-    <a href="https://freecptcodefinder.com/contact.html">Login</a>
+    <a href="/contact.html">Contact</a>
   </div>
 </div>
 
@@ -327,7 +338,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
 
             <h2>Part of CYRIONYX</h2>
             <p>FreeCPTCodeFinder.com is built and operated by <strong>CYRIONYX</strong>, the parent brand for focused healthcare workflow software.</p>
-            <p>We also build <a href="https://freecptcodefinder.com" target="_blank">Cyrionyx</a> — the CYRIONYX case logging platform for surgical residents and PA students with ACGME export capability.</p>
+            <p>We also build Cyrionyx, the broader CYRIONYX clinical workflow platform.</p>
 
             <h2>Contact</h2>
             <p>
