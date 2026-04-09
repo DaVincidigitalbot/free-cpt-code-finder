@@ -136,6 +136,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  min-width: 0;
 }
 .cyr-brand {
   display: inline-flex;
@@ -144,6 +145,8 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
   text-decoration: none;
   color: var(--cyr-navy);
   min-height: 24px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .cyr-brand img {
   width: 24px;
@@ -247,11 +250,18 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
 }
 .cyrionyx-footer-products span { display: block; }
 @media (max-width: 767px) {
-  .cyrionyx-header-inner { padding: 12px 16px; }
-  .cyr-brand img { width: 24px; height: 24px; }
-  .cyr-wordmark { font-size: 15px; }
+  .container { padding: 0 1rem; width: 100%; min-width: 0; }
+  .content { padding: 2rem 0 3rem; overflow-x: hidden; }
+  .cyrionyx-header-inner { padding: 12px 16px; gap: 12px; min-width: 0; }
+  .cyr-brand { min-width: 0; flex: 1 1 auto; }
+  .cyr-brand img { width: 24px; height: 24px; flex: 0 0 auto; }
+  .cyr-wordmark { font-size: 15px; min-width: 0; overflow-wrap: anywhere; }
   .cyr-nav { display: none; }
-  .cyr-menu-button { display: inline-flex; align-items: center; justify-content: center; }
+  .cyr-menu-button { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .cyr-mobile-drawer { padding: 12px 16px 20px; }
+  h1 { font-size: 1.75rem; line-height: 1.2; overflow-wrap: anywhere; }
+  h2 { font-size: 1.125rem; }
+  p, li, a { overflow-wrap: anywhere; word-break: break-word; }
 }
 
 </style>
@@ -268,11 +278,11 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
         <button class="cyr-dropdown-toggle" type="button" aria-expanded="false">Products</button>
         <div class="cyr-dropdown-menu">
           <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder</a>
-          <a href="https://freecptcodefinder.com/">Cyrionyx</a>
+          <a href="/about.html">About CYRIONYX</a>
         </div>
       </div>
       <a class="cyr-nav-link" href="/about.html">About</a>
-      <a class="cyr-nav-link" href="https://freecptcodefinder.com/contact.html">Login</a>
+      <a class="cyr-nav-link" href="/contact.html">Contact</a>
     </nav>
     <button class="cyr-menu-button" type="button" aria-label="Open menu">☰</button>
   </div>
@@ -280,10 +290,10 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
     <span class="cyr-mobile-products-label">Products</span>
     <div class="cyr-mobile-products">
       <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder</a>
-      <a href="https://freecptcodefinder.com/">Cyrionyx</a>
+      <a href="/about.html">About CYRIONYX</a>
     </div>
     <a href="/about.html">About</a>
-    <a href="https://freecptcodefinder.com/contact.html">Login</a>
+    <a href="/contact.html">Contact</a>
   </div>
 </div>
 
@@ -437,7 +447,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
     <div class="cyrionyx-footer-products">
       <div>Products:</div>
       <span>• FreeCPTCodeFinder</span>
-      <span>• Cyrionyx</span>
+      <span>• CYRIONYX platform</span>
     </div>
   </div>
 </footer>

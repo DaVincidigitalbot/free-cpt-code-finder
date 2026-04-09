@@ -1885,11 +1885,11 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
         <button class="cyr-dropdown-toggle" type="button" aria-expanded="false">Products</button>
         <div class="cyr-dropdown-menu">
           <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder</a>
-          <a href="https://freecptcodefinder.com/">Cyrionyx</a>
+          <a href="/about.html">About CYRIONYX</a>
         </div>
       </div>
       <a class="cyr-nav-link" href="/about.html">About</a>
-      <a class="cyr-nav-link" href="https://freecptcodefinder.com/contact.html">Login</a>
+      <a class="cyr-nav-link" href="/contact.html">Contact</a>
     </nav>
     <button class="cyr-menu-button" type="button" aria-label="Open menu">☰</button>
   </div>
@@ -1897,10 +1897,10 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
     <span class="cyr-mobile-products-label">Products</span>
     <div class="cyr-mobile-products">
       <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder</a>
-      <a href="https://freecptcodefinder.com/">Cyrionyx</a>
+      <a href="/about.html">About CYRIONYX</a>
     </div>
     <a href="/about.html">About</a>
-    <a href="https://freecptcodefinder.com/contact.html">Login</a>
+    <a href="/contact.html">Contact</a>
   </div>
 </div>
 
@@ -1980,11 +1980,11 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
         <div class="container">
             <h3>Stay Updated with Medical Coding Changes</h3>
             <p>Get weekly coding updates, new CPT changes, and billing tips — free.</p>
-            <div class="email-form">
-                <input type="email" class="email-input" placeholder="Enter your email address" required>
-                <button type="submit" class="subscribe-btn">Subscribe</button>
+            <div class="email-form" aria-label="Newsletter signup unavailable">
+                <input type="email" class="email-input" placeholder="Newsletter signup coming soon" disabled aria-disabled="true">
+                <button type="button" class="subscribe-btn" disabled aria-disabled="true" title="Newsletter signup coming soon">Coming Soon</button>
             </div>
-            <p style="font-size:12px;color:#6b7280;margin-top:10px;">We respect your privacy. Your email will never be sold or shared with third parties. Unsubscribe anytime.</p>
+            <p style="font-size:12px;color:#6b7280;margin-top:10px;">Newsletter signup is not live yet. For updates, check the blog and coding tools here on the site.</p>
         </div>
     </section>
 
@@ -2221,7 +2221,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
     <div class="cyrionyx-footer-products">
       <div>Products:</div>
       <span>• FreeCPTCodeFinder</span>
-      <span>• Cyrionyx</span>
+      <span>• CYRIONYX platform</span>
     </div>
   </div>
 </footer>
@@ -6459,7 +6459,65 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
                 height: 44px;
             }
         }
-    </style>
+            @media (max-width: 768px) {
+            .hero {
+                padding: 1.5rem 0 2rem;
+            }
+
+            .hero-intro {
+                padding: 1.25rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.85rem;
+                line-height: 1.15;
+                overflow-wrap: anywhere;
+            }
+
+            .hero-description,
+            .coding-tip p,
+            .quick-btn,
+            .trust-badge,
+            .tree-question,
+            .tree-title,
+            .tree-specialty {
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1.25rem;
+                margin: 1.5rem auto 2rem;
+            }
+
+            .specialty-grid,
+            .quick-access {
+                grid-template-columns: 1fr;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-input {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .cookie-consent {
+                padding: 0.75rem;
+                align-items: flex-start;
+            }
+
+            .cookie-consent p {
+                font-size: 0.8rem;
+                line-height: 1.45;
+            }
+        }
+</style>
 
     <!-- AI Chat Button -->
     <button class="ai-fab" id="aiFab" onclick="toggleAIPanel()" title="AI CPT Assistant">
