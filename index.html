@@ -128,22 +128,22 @@ FreeCPTCodeFinder
 <div class="cmdk" onclick="document.getElementById('ci').focus()">
 <div class="cbox">
 <svg class="cico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
-<input id="ci" class="cin" placeholder="lap chole · 44970 · rib fixation · ex lap splenectomy">
+<input id="ci" class="cin" placeholder="lap chole · 44970 · rib fixation · ex lap splenectomy" oninput="filterSpecialties(this.value)">
 <span class="kbd">⌘K</span>
 </div>
 </div>
 
 <div class="sl">Quick start <span class="hi">1–5 to add</span></div>
 <div class="quick">
-<button class="qc"><div class="qn">Ex lap</div><div class="qb"><span class="qcpt">49000</span><span class="qrv">13.42</span></div><span class="qk">1</span></button>
-<button class="qc"><div class="qn">Lap chole</div><div class="qb"><span class="qcpt">47562</span><span class="qrv">10.47</span></div><span class="qk">2</span></button>
-<button class="qc"><div class="qn">Lap appy</div><div class="qb"><span class="qcpt">44970</span><span class="qrv">8.85</span></div><span class="qk">3</span></button>
-<button class="qc"><div class="qn">Damage control</div><div class="qb"><span class="qcpt">49002</span><span class="qrv">17.56</span></div><span class="qk">4</span></button>
-<button class="qc"><div class="qn">Total thyroid</div><div class="qb"><span class="qcpt">60240</span><span class="qrv">17.31</span></div><span class="qk">5</span></button>
+<button class="qc" onclick="addQuickProcedure('49000')"><div class="qn">Ex lap</div><div class="qb"><span class="qcpt">49000</span><span class="qrv">13.42</span></div><span class="qk">1</span></button>
+<button class="qc" onclick="addQuickProcedure('47562')"><div class="qn">Lap chole</div><div class="qb"><span class="qcpt">47562</span><span class="qrv">10.47</span></div><span class="qk">2</span></button>
+<button class="qc" onclick="addQuickProcedure('44970')"><div class="qn">Lap appy</div><div class="qb"><span class="qcpt">44970</span><span class="qrv">8.85</span></div><span class="qk">3</span></button>
+<button class="qc" onclick="addQuickProcedure('49002')"><div class="qn">Damage control</div><div class="qb"><span class="qcpt">49002</span><span class="qrv">17.56</span></div><span class="qk">4</span></button>
+<button class="qc" onclick="addQuickProcedure('60240')"><div class="qn">Total thyroid</div><div class="qb"><span class="qcpt">60240</span><span class="qrv">17.31</span></div><span class="qk">5</span></button>
 </div>
 
 <div class="sl">Specialties <span class="hi">↑↓ scan · ↵ open</span></div>
-<div class="lanes">
+<div class="lanes" id="specialtyLanes">
 
 <div class="ln"><svg class="ln-i" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M8 10c2-3 6-4 8-4s6 1 8 4c2 4 1 8-2 11-2 2-4 3-6 3s-4-1-6-3c-3-3-4-7-2-11z"/><path d="M12 14c1-1 2-2 4-2s3 1 4 2"/><path d="M11 20c2 1 3 2 5 2s3-1 5-2"/></svg><div class="ln-n">General surgery</div><div class="ln-f">hernia · gallbladder · appendix · spleen · bowel · explor</div><div class="ln-a">→</div></div>
 
@@ -185,11 +185,11 @@ FreeCPTCodeFinder
 
 <div class="tot">
 <div class="tl">Total wRVU</div>
-<div class="tn">47.82</div>
-<div class="ts">$1,404.37 · MPPR applied</div>
+<div class="tn" id="totalWrvu">47.82</div>
+<div class="ts" id="estimatedPayment">$1,404.37 · MPPR applied</div>
 </div>
 
-<div class="lns">
+<div class="lns" id="activeCaseLines">
 <div class="rl">
 <div class="rlt"><span class="rk p">Primary</span><span class="rcpt">49002</span></div>
 <div class="rd">Reopening of recent laparotomy · open</div>
@@ -217,5 +217,79 @@ FreeCPTCodeFinder
 
 </div>
 
-<script>document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('ci').focus()}});</script>
+<script>
+const quickProcedureLibrary = {
+  '49000': { code: '49000', label: 'Exploratory laparotomy', display: 'Ex lap', wrvu: 13.42, desc: 'Exploratory laparotomy · open', mod: '', rank: 'Next' },
+  '47562': { code: '47562', label: 'Laparoscopic cholecystectomy', display: 'Lap chole', wrvu: 10.47, desc: 'Laparoscopic cholecystectomy', mod: '', rank: 'Next' },
+  '44970': { code: '44970', label: 'Laparoscopic appendectomy', display: 'Lap appy', wrvu: 8.85, desc: 'Laparoscopic appendectomy', mod: '', rank: 'Next' },
+  '49002': { code: '49002', label: 'Damage control laparotomy', display: 'Damage control', wrvu: 17.56, desc: 'Reopening of recent laparotomy · open', mod: '', rank: 'Primary' },
+  '60240': { code: '60240', label: 'Total thyroidectomy', display: 'Total thyroid', wrvu: 17.31, desc: 'Total thyroidectomy', mod: '', rank: 'Next' },
+};
+
+const appState = {
+  activeCase: [
+    { code: '49002', desc: 'Reopening of recent laparotomy · open', wrvu: 17.56, mod: '', rank: 'Primary' },
+    { code: '38100', desc: 'Splenectomy, total · open', wrvu: 18.76, mod: '-59', rank: 'Sec 1' },
+    { code: '44120', desc: 'Enterectomy + anastomosis · open', wrvu: 11.50, mod: '-59', rank: 'Sec 2' },
+  ],
+  specialtyFilter: '',
+};
+
+function currency(value) {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+}
+
+function renderCaseBuilder() {
+  const lines = document.getElementById('activeCaseLines');
+  const totalWrvu = document.getElementById('totalWrvu');
+  const estimatedPayment = document.getElementById('estimatedPayment');
+  if (!lines || !totalWrvu || !estimatedPayment) return;
+
+  lines.innerHTML = appState.activeCase.map((line, index) => `
+<div class="rl">
+<div class="rlt"><span class="rk${index === 0 ? ' p' : ''}">${line.rank}</span><span class="rcpt">${line.code}</span>${line.mod ? `<span class="rmd">${line.mod}</span>` : ''}</div>
+<div class="rd">${line.desc}</div>
+<div class="rw"><span class="rwl">wRVU</span><span>${line.wrvu.toFixed(2)}</span></div>
+</div>`).join('');
+
+  const total = appState.activeCase.reduce((sum, line) => sum + line.wrvu, 0);
+  totalWrvu.textContent = total.toFixed(2);
+  estimatedPayment.textContent = `${currency(total * 29.37)} · MPPR applied`;
+}
+
+function addQuickProcedure(code) {
+  const proc = quickProcedureLibrary[code];
+  if (!proc) return;
+  const nextRank = appState.activeCase.length === 0 ? 'Primary' : `Sec ${appState.activeCase.length}`;
+  appState.activeCase.push({
+    code: proc.code,
+    desc: proc.desc,
+    wrvu: proc.wrvu,
+    mod: proc.mod,
+    rank: nextRank,
+  });
+  renderCaseBuilder();
+}
+
+function filterSpecialties(value) {
+  appState.specialtyFilter = (value || '').toLowerCase().trim();
+  const lanes = document.querySelectorAll('#specialtyLanes .ln');
+  lanes.forEach((lane) => {
+    const text = lane.textContent.toLowerCase();
+    lane.style.display = !appState.specialtyFilter || text.includes(appState.specialtyFilter) ? '' : 'none';
+  });
+}
+
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){
+    e.preventDefault();document.getElementById('ci').focus();
+  }
+  if(['1','2','3','4','5'].includes(e.key) && document.activeElement !== document.getElementById('ci')) {
+    const quickCodes = { '1':'49000', '2':'47562', '3':'44970', '4':'49002', '5':'60240' };
+    addQuickProcedure(quickCodes[e.key]);
+  }
+});
+
+renderCaseBuilder();
+</script>
 </body></html>
