@@ -173,6 +173,14 @@ FreeCPTCodeFinder
 
 </div>
 
+<div class="sl">Decision tree <span class="hi">choose a category, then answer forward</span></div>
+<div id="decisionTreePanel" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin-top:18px">
+  <div id="decisionTreeTitle" class="et">Select a specialty lane to begin</div>
+  <div id="decisionTreeCategoryChoices" style="display:grid;gap:8px;margin-top:12px"></div>
+  <div id="decisionTreeQuestion" class="es" style="margin-top:12px;margin-bottom:10px"></div>
+  <div id="decisionTreeOptions" style="display:grid;gap:8px"></div>
+</div>
+
 <div class="em">
 <div class="ec"><div class="el">Inpatient</div><div class="et">Encounter coding</div><div class="es">99221–33 · 99238–39 · 99252–55 · 99291–92</div><div class="eg">open →</div></div>
 <div class="ec"><div class="el">Outpatient</div><div class="et">Clinic &amp; ASC</div><div class="es">99202–05 · 99212–15 · 99242–45 · 99024</div><div class="eg">open →</div></div>
@@ -250,6 +258,9 @@ const appState = {
   ],
   specialtyFilter: '',
   decisionTree: null,
+  currentTreeCategories: [],
+  currentTreeCategory: null,
+  currentTreeNodeKey: null,
 };
 
 function currency(value) {
@@ -304,14 +315,85 @@ async function loadDecisionTreeData() {
   return appState.decisionTree;
 }
 
+function renderCategoryChoices() {
+  const categoryChoices = document.getElementById('decisionTreeCategoryChoices');
+  const title = document.getElementById('decisionTreeTitle');
+  const question = document.getElementById('decisionTreeQuestion');
+  const options = document.getElementById('decisionTreeOptions');
+  if (!categoryChoices || !title || !question || !options) return;
+
+  title.textContent = appState.currentTreeCategories.length ? 'Choose a procedure family' : 'Select a specialty lane to begin';
+  question.textContent = appState.currentTreeCategories.length ? 'Available categories from the selected specialty' : '';
+  options.innerHTML = '';
+  categoryChoices.innerHTML = appState.currentTreeCategories.map((category) =>
+    `<button class="qc" style="width:100%;text-align:left" onclick="startCategoryFlow('${category.name.replace(/'/g, "&#39;")}')"><div class="qn">${category.name}</div><div class="qb"><span class="qcpt">${category.specialty || ''}</span><span class="qrv">open</span></div></button>`
+  ).join('');
+}
+
+function renderDecisionTreePanel(node) {
+  const title = document.getElementById('decisionTreeTitle');
+  const question = document.getElementById('decisionTreeQuestion');
+  const options = document.getElementById('decisionTreeOptions');
+  const categoryChoices = document.getElementById('decisionTreeCategoryChoices');
+  if (!title || !question || !options || !categoryChoices) return;
+
+  categoryChoices.innerHTML = '';
+  if (!node) {
+    title.textContent = appState.currentTreeCategory?.name || 'Decision tree';
+    question.textContent = 'No further branches found for this category.';
+    options.innerHTML = '';
+    return;
+  }
+
+  title.textContent = appState.currentTreeCategory?.name || 'Decision tree';
+  question.textContent = node.question || '';
+  options.innerHTML = (node.options || []).map((option) => {
+    const label = option.label || option.description || option.cpt_code || 'Continue';
+    if (option.cpt_code) {
+      return `<button class="qc" style="width:100%;text-align:left" onclick='addTreeResultToCase(${JSON.stringify(option)})'><div class="qn">${label}</div><div class="qb"><span class="qcpt">${option.cpt_code}</span><span class="qrv">add</span></div></button>`;
+    }
+    return `<button class="qc" style="width:100%;text-align:left" onclick="chooseTreeOption('${(option.next || '').replace(/'/g, "&#39;")}')"><div class="qn">${label}</div><div class="qb"><span class="qcpt">branch</span><span class="qrv">open</span></div></button>`;
+  }).join('');
+}
+
+function startCategoryFlow(categoryName) {
+  const category = (appState.currentTreeCategories || []).find((item) => item.name === categoryName);
+  if (!category) return;
+  appState.currentTreeCategory = category;
+  appState.currentTreeNodeKey = null;
+  renderDecisionTreePanel((category.questions || [])[0] || null);
+}
+
+function chooseTreeOption(nextKey) {
+  appState.currentTreeNodeKey = nextKey;
+  const node = appState.currentTreeCategory?.branches?.[nextKey] || null;
+  renderDecisionTreePanel(node);
+}
+
+function addTreeResultToCase(option) {
+  const nextRank = appState.activeCase.length === 0 ? 'Primary' : `Sec ${appState.activeCase.length}`;
+  appState.activeCase.push({
+    code: option.cpt_code,
+    desc: option.description || option.label || 'Decision tree result',
+    wrvu: 0,
+    mod: (option.modifiers || []).join(','),
+    rank: nextRank,
+  });
+  renderCaseBuilder();
+}
+
 async function openSpecialtyLane(routeKey) {
   const data = await loadDecisionTreeData();
   const categoryNames = specialtyRouteMap[routeKey] || [];
   const categories = (data.categories || []).filter((category) => categoryNames.includes(category.name));
   if (!categories.length) return;
+  appState.currentTreeCategories = categories;
+  appState.currentTreeCategory = null;
+  appState.currentTreeNodeKey = null;
   const starterNames = categories.map((category) => category.name).join(' · ');
   document.getElementById('ci').value = starterNames;
   filterSpecialties(starterNames);
+  renderCategoryChoices();
 }
 
 document.addEventListener('keydown',e=>{
@@ -325,5 +407,6 @@ document.addEventListener('keydown',e=>{
 });
 
 renderCaseBuilder();
+renderCategoryChoices();
 </script>
 </body></html>
