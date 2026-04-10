@@ -327,6 +327,9 @@ function renderCaseBuilder() {
 <div class="rlt"><span class="rk${index === 0 ? ' p' : ''}">${procedure.rank || (index === 0 ? 'Primary' : `Sec ${index}`)}</span><span class="rcpt">${procedure.code || procedure.cpt}</span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod ? `<span class="rmd">${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod}</span>` : ''}</div>
 <div class="rd">${procedure.desc || procedure.description}</div>
 <div class="rw"><span class="rwl">wRVU</span><span>${Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0).toFixed(2)}</span></div>
+<div class="rw"><span class="rwl">Recommended role</span><span>${procedure.rank || 'Unranked'}</span></div>
+<div class="rw"><span class="rwl">Typical modifiers</span><span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'}</span></div>
+<div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
 <div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button></div>
 </div>`).join('');
 
@@ -401,9 +404,14 @@ function renderAuditPanel() {
     ? warnings.map((warning) => `<div>${warning}</div>`).join('')
     : '<div>No current warnings.</div>';
 
-  auditEl.innerHTML = auditTrail.length
+  const analyzedProcedures = appState.lastAnalysis?.procedures || [];
+  const engineNotes = analyzedProcedures.length
+    ? analyzedProcedures.map((procedure) => `<div><strong>${procedure.code || procedure.cpt}</strong> · Recommended role: ${procedure.rank || 'Unranked'} · Typical modifiers: ${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'} · Engine notes: ${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</div>`).join('')
+    : '';
+
+  auditEl.innerHTML = (auditTrail.length
     ? auditTrail.slice(-5).map((entry) => `<div>${entry.action || entry.type || 'audit'}${entry.message ? ` · ${entry.message}` : ''}</div>`).join('')
-    : '<div>No audit events yet.</div>';
+    : '<div>No audit events yet.</div>') + engineNotes;
 }
 
 async function syncCaseAnalysisAndRender() {
