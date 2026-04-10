@@ -158,6 +158,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
+            width: 100%;
+            min-width: 0;
         }
 
         .header-content {
@@ -307,6 +309,8 @@
             border: 1px solid rgba(11, 31, 42, 0.08);
             border-radius: 10px;
             box-shadow: var(--shadow-soft);
+            width: 100%;
+            min-width: 0;
         }
 
         .hero-kicker {
@@ -343,6 +347,14 @@
             border: 1px solid rgba(11, 31, 42, 0.08);
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-banner-shell img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         .hero::before {
@@ -627,6 +639,8 @@
             max-width: 600px;
             margin: 0 auto 2rem;
             position: relative;
+            width: 100%;
+            min-width: 0;
         }
 
         .search-input {
@@ -700,6 +714,51 @@
             justify-content: center;
             gap: 0.75rem;
             margin-top: 2rem;
+        }
+
+        .specialty-browser {
+            margin-top: 2rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .specialty-group {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+        }
+
+        .specialty-group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .specialty-group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin: 0;
+        }
+
+        .specialty-group-count {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            background: var(--light-blue);
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+        }
+
+        .specialty-tree-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
         .quick-btn {
@@ -1929,37 +1988,8 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
                 </div>
             </div>
             
-            <div class="quick-access">
-                <button class="quick-btn popular" onclick="startDecisionTree(0)">Hernia Repair</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(1)">Appendectomy</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(2)">Cholecystectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree(3)">Wound Debridement</button>
-                <button class="quick-btn" onclick="startDecisionTree(4)">Skin/Soft Tissue Excision</button>
-                <button class="quick-btn" onclick="startDecisionTree(5)">Breast Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(6)">Thyroidectomy</button>
-                <button class="quick-btn" onclick="startDecisionTree(7)">Small Bowel</button>
-                <button class="quick-btn" onclick="startDecisionTree(8)">Trauma</button>
-                <button class="quick-btn" onclick="startDecisionTree(9)">Abscess I&amp;D</button>
-                <button class="quick-btn" onclick="startDecisionTree(10)">Endoscopy</button>
-                <button class="quick-btn" onclick="startDecisionTree(11)">Vascular Access</button>
-                <button class="quick-btn" onclick="startDecisionTree(12)">Orthopedic</button>
-                <button class="quick-btn" onclick="startDecisionTree(13)">General Procedures</button>
-                <button class="quick-btn" onclick="startDecisionTree(14)">Cardiothoracic Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(15)">Critical Care</button>
-                <button class="quick-btn" onclick="startDecisionTree(16)">Airway Management</button>
-                <button class="quick-btn" onclick="startDecisionTree(17)">Emergent General Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(18)">HPB Surgery</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(19)">Colorectal Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(20)">OB/GYN</button>
-                <button class="quick-btn" onclick="startDecisionTree(21)">Surgical Oncology</button>
-                <button class="quick-btn" onclick="startDecisionTree(22)">Gynecologic Oncology</button>
-                <button class="quick-btn" onclick="startDecisionTree(23)">Pediatric Surgery</button>
-                <button class="quick-btn" onclick="startDecisionTree(24)">OMFS</button>
-                <button class="quick-btn" onclick="startDecisionTree(25)">Neurosurgery</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(26)">Interventional Cardiology</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(27)">Interventional Radiology</button>
-                <button class="quick-btn popular" onclick="startDecisionTree(28)">ENT / Otolaryngology</button>
-            </div>
+            <div class="quick-access" id="featuredProcedureTrees"></div>
+            <div class="specialty-browser" id="specialtyBrowser"></div>
         </div>
     </section>
 
@@ -2516,6 +2546,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
         });
 
         function initializeApp() {
+            renderSpecialtyNavigation();
             showSection('home');
             setupSearch();
             setupRVUSearch();
@@ -2799,6 +2830,50 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
                 btn.style.background = '#16a34a';
                 setTimeout(() => { btn.textContent = orig; btn.style.background = '#2563eb'; }, 1500);
             });
+        }
+
+        function normalizeSpecialtyName(specialty) {
+            if (!specialty) return 'Other';
+            return specialty.split('/')[0].trim();
+        }
+
+        function renderSpecialtyNavigation() {
+            if (!window.CPT_DATA || !Array.isArray(CPT_DATA.categories)) return;
+
+            const featuredContainer = document.getElementById('featuredProcedureTrees');
+            const specialtyContainer = document.getElementById('specialtyBrowser');
+            if (!featuredContainer || !specialtyContainer) return;
+
+            const featuredIndexes = [0, 1, 2, 5, 15, 19, 26, 27, 29];
+            featuredContainer.innerHTML = featuredIndexes
+                .filter(index => CPT_DATA.categories[index])
+                .map(index => {
+                    const category = CPT_DATA.categories[index];
+                    return `<button class="quick-btn popular" onclick="startDecisionTree(${index})">${category.name}</button>`;
+                })
+                .join('');
+
+            const specialtyGroups = new Map();
+            CPT_DATA.categories.forEach((category, index) => {
+                const specialty = normalizeSpecialtyName(category.specialty);
+                if (!specialtyGroups.has(specialty)) specialtyGroups.set(specialty, []);
+                specialtyGroups.get(specialty).push({ index, name: category.name, specialty: category.specialty });
+            });
+
+            specialtyContainer.innerHTML = Array.from(specialtyGroups.entries())
+                .sort((a, b) => a[0].localeCompare(b[0]))
+                .map(([specialty, categories]) => `
+                    <section class="specialty-group">
+                        <div class="specialty-group-header">
+                            <h3 class="specialty-group-title">${specialty}</h3>
+                            <span class="specialty-group-count">${categories.length} decision tree${categories.length === 1 ? '' : 's'}</span>
+                        </div>
+                        <div class="specialty-tree-list">
+                            ${categories.map(category => `<button class="quick-btn" onclick="startDecisionTree(${category.index})">${category.name}</button>`).join('')}
+                        </div>
+                    </section>
+                `)
+                .join('');
         }
 
         // Decision Tree Navigation
@@ -6177,7 +6252,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
     <script src="enhanced_billing.js"></script>
 
     <!-- ============================================ -->
-    <!-- AI CPT Assistant - Powered by Qwen 2.5 (WebLLM) -->
+    <!-- AI assistant - Powered by Qwen 2.5 (WebLLM) -->
     <!-- ============================================ -->
     <style>
         /* AI Chat Floating Button */
@@ -6460,30 +6535,50 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
             }
         }
             @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .container {
+                padding: 0 0.875rem;
+            }
+
             .hero {
                 padding: 1.5rem 0 2rem;
             }
 
             .hero-intro {
-                padding: 1.25rem;
+                padding: 1.1rem;
                 margin-bottom: 1rem;
+                width: 100%;
+                max-width: 100%;
             }
 
             .hero-title {
-                font-size: 1.85rem;
+                font-size: 1.45rem;
                 line-height: 1.15;
                 overflow-wrap: anywhere;
+                word-break: break-word;
+                max-width: 100%;
             }
 
             .hero-description,
+            .hero-kicker,
             .coding-tip p,
             .quick-btn,
             .trust-badge,
             .tree-question,
             .tree-title,
-            .tree-specialty {
+            .tree-specialty,
+            .search-input,
+            .search-result-item,
+            .stat-label {
                 overflow-wrap: anywhere;
                 word-break: break-word;
+            }
+
+            .hero-banner-shell {
+                border-radius: 8px;
             }
 
             .stats-bar {
@@ -6496,6 +6591,36 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
             .specialty-grid,
             .quick-access {
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .specialty-card {
+                padding: 0.875rem;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .specialty-card h3,
+            .specialty-card p,
+            .specialty-label,
+            .quick-btn {
+                overflow-wrap: anywhere;
+                word-break: break-word;
+                max-width: 100%;
+            }
+
+            .hero-intro,
+            .hero-banner-shell,
+            .stats-bar,
+            .search-container,
+            .specialty-grid,
+            .quick-access {
+                max-width: calc(100vw - 1.75rem);
+            }
+
+            .quick-btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .email-form {
@@ -6513,14 +6638,15 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
             }
 
             .cookie-consent p {
-                font-size: 0.8rem;
-                line-height: 1.45;
+                font-size: 0.74rem;
+                line-height: 1.35;
+                max-width: 100%;
             }
         }
 </style>
 
     <!-- AI Chat Button -->
-    <button class="ai-fab" id="aiFab" onclick="toggleAIPanel()" title="AI CPT Assistant">
+    <button class="ai-fab" id="aiFab" onclick="toggleAIPanel()" title="AI assistant">
         🤖
         <span class="badge">AI</span>
     </button>
@@ -6529,7 +6655,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
     <div class="ai-panel" id="aiPanel">
         <div class="ai-panel-header">
             <div>
-                <h3>🤖 AI CPT Assistant</h3>
+                <h3>🤖 AI assistant</h3>
                 <div class="ai-subtitle">Powered by Qwen 2.5 — runs in your browser</div>
             </div>
             <button class="ai-panel-close" onclick="toggleAIPanel()">&times;</button>
@@ -6558,7 +6684,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
 
     <script type="module">
     // ============================
-    // AI CPT Assistant - WebLLM Integration
+    // AI assistant - WebLLM Integration
     // ============================
 
     // Build searchable CPT database from existing page data
