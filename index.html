@@ -833,6 +833,77 @@
             gap: 0.75rem;
         }
 
+        .bottom-specialty-links {
+            background: #f8fafc;
+            border-top: 1px solid var(--gray-200);
+            padding: 3rem 0 3.5rem;
+        }
+
+        .bottom-specialty-links .container {
+            max-width: 1200px;
+        }
+
+        .bottom-specialty-links-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .bottom-specialty-links-header h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.8rem;
+            color: var(--gray-900);
+        }
+
+        .bottom-specialty-links-header p {
+            margin: 0;
+            color: var(--gray-600);
+            max-width: 760px;
+        }
+
+        .bottom-specialty-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .bottom-specialty-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+        }
+
+        .bottom-specialty-card h3 {
+            margin: 0 0 0.85rem;
+            font-size: 1.05rem;
+            color: var(--gray-900);
+        }
+
+        .bottom-specialty-card-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .bottom-specialty-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 999px;
+            background: white;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .bottom-specialty-link:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background: var(--light-blue);
+        }
+
         .quick-btn {
             background: white;
             border: 2px solid var(--gray-300);
@@ -2304,6 +2375,65 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
         </aside>
     </main>
 
+    <section id="bottomSpecialtyLinks" class="bottom-specialty-links">
+        <div class="container">
+            <div class="bottom-specialty-links-header">
+                <h2>Browse by Specialty</h2>
+                <p>Use the links below to jump straight into each specialty decision tree and procedure pathway.</p>
+            </div>
+            <div class="bottom-specialty-grid">
+                <section class="bottom-specialty-card">
+                    <h3>General Surgery</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#hernia">Hernia Repair</a>
+                        <a class="bottom-specialty-link" href="#appendectomy">Appendectomy</a>
+                    </div>
+                </section>
+                <section class="bottom-specialty-card">
+                    <h3>Urology</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#urology_oncology">Urology Oncology</a>
+                        <a class="bottom-specialty-link" href="#urology_reconstruction">Urology Reconstruction</a>
+                        <a class="bottom-specialty-link" href="#urology_mens_health">Urology Men's Health</a>
+                    </div>
+                </section>
+                <section class="bottom-specialty-card">
+                    <h3>Interventional Radiology</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#specialtyBrowser">View surgical specialty trees</a>
+                    </div>
+                </section>
+                <section class="bottom-specialty-card">
+                    <h3>Interventional Cardiology</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#specialtyBrowser">View surgical specialty trees</a>
+                    </div>
+                </section>
+                <section class="bottom-specialty-card">
+                    <h3>Electrophysiology</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#specialtyBrowser">View surgical specialty trees</a>
+                    </div>
+                </section>
+                <section class="bottom-specialty-card">
+                    <h3>Structural Heart</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#specialtyBrowser">View surgical specialty trees</a>
+                    </div>
+                </section>
+                <section class="bottom-specialty-card">
+                    <h3>In-patient Physician Coding</h3>
+                    <div class="bottom-specialty-card-links">
+                        <a class="bottom-specialty-link" href="#inpatient_split_shared">Split/Shared Services</a>
+                        <a class="bottom-specialty-link" href="#inpatient_prolonged">Prolonged Services</a>
+                        <a class="bottom-specialty-link" href="#inpatient_teaching">Teaching Physician</a>
+                        <a class="bottom-specialty-link" href="#inpatient_cross_specialty">Cross-Specialty Workflows</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
     <!-- LEGAL SECTION -->
     <div id="legalSection" style="display:none;max-width:800px;margin:0 auto;padding:2rem 1.5rem;">
         <h1 style="font-size:28px;font-weight:700;color:#1e293b;margin-bottom:24px;">Terms of Use & Legal Disclaimer</h1>
@@ -2653,6 +2783,7 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
 
         function initializeApp() {
             renderSpecialtyNavigation();
+            setupBottomSpecialtyLinks();
             showSection('home');
             setupSearch();
             setupRVUSearch();
@@ -3007,6 +3138,38 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
                 const treeTotal = Array.from(inpatientGroups.values()).reduce((sum, categories) => sum + categories.length, 0);
                 inpatientCount.textContent = `${treeTotal} tree${treeTotal === 1 ? '' : 's'}`;
             }
+        }
+
+        function slugifyTreeName(name) {
+            return String(name || '')
+                .toLowerCase()
+                .replace(/&/g, ' and ')
+                .replace(/[^a-z0-9]+/g, '_')
+                .replace(/^_+|_+$/g, '');
+        }
+
+        function setupBottomSpecialtyLinks() {
+            const links = document.querySelectorAll('#bottomSpecialtyLinks a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    const target = this.getAttribute('href').slice(1);
+                    if (!target) return;
+
+                    const categoryIndex = CPT_DATA.categories.findIndex(category => slugifyTreeName(category.name) === target);
+                    if (categoryIndex !== -1) {
+                        event.preventDefault();
+                        startDecisionTree(categoryIndex);
+                        history.replaceState(null, '', `#${target}`);
+                        return;
+                    }
+
+                    const elementTarget = document.getElementById(target);
+                    if (elementTarget) {
+                        event.preventDefault();
+                        elementTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
         }
 
         // Decision Tree Navigation
