@@ -261,6 +261,7 @@ const appState = {
   currentTreeCategories: [],
   currentTreeCategory: null,
   currentTreeNodeKey: null,
+  rvuData: null,
 };
 
 function currency(value) {
@@ -313,6 +314,18 @@ async function loadDecisionTreeData() {
   const response = await fetch('cpt_decision_tree.json');
   appState.decisionTree = await response.json();
   return appState.decisionTree;
+}
+
+async function loadRvuData() {
+  if (appState.rvuData) return appState.rvuData;
+  const response = await fetch('rvu_database.json');
+  appState.rvuData = await response.json();
+  return appState.rvuData;
+}
+
+function resolveWrvuForCode(code) {
+  const codes = appState.rvuData?.codes || {};
+  return Number(codes?.[code]?.work_rvu || 0);
 }
 
 function renderCategoryChoices() {
@@ -370,12 +383,14 @@ function chooseTreeOption(nextKey) {
   renderDecisionTreePanel(node);
 }
 
-function addTreeResultToCase(option) {
+async function addTreeResultToCase(option) {
+  await loadRvuData();
+  const resolvedWrvu = resolveWrvuForCode(option.cpt_code);
   const nextRank = appState.activeCase.length === 0 ? 'Primary' : `Sec ${appState.activeCase.length}`;
   appState.activeCase.push({
     code: option.cpt_code,
     desc: option.description || option.label || 'Decision tree result',
-    wrvu: 0,
+    wrvu: resolvedWrvu,
     mod: (option.modifiers || []).join(','),
     rank: nextRank,
   });
