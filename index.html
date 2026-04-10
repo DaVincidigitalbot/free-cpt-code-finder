@@ -183,6 +183,12 @@ FreeCPTCodeFinder
   <div id="decisionTreeOptions" style="display:grid;gap:8px"></div>
 </div>
 
+<div id="modifier59AuditPanel" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin-top:18px">
+  <div class="et">Modifier 59 audit</div>
+  <div class="es" style="margin-top:8px">Use this when a surgeon or billing coder wants `-59` and the system should document why it may represent a distinct procedural service.</div>
+  <div id="modifier59AuditQuestions" style="display:grid;gap:8px;margin-top:12px"></div>
+</div>
+
 <div class="em">
 <div class="ec"><div class="el">Inpatient</div><div class="et">Encounter coding</div><div class="es">99221–33 · 99238–39 · 99252–55 · 99291–92</div><div class="eg">open →</div></div>
 <div class="ec"><div class="el">Outpatient</div><div class="et">Clinic &amp; ASC</div><div class="es">99202–05 · 99212–15 · 99242–45 · 99024</div><div class="eg">open →</div></div>
@@ -282,6 +288,10 @@ const appState = {
     siteOfService: 'facility',
     bilateralMode: 'auto',
   },
+  modifier59Audit: {
+    active: false,
+    answers: {},
+  },
 };
 
 function currency(value) {
@@ -333,7 +343,7 @@ function renderCaseBuilder() {
 <div class="rw"><span class="rwl">Typical modifiers</span><span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'}</span></div>
 <div class="rw"><span class="rwl">Bilateral mode</span><span>${appState.caseContext.bilateralMode}</span></div>
 <div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
-<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button></div>
+<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="triggerModifier59Audit('${procedure.code || procedure.cpt}')">-59 audit</button></div>
 </div>`).join('');
 
   const total = analyzedProcedures.reduce((sum, procedure) => sum + Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0), 0);
@@ -370,6 +380,35 @@ function setBilateralMode(value) {
   syncCaseAnalysisAndRender();
 }
 
+function triggerModifier59Audit(code = '') {
+  appState.modifier59Audit.active = true;
+  appState.modifier59Audit.code = code;
+  appState.modifier59Audit.answers = {};
+  renderModifier59AuditPanel();
+}
+
+function answerModifier59Audit(key, value) {
+  appState.modifier59Audit.answers[key] = value;
+  renderModifier59AuditPanel();
+}
+
+function renderModifier59AuditPanel() {
+  const panel = document.getElementById('modifier59AuditQuestions');
+  if (!panel) return;
+  const prompts = [
+    ['distinct procedural service', 'Is this truly a distinct procedural service?'],
+    ['separate incision', 'Was there a separate incision?'],
+    ['separate lesion', 'Was there a separate lesion?'],
+    ['separate anatomic site', 'Was there a separate anatomic site?'],
+    ['separate encounter', 'Was there a separate encounter or session?'],
+    ['XS', 'Would XS fit better than -59?'],
+    ['XE', 'Would XE fit better than -59?'],
+    ['XP', 'Would XP fit better than -59?'],
+    ['XU', 'Would XU fit better than -59?'],
+  ];
+  panel.innerHTML = prompts.map(([key, label]) => `<div class="rw"><span class="rwl">${label}</span><span><button class="qrv" onclick="answerModifier59Audit('${key}','yes')">yes</button> <button class="qrv" onclick="answerModifier59Audit('${key}','no')">no</button> <button class="qrv" onclick="answerModifier59Audit('${key}','review')">review</button></span></div>`).join('');
+}
+
 function exportAuditOutput() {
   const payload = {
     activeCase: appState.activeCase,
@@ -383,6 +422,9 @@ function exportAuditOutput() {
     '',
     `Bilateral mode: ${appState.caseContext.bilateralMode}`,
     'Laterality and bilateral handling may require payer-specific review.',
+    '',
+    'Modifier 59 audit:',
+    JSON.stringify(appState.modifier59Audit, null, 2),
     '',
     'Context:',
     JSON.stringify(appState.caseContext, null, 2),
