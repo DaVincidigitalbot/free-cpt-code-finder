@@ -220,6 +220,7 @@ FreeCPTCodeFinder
 <div class="ctrls">
 <div class="seg"><button id="payer-medicare" class="on" onclick="setPayerType('medicare')">medicare</button><button id="payer-commercial" onclick="setPayerType('commercial')">commercial</button></div>
 <div class="seg"><button id="site-facility" class="on" onclick="setSiteOfService('facility')">facility</button><button id="site-nonfacility" onclick="setSiteOfService('nonfacility')">non-fac</button></div>
+<div class="seg"><button id="bilateral-auto" class="on" onclick="setBilateralMode('auto')">bilateral auto</button><button id="bilateral-force" onclick="setBilateralMode('force-bilateral')">bilateral on</button><button id="bilateral-off" onclick="setBilateralMode('off')">bilateral off</button></div>
 </div>
 
 <div class="rf"><span class="k">⌘K</span> palette · <span class="k">1–5</span> quick · <span class="k">↑↓</span> scan<br><span class="k">⌫</span> remove · <button class="qrv" onclick="exportAuditOutput()">Export audit</button></div>
@@ -279,6 +280,7 @@ const appState = {
   caseContext: {
     payerType: 'medicare',
     siteOfService: 'facility',
+    bilateralMode: 'auto',
   },
 };
 
@@ -329,6 +331,7 @@ function renderCaseBuilder() {
 <div class="rw"><span class="rwl">wRVU</span><span>${Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0).toFixed(2)}</span></div>
 <div class="rw"><span class="rwl">Recommended role</span><span>${procedure.rank || 'Unranked'}</span></div>
 <div class="rw"><span class="rwl">Typical modifiers</span><span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'}</span></div>
+<div class="rw"><span class="rwl">Bilateral mode</span><span>${appState.caseContext.bilateralMode}</span></div>
 <div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
 <div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button></div>
 </div>`).join('');
@@ -359,6 +362,14 @@ function setSiteOfService(value) {
   syncCaseAnalysisAndRender();
 }
 
+function setBilateralMode(value) {
+  appState.caseContext.bilateralMode = value;
+  document.getElementById('bilateral-auto')?.classList.toggle('on', value === 'auto');
+  document.getElementById('bilateral-force')?.classList.toggle('on', value === 'force-bilateral');
+  document.getElementById('bilateral-off')?.classList.toggle('on', value === 'off');
+  syncCaseAnalysisAndRender();
+}
+
 function exportAuditOutput() {
   const payload = {
     activeCase: appState.activeCase,
@@ -369,6 +380,8 @@ function exportAuditOutput() {
   };
   const lines = [
     'FreeCPTCodeFinder case audit',
+    '',
+    `Bilateral mode: ${appState.caseContext.bilateralMode}`,
     '',
     'Context:',
     JSON.stringify(appState.caseContext, null, 2),
