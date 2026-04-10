@@ -221,6 +221,14 @@ FreeCPTCodeFinder
 </div>
 
 <div class="rf"><span class="k">⌘K</span> palette · <span class="k">1–5</span> quick · <span class="k">↑↓</span> scan<br><span class="k">⌫</span> remove · <span class="k">⌘E</span> export audit</div>
+<div style="border-top:1px solid var(--line);padding-top:12px;margin-top:12px">
+  <div class="rt" style="margin-bottom:8px">Warnings</div>
+  <div id="caseWarnings" class="rf" style="padding-top:0"></div>
+</div>
+<div style="border-top:1px solid var(--line);padding-top:12px;margin-top:12px">
+  <div class="rt" style="margin-bottom:8px">Audit trail</div>
+  <div id="caseAuditTrail" class="rf" style="padding-top:0"></div>
+</div>
 </aside>
 
 </div>
@@ -310,9 +318,27 @@ function renderCaseBuilder() {
   estimatedPayment.textContent = `${currency(total * 29.37)} · MPPR applied`;
 }
 
+function renderAuditPanel() {
+  const warningEl = document.getElementById("caseWarnings");
+  const auditEl = document.getElementById("caseAuditTrail");
+  if (!warningEl || !auditEl) return;
+
+  const warnings = appState.lastAnalysis?.warnings || [];
+  const auditTrail = appState.lastAnalysis?.auditTrail || [];
+
+  warningEl.innerHTML = warnings.length
+    ? warnings.map((warning) => `<div>${warning}</div>`).join('')
+    : '<div>No current warnings.</div>';
+
+  auditEl.innerHTML = auditTrail.length
+    ? auditTrail.slice(-5).map((entry) => `<div>${entry.action || entry.type || 'audit'}${entry.message ? ` · ${entry.message}` : ''}</div>`).join('')
+    : '<div>No audit events yet.</div>';
+}
+
 async function syncCaseAnalysisAndRender() {
   await analyzeActiveCase();
   renderCaseBuilder();
+  renderAuditPanel();
 }
 
 function addQuickProcedure(code) {
@@ -452,5 +478,6 @@ document.addEventListener('keydown',e=>{
 
 syncCaseAnalysisAndRender();
 renderCategoryChoices();
+renderAuditPanel();
 </script>
 </body></html>
