@@ -218,8 +218,8 @@ FreeCPTCodeFinder
 </div>
 
 <div class="ctrls">
-<div class="seg"><button class="on">medicare</button><button>commercial</button></div>
-<div class="seg"><button class="on">facility</button><button>non-fac</button></div>
+<div class="seg"><button id="payer-medicare" class="on" onclick="setPayerType('medicare')">medicare</button><button id="payer-commercial" onclick="setPayerType('commercial')">commercial</button></div>
+<div class="seg"><button id="site-facility" class="on" onclick="setSiteOfService('facility')">facility</button><button id="site-nonfacility" onclick="setSiteOfService('nonfacility')">non-fac</button></div>
 </div>
 
 <div class="rf"><span class="k">⌘K</span> palette · <span class="k">1–5</span> quick · <span class="k">↑↓</span> scan<br><span class="k">⌫</span> remove · <span class="k">⌘E</span> export audit</div>
@@ -276,6 +276,10 @@ const appState = {
   rvuData: null,
   modifierEngine: null,
   lastAnalysis: null,
+  caseContext: {
+    payerType: 'medicare',
+    siteOfService: 'facility',
+  },
 };
 
 function currency(value) {
@@ -297,7 +301,7 @@ async function analyzeActiveCase() {
     description: line.desc,
     work_rvu: line.wrvu,
   }));
-  const analysis = await appState.modifierEngine.analyze(analysisInput, { payerType: 'medicare' });
+  const analysis = await appState.modifierEngine.analyze(analysisInput, appState.caseContext);
   appState.lastAnalysis = analysis;
   return analysis;
 }
@@ -335,6 +339,20 @@ function renderCaseBuilder() {
 function removeCaseLine(index) {
   appState.activeCase.splice(index, 1);
   appState.lastAnalysis = null;
+  syncCaseAnalysisAndRender();
+}
+
+function setPayerType(value) {
+  appState.caseContext.payerType = value;
+  document.getElementById('payer-medicare')?.classList.toggle('on', value === 'medicare');
+  document.getElementById('payer-commercial')?.classList.toggle('on', value === 'commercial');
+  syncCaseAnalysisAndRender();
+}
+
+function setSiteOfService(value) {
+  appState.caseContext.siteOfService = value;
+  document.getElementById('site-facility')?.classList.toggle('on', value === 'facility');
+  document.getElementById('site-nonfacility')?.classList.toggle('on', value === 'nonfacility');
   syncCaseAnalysisAndRender();
 }
 
