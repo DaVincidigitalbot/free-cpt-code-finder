@@ -176,6 +176,8 @@ FreeCPTCodeFinder
 <div class="sl">Decision tree <span class="hi">choose a category, then answer forward</span></div>
 <div id="decisionTreePanel" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin-top:18px">
   <div id="decisionTreeTitle" class="et">Select a specialty lane to begin</div>
+  <div class="sl" style="margin-top:10px;margin-bottom:6px">Selected path <span class="hi" id="decisionTreeContext">Awaiting specialty selection</span></div>
+  <div id="decisionTreeBreadcrumb" class="rf" style="padding-top:0;padding-bottom:8px"></div>
   <div id="decisionTreeCategoryChoices" style="display:grid;gap:8px;margin-top:12px"></div>
   <div id="decisionTreeQuestion" class="es" style="margin-top:12px;margin-bottom:10px"></div>
   <div id="decisionTreeOptions" style="display:grid;gap:8px"></div>
@@ -270,6 +272,7 @@ const appState = {
   currentTreeCategories: [],
   currentTreeCategory: null,
   currentTreeNodeKey: null,
+  currentTreePath: [],
   rvuData: null,
   modifierEngine: null,
   lastAnalysis: null,
@@ -383,6 +386,30 @@ function resolveWrvuForCode(code) {
   return Number(codes?.[code]?.work_rvu || 0);
 }
 
+function updateTreePath(label, reset = false) {
+  if (reset) {
+    appState.currentTreePath = [];
+  }
+  if (label) {
+    appState.currentTreePath.push(label);
+  }
+  const breadcrumb = document.getElementById('decisionTreeBreadcrumb');
+  const context = document.getElementById('decisionTreeContext');
+  if (breadcrumb) {
+    breadcrumb.textContent = appState.currentTreePath.length ? appState.currentTreePath.join(' → ') : 'No active path yet';
+  }
+  if (context) {
+    context.textContent = appState.currentTreePath.length ? appState.currentTreePath[appState.currentTreePath.length - 1] : 'Awaiting specialty selection';
+  }
+}
+
+function resetDecisionTreePanel() {
+  appState.currentTreeCategory = null;
+  appState.currentTreeNodeKey = null;
+  updateTreePath('', true);
+  renderCategoryChoices();
+}
+
 function renderCategoryChoices() {
   const categoryChoices = document.getElementById('decisionTreeCategoryChoices');
   const title = document.getElementById('decisionTreeTitle');
@@ -393,9 +420,12 @@ function renderCategoryChoices() {
   title.textContent = appState.currentTreeCategories.length ? 'Choose a procedure family' : 'Select a specialty lane to begin';
   question.textContent = appState.currentTreeCategories.length ? 'Available categories from the selected specialty' : '';
   options.innerHTML = '';
-  categoryChoices.innerHTML = appState.currentTreeCategories.map((category) =>
-    `<button class="qc" style="width:100%;text-align:left" onclick="startCategoryFlow('${category.name.replace(/'/g, "&#39;")}')"><div class="qn">${category.name}</div><div class="qb"><span class="qcpt">${category.specialty || ''}</span><span class="qrv">open</span></div></button>`
-  ).join('');
+  categoryChoices.innerHTML = appState.currentTreeCategories.length
+    ? `<button class="qc" style="width:100%;text-align:left" onclick="resetDecisionTreePanel()"><div class="qn">Back to specialty choices</div><div class="qb"><span class="qcpt">reset</span><span class="qrv">open</span></div></button>` + appState.currentTreeCategories.map((category) =>
+      `<button class="qc" style="width:100%;text-align:left" onclick="startCategoryFlow('${category.name.replace(/'/g, "&#39;")}')"><div class="qn">${category.name}</div><div class="qb"><span class="qcpt">${category.specialty || ''}</span><span class="qrv">open</span></div></button>`
+    ).join('')
+    : '';
+  updateTreePath('', true);
 }
 
 function renderDecisionTreePanel(node) {
@@ -429,12 +459,15 @@ function startCategoryFlow(categoryName) {
   if (!category) return;
   appState.currentTreeCategory = category;
   appState.currentTreeNodeKey = null;
+  updateTreePath(categoryName, true);
   renderDecisionTreePanel((category.questions || [])[0] || null);
 }
 
 function chooseTreeOption(nextKey) {
   appState.currentTreeNodeKey = nextKey;
   const node = appState.currentTreeCategory?.branches?.[nextKey] || null;
+  const label = node?.question || nextKey;
+  updateTreePath(label);
   renderDecisionTreePanel(node);
 }
 
@@ -460,6 +493,7 @@ async function openSpecialtyLane(routeKey) {
   appState.currentTreeCategories = categories;
   appState.currentTreeCategory = null;
   appState.currentTreeNodeKey = null;
+  updateTreePath(routeKey.replace(/-/g, ' '), true);
   const starterNames = categories.map((category) => category.name).join(' · ');
   document.getElementById('ci').value = starterNames;
   filterSpecialties(starterNames);
