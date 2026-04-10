@@ -222,7 +222,7 @@ FreeCPTCodeFinder
 <div class="seg"><button id="site-facility" class="on" onclick="setSiteOfService('facility')">facility</button><button id="site-nonfacility" onclick="setSiteOfService('nonfacility')">non-fac</button></div>
 </div>
 
-<div class="rf"><span class="k">⌘K</span> palette · <span class="k">1–5</span> quick · <span class="k">↑↓</span> scan<br><span class="k">⌫</span> remove · <span class="k">⌘E</span> export audit</div>
+<div class="rf"><span class="k">⌘K</span> palette · <span class="k">1–5</span> quick · <span class="k">↑↓</span> scan<br><span class="k">⌫</span> remove · <button class="qrv" onclick="exportAuditOutput()">Export audit</button></div>
 <div style="border-top:1px solid var(--line);padding-top:12px;margin-top:12px">
   <div class="rt" style="margin-bottom:8px">Warnings</div>
   <div id="caseWarnings" class="rf" style="padding-top:0"></div>
@@ -354,6 +354,39 @@ function setSiteOfService(value) {
   document.getElementById('site-facility')?.classList.toggle('on', value === 'facility');
   document.getElementById('site-nonfacility')?.classList.toggle('on', value === 'nonfacility');
   syncCaseAnalysisAndRender();
+}
+
+function exportAuditOutput() {
+  const payload = {
+    activeCase: appState.activeCase,
+    caseContext: appState.caseContext,
+    warnings: appState.lastAnalysis?.warnings || [],
+    auditTrail: appState.lastAnalysis?.auditTrail || [],
+    summary: appState.lastAnalysis?.summary || {},
+  };
+  const lines = [
+    'FreeCPTCodeFinder case audit',
+    '',
+    'Context:',
+    JSON.stringify(appState.caseContext, null, 2),
+    '',
+    'Active case:',
+    JSON.stringify(appState.activeCase, null, 2),
+    '',
+    'Warnings:',
+    JSON.stringify(payload.warnings, null, 2),
+    '',
+    'Audit trail:',
+    JSON.stringify(payload.auditTrail, null, 2),
+    '',
+    'Summary:',
+    JSON.stringify(payload.summary, null, 2),
+  ].join('\n');
+  const blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'case-audit.txt';
+  a.click();
 }
 
 function renderAuditPanel() {
