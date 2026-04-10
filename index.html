@@ -191,7 +191,7 @@ FreeCPTCodeFinder
 </main>
 
 <aside class="rail">
-<div class="rh"><div class="rt">Active case</div><div class="rm">3 lines · medicare</div></div>
+<div class="rh"><div class="rt">Active case</div><div class="rm" id="activeCaseMeta">3 lines · medicare</div></div>
 
 <div class="tot">
 <div class="tl">Total wRVU</div>
@@ -306,19 +306,36 @@ function renderCaseBuilder() {
   const lines = document.getElementById('activeCaseLines');
   const totalWrvu = document.getElementById('totalWrvu');
   const estimatedPayment = document.getElementById('estimatedPayment');
-  if (!lines || !totalWrvu || !estimatedPayment) return;
+  const meta = document.getElementById('activeCaseMeta');
+  if (!lines || !totalWrvu || !estimatedPayment || !meta) return;
 
   const analyzedProcedures = appState.lastAnalysis?.procedures || appState.activeCase;
+  if (!analyzedProcedures.length) {
+    lines.innerHTML = '<div class="rd">No procedures selected yet.</div>';
+    meta.textContent = 'No active case';
+    totalWrvu.textContent = '0.00';
+    estimatedPayment.textContent = '$0.00 · MPPR applied';
+    return;
+  }
+
   lines.innerHTML = analyzedProcedures.map((procedure, index) => `
 <div class="rl">
 <div class="rlt"><span class="rk${index === 0 ? ' p' : ''}">${procedure.rank || (index === 0 ? 'Primary' : `Sec ${index}`)}</span><span class="rcpt">${procedure.code || procedure.cpt}</span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod ? `<span class="rmd">${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod}</span>` : ''}</div>
 <div class="rd">${procedure.desc || procedure.description}</div>
 <div class="rw"><span class="rwl">wRVU</span><span>${Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0).toFixed(2)}</span></div>
+<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button></div>
 </div>`).join('');
 
   const total = analyzedProcedures.reduce((sum, procedure) => sum + Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0), 0);
+  meta.textContent = `${analyzedProcedures.length} lines · medicare`;
   totalWrvu.textContent = total.toFixed(2);
   estimatedPayment.textContent = `${currency(total * 29.37)} · MPPR applied`;
+}
+
+function removeCaseLine(index) {
+  appState.activeCase.splice(index, 1);
+  appState.lastAnalysis = null;
+  syncCaseAnalysisAndRender();
 }
 
 function renderAuditPanel() {
