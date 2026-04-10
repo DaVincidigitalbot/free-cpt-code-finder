@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyrionyx – Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly</title>
+    <title>Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly</title>
     <meta name="description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree helps you find the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.">
     <meta name="keywords" content="CPT codes, CPT code finder, free CPT lookup, ICD-10 codes, ICD-10 finder, surgical CPT codes, medical billing codes, procedure codes, CPT code search, find CPT code, what CPT code for hernia, CPT code for appendectomy, medical coding, free medical coding tool">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Cyrionyx – Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
+    <meta property="og:title" content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
     <meta property="og:description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree helps you find the exact surgical procedure code, diagnosis code, and modifiers. Built by a practicing surgeon.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://freecptcodefinder.com">
@@ -16,14 +16,14 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cyrionyx – Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
+    <meta name="twitter:title" content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly">
     <meta name="twitter:description" content="Find CPT codes and ICD-10 codes for free. Interactive decision tree built by a practicing surgeon.">
 
     <!-- SEO -->
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://freecptcodefinder.com/">
-    <meta name="author" content="CYRIONYX">
-    <meta name="og:site_name" content="FreeCPTCodeFinder">
+    <meta name="author" content="FreeCPTCodeFinder.com">
+    <meta name="og:site_name" content="Free CPT Code Finder">
 
     <!-- Favicon (emoji fallback) -->
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -2073,53 +2073,34 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
 }
 </style>
 </head>
-<body class="brand-shell">
-    <div style="background:linear-gradient(90deg,#081821 0%,#0B1220 48%,#12384E 100%);color:#FFFFFF;padding:12px 16px;text-align:center;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 24px rgba(11,31,42,.12);">Powered by <a href="/" style="color:#9CC4FF;text-decoration:none;font-weight:800;letter-spacing:.08em;">CYRIONYX</a></div>
+<body>
     <!-- Header -->
-    <div class="cyrionyx-header" data-cyrionyx-header>
-  <div class="cyrionyx-header-inner">
-    <a class="cyr-brand" href="/" aria-label="CYRIONYX home">
-      <img src="/logo/icon.svg" alt="CYRIONYX icon">
-      <span class="cyr-wordmark">CYRIONY<span class="x">X</span></span>
-    </a>
-    <nav class="cyr-nav" aria-label="Primary">
-      <div class="cyr-dropdown">
-        <button class="cyr-dropdown-toggle" type="button" aria-expanded="false">Products</button>
-        <div class="cyr-dropdown-menu">
-          <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder</a>
-          <a href="/about.html">About CYRIONYX</a>
-        </div>
-      </div>
-      <a class="cyr-nav-link" href="/blog/">Blog</a>
-      <a class="cyr-nav-link" href="/about.html">About</a>
-      <a class="cyr-nav-link" href="/contact.html">Contact</a>
-    </nav>
-    <button class="cyr-menu-button" type="button" aria-label="Open menu">☰</button>
-  </div>
-  <div class="cyr-mobile-drawer" aria-label="Mobile menu">
-    <span class="cyr-mobile-products-label">Products</span>
-    <div class="cyr-mobile-products">
-      <a href="https://freecptcodefinder.com/">FreeCPTCodeFinder</a>
-      <a href="/about.html">About CYRIONYX</a>
-    </div>
-    <a href="/blog/">Blog</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
-  </div>
-</div>
-
-    <!-- Hero Section -->
-    <section class="hero">
+    <header class="header" id="main-header">
         <div class="container">
-            <div class="hero-intro">
-                <div class="hero-kicker">CYRIONYX medical coding platform</div>
-                <h1 class="hero-title">FreeCPTCodeFinder, <span>faster answers for surgical coding</span></h1>
-                <p class="hero-description">Search CPT and ICD-10 codes instantly, with CYRIONYX branding up top and the same underlying logic intact.</p>
+            <div class="header-content">
+                <div>
+                    <a href="/" class="logo"><img src="/logo-192.png" alt="FreeCPTCodeFinder" style="height:65px;vertical-align:middle;margin-right:12px;">FreeCPTCodeFinder</a>
+                    <span class="tagline">Find the exact CPT or ICD-10 code in seconds</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" onclick="event.preventDefault();showSection('home')" class="nav-link active">CPT Codes</a>
+                    <a href="/outpatient.html" class="nav-link">Office & Outpatient</a>
+                    <a href="#" onclick="event.preventDefault();showSection('icd10')" class="nav-link">ICD-10 Codes</a>
+                    <a href="#" onclick="event.preventDefault();showSection('rvu')" class="nav-link">RVU Calculator</a>
+                    <a href="/codes/" class="nav-link">All Codes</a>
+                    <a href="/blog/" class="nav-link">Blog</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="/terms.html" class="nav-link">Legal</a>
+                </nav>
             </div>
         </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="padding:0;background:#f0f4f8;">
         <div class="container" style="padding:0;max-width:100%;">
-            <div class="hero-banner-shell">
-                <img src="/hero-banner.jpg" alt="FreeCPTCodeFinder — Smarter coding. Stronger reimbursement." style="width:100%;max-width:1200px;height:auto;display:block;margin:0 auto;">
+            <div style="text-align:center;">
+                <img src="/hero-banner.jpg" alt="FreeCPTCodeFinder — Smarter Coding. Stronger Reimbursement." style="width:100%;max-width:1200px;height:auto;display:block;margin:0 auto;">
             </div>
         </div>
         <div class="container" style="padding-top:1.5rem;">
