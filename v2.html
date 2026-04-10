@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreeCPTCodeFinder v2, Surgical Case Builder</title>
+  <meta name="description" content="FreeCPTCodeFinder v2 is a surgical case builder for CPT selection, modifier review, wRVU totals, and MPPR-aware payment estimates.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://freecptcodefinder.com/v2.html">
+  <meta property="og:title" content="FreeCPTCodeFinder v2, Surgical Case Builder">
+  <meta property="og:description" content="Build surgical cases, stack CPT codes, review modifiers, and estimate wRVUs with MPPR-aware logic.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://freecptcodefinder.com/v2.html">
+  <meta property="og:image" content="https://freecptcodefinder.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FreeCPTCodeFinder v2, Surgical Case Builder">
+  <meta name="twitter:description" content="Build surgical CPT cases with modifier review, audit trail export, and MPPR-aware payment estimates.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/logo-192.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPFGH437ZS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NPFGH437ZS');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#09111f;
+      --bg-soft:#0f172a;
+      --panel:#111c34;
+      --panel-2:#16233f;
+      --ink:#e8efff;
+      --mute:#97a5c6;
+      --line:#27365a;
+      --acc:#3b82f6;
+      --acc-2:#60a5fa;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --bad:#f87171;
+      --white:#ffffff;
+      --shadow:0 24px 80px rgba(0,0,0,.28);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background:radial-gradient(circle at top, #102042 0%, var(--bg) 48%);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{max-width:1380px;margin:0 auto;padding:0 20px}
+    .header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(9,17,31,.88);
+      border-bottom:1px solid rgba(151,165,198,.14);
+    }
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:16px 0;
+    }
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .brand-mark{
+      width:44px;height:44px;border-radius:14px;
+      background:linear-gradient(135deg,#1d4ed8,#60a5fa);
+      display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:var(--shadow)
+    }
+    .brand-copy strong{display:block;font-size:1rem;letter-spacing:-.02em}
+    .brand-copy span{display:block;color:var(--mute);font-size:.82rem}
+    .header-meta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{
+      border:1px solid rgba(151,165,198,.18);
+      background:rgba(17,28,52,.88);
+      color:var(--mute);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.8rem;
+      white-space:nowrap;
+    }
+    .hero{padding:34px 0 18px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:18px;align-items:start}
+    .hero-card,.panel{
+      background:linear-gradient(180deg,rgba(17,28,52,.96),rgba(17,28,52,.9));
+      border:1px solid rgba(151,165,198,.12);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-card{padding:24px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(96,165,250,.2);background:rgba(59,130,246,.12);padding:7px 12px;border-radius:999px;color:#bfdbfe;font-size:.8rem;font-weight:700}
+    h1{margin:14px 0 10px;font-size:clamp(2rem,4vw,3.25rem);line-height:1.04;letter-spacing:-.04em}
+    .lede{margin:0;color:#c6d4f5;max-width:760px;font-size:1rem}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+    .stat{background:rgba(9,17,31,.42);border:1px solid rgba(151,165,198,.12);border-radius:14px;padding:14px}
+    .stat strong{display:block;font-size:1.35rem;color:#fff}
+    .stat span{display:block;font-size:.78rem;color:var(--mute);margin-top:4px}
+    .hero-aside{padding:22px}
+    .hero-aside h2{margin:0 0 10px;font-size:1rem}
+    .hero-aside ul{margin:0;padding-left:18px;color:#c6d4f5}
+    .hero-aside li+li{margin-top:8px}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:18px;padding:8px 0 28px}
+    .panel{padding:18px}
+    .panel h2{margin:0 0 8px;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+    .crumbs{font-size:.9rem;color:var(--mute);margin-bottom:14px}
+    .back-btn{color:#c6d4f5;cursor:pointer;text-decoration:none}
+    .back-btn:hover{color:#fff}
+    .chip-grid{display:flex;flex-wrap:wrap;gap:10px}
+    .chip,.btn,select{
+      border-radius:999px;
+      border:1px solid rgba(151,165,198,.18);
+      background:rgba(22,35,63,.95);
+      color:var(--ink);
+      font:inherit;
+    }
+    .chip{
+      padding:10px 14px;cursor:pointer;transition:.18s ease;border-radius:999px;
+    }
+    .chip:hover,.chip:focus-visible{border-color:var(--acc-2);transform:translateY(-1px)}
+    .line-item{padding:16px 0;border-bottom:1px solid rgba(151,165,198,.12)}
+    .line-item:last-child{border-bottom:0;padding-bottom:0}
+    .proc-title{font-size:1rem;font-weight:700;color:#fff}
+    .proc-code{color:#7dd3fc;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .proc-meta{color:var(--mute);font-size:.86rem;margin-top:6px}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    select{
+      padding:10px 12px;border-radius:12px;min-height:42px;min-width:140px;
+      outline:none;
+    }
+    .btn{
+      padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700;
+      background:linear-gradient(135deg,var(--acc),#2563eb);
+      border:none;
+      color:#fff;
+    }
+    .btn.secondary{background:transparent;border:1px solid rgba(151,165,198,.18);color:var(--ink)}
+    .btn.danger{background:rgba(248,113,113,.14);border:1px solid rgba(248,113,113,.35);color:#fecaca}
+    .case-config{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+    .case-card{background:rgba(9,17,31,.42);border:1px solid rgba(151,165,198,.12);border-radius:14px;padding:14px}
+    .case-header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .case-header strong{font-size:.95rem}
+    .muted{color:var(--mute)}
+    .tiny{font-size:.78rem}
+    .kv{display:flex;justify-content:space-between;gap:12px;padding:5px 0}
+    .value{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#a7f3d0;font-weight:700}
+    .totals{margin-top:16px;padding-top:16px;border-top:1px solid rgba(151,165,198,.12)}
+    .totals .kv strong{font-size:1.35rem;color:var(--ok)}
+    .note,.warning{margin-top:12px;padding:12px 14px;border-radius:12px;font-size:.86rem}
+    .note{background:rgba(59,130,246,.1);border:1px solid rgba(96,165,250,.18);color:#c6d4f5}
+    .warning{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.22);color:#fde68a}
+    .audit-box{
+      max-height:320px;overflow:auto;
+      background:#07101f;border:1px solid rgba(151,165,198,.12);border-radius:14px;
+      padding:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;white-space:pre-wrap
+    }
+    .footer{padding:18px 0 42px;color:var(--mute);font-size:.8rem}
+    .footer a{color:#bfdbfe}
+    @media (max-width: 1100px){
+      .layout,.hero-grid{grid-template-columns:1fr}
+      .header-inner{align-items:flex-start;flex-direction:column}
+      .header-meta{justify-content:flex-start}
+    }
+    @media (max-width: 720px){
+      .container{padding:0 14px}
+      .hero{padding-top:24px}
+      .hero-card,.hero-aside,.panel{padding:16px}
+      .hero-stats{grid-template-columns:1fr}
+      .case-config,.controls{flex-direction:column}
+      select,.btn{width:100%}
+      .chip-grid{gap:8px}
+      .chip{width:100%;text-align:left;border-radius:14px}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <div class="brand-mark">CPT</div>
+        <div class="brand-copy">
+          <strong>FreeCPTCodeFinder v2</strong>
+          <span>Surgical case builder</span>
+        </div>
+      </a>
+      <div class="header-meta">
+        <div class="pill">2026 CF: $32.3465</div>
+        <div class="pill">MPPR aware</div>
+        <div class="pill">Coder audit export</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Beta build, real coding rules</div>
+          <h1>Build the case first. Then audit the hell out of it.</h1>
+          <p class="lede">This v2 flow is for stacking procedures, laterality, bilateral logic, modifier review, and fast wRVU estimation. It is not a substitute for the op note, the AMA book, or judgment, but it should get you to the right neighborhood fast.</p>
+          <div class="hero-stats">
+            <div class="stat"><strong id="specialtyCount">0</strong><span>Specialties loaded</span></div>
+            <div class="stat"><strong id="procedureCount">0</strong><span>Procedures in seed set</span></div>
+            <div class="stat"><strong>90 sec</strong><span>Typical build time</span></div>
+          </div>
+        </div>
+        <aside class="hero-card hero-aside">
+          <h2>What this version gets right</h2>
+          <ul>
+            <li>Ventral hernia uses 2023+ codes only, no dead legacy nonsense.</li>
+            <li>15734 stays at 100% and add-on style ZZZ codes stay untouched by MPPR.</li>
+            <li>Bilateral logic is explicit, not hand-wavy.</li>
+            <li>Audit trail exports cleanly for coder review.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container layout">
+      <div>
+        <div class="panel" id="browserPanel">
+          <h2>1. Build a case</h2>
+          <div class="crumbs" id="crumbs">Select a specialty to begin.</div>
+          <div id="tree"></div>
+        </div>
+
+        <div class="panel" style="margin-top:18px;">
+          <h2>Audit trail</h2>
+          <div class="audit-box" id="audit">Awaiting first action…</div>
+          <div class="controls">
+            <button class="btn secondary" type="button" onclick="exportAudit()">Export .txt</button>
+            <button class="btn secondary" type="button" onclick="clearAudit()">Clear audit</button>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel">
+          <h2>Current case</h2>
+          <div class="case-config">
+            <select id="payer" onchange="recalc('payer change')">
+              <option value="medicare">Medicare</option>
+              <option value="commercial">Commercial</option>
+            </select>
+            <select id="setting" onchange="recalc('setting change')">
+              <option value="facility">Facility</option>
+              <option value="nonfac">Non-facility</option>
+            </select>
+          </div>
+          <div id="caseLines"><div class="muted">No procedures added yet.</div></div>
+          <div class="totals">
+            <div class="kv"><span>Total wRVU</span><strong id="totalWRVU">0.00</strong></div>
+            <div class="kv"><span>Estimated payment</span><strong id="totalPay">$0.00</strong></div>
+            <div class="note" id="mpprNote">MPPR appears here when a case actually triggers it.</div>
+            <div class="warning" id="rulesNote">Educational estimate only. Final coding still lives or dies on the op note and payer rules.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="container footer">
+      Educational use only. Verify against AMA CPT Professional Edition and current CMS/Payer policy. CPT is a registered trademark of the AMA.
+    </section>
+  </main>
+
+  <script>
+    const CF = 32.3465;
+
+    const TREE = {
+      "General Surgery": {
+        "Hernia": [
+          { cpt: "49505", desc: "Inguinal hernia repair, initial, reducible, age 5 or older", wrvu: 7.96, approaches: ["open"], lat: true, paired: true },
+          { cpt: "49650", desc: "Laparoscopic inguinal hernia repair, initial, unilateral", wrvu: 8.85, approaches: ["lap", "robotic"], lat: true, paired: false, bilateralCode: "49651", bilateralWrvu: 12.85 },
+          { cpt: "49591", desc: "Initial ventral/incisional hernia repair, reducible, under 3 cm", wrvu: 8.56, approaches: ["open"], lat: false },
+          { cpt: "49593", desc: "Initial ventral/incisional hernia repair, reducible, 3 to 10 cm", wrvu: 12.85, approaches: ["open"], lat: false },
+          { cpt: "49595", desc: "Initial ventral/incisional hernia repair, reducible, over 10 cm", wrvu: 18.50, approaches: ["open"], lat: false },
+          { cpt: "15734", desc: "Myofascial flap, trunk, unilateral component separation or TAR", wrvu: 20.22, approaches: ["open"], lat: true, paired: true, alwaysFull: true }
+        ],
+        "Gallbladder": [
+          { cpt: "47562", desc: "Laparoscopic cholecystectomy", wrvu: 9.85, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "47563", desc: "Laparoscopic cholecystectomy with cholangiography", wrvu: 11.25, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "47564", desc: "Laparoscopic cholecystectomy with common duct exploration", wrvu: 14.85, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "47600", desc: "Open cholecystectomy", wrvu: 13.55, approaches: ["open"], lat: false }
+        ],
+        "Appendix": [
+          { cpt: "44970", desc: "Laparoscopic appendectomy", wrvu: 8.25, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "44960", desc: "Open appendectomy for ruptured appendix with abscess or generalized peritonitis", wrvu: 12.85, approaches: ["open"], lat: false }
+        ],
+        "Small bowel": [
+          { cpt: "44120", desc: "Enterectomy with single resection and anastomosis", wrvu: 14.85, approaches: ["open"], lat: false },
+          { cpt: "44202", desc: "Laparoscopic enterectomy with resection and anastomosis", wrvu: 16.85, approaches: ["lap", "robotic"], lat: false }
+        ],
+        "Exploratory": [
+          { cpt: "49000", desc: "Exploratory laparotomy", wrvu: 11.25, approaches: ["open"], lat: false, generallyIncluded: true },
+          { cpt: "49320", desc: "Diagnostic laparoscopy", wrvu: 5.25, approaches: ["lap"], lat: false, generallyIncluded: true, estimated: true }
+        ]
+      },
+      "Trauma / Acute Care": {
+        "Rib fixation": [
+          { cpt: "21811", desc: "ORIF rib fracture(s), first 3 ribs", wrvu: 17.61, approaches: ["open"], lat: true },
+          { cpt: "21812", desc: "ORIF rib fracture(s), each additional 3 ribs", wrvu: 5.00, approaches: ["open"], lat: false, addon: true, alwaysFull: true },
+          { cpt: "49002", desc: "Reopening of recent laparotomy", wrvu: 17.56, approaches: ["open"], lat: false }
+        ],
+        "Damage control": [
+          { cpt: "49002", desc: "Reopening of recent laparotomy", wrvu: 17.56, approaches: ["open"], lat: false },
+          { cpt: "35840", desc: "Exploration for postoperative hemorrhage, abdomen", wrvu: 17.41, approaches: ["open"], lat: false }
+        ]
+      },
+      "Colorectal": {
+        "Colon": [
+          { cpt: "44140", desc: "Partial colectomy with anastomosis", wrvu: 22.96, approaches: ["open"], lat: false },
+          { cpt: "44204", desc: "Laparoscopic partial colectomy with anastomosis", wrvu: 22.91, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "44160", desc: "Right colectomy with ileocolostomy", wrvu: 23.74, approaches: ["open"], lat: false },
+          { cpt: "44205", desc: "Laparoscopic right colectomy with ileocolostomy", wrvu: 22.97, approaches: ["lap", "robotic"], lat: false }
+        ]
+      },
+      "Breast": {
+        "Excisional": [
+          { cpt: "19301", desc: "Partial mastectomy (lumpectomy)", wrvu: 10.49, approaches: ["open"], lat: true, paired: true },
+          { cpt: "19303", desc: "Simple mastectomy", wrvu: 16.25, approaches: ["open"], lat: true, paired: true },
+          { cpt: "19307", desc: "Modified radical mastectomy", wrvu: 20.37, approaches: ["open"], lat: true, paired: true }
+        ]
+      },
+      "Endocrine": {
+        "Thyroid": [
+          { cpt: "60220", desc: "Thyroid lobectomy", wrvu: 14.43, approaches: ["open"], lat: true },
+          { cpt: "60240", desc: "Total thyroidectomy", wrvu: 17.31, approaches: ["open"], lat: false }
+        ],
+        "Parathyroid": [
+          { cpt: "60500", desc: "Parathyroidectomy", wrvu: 16.75, approaches: ["open"], lat: false }
+        ]
+      },
+      "HPB": {
+        "Liver": [
+          { cpt: "47120", desc: "Partial hepatectomy", wrvu: 34.43, approaches: ["open"], lat: false }
+        ],
+        "Pancreas": [
+          { cpt: "48150", desc: "Whipple", wrvu: 52.21, approaches: ["open"], lat: false }
+        ]
+      },
+      "Cardiothoracic": {
+        "Lung": [
+          { cpt: "32480", desc: "Open lobectomy", wrvu: 25.44, approaches: ["open"], lat: true },
+          { cpt: "32663", desc: "Thoracoscopic lobectomy", wrvu: 27.23, approaches: ["thora", "robotic"], lat: true }
+        ]
+      },
+      "Vascular": {
+        "Open": [
+          { cpt: "35081", desc: "Open abdominal aortic aneurysm repair", wrvu: 32.50, approaches: ["open"], lat: false }
+        ]
+      },
+      "Surgical Oncology": {
+        "Soft tissue": [
+          { cpt: "21935", desc: "Radical resection soft tissue tumor, back or flank, over 5 cm", wrvu: 21.99, approaches: ["open"], lat: true }
+        ]
+      },
+      "Neurosurgery": {
+        "Cranial": [
+          { cpt: "61510", desc: "Craniectomy for supratentorial tumor", wrvu: 37.71, approaches: ["open"], lat: true }
+        ]
+      },
+      "Orthopedic": {
+        "Long bone": [
+          { cpt: "27506", desc: "ORIF femoral shaft fracture", wrvu: 20.98, approaches: ["open"], lat: true, paired: true }
+        ]
+      },
+      "ENT": {
+        "Neck": [
+          { cpt: "42415", desc: "Parotidectomy, lateral lobe, with nerve preservation", wrvu: 20.87, approaches: ["open"], lat: true, paired: true }
+        ]
+      },
+      "OB/GYN": {
+        "Uterus": [
+          { cpt: "58150", desc: "Total abdominal hysterectomy", wrvu: 22.55, approaches: ["open"], lat: false },
+          { cpt: "58571", desc: "Laparoscopic total hysterectomy, 250 g or less", wrvu: 21.73, approaches: ["lap", "robotic"], lat: false }
+        ]
+      },
+      "Pediatric Surgery": {
+        "Common": [
+          { cpt: "49491", desc: "Inguinal hernia repair, preterm infant", wrvu: 9.68, approaches: ["open"], lat: true, paired: true }
+        ]
+      },
+      "Interventional Radiology": {
+        "Access": [
+          { cpt: "36561", desc: "Tunneled central venous port insertion", wrvu: 5.22, approaches: ["open"], lat: false }
+        ]
+      }
+    };
+
+    let nav = { spec: null, fam: null };
+    let caseLines = [];
+    let audit = [];
+
+    function countProcedures() {
+      let total = 0;
+      Object.values(TREE).forEach(families => {
+        Object.values(families).forEach(items => total += items.length);
+      });
+      document.getElementById('specialtyCount').textContent = Object.keys(TREE).length;
+      document.getElementById('procedureCount').textContent = total;
+    }
+
+    function log(msg) {
+      audit.push(`[${new Date().toLocaleTimeString()}] ${msg}`);
+      renderAudit();
+    }
+
+    function renderAudit() {
+      document.getElementById('audit').textContent = audit.length ? audit.join('\n') : 'Awaiting first action…';
+    }
+
+    function clearAudit() {
+      audit = [];
+      renderAudit();
+    }
+
+    function exportAudit() {
+      const blob = new Blob([audit.join('\n')], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'freecptcodefinder-v2-audit.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function renderTree() {
+      const tree = document.getElementById('tree');
+      const crumbs = document.getElementById('crumbs');
+
+      if (!nav.spec) {
+        crumbs.textContent = 'Select a specialty to begin.';
+        tree.innerHTML = `<div class="chip-grid">${Object.keys(TREE).map(spec => `<button class="chip" type="button" onclick="pickSpec(${JSON.stringify(spec)})">${spec}</button>`).join('')}</div>`;
+        return;
+      }
+
+      if (!nav.fam) {
+        crumbs.innerHTML = `<span class="back-btn" onclick="nav={spec:null,fam:null};renderTree()">← specialties</span> / <strong>${nav.spec}</strong>`;
+        tree.innerHTML = `<div class="chip-grid">${Object.keys(TREE[nav.spec]).map(fam => `<button class="chip" type="button" onclick="pickFam(${JSON.stringify(fam)})">${fam}</button>`).join('')}</div>`;
+        return;
+      }
+
+      crumbs.innerHTML = `<span class="back-btn" onclick="nav={spec:null,fam:null};renderTree()">← specialties</span> / <span class="back-btn" onclick="nav.fam=null;renderTree()">${nav.spec}</span> / <strong>${nav.fam}</strong>`;
+      tree.innerHTML = TREE[nav.spec][nav.fam].map((proc, i) => {
+        const approachOptions = proc.approaches.map(a => `<option value="${a}">${formatApproach(a)}</option>`).join('');
+        const lateralitySelect = proc.lat ? `
+          <select id="lat${i}">
+            <option value="">Laterality…</option>
+            <option value="RT">Right</option>
+            <option value="LT">Left</option>
+            ${proc.paired || proc.bilateralCode ? '<option value="50">Bilateral</option>' : ''}
+          </select>
+        ` : '';
+        const badges = [proc.addon ? 'add-on / ZZZ logic' : '', proc.alwaysFull ? 'always 100%' : '', proc.estimated ? 'estimated seed value' : ''].filter(Boolean).join(' · ');
+        return `
+          <div class="line-item">
+            <div class="proc-title"><span class="proc-code">${proc.cpt}</span> ${proc.desc}</div>
+            <div class="proc-meta">${proc.wrvu.toFixed(2)} wRVU${badges ? ` · ${badges}` : ''}</div>
+            <div class="controls">
+              <select id="app${i}">${approachOptions}</select>
+              ${lateralitySelect}
+              <button class="btn" type="button" onclick="addProc(${i})">Add to case</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function formatApproach(value) {
+      return ({ open: 'Open', lap: 'Laparoscopic', robotic: 'Robotic', thora: 'Thoracoscopic' })[value] || value;
+    }
+
+    function pickSpec(spec) {
+      nav.spec = spec;
+      nav.fam = null;
+      log(`Browse specialty: ${spec}`);
+      renderTree();
+    }
+
+    function pickFam(fam) {
+      nav.fam = fam;
+      log(`Browse family: ${nav.spec} › ${fam}`);
+      renderTree();
+    }
+
+    function addProc(index) {
+      const p = TREE[nav.spec][nav.fam][index];
+      const approach = document.getElementById(`app${index}`).value;
+      const laterality = p.lat ? document.getElementById(`lat${index}`).value : '';
+      if (p.lat && !laterality) {
+        alert('Select laterality first.');
+        return;
+      }
+
+      const line = {
+        cpt: p.cpt,
+        desc: p.desc,
+        baseWrvu: p.wrvu,
+        approach,
+        laterality,
+        mods: [],
+        note: '',
+        rank: 0,
+        addon: !!p.addon,
+        alwaysFull: !!p.alwaysFull,
+        generallyIncluded: !!p.generallyIncluded,
+        bilateralCode: p.bilateralCode || null,
+        bilateralWrvu: p.bilateralWrvu || null,
+        pay: 0,
+        effWrvu: p.wrvu
+      };
+
+      if (laterality === '50' && p.bilateralCode) {
+        line.cpt = p.bilateralCode;
+        line.baseWrvu = p.bilateralWrvu || p.wrvu;
+        line.effWrvu = line.baseWrvu;
+        line.note = 'Uses dedicated bilateral code instead of modifier 50.';
+      }
+
+      caseLines.push(line);
+      log(`ADD ${line.cpt} \"${line.desc}\" approach=${approach}${laterality ? ` laterality=${laterality}` : ''} baseWRVU=${line.baseWrvu}`);
+      recalc('procedure added');
+    }
+
+    function removeLine(index) {
+      log(`REMOVE ${caseLines[index].cpt}`);
+      caseLines.splice(index, 1);
+      recalc('procedure removed');
+    }
+
+    function computeMods() {
+      caseLines.sort((a, b) => {
+        const aPriority = a.alwaysFull ? 1 : 0;
+        const bPriority = b.alwaysFull ? 1 : 0;
+        if (aPriority !== bPriority) return bPriority - aPriority;
+        return b.baseWrvu - a.baseWrvu;
+      });
+
+      const payer = document.getElementById('payer').value;
+
+      caseLines.forEach((line, index) => {
+        line.mods = [];
+        line.rank = index;
+        line.effWrvu = line.baseWrvu;
+        line.note = line.note || '';
+
+        if (line.laterality === '50' && !line.bilateralCode) {
+          line.mods.push('50');
+          line.effWrvu = line.baseWrvu * 1.5;
+        } else if (line.laterality === 'RT') {
+          line.mods.push('RT');
+        } else if (line.laterality === 'LT') {
+          line.mods.push('LT');
+        }
+
+        if (index > 0) {
+          if (payer === 'commercial' && !line.addon) line.mods.push('51');
+          if (!line.addon && !line.generallyIncluded) line.mods.push('59');
+        }
+
+        if (line.approach === 'robotic') {
+          line.note = line.note ? `${line.note} Robotic assist has no separate CPT.` : 'Robotic assist has no separate CPT.';
+        }
+        if (line.generallyIncluded) {
+          line.note = line.note ? `${line.note} Often bundled into definitive surgery, coder review needed.` : 'Often bundled into definitive surgery, coder review needed.';
+        }
+        if (line.cpt === '15734') {
+          line.note = line.note ? `${line.note} 15734 stays at full value and should be documented by side.` : '15734 stays at full value and should be documented by side.';
+        }
+      });
+
+      log(`RECALC primary=${caseLines[0]?.cpt || '—'} · ${caseLines.length} line(s) · payer=${payer}`);
+    }
+
+    function recalc(reason) {
+      if (caseLines.length) computeMods();
+
+      const setting = document.getElementById('setting').value;
+      let totalWRVU = 0;
+      let totalPay = 0;
+
+      caseLines.forEach((line, index) => {
+        totalWRVU += line.effWrvu;
+        const basePayment = line.effWrvu * CF;
+        const mpprProtected = line.alwaysFull || line.addon || line.cpt === '15734';
+        const adjustedPayment = (index === 0 || setting === 'nonfac' || mpprProtected) ? basePayment : basePayment * 0.5;
+        line.pay = adjustedPayment;
+        totalPay += adjustedPayment;
+      });
+
+      renderCaseLines(totalWRVU, totalPay, setting, reason);
+      log(`TOTALS wRVU=${totalWRVU.toFixed(2)} pay=$${totalPay.toFixed(2)} (${reason})`);
+    }
+
+    function renderCaseLines(totalWRVU, totalPay, setting, reason) {
+      const mount = document.getElementById('caseLines');
+      if (!caseLines.length) {
+        mount.innerHTML = '<div class="muted">No procedures added yet.</div>';
+      } else {
+        mount.innerHTML = caseLines.map((line, index) => `
+          <div class="case-card">
+            <div class="case-header">
+              <div>
+                <strong>${index === 0 ? 'Primary' : `Secondary #${index}`}</strong>
+                <div class="proc-meta"><span class="proc-code">${line.cpt}</span>${line.mods.length ? `-${line.mods.join('-')}` : ''}</div>
+              </div>
+              <button class="btn danger" type="button" onclick="removeLine(${index})">Remove</button>
+            </div>
+            <div class="proc-meta" style="margin-top:8px;">${line.desc}</div>
+            <div class="proc-meta">${formatApproach(line.approach)}${line.laterality ? ` · ${line.laterality}` : ''}</div>
+            <div class="kv"><span>wRVU</span><span class="value">${line.effWrvu.toFixed(2)}</span></div>
+            <div class="kv"><span>Payment</span><span class="value">$${line.pay.toFixed(2)}</span></div>
+            ${line.note ? `<div class="warning">${line.note}</div>` : ''}
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('totalWRVU').textContent = totalWRVU.toFixed(2);
+      document.getElementById('totalPay').textContent = `$${totalPay.toFixed(2)}`;
+      document.getElementById('mpprNote').textContent = caseLines.length > 1
+        ? (setting === 'facility'
+            ? 'Facility estimate applies MPPR at 100% for the lead code and 50% for secondary codes, except protected lines like 15734 and add-on logic.'
+            : 'Non-facility estimate shown without facility MPPR reduction.')
+        : 'MPPR appears here when a case actually triggers it.';
+      document.getElementById('rulesNote').textContent = `Last update: ${reason}. Educational estimate only. Final modifier selection still needs documentation support.`;
+    }
+
+    countProcedures();
+    renderTree();
+    renderAudit();
+  </script>
+</body>
+</html>
