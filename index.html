@@ -225,6 +225,7 @@ FreeCPTCodeFinder
 
 </div>
 
+<script src="modifier_engine.js"></script>
 <script>
 const quickProcedureLibrary = {
   '49000': { code: '49000', label: 'Exploratory laparotomy', display: 'Ex lap', wrvu: 13.42, desc: 'Exploratory laparotomy · open', mod: '', rank: 'Next' },
@@ -262,10 +263,32 @@ const appState = {
   currentTreeCategory: null,
   currentTreeNodeKey: null,
   rvuData: null,
+  modifierEngine: null,
+  lastAnalysis: null,
 };
 
 function currency(value) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+}
+
+async function ensureModifierEngine() {
+  if (appState.modifierEngine) return appState.modifierEngine;
+  appState.modifierEngine = new ModifierEngine();
+  await appState.modifierEngine.initialize();
+  return appState.modifierEngine;
+}
+
+async function analyzeActiveCase() {
+  await ensureModifierEngine();
+  const analysisInput = appState.activeCase.map((line) => ({
+    code: line.code,
+    cpt: line.code,
+    description: line.desc,
+    work_rvu: line.wrvu,
+  }));
+  const analysis = await appState.modifierEngine.analyze(analysisInput, { payerType: 'medicare' });
+  appState.lastAnalysis = analysis;
+  return analysis;
 }
 
 function renderCaseBuilder() {
@@ -274,16 +297,22 @@ function renderCaseBuilder() {
   const estimatedPayment = document.getElementById('estimatedPayment');
   if (!lines || !totalWrvu || !estimatedPayment) return;
 
-  lines.innerHTML = appState.activeCase.map((line, index) => `
+  const analyzedProcedures = appState.lastAnalysis?.procedures || appState.activeCase;
+  lines.innerHTML = analyzedProcedures.map((procedure, index) => `
 <div class="rl">
-<div class="rlt"><span class="rk${index === 0 ? ' p' : ''}">${line.rank}</span><span class="rcpt">${line.code}</span>${line.mod ? `<span class="rmd">${line.mod}</span>` : ''}</div>
-<div class="rd">${line.desc}</div>
-<div class="rw"><span class="rwl">wRVU</span><span>${line.wrvu.toFixed(2)}</span></div>
+<div class="rlt"><span class="rk${index === 0 ? ' p' : ''}">${procedure.rank || (index === 0 ? 'Primary' : `Sec ${index}`)}</span><span class="rcpt">${procedure.code || procedure.cpt}</span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod ? `<span class="rmd">${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod}</span>` : ''}</div>
+<div class="rd">${procedure.desc || procedure.description}</div>
+<div class="rw"><span class="rwl">wRVU</span><span>${Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0).toFixed(2)}</span></div>
 </div>`).join('');
 
-  const total = appState.activeCase.reduce((sum, line) => sum + line.wrvu, 0);
+  const total = analyzedProcedures.reduce((sum, procedure) => sum + Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0), 0);
   totalWrvu.textContent = total.toFixed(2);
   estimatedPayment.textContent = `${currency(total * 29.37)} · MPPR applied`;
+}
+
+async function syncCaseAnalysisAndRender() {
+  await analyzeActiveCase();
+  renderCaseBuilder();
 }
 
 function addQuickProcedure(code) {
@@ -297,7 +326,7 @@ function addQuickProcedure(code) {
     mod: proc.mod,
     rank: nextRank,
   });
-  renderCaseBuilder();
+  syncCaseAnalysisAndRender();
 }
 
 function filterSpecialties(value) {
@@ -394,7 +423,7 @@ async function addTreeResultToCase(option) {
     mod: (option.modifiers || []).join(','),
     rank: nextRank,
   });
-  renderCaseBuilder();
+  await syncCaseAnalysisAndRender();
 }
 
 async function openSpecialtyLane(routeKey) {
@@ -421,7 +450,7 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-renderCaseBuilder();
+syncCaseAnalysisAndRender();
 renderCategoryChoices();
 </script>
 </body></html>
