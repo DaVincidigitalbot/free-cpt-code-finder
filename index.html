@@ -290,8 +290,10 @@ const specialtyRouteMap = {
 
 const bilateralRulePatterns = [
   { match: /15734|rectus/i, recommendation: 'Consider bilateral review. Rectus / abdominal wall work may need payer-sensitive review for LT/RT vs -50.' },
-  { match: /inguinal|4950/i, recommendation: 'Inguinal pattern detected. Bilateral hernia work may favor payer-sensitive review before using -50 or LT/RT.' },
+  { match: /inguinal|49505|49507|49520/i, recommendation: 'Inguinal pattern detected. Bilateral hernia work may favor payer-sensitive review before using -50 or LT/RT.' },
   { match: /extremity|hand|foot|arm|leg/i, recommendation: 'Paired extremity pattern detected. Confirm laterality and whether LT/RT is more appropriate than -50.' },
+  { match: /breast|mastectomy/i, recommendation: 'Breast pattern detected. Confirm whether the note supports true bilateral breast work and whether payer rules favor modifier -50 or side-specific reporting.' },
+  { match: /carpal|median nerve/i, recommendation: 'Carpal / median nerve pattern detected. Confirm laterality, separate side documentation, and whether LT/RT is more appropriate than -50.' },
   { match: /.*/, recommendation: 'Default bilateral review. Confirm whether unilateral, LT/RT, or -50 is best. payer-sensitive review recommended.' },
 ];
 
