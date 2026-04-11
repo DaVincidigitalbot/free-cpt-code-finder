@@ -289,6 +289,7 @@ const specialtyRouteMap = {
 };
 
 const bilateralRulePatterns = [
+  { match: /transversus|\bTAR\b|posterior component separation/i, recommendation: 'TAR / transversus pattern detected. high-risk abdominal wall bilateral review. possible multiple 15734 scenario, possible side-specific documentation question, and possible -59 per-side review if separately supported.' },
   { match: /15734|rectus/i, recommendation: 'Consider bilateral review. Rectus / abdominal wall work may need payer-sensitive review for LT/RT vs -50.' },
   { match: /inguinal|49505|49507|49520/i, recommendation: 'Inguinal pattern detected. Bilateral hernia work may favor payer-sensitive review before using -50 or LT/RT.' },
   { match: /extremity|hand|foot|arm|leg/i, recommendation: 'Paired extremity pattern detected. Confirm laterality and whether LT/RT is more appropriate than -50.' },
