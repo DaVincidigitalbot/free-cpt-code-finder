@@ -615,6 +615,8 @@ function exportAuditOutput() {
     JSON.stringify(appState.bilateralAudit, null, 2),
     `Bilateral activeCode: ${appState.bilateralAudit.activeCode || 'none'}`,
     `Bilateral user-applied override: ${Object.values(appState.bilateralAudit.byCode || {}).some((state) => state.applied) ? 'yes' : 'no'}`,
+    `TAR recommendation: ${Object.values(appState.bilateralAudit.byCode || {}).map((state) => state.recommendation).join(' | ')}`,
+    `TAR review: separate side documentation and multi-15734 review should be confirmed when TAR patterns are present.`,
     '',
     'Context:',
     JSON.stringify(appState.caseContext, null, 2),
@@ -652,7 +654,13 @@ function renderAuditPanel() {
 
   const analyzedProcedures = appState.lastAnalysis?.procedures || [];
   const engineNotes = analyzedProcedures.length
-    ? analyzedProcedures.map((procedure) => `<div><strong>${procedure.code || procedure.cpt}</strong> · Recommended role: ${procedure.rank || 'Unranked'} · Typical modifiers: ${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'} · Engine notes: ${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</div>`).join('')
+    ? analyzedProcedures.map((procedure) => {
+        const bilateralState = getBilateralStateForCode(procedure.code || procedure.cpt);
+        const tarNote = isTarPattern(procedure.code || procedure.cpt)
+          ? ` · TAR review: separate side documentation, multi-15734 review, ${bilateralState.recommendation}`
+          : '';
+        return `<div><strong>${procedure.code || procedure.cpt}</strong> · Recommended role: ${procedure.rank || 'Unranked'} · Typical modifiers: ${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'} · Engine notes: ${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}${tarNote}</div>`;
+      }).join('')
     : '';
 
   auditEl.innerHTML = (auditTrail.length
