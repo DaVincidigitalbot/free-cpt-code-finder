@@ -189,6 +189,16 @@ FreeCPTCodeFinder
   <div id="modifier59AuditQuestions" style="display:grid;gap:8px;margin-top:12px"></div>
 </div>
 
+<div id="modifier59Modal" style="display:none;position:fixed;inset:0;background:rgba(10,10,10,.38);z-index:9999;padding:24px;align-items:center;justify-content:center">
+  <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px">
+    <div class="et">Before using modifier -59</div>
+    <div id="modifier59ModalBody" class="es" style="margin-top:10px">If you use this modifier, make sure the operative note clearly documents why this was a distinct procedural service.</div>
+    <div id="modifier59ModalRecommendation" class="rf" style="padding-top:10px"></div>
+    <div id="modifier59ModalQuestions" style="display:grid;gap:8px;margin-top:12px"></div>
+    <div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="qrv" onclick="closeModifier59Modal()">Close</button></div>
+  </div>
+</div>
+
 <div class="em">
 <div class="ec"><div class="el">Inpatient</div><div class="et">Encounter coding</div><div class="es">99221–33 · 99238–39 · 99252–55 · 99291–92</div><div class="eg">open →</div></div>
 <div class="ec"><div class="el">Outpatient</div><div class="et">Clinic &amp; ASC</div><div class="es">99202–05 · 99212–15 · 99242–45 · 99024</div><div class="eg">open →</div></div>
@@ -343,7 +353,7 @@ function renderCaseBuilder() {
 <div class="rw"><span class="rwl">Typical modifiers</span><span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'}</span></div>
 <div class="rw"><span class="rwl">Bilateral mode</span><span>${appState.caseContext.bilateralMode}</span></div>
 <div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
-<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="triggerModifier59Audit('${procedure.code || procedure.cpt}')">-59 audit</button></div>
+<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="openModifier59Modal('${procedure.code || procedure.cpt}')">-59 audit</button></div>
 </div>`).join('');
 
   const total = analyzedProcedures.reduce((sum, procedure) => sum + Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0), 0);
@@ -380,11 +390,20 @@ function setBilateralMode(value) {
   syncCaseAnalysisAndRender();
 }
 
-function triggerModifier59Audit(code = '') {
+function openModifier59Modal(code = '') {
   appState.modifier59Audit.active = true;
   appState.modifier59Audit.code = code;
   appState.modifier59Audit.answers = {};
+  document.getElementById('modifier59Modal').style.display = 'flex';
   renderModifier59AuditPanel();
+}
+
+function closeModifier59Modal() {
+  document.getElementById('modifier59Modal').style.display = 'none';
+}
+
+function triggerModifier59Audit(code = '') {
+  openModifier59Modal(code);
 }
 
 function answerModifier59Audit(key, value) {
@@ -392,9 +411,19 @@ function answerModifier59Audit(key, value) {
   renderModifier59AuditPanel();
 }
 
+function computeModifier59Recommendation() {
+  const answers = appState.modifier59Audit.answers || {};
+  const yesCount = Object.values(answers).filter((value) => value === 'yes').length;
+  if (answers['distinct procedural service'] === 'yes' && yesCount >= 2) return 'supports -59';
+  if (yesCount === 0) return 'would not recommend -59';
+  return 'review carefully';
+}
+
 function renderModifier59AuditPanel() {
   const panel = document.getElementById('modifier59AuditQuestions');
-  if (!panel) return;
+  const modalQuestions = document.getElementById('modifier59ModalQuestions');
+  const recommendation = document.getElementById('modifier59ModalRecommendation');
+  if (!panel || !modalQuestions || !recommendation) return;
   const prompts = [
     ['distinct procedural service', 'Is this truly a distinct procedural service?'],
     ['separate incision', 'Was there a separate incision?'],
@@ -406,7 +435,10 @@ function renderModifier59AuditPanel() {
     ['XP', 'Would XP fit better than -59?'],
     ['XU', 'Would XU fit better than -59?'],
   ];
-  panel.innerHTML = prompts.map(([key, label]) => `<div class="rw"><span class="rwl">${label}</span><span><button class="qrv" onclick="answerModifier59Audit('${key}','yes')">yes</button> <button class="qrv" onclick="answerModifier59Audit('${key}','no')">no</button> <button class="qrv" onclick="answerModifier59Audit('${key}','review')">review</button></span></div>`).join('');
+  const html = prompts.map(([key, label]) => `<div class="rw"><span class="rwl">${label}</span><span><button class="qrv" onclick="answerModifier59Audit('${key}','yes')">yes</button> <button class="qrv" onclick="answerModifier59Audit('${key}','no')">no</button> <button class="qrv" onclick="answerModifier59Audit('${key}','review')">review</button></span></div>`).join('');
+  panel.innerHTML = html;
+  modalQuestions.innerHTML = html;
+  recommendation.textContent = computeModifier59Recommendation();
 }
 
 function exportAuditOutput() {
