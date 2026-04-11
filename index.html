@@ -195,7 +195,7 @@ FreeCPTCodeFinder
     <div id="modifier59ModalBody" class="es" style="margin-top:10px">If you use this modifier, make sure the operative note clearly documents why this was a distinct procedural service.</div>
     <div id="modifier59ModalRecommendation" class="rf" style="padding-top:10px"></div>
     <div id="modifier59ModalQuestions" style="display:grid;gap:8px;margin-top:12px"></div>
-    <div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="qrv" onclick="closeModifier59Modal()">Close</button></div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px"><button class="qrv" onclick="applyModifier59Override()">Apply -59 override</button><button class="qrv" onclick="closeModifier59Modal()">Close</button></div>
   </div>
 </div>
 
@@ -301,6 +301,8 @@ const appState = {
   modifier59Audit: {
     active: false,
     answers: {},
+    recommendation: '',
+    applied: false,
   },
 };
 
@@ -350,7 +352,7 @@ function renderCaseBuilder() {
 <div class="rd">${procedure.desc || procedure.description}</div>
 <div class="rw"><span class="rwl">wRVU</span><span>${Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0).toFixed(2)}</span></div>
 <div class="rw"><span class="rwl">Recommended role</span><span>${procedure.rank || 'Unranked'}</span></div>
-<div class="rw"><span class="rwl">Typical modifiers</span><span>${(procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'}</span></div>
+<div class="rw"><span class="rwl">Typical modifiers</span><span>${(() => { const base = (procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'; return appState.modifier59Audit.applied ? `${base === 'None' ? '-59' : `${base}, -59`} · user override` : base; })()}</span></div>
 <div class="rw"><span class="rwl">Bilateral mode</span><span>${appState.caseContext.bilateralMode}</span></div>
 <div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
 <div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="openModifier59Modal('${procedure.code || procedure.cpt}')">-59 audit</button></div>
@@ -402,6 +404,14 @@ function closeModifier59Modal() {
   document.getElementById('modifier59Modal').style.display = 'none';
 }
 
+function applyModifier59Override() {
+  appState.modifier59Audit.applied = true;
+  renderModifier59AuditPanel();
+  renderCaseBuilder();
+  renderAuditPanel();
+  closeModifier59Modal();
+}
+
 function triggerModifier59Audit(code = '') {
   openModifier59Modal(code);
 }
@@ -438,7 +448,8 @@ function renderModifier59AuditPanel() {
   const html = prompts.map(([key, label]) => `<div class="rw"><span class="rwl">${label}</span><span><button class="qrv" onclick="answerModifier59Audit('${key}','yes')">yes</button> <button class="qrv" onclick="answerModifier59Audit('${key}','no')">no</button> <button class="qrv" onclick="answerModifier59Audit('${key}','review')">review</button></span></div>`).join('');
   panel.innerHTML = html;
   modalQuestions.innerHTML = html;
-  recommendation.textContent = computeModifier59Recommendation();
+  appState.modifier59Audit.recommendation = computeModifier59Recommendation();
+  recommendation.textContent = `${appState.modifier59Audit.recommendation} · engine recommendation${appState.modifier59Audit.applied ? ' · user-applied override' : ''}`;
 }
 
 function exportAuditOutput() {
@@ -457,6 +468,8 @@ function exportAuditOutput() {
     '',
     'Modifier 59 audit:',
     JSON.stringify(appState.modifier59Audit, null, 2),
+    `Modifier 59 engine recommendation: ${appState.modifier59Audit.recommendation || 'none'}`,
+    `Modifier 59 user-applied override: ${appState.modifier59Audit.applied ? 'yes' : 'no'}`,
     '',
     'Context:',
     JSON.stringify(appState.caseContext, null, 2),
