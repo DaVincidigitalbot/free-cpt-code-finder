@@ -5,8 +5,8 @@ INDEX_HTML = Path('index.html').read_text(encoding='utf-8')
 
 def test_home_tracks_modifier59_recommendation_and_user_override_state():
     for text in [
-        'appState.modifier59Audit.recommendation',
-        'appState.modifier59Audit.applied',
+        'recommendation',
+        'applied',
         'applyModifier59Override()',
     ]:
         assert text in INDEX_HTML

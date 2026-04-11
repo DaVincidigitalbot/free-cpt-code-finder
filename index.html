@@ -300,9 +300,8 @@ const appState = {
   },
   modifier59Audit: {
     active: false,
-    answers: {},
-    recommendation: '',
-    applied: false,
+    activeCode: '',
+    byCode: {},
   },
 };
 
@@ -352,7 +351,7 @@ function renderCaseBuilder() {
 <div class="rd">${procedure.desc || procedure.description}</div>
 <div class="rw"><span class="rwl">wRVU</span><span>${Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0).toFixed(2)}</span></div>
 <div class="rw"><span class="rwl">Recommended role</span><span>${procedure.rank || 'Unranked'}</span></div>
-<div class="rw"><span class="rwl">Typical modifiers</span><span>${(() => { const base = (procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'; return appState.modifier59Audit.applied ? `${base === 'None' ? '-59' : `${base}, -59`} · user override` : base; })()}</span></div>
+<div class="rw"><span class="rwl">Typical modifiers</span><span>${(() => { const base = (procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'; const state = getModifier59StateForCode(procedure.code || procedure.cpt); return state.applied ? `${base === 'None' ? '-59' : `${base}, -59`} · user override` : base; })()}</span></div>
 <div class="rw"><span class="rwl">Bilateral mode</span><span>${appState.caseContext.bilateralMode}</span></div>
 <div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
 <div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="openModifier59Modal('${procedure.code || procedure.cpt}')">-59 audit</button></div>
@@ -392,10 +391,21 @@ function setBilateralMode(value) {
   syncCaseAnalysisAndRender();
 }
 
+function getModifier59StateForCode(code) {
+  if (!appState.modifier59Audit.byCode[code]) {
+    appState.modifier59Audit.byCode[code] = {
+      answers: {},
+      recommendation: '',
+      applied: false,
+    };
+  }
+  return appState.modifier59Audit.byCode[code];
+}
+
 function openModifier59Modal(code = '') {
   appState.modifier59Audit.active = true;
-  appState.modifier59Audit.code = code;
-  appState.modifier59Audit.answers = {};
+  appState.modifier59Audit.activeCode = code;
+  getModifier59StateForCode(code);
   document.getElementById('modifier59Modal').style.display = 'flex';
   renderModifier59AuditPanel();
 }
@@ -405,7 +415,8 @@ function closeModifier59Modal() {
 }
 
 function applyModifier59Override() {
-  appState.modifier59Audit.applied = true;
+  const state = getModifier59StateForCode(appState.modifier59Audit.activeCode);
+  state.applied = true;
   renderModifier59AuditPanel();
   renderCaseBuilder();
   renderAuditPanel();
@@ -417,12 +428,14 @@ function triggerModifier59Audit(code = '') {
 }
 
 function answerModifier59Audit(key, value) {
-  appState.modifier59Audit.answers[key] = value;
+  const state = getModifier59StateForCode(appState.modifier59Audit.activeCode);
+  state.answers[key] = value;
   renderModifier59AuditPanel();
 }
 
 function computeModifier59Recommendation() {
-  const answers = appState.modifier59Audit.answers || {};
+  const state = getModifier59StateForCode(appState.modifier59Audit.activeCode);
+  const answers = state.answers || {};
   const yesCount = Object.values(answers).filter((value) => value === 'yes').length;
   if (answers['distinct procedural service'] === 'yes' && yesCount >= 2) return 'supports -59';
   if (yesCount === 0) return 'would not recommend -59';
@@ -448,8 +461,9 @@ function renderModifier59AuditPanel() {
   const html = prompts.map(([key, label]) => `<div class="rw"><span class="rwl">${label}</span><span><button class="qrv" onclick="answerModifier59Audit('${key}','yes')">yes</button> <button class="qrv" onclick="answerModifier59Audit('${key}','no')">no</button> <button class="qrv" onclick="answerModifier59Audit('${key}','review')">review</button></span></div>`).join('');
   panel.innerHTML = html;
   modalQuestions.innerHTML = html;
-  appState.modifier59Audit.recommendation = computeModifier59Recommendation();
-  recommendation.textContent = `${appState.modifier59Audit.recommendation} · engine recommendation${appState.modifier59Audit.applied ? ' · user-applied override' : ''}`;
+  const state = getModifier59StateForCode(appState.modifier59Audit.activeCode);
+  state.recommendation = computeModifier59Recommendation();
+  recommendation.textContent = `${state.recommendation} · engine recommendation${state.applied ? ' · user-applied override' : ''}`;
 }
 
 function exportAuditOutput() {
@@ -468,8 +482,8 @@ function exportAuditOutput() {
     '',
     'Modifier 59 audit:',
     JSON.stringify(appState.modifier59Audit, null, 2),
-    `Modifier 59 engine recommendation: ${appState.modifier59Audit.recommendation || 'none'}`,
-    `Modifier 59 user-applied override: ${appState.modifier59Audit.applied ? 'yes' : 'no'}`,
+    `Modifier 59 activeCode: ${appState.modifier59Audit.activeCode || 'none'}`,
+    `Modifier 59 user-applied override: ${Object.values(appState.modifier59Audit.byCode || {}).some((state) => state.applied) ? 'yes' : 'no'}`,
     '',
     'Context:',
     JSON.stringify(appState.caseContext, null, 2),
