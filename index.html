@@ -199,6 +199,16 @@ FreeCPTCodeFinder
   </div>
 </div>
 
+<div id="bilateralModal" style="display:none;position:fixed;inset:0;background:rgba(10,10,10,.38);z-index:9999;padding:24px;align-items:center;justify-content:center">
+  <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px">
+    <div class="et">Laterality and bilateral review</div>
+    <div class="es" style="margin-top:10px">Review whether this line should remain unilateral, use LT/RT, or require a bilateral override with payer-aware caution.</div>
+    <div id="bilateralModalRecommendation" class="rf" style="padding-top:10px"></div>
+    <div id="bilateralModalQuestions" style="display:grid;gap:8px;margin-top:12px"></div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px"><button class="qrv" onclick="applyLateralityOverride('LT')">Apply LT</button><button class="qrv" onclick="applyLateralityOverride('RT')">Apply RT</button><button class="qrv" onclick="applyBilateralOverride()">Apply bilateral override</button><button class="qrv" onclick="closeBilateralModal()">Close</button></div>
+  </div>
+</div>
+
 <div class="em">
 <div class="ec"><div class="el">Inpatient</div><div class="et">Encounter coding</div><div class="es">99221–33 · 99238–39 · 99252–55 · 99291–92</div><div class="eg">open →</div></div>
 <div class="ec"><div class="el">Outpatient</div><div class="et">Clinic &amp; ASC</div><div class="es">99202–05 · 99212–15 · 99242–45 · 99024</div><div class="eg">open →</div></div>
@@ -303,6 +313,11 @@ const appState = {
     activeCode: '',
     byCode: {},
   },
+  bilateralAudit: {
+    active: false,
+    activeCode: '',
+    byCode: {},
+  },
 };
 
 function currency(value) {
@@ -353,8 +368,10 @@ function renderCaseBuilder() {
 <div class="rw"><span class="rwl">Recommended role</span><span>${procedure.rank || 'Unranked'}</span></div>
 <div class="rw"><span class="rwl">Typical modifiers</span><span>${(() => { const base = (procedure.modifiers && procedure.modifiers.join(', ')) || procedure.mod || 'None'; const state = getModifier59StateForCode(procedure.code || procedure.cpt); return state.applied ? `${base === 'None' ? '-59' : `${base}, -59`} · user override` : base; })()}</span></div>
 <div class="rw"><span class="rwl">Bilateral mode</span><span>${appState.caseContext.bilateralMode}</span></div>
+<div class="rw"><span class="rwl">Laterality</span><span>${getBilateralStateForCode(procedure.code || procedure.cpt).laterality || 'not set'}</span></div>
+<div class="rw"><span class="rwl">Bilateral recommendation</span><span>${getBilateralStateForCode(procedure.code || procedure.cpt).recommendation}</span></div>
 <div class="rw"><span class="rwl">Engine notes</span><span>${procedure.explanations && procedure.explanations.length ? procedure.explanations.join(' | ') : 'No additional notes'}</span></div>
-<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="openModifier59Modal('${procedure.code || procedure.cpt}')">-59 audit</button></div>
+<div class="rw"><span class="rwl">Actions</span><button class="qrv" onclick="removeCaseLine(${index})">Remove</button> <button class="qrv" onclick="openModifier59Modal('${procedure.code || procedure.cpt}')">-59 audit</button> <button class="qrv" onclick="openBilateralModal('${procedure.code || procedure.cpt}')">laterality</button></div>
 </div>`).join('');
 
   const total = analyzedProcedures.reduce((sum, procedure) => sum + Number(procedure.adjustedWRVU ?? procedure.wrvu ?? 0), 0);
@@ -466,6 +483,62 @@ function renderModifier59AuditPanel() {
   recommendation.textContent = `${state.recommendation} · engine recommendation${state.applied ? ' · user-applied override' : ''}`;
 }
 
+function getBilateralStateForCode(code) {
+  if (!appState.bilateralAudit.byCode[code]) {
+    appState.bilateralAudit.byCode[code] = {
+      recommendation: 'review carefully',
+      laterality: '',
+      applied: false,
+    };
+  }
+  return appState.bilateralAudit.byCode[code];
+}
+
+function openBilateralModal(code = '') {
+  appState.bilateralAudit.active = true;
+  appState.bilateralAudit.activeCode = code;
+  getBilateralStateForCode(code);
+  document.getElementById('bilateralModal').style.display = 'flex';
+  renderBilateralModal();
+}
+
+function closeBilateralModal() {
+  document.getElementById('bilateralModal').style.display = 'none';
+}
+
+function applyBilateralOverride() {
+  const state = getBilateralStateForCode(appState.bilateralAudit.activeCode);
+  state.applied = true;
+  state.recommendation = 'user-applied bilateral override';
+  renderBilateralModal();
+  renderCaseBuilder();
+  renderAuditPanel();
+  closeBilateralModal();
+}
+
+function applyLateralityOverride(value) {
+  const state = getBilateralStateForCode(appState.bilateralAudit.activeCode);
+  state.laterality = value;
+  state.recommendation = `Laterality ${value}`;
+  renderBilateralModal();
+  renderCaseBuilder();
+  renderAuditPanel();
+  closeBilateralModal();
+}
+
+function renderBilateralModal() {
+  const recommendation = document.getElementById('bilateralModalRecommendation');
+  const questions = document.getElementById('bilateralModalQuestions');
+  if (!recommendation || !questions) return;
+  const state = getBilateralStateForCode(appState.bilateralAudit.activeCode);
+  recommendation.textContent = `Bilateral recommendation: ${state.recommendation}`;
+  questions.innerHTML = `
+    <div class="rw"><span class="rwl">Current line</span><span>${appState.bilateralAudit.activeCode || 'none'}</span></div>
+    <div class="rw"><span class="rwl">Laterality</span><span>${state.laterality || 'not set'}</span></div>
+    <div class="rw"><span class="rwl">Bilateral recommendation</span><span>${state.recommendation}</span></div>
+  `;
+}
+
 function exportAuditOutput() {
   const payload = {
     activeCase: appState.activeCase,
@@ -484,6 +557,11 @@ function exportAuditOutput() {
     JSON.stringify(appState.modifier59Audit, null, 2),
     `Modifier 59 activeCode: ${appState.modifier59Audit.activeCode || 'none'}`,
     `Modifier 59 user-applied override: ${Object.values(appState.modifier59Audit.byCode || {}).some((state) => state.applied) ? 'yes' : 'no'}`,
+    '',
+    'Bilateral audit:',
+    JSON.stringify(appState.bilateralAudit, null, 2),
+    `Bilateral activeCode: ${appState.bilateralAudit.activeCode || 'none'}`,
+    `Bilateral user-applied override: ${Object.values(appState.bilateralAudit.byCode || {}).some((state) => state.applied) ? 'yes' : 'no'}`,
     '',
     'Context:',
     JSON.stringify(appState.caseContext, null, 2),
