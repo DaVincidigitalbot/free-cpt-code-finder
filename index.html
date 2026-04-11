@@ -288,6 +288,13 @@ const specialtyRouteMap = {
   'bariatric': ['Common General'],
 };
 
+const bilateralRulePatterns = [
+  { match: /15734|rectus/i, recommendation: 'Consider bilateral review. Rectus / abdominal wall work may need payer-sensitive review for LT/RT vs -50.' },
+  { match: /inguinal|4950/i, recommendation: 'Inguinal pattern detected. Bilateral hernia work may favor payer-sensitive review before using -50 or LT/RT.' },
+  { match: /extremity|hand|foot|arm|leg/i, recommendation: 'Paired extremity pattern detected. Confirm laterality and whether LT/RT is more appropriate than -50.' },
+  { match: /.*/, recommendation: 'Default bilateral review. Confirm whether unilateral, LT/RT, or -50 is best. payer-sensitive review recommended.' },
+];
+
 const appState = {
   activeCase: [
     { code: '49002', desc: 'Reopening of recent laparotomy · open', wrvu: 17.56, mod: '', rank: 'Primary' },
@@ -483,10 +490,15 @@ function renderModifier59AuditPanel() {
   recommendation.textContent = `${state.recommendation} · engine recommendation${state.applied ? ' · user-applied override' : ''}`;
 }
 
+function resolveBilateralRecommendation(code) {
+  const pattern = bilateralRulePatterns.find((rule) => rule.match.test(code || ''));
+  return pattern ? pattern.recommendation : 'Default bilateral review. Confirm whether unilateral, LT/RT, or -50 is best. payer-sensitive review recommended.';
+}
+
 function getBilateralStateForCode(code) {
   if (!appState.bilateralAudit.byCode[code]) {
     appState.bilateralAudit.byCode[code] = {
-      recommendation: 'review carefully',
+      recommendation: resolveBilateralRecommendation(code),
       laterality: '',
       applied: false,
     };
@@ -531,7 +543,8 @@ function renderBilateralModal() {
   const questions = document.getElementById('bilateralModalQuestions');
   if (!recommendation || !questions) return;
   const state = getBilateralStateForCode(appState.bilateralAudit.activeCode);
-  recommendation.textContent = `Bilateral recommendation: ${state.recommendation}`;
+  recommendation.textContent = `Bilateral recommendation: ${resolveBilateralRecommendation(appState.bilateralAudit.activeCode)} `;
+  state.recommendation = resolveBilateralRecommendation(appState.bilateralAudit.activeCode);
   questions.innerHTML = `
     <div class="rw"><span class="rwl">Current line</span><span>${appState.bilateralAudit.activeCode || 'none'}</span></div>
     <div class="rw"><span class="rwl">Laterality</span><span>${state.laterality || 'not set'}</span></div>
