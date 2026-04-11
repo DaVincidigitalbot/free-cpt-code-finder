@@ -504,6 +504,7 @@ function getBilateralStateForCode(code) {
       recommendation: resolveBilateralRecommendation(code),
       laterality: '',
       applied: false,
+      tarAnswers: {},
     };
   }
   return appState.bilateralAudit.byCode[code];
@@ -545,12 +546,28 @@ function isTarPattern(code) {
   return /transversus|\bTAR\b|posterior component separation/i.test(code || '');
 }
 
+function answerTarPrompt(key, value) {
+  const state = getBilateralStateForCode(appState.bilateralAudit.activeCode);
+  state.tarAnswers[key] = value;
+  state.recommendation = computeTarRecommendation(state.tarAnswers);
+  renderBilateralModal();
+  renderCaseBuilder();
+  renderAuditPanel();
+}
+
+function computeTarRecommendation(tarAnswers) {
+  const yesCount = Object.values(tarAnswers || {}).filter((value) => value === 'yes').length;
+  if (yesCount >= 3) return 'supports bilateral review';
+  if (yesCount === 0) return 'would not recommend bilateral assignment';
+  return 'documentation unclear, review carefully';
+}
+
 function renderTarSpecificPrompts() {
   return `
-    <div class="rw"><span class="rwl">left-sided posterior release documented?</span><span>review</span></div>
-    <div class="rw"><span class="rwl">right-sided posterior release documented?</span><span>review</span></div>
-    <div class="rw"><span class="rwl">separate side documentation present?</span><span>review</span></div>
-    <div class="rw"><span class="rwl">multi-15734 review completed?</span><span>review</span></div>
+    <div class="rw"><span class="rwl">left-sided posterior release documented?</span><span><button class="qrv" onclick="answerTarPrompt('left-sided posterior release documented?','yes')">yes</button> <button class="qrv" onclick="answerTarPrompt('left-sided posterior release documented?','no')">no</button></span></div>
+    <div class="rw"><span class="rwl">right-sided posterior release documented?</span><span><button class="qrv" onclick="answerTarPrompt('right-sided posterior release documented?','yes')">yes</button> <button class="qrv" onclick="answerTarPrompt('right-sided posterior release documented?','no')">no</button></span></div>
+    <div class="rw"><span class="rwl">separate side documentation present?</span><span><button class="qrv" onclick="answerTarPrompt('separate side documentation present?','yes')">yes</button> <button class="qrv" onclick="answerTarPrompt('separate side documentation present?','no')">no</button></span></div>
+    <div class="rw"><span class="rwl">multi-15734 review completed?</span><span><button class="qrv" onclick="answerTarPrompt('multi-15734 review completed?','yes')">yes</button> <button class="qrv" onclick="answerTarPrompt('multi-15734 review completed?','no')">no</button></span></div>
   `;
 }
 
@@ -559,8 +576,12 @@ function renderBilateralModal() {
   const questions = document.getElementById('bilateralModalQuestions');
   if (!recommendation || !questions) return;
   const state = getBilateralStateForCode(appState.bilateralAudit.activeCode);
-  recommendation.textContent = `Bilateral recommendation: ${resolveBilateralRecommendation(appState.bilateralAudit.activeCode)} `;
-  state.recommendation = resolveBilateralRecommendation(appState.bilateralAudit.activeCode);
+  if (isTarPattern(appState.bilateralAudit.activeCode)) {
+    state.recommendation = computeTarRecommendation(state.tarAnswers);
+  } else {
+    state.recommendation = resolveBilateralRecommendation(appState.bilateralAudit.activeCode);
+  }
+  recommendation.textContent = `Bilateral recommendation: ${state.recommendation} `;
   const baseHtml = `
     <div class="rw"><span class="rwl">Current line</span><span>${appState.bilateralAudit.activeCode || 'none'}</span></div>
     <div class="rw"><span class="rwl">Laterality</span><span>${state.laterality || 'not set'}</span></div>
