@@ -128,9 +128,10 @@ FreeCPTCodeFinder
 <div class="cmdk" onclick="document.getElementById('ci').focus()">
 <div class="cbox">
 <svg class="cico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
-<input id="ci" class="cin" placeholder="lap chole · 44970 · rib fixation · ex lap splenectomy" oninput="filterSpecialties(this.value)">
+<input id="ci" class="cin" placeholder="lap chole · 44970 · rib fixation · ex lap splenectomy" oninput="filterSearchExperience(this.value)">
 <span class="kbd">⌘K</span>
 </div>
+<div id="autocompleteResults" style="display:none;background:#fff;border:1px solid var(--line);border-top:0;border-radius:0 0 6px 6px;padding:6px;margin-top:-2px"></div>
 </div>
 
 <div class="sl">Quick start <span class="hi">1–5 to add</span></div>
@@ -305,6 +306,9 @@ const appState = {
     { code: '44120', desc: 'Enterectomy + anastomosis · open', wrvu: 11.50, mod: '-59', rank: 'Sec 2' },
   ],
   specialtyFilter: '',
+  searchQuery: '',
+  searchResults: [],
+  cptSearchIndex: null,
   decisionTree: null,
   currentTreeCategories: [],
   currentTreeCategory: null,
@@ -697,11 +701,70 @@ function filterSpecialties(value) {
   });
 }
 
+function renderAutocompleteResults() {
+  const results = document.getElementById('autocompleteResults');
+  if (!results) return;
+  if (!appState.searchResults.length) {
+    results.style.display = 'none';
+    results.innerHTML = '';
+    return;
+  }
+  results.style.display = 'block';
+  results.innerHTML = appState.searchResults.map((entry, index) => `<button class="qc" style="width:100%;text-align:left;margin-bottom:6px" onclick="selectAutocompleteResult(${index})"><div class="qn">${entry.description}</div><div class="qb"><span class="qcpt">${entry.code}</span><span class="qrv">${Number(entry.work_rvu || 0).toFixed(2)}</span></div></button>`).join('');
+}
+
+async function filterSearchExperience(value) {
+  appState.searchQuery = value || '';
+  filterSpecialties(value);
+  const query = appState.searchQuery.toLowerCase().trim();
+  if (query.length < 2) {
+    appState.searchResults = [];
+    renderAutocompleteResults();
+    return;
+  }
+  const entries = await loadCptSearchIndex();
+  appState.searchResults = entries.filter((entry) => {
+    const code = String(entry.code || '').toLowerCase();
+    const description = String(entry.description || '').toLowerCase();
+    return code.includes(query) || description.includes(query);
+  }).slice(0, 5);
+  renderAutocompleteResults();
+}
+
+function addAutocompleteResultToCase(entry) {
+  const nextRank = appState.activeCase.length === 0 ? 'Primary' : `Sec ${appState.activeCase.length}`;
+  appState.activeCase.push({
+    code: entry.code,
+    desc: entry.description,
+    wrvu: Number(entry.work_rvu || 0),
+    mod: '',
+    rank: nextRank,
+  });
+  appState.searchResults = [];
+  renderAutocompleteResults();
+  syncCaseAnalysisAndRender();
+}
+
+function selectAutocompleteResult(index) {
+  const entry = appState.searchResults[index];
+  if (!entry) return;
+  document.getElementById('ci').value = `${entry.code} · ${entry.description}`;
+  addAutocompleteResultToCase(entry);
+}
+
 async function loadDecisionTreeData() {
   if (appState.decisionTree) return appState.decisionTree;
   const response = await fetch('cpt_decision_tree.json');
   appState.decisionTree = await response.json();
   return appState.decisionTree;
+}
+
+async function loadCptSearchIndex() {
+  if (appState.cptSearchIndex) return appState.cptSearchIndex;
+  const response = await fetch('cpt_database.json');
+  const data = await response.json();
+  appState.cptSearchIndex = Object.values(data || {});
+  return appState.cptSearchIndex;
 }
 
 async function loadRvuData() {
@@ -826,7 +889,7 @@ async function openSpecialtyLane(routeKey) {
   updateTreePath(routeKey.replace(/-/g, ' '), true);
   const starterNames = categories.map((category) => category.name).join(' · ');
   document.getElementById('ci').value = starterNames;
-  filterSpecialties(starterNames);
+  filterSearchExperience(starterNames);
   renderCategoryChoices();
 }
 

@@ -28,4 +28,4 @@ def test_home_has_real_targets_for_specialty_and_search_interaction():
     assert 'id="totalWrvu"' in INDEX_HTML
     assert 'id="estimatedPayment"' in INDEX_HTML
     assert 'id="ci"' in INDEX_HTML
-    assert 'oninput="filterSpecialties(this.value)"' in INDEX_HTML
+    assert 'oninput="filterSearchExperience(this.value)"' in INDEX_HTML
