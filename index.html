@@ -103,7 +103,7 @@ a{color:inherit;text-decoration:none}
 .ts{font-size:13px;color:var(--ink2);margin-top:8px;font-family:'JetBrains Mono',monospace}
 .lns{padding:14px 0;flex:1;min-height:180px}
 .lns-empty{font-size:12px;color:var(--ink3);font-style:italic;padding:16px 0;text-align:center}
-.rl{padding:12px 0;border-bottom:1px solid var(--line)}
+.rl{padding:12px 0;border-bottom:1px solid var(--line);position:relative}
 .rl:last-child{border:0}
 .rlt{display:flex;align-items:center;gap:8px;margin-bottom:3px}
 .rk{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);padding:2px 6px;border:1px solid var(--line2);border-radius:3px}
@@ -111,8 +111,32 @@ a{color:inherit;text-decoration:none}
 .rk.em{color:var(--moss);border-color:var(--moss);background:rgba(45,90,61,.06)}
 .rcpt{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500}
 .rmd{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ox);font-weight:500;margin-left:auto}
+.mod-edit{display:inline-block;margin-left:6px;padding:1px 6px;border:1px dashed var(--line2);border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink3);cursor:pointer;transition:all .12s}
+.mod-edit:hover{border-color:var(--ox);color:var(--ox);border-style:solid}
 .rx{color:var(--ink3);cursor:pointer;font-size:16px;line-height:1;padding:0 4px}
 .rx:hover{color:var(--ox)}
+
+.mpick{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;align-items:center;justify-content:center;z-index:100;animation:fi .15s}
+.mpick.open{display:flex}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mpick-box{background:var(--white);border-radius:10px;padding:24px 26px;max-width:440px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.mpick-h{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3);margin-bottom:4px}
+.mpick-t{font-size:16px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px}
+.mpick-s{font-size:12px;color:var(--ink2);font-family:'JetBrains Mono',monospace;margin-bottom:16px}
+.mpick-ncci{font-size:11px;color:var(--warn);background:#FDF6EC;border:1px solid #F0D9B0;border-radius:5px;padding:8px 10px;margin-bottom:14px;display:none}
+.mpick-ncci.show{display:block}
+.mpick-opts{display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:16px}
+.mpick-opt{text-align:left;padding:11px 13px;background:var(--paper);border:1px solid var(--line);border-radius:6px;cursor:pointer;transition:all .1s;display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center}
+.mpick-opt:hover,.mpick-opt.hl{border-color:var(--ox);background:var(--ox2)}
+.mpick-opt .mk{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--ox)}
+.mpick-opt.none .mk{color:var(--ink3)}
+.mpick-opt .ml{font-size:12px;font-weight:500;color:var(--ink)}
+.mpick-opt .md{font-size:11px;color:var(--ink2);margin-top:1px;line-height:1.35}
+.mpick-warn{font-size:11px;color:var(--ink2);background:var(--paper);border-left:2px solid var(--warn);padding:8px 10px;margin-bottom:14px;line-height:1.5}
+.mpick-foot{display:flex;justify-content:space-between;align-items:center}
+.mpick-cancel{font-size:11px;color:var(--ink3);background:none;border:0;cursor:pointer;font-family:'JetBrains Mono',monospace}
+.mpick-cancel:hover{color:var(--ox)}
+.mpick-foot .k{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink3)}
 .rd{font-size:11px;color:var(--ink2);line-height:1.4;margin-bottom:4px}
 .rw{font-family:'JetBrains Mono',monospace;font-size:11px;display:flex;justify-content:space-between}
 .rw .rwl{color:var(--ink3)}
@@ -245,6 +269,21 @@ a{color:inherit;text-decoration:none}
 <div class="rf"><button onclick="openAuditReport()">Audit report</button><button onclick="exportAuditJSON()">Export JSON</button><button class="danger" onclick="clearCase()">Clear</button></div>
 </aside>
 
+</div>
+
+<div class="mpick" id="mpick">
+ <div class="mpick-box">
+  <div class="mpick-h">Modifier selection</div>
+  <div class="mpick-t" id="mpick-title">—</div>
+  <div class="mpick-s" id="mpick-sub">—</div>
+  <div class="mpick-ncci" id="mpick-ncci"></div>
+  <div class="mpick-warn" id="mpick-warn">Modifier 59 and X-modifiers signal distinct procedural services. Documentation must support the selection, separate incision, separate site, separate encounter, or unusual circumstance. Medicare prefers X-modifiers over 59 when the situation is specific.</div>
+  <div class="mpick-opts" id="mpick-opts"></div>
+  <div class="mpick-foot">
+   <button class="mpick-cancel" onclick="closeMpick()">cancel <span class="k">esc</span></button>
+   <span class="k">↑↓ to choose · ↵ to commit</span>
+  </div>
+ </div>
 </div>
 
 <script>
@@ -393,6 +432,22 @@ const SPECS={
 
 // ===== STATE =====
 let caseLines=[],audit=[],payer='medicare',setting='facility';
+let nextLineId=1;
+
+const NCCI={
+ // "49593|15734": {modAllowed:true, note:"Component separation bundled with complex hernia repair; modifier 59 allowed when performed on separate anatomic site."},
+ // "44970|44950": {modAllowed:false, note:"Appendectomy bundled; no modifier override permitted."},
+};
+function ncciCheck(cptA,cptB){return NCCI[`${cptA}|${cptB}`]||NCCI[`${cptB}|${cptA}`]||null}
+
+const MOD_OPTS=[
+ {v:'',code:'none',label:'No modifier',desc:'Separate procedure not claimed. Bundled or not distinct.'},
+ {v:'59',code:'-59',label:'Distinct procedural service',desc:'General distinct-service marker. Medicare prefers X-modifiers when they apply.'},
+ {v:'XS',code:'-XS',label:'Separate structure / site',desc:'Procedure performed on separate organ or anatomic site. Most common X-modifier for paired structures.'},
+ {v:'XE',code:'-XE',label:'Separate encounter',desc:'Procedure performed in a separate operative session same day.'},
+ {v:'XP',code:'-XP',label:'Separate practitioner',desc:'Procedure performed by a different practitioner.'},
+ {v:'XU',code:'-XU',label:'Unusual non-overlapping service',desc:'Does not overlap usual components of the primary service.'}
+];
 
 function log(m){audit.unshift(`[${new Date().toLocaleTimeString()}] ${m}`)}
 
@@ -467,7 +522,16 @@ document.addEventListener('keydown',e=>{
 
 // ===== ADD HANDLERS =====
 function addProc(cpt,desc,wrvu,laterality,bi){
- caseLines.push({cpt,desc,baseWrvu:wrvu,laterality:laterality||'',biIndicator:bi||0,kind:'proc',mods:[]});
+ const existing=caseLines.filter(l=>l.kind==='proc'&&l.cpt===cpt);
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:laterality||'',biIndicator:bi||0,kind:'proc',mods:[],userMod:''};
+ if(existing.length>0){
+  caseLines.push(line);
+  log(`ADD ${cpt} "${desc}" [REPEAT #${existing.length+1}] — modifier picker opened`);
+  recalc('repeat procedure added');
+  openMpick(line.id,{suggestion:'XS',reason:`This is instance ${existing.length+1} of ${cpt}. For a procedure performed on a separate anatomic site (for example contralateral component separation or multiple graft sites), use -XS. For a genuinely separate operative session, use -XE. -59 is the general fallback.`});
+  return;
+ }
+ caseLines.push(line);
  const latStr=laterality==='50'?'BILATERAL':(laterality||'');
  log(`ADD ${cpt} "${desc}"${latStr?' ['+latStr+']':''} wRVU=${wrvu}`);
  recalc('procedure added');
@@ -489,48 +553,82 @@ function computeMods(){
  caseLines.forEach(l=>{
   l.mods=[];l.rationale=[];
   if(l.kind==='em'){
-   if(procs.length>0){
-    l.mods.push('25');
-    l.rationale.push({mod:'25',reason:`E/M billed same session as procedure ${procs[0].cpt}. Modifier 25 required.`,cite:RULES.MOD_25});
-   }
-   l.effWrvu=l.baseWrvu;l.rank='E/M';
-   l.rankReason='Evaluation & management service.';
-   return;
+   if(procs.length>0){l.mods.push('25');l.rationale.push({mod:'25',reason:`E/M billed same session as ${procs[0].cpt}. Modifier 25 required.`,cite:RULES.MOD_25})}
+   l.effWrvu=l.baseWrvu;l.rank='E/M';l.rankReason='Evaluation & management service.';return;
   }
-  if(l.laterality==='50'){
-   l.mods.push('50');
-   l.effWrvu=l.baseWrvu*1.5;
-   l.rationale.push({mod:'50',reason:`Bilateral procedure. CPT code has CMS bilateral indicator 1 (eligible for 150% payment). Effective wRVU = base × 1.5.`,cite:RULES.MOD_50});
-  }else if(l.laterality==='RT'||l.laterality==='LT'){
-   l.mods.push(l.laterality);
-   l.effWrvu=l.baseWrvu;
-   l.rationale.push({mod:l.laterality,reason:`Unilateral ${l.laterality==='RT'?'right':'left'}-side procedure. Anatomic laterality modifier appended for claim specificity.`,cite:RULES.MOD_RT_LT});
-  }else{
-   l.effWrvu=l.baseWrvu;
-   if(l.biIndicator===2){
-    l.rationale.push({mod:'—',reason:'CPT code is inherently bilateral per CMS bilateral indicator 2. Modifier 50 not applicable; base payment already reflects bilateral service.',cite:RULES.MOD_50});
-   }
-  }
+  if(l.laterality==='50'){l.mods.push('50');l.effWrvu=l.baseWrvu*1.5;l.rationale.push({mod:'50',reason:'Bilateral procedure. CMS bilateral indicator 1 — 150% payment.',cite:RULES.MOD_50})}
+  else if(l.laterality==='RT'||l.laterality==='LT'){l.mods.push(l.laterality);l.effWrvu=l.baseWrvu;l.rationale.push({mod:l.laterality,reason:`${l.laterality==='RT'?'Right':'Left'}-side anatomic modifier appended.`,cite:RULES.MOD_RT_LT})}
+  else l.effWrvu=l.baseWrvu;
   if(pIdx===0){
-   l.rank='Primary';
-   l.rankReason=`Highest wRVU procedure (${l.effWrvu.toFixed(2)} effective wRVU). Billed at 100% of allowable.`;
+   l.rank='Primary';l.rankReason=`Highest wRVU (${l.effWrvu.toFixed(2)}). Billed 100%.`;
    l.rationale.unshift({mod:'Rank',reason:'Primary procedure — no MPPR reduction.',cite:RULES.PRIMARY});
   }else{
    l.rank=`Secondary #${pIdx}`;
-   l.rankReason=`Secondary procedure, ranked by effective wRVU below primary ${procs[0].cpt}.`;
-   if(payer==='commercial'){
-    l.mods.push('51');
-    l.rationale.push({mod:'51',reason:'Commercial payer — modifier 51 identifies secondary procedure in multi-procedure session.',cite:RULES.MOD_51});
+   l.rankReason=`Secondary procedure, ranked below primary ${procs[0].cpt}.`;
+   if(payer==='commercial'){l.mods.push('51');l.rationale.push({mod:'51',reason:'Commercial payer multi-procedure marker.',cite:RULES.MOD_51})}
+   else l.rationale.push({mod:'Rank',reason:'Medicare MPPR applied automatically; -51 omitted.',cite:RULES.MPPR});
+   if(l.userMod){
+    l.mods.push(l.userMod);
+    const opt=MOD_OPTS.find(o=>o.v===l.userMod);
+    l.rationale.push({mod:l.userMod,reason:`Coder-affirmed: ${opt.label}. ${opt.desc} Documentation must support this selection.`,cite:RULES.MOD_59});
    }else{
-    l.rationale.push({mod:'Rank',reason:'Medicare payer — MPPR applied automatically; modifier 51 omitted per Medicare convention.',cite:RULES.MPPR});
+    l.rationale.push({mod:'—',reason:'No distinct-service modifier applied. If this procedure is on a separate site or encounter from the primary, coder should review and add -59, -XS, -XE, -XP, or -XU via the line editor.',cite:RULES.MOD_59});
    }
-   l.mods.push('59');
-   l.rationale.push({mod:'59',reason:'Distinct procedural service from primary. Coder must verify documentation supports separate anatomic site before submission.',cite:RULES.MOD_59});
   }
   pIdx++;
  });
  log(`RECALC primary=${procs[0]?.cpt||'—'} · ${procs.length} proc + ${ems.length} E/M · ${payer}`);
 }
+
+let mpickLineId=null,mpickIndex=0;
+
+function openMpick(lineId,opts={}){
+ const line=caseLines.find(l=>l.id===lineId);if(!line)return;
+ mpickLineId=lineId;
+ document.getElementById('mpick-title').textContent=`${line.cpt} · ${line.desc}`;
+ document.getElementById('mpick-sub').textContent=`Select distinct-service modifier`;
+ const primary=caseLines.filter(l=>l.kind==='proc')[0];
+ const ncciEl=document.getElementById('mpick-ncci');
+ if(primary&&primary.cpt!==line.cpt){
+  const edit=ncciCheck(primary.cpt,line.cpt);
+  if(edit){ncciEl.textContent=`NCCI edit: ${edit.note}`;ncciEl.classList.add('show')}
+  else{ncciEl.classList.remove('show')}
+ }else ncciEl.classList.remove('show');
+ if(opts.reason){
+  const w=document.getElementById('mpick-warn');
+  w.innerHTML=opts.reason+'<br><br>Documentation must support the selection before submission.';
+ }
+ const suggestion=opts.suggestion||line.userMod||'';
+ const optsEl=document.getElementById('mpick-opts');
+ optsEl.innerHTML=MOD_OPTS.map((o,i)=>`
+  <button class="mpick-opt ${o.v===''?'none':''} ${o.v===suggestion?'hl':''}" data-i="${i}" data-v="${o.v}" onclick="commitMpick('${o.v}')">
+   <div class="mk">${o.code}</div>
+   <div><div class="ml">${o.label}</div><div class="md">${o.desc}</div></div>
+  </button>`).join('');
+ mpickIndex=Math.max(0,MOD_OPTS.findIndex(o=>o.v===suggestion));
+ updateMpickHL();
+ document.getElementById('mpick').classList.add('open');
+}
+
+function updateMpickHL(){
+ document.querySelectorAll('.mpick-opt').forEach((el,i)=>el.classList.toggle('hl',i===mpickIndex));
+}
+function commitMpick(v){
+ const line=caseLines.find(l=>l.id===mpickLineId);if(!line){closeMpick();return}
+ line.userMod=v;
+ log(`MODIFIER SET ${line.cpt} → ${v?'-'+v:'none'} (coder affirmed)`);
+ closeMpick();
+ recalc('modifier set');
+}
+function closeMpick(){document.getElementById('mpick').classList.remove('open');mpickLineId=null}
+
+document.addEventListener('keydown',e=>{
+ if(!document.getElementById('mpick').classList.contains('open'))return;
+ if(e.key==='Escape'){closeMpick();e.preventDefault()}
+ if(e.key==='ArrowDown'){mpickIndex=Math.min(MOD_OPTS.length-1,mpickIndex+1);updateMpickHL();e.preventDefault()}
+ if(e.key==='ArrowUp'){mpickIndex=Math.max(0,mpickIndex-1);updateMpickHL();e.preventDefault()}
+ if(e.key==='Enter'){commitMpick(MOD_OPTS[mpickIndex].v);e.preventDefault()}
+});
 
 function recalc(why){
  if(caseLines.length)computeMods();
@@ -551,7 +649,7 @@ function recalc(why){
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
    return `<div class="rl">
-    <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
+    <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${l.kind==='proc'&&rk>1?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}</div>
     <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
    </div>`}).join('');
