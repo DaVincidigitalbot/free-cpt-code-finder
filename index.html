@@ -577,7 +577,7 @@ function computeMods(){
   }
   pIdx++;
  });
- log(`RECALC primary=${procs[0]?.cpt||'—'} · ${procs.length} proc + ${ems.length} E/M · ${payer}`);
+ log(`RECALC primary=${procs[0] ? procs[0].cpt : '—'} · ${procs.length} proc + ${ems.length} E/M · ${payer}`);
 }
 
 let mpickLineId=null,mpickIndex=0;
