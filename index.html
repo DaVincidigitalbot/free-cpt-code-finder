@@ -871,7 +871,8 @@ const searchState={
  searchResults:[],
  searchQuery:'',
  cptSearchIndex:[],
- activeResultIndex:-1
+ activeResultIndex:-1,
+ suppressTypeahead:false
 };
 
 function normalizeSearchValue(value){
@@ -958,6 +959,22 @@ function renderAutocompleteResults(){
  box.classList.add('show');
 }
 
+function applyTypeaheadSuggestion(rawQuery){
+ const input=document.getElementById('q');
+ if(searchState.suppressTypeahead)return;
+ if(document.activeElement!==input)return;
+ const query=String(rawQuery||'');
+ const top=searchState.searchResults[0];
+ if(query.trim().length<2||!top)return;
+ const suggestion=`${top.code} ${top.description}`.trim();
+ const qNorm=normalizeSearchValue(query);
+ const sNorm=normalizeSearchValue(suggestion);
+ if(!qNorm||!sNorm.startsWith(qNorm))return;
+ if(suggestion.toLowerCase()===query.toLowerCase())return;
+ input.value=suggestion;
+ input.setSelectionRange(query.length,suggestion.length);
+}
+
 function filterSearchExperience(query){
  searchState.searchQuery=query;
  searchState.specialtyFilter=query.toLowerCase().trim();
@@ -971,6 +988,7 @@ function filterSearchExperience(query){
  const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,8).map(entry=>entry.item);
  searchState.searchResults=ranked;
  renderAutocompleteResults();
+ applyTypeaheadSuggestion(query);
 }
 
 function addAutocompleteResultToCase(item){
@@ -998,15 +1016,41 @@ function selectAutocompleteResult(index){
 }
 
 document.getElementById('q').addEventListener('input',e=>{
+ searchState.suppressTypeahead=false;
  filterSearchExperience(e.target.value);
 });
 
 document.getElementById('q').addEventListener('keydown',e=>{
+ const input=e.currentTarget;
  const max=searchState.searchResults.length-1;
+ if(e.key==='Tab'){
+  if(searchState.searchResults.length&&input.selectionStart!==input.selectionEnd){
+   e.preventDefault();
+   const pos=input.value.length;
+   input.setSelectionRange(pos,pos);
+   searchState.searchQuery=input.value;
+  }
+  return;
+ }
+ if(e.key==='ArrowRight'){
+  if(searchState.searchResults.length&&input.selectionStart!==input.selectionEnd&&input.selectionEnd===input.value.length){
+   e.preventDefault();
+   const pos=input.value.length;
+   input.setSelectionRange(pos,pos);
+   searchState.searchQuery=input.value;
+  }
+  return;
+ }
+ if(['Backspace','Delete','ArrowLeft','Home','End'].includes(e.key))searchState.suppressTypeahead=true;
  if(e.key==='ArrowDown'&&max>=0){e.preventDefault();searchState.activeResultIndex=Math.min(searchState.activeResultIndex+1,max);renderAutocompleteResults();return}
  if(e.key==='ArrowUp'&&max>=0){e.preventDefault();searchState.activeResultIndex=Math.max(searchState.activeResultIndex-1,0);renderAutocompleteResults();return}
- if(e.key==='Enter'&&searchState.activeResultIndex>=0){e.preventDefault();selectAutocompleteResult(searchState.activeResultIndex)}
+ if(e.key==='Enter'&&searchState.activeResultIndex>=0){e.preventDefault();selectAutocompleteResult(searchState.activeResultIndex);return}
+ if(e.key==='Enter'&&searchState.searchResults.length&&input.selectionStart!==input.selectionEnd){e.preventDefault();selectAutocompleteResult(0);return}
  if(e.key==='Escape'){searchState.searchResults=[];searchState.activeResultIndex=-1;renderAutocompleteResults();}
+});
+
+document.getElementById('q').addEventListener('click',e=>{
+ if(e.currentTarget.selectionStart===e.currentTarget.selectionEnd)searchState.suppressTypeahead=false;
 });
 
 document.addEventListener('click',e=>{
