@@ -60,11 +60,25 @@ a{color:inherit;text-decoration:none}
 .spec-body{display:none;padding:4px 2px 14px;animation:sl .2s ease-out}
 .spec.open .spec-body{display:block}
 @keyframes sl{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
-.proc{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:7px 8px;border-radius:5px;cursor:pointer;font-size:13px;transition:background .1s}
+.proc{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:7px 8px;border-radius:5px;cursor:pointer;font-size:13px;transition:background .1s;position:relative}
 .proc:hover{background:var(--ox2)}
+.proc.has-lat{cursor:pointer}
 .proc-n{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .proc-c{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ox);font-weight:500}
 .proc-w{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink2);min-width:36px;text-align:right}
+.proc-bi{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink3);margin-left:6px;opacity:.6}
+.lat-tray{display:none;grid-column:1/-1;padding:8px 0 4px;margin-top:4px;border-top:1px dashed var(--line);animation:latin .18s ease-out}
+.proc.picking .lat-tray{display:flex;gap:6px;align-items:center}
+.proc.picking{background:var(--ox2)}
+@keyframes latin{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+.lat-lbl{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em;margin-right:4px}
+.lat-chip{background:var(--white);border:1px solid var(--line2);border-radius:4px;padding:5px 11px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .1s;display:flex;align-items:center;gap:5px}
+.lat-chip:hover,.lat-chip.kb{border-color:var(--ox);background:var(--ox);color:var(--white)}
+.lat-chip .k{font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.5;border:1px solid currentColor;border-radius:2px;padding:0 3px}
+.lat-cancel{margin-left:auto;background:transparent;border:0;color:var(--ink3);font-size:11px;cursor:pointer}
+.lat-cancel:hover{color:var(--ox)}
+.bi-note{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--moss);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;font-family:'JetBrains Mono',monospace}
+.bi-note.show{opacity:1}
 
 /* INPATIENT/OUTPATIENT */
 .em-group{padding:12px 0;border-bottom:1px solid var(--line)}
@@ -239,22 +253,22 @@ const CF=32.3465;
 // ===== TOP 20 PROCEDURES PER SPECIALTY (seed — expand from CMS Addendum B) =====
 const SPECS={
 "General Surgery":[
-["44970","Lap appendectomy",8.85],["47562","Lap cholecystectomy",10.47],["47563","Lap chole w/ cholangiogram",11.47],
+["44970","Lap appendectomy",8.85,0],["47562","Lap cholecystectomy",10.47,0],["47563","Lap chole w/ cholangiogram",11.47,0],
 ["49505","Inguinal hernia repair, open",7.96],["49650","Lap inguinal hernia repair",8.03],
-["49591","Anterior abd hernia <3cm",4.55],["49593","Anterior abd hernia 3-10cm",6.25],["49595","Anterior abd hernia >10cm",9.61],
-["49623","Lap anterior abd hernia 3-10cm",10.95],["44120","Enterectomy + anastomosis",17.24],
-["44202","Lap enterectomy + anastomosis",18.40],["38100","Splenectomy, total",18.76],["38120","Lap splenectomy",20.00],
-["49000","Exploratory laparotomy",13.42],["49320","Diagnostic laparoscopy",5.25],["44960","Appendectomy, ruptured",12.87],
-["47600","Open cholecystectomy",13.55],["49002","Reopening recent laparotomy",17.56],["43280","Lap Nissen fundoplication",17.96],
-["43644","Lap gastric bypass",25.54]],
+["49591","Anterior abd hernia <3cm",4.55,0],["49593","Anterior abd hernia 3-10cm",6.25,0],["49595","Anterior abd hernia >10cm",9.61,0],
+["49623","Lap anterior abd hernia 3-10cm",10.95,0],["44120","Enterectomy + anastomosis",17.24,0],
+["44202","Lap enterectomy + anastomosis",18.40,0],["38100","Splenectomy, total",18.76,0],["38120","Lap splenectomy",20.00,0],
+["49000","Exploratory laparotomy",13.42,0],["49320","Diagnostic laparoscopy",5.25,0],["44960","Appendectomy, ruptured",12.87,0],
+["47600","Open cholecystectomy",13.55,0],["49002","Reopening recent laparotomy",17.56,0],["43280","Lap Nissen fundoplication",17.96,0],
+["43644","Lap gastric bypass",25.54,0]],
 "Trauma & Acute Care Surgery":[
-["21811","ORIF rib fx, 1-3 ribs",11.00],["21812","ORIF rib fx, 4-6 ribs",14.00],["21813","ORIF rib fx, 7+ ribs",17.00],
-["49000","Exploratory laparotomy",13.42],["49002","Reopening recent laparotomy",17.56],["35840","Exploration postop hemorrhage, abdomen",17.41],
-["38100","Splenectomy, total",18.76],["47350","Management liver hemorrhage, simple",15.00],["47361","Complex hepatic hemorrhage ctrl",30.77],
-["44120","Enterectomy + anastomosis",17.24],["44140","Partial colectomy + anast",22.96],["44005","Enterolysis",15.48],
-["32110","Thoracotomy, hemorrhage control",23.50],["32551","Tube thoracostomy",2.59],["31500","Emergency intubation",3.00],
-["36556","CVC insertion ≥5 yrs",2.50],["49906","Free omental flap",24.63],["49568","Mesh implantation for hernia",4.88],
-["22325","Open tx vertebral fx, lumbar",20.03],["27245","ORIF intertrochanteric fx",19.33]],
+["21811","ORIF rib fx, 1-3 ribs",11.00,1],["21812","ORIF rib fx, 4-6 ribs",14.00,1],["21813","ORIF rib fx, 7+ ribs",17.00,1],
+["49000","Exploratory laparotomy",13.42,0],["49002","Reopening recent laparotomy",17.56,0],["35840","Exploration postop hemorrhage, abdomen",17.41,0],
+["38100","Splenectomy, total",18.76,0],["47350","Management liver hemorrhage, simple",15.00,0],["47361","Complex hepatic hemorrhage ctrl",30.77,0],
+["44120","Enterectomy + anastomosis",17.24,0],["44140","Partial colectomy + anast",22.96,0],["44005","Enterolysis",15.48,0],
+["32110","Thoracotomy, hemorrhage control",23.50,1],["32551","Tube thoracostomy",2.59,1],["31500","Emergency intubation",3.00,0],
+["36556","CVC insertion ≥5 yrs",2.50,0],["49906","Free omental flap",24.63,0],["49568","Mesh implantation for hernia",4.88,0],
+["22325","Open tx vertebral fx, lumbar",20.03,0],["27245","ORIF intertrochanteric fx",19.33,1]],
 "Colon & Rectum":[
 ["44140","Partial colectomy + anast",22.96],["44204","Lap partial colectomy",22.91],["44160","Right colectomy + ileocolostomy",23.74],
 ["44205","Lap right colectomy",22.97],["44145","Partial colectomy w/ coloproctostomy",26.31],["44207","Lap LAR",29.62],
@@ -272,21 +286,21 @@ const SPECS={
 ["47370","Lap ablation liver tumor, RFA",15.85],["47382","Percutaneous ablation liver tumor, RFA",7.54],
 ["48102","Biopsy pancreas, percutaneous needle",1.65],["47000","Biopsy liver, percutaneous needle",1.45]],
 "Endocrine":[
-["60220","Thyroid lobectomy",14.43],["60225","Thyroid lobectomy + isthmusectomy",15.68],["60240","Total thyroidectomy",17.31],
-["60252","Total thyroid + limited neck dissection",21.48],["60254","Total thyroid + radical neck",27.21],["60260","Completion thyroidectomy",18.69],
-["60270","Thyroidectomy, sternal split",23.03],["60500","Parathyroidectomy, initial",16.75],["60502","Re-exploration parathyroid",22.00],
-["60505","Parathyroid + mediastinal exploration",26.97],["60512","Parathyroid autotransplant",2.50],["60540","Adrenalectomy, partial or complete",21.40],
-["60545","Adrenalectomy w/ retroperitoneal tumor",27.92],["60650","Lap adrenalectomy",22.71],["60100","Core biopsy thyroid",1.28],
-["10021","FNA, no imaging",1.27],["60000","I&D thyroglossal duct cyst",2.93],["60200","Excision thyroglossal duct cyst",9.30],
-["60210","Partial thyroid lobectomy",11.17],["60281","Excision thyroglossal duct cyst, recurrent",11.53]],
+["60220","Thyroid lobectomy",14.43,1],["60225","Thyroid lobectomy + isthmusectomy",15.68,1],["60240","Total thyroidectomy",17.31,2],
+["60252","Total thyroid + limited neck dissection",21.48,2],["60254","Total thyroid + radical neck",27.21,2],["60260","Completion thyroidectomy",18.69,0],
+["60270","Thyroidectomy, sternal split",23.03,2],["60500","Parathyroidectomy, initial",16.75,0],["60502","Re-exploration parathyroid",22.00,0],
+["60505","Parathyroid + mediastinal exploration",26.97,0],["60512","Parathyroid autotransplant",2.50,0],["60540","Adrenalectomy, partial or complete",21.40,1],
+["60545","Adrenalectomy w/ retroperitoneal tumor",27.92,1],["60650","Lap adrenalectomy",22.71,1],["60100","Core biopsy thyroid",1.28,1],
+["10021","FNA, no imaging",1.27,0],["60000","I&D thyroglossal duct cyst",2.93,0],["60200","Excision thyroglossal duct cyst",9.30,0],
+["60210","Partial thyroid lobectomy",11.17,1],["60281","Excision thyroglossal duct cyst, recurrent",11.53,0]],
 "Breast":[
-["19301","Partial mastectomy (lumpectomy)",10.49],["19302","Partial mastectomy + SLN",14.36],["19303","Simple mastectomy",16.25],
-["19307","Modified radical mastectomy",20.37],["19305","Radical mastectomy",21.63],["19306","Radical mastectomy, urban type",24.31],
-["19120","Excision breast lesion",5.80],["19125","Excision w/ wire localization",7.75],["19126","Excision, each addl wire loc",3.88],
-["38525","Biopsy deep axillary nodes",6.49],["38740","Axillary lymphadenectomy, superficial",13.48],["38745","Axillary lymphadenectomy, complete",16.27],
-["19000","Aspiration breast cyst",0.84],["19081","Breast biopsy, stereotactic",4.73],["19083","Breast biopsy, ultrasound",3.84],
-["19100","Core biopsy breast, no imaging",1.27],["19357","Tissue expander placement",16.65],["19340","Immediate implant",12.91],
-["19361","Latissimus flap recon",26.82],["19364","Free flap recon",41.79]],
+["19301","Partial mastectomy (lumpectomy)",10.49,1],["19302","Partial mastectomy + SLN",14.36,1],["19303","Simple mastectomy",16.25,1],
+["19307","Modified radical mastectomy",20.37,1],["19305","Radical mastectomy",21.63,1],["19306","Radical mastectomy, urban type",24.31,1],
+["19120","Excision breast lesion",5.80,1],["19125","Excision w/ wire localization",7.75,1],["19126","Excision, each addl wire loc",3.88,1],
+["38525","Biopsy deep axillary nodes",6.49,1],["38740","Axillary lymphadenectomy, superficial",13.48,1],["38745","Axillary lymphadenectomy, complete",16.27,1],
+["19000","Aspiration breast cyst",0.84,1],["19081","Breast biopsy, stereotactic",4.73,1],["19083","Breast biopsy, ultrasound",3.84,1],
+["19100","Core biopsy breast, no imaging",1.27,1],["19357","Tissue expander placement",16.65,1],["19340","Immediate implant",12.91,1],
+["19361","Latissimus flap recon",26.82,1],["19364","Free flap recon",41.79,1]],
 "Surgical Oncology":[
 ["21935","Radical resection STT back/flank >5cm",21.99],["22900","Excision abd wall tumor, deep ≥5cm",16.92],["49203","Excision retroperitoneal tumor, ≤5cm",22.50],
 ["49204","Excision retroperitoneal tumor, 5-10cm",27.45],["49205","Excision retroperitoneal tumor, >10cm",33.95],
@@ -383,24 +397,79 @@ let caseLines=[],audit=[],payer='medicare',setting='facility';
 function log(m){audit.unshift(`[${new Date().toLocaleTimeString()}] ${m}`)}
 
 // ===== RENDER SPECIALTIES =====
+let pickingFor=null;
+
 function renderSpecs(){
  const c=document.getElementById('specs');
  c.innerHTML=Object.entries(SPECS).map(([name,procs],si)=>`
   <div class="spec" id="sp${si}">
    <div class="spec-t" onclick="toggleSpec(${si})"><div class="spec-n">${name}</div><div class="spec-c">›</div></div>
-   <div class="spec-body">${procs.map(p=>{
-    const w=p[2]||0;
-    return `<div class="proc" onclick="addProc('${p[0]}',${JSON.stringify(p[1]).replace(/"/g,'&quot;')},${w})">
-     <div class="proc-n">${p[1]}</div><div class="proc-c">${p[0]}</div><div class="proc-w">${w.toFixed(2)}</div></div>`;
+   <div class="spec-body">${procs.map((p,pi)=>{
+    const [cpt,desc,w,bi]=p;
+    const biClass=bi===1?'has-lat':'';
+    const biLabel=bi===2?'<span class=\"proc-bi\">inh-bilat</span>':'';
+    return `<div class=\"proc ${biClass}\" id=\"p${si}-${pi}\" onclick=\"onProcClick(${si},${pi},event)\">
+     <div class=\"proc-n\">${desc}${biLabel}</div>
+     <div class=\"proc-c\">${cpt}</div>
+     <div class=\"proc-w\">${w.toFixed(2)}</div>
+     ${bi===1?`<div class=\"lat-tray\">
+      <span class=\"lat-lbl\">Laterality</span>
+      <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'RT',event)\">Right <span class=\"k\">R</span></button>
+      <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'LT',event)\">Left <span class=\"k\">L</span></button>
+      <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'50',event)\">Bilateral <span class=\"k\">B</span></button>
+      <button class=\"lat-cancel\" onclick=\"cancelLat(event)\">cancel <span class=\"k\" style=\"border:1px solid currentColor;padding:0 3px;border-radius:2px;margin-left:2px\">esc</span></button>
+     </div>`:''}
+     <div class=\"bi-note\" id=\"note-${si}-${pi}\">inherently bilateral · no -50 needed</div>
+    </div>`;
    }).join('')}</div>
   </div>`).join('');
 }
 function toggleSpec(i){document.getElementById('sp'+i).classList.toggle('open')}
 
+function onProcClick(si,pi,e){
+ if(e&&e.target.closest('.lat-tray'))return;
+ const [cpt,desc,w,bi]=SPECS[Object.keys(SPECS)[si]][pi];
+ if(bi===0){addProc(cpt,desc,w,'',0);return}
+ if(bi===2){
+  addProc(cpt,desc,w,'',2);
+  const n=document.getElementById(`note-${si}-${pi}`);
+  n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2000);
+  return;
+ }
+ if(pickingFor)cancelLat();
+ const row=document.getElementById(`p${si}-${pi}`);
+ row.classList.add('picking');
+ pickingFor={si,pi,row};
+}
+
+function cancelLat(e){
+ if(e)e.stopPropagation();
+ if(pickingFor){pickingFor.row.classList.remove('picking');pickingFor=null}
+}
+
+function commitLat(cpt,desc,w,lat,e){
+ if(e)e.stopPropagation();
+ addProc(cpt,desc,w,lat,1);
+ cancelLat();
+}
+
+document.addEventListener('keydown',e=>{
+ if(!pickingFor)return;
+ if(document.activeElement.tagName==='INPUT')return;
+ const k=e.key.toLowerCase();
+ if(k==='escape'){cancelLat();e.preventDefault();return}
+ const {si,pi}=pickingFor;
+ const [cpt,desc,w]=SPECS[Object.keys(SPECS)[si]][pi];
+ if(k==='r'){commitLat(cpt,desc,w,'RT');e.preventDefault()}
+ if(k==='l'){commitLat(cpt,desc,w,'LT');e.preventDefault()}
+ if(k==='b'){commitLat(cpt,desc,w,'50');e.preventDefault()}
+});
+
 // ===== ADD HANDLERS =====
-function addProc(cpt,desc,wrvu){
- caseLines.push({cpt,desc,baseWrvu:wrvu,kind:'proc',mods:[]});
- log(`ADD ${cpt} "${desc}" wRVU=${wrvu}`);
+function addProc(cpt,desc,wrvu,laterality,bi){
+ caseLines.push({cpt,desc,baseWrvu:wrvu,laterality:laterality||'',biIndicator:bi||0,kind:'proc',mods:[]});
+ const latStr=laterality==='50'?'BILATERAL':(laterality||'');
+ log(`ADD ${cpt} "${desc}"${latStr?' ['+latStr+']':''} wRVU=${wrvu}`);
  recalc('procedure added');
 }
 function addEM(cpt,desc,wrvu){
@@ -422,29 +491,41 @@ function computeMods(){
   if(l.kind==='em'){
    if(procs.length>0){
     l.mods.push('25');
-    l.rationale.push({mod:'25',reason:`E/M billed same session as procedure ${procs[0].cpt}. Modifier 25 required to indicate significant, separately identifiable E/M service.`,cite:RULES.MOD_25});
+    l.rationale.push({mod:'25',reason:`E/M billed same session as procedure ${procs[0].cpt}. Modifier 25 required.`,cite:RULES.MOD_25});
    }
-   l.effWrvu=l.baseWrvu;
-   l.rank='E/M';
-   l.rankReason='Evaluation & management service, billed in addition to procedural services.';
+   l.effWrvu=l.baseWrvu;l.rank='E/M';
+   l.rankReason='Evaluation & management service.';
    return;
   }
-  l.effWrvu=l.baseWrvu;
+  if(l.laterality==='50'){
+   l.mods.push('50');
+   l.effWrvu=l.baseWrvu*1.5;
+   l.rationale.push({mod:'50',reason:`Bilateral procedure. CPT code has CMS bilateral indicator 1 (eligible for 150% payment). Effective wRVU = base × 1.5.`,cite:RULES.MOD_50});
+  }else if(l.laterality==='RT'||l.laterality==='LT'){
+   l.mods.push(l.laterality);
+   l.effWrvu=l.baseWrvu;
+   l.rationale.push({mod:l.laterality,reason:`Unilateral ${l.laterality==='RT'?'right':'left'}-side procedure. Anatomic laterality modifier appended for claim specificity.`,cite:RULES.MOD_RT_LT});
+  }else{
+   l.effWrvu=l.baseWrvu;
+   if(l.biIndicator===2){
+    l.rationale.push({mod:'—',reason:'CPT code is inherently bilateral per CMS bilateral indicator 2. Modifier 50 not applicable; base payment already reflects bilateral service.',cite:RULES.MOD_50});
+   }
+  }
   if(pIdx===0){
    l.rank='Primary';
-   l.rankReason=`Highest wRVU procedure in the case (${l.baseWrvu.toFixed(2)} wRVU). Billed at 100% of allowable.`;
-   l.rationale.push({mod:'—',reason:'Primary procedure — no reduction applied.',cite:RULES.PRIMARY});
+   l.rankReason=`Highest wRVU procedure (${l.effWrvu.toFixed(2)} effective wRVU). Billed at 100% of allowable.`;
+   l.rationale.unshift({mod:'Rank',reason:'Primary procedure — no MPPR reduction.',cite:RULES.PRIMARY});
   }else{
    l.rank=`Secondary #${pIdx}`;
-   l.rankReason=`Secondary procedure ranked by wRVU (${l.baseWrvu.toFixed(2)} wRVU, below primary ${procs[0].cpt} at ${procs[0].baseWrvu.toFixed(2)}).`;
+   l.rankReason=`Secondary procedure, ranked by effective wRVU below primary ${procs[0].cpt}.`;
    if(payer==='commercial'){
     l.mods.push('51');
-    l.rationale.push({mod:'51',reason:'Commercial payer — multiple procedures performed during same operative session. Modifier 51 identifies this line as a secondary procedure.',cite:RULES.MOD_51});
+    l.rationale.push({mod:'51',reason:'Commercial payer — modifier 51 identifies secondary procedure in multi-procedure session.',cite:RULES.MOD_51});
    }else{
-    l.rationale.push({mod:'—',reason:'Medicare payer — modifier 51 omitted. Medicare applies MPPR automatically based on procedure ranking.',cite:RULES.MPPR});
+    l.rationale.push({mod:'Rank',reason:'Medicare payer — MPPR applied automatically; modifier 51 omitted per Medicare convention.',cite:RULES.MPPR});
    }
    l.mods.push('59');
-   l.rationale.push({mod:'59',reason:'Distinct procedural service from primary. Performed on separate anatomic site or through separate incision. Coder should verify documentation supports separate site before submission.',cite:RULES.MOD_59});
+   l.rationale.push({mod:'59',reason:'Distinct procedural service from primary. Coder must verify documentation supports separate anatomic site before submission.',cite:RULES.MOD_59});
   }
   pIdx++;
  });
