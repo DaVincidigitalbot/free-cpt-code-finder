@@ -461,13 +461,15 @@ function renderSpecs(){
    <div class="spec-t" onclick="toggleSpec(${si})"><div class="spec-n">${name}</div><div class="spec-c">›</div></div>
    <div class="spec-body">${procs.map((p,pi)=>{
     const [cpt,desc,w,bi]=p;
-    const biClass=bi===1?'has-lat':'';
-    const biLabel=bi===2?'<span class=\"proc-bi\">inh-bilat</span>':'';
+    const biVal=(bi===0||bi===1||bi===2)?bi:0;
+    const biClass=biVal===1?'has-lat':'';
+    const biLabel=biVal===2?'<span class=\"proc-bi\">inh-bilat</span>':'';
+    const wNum=typeof w==='number'?w:Number(w||0);
     return `<div class=\"proc ${biClass}\" id=\"p${si}-${pi}\" onclick=\"onProcClick(${si},${pi},event)\">
      <div class=\"proc-n\">${desc}${biLabel}</div>
      <div class=\"proc-c\">${cpt}</div>
-     <div class=\"proc-w\">${w.toFixed(2)}</div>
-     ${bi===1?`<div class=\"lat-tray\">
+     <div class=\"proc-w\">${wNum.toFixed(2)}</div>
+     ${biVal===1?`<div class=\"lat-tray\">
       <span class=\"lat-lbl\">Laterality</span>
       <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'RT',event)\">Right <span class=\"k\">R</span></button>
       <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'LT',event)\">Left <span class=\"k\">L</span></button>
@@ -484,8 +486,9 @@ function toggleSpec(i){document.getElementById('sp'+i).classList.toggle('open')}
 function onProcClick(si,pi,e){
  if(e&&e.target.closest('.lat-tray'))return;
  const [cpt,desc,w,bi]=SPECS[Object.keys(SPECS)[si]][pi];
- if(bi===0){addProc(cpt,desc,w,'',0);return}
- if(bi===2){
+ const biVal=(bi===0||bi===1||bi===2)?bi:0;
+ if(biVal===0){addProc(cpt,desc,w,'',0);return}
+ if(biVal===2){
   addProc(cpt,desc,w,'',2);
   const n=document.getElementById(`note-${si}-${pi}`);
   n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2000);
