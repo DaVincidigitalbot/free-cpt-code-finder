@@ -228,7 +228,7 @@ a{color:inherit;text-decoration:none}
 <div class="seg" id="payer-seg"><button class="on" data-v="medicare">medicare</button><button data-v="commercial">commercial</button></div>
 <div class="seg" id="setting-seg"><button class="on" data-v="facility">facility</button><button data-v="nonfac">non-fac</button></div>
 </div>
-<div class="rf"><button onclick="exportAudit()">Export audit</button><button class="danger" onclick="clearCase()">Clear</button></div>
+<div class="rf"><button onclick="openAuditReport()">Audit report</button><button onclick="exportAuditJSON()">Export JSON</button><button class="danger" onclick="clearCase()">Clear</button></div>
 </aside>
 
 </div>
@@ -418,10 +418,34 @@ function computeMods(){
  caseLines=[...procs,...ems];
  let pIdx=0;
  caseLines.forEach(l=>{
-  l.mods=[];
-  if(l.kind==='em'){if(procs.length>0)l.mods.push('25');l.effWrvu=l.baseWrvu;return}
+  l.mods=[];l.rationale=[];
+  if(l.kind==='em'){
+   if(procs.length>0){
+    l.mods.push('25');
+    l.rationale.push({mod:'25',reason:`E/M billed same session as procedure ${procs[0].cpt}. Modifier 25 required to indicate significant, separately identifiable E/M service.`,cite:RULES.MOD_25});
+   }
+   l.effWrvu=l.baseWrvu;
+   l.rank='E/M';
+   l.rankReason='Evaluation & management service, billed in addition to procedural services.';
+   return;
+  }
   l.effWrvu=l.baseWrvu;
-  if(pIdx>0){if(payer==='commercial')l.mods.push('51');l.mods.push('59')}
+  if(pIdx===0){
+   l.rank='Primary';
+   l.rankReason=`Highest wRVU procedure in the case (${l.baseWrvu.toFixed(2)} wRVU). Billed at 100% of allowable.`;
+   l.rationale.push({mod:'—',reason:'Primary procedure — no reduction applied.',cite:RULES.PRIMARY});
+  }else{
+   l.rank=`Secondary #${pIdx}`;
+   l.rankReason=`Secondary procedure ranked by wRVU (${l.baseWrvu.toFixed(2)} wRVU, below primary ${procs[0].cpt} at ${procs[0].baseWrvu.toFixed(2)}).`;
+   if(payer==='commercial'){
+    l.mods.push('51');
+    l.rationale.push({mod:'51',reason:'Commercial payer — multiple procedures performed during same operative session. Modifier 51 identifies this line as a secondary procedure.',cite:RULES.MOD_51});
+   }else{
+    l.rationale.push({mod:'—',reason:'Medicare payer — modifier 51 omitted. Medicare applies MPPR automatically based on procedure ranking.',cite:RULES.MPPR});
+   }
+   l.mods.push('59');
+   l.rationale.push({mod:'59',reason:'Distinct procedural service from primary. Performed on separate anatomic site or through separate incision. Coder should verify documentation supports separate site before submission.',cite:RULES.MOD_59});
+  }
   pIdx++;
  });
  log(`RECALC primary=${procs[0]?.cpt||'—'} · ${procs.length} proc + ${ems.length} E/M · ${payer}`);
@@ -469,10 +493,181 @@ document.querySelectorAll('.seg').forEach(seg=>{
  });
 });
 
-function exportAudit(){
- const txt=audit.slice().reverse().join('\n')+'\n\n=== FINAL CASE ===\n'+caseLines.map((l,i)=>`${i+1}. ${l.cpt}${l.mods.length?'-'+l.mods.join('-'):''} · ${l.desc} · wRVU ${l.effWrvu.toFixed(2)} · $${l.pay.toFixed(2)}`).join('\n')+`\n\nTotal wRVU: ${caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)}\nPayer: ${payer} · Setting: ${setting}`;
- const b=new Blob([txt||'Empty case'],{type:'text/plain'});
- const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='cpt-case-audit.txt';a.click();
+const RULES={
+ PRIMARY:"CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%",
+ MOD_59:"CMS NCCI Policy Manual Ch. 1 §E — modifier 59 indicates distinct procedural service when procedures would otherwise be bundled",
+ MOD_51:"CPT 2026 Appendix A — modifier 51 identifies secondary procedures when multiple procedures performed same session (commercial payers only; Medicare uses MPPR)",
+ MOD_25:"CPT 2026 Appendix A — modifier 25 indicates significant, separately identifiable E/M on same day as a procedure",
+ MOD_50:"CPT 2026 Appendix A — modifier 50 for bilateral procedures; paid at 150% of base",
+ MOD_RT_LT:"HCPCS Level II — anatomic laterality modifiers",
+ MPPR:"CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting",
+ CF_2026:"CMS 2026 Physician Fee Schedule Final Rule — national conversion factor $32.3465"
+};
+
+function openAuditReport(){
+ if(!caseLines.length){alert('Add procedures to the case first.');return}
+ const now=new Date();
+ const caseId='CASE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+ let totalWrvu=0,totalPay=0;
+ caseLines.forEach(l=>{totalWrvu+=l.effWrvu;totalPay+=l.pay});
+
+ const rows=caseLines.map((l,i)=>{
+  const rationaleHTML=l.rationale.map(r=>`
+   <div class="rationale-item">
+    <div class="rationale-mod">${r.mod==='—'?'Ranking':'Modifier -'+r.mod}</div>
+    <div class="rationale-text">${r.reason}</div>
+    <div class="rationale-cite">${r.cite}</div>
+   </div>`).join('');
+  return `
+  <tr class="line-row">
+   <td class="num">${i+1}</td>
+   <td class="rank-cell"><span class="rank-badge ${l.rank==='Primary'?'p':l.kind==='em'?'em':'s'}">${l.rank}</span></td>
+   <td class="cpt-cell">${l.cpt}${l.mods.length?'<span class="mod-tag">-'+l.mods.join('-')+'</span>':''}</td>
+   <td class="desc-cell">${l.desc}</td>
+   <td class="num mono">${l.effWrvu.toFixed(2)}</td>
+   <td class="num mono">$${l.pay.toFixed(2)}</td>
+  </tr>
+  <tr class="rationale-row"><td></td><td colspan="5">
+   <div class="rank-reason"><strong>Ranking basis:</strong> ${l.rankReason}</div>
+   ${rationaleHTML}
+  </td></tr>`;
+ }).join('');
+
+ const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
+<style>
+@page{size:letter;margin:0.6in}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:11pt;line-height:1.5;color:#0a0a0a;background:#fff;padding:40px;max-width:8.5in;margin:auto}
+.header{border-bottom:2px solid #6E1919;padding-bottom:14px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:flex-start}
+.header h1{font-size:18pt;font-weight:600;letter-spacing:-.01em;color:#6E1919}
+.header .sub{font-size:10pt;color:#52525B;margin-top:2px}
+.header .meta{text-align:right;font-size:9pt;color:#52525B;font-family:ui-monospace,Menlo,monospace;line-height:1.7}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #E4E4E0;border-radius:6px;margin-bottom:22px}
+.summary>div{padding:12px 14px;border-right:1px solid #E4E4E0}
+.summary>div:last-child{border-right:0}
+.summary .lbl{font-size:8pt;text-transform:uppercase;letter-spacing:.08em;color:#9A9A94;margin-bottom:4px;font-weight:600}
+.summary .val{font-size:14pt;font-weight:500;font-family:ui-monospace,monospace}
+.summary .val.money{color:#2D5A3D}
+h2{font-size:11pt;text-transform:uppercase;letter-spacing:.1em;color:#9A9A94;margin:22px 0 10px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:10pt}
+.line-row td{padding:10px 8px;border-top:1px solid #E4E4E0;vertical-align:top}
+.line-row .num{text-align:right;color:#9A9A94;font-family:ui-monospace,monospace;width:28px}
+.line-row .rank-cell{width:80px}
+.line-row .cpt-cell{width:130px;font-family:ui-monospace,monospace;font-weight:500}
+.line-row .mono{font-family:ui-monospace,monospace;width:60px}
+.rank-badge{display:inline-block;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border:1px solid #CFCCC0;border-radius:3px;color:#52525B}
+.rank-badge.p{color:#6E1919;border-color:#6E1919;background:#F4EBEB}
+.rank-badge.em{color:#2D5A3D;border-color:#2D5A3D;background:#EAF3ED}
+.rank-badge.s{color:#52525B}
+.mod-tag{font-family:ui-monospace,monospace;color:#6E1919;font-weight:500;margin-left:4px;font-size:9pt}
+.rationale-row td{padding:4px 8px 14px;border-top:0;background:#FAFAF7}
+.rank-reason{font-size:9.5pt;color:#0a0a0a;margin-bottom:8px;padding:8px 10px;background:#fff;border-left:3px solid #6E1919}
+.rationale-item{padding:6px 10px;margin-top:4px;background:#fff;border:1px solid #E4E4E0;border-radius:4px;font-size:9pt}
+.rationale-mod{font-weight:600;color:#6E1919;font-size:8.5pt;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.rationale-text{color:#0a0a0a;margin-bottom:4px}
+.rationale-cite{font-size:8pt;color:#9A9A94;font-style:italic;font-family:ui-monospace,monospace}
+.totals{margin-top:20px;padding:14px 16px;background:#FAFAF7;border:1px solid #E4E4E0;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.totals .left{font-size:10pt;color:#52525B}
+.totals .right{font-size:16pt;font-weight:500;font-family:ui-monospace,monospace}
+.totals .right .money{color:#2D5A3D}
+.footer{margin-top:28px;padding-top:14px;border-top:1px solid #E4E4E0;font-size:8pt;color:#9A9A94;line-height:1.6}
+.footer strong{color:#52525B}
+.sig{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.sig-line{border-top:1px solid #0a0a0a;padding-top:6px;font-size:8.5pt;color:#52525B}
+.print-btn{position:fixed;top:14px;right:14px;background:#6E1919;color:#fff;border:0;padding:10px 18px;border-radius:5px;font-size:11pt;font-weight:500;cursor:pointer}
+@media print{.print-btn{display:none}}
+</style></head><body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="header">
+<div>
+<h1>Surgical Coding Audit Report</h1>
+<div class="sub">Case rationale and modifier justification — prepared for medical billing review</div>
+</div>
+<div class="meta">
+<div><strong>${caseId}</strong></div>
+<div>${now.toLocaleDateString()} ${now.toLocaleTimeString()}</div>
+<div>FreeCPTCodeFinder</div>
+</div>
+</div>
+
+<div class="summary">
+<div><div class="lbl">Payer</div><div class="val">${payer}</div></div>
+<div><div class="lbl">Setting</div><div class="val">${setting==='nonfac'?'Non-facility':'Facility'}</div></div>
+<div><div class="lbl">Total wRVU</div><div class="val">${totalWrvu.toFixed(2)}</div></div>
+<div><div class="lbl">Est. payment</div><div class="val money">$${totalPay.toFixed(2)}</div></div>
+</div>
+
+<h2>Line items with coding rationale</h2>
+<table>
+<tr style="font-size:8.5pt;color:#9A9A94;text-transform:uppercase;letter-spacing:.06em">
+<td></td><td>Rank</td><td>CPT / modifiers</td><td>Description</td><td style="text-align:right">wRVU</td><td style="text-align:right">Payment</td>
+</tr>
+${rows}
+</table>
+
+<div class="totals">
+<div class="left">Case totals · ${caseLines.length} line${caseLines.length!==1?'s':''} · ${caseLines.filter(l=>l.kind==='proc').length} procedure${caseLines.filter(l=>l.kind==='proc').length!==1?'s':''}${caseLines.filter(l=>l.kind==='em').length?' · '+caseLines.filter(l=>l.kind==='em').length+' E/M':''}</div>
+<div class="right">${totalWrvu.toFixed(2)} wRVU · <span class="money">$${totalPay.toFixed(2)}</span></div>
+</div>
+
+<h2>Activity log</h2>
+<div style="font-family:ui-monospace,monospace;font-size:8.5pt;color:#52525B;background:#FAFAF7;border:1px solid #E4E4E0;border-radius:4px;padding:12px;line-height:1.6;white-space:pre-wrap">${audit.slice().reverse().join('\n')||'No activity recorded.'}</div>
+
+<div class="sig">
+<div class="sig-line">Coder signature &nbsp;·&nbsp; date</div>
+<div class="sig-line">Provider signature &nbsp;·&nbsp; date</div>
+</div>
+
+<div class="footer">
+<p><strong>Regulatory basis:</strong> This report reflects coding logic applied per current CMS and AMA guidelines. Conversion factor ${CF} per ${RULES.CF_2026}. MPPR reductions applied per ${RULES.MPPR}.</p>
+<p style="margin-top:8px"><strong>Disclaimer:</strong> This audit is a coding support document, not a substitute for professional medical coder review. All codes and modifiers should be verified against current AMA CPT Professional Edition, CMS Physician Fee Schedule, and NCCI edit files before claim submission. Rationale reflects automated rule application based on wRVU ranking, payer, and setting, coder must confirm that documentation supports each modifier, particularly modifier 59 (distinct procedural service).</p>
+<p style="margin-top:8px"><strong>Not for submission without coder review.</strong> CPT® © American Medical Association. All rights reserved.</p>
+</div>
+
+</body></html>`;
+
+ const w=window.open('','_blank');
+ w.document.write(html);
+ w.document.close();
+ log(`AUDIT REPORT generated · ${caseId}`);
+}
+
+function exportAuditJSON(){
+ if(!caseLines.length){alert('Add procedures to the case first.');return}
+ const now=new Date();
+ const report={
+  caseId:'CASE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase(),
+  generatedAt:now.toISOString(),
+  conversionFactor:CF,
+  cmsQuarter:'2026',
+  payer,setting,
+  totals:{
+   wrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
+   payment:+(caseLines.reduce((s,l)=>s+l.pay,0).toFixed(2)),
+   lines:caseLines.length,
+   procedures:caseLines.filter(l=>l.kind==='proc').length,
+   em:caseLines.filter(l=>l.kind==='em').length
+  },
+  lines:caseLines.map((l,i)=>({
+   order:i+1,
+   cpt:l.cpt,
+   description:l.desc,
+   rank:l.rank,
+   rankReason:l.rankReason,
+   modifiers:l.mods,
+   baseWrvu:l.baseWrvu,
+   effectiveWrvu:+l.effWrvu.toFixed(2),
+   payment:+l.pay.toFixed(2),
+   rationale:l.rationale
+  })),
+  activityLog:audit.slice().reverse(),
+  disclaimer:'Automated coding support. Requires coder review prior to claim submission. CPT © AMA.'
+ };
+ const b=new Blob([JSON.stringify(report,null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=report.caseId+'.json';a.click();
+ log(`AUDIT JSON exported · ${report.caseId}`);
 }
 
 // ===== SEARCH =====
