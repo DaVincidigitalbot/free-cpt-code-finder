@@ -1,0 +1,14 @@
+{
+  "name": "freecptcodefinder-assistant-backend",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "openai": "^4.95.1"
+  }
+}
