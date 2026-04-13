@@ -171,6 +171,36 @@ a{color:inherit;text-decoration:none}
 .rf button{flex:1;padding:8px;border:1px solid var(--line2);border-radius:5px;font-size:11px;color:var(--ink2);font-family:'JetBrains Mono',monospace;transition:all .1s}
 .rf button:hover{border-color:var(--ink);color:var(--ink)}
 .rf button.danger:hover{border-color:var(--ox);color:var(--ox)}
+
+/* AI ASSISTANT */
+.ai-launch{position:fixed;right:22px;bottom:22px;z-index:120;display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:999px;background:var(--ox);color:var(--white);box-shadow:0 18px 36px rgba(10,10,10,.18);font-weight:600;letter-spacing:-.01em}
+.ai-launch:hover{background:#541212}
+.ai-dot{width:8px;height:8px;border-radius:50%;background:#9EE6B0}
+.ai-panel{position:fixed;right:22px;bottom:84px;width:380px;max-width:calc(100vw - 24px);height:560px;max-height:calc(100vh - 120px);background:var(--white);border:1px solid var(--line2);border-radius:16px;box-shadow:0 24px 64px rgba(10,10,10,.18);z-index:130;display:none;flex-direction:column;overflow:hidden}
+.ai-panel.open{display:flex}
+.ai-head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;background:var(--paper)}
+.ai-head-title{font-size:14px;font-weight:700;letter-spacing:-.01em}
+.ai-head-sub{font-size:11px;color:var(--ink2);margin-top:3px;font-family:'JetBrains Mono',monospace;line-height:1.45}
+.ai-close{color:var(--ink3);font-size:18px;padding:0 4px}
+.ai-close:hover{color:var(--ox)}
+.ai-messages{flex:1;overflow:auto;padding:16px;background:linear-gradient(180deg,var(--paper),#fff 35%)}
+.ai-msg{margin-bottom:12px;max-width:92%}
+.ai-msg.user{margin-left:auto}
+.ai-bubble{border-radius:12px;padding:12px 13px;font-size:13px;line-height:1.5;border:1px solid var(--line)}
+.ai-msg.bot .ai-bubble{background:var(--white);color:var(--ink)}
+.ai-msg.user .ai-bubble{background:var(--ox);color:var(--white);border-color:var(--ox)}
+.ai-meta{margin-top:4px;font-size:10px;color:var(--ink3);font-family:'JetBrains Mono',monospace}
+.ai-suggest{padding:12px 16px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;background:var(--white)}
+.ai-chip{padding:7px 10px;border:1px solid var(--line2);border-radius:999px;background:var(--paper);font-size:11px;color:var(--ink2)}
+.ai-chip:hover{border-color:var(--ox);color:var(--ox);background:var(--ox2)}
+.ai-compose{padding:14px 16px;border-top:1px solid var(--line);background:var(--white)}
+.ai-compose textarea{width:100%;min-height:84px;max-height:160px;resize:vertical;border:1px solid var(--line2);border-radius:10px;padding:12px 13px;background:var(--paper);outline:none}
+.ai-compose textarea:focus{border-color:var(--ox);background:var(--white)}
+.ai-actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px}
+.ai-note{font-size:10px;color:var(--ink3);font-family:'JetBrains Mono',monospace;line-height:1.4}
+.ai-send{padding:10px 14px;border-radius:8px;background:var(--ox);color:var(--white);font-weight:600}
+.ai-send:hover{background:#541212}
+@media(max-width:700px){.ai-launch{right:14px;left:14px;justify-content:center;bottom:14px}.ai-panel{right:12px;left:12px;bottom:72px;width:auto;height:70vh;max-height:none}}
 </style></head><body>
 
 <div class="shell">
@@ -306,6 +336,32 @@ a{color:inherit;text-decoration:none}
 
 </div>
 
+<button class="ai-launch" id="aiLaunch" type="button" onclick="toggleAiAssistant(true)"><span class="ai-dot"></span><span>Ask AI Assistant</span></button>
+<div class="ai-panel" id="aiPanel" aria-hidden="true">
+ <div class="ai-head">
+  <div>
+   <div class="ai-head-title">Free CPT Code Finder AI Assistant</div>
+   <div class="ai-head-sub">Conversational coding help, grounded in the CPT finder workflow. Review answers before billing use.</div>
+  </div>
+  <button class="ai-close" type="button" onclick="toggleAiAssistant(false)">×</button>
+ </div>
+ <div class="ai-messages" id="aiMessages">
+  <div class="ai-msg bot"><div class="ai-bubble">Ask about CPT selection, modifiers, wRVUs, or how to structure a case. I can also help translate plain-English procedure descriptions into likely CPT pathways.</div><div class="ai-meta">assistant</div></div>
+ </div>
+ <div class="ai-suggest">
+  <button class="ai-chip" type="button" onclick="fillAiPrompt('What is the CPT code for laparoscopic appendectomy?')">lap appendectomy CPT</button>
+  <button class="ai-chip" type="button" onclick="fillAiPrompt('When should I use modifier 57 vs 25?')">modifier 57 vs 25</button>
+  <button class="ai-chip" type="button" onclick="fillAiPrompt('How do multiple procedures affect Medicare payment?')">multiple procedures</button>
+ </div>
+ <div class="ai-compose">
+  <textarea id="aiInput" placeholder="Ask a coding question..."></textarea>
+  <div class="ai-actions">
+   <div class="ai-note">Endpoint-ready shell. Connect <span class="mono">window.FCCF_ASSISTANT_ENDPOINT</span> to your LLM backend.</div>
+   <button class="ai-send" type="button" onclick="submitAiPrompt()">Send</button>
+  </div>
+ </div>
+</div>
+
 <div class="mpick" id="mpick">
  <div class="mpick-box">
   <div class="mpick-h">Modifier selection</div>
@@ -323,6 +379,7 @@ a{color:inherit;text-decoration:none}
 
 <script>
 const CF=32.3465;
+const AI_ASSISTANT_ENDPOINT = window.FCCF_ASSISTANT_ENDPOINT || '';
 
 const ROBOTIC_ALLOWED=[
  '47562','47563','47564','44970','49650','49623','43280','43644','44202','38120','49320',
@@ -1128,6 +1185,12 @@ document.addEventListener('click',e=>{
 
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('q').focus()}});
 
+function toggleAiAssistant(forceOpen){const panel=document.getElementById('aiPanel');const open=typeof forceOpen==='boolean'?forceOpen:!panel.classList.contains('open');panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',open?'false':'true');if(open)setTimeout(()=>document.getElementById('aiInput').focus(),40);}
+function fillAiPrompt(text){document.getElementById('aiInput').value=text;toggleAiAssistant(true);}
+function appendAiMessage(role,text,meta=''){const wrap=document.createElement('div');wrap.className='ai-msg '+role;wrap.innerHTML=`<div class="ai-bubble"></div><div class="ai-meta">${meta||role}</div>`;wrap.querySelector('.ai-bubble').textContent=text;const box=document.getElementById('aiMessages');box.appendChild(wrap);box.scrollTop=box.scrollHeight;}
+async function submitAiPrompt(){const input=document.getElementById('aiInput');const prompt=input.value.trim();if(!prompt)return;appendAiMessage('user',prompt,'you');input.value='';if(!AI_ASSISTANT_ENDPOINT){appendAiMessage('bot','The assistant shell is live, but no backend endpoint is connected yet. Set window.FCCF_ASSISTANT_ENDPOINT to your API URL and it will send conversational coding prompts there.','setup needed');return;}appendAiMessage('bot','Thinking...','assistant');const box=document.getElementById('aiMessages');const thinking=box.lastElementChild;try{const res=await fetch(AI_ASSISTANT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:prompt,caseLines,source:'freecptcodefinder-web'})});if(!res.ok)throw new Error('assistant request failed');const data=await res.json();thinking.remove();appendAiMessage('bot',data.answer||'No answer returned.','assistant');}catch(err){thinking.remove();appendAiMessage('bot','The assistant backend did not respond cleanly. The UI is ready, but the endpoint needs to be reachable and return JSON with an answer field.','assistant error');}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('aiPanel').classList.contains('open'))toggleAiAssistant(false);if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='j'){e.preventDefault();toggleAiAssistant();}});
+document.getElementById('aiInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submitAiPrompt();}});
 renderSpecs();
 loadCptSearchIndex();
 </script></body></html>
