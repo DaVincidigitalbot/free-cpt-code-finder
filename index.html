@@ -85,10 +85,12 @@ a{color:inherit;text-decoration:none}
 @keyframes latin{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
 .lat-lbl{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em;margin-right:4px}
 .lat-chip{background:var(--white);border:1px solid var(--line2);border-radius:4px;padding:5px 11px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .1s;display:flex;align-items:center;gap:5px}
-.lat-chip:hover,.lat-chip.kb{border-color:var(--ox);background:var(--ox);color:var(--white)}
+.lat-chip:hover,.lat-chip.kb,.lat-chip.active{border-color:var(--ox);background:var(--ox);color:var(--white)}
 .lat-chip .k{font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.5;border:1px solid currentColor;border-radius:2px;padding:0 3px}
 .lat-cancel{margin-left:auto;background:transparent;border:0;color:var(--ink3);font-size:11px;cursor:pointer}
 .lat-cancel:hover{color:var(--ox)}
+.approach-tray{display:flex;gap:6px;align-items:center;grid-column:1/-1;padding:0 0 6px;margin-top:6px}
+.approach-tray .lat-lbl{margin-right:2px}
 .bi-note{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--moss);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 .bi-note.show{opacity:1}
 
@@ -302,6 +304,13 @@ a{color:inherit;text-decoration:none}
 <script>
 const CF=32.3465;
 
+const ROBOTIC_ALLOWED=[
+ '47562','47563','47564','44970','49650','49623','43280','43644','44202','38120','49320',
+ '44204','44205','44207','44208','44211','45395','60650','58570','58571','58572','58573','58575','58661',
+ '50545','50546','50547','50548','55866','32663','32666','32670','32671','43775','43770','43771','43772',
+ '49492','49496','43327','43653'
+ ];
+
 // ===== TOP 20 PROCEDURES PER SPECIALTY (seed — expand from CMS Addendum B) =====
 const SPECS={
 "General Surgery":[
@@ -463,6 +472,24 @@ const MOD_OPTS=[
 ];
 
 function log(m){audit.unshift(`[${new Date().toLocaleTimeString()}] ${m}`)}
+function isRoboticAllowed(cpt){return ROBOTIC_ALLOWED.includes(String(cpt))}
+function getApproachMode(desc){return /^(thora|thoracoscopic|vats)/i.test(String(desc||''))?'thora':'lap'}
+function formatProcDesc(cpt,desc){
+ if(!isRoboticAllowed(cpt))return desc;
+ if(getApproachMode(desc)==='thora')return desc.replace(/^(Thoracoscopic|VATS)\s+/i,'').trim().replace(/^(.+)$/,'Thora / Robotic $1');
+ return desc.replace(/^Lap\s+/i,'Lap / Robotic ');
+}
+function getStoredApproach(cpt,desc){return getApproachMode(desc)}
+function setApproach(si,pi,approach,e){
+ if(e)e.stopPropagation();
+ const row=document.getElementById(`p${si}-${pi}`);if(!row)return;
+ row.dataset.approach=approach;
+ row.querySelectorAll('.approach-chip').forEach(chip=>chip.classList.toggle('active',chip.dataset.v===approach));
+}
+function getRowApproach(si,pi,desc){
+ const row=document.getElementById(`p${si}-${pi}`);
+ return row?.dataset.approach||getStoredApproach(null,desc);
+}
 
 // ===== RENDER SPECIALTIES =====
 let pickingFor=null;
@@ -475,20 +502,28 @@ function renderSpecs(){
    <div class="spec-body">${procs.map((p,pi)=>{
     const [cpt,desc,w,bi]=p;
     const biVal=(bi===0||bi===1||bi===2)?bi:0;
+    const approachMode=getApproachMode(desc);
+    const hasApproach=isRoboticAllowed(cpt);
+    const displayDesc=formatProcDesc(cpt,desc);
     const biClass=biVal===1?'has-lat':'';
     const biLabel=biVal===2?'<span class=\"proc-bi\">inh-bilat</span>':'';
     const wNum=typeof w==='number'?w:Number(w||0);
-    return `<div class=\"proc ${biClass}\" id=\"p${si}-${pi}\" onclick=\"onProcClick(${si},${pi},event)\">
-     <div class=\"proc-n\">${desc}${biLabel}</div>
+    const approachTray=hasApproach?`<div class=\"approach-tray\">
+      <span class=\"lat-lbl\">Approach</span>
+      <button class=\"lat-chip approach-chip active\" data-v=\"${approachMode}\" onclick=\"setApproach(${si},${pi},'${approachMode}',event)\">${approachMode==='thora'?'Thora':'Lap'}</button>
+      <button class=\"lat-chip approach-chip\" data-v=\"robotic\" onclick=\"setApproach(${si},${pi},'robotic',event)\">Robotic</button>
+     </div>`:'';
+    return `<div class=\"proc ${biClass}\" id=\"p${si}-${pi}\" data-approach=\"${approachMode}\" onclick=\"onProcClick(${si},${pi},event)\">
+     <div class=\"proc-n\">${displayDesc}${biLabel}</div>
      <div class=\"proc-c\">${cpt}</div>
      <div class=\"proc-w\">${wNum.toFixed(2)}</div>
-     ${biVal===1?`<div class=\"lat-tray\">
+     ${biVal===1?`<div class=\"lat-tray\">${approachTray}
       <span class=\"lat-lbl\">Laterality</span>
       <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'RT',event)\">Right <span class=\"k\">R</span></button>
       <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'LT',event)\">Left <span class=\"k\">L</span></button>
       <button class=\"lat-chip\" onclick=\"commitLat('${cpt}',${JSON.stringify(desc).replace(/\"/g,'&quot;')},${w},'50',event)\">Bilateral <span class=\"k\">B</span></button>
       <button class=\"lat-cancel\" onclick=\"cancelLat(event)\">cancel <span class=\"k\" style=\"border:1px solid currentColor;padding:0 3px;border-radius:2px;margin-left:2px\">esc</span></button>
-     </div>`:''}
+     </div>`:`${approachTray}`}
      <div class=\"bi-note\" id=\"note-${si}-${pi}\">inherently bilateral · no -50 needed</div>
     </div>`;
    }).join('')}</div>
@@ -497,12 +532,13 @@ function renderSpecs(){
 function toggleSpec(i){document.getElementById('sp'+i).classList.toggle('open')}
 
 function onProcClick(si,pi,e){
- if(e&&e.target.closest('.lat-tray'))return;
+ if(e&&(e.target.closest('.lat-tray')||e.target.closest('.approach-tray')))return;
  const [cpt,desc,w,bi]=SPECS[Object.keys(SPECS)[si]][pi];
  const biVal=(bi===0||bi===1||bi===2)?bi:0;
- if(biVal===0){addProc(cpt,desc,w,'',0);return}
+ const approach=isRoboticAllowed(cpt)?getRowApproach(si,pi,desc):undefined;
+ if(biVal===0){addProc(cpt,desc,w,'',0,approach);return}
  if(biVal===2){
-  addProc(cpt,desc,w,'',2);
+  addProc(cpt,desc,w,'',2,approach);
   const n=document.getElementById(`note-${si}-${pi}`);
   n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2000);
   return;
@@ -520,7 +556,9 @@ function cancelLat(e){
 
 function commitLat(cpt,desc,w,lat,e){
  if(e)e.stopPropagation();
- addProc(cpt,desc,w,lat,1);
+ const row=e?.target?.closest('.proc');
+ const approach=isRoboticAllowed(cpt)?(row?.dataset.approach||getStoredApproach(cpt,desc)):undefined;
+ addProc(cpt,desc,w,lat,1,approach);
  cancelLat();
 }
 
@@ -537,9 +575,10 @@ document.addEventListener('keydown',e=>{
 });
 
 // ===== ADD HANDLERS =====
-function addProc(cpt,desc,wrvu,laterality,bi){
+function addProc(cpt,desc,wrvu,laterality,bi,approach){
  const existing=caseLines.filter(l=>l.kind==='proc'&&l.cpt===cpt);
  const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:laterality||'',biIndicator:bi||0,kind:'proc',mods:[],userMod:''};
+ if(approach)line.approach=approach;
  if(existing.length>0){
   caseLines.push(line);
   log(`ADD ${cpt} "${desc}" [REPEAT #${existing.length+1}] — modifier picker opened`);
@@ -575,6 +614,12 @@ function computeMods(){
   if(l.laterality==='50'){l.mods.push('50');l.effWrvu=l.baseWrvu*1.5;l.rationale.push({mod:'50',reason:'Bilateral procedure. CMS bilateral indicator 1 — 150% payment.',cite:RULES.MOD_50})}
   else if(l.laterality==='RT'||l.laterality==='LT'){l.mods.push(l.laterality);l.effWrvu=l.baseWrvu;l.rationale.push({mod:l.laterality,reason:`${l.laterality==='RT'?'Right':'Left'}-side anatomic modifier appended.`,cite:RULES.MOD_RT_LT})}
   else l.effWrvu=l.baseWrvu;
+  if(l.approach==='robotic'){
+   const roboticReason=getApproachMode(l.desc)==='thora'
+    ? 'Performed robotically — coded as thoracoscopically per CMS/AMA guidance; robotic assistance documented for clinical record, does not affect CPT selection or reimbursement.'
+    : 'Performed robotically — coded as laparoscopic per CMS/AMA guidance; robotic assistance documented for clinical record, does not affect CPT selection or reimbursement.';
+   l.rationale.push({mod:'—',reason:roboticReason,cite:'CMS/AMA robotic coding guidance'});
+  }
   if(pIdx===0){
    l.rank='Primary';l.rankReason=`Highest wRVU (${l.effWrvu.toFixed(2)}). Billed 100%.`;
    l.rationale.unshift({mod:'Rank',reason:'Primary procedure — no MPPR reduction.',cite:RULES.PRIMARY});
@@ -666,7 +711,7 @@ function recalc(why){
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${l.kind==='proc'&&rk>1?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
-    <div class="rd">${l.desc}</div>
+    <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}</div>
     <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
    </div>`}).join('');
  }
