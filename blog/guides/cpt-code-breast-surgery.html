@@ -20,50 +20,50 @@
     <style>
         *{box-sizing:border-box;margin:0;padding:0}
         body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#1F2937;background:#FFFFFF}
-        .header{background:#fff;border-bottom:1px solid #E6EAF0;padding:1rem 0;position:sticky;top:0;z-index:100}
+        .header{background:#fff;border-bottom:1px solid #E4E4E0;padding:1rem 0;position:sticky;top:0;z-index:100}
         .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-        .logo{font-size:1.3rem;font-weight:700;color:#2563EB;text-decoration:none}
+        .logo{font-size:1.3rem;font-weight:700;color:#6E1919;text-decoration:none}
         .nav{display:flex;gap:1.5rem;align-items:center}
-        .nav a{color:#6B7280;text-decoration:none;font-size:0.9rem;font-weight:500}
-        .nav a:hover{color:#2563EB}
+        .nav a{color:#52525B;text-decoration:none;font-size:0.9rem;font-weight:500}
+        .nav a:hover{color:#6E1919}
         .container{max-width:800px;margin:0 auto;padding:0 1.5rem}
-        .breadcrumb{padding:1rem 0;font-size:0.8rem;color:#6B7280}
-        .breadcrumb a{color:#2563EB;text-decoration:none}
+        .breadcrumb{padding:1rem 0;font-size:0.8rem;color:#52525B}
+        .breadcrumb a{color:#6E1919;text-decoration:none}
         .article{padding:1rem 0 4rem}
-        .article h1{font-size:2.2rem;font-weight:800;color:#0B1220;margin-bottom:0.75rem;line-height:1.2}
-        .article-meta{display:flex;gap:1rem;align-items:center;color:#6B7280;font-size:0.85rem;margin-bottom:2rem;flex-wrap:wrap}
+        .article h1{font-size:2.2rem;font-weight:800;color:#0A0A0A;margin-bottom:0.75rem;line-height:1.2}
+        .article-meta{display:flex;gap:1rem;align-items:center;color:#52525B;font-size:0.85rem;margin-bottom:2rem;flex-wrap:wrap}
         .article-meta .author{font-weight:600;color:#374151}
-        .article h2{font-size:1.5rem;font-weight:700;color:#0B1220;margin:2.5rem 0 1rem}
-        .article h3{font-size:1.15rem;font-weight:600;color:#0B1220;margin:1.5rem 0 0.75rem}
+        .article h2{font-size:1.5rem;font-weight:700;color:#0A0A0A;margin:2.5rem 0 1rem}
+        .article h3{font-size:1.15rem;font-weight:600;color:#0A0A0A;margin:1.5rem 0 0.75rem}
         .article p{color:#374151;margin-bottom:1.25rem}
         .article ul,.article ol{padding-left:1.5rem;margin-bottom:1.25rem}
         .article li{margin-bottom:0.5rem;color:#374151}
-        .article strong{color:#0B1220}
-        .article a{color:#2563EB}
-        .article blockquote{border-left:4px solid #2563EB;padding:1rem 1.5rem;background:#EFF6FF;border-radius:0 8px 8px 0;margin:1.5rem 0;font-style:italic;color:#374151}
-        .code-box{background:#F3F4F6;border:1px solid #E6EAF0;border-radius:10px;padding:1.25rem;margin:1.5rem 0}
-        .code-box .cpt{font-size:1.5rem;font-weight:800;color:#2563EB}
+        .article strong{color:#0A0A0A}
+        .article a{color:#6E1919}
+        .article blockquote{border-left:4px solid #6E1919;padding:1rem 1.5rem;background:#F4EBEB;border-radius:0 8px 8px 0;margin:1.5rem 0;font-style:italic;color:#374151}
+        .code-box{background:#FAFAF7;border:1px solid #E4E4E0;border-radius:10px;padding:1.25rem;margin:1.5rem 0}
+        .code-box .cpt{font-size:1.5rem;font-weight:800;color:#6E1919}
         .code-box .desc{color:#374151;margin-top:0.25rem}
-        .code-box .detail{font-size:0.85rem;color:#6B7280;margin-top:0.5rem}
-        .cta-box{background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #BBF7D0;border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
-        .cta-box a{display:inline-block;background:#2563EB;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:0.75rem}
-        .cta-box a:hover{background:#1E40AF}
+        .code-box .detail{font-size:0.85rem;color:#52525B;margin-top:0.5rem}
+        .cta-box{background:linear-gradient(135deg,#F4EBEB,#FAFAF7);border:1px solid #CFCCC0;border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
+        .cta-box a{display:inline-block;background:#6E1919;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:0.75rem}
+        .cta-box a:hover{background:#541212}
         table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
-        th{background:#F3F4F6;padding:10px 12px;text-align:left;font-weight:600;color:#0B1220;border-bottom:2px solid #E6EAF0}
-        td{padding:10px 12px;border-bottom:1px solid #F3F4F6;color:#374151}
+        th{background:#FAFAF7;padding:10px 12px;text-align:left;font-weight:600;color:#0A0A0A;border-bottom:2px solid #E4E4E0}
+        td{padding:10px 12px;border-bottom:1px solid #FAFAF7;color:#374151}
         tr:hover td{background:#FFFFFF}
-        .related{background:#F9FAFB;border-top:1px solid #E6EAF0;padding:2rem 0;margin-top:3rem}
-        .related h3{font-size:1.1rem;font-weight:700;color:#0B1220;margin-bottom:1rem}
+        .related{background:#FAFAF7;border-top:1px solid #E4E4E0;padding:2rem 0;margin-top:3rem}
+        .related h3{font-size:1.1rem;font-weight:700;color:#0A0A0A;margin-bottom:1rem}
         .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-        .related-card{background:#fff;border:1px solid #E6EAF0;border-radius:8px;padding:1rem;text-decoration:none;transition:border-color 0.2s}
-        .related-card:hover{border-color:#2563EB}
-        .related-card h4{color:#0B1220;font-size:0.95rem;margin-bottom:0.25rem}
-        .related-card p{color:#6B7280;font-size:0.8rem;margin:0}
-        .sidebar-ad{background:#FAFAFB;border:1px solid #E6EAF0;border-radius:6px;padding:1rem;margin:2rem 0;text-align:center;color:#9CA3AF;font-size:0.75rem;min-height:250px;display:flex;align-items:center;justify-content:center}
+        .related-card{background:#fff;border:1px solid #E4E4E0;border-radius:8px;padding:1rem;text-decoration:none;transition:border-color 0.2s}
+        .related-card:hover{border-color:#6E1919}
+        .related-card h4{color:#0A0A0A;font-size:0.95rem;margin-bottom:0.25rem}
+        .related-card p{color:#52525B;font-size:0.8rem;margin:0}
+        .sidebar-ad{background:#FAFAFB;border:1px solid #E4E4E0;border-radius:6px;padding:1rem;margin:2rem 0;text-align:center;color:#9A9A94;font-size:0.75rem;min-height:250px;display:flex;align-items:center;justify-content:center}
         .sidebar-ad::before{content:'Advertisement'}
-        .footer{background:#0B1220;color:#9CA3AF;padding:2rem 1.5rem;font-size:0.8rem}
+        .footer{background:#0A0A0A;color:#9A9A94;padding:2rem 1.5rem;font-size:0.8rem}
         .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-        .footer a{color:#60A5FA;text-decoration:none}
+        .footer a{color:#CFCCC0;text-decoration:none}
         @media(max-width:640px){
             .article h1{font-size:1.6rem}
             .article h2{font-size:1.25rem}
@@ -71,11 +71,11 @@
         }
     
 :root {
-  --cyr-navy: #0B1220;
-  --cyr-blue: #1D8BFF;
+  --cyr-navy: #0A0A0A;
+  --cyr-blue: #6E1919;
   --cyr-white: #FFFFFF;
   --cyr-steel: #7C8AA5;
-  --cyr-border: #E6EAF0;
+  --cyr-border: #E4E4E0;
   --cyr-input: #D0D7E2;
   --cyr-surface: #FFFFFF;
   --cyr-surface-muted: #F7F9FC;
@@ -248,14 +248,14 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
   letter-spacing: 0.03em;
 }
 .cyrionyx-footer-copy {
-  color: #D7DFEA;
+  color: #CFCCC0;
   margin-top: 8px;
   font-size: 14px;
 }
 .cyrionyx-footer-products {
   margin-top: 16px;
   font-size: 14px;
-  color: #D7DFEA;
+  color: #CFCCC0;
   line-height: 1.8;
 }
 .cyrionyx-footer-products span { display: block; }
@@ -777,12 +777,12 @@ input:focus, select:focus, textarea:focus, .search-input:focus {
                     </ul>
                 </div>
 
-                <div class="code-box" style="text-align:center;background:#EFF6FF;border-color:#2563EB;">
-                    <p style="font-weight:700;color:#0B1220;margin-bottom:8px;">📧 Free Coding Cheat Sheet</p>
-                    <p style="font-size:0.85rem;color:#6B7280;margin-bottom:12px;">Get our printable CPT quick-reference card for the top 50 surgical procedures — free.</p>
+                <div class="code-box" style="text-align:center;background:#F4EBEB;border-color:#6E1919;">
+                    <p style="font-weight:700;color:#0A0A0A;margin-bottom:8px;">📧 Free Coding Cheat Sheet</p>
+                    <p style="font-size:0.85rem;color:#52525B;margin-bottom:12px;">Get our printable CPT quick-reference card for the top 50 surgical procedures — free.</p>
                     <form style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;" onsubmit="event.preventDefault();alert('Thank you! Check your email.');">
                         <input type="email" placeholder="you@hospital.edu" required style="padding:10px 14px;border:1px solid #D1D5DB;border-radius:8px;font-size:0.9rem;min-width:220px;">
-                        <button type="submit" style="background:#2563EB;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Send It</button>
+                        <button type="submit" style="background:#6E1919;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;">Send It</button>
                     </form>
                 </div>
 
