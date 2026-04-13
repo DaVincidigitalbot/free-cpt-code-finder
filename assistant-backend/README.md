@@ -1,13 +1,46 @@
 # FreeCPTCodeFinder Assistant Backend
 
 ## Purpose
-Provides a real backend for the homepage AI assistant so the browser never holds model secrets.
+Provides the real backend for the homepage AI assistant so the browser never holds model secrets.
+
+## Render-ready deployment
+This folder is prepared for direct Render deployment.
+
+### Files included
+- `server.js` → Express backend
+- `package.json` → dependencies and start script
+- `render.yaml` → Render Blueprint config
+- `.env.example` → example environment values
 
 ## What it does
 - exposes `GET /health`
 - exposes `POST /assistant`
-- grounds answers using `cpt_database.json`
+- grounds answers using `../cpt_database.json`
 - sends the grounded prompt to OpenAI when `OPENAI_API_KEY` is configured
+- limits CORS to the production site origins by default
+
+## Render deployment steps
+### Option A: Blueprint
+1. Push this repo to GitHub
+2. In Render, click **New +** → **Blueprint**
+3. Select this repo
+4. Render will detect `assistant-backend/render.yaml`
+5. Add your secret:
+   - `OPENAI_API_KEY`
+6. Deploy
+
+### Option B: Manual web service
+Use these exact settings:
+- **Environment**: Node
+- **Root Directory**: `assistant-backend`
+- **Build Command**: `npm install`
+- **Start Command**: `npm start`
+- **Health Check Path**: `/health`
+
+Environment variables:
+- `OPENAI_API_KEY` = your OpenAI key
+- `OPENAI_MODEL` = `gpt-4.1-mini`
+- `ALLOWED_ORIGINS` = `https://freecptcodefinder.com,https://www.freecptcodefinder.com`
 
 ## Expected request body
 ```json
@@ -17,29 +50,33 @@ Provides a real backend for the homepage AI assistant so the browser never holds
 }
 ```
 
-## Environment
-- `OPENAI_API_KEY` required for real answers
-- `OPENAI_MODEL` optional, defaults to `gpt-4.1-mini`
-- `PORT` optional, defaults to `8787`
-
-## Local run
-```bash
-cd assistant-backend
-npm install
-OPENAI_API_KEY=your_key_here npm start
+## Expected response
+```json
+{
+  "answer": "...",
+  "matches": []
+}
 ```
 
 ## Frontend hook
-On the site, set:
+Once Render gives you a URL like:
+- `https://freecptcodefinder-assistant.onrender.com`
+
+set the site assistant endpoint to:
 ```html
 <script>
-window.FCCF_ASSISTANT_ENDPOINT = 'https://your-backend-host/assistant';
+window.FCCF_ASSISTANT_ENDPOINT = 'https://freecptcodefinder-assistant.onrender.com/assistant';
 </script>
 ```
-before the closing `</body>` or inject it at build time.
+
+Then the homepage AI assistant becomes live.
+
+## Health check
+- `GET /health`
 
 ## Guardrails
 - concise answers
 - no fabricated CPT facts
-- reminds user when documentation or payer policy changes the answer
+- reminds users when documentation, payer policy, or NCCI/global rules change the answer
 - uses site CPT matches as grounding context
+- keeps model secrets off the static site

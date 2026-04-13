@@ -11,7 +11,16 @@ const projectRoot = path.resolve(__dirname, '..');
 const cptDbPath = path.join(projectRoot, 'cpt_database.json');
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 const app = express();
-app.use(cors());
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'https://freecptcodefinder.com,https://www.freecptcodefinder.com')
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('Not allowed by CORS'));
+  }
+}));
 app.use(express.json({ limit: '1mb' }));
 
 let cptDb = [];
@@ -45,7 +54,7 @@ function searchCpt(query, limit = 8) {
 }
 
 app.get('/health', (_req, res) => {
-  res.json({ ok: true, openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0 });
+  res.json({ ok: true, openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, allowedOrigins });
 });
 
 app.post('/assistant', async (req, res) => {
