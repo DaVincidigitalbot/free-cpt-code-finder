@@ -36,6 +36,9 @@ a{color:inherit;text-decoration:none}
 
 /* SEARCH */
 .search-wrap{margin:0 0 40px;position:relative}
+.quick-links{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+.quick-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--line2);border-radius:999px;background:var(--white);font-size:12px;font-weight:600;color:var(--ink2);letter-spacing:.02em}
+.quick-link:hover{border-color:var(--ox);color:var(--ox);background:var(--ox2)}
 .search-label{font-size:11px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
 .search{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--line2);border-radius:8px;padding:18px 20px;transition:border-color .15s}
 .search:hover,.search:focus-within{border-color:var(--ink)}
@@ -194,6 +197,11 @@ a{color:inherit;text-decoration:none}
 </header>
 
 <div class="search-wrap">
+<div class="quick-links">
+<a class="quick-link" href="/blog/">Read Coding Blog</a>
+<a class="quick-link" href="/about.html">About</a>
+<a class="quick-link" href="/contact.html">Contact</a>
+</div>
 <div class="search-label">Search for your surgery or encounter</div>
 <div class="search" onclick="document.getElementById('q').focus()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
