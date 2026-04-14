@@ -233,35 +233,15 @@
           ]
         },
         "hiatal_questions": {
-          "question": "Type of hiatal hernia?",
+          "question": "Hiatal or paraesophageal hernia?",
           "options": [
             {
-              "label": "Sliding (Type I)",
-              "cpt_code": "43280",
-              "description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty",
-              "modifiers": [],
-              "icd10": [
-                "K44.9"
-              ]
+              "label": "Hiatal hernia",
+              "next": "hiatal_approach"
             },
             {
-              "label": "Paraesophageal (Type II-IV)",
-              "cpt_code": "43281",
-              "description": "Laparoscopy, surgical, repair of paraesophageal hernia",
-              "modifiers": [],
-              "icd10": [
-                "K44.0",
-                "K44.1"
-              ]
-            },
-            {
-              "label": "Open approach",
-              "cpt_code": "43324",
-              "description": "Esophagogastric fundoplasty (eg, Nissen, Belsey IV, Hill procedures)",
-              "modifiers": [],
-              "icd10": [
-                "K44.9"
-              ]
+              "label": "Paraesophageal hernia",
+              "next": "paraesophageal_approach"
             }
           ]
         },
@@ -2433,6 +2413,73 @@
               ],
               "_also_add": "49657",
               "bilateral": true
+            }
+          ]
+        },
+        "hiatal_approach": {
+          "question": "Approach for hiatal hernia repair?",
+          "options": [
+            {
+              "label": "Open",
+              "cpt_code": "43324",
+              "description": "Esophagogastric fundoplasty (eg, Nissen, Belsey IV, Hill procedures)",
+              "modifiers": [],
+              "icd10": [
+                "K44.9"
+              ]
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "cpt_code": "43280",
+              "description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty (eg, Nissen, Toupet procedures)",
+              "modifiers": [],
+              "icd10": [
+                "K44.9"
+              ]
+            }
+          ]
+        },
+        "paraesophageal_approach": {
+          "question": "Approach for paraesophageal hernia repair?",
+          "options": [
+            {
+              "label": "Open",
+              "cpt_code": "43324",
+              "description": "Open paraesophageal/hiatal hernia repair with fundoplasty (site uses 43324 as open fundoplasty pathway)",
+              "modifiers": [],
+              "icd10": [
+                "K44.0",
+                "K44.1"
+              ]
+            },
+            {
+              "label": "Laparoscopic / Robotic",
+              "next": "paraesophageal_mesh"
+            }
+          ]
+        },
+        "paraesophageal_mesh": {
+          "question": "Mesh implanted during laparoscopic/robotic paraesophageal hernia repair?",
+          "options": [
+            {
+              "label": "No mesh",
+              "cpt_code": "43281",
+              "description": "Laparoscopy, surgical, repair of paraesophageal hernia",
+              "modifiers": [],
+              "icd10": [
+                "K44.0",
+                "K44.1"
+              ]
+            },
+            {
+              "label": "Mesh implanted",
+              "cpt_code": "43282",
+              "description": "Laparoscopy, surgical, repair of paraesophageal hernia, with implantation of mesh",
+              "modifiers": [],
+              "icd10": [
+                "K44.0",
+                "K44.1"
+              ]
             }
           ]
         }
