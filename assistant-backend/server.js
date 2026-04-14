@@ -25,7 +25,8 @@ app.use(express.json({ limit: '1mb' }));
 
 let cptDb = [];
 try {
-  cptDb = JSON.parse(fs.readFileSync(cptDbPath, 'utf8'));
+  const rawDb = JSON.parse(fs.readFileSync(cptDbPath, 'utf8'));
+  cptDb = Array.isArray(rawDb) ? rawDb : Object.values(rawDb || {});
 } catch (err) {
   console.error('Failed to load CPT database', err);
 }
