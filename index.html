@@ -336,20 +336,17 @@ a{color:inherit;text-decoration:none}
 
 </div>
 
-<script>
-window.FCCF_ASSISTANT_ENDPOINT = 'https://free-cpt-code-finder.onrender.com/assistant';
-</script>
 <button class="ai-launch" id="aiLaunch" type="button" onclick="toggleAiAssistant(true)"><span class="ai-dot"></span><span>Ask AI Assistant</span></button>
 <div class="ai-panel" id="aiPanel" aria-hidden="true">
  <div class="ai-head">
   <div>
-   <div class="ai-head-title">Free CPT Code Finder AI Assistant</div>
-   <div class="ai-head-sub">Conversational coding help, grounded in the CPT finder workflow. Review answers before billing use.</div>
+   <div class="ai-head-title">Free CPT Code Finder Assistant</div>
+   <div class="ai-head-sub">Free site-powered coding help using CPT data and rule logic already built into the workflow. Review answers before billing use.</div>
   </div>
   <button class="ai-close" type="button" onclick="toggleAiAssistant(false)">×</button>
  </div>
  <div class="ai-messages" id="aiMessages">
-  <div class="ai-msg bot"><div class="ai-bubble">Ask about CPT selection, modifiers, wRVUs, or how to structure a case. I can also help translate plain-English procedure descriptions into likely CPT pathways.</div><div class="ai-meta">assistant</div></div>
+  <div class="ai-msg bot"><div class="ai-bubble">Ask about CPT selection, modifiers, wRVUs, or case structure. This assistant uses site data and built-in coding rules, not a paid AI API.</div><div class="ai-meta">site logic</div></div>
  </div>
  <div class="ai-suggest">
   <button class="ai-chip" type="button" onclick="fillAiPrompt('What is the CPT code for laparoscopic appendectomy?')">lap appendectomy CPT</button>
@@ -359,7 +356,7 @@ window.FCCF_ASSISTANT_ENDPOINT = 'https://free-cpt-code-finder.onrender.com/assi
  <div class="ai-compose">
   <textarea id="aiInput" placeholder="Ask a coding question..."></textarea>
   <div class="ai-actions">
-   <div class="ai-note">Ask about CPT logic, modifiers, and wRVUs. If this panel errors, the assistant backend is not connected yet.</div>
+   <div class="ai-note">Free assistant powered by site CPT data, modifier logic, and case-builder rules.</div>
    <button class="ai-send" type="button" onclick="submitAiPrompt()">Send</button>
   </div>
  </div>
@@ -382,11 +379,6 @@ window.FCCF_ASSISTANT_ENDPOINT = 'https://free-cpt-code-finder.onrender.com/assi
 
 <script>
 const CF=32.3465;
-const AI_ASSISTANT_ENDPOINT = (() => {
- const configured = window.FCCF_ASSISTANT_ENDPOINT || document.documentElement.getAttribute('data-assistant-endpoint') || '';
- const cleaned = String(configured || '').trim();
- return (!cleaned || cleaned.includes('YOUR-ASSISTANT-BACKEND.example.com')) ? '' : cleaned;
-})();
 
 const ROBOTIC_ALLOWED=[
  '47562','47563','47564','44970','49650','49623','43280','43644','44202','38120','49320',
@@ -1192,10 +1184,39 @@ document.addEventListener('click',e=>{
 
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('q').focus()}});
 
+const FREE_ASSISTANT_RULES=[
+ {test:q=>/\bmodifier\s*57\b|\b57\s+vs\s+25\b|\b25\s+vs\s+57\b/.test(q),answer:()=>`Modifier 57 is for the E/M that results in the initial decision for a major procedure, usually a 90-day global. Modifier 25 is for a significant, separately identifiable E/M on the same day as a minor procedure. If you are deciding to operate on a major case, think 57, not 25.`},
+ {test:q=>/multiple procedures|mppr|100\/?50\/?50|50\/?50/.test(q),answer:()=>`For Medicare multiple procedure reduction, the site uses 100% of the highest-valued primary procedure, then 50% for additional eligible procedures. Add-on codes stay at 100%. CPT 15734 is treated as reconstructive tier and stays at 100%.`},
+ {test:q=>/ventral hernia|incisional hernia/.test(q),answer:()=>`Use the 2023+ ventral hernia family, 49591 through 49618. Do not use the retired legacy ventral hernia codes 49560 through 49566 in this workflow.`},
+ {test:q=>/abthera|negative pressure.*abdomen|vac.*abdomen/.test(q),answer:()=>`AbThera does not automatically mean CPT 49013. On this site, 49013 is reserved for preperitoneal packing for pelvic trauma hemorrhage. Open abdominal negative-pressure management usually points you toward unlisted 49999 or negative-pressure codes like 97605 or 97606 depending on documentation.`},
+ {test:q=>/15734|component separation/.test(q),answer:()=>`CPT 15734 is component separation. In this calculator it carries 20.22 work RVUs, remains in the reconstructive tier, and is paid at 100% rather than reduced under the usual multiple-procedure logic.`}
+];
 function toggleAiAssistant(forceOpen){const panel=document.getElementById('aiPanel');const open=typeof forceOpen==='boolean'?forceOpen:!panel.classList.contains('open');panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',open?'false':'true');if(open)setTimeout(()=>document.getElementById('aiInput').focus(),40);}
 function fillAiPrompt(text){document.getElementById('aiInput').value=text;toggleAiAssistant(true);}
 function appendAiMessage(role,text,meta=''){const wrap=document.createElement('div');wrap.className='ai-msg '+role;wrap.innerHTML=`<div class="ai-bubble"></div><div class="ai-meta">${meta||role}</div>`;wrap.querySelector('.ai-bubble').textContent=text;const box=document.getElementById('aiMessages');box.appendChild(wrap);box.scrollTop=box.scrollHeight;}
-async function submitAiPrompt(){const input=document.getElementById('aiInput');const prompt=input.value.trim();if(!prompt)return;appendAiMessage('user',prompt,'you');input.value='';if(!AI_ASSISTANT_ENDPOINT){appendAiMessage('bot','AI assistant is not configured on this page yet. Set window.FCCF_ASSISTANT_ENDPOINT or the page data-assistant-endpoint attribute to your live /assistant URL.','setup needed');return;}appendAiMessage('bot','Thinking...','assistant');const box=document.getElementById('aiMessages');const thinking=box.lastElementChild;try{const res=await fetch(AI_ASSISTANT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:prompt,caseLines,source:'freecptcodefinder-web'})});if(!res.ok){const text=await res.text();throw new Error(`assistant request failed (${res.status}) ${text.slice(0,200)}`);}const data=await res.json();thinking.remove();appendAiMessage('bot',data.answer||'No answer returned.','assistant');}catch(err){console.error('AI assistant error',err);thinking.remove();appendAiMessage('bot','The assistant backend did not respond cleanly. Check that the endpoint URL is live, allows freecptcodefinder.com via CORS, and returns JSON with an answer field.','assistant error');}}
+function normalizeAssistantText(text){return String(text||'').toLowerCase().replace(/[^a-z0-9+\-\s]/g,' ').replace(/\s+/g,' ').trim();}
+function formatAssistantMatches(matches){if(!matches.length)return '';
+ return matches.slice(0,5).map(m=>`${m.code} - ${m.description}${m.work_rvu!=null?` (wRVU ${Number(m.work_rvu).toFixed(2)})`:''}`).join('\n');
+}
+function searchAssistantCpt(prompt,limit=5){const q=normalizeAssistantText(prompt);if(!q)return[];const tokens=q.split(' ').filter(Boolean);const rows=Object.values(CPT_DATA||{});
+ return rows.map(item=>{const code=String(item.code||'');const desc=String(item.description||'').toLowerCase();let score=0;if(code===q)score+=120;if(q.includes(code))score+=80;if(desc.includes(q))score+=40;tokens.forEach(tok=>{if(desc.includes(tok))score+=6;if(code===tok)score+=100;if(code.startsWith(tok))score+=20;});return {...item,score};}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,limit);
+}
+function buildCaseSummary(){if(!caseLines.length)return 'Current case is empty.';const lines=caseLines.slice(0,6).map((line,i)=>`${i+1}. ${line.cpt||'No CPT'} ${line.desc||''}${line.userMod?` | modifier ${line.userMod}`:''}${line.approach?` | ${line.approach}`:''}${line.effWrvu!=null?` | effective wRVU ${Number(line.effWrvu).toFixed(2)}`:''}`);return `Current case:\n${lines.join('\n')}`;}
+function buildFreeAssistantAnswer(prompt){const q=normalizeAssistantText(prompt);for(const rule of FREE_ASSISTANT_RULES){if(rule.test(q))return `${rule.answer()}\n\n${buildCaseSummary()}`;}
+ const matches=searchAssistantCpt(prompt,5);
+ const askedForCode=/what(?:'s| is)? the cpt|cpt code|code for|which code|likely code|lap|laparoscopic|open|robotic/.test(q);
+ const askedAboutModifier=/modifier|bilateral|assistant surgeon|co surgeon|global|post op|postop/.test(q);
+ const askedAboutWrvu=/wrvu|rvu|work rvu|payment|reimbursement/.test(q);
+ if(matches.length){
+  const lead=askedForCode?`Best matches from the site dataset:`:`Closest CPT matches I found:`;
+  const extra=[];
+  if(askedAboutModifier)extra.push('Modifier choice still depends on documentation, laterality, NCCI edits, and payer rules.');
+  if(askedAboutWrvu)extra.push('Use the case builder to see actual multiple-procedure effects, because ranking and reductions matter.');
+  return `${lead}\n${formatAssistantMatches(matches)}${extra.length?`\n\n${extra.join(' ')}`:''}\n\n${buildCaseSummary()}`;
+ }
+ return `I did not find a confident CPT match from the site dataset. Try a more concrete procedure description, a CPT code, or ask about one of the built-in rules like modifier 57 vs 25, ventral hernia coding, 15734, AbThera, or Medicare multiple-procedure reduction.\n\n${buildCaseSummary()}`;
+}
+async function submitAiPrompt(){const input=document.getElementById('aiInput');const prompt=input.value.trim();if(!prompt)return;appendAiMessage('user',prompt,'you');input.value='';appendAiMessage('bot','Thinking...','assistant');const box=document.getElementById('aiMessages');const thinking=box.lastElementChild;try{const answer=buildFreeAssistantAnswer(prompt);thinking.remove();appendAiMessage('bot',answer,'site logic');}catch(err){console.error('AI assistant error',err);thinking.remove();appendAiMessage('bot','The free assistant hit a local logic error. Refresh the page and try again.','assistant error');}}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('aiPanel').classList.contains('open'))toggleAiAssistant(false);if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='j'){e.preventDefault();toggleAiAssistant();}});
 document.getElementById('aiInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submitAiPrompt();}});
 renderSpecs();
