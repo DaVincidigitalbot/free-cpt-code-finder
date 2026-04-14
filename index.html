@@ -1048,13 +1048,15 @@ function scoreSearchResult(item,query){
  const q=normalizeSearchValue(raw);
  if(!q)return -1;
  const desc=normalizeSearchValue(item.description);
+ const words=q.split(' ').filter(Boolean);
  if(item.code===raw)return 100;
  if(item.code.startsWith(raw))return 80;
  if(desc===q)return 76;
  if(desc.startsWith(q))return 74;
+ if(desc.includes(` ${q} `)||desc.startsWith(`${q} `)||desc.endsWith(` ${q}`))return 72;
+ if(words.length&&words.every(word=>desc.includes(` ${word} `)||desc.startsWith(`${word} `)||desc.endsWith(` ${word}`)))return 71;
  if(desc.includes(q))return 70;
  if(item.haystack.includes(q))return 52;
- const words=q.split(' ').filter(Boolean);
  if(words.length&&words.every(word=>desc.includes(word)))return 46;
  if(words.length&&words.every(word=>item.haystack.includes(word)))return 40;
  return -1;
@@ -1115,7 +1117,7 @@ function filterSearchExperience(query){
   renderAutocompleteResults();
   return;
  }
- const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,8).map(entry=>entry.item);
+ const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,12).map(entry=>entry.item);
  searchState.searchResults=ranked;
  renderAutocompleteResults();
  applyTypeaheadSuggestion(query);
