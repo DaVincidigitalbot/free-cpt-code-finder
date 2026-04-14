@@ -2581,6 +2581,23 @@
           "options": [
             {
               "label": "Open",
+              "next": "sigmoid_open_splenic"
+            },
+            {
+              "label": "Laparoscopic",
+              "next": "sigmoid_lap_splenic"
+            },
+            {
+              "label": "Robotic",
+              "next": "sigmoid_robotic_splenic"
+            }
+          ]
+        },
+        "sigmoid_open_splenic": {
+          "question": "Mobilization of splenic flexure?",
+          "options": [
+            {
+              "label": "No",
               "cpt_code": "44140",
               "description": "Colectomy, partial; with anastomosis",
               "modifiers": [],
@@ -2592,7 +2609,25 @@
               ]
             },
             {
-              "label": "Laparoscopic",
+              "label": "Yes (+ splenic flexure mobilization)",
+              "cpt_code": "44139",
+              "description": "Mobilization of splenic flexure performed in conjunction with partial colectomy",
+              "modifiers": [],
+              "icd10": [
+                "K57.20",
+                "K57.32",
+                "C18.7",
+                "K63.89"
+              ],
+              "_also_add": "44140"
+            }
+          ]
+        },
+        "sigmoid_lap_splenic": {
+          "question": "Mobilization of splenic flexure?",
+          "options": [
+            {
+              "label": "No",
               "cpt_code": "44204",
               "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
               "modifiers": [],
@@ -2604,7 +2639,25 @@
               ]
             },
             {
-              "label": "Robotic",
+              "label": "Yes (+ splenic flexure mobilization)",
+              "cpt_code": "44139",
+              "description": "Mobilization of splenic flexure performed in conjunction with partial colectomy",
+              "modifiers": [],
+              "icd10": [
+                "K57.20",
+                "K57.32",
+                "C18.7",
+                "K63.89"
+              ],
+              "_also_add": "44204"
+            }
+          ]
+        },
+        "sigmoid_robotic_splenic": {
+          "question": "Mobilization of splenic flexure?",
+          "options": [
+            {
+              "label": "No",
               "cpt_code": "44204",
               "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis (robotic approach uses laparoscopic CPT)",
               "modifiers": [],
@@ -2614,6 +2667,19 @@
                 "C18.7",
                 "K63.89"
               ]
+            },
+            {
+              "label": "Yes (+ splenic flexure mobilization)",
+              "cpt_code": "44139",
+              "description": "Mobilization of splenic flexure performed in conjunction with partial colectomy",
+              "modifiers": [],
+              "icd10": [
+                "K57.20",
+                "K57.32",
+                "C18.7",
+                "K63.89"
+              ],
+              "_also_add": "44204"
             }
           ]
         }
