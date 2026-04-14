@@ -2,14 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
-import OpenAI from 'openai';
+import { GoogleGenAI } from '@google/genai';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 const cptDbPath = path.join(projectRoot, 'cpt_database.json');
-const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
+const gemini = process.env.GEMINI_API_KEY ? new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }) : null;
 const app = express();
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'https://freecptcodefinder.com,https://www.freecptcodefinder.com')
   .split(',')
@@ -55,7 +55,7 @@ function searchCpt(query, limit = 8) {
 }
 
 app.get('/health', (_req, res) => {
-  res.json({ ok: true, openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, allowedOrigins });
+  res.json({ ok: true, gemini: !!gemini, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, allowedOrigins });
 });
 
 app.post('/assistant', async (req, res) => {
@@ -71,22 +71,22 @@ app.post('/assistant', async (req, res) => {
     activeCase: caseLines.map(l => ({ cpt: l.cpt, desc: l.desc, mods: l.mods || [], userMod: l.userMod || '', approach: l.approach || '', wrvu: l.baseWrvu || l.effWrvu || null }))
   };
 
-  if (!openai) {
+  if (!gemini) {
     return res.json({
-      answer: `Backend is running, but OPENAI_API_KEY is not set yet. Top grounded matches for this question: ${matches.map(m => `${m.code} ${m.description}`).join(' | ') || 'none found'}.`
+      answer: `Backend is running, but GEMINI_API_KEY is not set yet. Top grounded matches for this question: ${matches.map(m => `${m.code} ${m.description}`).join(' | ') || 'none found'}.`
     });
   }
 
   try {
-    const response = await openai.chat.completions.create({
-      model: process.env.OPENAI_MODEL || 'gpt-4.1-mini',
-      temperature: 0.2,
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user', content: `Use this grounded site data when answering:\n${JSON.stringify(grounded, null, 2)}` }
-      ]
+    const response = await gemini.models.generateContent({
+      model: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
+      config: {
+        temperature: 0.2,
+        systemInstruction: system
+      },
+      contents: `Use this grounded site data when answering:\n${JSON.stringify(grounded, null, 2)}`
     });
-    const answer = response.choices?.[0]?.message?.content?.trim() || 'No answer returned.';
+    const answer = response.text?.trim() || 'No answer returned.';
     res.json({ answer, matches });
   } catch (err) {
     console.error(err);

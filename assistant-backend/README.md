@@ -16,7 +16,7 @@ This folder is prepared for direct Render deployment.
 - exposes `GET /health`
 - exposes `POST /assistant`
 - grounds answers using `../cpt_database.json`
-- sends the grounded prompt to OpenAI when `OPENAI_API_KEY` is configured
+- sends the grounded prompt to Gemini when `GEMINI_API_KEY` is configured
 - limits CORS to the production site origins by default
 
 ## Render deployment steps
@@ -26,7 +26,7 @@ This folder is prepared for direct Render deployment.
 3. Select this repo
 4. Render will detect `assistant-backend/render.yaml`
 5. Add your secret:
-   - `OPENAI_API_KEY`
+   - `GEMINI_API_KEY`
 6. Deploy
 
 ### Option B: Manual web service
@@ -38,8 +38,8 @@ Use these exact settings:
 - **Health Check Path**: `/health`
 
 Environment variables:
-- `OPENAI_API_KEY` = your OpenAI key
-- `OPENAI_MODEL` = `gpt-4.1-mini`
+- `GEMINI_API_KEY` = your Gemini API key
+- `GEMINI_MODEL` = `gemini-2.5-flash`
 - `ALLOWED_ORIGINS` = `https://freecptcodefinder.com,https://www.freecptcodefinder.com`
 
 ## Expected request body
