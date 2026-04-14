@@ -3535,7 +3535,17 @@
               "cpt_code": "49320",
               "description": "Diagnostic laparoscopy of abdomen/peritoneum",
               "modifiers": [],
-              "icd10": ["R10.84", "R10.11", "R10.12", "R10.31", "R10.32", "R10.9", "K56.609", "K56.1", "R19.00"],
+              "icd10": [
+                "R10.84",
+                "R10.11",
+                "R10.12",
+                "R10.31",
+                "R10.32",
+                "R10.9",
+                "K56.609",
+                "K56.1",
+                "R19.00"
+              ],
               "work_rvu": 6.0,
               "builder_note": "Diagnostic laparoscopy assigned CPT 49320"
             },
@@ -3544,7 +3554,17 @@
               "cpt_code": "49320",
               "description": "Diagnostic laparoscopy of abdomen/peritoneum",
               "modifiers": [],
-              "icd10": ["R10.84", "R10.11", "R10.12", "R10.31", "R10.32", "R10.9", "K56.609", "K56.1", "R19.00"],
+              "icd10": [
+                "R10.84",
+                "R10.11",
+                "R10.12",
+                "R10.31",
+                "R10.32",
+                "R10.9",
+                "K56.609",
+                "K56.1",
+                "R19.00"
+              ],
               "work_rvu": 6.0,
               "builder_note": "Robotic approach does not change CPT code"
             },
@@ -3553,7 +3573,17 @@
               "cpt_code": "49000",
               "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
               "modifiers": [],
-              "icd10": ["R10.84", "R10.11", "R10.12", "R10.31", "R10.32", "R10.9", "K56.609", "K56.1", "R19.00"],
+              "icd10": [
+                "R10.84",
+                "R10.11",
+                "R10.12",
+                "R10.31",
+                "R10.32",
+                "R10.9",
+                "K56.609",
+                "K56.1",
+                "R19.00"
+              ],
               "work_rvu": 11.25,
               "builder_note": "Open exploration assigned CPT 49000"
             }
@@ -3935,14 +3965,14 @@
       "specialty": "General Surgery",
       "questions": [
         {
-          "question": "Complexity?",
+          "question": "Abscess drainage category?",
           "options": [
             {
-              "label": "Simple I&D",
+              "label": "Simple incision and drainage",
               "next": "abscess_simple"
             },
             {
-              "label": "Complex I&D",
+              "label": "Complex incision and drainage",
               "next": "abscess_complex"
             }
           ]
@@ -3950,10 +3980,10 @@
       ],
       "branches": {
         "abscess_simple": {
-          "question": "Location?",
+          "question": "Simple abscess I&D location?",
           "options": [
             {
-              "label": "Skin/subcutaneous",
+              "label": "Simple skin/subcutaneous abscess",
               "cpt_code": "10060",
               "description": "Incision and drainage of abscess; simple or single",
               "modifiers": [],
@@ -3964,7 +3994,7 @@
               ]
             },
             {
-              "label": "Perirectal",
+              "label": "Superficial perianal/perirectal abscess",
               "cpt_code": "46050",
               "description": "Incision and drainage, perirectal or perianal abscess; superficial",
               "modifiers": [],
@@ -3985,10 +4015,10 @@
           ]
         },
         "abscess_complex": {
-          "question": "Location and complexity?",
+          "question": "Complex abscess I&D location?",
           "options": [
             {
-              "label": "Deep/complicated skin",
+              "label": "Complicated or multiple skin abscess",
               "cpt_code": "10061",
               "description": "Incision and drainage of abscess; complicated or multiple",
               "modifiers": [],
@@ -3999,7 +4029,7 @@
               ]
             },
             {
-              "label": "Intra-abdominal",
+              "label": "Intra-abdominal / retroperitoneal abscess",
               "cpt_code": "49060",
               "description": "Drainage of retroperitoneal abscess, open",
               "modifiers": [],
@@ -4009,7 +4039,7 @@
               ]
             },
             {
-              "label": "Perirectal, deep",
+              "label": "Deep perianal/perirectal abscess",
               "cpt_code": "46060",
               "description": "Incision and drainage, perirectal or perianal abscess; deep intramuscular",
               "modifiers": [],
@@ -4031,6 +4061,131 @@
           ]
         }
       }
+    },
+    {
+      "name": "Hemorrhoids",
+      "specialty": "Colon & Rectum",
+      "questions": [
+        {
+          "question": "Type of hemorrhoid procedure?",
+          "options": [
+            {
+              "label": "Incision of thrombosed external hemorrhoid",
+              "cpt_code": "46083",
+              "description": "Incision of thrombosed hemorrhoid, external",
+              "modifiers": [],
+              "icd10": [
+                "K64.5"
+              ]
+            },
+            {
+              "label": "Rubber band ligation, internal",
+              "cpt_code": "46221",
+              "description": "Hemorrhoidectomy, internal, by rubber band ligation(s)",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9"
+              ]
+            },
+            {
+              "label": "External hemorrhoidectomy, complete",
+              "cpt_code": "46250",
+              "description": "Hemorrhoidectomy, external, complete",
+              "modifiers": [],
+              "icd10": [
+                "K64.4",
+                "K64.8"
+              ]
+            },
+            {
+              "label": "Internal/external hemorrhoidectomy, single column",
+              "cpt_code": "46255",
+              "description": "Hemorrhoidectomy, internal and external, single column/group",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9"
+              ]
+            },
+            {
+              "label": "Internal/external hemorrhoidectomy with fissurectomy",
+              "cpt_code": "46257",
+              "description": "Hemorrhoidectomy, internal and external, with fissurectomy",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9",
+                "K60.2"
+              ]
+            },
+            {
+              "label": "Internal/external hemorrhoidectomy with fistulectomy",
+              "cpt_code": "46258",
+              "description": "Hemorrhoidectomy, internal and external, with fistulectomy",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9",
+                "K60.3"
+              ]
+            },
+            {
+              "label": "Hemorrhoidectomy, 2 or more columns/groups",
+              "cpt_code": "46260",
+              "description": "Hemorrhoidectomy, internal and external, 2 or more columns/groups",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9"
+              ]
+            },
+            {
+              "label": "Hemorrhoidectomy, 2+ columns with fissurectomy",
+              "cpt_code": "46261",
+              "description": "Hemorrhoidectomy, internal and external, 2 or more columns/groups, with fissurectomy",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9",
+                "K60.2"
+              ]
+            },
+            {
+              "label": "Hemorrhoidectomy, 2+ columns with fistulectomy",
+              "cpt_code": "46262",
+              "description": "Hemorrhoidectomy, internal and external, 2 or more columns/groups, with fistulectomy",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9",
+                "K60.3"
+              ]
+            },
+            {
+              "label": "External hemorrhoidectomy, complete, extensive",
+              "cpt_code": "46280",
+              "description": "Hemorrhoidectomy, external, complete, extensive",
+              "modifiers": [],
+              "icd10": [
+                "K64.4",
+                "K64.8"
+              ]
+            },
+            {
+              "label": "Stapled hemorrhoidopexy",
+              "cpt_code": "46947",
+              "description": "Hemorrhoidopexy (eg, for prolapsing internal hemorrhoids) by stapling",
+              "modifiers": [],
+              "icd10": [
+                "K64.8",
+                "K64.9"
+              ]
+            }
+          ]
+        }
+      ],
+      "branches": {}
     },
     {
       "name": "Endoscopy",
