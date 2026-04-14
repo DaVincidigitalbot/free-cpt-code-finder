@@ -1180,37 +1180,6 @@ document.addEventListener('click',e=>{
 
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('q').focus()}});
 
-const FREE_ASSISTANT_RULES=[
- {test:q=>/\bmodifier\s*57\b|\b57\s+vs\s+25\b|\b25\s+vs\s+57\b/.test(q),answer:()=>`Modifier 57 is for the E/M that results in the initial decision for a major procedure, usually a 90-day global. Modifier 25 is for a significant, separately identifiable E/M on the same day as a minor procedure. If you are deciding to operate on a major case, think 57, not 25.`},
- {test:q=>/multiple procedures|mppr|100\/?50\/?50|50\/?50/.test(q),answer:()=>`For Medicare multiple procedure reduction, the site uses 100% of the highest-valued primary procedure, then 50% for additional eligible procedures. Add-on codes stay at 100%. CPT 15734 is treated as reconstructive tier and stays at 100%.`},
- {test:q=>/ventral hernia|incisional hernia/.test(q),answer:()=>`Use the 2023+ ventral hernia family, 49591 through 49618. Do not use the retired legacy ventral hernia codes 49560 through 49566 in this workflow.`},
- {test:q=>/abthera|negative pressure.*abdomen|vac.*abdomen/.test(q),answer:()=>`AbThera does not automatically mean CPT 49013. On this site, 49013 is reserved for preperitoneal packing for pelvic trauma hemorrhage. Open abdominal negative-pressure management usually points you toward unlisted 49999 or negative-pressure codes like 97605 or 97606 depending on documentation.`},
- {test:q=>/15734|component separation/.test(q),answer:()=>`CPT 15734 is component separation. In this calculator it carries 20.22 work RVUs, remains in the reconstructive tier, and is paid at 100% rather than reduced under the usual multiple-procedure logic.`}
-];
-function appendAiMessage(role,text,meta=''){const wrap=document.createElement('div');wrap.className='ai-msg '+role;wrap.innerHTML=`<div class="ai-bubble"></div><div class="ai-meta">${meta||role}</div>`;wrap.querySelector('.ai-bubble').textContent=text;const box=document.getElementById('aiMessages');box.appendChild(wrap);box.scrollTop=box.scrollHeight;}
-function normalizeAssistantText(text){return String(text||'').toLowerCase().replace(/[^a-z0-9+\-\s]/g,' ').replace(/\s+/g,' ').trim();}
-function formatAssistantMatches(matches){if(!matches.length)return '';
- return matches.slice(0,5).map(m=>{const wrvuRaw=m.work_rvu??m.wrvu??m.baseWrvu??null;const wrvuText=wrvuRaw!=null&&Number.isFinite(Number(wrvuRaw))?` (wRVU ${Number(wrvuRaw).toFixed(2)})`:'';return `${m.code||'Unknown'} - ${m.description||'No description'}${wrvuText}`;}).join('\n');
-}
-function searchAssistantCpt(prompt,limit=5){const q=normalizeAssistantText(prompt);if(!q)return[];const tokens=q.split(' ').filter(Boolean);const rows=(searchState&&Array.isArray(searchState.cptSearchIndex)&&searchState.cptSearchIndex.length)?searchState.cptSearchIndex:buildSearchIndexFromSpecs();
- return rows.map(item=>{const code=String(item.code||'');const desc=String(item.description||'').toLowerCase();let score=0;if(code===q)score+=120;if(q.includes(code))score+=80;if(desc.includes(q))score+=40;tokens.forEach(tok=>{if(desc.includes(tok))score+=6;if(code===tok)score+=100;if(code.startsWith(tok))score+=20;});return {...item,score,work_rvu:item.work_rvu??item.wrvu??null};}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,limit);
-}
-function buildCaseSummary(){if(!Array.isArray(caseLines)||!caseLines.length)return 'Current case is empty.';const lines=caseLines.slice(0,6).map((line,i)=>{const eff=line&&line.effWrvu!=null&&Number.isFinite(Number(line.effWrvu))?` | effective wRVU ${Number(line.effWrvu).toFixed(2)}`:'';return `${i+1}. ${(line&&line.cpt)||'No CPT'} ${(line&&line.desc)||''}${line&&line.userMod?` | modifier ${line.userMod}`:''}${line&&line.approach?` | ${line.approach}`:''}${eff}`;});return `Current case:\n${lines.join('\n')}`;}
-function buildFreeAssistantAnswer(prompt){const q=normalizeAssistantText(prompt);for(const rule of FREE_ASSISTANT_RULES){if(rule.test(q))return `${rule.answer()}\n\n${buildCaseSummary()}`;}
- const matches=searchAssistantCpt(prompt,5)||[];
- const askedForCode=/what(?:'s| is)? the cpt|cpt code|code for|which code|likely code|lap|laparoscopic|open|robotic/.test(q);
- const askedAboutModifier=/modifier|bilateral|assistant surgeon|co surgeon|global|post op|postop/.test(q);
- const askedAboutWrvu=/wrvu|rvu|work rvu|payment|reimbursement/.test(q);
- if(matches.length){
-  const lead=askedForCode?`Best matches from the site dataset:`:`Closest CPT matches I found:`;
-  const extra=[];
-  if(askedAboutModifier)extra.push('Modifier choice still depends on documentation, laterality, NCCI edits, and payer rules.');
-  if(askedAboutWrvu)extra.push('Use the case builder to see actual multiple-procedure effects, because ranking and reductions matter.');
-  return `${lead}\n${formatAssistantMatches(matches)}${extra.length?`\n\n${extra.join(' ')}`:''}\n\n${buildCaseSummary()}`;
- }
- return `I did not find a confident CPT match from the site dataset. Try a more concrete procedure description, a CPT code, or ask about one of the built-in rules like modifier 57 vs 25, ventral hernia coding, 15734, AbThera, or Medicare multiple-procedure reduction.\n\n${buildCaseSummary()}`;
-}
-async function submitAiPrompt(){const input=document.getElementById('aiInput');const prompt=input.value.trim();if(!prompt)return;appendAiMessage('user',prompt,'you');input.value='';appendAiMessage('bot','Thinking...','assistant');const box=document.getElementById('aiMessages');const thinking=box.lastElementChild;let answer='';try{answer=buildFreeAssistantAnswer(prompt);}catch(err){console.error('AI assistant error',err);try{const fallbackMatches=searchAssistantCpt(prompt,5)||[];answer=`I hit a rule-processing bug, so I dropped to basic CPT search instead.\n\n${fallbackMatches.length?`Closest matches:\n${formatAssistantMatches(fallbackMatches)}`:'I could not find a confident match from the current site data.'}\n\n${buildCaseSummary()}`;}catch(innerErr){console.error('AI assistant fallback error',innerErr);answer='The assistant had trouble processing that question. Try a shorter procedure description, a CPT code, or one of the built-in prompts like lap appendectomy CPT or modifier 57 vs 25.';}}thinking.remove();appendAiMessage('bot',answer,'site logic');}
 renderSpecs();
 loadCptSearchIndex();
 </script></body></html>
