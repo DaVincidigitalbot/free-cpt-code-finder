@@ -1196,14 +1196,14 @@ function fillAiPrompt(text){document.getElementById('aiInput').value=text;toggle
 function appendAiMessage(role,text,meta=''){const wrap=document.createElement('div');wrap.className='ai-msg '+role;wrap.innerHTML=`<div class="ai-bubble"></div><div class="ai-meta">${meta||role}</div>`;wrap.querySelector('.ai-bubble').textContent=text;const box=document.getElementById('aiMessages');box.appendChild(wrap);box.scrollTop=box.scrollHeight;}
 function normalizeAssistantText(text){return String(text||'').toLowerCase().replace(/[^a-z0-9+\-\s]/g,' ').replace(/\s+/g,' ').trim();}
 function formatAssistantMatches(matches){if(!matches.length)return '';
- return matches.slice(0,5).map(m=>`${m.code} - ${m.description}${m.work_rvu!=null?` (wRVU ${Number(m.work_rvu).toFixed(2)})`:''}`).join('\n');
+ return matches.slice(0,5).map(m=>{const wrvuRaw=m.work_rvu??m.wrvu??m.baseWrvu??null;const wrvuText=wrvuRaw!=null&&Number.isFinite(Number(wrvuRaw))?` (wRVU ${Number(wrvuRaw).toFixed(2)})`:'';return `${m.code||'Unknown'} - ${m.description||'No description'}${wrvuText}`;}).join('\n');
 }
 function searchAssistantCpt(prompt,limit=5){const q=normalizeAssistantText(prompt);if(!q)return[];const tokens=q.split(' ').filter(Boolean);const rows=(searchState&&Array.isArray(searchState.cptSearchIndex)&&searchState.cptSearchIndex.length)?searchState.cptSearchIndex:buildSearchIndexFromSpecs();
  return rows.map(item=>{const code=String(item.code||'');const desc=String(item.description||'').toLowerCase();let score=0;if(code===q)score+=120;if(q.includes(code))score+=80;if(desc.includes(q))score+=40;tokens.forEach(tok=>{if(desc.includes(tok))score+=6;if(code===tok)score+=100;if(code.startsWith(tok))score+=20;});return {...item,score,work_rvu:item.work_rvu??item.wrvu??null};}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,limit);
 }
-function buildCaseSummary(){if(!caseLines.length)return 'Current case is empty.';const lines=caseLines.slice(0,6).map((line,i)=>`${i+1}. ${line.cpt||'No CPT'} ${line.desc||''}${line.userMod?` | modifier ${line.userMod}`:''}${line.approach?` | ${line.approach}`:''}${line.effWrvu!=null?` | effective wRVU ${Number(line.effWrvu).toFixed(2)}`:''}`);return `Current case:\n${lines.join('\n')}`;}
+function buildCaseSummary(){if(!Array.isArray(caseLines)||!caseLines.length)return 'Current case is empty.';const lines=caseLines.slice(0,6).map((line,i)=>{const eff=line&&line.effWrvu!=null&&Number.isFinite(Number(line.effWrvu))?` | effective wRVU ${Number(line.effWrvu).toFixed(2)}`:'';return `${i+1}. ${(line&&line.cpt)||'No CPT'} ${(line&&line.desc)||''}${line&&line.userMod?` | modifier ${line.userMod}`:''}${line&&line.approach?` | ${line.approach}`:''}${eff}`;});return `Current case:\n${lines.join('\n')}`;}
 function buildFreeAssistantAnswer(prompt){const q=normalizeAssistantText(prompt);for(const rule of FREE_ASSISTANT_RULES){if(rule.test(q))return `${rule.answer()}\n\n${buildCaseSummary()}`;}
- const matches=searchAssistantCpt(prompt,5);
+ const matches=searchAssistantCpt(prompt,5)||[];
  const askedForCode=/what(?:'s| is)? the cpt|cpt code|code for|which code|likely code|lap|laparoscopic|open|robotic/.test(q);
  const askedAboutModifier=/modifier|bilateral|assistant surgeon|co surgeon|global|post op|postop/.test(q);
  const askedAboutWrvu=/wrvu|rvu|work rvu|payment|reimbursement/.test(q);
