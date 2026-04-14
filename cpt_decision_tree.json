@@ -2562,6 +2562,64 @@
       }
     },
     {
+      "name": "Colectomy",
+      "specialty": "General Surgery",
+      "questions": [
+        {
+          "question": "Type of colectomy?",
+          "options": [
+            {
+              "label": "Sigmoid colectomy with anastomosis",
+              "next": "sigmoid_colectomy_anastomosis"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "sigmoid_colectomy_anastomosis": {
+          "question": "Approach?",
+          "options": [
+            {
+              "label": "Open",
+              "cpt_code": "44140",
+              "description": "Colectomy, partial; with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K57.20",
+                "K57.32",
+                "C18.7",
+                "K63.89"
+              ]
+            },
+            {
+              "label": "Laparoscopic",
+              "cpt_code": "44204",
+              "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K57.20",
+                "K57.32",
+                "C18.7",
+                "K63.89"
+              ]
+            },
+            {
+              "label": "Robotic",
+              "cpt_code": "44204",
+              "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis (robotic approach uses laparoscopic CPT)",
+              "modifiers": [],
+              "icd10": [
+                "K57.20",
+                "K57.32",
+                "C18.7",
+                "K63.89"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "Cholecystectomy",
       "specialty": "General Surgery",
       "questions": [
