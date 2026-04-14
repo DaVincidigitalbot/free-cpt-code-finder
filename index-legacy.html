@@ -2553,7 +2553,6 @@
             currentQuestionStack = [];
             
             // Dim AI fab so it doesn't cover procedure names
-            const fab = document.getElementById('aiFab');
             if (fab) fab.classList.add('dimmed');
             
             // Hide category buttons, show decision tree in their place
@@ -2786,13 +2785,11 @@
             currentCategory = null;
             window.scrollTo({ top: 0, behavior: 'smooth' });
             // Restore AI fab visibility
-            const fab = document.getElementById('aiFab');
             if (fab) fab.classList.remove('dimmed');
         }
         
         // Auto-dim AI fab when decision tree content is visible
         function updateAIFabVisibility() {
-            const fab = document.getElementById('aiFab');
             if (!fab) return;
             const tree = document.getElementById('decisionTree');
             const treeVisible = tree && tree.style.display !== 'none' && tree.innerHTML.trim() !== '';
@@ -5903,19 +5900,7 @@
     </style>
 
     <!-- AI Chat Button -->
-    <button class="ai-fab" id="aiFab" onclick="toggleAIPanel()" title="AI CPT Assistant">
-        🤖
-        <span class="badge">AI</span>
-    </button>
-
-    <!-- AI Chat Panel -->
-    <div class="ai-panel" id="aiPanel">
-        <div class="ai-panel-header">
-            <div>
-                <h3>🤖 AI CPT Assistant</h3>
-                <div class="ai-subtitle">Powered by Qwen 2.5 — runs in your browser</div>
-            </div>
-            <button class="ai-panel-close" onclick="toggleAIPanel()">&times;</button>
+    
         </div>
 
         <div class="ai-messages" id="aiMessages">
@@ -6066,7 +6051,6 @@
         if (webllmReady || webllmLoading) return;
         webllmLoading = true;
 
-        addAIMessage('system', '⏳ Loading AI model (~1.6 GB one-time download)...');
 
         const progressEl = document.createElement('div');
         progressEl.className = 'ai-progress';
@@ -6102,7 +6086,6 @@
             const prog = document.getElementById('aiProgress');
             if (prog) prog.remove();
 
-            addAIMessage('system', '✅ AI ready! Model cached in your browser for next time.');
 
         } catch (err) {
             console.error('WebLLM init failed:', err);
@@ -6112,7 +6095,6 @@
             const prog = document.getElementById('aiProgress');
             if (prog) prog.remove();
 
-            addAIMessage('system',
                 '⚠️ AI model couldn\'t load (requires WebGPU — Chrome/Edge on a modern GPU). ' +
                 'No worries — I\'ll use smart search to find your CPT codes!'
             );
@@ -6159,7 +6141,6 @@ ${codesContext}`;
             });
 
             let fullText = '';
-            const msgEl = addAIMessage('assistant', '');
 
             for await (const chunk of reply) {
                 const delta = chunk.choices[0]?.delta?.content || '';
@@ -6178,86 +6159,9 @@ ${codesContext}`;
     // ============================
     // Chat UI Functions
     // ============================
-    window.toggleAIPanel = function() {
-        const panel = document.getElementById('aiPanel');
-        panel.classList.toggle('open');
-        if (panel.classList.contains('open') && !webllmReady && !webllmLoading && !webllmFailed) {
-            // Try to load WebLLM when panel opens
-            initWebLLM();
-        }
-        if (panel.classList.contains('open')) {
-            document.getElementById('aiInput').focus();
-        }
-    };
+    ;
 
-    function addAIMessage(role, text) {
-        const container = document.getElementById('aiMessages');
-        const el = document.createElement('div');
-        el.className = `ai-msg ${role}`;
-        el.innerHTML = role === 'user' ? text : mdToHtml(text);
-        container.appendChild(el);
-        scrollAI();
-        return el;
-    }
-
-    function scrollAI() {
-        const container = document.getElementById('aiMessages');
-        requestAnimationFrame(() => { container.scrollTop = container.scrollHeight; });
-    }
-
-    function showTyping() {
-        const container = document.getElementById('aiMessages');
-        const el = document.createElement('div');
-        el.className = 'ai-msg assistant';
-        el.id = 'aiTyping';
-        el.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
-        container.appendChild(el);
-        scrollAI();
-    }
-
-    function hideTyping() {
-        const el = document.getElementById('aiTyping');
-        if (el) el.remove();
-    }
-
-    window.sendAIMessage = async function() {
-        const input = document.getElementById('aiInput');
-        const btn = document.getElementById('aiSendBtn');
-        const query = input.value.trim();
-        if (!query) return;
-
-        // Hide suggestions after first message
-        const sugg = document.getElementById('aiSuggestions');
-        if (sugg) sugg.style.display = 'none';
-
-        addAIMessage('user', query);
-        input.value = '';
-        btn.disabled = true;
-
-        // Always do a fast search first
-        const results = searchCPT(query);
-
-        if (webllmReady) {
-            // Use LLM for a smart response
-            showTyping();
-            const llmResponse = await generateWithLLM(query, results);
-            hideTyping();
-
-            if (!llmResponse) {
-                // Fallback to formatted results
-                addAIMessage('assistant', formatResults(results, query));
-            }
-        } else {
-            // Smart search only (no LLM)
-            showTyping();
-            await new Promise(r => setTimeout(r, 300)); // Brief delay for UX
-            hideTyping();
-            addAIMessage('assistant', formatResults(results, query));
-        }
-
-        btn.disabled = false;
-        input.focus();
-    };
+    ;
 
     window.aiSuggest = function(el) {
         document.getElementById('aiInput').value = el.textContent;
