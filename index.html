@@ -1043,14 +1043,18 @@ async function loadCptSearchIndex(){
 }
 
 function scoreSearchResult(item,query){
- const q=normalizeSearchValue(query);
+ const raw=String(query||'').trim();
+ const q=normalizeSearchValue(raw);
  if(!q)return -1;
- if(item.code===query.trim())return 100;
- if(item.code.startsWith(query.trim()))return 80;
- if(item.description.toLowerCase()===query.toLowerCase())return 76;
- if(item.description.toLowerCase().startsWith(query.toLowerCase()))return 68;
+ const desc=normalizeSearchValue(item.description);
+ if(item.code===raw)return 100;
+ if(item.code.startsWith(raw))return 80;
+ if(desc===q)return 76;
+ if(desc.startsWith(q))return 74;
+ if(desc.includes(q))return 70;
  if(item.haystack.includes(q))return 52;
  const words=q.split(' ').filter(Boolean);
+ if(words.length&&words.every(word=>desc.includes(word)))return 46;
  if(words.length&&words.every(word=>item.haystack.includes(word)))return 40;
  return -1;
 }
