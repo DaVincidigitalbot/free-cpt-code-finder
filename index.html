@@ -1006,16 +1006,27 @@ function normalizeSearchValue(value){
 }
 
 function buildSearchIndexFromSpecs(){
- return Object.entries(SPECS).flatMap(([specialty,procs],si)=>procs.map((p,pi)=>({
-  code:String(p[0]||''),
-  description:String(p[1]||''),
-  wrvu:Number(p[2]||0),
-  bi:(p[3]===0||p[3]===1||p[3]===2)?p[3]:0,
-  specialty,
-  si,
-  pi,
-  haystack:normalizeSearchValue(`${specialty} ${p[0]||''} ${p[1]||''}`)
- })));
+ return Object.entries(SPECS).flatMap(([specialty,procs],si)=>procs.map((p,pi)=>{
+  const code=String(p[0]||'');
+  const description=String(p[1]||'');
+  const aliasMap={
+   '43280':'hiatal hiatal hernia fundoplication nissen toupet',
+   '43281':'paraesophageal paraesophageal hernia hiatal hernia repair',
+   '43282':'paraesophageal paraesophageal hernia hiatal hernia mesh repair',
+   '43324':'open hiatal paraesophageal hernia fundoplasty nissen belsey hill'
+  };
+  const aliases=aliasMap[code]||'';
+  return {
+   code,
+   description,
+   wrvu:Number(p[2]||0),
+   bi:(p[3]===0||p[3]===1||p[3]===2)?p[3]:0,
+   specialty,
+   si,
+   pi,
+   haystack:normalizeSearchValue(`${specialty} ${code} ${description} ${aliases}`)
+  };
+ }));
 }
 
 async function loadCptSearchIndex(){
