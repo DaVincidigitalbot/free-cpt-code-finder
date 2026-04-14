@@ -336,32 +336,6 @@ a{color:inherit;text-decoration:none}
 
 </div>
 
-<button class="ai-launch" id="aiLaunch" type="button" onclick="toggleAiAssistant(true)"><span class="ai-dot"></span><span>Ask AI Assistant</span></button>
-<div class="ai-panel" id="aiPanel" aria-hidden="true">
- <div class="ai-head">
-  <div>
-   <div class="ai-head-title">Free CPT Code Finder Assistant</div>
-   <div class="ai-head-sub">Free site-powered coding help using CPT data and rule logic already built into the workflow. Review answers before billing use.</div>
-  </div>
-  <button class="ai-close" type="button" onclick="toggleAiAssistant(false)">×</button>
- </div>
- <div class="ai-messages" id="aiMessages">
-  <div class="ai-msg bot"><div class="ai-bubble">Ask about CPT selection, modifiers, wRVUs, or case structure. This assistant uses site data and built-in coding rules, not a paid AI API.</div><div class="ai-meta">site logic</div></div>
- </div>
- <div class="ai-suggest">
-  <button class="ai-chip" type="button" onclick="fillAiPrompt('What is the CPT code for laparoscopic appendectomy?')">lap appendectomy CPT</button>
-  <button class="ai-chip" type="button" onclick="fillAiPrompt('When should I use modifier 57 vs 25?')">modifier 57 vs 25</button>
-  <button class="ai-chip" type="button" onclick="fillAiPrompt('How do multiple procedures affect Medicare payment?')">multiple procedures</button>
- </div>
- <div class="ai-compose">
-  <textarea id="aiInput" placeholder="Ask a coding question..."></textarea>
-  <div class="ai-actions">
-   <div class="ai-note">Free assistant powered by site CPT data, modifier logic, and case-builder rules.</div>
-   <button class="ai-send" type="button" onclick="submitAiPrompt()">Send</button>
-  </div>
- </div>
-</div>
-
 <div class="mpick" id="mpick">
  <div class="mpick-box">
   <div class="mpick-h">Modifier selection</div>
@@ -1213,8 +1187,6 @@ const FREE_ASSISTANT_RULES=[
  {test:q=>/abthera|negative pressure.*abdomen|vac.*abdomen/.test(q),answer:()=>`AbThera does not automatically mean CPT 49013. On this site, 49013 is reserved for preperitoneal packing for pelvic trauma hemorrhage. Open abdominal negative-pressure management usually points you toward unlisted 49999 or negative-pressure codes like 97605 or 97606 depending on documentation.`},
  {test:q=>/15734|component separation/.test(q),answer:()=>`CPT 15734 is component separation. In this calculator it carries 20.22 work RVUs, remains in the reconstructive tier, and is paid at 100% rather than reduced under the usual multiple-procedure logic.`}
 ];
-function toggleAiAssistant(forceOpen){const panel=document.getElementById('aiPanel');const open=typeof forceOpen==='boolean'?forceOpen:!panel.classList.contains('open');panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',open?'false':'true');if(open)setTimeout(()=>document.getElementById('aiInput').focus(),40);}
-function fillAiPrompt(text){document.getElementById('aiInput').value=text;toggleAiAssistant(true);}
 function appendAiMessage(role,text,meta=''){const wrap=document.createElement('div');wrap.className='ai-msg '+role;wrap.innerHTML=`<div class="ai-bubble"></div><div class="ai-meta">${meta||role}</div>`;wrap.querySelector('.ai-bubble').textContent=text;const box=document.getElementById('aiMessages');box.appendChild(wrap);box.scrollTop=box.scrollHeight;}
 function normalizeAssistantText(text){return String(text||'').toLowerCase().replace(/[^a-z0-9+\-\s]/g,' ').replace(/\s+/g,' ').trim();}
 function formatAssistantMatches(matches){if(!matches.length)return '';
@@ -1239,8 +1211,6 @@ function buildFreeAssistantAnswer(prompt){const q=normalizeAssistantText(prompt)
  return `I did not find a confident CPT match from the site dataset. Try a more concrete procedure description, a CPT code, or ask about one of the built-in rules like modifier 57 vs 25, ventral hernia coding, 15734, AbThera, or Medicare multiple-procedure reduction.\n\n${buildCaseSummary()}`;
 }
 async function submitAiPrompt(){const input=document.getElementById('aiInput');const prompt=input.value.trim();if(!prompt)return;appendAiMessage('user',prompt,'you');input.value='';appendAiMessage('bot','Thinking...','assistant');const box=document.getElementById('aiMessages');const thinking=box.lastElementChild;let answer='';try{answer=buildFreeAssistantAnswer(prompt);}catch(err){console.error('AI assistant error',err);try{const fallbackMatches=searchAssistantCpt(prompt,5)||[];answer=`I hit a rule-processing bug, so I dropped to basic CPT search instead.\n\n${fallbackMatches.length?`Closest matches:\n${formatAssistantMatches(fallbackMatches)}`:'I could not find a confident match from the current site data.'}\n\n${buildCaseSummary()}`;}catch(innerErr){console.error('AI assistant fallback error',innerErr);answer='The assistant had trouble processing that question. Try a shorter procedure description, a CPT code, or one of the built-in prompts like lap appendectomy CPT or modifier 57 vs 25.';}}thinking.remove();appendAiMessage('bot',answer,'site logic');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('aiPanel').classList.contains('open'))toggleAiAssistant(false);if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='j'){e.preventDefault();toggleAiAssistant();}});
-document.getElementById('aiInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submitAiPrompt();}});
 renderSpecs();
 loadCptSearchIndex();
 </script></body></html>
