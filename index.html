@@ -352,6 +352,8 @@ a{color:inherit;text-decoration:none}
 <div class="ts" id="ts">$0.00 · build a case →</div>
 </div>
 <div class="lns" id="lns"><div class="lns-empty">Click any procedure or code to add it here. The system will auto-assign primary/secondary and apply modifiers.</div></div>
+<div class="tl">Suggested ICD-10</div>
+<div class="lns" id="dxs"><div class="lns-empty">Select a surgery to surface diagnosis codes.</div></div>
 <div class="ctrls">
 <div class="seg" id="payer-seg"><button class="on" data-v="medicare">medicare</button><button data-v="commercial">commercial</button></div>
 <div class="seg" id="setting-seg"><button class="on" data-v="facility">facility</button><button data-v="nonfac">non-fac</button></div>
@@ -387,6 +389,40 @@ const ROBOTIC_ALLOWED=[
  ];
 
 // ===== TOP 20 PROCEDURES PER SPECIALTY (seed — expand from CMS Addendum B) =====
+const DX_BY_CPT={
+ '49421':['Z49.02','N18.6'],
+ '49422':['Z49.02','N18.6'],
+ '11426':['D17.0','L72.0'],
+ '11404':['L72.0','L72.3','D23.5'],
+ '15734':['K43.0','K43.1','K43.2','K43.9'],
+ '21931':['D17.1','L72.0'],
+ '21932':['D17.1','L72.0'],
+ '22902':['D17.1','L72.0'],
+ '22903':['D17.1','L72.0'],
+ '24071':['D17.21','L72.0'],
+ '24073':['D17.21','L72.0'],
+ '27327':['D17.23','L72.0'],
+ '27328':['D17.23','L72.0'],
+ '49591':['K43.9','K43.2'],
+ '49592':['K43.0','K43.1'],
+ '49593':['K43.9','K43.2'],
+ '49594':['K43.0','K43.1'],
+ '49595':['K43.9','K43.2'],
+ '49596':['K43.0','K43.1'],
+ '49613':['K43.2','K43.9'],
+ '49614':['K43.0','K43.1'],
+ '49615':['K43.2','K43.9'],
+ '49616':['K43.0','K43.1'],
+ '49617':['K43.2','K43.9'],
+ '49618':['K43.0','K43.1'],
+ '49623':['K43.9','K43.2'],
+ '49652':['K43.9','K43.2'],
+ '49653':['K43.9','K43.2'],
+ '49654':['K43.9','K43.2'],
+ '49656':['K43.2','K43.9'],
+ '49657':['K43.2','K43.9']
+};
+
 const SPECS={
 "General Surgery":[
 ["44970","Lap appendectomy",8.85,0],["47562","Lap cholecystectomy",10.47,0],["47563","Lap chole w/ cholangiogram",11.47,0],
@@ -789,6 +825,17 @@ document.addEventListener('keydown',e=>{
  if(e.key==='Enter'){commitMpick(MOD_OPTS[mpickIndex].v);e.preventDefault()}
 });
 
+function renderDxList(){
+ const el=document.getElementById('dxs');
+ if(!el)return;
+ const dx=[...new Set(caseLines.flatMap(l=>DX_BY_CPT[String(l.cpt||'')]||[]))];
+ if(!dx.length){
+  el.innerHTML='<div class="lns-empty">Select a surgery to surface diagnosis codes.</div>';
+  return;
+ }
+ el.innerHTML=dx.map(code=>`<div class="rl"><div class="rlt"><span class="rcpt">${code}</span></div></div>`).join('');
+}
+
 function recalc(why){
  if(caseLines.length)computeMods();
  let twrvu=0,rank=0;
@@ -817,6 +864,7 @@ function recalc(why){
  const mppr=caseLines.filter(l=>l.kind==='proc').length>1&&setting==='facility';
  document.getElementById('ts').textContent=`$${tpay.toFixed(2)}${mppr?' · MPPR applied':''}`;
  document.getElementById('rm').textContent=`${caseLines.length} line${caseLines.length!==1?'s':''} · ${payer}`;
+ renderDxList();
  log(`TOTALS wRVU=${twrvu.toFixed(2)} pay=$${tpay.toFixed(2)} (${why})`);
 }
 
