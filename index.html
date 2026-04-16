@@ -574,6 +574,10 @@ function getRowApproach(si,pi,desc){
 // ===== RENDER SPECIALTIES =====
 let pickingFor=null;
 
+function isMyofascialRelease(desc){
+ return /myofascial flap|retrorectus|tar|transversus abdominis|component separation|posterior release/i.test(desc||'');
+}
+
 function renderSpecs(){
  const c=document.getElementById('specs');
  c.innerHTML=Object.entries(SPECS).map(([name,procs],si)=>`
@@ -581,7 +585,7 @@ function renderSpecs(){
    <div class="spec-t" onclick="toggleSpec(${si})"><div class="spec-n">${name}</div><div class="spec-c">›</div></div>
    <div class="spec-body">${procs.map((p,pi)=>{
     const [cpt,desc,w,bi]=p;
-    const biVal=(bi===0||bi===1||bi===2)?bi:0;
+    const biVal=isMyofascialRelease(desc)?1:((bi===0||bi===1||bi===2)?bi:0);
     const approachMode=getApproachMode(desc);
     const hasApproach=isRoboticAllowed(cpt);
     const displayDesc=formatProcDesc(cpt,desc);
@@ -614,7 +618,7 @@ function toggleSpec(i){document.getElementById('sp'+i).classList.toggle('open')}
 function onProcClick(si,pi,e){
  if(e&&(e.target.closest('.lat-tray')||e.target.closest('.approach-tray')))return;
  const [cpt,desc,w,bi]=SPECS[Object.keys(SPECS)[si]][pi];
- const biVal=(bi===0||bi===1||bi===2)?bi:0;
+ const biVal=isMyofascialRelease(desc)?1:((bi===0||bi===1||bi===2)?bi:0);
  const approach=isRoboticAllowed(cpt)?getRowApproach(si,pi,desc):undefined;
  if(biVal===0){addProc(cpt,desc,w,'',0,approach);return}
  if(biVal===2){
