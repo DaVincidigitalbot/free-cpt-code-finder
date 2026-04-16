@@ -575,7 +575,8 @@ function getRowApproach(si,pi,desc){
 let pickingFor=null;
 
 function isMyofascialRelease(desc){
- return /myofascial flap|retrorectus|tar|transversus abdominis|component separation|posterior release/i.test(desc||'');
+ const normalized=String(desc||'').replace(/^Lap \/ Robotic\s+/i,'').replace(/^Thora \/ Robotic\s+/i,'').trim();
+ return /myofascial flap|retrorectus|\btar\b|transversus abdominis|component separation|posterior release|rectus myofascial release/i.test(normalized);
 }
 
 function renderSpecs(){
@@ -688,7 +689,9 @@ function computeMods(){
  const procs=caseLines.filter(l=>l.kind==='proc').sort((a,b)=>b.baseWrvu-a.baseWrvu);
  const ems=caseLines.filter(l=>l.kind==='em');
  caseLines=[...procs,...ems];
+ const hasRepeated15734=procs.filter(l=>l.cpt==='15734').length>1;
  let pIdx=0;
+ let repeated15734Rank=0;
  caseLines.forEach(l=>{
   l.mods=[];l.rationale=[];
   if(l.kind==='em'){
@@ -710,7 +713,12 @@ function computeMods(){
   }else{
    l.rank=`Secondary #${pIdx}`;
    l.rankReason=`Secondary procedure, ranked below primary ${procs[0].cpt}.`;
-   if(payer==='commercial'){l.mods.push('51');l.rationale.push({mod:'51',reason:'Commercial payer multi-procedure marker.',cite:RULES.MOD_51})}
+   if(hasRepeated15734&&l.cpt==='15734'&&payer!=='commercial'){
+    repeated15734Rank++;
+    const factor=repeated15734Rank<=2?0.5:0.25;
+    l.effWrvu=l.baseWrvu*factor;
+    l.rationale.push({mod:'Rank',reason:`Repeated 15734 component separation ranked at ${factor===0.5?'50%':'25%'} per current site rule for multiple myofascial releases.`,cite:'FreeCPTCodeFinder component separation rule'});
+   }else if(payer==='commercial'){l.mods.push('51');l.rationale.push({mod:'51',reason:'Commercial payer multi-procedure marker.',cite:RULES.MOD_51})}
    else l.rationale.push({mod:'Rank',reason:'Medicare MPPR applied automatically; -51 omitted.',cite:RULES.MPPR});
    if(l.userMod){
     l.mods.push(l.userMod);
