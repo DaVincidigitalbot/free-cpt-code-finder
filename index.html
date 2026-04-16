@@ -266,6 +266,12 @@ a{color:inherit;text-decoration:none}
 <div id="autocompleteResults" class="autocomplete-results"></div>
 </div>
 
+<div class="sec" id="guided-workflows">
+<div class="sec-h surg"><span class="bdot"></span>Guided Surgical Workflows</div>
+<div id="guidedCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px"></div>
+<div id="guidedFlow" style="display:none;margin-top:14px;border:1px solid var(--line2);border-radius:14px;background:var(--white);padding:18px"></div>
+</div>
+
 <div class="sections">
 
 <!-- ========== SURGICAL SPECIALTIES ========== -->
@@ -702,9 +708,10 @@ document.addEventListener('keydown',e=>{
 });
 
 // ===== ADD HANDLERS =====
-function addProc(cpt,desc,wrvu,laterality,bi,approach){
+function addProc(cpt,desc,wrvu,laterality,bi,approach,dx){
  const existing=caseLines.filter(l=>l.kind==='proc'&&l.cpt===cpt);
  const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:laterality||'',biIndicator:bi||0,kind:'proc',mods:[],userMod:''};
+  if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
  if(existing.length>0){
   caseLines.push(line);
@@ -828,7 +835,7 @@ document.addEventListener('keydown',e=>{
 function renderDxList(){
  const el=document.getElementById('dxs');
  if(!el)return;
- const dx=[...new Set(caseLines.flatMap(l=>DX_BY_CPT[String(l.cpt||'')]||[]))];
+ const dx=[...new Set(caseLines.flatMap(l=>(Array.isArray(l.dx)&&l.dx.length?l.dx:(DX_BY_CPT[String(l.cpt||'')]||[]))))];
  if(!dx.length){
   el.innerHTML='<div class="lns-empty">Select a surgery to surface diagnosis codes.</div>';
   return;
@@ -1057,6 +1064,13 @@ function exportAuditJSON(){
 }
 
 // ===== SEARCH =====
+const GUIDED_WORKFLOWS=[
+ {id:'ventralHernia',title:'Ventral / Incisional Hernia',desc:'Size, approach, reducible vs incarcerated, release type, laterality',kind:'ventral-hernia'},
+ {id:'softTissue',title:'Soft Tissue Lesions / Lipoma / Cyst',desc:'Location, lesion family, size-based guided selection',kind:'soft-tissue'},
+ {id:'pdCatheter',title:'Peritoneal Dialysis Catheter',desc:'Placement or removal with diagnosis suggestions',kind:'pd-catheter'}
+];
+let guidedState={kind:null,step:0,data:{}};
+
 const searchState={
  specialtyFilter:'',
  searchResults:[],
@@ -1068,6 +1082,110 @@ const searchState={
 
 function normalizeSearchValue(value){
  return String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+}
+
+function addGuidedCodes(lines){
+ lines.forEach(line=>{
+  addProc(line.code,line.desc,line.wrvu||0,line.laterality||'',line.bi||0,line.approach,line.dx||[]);
+ });
+}
+
+function renderGuidedCards(){
+ const el=document.getElementById('guidedCards');
+ if(!el)return;
+ el.innerHTML=GUIDED_WORKFLOWS.map(w=>`<button class="proc" style="text-align:left" onclick="startGuidedFlow('${w.kind}')"><div class="proc-n">${w.title}</div><div class="proc-w" style="margin-top:6px;width:auto">${w.desc}</div></button>`).join('');
+}
+
+function startGuidedFlow(kind){
+ guidedState={kind,step:0,data:{}};
+ renderGuidedFlow();
+}
+
+function cancelGuidedFlow(){
+ guidedState={kind:null,step:0,data:{}};
+ const el=document.getElementById('guidedFlow');
+ if(el){el.style.display='none';el.innerHTML='';}
+}
+
+function setGuidedValue(key,val){
+ guidedState.data[key]=val;
+ guidedState.step++;
+ renderGuidedFlow();
+}
+
+function backGuidedFlow(){
+ guidedState.step=Math.max(0,guidedState.step-1);
+ renderGuidedFlow();
+}
+
+function finishGuidedFlow(lines){
+ addGuidedCodes(lines);
+ cancelGuidedFlow();
+}
+
+function renderGuidedFlow(){
+ const el=document.getElementById('guidedFlow');
+ if(!el)return;
+ if(!guidedState.kind){el.style.display='none';el.innerHTML='';return;}
+ el.style.display='block';
+ const d=guidedState.data;
+ const buttonRow=(items,key)=>`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px">${items.map(item=>`<button class="proc" style="text-align:left" onclick="setGuidedValue('${key}','${item.value}')"><div class="proc-n">${item.label}</div>${item.meta?`<div class="proc-w" style="margin-top:6px;width:auto">${item.meta}</div>`:''}</button>`).join('')}</div>`;
+ if(guidedState.kind==='pd-catheter'){
+  if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Peritoneal Dialysis Catheter</div><div>Placement or removal?</div>${buttonRow([{label:'Placement',value:'placement',meta:'49421'},{label:'Removal',value:'removal',meta:'49422'}],'action')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
+  const isPlacement=d.action==='placement';
+  finishGuidedFlow([{code:isPlacement?'49421':'49422',desc:isPlacement?'Peritoneal dialysis catheter placement, tunneled intraperitoneal':'Peritoneal dialysis catheter removal',wrvu:isPlacement?7.50:4.50,dx:['Z49.02','N18.6']}]);
+  return;
+ }
+ if(guidedState.kind==='soft-tissue'){
+  if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Soft Tissue Lesions / Lipoma / Cyst</div><div>What are you excising?</div>${buttonRow([{label:'Lipoma / soft tissue lesion',value:'lipoma'},{label:'Epidermal / benign skin cyst',value:'cyst'},{label:'Scalp lipoma / scalp benign lesion',value:'scalp'}],'family')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
+  if(guidedState.step===1&&d.family==='lipoma'){el.innerHTML=`<div><strong>Location?</strong></div>${buttonRow([{label:'Back / flank',value:'back'},{label:'Abdominal wall',value:'abdomen'},{label:'Arm / elbow',value:'arm'},{label:'Leg / thigh / knee',value:'leg'}],'location')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if((guidedState.step===2&&d.family==='lipoma')||(guidedState.step===1&&d.family!=='lipoma')){
+   el.innerHTML=`<div><strong>Size?</strong></div>${buttonRow([{label:'< 3 cm',value:'small'},{label:'3 cm or greater',value:'large'},{label:'3.1-4.0 cm benign lesion',value:'lesion-11404'}],'size')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;
+   return;
+  }
+  if(d.family==='scalp'){
+   finishGuidedFlow([{code:'11426',desc:'Excision scalp lipoma / benign scalp lesion 2.1-3.0 cm',wrvu:4.25,dx:['D17.0','L72.0']}]);
+   return;
+  }
+  if(d.family==='cyst' || d.size==='lesion-11404'){
+   finishGuidedFlow([{code:'11404',desc:'Excision epidermal inclusion cyst / benign trunk or extremity lesion 3.1-4.0 cm',wrvu:4.90,dx:['L72.0','L72.3','D23.5']}]);
+   return;
+  }
+  const map={
+   back:{small:['21931','Excision soft tissue lesion / lipoma, back or flank, subcutaneous <3 cm',5.40,['D17.1','L72.0']],large:['21932','Excision soft tissue lesion / lipoma, back or flank, subcutaneous 3 cm or greater',7.10,['D17.1','L72.0']]},
+   abdomen:{small:['22902','Excision soft tissue lesion / lipoma, anterior abdominal wall, subcutaneous <3 cm',5.10,['D17.1','L72.0']],large:['22903','Excision soft tissue lesion / lipoma, anterior abdominal wall, subcutaneous 3 cm or greater',6.80,['D17.1','L72.0']]},
+   arm:{small:['24071','Excision soft tissue lesion / lipoma, upper arm or elbow, subcutaneous <3 cm',5.20,['D17.21','L72.0']],large:['24073','Excision soft tissue lesion / lipoma, upper arm or elbow, subcutaneous 3 cm or greater',6.90,['D17.21','L72.0']]},
+   leg:{small:['27327','Excision soft tissue lesion / lipoma, thigh or knee area, subcutaneous <3 cm',5.60,['D17.23','L72.0']],large:['27328','Excision soft tissue lesion / lipoma, thigh or knee area, subcutaneous 3 cm or greater',7.30,['D17.23','L72.0']]}
+  };
+  const chosen=map[d.location]?.[d.size];
+  if(chosen){finishGuidedFlow([{code:chosen[0],desc:chosen[1],wrvu:chosen[2],dx:chosen[3]}]);return;}
+ }
+ if(guidedState.kind==='ventral-hernia'){
+  if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Ventral / Incisional Hernia</div><div>Initial or recurrent?</div>${buttonRow([{label:'Initial',value:'initial'},{label:'Recurrent',value:'recurrent'}],'timing')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
+  if(guidedState.step===1){el.innerHTML=`<div><strong>Reducible or incarcerated/strangulated?</strong></div>${buttonRow([{label:'Reducible',value:'reducible'},{label:'Incarcerated / strangulated',value:'incarcerated'}],'severity')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===2){el.innerHTML=`<div><strong>Size?</strong></div>${buttonRow([{label:'<3 cm',value:'small'},{label:'3-10 cm',value:'medium'},{label:'>10 cm',value:'large'}],'size')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===3){el.innerHTML=`<div><strong>Approach?</strong></div>${buttonRow([{label:'Open',value:'open'},{label:'Laparoscopic / Robotic',value:'lap'}],'approach')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===4){el.innerHTML=`<div><strong>Component separation?</strong></div>${buttonRow([{label:'None',value:'none'},{label:'Rectus myofascial release',value:'rectus'},{label:'TAR',value:'tar'}],'releaseType')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===5&&d.releaseType!=='none'){el.innerHTML=`<div><strong>Which side?</strong></div>${buttonRow([{label:'Left',value:'LT'},{label:'Right',value:'RT'},{label:'Bilateral',value:'BIL'}],'releaseSide')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  const baseMap={
+   initial:{reducible:{small:{open:['49591',4.55,['K43.9','K43.2']],lap:['49652',8.33,['K43.9','K43.2']]},medium:{open:['49593',6.25,['K43.9','K43.2']],lap:['49653',10.95,['K43.9','K43.2']]},large:{open:['49595',9.61,['K43.9','K43.2']],lap:['49654',12.00,['K43.9','K43.2']]}},incarcerated:{small:{open:['49592',5.0,['K43.0','K43.1']],lap:['49652',8.33,['K43.0','K43.1']]},medium:{open:['49594',8.0,['K43.0','K43.1']],lap:['49653',10.95,['K43.0','K43.1']]},large:{open:['49596',18.20,['K43.0','K43.1']],lap:['49654',12.00,['K43.0','K43.1']]}}},
+   recurrent:{reducible:{small:{open:['49613',7.0,['K43.2','K43.9']],lap:['49656',9.0,['K43.2','K43.9']]},medium:{open:['49615',9.0,['K43.2','K43.9']],lap:['49657',11.0,['K43.2','K43.9']]},large:{open:['49617',11.0,['K43.2','K43.9']],lap:['49657',11.0,['K43.2','K43.9']]}},incarcerated:{small:{open:['49614',8.0,['K43.0','K43.1']],lap:['49656',9.0,['K43.0','K43.1']]},medium:{open:['49616',10.0,['K43.0','K43.1']],lap:['49657',11.0,['K43.0','K43.1']]},large:{open:['49618',12.0,['K43.0','K43.1']],lap:['49657',11.0,['K43.0','K43.1']]}}}
+  };
+  const base=baseMap[d.timing]?.[d.severity]?.[d.size]?.[d.approach];
+  if(!base){cancelGuidedFlow();return;}
+  const lines=[{code:base[0],desc:`${d.approach==='lap'?'Lap / Robotic':'Open'} ${d.timing} ventral/incisional hernia ${d.size}`,wrvu:base[1],approach:d.approach==='lap'?'robotic':undefined,dx:base[2]}];
+  if(d.releaseType&&d.releaseType!=='none'){
+   const relDesc=`Myofascial flap, trunk - ${d.releaseType==='tar'?'TAR':'rectus myofascial release'}`;
+   if(d.releaseSide==='BIL'){
+    lines.push({code:'15734',desc:`${relDesc}, right`,wrvu:22.43,laterality:'RT',bi:1,dx:base[2]});
+    lines.push({code:'15734',desc:`${relDesc}, left`,wrvu:22.43,laterality:'LT',bi:1,dx:base[2]});
+   }else{
+    lines.push({code:'15734',desc:`${relDesc}, ${d.releaseSide==='RT'?'right':'left'}`,wrvu:22.43,laterality:d.releaseSide,bi:1,dx:base[2]});
+   }
+  }
+  finishGuidedFlow(lines);
+  return;
+ }
 }
 
 function buildSearchIndexFromSpecs(){
@@ -1322,5 +1440,6 @@ document.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('q').focus()}});
 
 renderSpecs();
+renderGuidedCards();
 loadCptSearchIndex();
 </script></body></html>
