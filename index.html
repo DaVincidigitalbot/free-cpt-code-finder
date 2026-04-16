@@ -1145,10 +1145,60 @@ function filterSearchExperience(query){
  applyTypeaheadSuggestion(query);
 }
 
+const HERNIA_WIZARD_OPTIONS={
+ '49652':[
+  {label:'<3 cm',code:'49652',desc:'Lap / Robotic anterior abd hernia <3cm',wrvu:8.33},
+  {label:'3-10 cm',code:'49653',desc:'Lap / Robotic anterior abd hernia 3-10cm',wrvu:10.95},
+  {label:'>10 cm',code:'49654',desc:'Lap / Robotic anterior abd hernia >10cm',wrvu:12.00}
+ ],
+ '49653':[
+  {label:'<3 cm',code:'49652',desc:'Lap / Robotic anterior abd hernia <3cm',wrvu:8.33},
+  {label:'3-10 cm',code:'49653',desc:'Lap / Robotic anterior abd hernia 3-10cm',wrvu:10.95},
+  {label:'>10 cm',code:'49654',desc:'Lap / Robotic anterior abd hernia >10cm',wrvu:12.00}
+ ],
+ '49654':[
+  {label:'<3 cm',code:'49652',desc:'Lap / Robotic anterior abd hernia <3cm',wrvu:8.33},
+  {label:'3-10 cm',code:'49653',desc:'Lap / Robotic anterior abd hernia 3-10cm',wrvu:10.95},
+  {label:'>10 cm',code:'49654',desc:'Lap / Robotic anterior abd hernia >10cm',wrvu:12.00}
+ ]
+};
+
+function promptHerniaComponentSeparation(base){
+ const releaseType=window.prompt(`Component separation performed for ${base.label}?\n\nType one:\n- none\n- rectus left\n- rectus right\n- rectus bilateral\n- tar left\n- tar right\n- tar bilateral`,`none`);
+ if(releaseType===null)return;
+ addProc(base.code,base.desc,base.wrvu,'',0,'robotic');
+ const normalized=String(releaseType||'').trim().toLowerCase();
+ if(!normalized||normalized==='none')return;
+ const isTar=normalized.includes('tar');
+ const descBase=isTar?'Myofascial flap, trunk - TAR':'Myofascial flap, trunk - rectus myofascial release';
+ if(normalized.includes('bilateral')){
+  addProc('15734',`${descBase}, right`,22.43,'RT',1);
+  addProc('15734',`${descBase}, left`,22.43,'LT',1);
+  return;
+ }
+ if(normalized.includes('right')){addProc('15734',`${descBase}, right`,22.43,'RT',1);return}
+ if(normalized.includes('left')){addProc('15734',`${descBase}, left`,22.43,'LT',1);return}
+}
+
+function promptLapRoboticAnteriorHernia(item){
+ const opts=HERNIA_WIZARD_OPTIONS[item.code]||HERNIA_WIZARD_OPTIONS['49653'];
+ const picked=window.prompt(`Select anterior abdominal wall hernia size:\n\n1 = <3 cm\n2 = 3-10 cm\n3 = >10 cm`,`2`);
+ if(picked===null)return true;
+ const chosen=opts[{ '1':0,'2':1,'3':2 }[String(picked).trim()] ?? 1];
+ promptHerniaComponentSeparation({label:chosen.label,code:chosen.code,desc:chosen.desc,wrvu:chosen.wrvu});
+ return true;
+}
+
 function addAutocompleteResultToCase(item){
+ if(['49652','49653','49654'].includes(String(item.code||''))&&/anterior abd hernia|ventral hernia/i.test(String(item.description||''))){
+  if(promptLapRoboticAnteriorHernia(item))return;
+ }
  if(item.si!==null&&item.pi!==null){
   const p=SPECS[item.specialty][item.pi];
   const [cpt,desc,w,bi]=p;
+  if(['49652','49653','49654'].includes(String(cpt||''))&&/anterior abd hernia|ventral hernia/i.test(String(desc||''))){
+   if(promptLapRoboticAnteriorHernia({code:cpt,description:desc,wrvu:w}))return;
+  }
   if((bi===1||bi===2)&&bi!==2){
    addProc(cpt,desc,w,'',1);
   }else{
