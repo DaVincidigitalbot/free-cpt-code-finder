@@ -143,27 +143,60 @@
           ]
         },
         "inguinal_recurrent_open": {
-          "cpt_code": "49520",
-          "description": "Repair recurrent inguinal hernia, any age; reducible",
-          "modifiers": [
-            "-LT",
-            "-RT"
-          ],
-          "icd10": [
-            "K40.90",
-            "K40.91"
+          "question": "Recurrent open inguinal hernia complexity?",
+          "options": [
+            {
+              "label": "Reducible",
+              "cpt_code": "49520",
+              "description": "Repair recurrent inguinal hernia, any age; reducible",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.91"
+              ]
+            },
+            {
+              "label": "Incarcerated / strangulated",
+              "cpt_code": "49521",
+              "description": "Repair recurrent inguinal hernia, any age; incarcerated or strangulated",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.31"
+              ]
+            }
           ]
         },
         "inguinal_recurrent_lap": {
-          "cpt_code": "49651",
-          "description": "Laparoscopy, surgical; repair of recurrent inguinal hernia",
-          "modifiers": [
-            "-LT",
-            "-RT"
-          ],
-          "icd10": [
-            "K40.90",
-            "K40.91"
+          "question": "Recurrent laparoscopic inguinal hernia laterality?",
+          "options": [
+            {
+              "label": "Unilateral",
+              "cpt_code": "49651",
+              "description": "Laparoscopy, surgical; repair recurrent inguinal hernia",
+              "modifiers": [
+                "-LT",
+                "-RT"
+              ],
+              "icd10": [
+                "K40.91"
+              ]
+            },
+            {
+              "label": "Bilateral",
+              "cpt_code": "49651",
+              "description": "Laparoscopy, surgical; repair recurrent inguinal hernia, bilateral",
+              "modifiers": [
+                "-50"
+              ],
+              "icd10": [
+                "K40.91"
+              ]
+            }
           ]
         },
         "umbilical_questions": {
@@ -184,6 +217,15 @@
               "modifiers": [],
               "icd10": [
                 "K42.9"
+              ]
+            },
+            {
+              "label": "Under 5 years, incarcerated / strangulated",
+              "cpt_code": "49582",
+              "description": "Repair umbilical hernia, younger than age 5 years; incarcerated or strangulated",
+              "modifiers": [],
+              "icd10": [
+                "K42.0"
               ]
             }
           ]
@@ -2479,6 +2521,61 @@
               "icd10": [
                 "K44.0",
                 "K44.1"
+              ]
+            }
+          ]
+        },
+        "pd_catheter_questions": {
+          "question": "Peritoneal dialysis catheter procedure?",
+          "options": [
+            {
+              "label": "Laparoscopic placement",
+              "cpt_code": "49324",
+              "description": "Laparoscopic peritoneal dialysis catheter placement",
+              "modifiers": [],
+              "icd10": [
+                "Z49.02",
+                "N18.6"
+              ]
+            },
+            {
+              "label": "Tunneled intraperitoneal placement",
+              "cpt_code": "49421",
+              "description": "Insertion of tunneled intraperitoneal catheter for dialysis or lavage",
+              "modifiers": [],
+              "icd10": [
+                "Z49.02",
+                "N18.6"
+              ]
+            },
+            {
+              "label": "Removal",
+              "cpt_code": "49422",
+              "description": "Removal of tunneled intraperitoneal catheter",
+              "modifiers": [],
+              "icd10": [
+                "Z49.02",
+                "N18.6"
+              ]
+            },
+            {
+              "label": "External segment removal / catheter removal",
+              "cpt_code": "49435",
+              "description": "Removal of tunneled intraperitoneal catheter",
+              "modifiers": [],
+              "icd10": [
+                "Z49.02",
+                "N18.6"
+              ]
+            },
+            {
+              "label": "Revision / reposition",
+              "cpt_code": "49436",
+              "description": "Revision or repositioning of intraperitoneal catheter",
+              "modifiers": [],
+              "icd10": [
+                "Z49.02",
+                "N18.6"
               ]
             }
           ]

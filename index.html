@@ -399,8 +399,23 @@ const ROBOTIC_ALLOWED=[
 const DX_BY_CPT={
  '49421':['Z49.02','N18.6'],
  '49422':['Z49.02','N18.6'],
- '11426':['D17.0','L72.0'],
+ '49324':['Z49.02','N18.6'],
+ '49435':['Z49.02','N18.6'],
+ '49436':['Z49.02','N18.6'],
+ '10060':['L02.211','L02.31','L02.91'],
+ '10061':['L02.211','L02.31','L02.91'],
+ '10140':['M79.81','T79.2XXA','L76.34'],
+ '11400':['D23.5','L72.0'],
+ '11401':['D23.5','L72.0'],
+ '11402':['D23.5','L72.0'],
+ '11403':['D23.5','L72.0'],
  '11404':['L72.0','L72.3','D23.5'],
+ '11406':['D23.5','L72.0'],
+ '11420':['D23.4','L72.0'],
+ '11421':['D23.4','L72.0'],
+ '11422':['D23.4','L72.0'],
+ '11424':['D23.4','L72.0'],
+ '11426':['D17.0','L72.0'],
  '15734':['K43.0','K43.1','K43.2','K43.9'],
  '21931':['D17.1','L72.0'],
  '21932':['D17.1','L72.0'],
@@ -410,6 +425,19 @@ const DX_BY_CPT={
  '24073':['D17.21','L72.0'],
  '27327':['D17.23','L72.0'],
  '27328':['D17.23','L72.0'],
+ '49020':['K65.1','K65.9'],
+ '49084':['R18.8','K65.1'],
+ '49500':['K40.90','K40.91'],
+ '49505':['K40.90','K40.91'],
+ '49507':['K40.30','K40.31'],
+ '49520':['K40.91'],
+ '49521':['K40.31'],
+ '49525':['K40.90'],
+ '49580':['K42.9'],
+ '49582':['K42.0'],
+ '49585':['K42.9'],
+ '49587':['K42.0'],
+ '49650':['K40.90','K40.91'],
  '49591':['K43.9','K43.2'],
  '49592':['K43.0','K43.1'],
  '49593':['K43.9','K43.2'],
@@ -434,8 +462,9 @@ const SPECS={
 "General Surgery":[
 ["44970","Lap appendectomy",8.85,0],["47562","Lap cholecystectomy",10.47,0],["47563","Lap chole w/ cholangiogram",11.47,0],
 ["49505","Inguinal hernia repair, open",7.96,1],["49650","Lap inguinal hernia repair",8.03,1],
+["49500","Inguinal hernia repair, younger than 5 years, reducible",6.15,1],["49505","Inguinal hernia repair, open",7.96,1],["49650","Lap inguinal hernia repair",8.03,1],
 ["49507","Initial inguinal hernia, incarcerated/strangulated",8.90,1],["49520","Recurrent inguinal hernia, reducible",8.10,1],["49521","Recurrent inguinal hernia, incarcerated/strangulated",9.20,1],
-["49525","Inguinal hernia, younger than 5, reducible",6.40,1],["49585","Umbilical hernia, younger than 5, reducible",5.20,0],["49587","Umbilical hernia, age 5+, reducible",6.10,0],
+["49525","Inguinal hernia, younger than 5, reducible",6.40,1],["49580","Umbilical hernia, younger than 5, reducible",5.20,0],["49582","Umbilical hernia, younger than 5, incarcerated/strangulated",5.80,0],["49585","Umbilical hernia, age 5+, reducible",6.10,0],["49587","Umbilical hernia, age 5+, incarcerated/strangulated",6.60,0],
 ["49659","Unlisted laparoscopic hernia procedure",8.00,0],["49568","Mesh implantation for open ventral/incisional hernia repair (add-on)",2.50,0],["49010","Peritoneal lavage, including exploratory laparotomy when performed",10.40,0],
 ["49020","Drainage of peritoneal abscess or localized peritonitis",12.50,0],["49084","Abdominal paracentesis",1.10,0],["49324","Laparoscopic peritoneal dialysis catheter placement",7.80,0],
 ["49435","Removal of tunneled intraperitoneal catheter",4.20,0],["49436","Revision or repositioning of intraperitoneal catheter",6.10,0],["10061","Incision and drainage of abscess, complicated or multiple",1.80,0],
@@ -759,6 +788,12 @@ function computeMods(){
   }
   if(l.laterality==='50'){l.mods.push('50');l.effWrvu=l.baseWrvu*1.5;l.rationale.push({mod:'50',reason:'Bilateral procedure. CMS bilateral indicator 1 — 150% payment.',cite:RULES.MOD_50})}
   else if(l.laterality==='RT'||l.laterality==='LT'){l.mods.push(l.laterality);l.effWrvu=l.baseWrvu;l.rationale.push({mod:l.laterality,reason:`${l.laterality==='RT'?'Right':'Left'}-side anatomic modifier appended.`,cite:RULES.MOD_RT_LT})}
+  else if(l.biIndicator===1&&/\b(right|left)\b/i.test(String(l.desc||''))){
+   l.laterality=/\bright\b/i.test(String(l.desc||''))?'RT':'LT';
+   l.mods.push(l.laterality);
+   l.effWrvu=l.baseWrvu;
+   l.rationale.push({mod:l.laterality,reason:`Recovered ${l.laterality==='RT'?'right':'left'} laterality from procedure description because the line reached the modifier engine without an explicit side tag.`,cite:RULES.MOD_RT_LT})
+  }
   else l.effWrvu=l.baseWrvu;
   if(l.approach==='robotic'){
    const roboticReason=getApproachMode(l.desc)==='thora'
