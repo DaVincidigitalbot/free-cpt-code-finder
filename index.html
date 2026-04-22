@@ -1274,6 +1274,41 @@ function renderGuidedFlow(){
   const chosen=map[d.location]?.[d.size];
   if(chosen){finishGuidedFlow([{code:chosen[0],desc:chosen[1],wrvu:chosen[2],dx:chosen[3]}]);return;}
  }
+ if(guidedState.kind==='hiatal-hernia'){
+  if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Hiatal / Paraesophageal Hernia</div><div>Repair type?</div>${buttonRow([{label:'Sliding hiatal hernia + fundoplication',value:'nissen',meta:'43280'},{label:'Paraesophageal repair',value:'para',meta:'43281'},{label:'Paraesophageal repair with mesh',value:'mesh',meta:'43282'},{label:'Open hiatal / paraesophageal repair',value:'open',meta:'43324'}],'type')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
+  if(guidedState.step===1&&d.type!=='open'){el.innerHTML=`<div><strong>Approach performed robotically?</strong></div>${buttonRow([{label:'Yes, robotic/laparoscopic',value:'robotic'},{label:'Standard laparoscopic',value:'lap'}],'approach')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  const hiatalMap={
+   nissen:['43280','Lap hiatal hernia repair / Nissen fundoplication',17.96,['K44.9','K21.9']],
+   para:['43281','Lap paraesophageal hernia repair',16.25,['K44.9','K44.0']],
+   mesh:['43282','Lap paraesophageal hernia repair with mesh',16.25,['K44.9','K44.0']],
+   open:['43324','Open hiatal or paraesophageal hernia repair / fundoplasty',18.85,['K44.9','K44.0']]
+  };
+  const base=hiatalMap[d.type];
+  if(!base){cancelGuidedFlow();return;}
+  finishGuidedFlow([{code:base[0],desc:base[1],wrvu:base[2],approach:d.approach==='robotic'?'robotic':undefined,dx:base[3]}]);
+  return;
+ }
+ if(guidedState.kind==='ent-sinus'){
+  if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">ENT Sinus Surgery</div><div>Primary sinus procedure?</div>${buttonRow([{label:'Maxillary antrostomy',value:'31256',meta:'31256'},{label:'Maxillary antrostomy with tissue removal',value:'31267',meta:'31267'},{label:'Frontal sinusotomy',value:'31276',meta:'31276'},{label:'Sphenoidotomy',value:'31287',meta:'31287'},{label:'Sphenoidotomy with tissue removal',value:'31288',meta:'31288'}],'primary')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
+  if(guidedState.step===1){el.innerHTML=`<div><strong>Laterality?</strong></div>${buttonRow([{label:'Right',value:'RT'},{label:'Left',value:'LT'},{label:'Bilateral',value:'50'}],'side')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===2){el.innerHTML=`<div><strong>Add secondary sinus procedure?</strong></div>${buttonRow([{label:'None',value:'none'},{label:'Add 31267',value:'31267'},{label:'Add 31276',value:'31276'},{label:'Add 31287',value:'31287'},{label:'Add 31288',value:'31288'}],'secondary')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  const sinusMap={
+   '31256':['Nasal/sinus endoscopy with maxillary antrostomy',5.04,['J32.0','J33.8']],
+   '31267':['Nasal/sinus endoscopy with maxillary antrostomy; with removal of tissue from maxillary sinus',7.50,['J32.0','J33.0']],
+   '31276':['Nasal/sinus endoscopy with frontal sinus exploration',6.80,['J32.1','J33.8']],
+   '31287':['Nasal/sinus endoscopy with sphenoidotomy',5.90,['J32.3']],
+   '31288':['Nasal/sinus endoscopy with sphenoidotomy with removal of tissue',7.10,['J32.3','J33.8']]
+  };
+  const primary=sinusMap[d.primary];
+  if(!primary){cancelGuidedFlow();return;}
+  const lines=[{code:d.primary,desc:primary[0],wrvu:primary[1],laterality:d.side,bi:1,dx:primary[2]}];
+  if(d.secondary&&d.secondary!=='none'&&sinusMap[d.secondary]){
+   const secondary=sinusMap[d.secondary];
+   lines.push({code:d.secondary,desc:secondary[0],wrvu:secondary[1],laterality:d.side,bi:1,dx:secondary[2]});
+  }
+  finishGuidedFlow(lines);
+  return;
+ }
  if(guidedState.kind==='ventral-hernia'){
   if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Ventral / Incisional Hernia</div><div>Initial or recurrent?</div>${buttonRow([{label:'Initial',value:'initial'},{label:'Recurrent',value:'recurrent'}],'timing')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
   if(guidedState.step===1){el.innerHTML=`<div><strong>Reducible or incarcerated/strangulated?</strong></div>${buttonRow([{label:'Reducible',value:'reducible'},{label:'Incarcerated / strangulated',value:'incarcerated'}],'severity')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
@@ -1464,8 +1499,7 @@ function promptHerniaComponentSeparation(base){
  const isTar=normalized.includes('tar');
  const descBase=isTar?'Myofascial flap, trunk - TAR':'Myofascial flap, trunk - rectus myofascial release';
  if(normalized.includes('bilateral')){
-  addProc('15734',`${descBase}, right`,22.43,'RT',1);
-  addProc('15734',`${descBase}, left`,22.43,'LT',1);
+  addProc('15734',`${descBase}, bilateral`,22.43,'50',1);
   return;
  }
  if(normalized.includes('right')){addProc('15734',`${descBase}, right`,22.43,'RT',1);return}
