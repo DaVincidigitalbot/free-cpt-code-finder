@@ -1371,6 +1371,32 @@ function promptLapRoboticAnteriorHernia(item){
  return true;
 }
 
+function promptUnilateralBilateralHernia({cpt,desc,wrvu,bi,approach,dx}){
+ const normalizedDesc=String(desc||'').toLowerCase();
+ const isInguinal=normalizedDesc.includes('inguinal hernia');
+ const isFemoral=normalizedDesc.includes('femoral hernia');
+ if(!isInguinal && !isFemoral)return false;
+ const inherentlyBilateral=bi===2 || /bilateral/.test(normalizedDesc);
+ if(inherentlyBilateral){
+  addProc(cpt,desc,wrvu,'',2,approach,dx);
+  return true;
+ }
+ const promptLabel=isInguinal?'inguinal':'femoral';
+ const sideChoice=window.prompt(`Is this ${promptLabel} hernia repair unilateral or bilateral?\n\nType one:\n- unilateral\n- bilateral`,`unilateral`);
+ if(sideChoice===null)return true;
+ const normalizedChoice=String(sideChoice).trim().toLowerCase();
+ if(normalizedChoice.startsWith('b')){
+  addProc(cpt,`${desc} (bilateral)`,wrvu,'50',1,approach,dx);
+  return true;
+ }
+  const lateralityPrompt=window.prompt(`Which side?\n\nType one:\n- right\n- left`,`right`);
+  if(lateralityPrompt===null)return true;
+  const normalizedLaterality=String(lateralityPrompt).trim().toLowerCase();
+  const laterality=normalizedLaterality.startsWith('l')?'LT':'RT';
+  addProc(cpt,`${desc} (${laterality==='RT'?'right':'left'})`,wrvu,laterality,1,approach,dx);
+  return true;
+}
+
 function addAutocompleteResultToCase(item){
  if(['49652','49653','49654'].includes(String(item.code||''))&&/anterior abd hernia|ventral hernia/i.test(String(item.description||''))){
   if(promptLapRoboticAnteriorHernia(item))return;
@@ -1381,6 +1407,7 @@ function addAutocompleteResultToCase(item){
   if(['49652','49653','49654'].includes(String(cpt||''))&&/anterior abd hernia|ventral hernia/i.test(String(desc||''))){
    if(promptLapRoboticAnteriorHernia({code:cpt,description:desc,wrvu:w}))return;
   }
+  if(promptUnilateralBilateralHernia({cpt,desc,wrvu:w,bi,approach:undefined,dx:undefined}))return;
   if((bi===1||bi===2)&&bi!==2){
    addProc(cpt,desc,w,'',1);
   }else{
@@ -1388,6 +1415,7 @@ function addAutocompleteResultToCase(item){
   }
   return;
  }
+ if(promptUnilateralBilateralHernia({cpt:item.code,desc:item.description,wrvu:item.wrvu||0,bi:item.bi||0,approach:item.approach,dx:item.dx||[]}))return;
  addProc(item.code,item.description,item.wrvu||0,'',item.bi||0);
 }
 
