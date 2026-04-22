@@ -749,7 +749,10 @@ document.addEventListener('keydown',e=>{
 // ===== ADD HANDLERS =====
 function addProc(cpt,desc,wrvu,laterality,bi,approach,dx){
  const existing=caseLines.filter(l=>l.kind==='proc'&&l.cpt===cpt);
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:laterality||'',biIndicator:bi||0,kind:'proc',mods:[],userMod:''};
+ const lateralToken=String(laterality||'').toUpperCase();
+ const normalizedDesc=String(desc||'');
+ const inferredMidline=/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(normalizedDesc);
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
  if(existing.length>0){
@@ -782,17 +785,30 @@ function computeMods(){
  let repeated15734Rank=0;
  caseLines.forEach(l=>{
   l.mods=[];l.rationale=[];
+  l.warnings=[];
   if(l.kind==='em'){
    if(procs.length>0){l.mods.push('25');l.rationale.push({mod:'25',reason:`E/M billed same session as ${procs[0].cpt}. Modifier 25 required.`,cite:RULES.MOD_25})}
    l.effWrvu=l.baseWrvu;l.rank='E/M';l.rankReason='Evaluation & management service.';return;
   }
-  if(l.laterality==='50'){l.mods.push('50');l.effWrvu=l.baseWrvu*1.5;l.rationale.push({mod:'50',reason:'Bilateral procedure. CMS bilateral indicator 1 — 150% payment.',cite:RULES.MOD_50})}
-  else if(l.laterality==='RT'||l.laterality==='LT'){l.mods.push(l.laterality);l.effWrvu=l.baseWrvu;l.rationale.push({mod:l.laterality,reason:`${l.laterality==='RT'?'Right':'Left'}-side anatomic modifier appended.`,cite:RULES.MOD_RT_LT})}
-  else if(l.biIndicator===1&&/\b(right|left)\b/i.test(String(l.desc||''))){
-   l.laterality=/\bright\b/i.test(String(l.desc||''))?'RT':'LT';
+  const descText=String(l.desc||'');
+  const inferredSide=/\bright\b/i.test(descText)?'RT':(/\bleft\b/i.test(descText)?'LT':'');
+  const isMidline=l.isMidline||/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(descText);
+  if(!l.laterality&&l.biIndicator===1&&inferredSide)l.laterality=inferredSide;
+  if(isMidline&&(l.laterality==='RT'||l.laterality==='LT'||l.laterality==='50')){
+   l.warnings.push('Midline structure detected. Removed invalid laterality modifier.');
+   l.rationale.push({mod:'Warning',reason:'Midline / non-lateral structure. RT, LT, and -50 are suppressed unless CPT rules explicitly allow them.',cite:RULES.MIDLINE});
+   l.laterality='';
+  }
+  if(l.laterality==='50'){
+   l.mods.push('50');
+   l.effWrvu=l.baseWrvu*1.5;
+   l.rationale.push({mod:'50',reason:'True bilateral same procedure. Default billing uses -50 with 150% valuation.',cite:RULES.MOD_50});
+   if(l.cpt==='15734')l.rationale.push({mod:'Alt',reason:'Default: -50. Some payers require RT/LT split billing.',cite:RULES.MOD_50_ALT});
+  }
+  else if(l.laterality==='RT'||l.laterality==='LT'){
    l.mods.push(l.laterality);
    l.effWrvu=l.baseWrvu;
-   l.rationale.push({mod:l.laterality,reason:`Recovered ${l.laterality==='RT'?'right':'left'} laterality from procedure description because the line reached the modifier engine without an explicit side tag.`,cite:RULES.MOD_RT_LT})
+   l.rationale.push({mod:l.laterality,reason:`${l.laterality==='RT'?'Right':'Left'}-side anatomic modifier appended for unilateral or side-specific procedure.`,cite:RULES.MOD_RT_LT});
   }
   else l.effWrvu=l.baseWrvu;
   if(l.approach==='robotic'){
@@ -910,6 +926,7 @@ function recalc(why){
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${l.kind==='proc'&&rk>1?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}</div>
     <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
+    ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
    </div>`}).join('');
  }
  document.getElementById('tn').textContent=twrvu.toFixed(2);
@@ -938,6 +955,8 @@ const RULES={
  MOD_25:"CPT 2026 Appendix A — modifier 25 indicates significant, separately identifiable E/M on same day as a procedure",
  MOD_50:"CPT 2026 Appendix A — modifier 50 for bilateral procedures; paid at 150% of base",
  MOD_RT_LT:"HCPCS Level II — anatomic laterality modifiers",
+ MOD_50_ALT:"Payer variation note — some payers require bilateral split billing with RT/LT instead of modifier 50",
+ MIDLINE:"Midline/non-lateral structures should not receive RT, LT, or -50 unless CPT-specific guidance explicitly permits it",
  MPPR:"CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting",
  CF_2026:"CMS 2026 Physician Fee Schedule Final Rule — national conversion factor $32.3465"
 };
