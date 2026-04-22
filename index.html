@@ -1285,8 +1285,7 @@ function renderGuidedFlow(){
   if(d.releaseType&&d.releaseType!=='none'){
    const relDesc=`Myofascial flap, trunk - ${d.releaseType==='tar'?'TAR':'rectus myofascial release'}`;
    if(d.releaseSide==='BIL'){
-    lines.push({code:'15734',desc:`${relDesc}, right`,wrvu:22.43,laterality:'RT',bi:1,dx:base[2]});
-    lines.push({code:'15734',desc:`${relDesc}, left`,wrvu:22.43,laterality:'LT',bi:1,dx:base[2]});
+    lines.push({code:'15734',desc:`${relDesc}, bilateral`,wrvu:22.43,laterality:'50',bi:1,dx:base[2]});
    }else{
     lines.push({code:'15734',desc:`${relDesc}, ${d.releaseSide==='RT'?'right':'left'}`,wrvu:22.43,laterality:d.releaseSide,bi:1,dx:base[2]});
    }
@@ -1302,10 +1301,16 @@ function buildSearchIndexFromSpecs(){
   const description=String(p[1]||'');
   const aliasMap={
    '15734':'myocutaneous flap myofascial flap muscle flap fasciocutaneous flap component separation retrorectus release transversus abdominis release tar abdominal wall reconstruction',
+   '31256':'maxillary antrostomy fess sinus surgery maxillary sinusotomy',
+   '31267':'maxillary antrostomy tissue removal fess polyp sinus surgery',
+   '31276':'frontal sinusotomy draf frontal sinus surgery',
+   '31287':'sphenoidotomy sphenoid sinus surgery',
+   '31288':'sphenoidotomy tissue removal sphenoid sinus surgery',
    '43280':'hiatal hiatal hernia fundoplication nissen toupet',
-   '43281':'paraesophageal paraesophageal hernia hiatal hernia repair',
-   '43282':'paraesophageal paraesophageal hernia hiatal hernia mesh repair',
-   '43324':'open hiatal paraesophageal hernia fundoplasty nissen belsey hill'
+   '43281':'paraesophageal paraesophageal hernia repair laparoscopic hiatal',
+   '43282':'paraesophageal paraesophageal hernia repair mesh laparoscopic hiatal',
+   '43324':'open hiatal paraesophageal hernia repair fundoplasty nissen belsey hill',
+   '49568':'ventral hernia mesh add on implantation abdominal wall reinforcement'
   };
   const aliases=aliasMap[code]||'';
   return {
