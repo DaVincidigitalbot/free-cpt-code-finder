@@ -843,6 +843,11 @@ function computeMods(){
     : 'Performed robotically — coded as laparoscopic per CMS/AMA guidance; robotic assistance documented for clinical record, does not affect CPT selection or reimbursement.';
    l.rationale.push({mod:'—',reason:roboticReason,cite:'CMS/AMA robotic coding guidance'});
   }
+  const primaryProc=procs[0];
+  const pairEdit=pIdx>0?ncciCheck(primaryProc?.cpt,l.cpt):null;
+  if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
+   l.conflicts.push('Conditional NCCI pair remains conflicted because both procedures are on the same side. Laterality alone does not establish distinctness.');
+  }
   if(isAddonCode(l.cpt)&&pIdx===0){
    l.conflicts.push('Add-on code cannot be ranked as primary. Parent/base code required.');
   }
@@ -860,9 +865,10 @@ function computeMods(){
    }else if(payer==='commercial'){l.mods.push('51');l.rationale.push({mod:'51',reason:'Commercial payer multi-procedure marker.',cite:RULES.MOD_51})}
    else l.rationale.push({mod:'Rank',reason:'Medicare MPPR applied automatically; -51 omitted.',cite:RULES.MPPR});
    if(l.userMod){
-    const edit=ncciCheck(procs[0]?.cpt,l.cpt);
+    const edit=pairEdit;
     if(l.userMod==='59'&&!edit){l.conflicts.push('Modifier -59 blocked because no NCCI conditional edit exists for this code pair.');}
     else if(l.userMod==='59'&&(l.laterality==='RT'||l.laterality==='LT')){l.conflicts.push('Modifier -59 blocked because RT/LT laterality already resolves distinctness.');}
+    else if(edit&&!edit.modAllowed){l.conflicts.push('Fully bundled pair is non-payable. Modifier cannot rescue payment.');}
     else if(isAddonCode(l.cpt)){l.conflicts.push('Distinct service modifier blocked on add-on code without explicit CPT support.');}
     else{
      l.mods.push(l.userMod);
