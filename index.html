@@ -1329,13 +1329,21 @@ function renderGuidedFlow(){
   finishGuidedFlow(lines);
   return;
  }
+ function pushReleaseLine(lines,label,side,dx,mod59){
+  const line={code:'15734',desc:`Myofascial flap, trunk - ${label}${side==='50'?', bilateral':`, ${side==='RT'?'right':'left'}`}`,wrvu:22.43,laterality:side,bi:1,dx};
+  if(mod59)line.userMod='59';
+  lines.push(line);
+ }
  if(guidedState.kind==='ventral-hernia'){
   if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Ventral / Incisional Hernia</div><div>Initial or recurrent?</div>${buttonRow([{label:'Initial',value:'initial'},{label:'Recurrent',value:'recurrent'}],'timing')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
   if(guidedState.step===1){el.innerHTML=`<div><strong>Reducible or incarcerated/strangulated?</strong></div>${buttonRow([{label:'Reducible',value:'reducible'},{label:'Incarcerated / strangulated',value:'incarcerated'}],'severity')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
   if(guidedState.step===2){el.innerHTML=`<div><strong>Size?</strong></div>${buttonRow([{label:'<3 cm',value:'small'},{label:'3-10 cm',value:'medium'},{label:'>10 cm',value:'large'}],'size')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
   if(guidedState.step===3){el.innerHTML=`<div><strong>Approach?</strong></div>${buttonRow([{label:'Open',value:'open'},{label:'Laparoscopic / Robotic',value:'lap'}],'approach')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
-  if(guidedState.step===4){el.innerHTML=`<div><strong>Component separation?</strong></div>${buttonRow([{label:'None',value:'none'},{label:'Rectus myofascial release',value:'rectus'},{label:'TAR',value:'tar'}],'releaseType')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
-  if(guidedState.step===5&&d.releaseType!=='none'){el.innerHTML=`<div><strong>Which side?</strong></div>${buttonRow([{label:'Left',value:'LT'},{label:'Right',value:'RT'},{label:'Bilateral',value:'BIL'}],'releaseSide')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===4){el.innerHTML=`<div><strong>Was a myofascial release performed?</strong></div>${buttonRow([{label:'No',value:'no'},{label:'Yes',value:'yes'}],'releaseGate')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===5&&d.releaseGate==='yes'){el.innerHTML=`<div><strong>Was a rectus myofascial release (component separation) performed?</strong></div>${buttonRow([{label:'No',value:'no'},{label:'Yes',value:'yes'}],'rectusGate')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===6&&d.rectusGate==='yes'){el.innerHTML=`<div><strong>Select laterality for rectus myofascial release (CPT 15734):</strong></div>${buttonRow([{label:'Right',value:'RT'},{label:'Left',value:'LT'},{label:'Bilateral',value:'50'}],'rectusSide')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if((guidedState.step===6&&d.rectusGate!=='yes'&&d.releaseGate==='yes')||(guidedState.step===7&&d.releaseGate==='yes')){el.innerHTML=`<div><strong>Was a transversus abdominis release (posterior component separation) performed?</strong></div>${buttonRow([{label:'No',value:'no'},{label:'Yes',value:'yes'}],'tarGate')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if((guidedState.step===7&&d.tarGate==='yes'&&d.rectusGate!=='yes')||(guidedState.step===8&&d.tarGate==='yes')){el.innerHTML=`<div><strong>Select laterality for transversus abdominis release (CPT 15734):</strong></div>${buttonRow([{label:'Right',value:'RT'},{label:'Left',value:'LT'},{label:'Bilateral',value:'50'}],'tarSide')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
   const baseMap={
    initial:{reducible:{small:{open:['49591',4.55,['K43.9','K43.2']],lap:['49652',8.33,['K43.9','K43.2']]},medium:{open:['49593',6.25,['K43.9','K43.2']],lap:['49653',10.95,['K43.9','K43.2']]},large:{open:['49595',9.61,['K43.9','K43.2']],lap:['49654',12.00,['K43.9','K43.2']]}},incarcerated:{small:{open:['49592',5.0,['K43.0','K43.1']],lap:['49652',8.33,['K43.0','K43.1']]},medium:{open:['49594',8.0,['K43.0','K43.1']],lap:['49653',10.95,['K43.0','K43.1']]},large:{open:['49596',18.20,['K43.0','K43.1']],lap:['49654',12.00,['K43.0','K43.1']]}}},
    recurrent:{reducible:{small:{open:['49613',7.0,['K43.2','K43.9']],lap:['49656',9.0,['K43.2','K43.9']]},medium:{open:['49615',9.0,['K43.2','K43.9']],lap:['49657',11.0,['K43.2','K43.9']]},large:{open:['49617',11.0,['K43.2','K43.9']],lap:['49657',11.0,['K43.2','K43.9']]}},incarcerated:{small:{open:['49614',8.0,['K43.0','K43.1']],lap:['49656',9.0,['K43.0','K43.1']]},medium:{open:['49616',10.0,['K43.0','K43.1']],lap:['49657',11.0,['K43.0','K43.1']]},large:{open:['49618',12.0,['K43.0','K43.1']],lap:['49657',11.0,['K43.0','K43.1']]}}}
@@ -1343,14 +1351,29 @@ function renderGuidedFlow(){
   const base=baseMap[d.timing]?.[d.severity]?.[d.size]?.[d.approach];
   if(!base){cancelGuidedFlow();return;}
   const lines=[{code:base[0],desc:`${d.approach==='lap'?'Lap / Robotic':'Open'} ${d.timing} ventral/incisional hernia ${d.size}`,wrvu:base[1],approach:d.approach==='lap'?'robotic':undefined,dx:base[2]}];
-  if(d.releaseType&&d.releaseType!=='none'){
-   const relDesc=`Myofascial flap, trunk - ${d.releaseType==='tar'?'TAR':'rectus myofascial release'}`;
-   if(d.releaseSide==='BIL'){
-    lines.push({code:'15734',desc:`${relDesc}, bilateral`,wrvu:22.43,laterality:'50',bi:1,dx:base[2]});
-   }else{
-    lines.push({code:'15734',desc:`${relDesc}, ${d.releaseSide==='RT'?'right':'left'}`,wrvu:22.43,laterality:d.releaseSide,bi:1,dx:base[2]});
-   }
-  }
+  if(d.releaseGate==='yes'&&d.rectusGate==='yes'&&d.rectusSide)pushReleaseLine(lines,'rectus myofascial release',d.rectusSide,base[2],false);
+  if(d.releaseGate==='yes'&&d.tarGate==='yes'&&d.tarSide)pushReleaseLine(lines,'TAR',d.tarSide,base[2],d.rectusGate==='yes');
+  finishGuidedFlow(lines);
+  return;
+ }
+ if(guidedState.kind==='umbilical-hernia'){
+  if(guidedState.step===0){el.innerHTML=`<div class="sec-h surg" style="border:0;padding:0;margin:0 0 8px">Umbilical Hernia</div><div>Age and complexity?</div>${buttonRow([{label:'Under 5, reducible',value:'49580',meta:'49580'},{label:'Under 5, incarcerated',value:'49582',meta:'49582'},{label:'Age 5+, reducible',value:'49585',meta:'49585'},{label:'Age 5+, incarcerated',value:'49587',meta:'49587'}],'baseCode')}<div style="margin-top:12px"><button class="lat-cancel" onclick="cancelGuidedFlow()">cancel</button></div>`;return;}
+  if(guidedState.step===1){el.innerHTML=`<div><strong>Was a myofascial release performed?</strong></div>${buttonRow([{label:'No',value:'no'},{label:'Yes',value:'yes'}],'releaseGate')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===2&&d.releaseGate==='yes'){el.innerHTML=`<div><strong>Was a rectus myofascial release (component separation) performed?</strong></div>${buttonRow([{label:'No',value:'no'},{label:'Yes',value:'yes'}],'rectusGate')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if(guidedState.step===3&&d.rectusGate==='yes'){el.innerHTML=`<div><strong>Select laterality for rectus myofascial release (CPT 15734):</strong></div>${buttonRow([{label:'Right',value:'RT'},{label:'Left',value:'LT'},{label:'Bilateral',value:'50'}],'rectusSide')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if((guidedState.step===3&&d.rectusGate!=='yes'&&d.releaseGate==='yes')||(guidedState.step===4&&d.releaseGate==='yes')){el.innerHTML=`<div><strong>Was a transversus abdominis release (posterior component separation) performed?</strong></div>${buttonRow([{label:'No',value:'no'},{label:'Yes',value:'yes'}],'tarGate')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  if((guidedState.step===4&&d.tarGate==='yes'&&d.rectusGate!=='yes')||(guidedState.step===5&&d.tarGate==='yes')){el.innerHTML=`<div><strong>Select laterality for transversus abdominis release (CPT 15734):</strong></div>${buttonRow([{label:'Right',value:'RT'},{label:'Left',value:'LT'},{label:'Bilateral',value:'50'}],'tarSide')}<div style="margin-top:12px"><button class="lat-cancel" onclick="backGuidedFlow()">back</button></div>`;return;}
+  const umbilicalMap={
+   '49580':['49580','Repair umbilical hernia, younger than age 5 years; reducible',5.20,['K42.9']],
+   '49582':['49582','Repair umbilical hernia, younger than age 5 years; incarcerated or strangulated',5.80,['K42.0']],
+   '49585':['49585','Repair umbilical hernia, age 5 years or older; reducible',6.10,['K42.9']],
+   '49587':['49587','Repair umbilical hernia, age 5 years or older; incarcerated or strangulated',6.60,['K42.0']]
+  };
+  const base=umbilicalMap[d.baseCode];
+  if(!base){cancelGuidedFlow();return;}
+  const lines=[{code:base[0],desc:base[1],wrvu:base[2],dx:base[3]}];
+  if(d.releaseGate==='yes'&&d.rectusGate==='yes'&&d.rectusSide)pushReleaseLine(lines,'rectus myofascial release',d.rectusSide,base[3],false);
+  if(d.releaseGate==='yes'&&d.tarGate==='yes'&&d.tarSide)pushReleaseLine(lines,'TAR',d.tarSide,base[3],d.rectusGate==='yes');
   finishGuidedFlow(lines);
   return;
  }
