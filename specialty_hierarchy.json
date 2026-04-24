@@ -868,11 +868,21 @@
           "label": "Gynecologic",
           "groups": [
             {
-              "label": "Vulvar / Cervical / Endometrial",
+              "label": "Vulvar / Bartholin",
               "codes": [
                 "56420",
+                "56440",
+                "56620",
+                "56630",
+                "56637"
+              ]
+            },
+            {
+              "label": "Cervical / Endometrial",
+              "codes": [
                 "57520",
                 "57522",
+                "57700",
                 "58100",
                 "58120"
               ]
@@ -907,7 +917,7 @@
               ]
             },
             {
-              "label": "Laparoscopic Hysterectomy / Myomectomy",
+              "label": "Laparoscopic Hysterectomy / Hysteroscopy",
               "codes": [
                 "58541",
                 "58542",
@@ -927,8 +937,10 @@
               "codes": [
                 "58605",
                 "58661",
+                "58662",
                 "58670",
                 "58700",
+                "58720",
                 "58940",
                 "58943",
                 "58952",
@@ -948,6 +960,14 @@
           "label": "Obstetric",
           "groups": [
             {
+              "label": "Fetal Procedures",
+              "codes": [
+                "59000",
+                "59012",
+                "59325"
+              ]
+            },
+            {
               "label": "Vaginal Delivery",
               "codes": [
                 "59400",
@@ -960,7 +980,8 @@
               "codes": [
                 "59510",
                 "59514",
-                "59515"
+                "59515",
+                "59525"
               ]
             },
             {
@@ -974,7 +995,8 @@
             {
               "label": "Pregnancy Loss Management",
               "codes": [
-                "59820"
+                "59820",
+                "59821"
               ]
             }
           ]

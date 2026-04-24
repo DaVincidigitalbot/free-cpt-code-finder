@@ -8410,6 +8410,14 @@
             {
               "label": "Vaginal delivery / VBAC",
               "next": "ob_delivery_questions"
+            },
+            {
+              "label": "Vulvar / Bartholin procedures",
+              "next": "vulvar_questions"
+            },
+            {
+              "label": "Pregnancy loss / fetal procedures",
+              "next": "pregnancy_loss_questions"
             }
           ]
         }
@@ -9034,6 +9042,136 @@
                 "O34.219"
               ],
               "work_rvu": 25.41
+            }
+          ]
+        },
+        "vulvar_questions": {
+          "question": "Type of vulvar or Bartholin procedure?",
+          "options": [
+            {
+              "label": "Incision and drainage of Bartholin's gland abscess",
+              "cpt_code": "56420",
+              "description": "Incision and drainage of Bartholin's gland abscess",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 3.25
+            },
+            {
+              "label": "Marsupialization of Bartholin's gland cyst",
+              "cpt_code": "56440",
+              "description": "Marsupialization of Bartholin's gland cyst",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 4.85
+            },
+            {
+              "label": "Vulvectomy, simple; partial",
+              "cpt_code": "56620",
+              "description": "Vulvectomy, simple; partial",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 8.85
+            },
+            {
+              "label": "Vulvectomy, radical, partial",
+              "cpt_code": "56630",
+              "description": "Vulvectomy, radical, partial",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 16.85
+            },
+            {
+              "label": "Vulvectomy, radical, complete, with unilateral or bilateral ingui",
+              "cpt_code": "56637",
+              "description": "Vulvectomy, radical, complete, with unilateral or bilateral inguinofemoral lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 25.85
+            }
+          ]
+        },
+        "pregnancy_loss_questions": {
+          "question": "Type of fetal or pregnancy loss procedure?",
+          "options": [
+            {
+              "label": "Amniocentesis, diagnostic",
+              "cpt_code": "59000",
+              "description": "Amniocentesis, diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "O02.1",
+                "O03.4",
+                "O35.9XX0"
+              ],
+              "work_rvu": 1.52
+            },
+            {
+              "label": "Cordocentesis/fetal blood sampling",
+              "cpt_code": "59012",
+              "description": "Cordocentesis/fetal blood sampling",
+              "modifiers": [],
+              "icd10": [
+                "O02.1",
+                "O03.4",
+                "O35.9XX0"
+              ],
+              "work_rvu": 3.09
+            },
+            {
+              "label": "Cerclage of cervix, during pregnancy; abdominal",
+              "cpt_code": "59325",
+              "description": "Cerclage of cervix, during pregnancy; abdominal",
+              "modifiers": [],
+              "icd10": [
+                "O02.1",
+                "O03.4",
+                "O35.9XX0"
+              ],
+              "work_rvu": 12.85
+            },
+            {
+              "label": "Treatment of missed abortion, 1st trimester",
+              "cpt_code": "59820",
+              "description": "Treatment of missed abortion, 1st trimester",
+              "modifiers": [],
+              "icd10": [
+                "O02.1",
+                "O03.4",
+                "O35.9XX0"
+              ],
+              "work_rvu": 4.55
+            },
+            {
+              "label": "Treatment of missed abortion, 2nd trimester",
+              "cpt_code": "59821",
+              "description": "Treatment of missed abortion, 2nd trimester",
+              "modifiers": [],
+              "icd10": [
+                "O02.1",
+                "O03.4",
+                "O35.9XX0"
+              ],
+              "work_rvu": 5.97
             }
           ]
         }

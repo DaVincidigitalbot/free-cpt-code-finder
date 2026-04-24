@@ -16850,12 +16850,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "drainage",
+    "category": "vulvar",
     "inclusive_of": [
       "12001",
       "12002",
@@ -16879,9 +16879,46 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "56440": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "vulvar",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3
+  },
+  "56620": {
     "mod51_exempt": false,
     "addon_code": false,
     "bilateral_eligible": false,
@@ -16892,44 +16929,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "never_primary_with": [],
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
-    },
-    "x_modifier_eligible": true,
-    "hierarchy_tier": 2
-  },
-  "56620": {
-    "mod51_exempt": false,
-    "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "rt_lt",
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
-    "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "gynecologic_oncology",
+    "category": "vulvar",
     "inclusive_of": [
       "12001",
       "12002",
@@ -16966,7 +16966,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic_oncology",
+    "category": "vulvar",
     "inclusive_of": [
       "12001",
       "12002",
@@ -16995,15 +16995,15 @@
   "56637": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic_oncology",
+    "category": "vulvar",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17032,15 +17032,15 @@
   "57240": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": false,
-    "laterality_applicable": false,
-    "bilateral_method": null,
+    "bilateral_eligible": true,
+    "laterality_applicable": true,
+    "bilateral_method": "modifier_50",
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
+    "category": "urogynecology",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17077,7 +17077,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "category": "urogynecology",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17114,7 +17114,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic_oncology",
+    "category": "cervical",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17151,7 +17151,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "excision",
+    "category": "cervical",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17183,12 +17183,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
+    "category": "cervical",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17212,7 +17212,7 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "58120": {
     "mod51_exempt": false,
@@ -17220,12 +17220,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17249,7 +17249,7 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "58140": {
     "mod51_exempt": false,
@@ -17262,7 +17262,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "excision",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17291,9 +17291,9 @@
   "58150": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
@@ -17447,7 +17447,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17484,7 +17484,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "excision",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17521,7 +17521,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17553,12 +17553,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "excision",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17582,20 +17582,20 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "58605": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17632,14 +17632,13 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
       "12003",
       "12004",
-      "12005",
-      "49320"
+      "12005"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -17662,22 +17661,21 @@
   "58662": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": "gynecologic",
-    "category": "gynecology",
+    "distinct_procedure_class": null,
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
       "12003",
       "12004",
-      "12005",
-      "49320"
+      "12005"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
@@ -17700,15 +17698,15 @@
   "58670": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": "gynecologic",
-    "category": "gynecology",
+    "distinct_procedure_class": null,
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17735,117 +17733,6 @@
     "hierarchy_tier": 2
   },
   "58700": {
-    "mod51_exempt": false,
-    "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
-    "inherently_bilateral": false,
-    "distinct_procedure_class": "gynecologic",
-    "category": "gynecology",
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "never_primary_with": [],
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
-    },
-    "x_modifier_eligible": true,
-    "hierarchy_tier": 2
-  },
-  "58720": {
-    "mod51_exempt": false,
-    "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
-    "inherently_bilateral": false,
-    "distinct_procedure_class": "gynecologic",
-    "category": "gynecology",
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "never_primary_with": [],
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
-    },
-    "x_modifier_eligible": true,
-    "hierarchy_tier": 2
-  },
-  "58940": {
-    "mod51_exempt": false,
-    "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
-    "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "never_primary_with": [],
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
-    },
-    "x_modifier_eligible": true,
-    "hierarchy_tier": 2
-  },
-  "58952": {
     "mod51_exempt": false,
     "addon_code": false,
     "bilateral_eligible": true,
@@ -17882,7 +17769,44 @@
     "x_modifier_eligible": true,
     "hierarchy_tier": 2
   },
-  "58956": {
+  "58720": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "gynecologic",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2
+  },
+  "58940": {
     "mod51_exempt": false,
     "addon_code": false,
     "bilateral_eligible": true,
@@ -17893,7 +17817,81 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic_oncology",
+    "category": "gynecologic",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2
+  },
+  "58952": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "gynecologic",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2
+  },
+  "58956": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "gynecologic",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17930,7 +17928,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "category": "ectopic_pregnancy",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17967,7 +17965,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "category": "ectopic_pregnancy",
     "inclusive_of": [
       "12001",
       "12002",
@@ -18004,7 +18002,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "obstetrics_and_gynecology",
+    "category": "obstetric",
     "inclusive_of": [
       "12001",
       "12002",
@@ -18041,7 +18039,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "hepatic",
+    "category": "obstetric",
     "inclusive_of": [
       "12001",
       "12002",
@@ -23145,7 +23143,155 @@
     "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic",
+    "category": "obstetric",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3
+  },
+  "59000": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "obstetric",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3
+  },
+  "59012": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "obstetric",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3
+  },
+  "59525": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "obstetric",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "ent": {
+        "always_with": [],
+        "never_with": []
+      },
+      "general": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Major surgery - 90-day global period applies",
+      "commercial": "Plastic surgery codes - verify coverage"
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3
+  },
+  "59821": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": null,
+    "category": "obstetric",
     "inclusive_of": [
       "12001",
       "12002",
