@@ -7686,107 +7686,30 @@
           "question": "Type of HPB procedure?",
           "options": [
             {
-              "label": "Whipple/Pancreaticoduodenectomy",
-              "next": "whipple_questions"
+              "label": "Liver procedures",
+              "next": "liver_questions"
             },
             {
-              "label": "Distal Pancreatectomy",
-              "next": "distal_panc_questions"
-            },
-            {
-              "label": "Liver Resection",
-              "next": "liver_resection_questions"
-            },
-            {
-              "label": "Biliary Reconstruction",
+              "label": "Biliary procedures",
               "next": "biliary_questions"
             },
             {
-              "label": "Liver Ablation",
-              "next": "liver_ablation_questions"
+              "label": "Pancreatic procedures",
+              "next": "pancreas_questions"
             },
             {
-              "label": "Pancreatic Pseudocyst",
+              "label": "Pancreatic cyst / pseudocyst",
               "next": "pseudocyst_questions"
             }
           ]
         }
       ],
       "branches": {
-        "whipple_questions": {
-          "question": "Type of pancreaticoduodenectomy?",
+        "liver_questions": {
+          "question": "Select liver procedure",
           "options": [
             {
-              "label": "Classic Whipple",
-              "cpt_code": "48150",
-              "description": "Pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (Whipple-type procedure)",
-              "modifiers": [],
-              "icd10": [
-                "C25.9",
-                "C22.1",
-                "C24.0"
-              ],
-              "work_rvu": 62.85
-            },
-            {
-              "label": "Pylorus-preserving pancreaticoduodenectomy",
-              "cpt_code": "48153",
-              "description": "Pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, Whipple-type procedure)",
-              "modifiers": [],
-              "icd10": [
-                "C25.9",
-                "C22.1",
-                "C24.0"
-              ],
-              "work_rvu": 58.85
-            }
-          ]
-        },
-        "distal_panc_questions": {
-          "question": "Approach and extent?",
-          "options": [
-            {
-              "label": "Open distal pancreatectomy",
-              "cpt_code": "48140",
-              "description": "Pancreatectomy, distal subtotal",
-              "modifiers": [],
-              "icd10": [
-                "C25.9",
-                "D13.6"
-              ],
-              "work_rvu": 32.85
-            },
-            {
-              "label": "Distal pancreatectomy with splenectomy",
-              "cpt_code": "48140",
-              "description": "Pancreatectomy, distal subtotal",
-              "modifiers": [
-                "-51"
-              ],
-              "icd10": [
-                "C25.9",
-                "D13.6"
-              ],
-              "work_rvu": 38.85
-            },
-            {
-              "label": "Laparoscopic distal pancreatectomy",
-              "cpt_code": "48999",
-              "description": "Unlisted procedure, pancreas",
-              "modifiers": [],
-              "icd10": [
-                "C25.9",
-                "D13.6"
-              ],
-              "work_rvu": 28.85
-            }
-          ]
-        },
-        "liver_resection_questions": {
-          "question": "Extent of liver resection?",
-          "options": [
-            {
-              "label": "Wedge resection",
+              "label": "Liver wedge biopsy",
               "cpt_code": "47100",
               "description": "Biopsy of liver, wedge",
               "modifiers": [],
@@ -7797,7 +7720,7 @@
               "work_rvu": 12.85
             },
             {
-              "label": "Segmentectomy (1-2 segments)",
+              "label": "Partial hepatectomy",
               "cpt_code": "47120",
               "description": "Hepatectomy, resection of liver; partial lobectomy",
               "modifiers": [],
@@ -7808,15 +7731,15 @@
               "work_rvu": 28.85
             },
             {
-              "label": "Right hepatectomy",
-              "cpt_code": "47130",
-              "description": "Hepatectomy, resection of liver; total right lobectomy",
+              "label": "Trisegmentectomy",
+              "cpt_code": "47122",
+              "description": "Hepatectomy, trisegmentectomy",
               "modifiers": [],
               "icd10": [
                 "C22.0",
                 "D13.4"
               ],
-              "work_rvu": 48.85
+              "work_rvu": 35.47
             },
             {
               "label": "Left hepatectomy",
@@ -7830,89 +7753,48 @@
               "work_rvu": 42.85
             },
             {
-              "label": "Trisegmentectomy",
+              "label": "Right hepatectomy",
               "cpt_code": "47130",
               "description": "Hepatectomy, resection of liver; total right lobectomy",
-              "modifiers": [
-                "-22"
-              ],
+              "modifiers": [],
               "icd10": [
                 "C22.0",
                 "D13.4"
               ],
-              "work_rvu": 58.85
-            }
-          ]
-        },
-        "biliary_questions": {
-          "question": "Type of biliary procedure?",
-          "options": [
+              "work_rvu": 48.85
+            },
             {
-              "label": "Hepaticojejunostomy",
-              "cpt_code": "47760",
-              "description": "Anastomosis, of extrahepatic biliary ducts and gastrointestinal tract",
+              "label": "Living donor hepatectomy",
+              "cpt_code": "47133",
+              "description": "Donor hepatectomy, from living donor",
               "modifiers": [],
               "icd10": [
-                "C24.0",
-                "K83.1"
+                "Z52.6"
               ],
-              "work_rvu": 32.85
+              "work_rvu": 30.08
             },
             {
-              "label": "Common bile duct exploration, open",
-              "cpt_code": "47610",
-              "description": "Cholecystectomy with exploration of common duct",
+              "label": "Simple liver injury repair",
+              "cpt_code": "47350",
+              "description": "Management of liver hemorrhage; simple repair of liver wound or injury",
               "modifiers": [],
               "icd10": [
-                "K80.50",
-                "K80.30"
+                "S36.113A"
               ],
-              "work_rvu": 18.85
+              "work_rvu": 15.85
             },
             {
-              "label": "CBD exploration with T-tube",
-              "cpt_code": "47610",
-              "description": "Cholecystectomy with exploration of common duct",
-              "modifiers": [
-                "-51"
-              ],
-              "icd10": [
-                "K80.50",
-                "K80.30"
-              ],
-              "work_rvu": 22.85
-            },
-            {
-              "label": "Cholangiocarcinoma resection",
-              "cpt_code": "47999",
-              "description": "Unlisted procedure, biliary tract",
+              "label": "Complex liver injury repair",
+              "cpt_code": "47360",
+              "description": "Management of liver hemorrhage; complex repair of liver wound or injury, with or without hepatic artery ligation",
               "modifiers": [],
               "icd10": [
-                "C24.0",
-                "C22.1"
+                "S36.113A"
               ],
-              "work_rvu": 52.85
-            }
-          ]
-        },
-        "liver_ablation_questions": {
-          "question": "Type of ablation?",
-          "options": [
-            {
-              "label": "Open liver ablation, RFA",
-              "cpt_code": "47370",
-              "description": "Laparoscopy, surgical, ablation of 1 or more liver tumor(s); radiofrequency",
-              "modifiers": [
-                "-22"
-              ],
-              "icd10": [
-                "C22.0",
-                "C78.7"
-              ],
-              "work_rvu": 22.85
+              "work_rvu": 28.85
             },
             {
-              "label": "Laparoscopic RFA",
+              "label": "Laparoscopic liver RFA",
               "cpt_code": "47370",
               "description": "Laparoscopy, surgical, ablation of 1 or more liver tumor(s); radiofrequency",
               "modifiers": [],
@@ -7923,7 +7805,7 @@
               "work_rvu": 18.85
             },
             {
-              "label": "Percutaneous ablation",
+              "label": "Percutaneous liver RFA",
               "cpt_code": "47382",
               "description": "Ablation, 1 or more liver tumor(s), percutaneous, radiofrequency",
               "modifiers": [],
@@ -7935,8 +7817,332 @@
             }
           ]
         },
+        "biliary_questions": {
+          "question": "Select biliary procedure",
+          "options": [
+            {
+              "label": "Open cholecystectomy",
+              "cpt_code": "47600",
+              "description": "Cholecystectomy",
+              "modifiers": [],
+              "icd10": [
+                "K80.20"
+              ],
+              "work_rvu": 12.85
+            },
+            {
+              "label": "Open chole with cholangiogram",
+              "cpt_code": "47605",
+              "description": "Cholecystectomy; with cholangiography",
+              "modifiers": [],
+              "icd10": [
+                "K80.20"
+              ],
+              "work_rvu": 14.25
+            },
+            {
+              "label": "Open chole with CBD exploration",
+              "cpt_code": "47610",
+              "description": "Cholecystectomy with exploration of common duct",
+              "modifiers": [],
+              "icd10": [
+                "K80.50"
+              ],
+              "work_rvu": 18.85
+            },
+            {
+              "label": "Open chole with CBD exploration and biliary enteric bypass",
+              "cpt_code": "47612",
+              "description": "Cholecystectomy with exploration of common duct with choledochoenterostomy",
+              "modifiers": [],
+              "icd10": [
+                "K80.50"
+              ],
+              "work_rvu": 20.34
+            },
+            {
+              "label": "Laparoscopic chole with CBD exploration",
+              "cpt_code": "47564",
+              "description": "Laparoscopy, surgical; cholecystectomy with exploration of common duct",
+              "modifiers": [],
+              "icd10": [
+                "K80.50"
+              ],
+              "work_rvu": 14.85
+            },
+            {
+              "label": "Choledochoenterostomy / hepaticojejunostomy",
+              "cpt_code": "47760",
+              "description": "Anastomosis, of extrahepatic biliary ducts and gastrointestinal tract",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "C24.0"
+              ],
+              "work_rvu": 32.85
+            },
+            {
+              "label": "Intrahepatic biliary-enteric anastomosis",
+              "cpt_code": "47765",
+              "description": "Anastomosis of intrahepatic ducts and gastrointestinal tract",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "C24.0"
+              ],
+              "work_rvu": 28.34
+            },
+            {
+              "label": "Roux-en-Y choledochojejunostomy",
+              "cpt_code": "47785",
+              "description": "Anastomosis Roux-en-Y of intrahepatic biliary ducts and gastrointestinal tract",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "C24.0"
+              ],
+              "work_rvu": 30.12
+            },
+            {
+              "label": "Excision choledochal cyst",
+              "cpt_code": "47715",
+              "description": "Excision of choledochal cyst",
+              "modifiers": [],
+              "icd10": [
+                "Q44.4"
+              ],
+              "work_rvu": 26.34
+            },
+            {
+              "label": "Repair bile duct injury",
+              "cpt_code": "47900",
+              "description": "Suture of extrahepatic biliary duct for pre-existing injury",
+              "modifiers": [],
+              "icd10": [
+                "S36.13XA"
+              ],
+              "work_rvu": 16.78
+            }
+          ]
+        },
+        "pancreas_questions": {
+          "question": "Select pancreatic procedure",
+          "options": [
+            {
+              "label": "Open pancreatic biopsy",
+              "cpt_code": "48100",
+              "description": "Biopsy of pancreas, open",
+              "modifiers": [],
+              "icd10": [
+                "K86.9",
+                "C25.9"
+              ],
+              "work_rvu": 11.71
+            },
+            {
+              "label": "Percutaneous pancreatic biopsy",
+              "cpt_code": "48102",
+              "description": "Needle biopsy of pancreas, percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "K86.9",
+                "C25.9"
+              ],
+              "work_rvu": 2.5
+            },
+            {
+              "label": "Resection of peripancreatic tumor",
+              "cpt_code": "48105",
+              "description": "Resection of peripancreatic tumor",
+              "modifiers": [],
+              "icd10": [
+                "C25.9",
+                "D13.6"
+              ],
+              "work_rvu": 18.5
+            },
+            {
+              "label": "Excision of pancreatic lesion",
+              "cpt_code": "48120",
+              "description": "Excision of pancreatic lesion",
+              "modifiers": [],
+              "icd10": [
+                "D13.6",
+                "K86.2"
+              ],
+              "work_rvu": 22.42
+            },
+            {
+              "label": "Distal pancreatectomy",
+              "cpt_code": "48140",
+              "description": "Pancreatectomy, distal subtotal",
+              "modifiers": [],
+              "icd10": [
+                "C25.2",
+                "D13.6"
+              ],
+              "work_rvu": 32.85
+            },
+            {
+              "label": "Distal pancreatectomy with splenectomy",
+              "cpt_code": "48145",
+              "description": "Distal pancreatectomy with splenectomy",
+              "modifiers": [],
+              "icd10": [
+                "C25.2",
+                "D13.6"
+              ],
+              "work_rvu": 24.9
+            },
+            {
+              "label": "Near-total distal pancreatectomy",
+              "cpt_code": "48146",
+              "description": "Pancreatectomy, distal, with near-total",
+              "modifiers": [],
+              "icd10": [
+                "C25.2",
+                "K86.1"
+              ],
+              "work_rvu": 25.0
+            },
+            {
+              "label": "Classic Whipple",
+              "cpt_code": "48150",
+              "description": "Pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (Whipple-type procedure)",
+              "modifiers": [],
+              "icd10": [
+                "C25.0",
+                "C24.0"
+              ],
+              "work_rvu": 62.85
+            },
+            {
+              "label": "Whipple with pancreatojejunostomy",
+              "cpt_code": "48152",
+              "description": "Whipple with pancreatojejunostomy",
+              "modifiers": [],
+              "icd10": [
+                "C25.0",
+                "C24.0"
+              ],
+              "work_rvu": 38.28
+            },
+            {
+              "label": "Pylorus-preserving Whipple",
+              "cpt_code": "48153",
+              "description": "Pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, Whipple-type procedure)",
+              "modifiers": [],
+              "icd10": [
+                "C25.0",
+                "C24.0"
+              ],
+              "work_rvu": 58.85
+            },
+            {
+              "label": "Total pancreatectomy with islet autotransplant",
+              "cpt_code": "48154",
+              "description": "Total pancreatectomy with transplantation of pancreatic islets",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 36.95
+            },
+            {
+              "label": "Puestow / lateral pancreaticojejunostomy",
+              "cpt_code": "48155",
+              "description": "Pancreatectomy, lateral, internal drainage (Puestow)",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 27.07
+            },
+            {
+              "label": "Pancreatojejunostomy, side-to-side",
+              "cpt_code": "48160",
+              "description": "Pancreatojejunostomy, side-to-side anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 22.42
+            },
+            {
+              "label": "Drainage for acute pancreatitis / necrosectomy adjunct",
+              "cpt_code": "48000",
+              "description": "Placement of drains peripancreatic for acute pancreatitis",
+              "modifiers": [],
+              "icd10": [
+                "K85.91"
+              ],
+              "work_rvu": 16.34
+            },
+            {
+              "label": "Drainage pancreatitis with cholecystostomy/gastrostomy/jejunostomy",
+              "cpt_code": "48001",
+              "description": "Placement of drains peripancreatic for acute pancreatitis with cholecystostomy gastrostomy and jejunostomy",
+              "modifiers": [],
+              "icd10": [
+                "K85.91"
+              ],
+              "work_rvu": 22.56
+            },
+            {
+              "label": "Removal of pancreatic calculus",
+              "cpt_code": "48020",
+              "description": "Removal of pancreatic calculus",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 18.34
+            },
+            {
+              "label": "Ampullectomy",
+              "cpt_code": "48148",
+              "description": "Excision of ampulla of Vater",
+              "modifiers": [],
+              "icd10": [
+                "D13.5",
+                "C24.1"
+              ],
+              "work_rvu": 15.83
+            },
+            {
+              "label": "Intraoperative pancreatography",
+              "cpt_code": "48400",
+              "description": "Injection procedure for intraoperative pancreatography",
+              "modifiers": [],
+              "icd10": [
+                "K86.9"
+              ],
+              "work_rvu": 2.34
+            },
+            {
+              "label": "Pancreatorrhaphy for injury",
+              "cpt_code": "48545",
+              "description": "Pancreatorrhaphy for injury",
+              "modifiers": [],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 18.67
+            },
+            {
+              "label": "Duodenal exclusion for pancreatic injury",
+              "cpt_code": "48547",
+              "description": "Duodenal exclusion with gastrojejunostomy for pancreatic injury",
+              "modifiers": [],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 22.34
+            }
+          ]
+        },
         "pseudocyst_questions": {
-          "question": "Drainage approach?",
+          "question": "Select pancreatic cyst / pseudocyst procedure",
           "options": [
             {
               "label": "Endoscopic pseudocyst drainage",
@@ -7949,7 +8155,18 @@
               "work_rvu": 12.85
             },
             {
-              "label": "Open cystogastrostomy",
+              "label": "Marsupialization pancreatic cyst",
+              "cpt_code": "48500",
+              "description": "Marsupialization of pancreatic cyst",
+              "modifiers": [],
+              "icd10": [
+                "K86.2",
+                "K86.3"
+              ],
+              "work_rvu": 14.56
+            },
+            {
+              "label": "Open external drainage pseudocyst",
               "cpt_code": "48510",
               "description": "External drainage, pseudocyst of pancreas; open",
               "modifiers": [],
@@ -7957,6 +8174,38 @@
                 "K86.3"
               ],
               "work_rvu": 22.85
+            },
+            {
+              "label": "Direct internal drainage pancreatic cyst",
+              "cpt_code": "48520",
+              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract direct",
+              "modifiers": [],
+              "icd10": [
+                "K86.2",
+                "K86.3"
+              ],
+              "work_rvu": 18.34
+            },
+            {
+              "label": "Roux-en-Y drainage pancreatic cyst",
+              "cpt_code": "48540",
+              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract Roux-en-Y",
+              "modifiers": [],
+              "icd10": [
+                "K86.2",
+                "K86.3"
+              ],
+              "work_rvu": 22.56
+            },
+            {
+              "label": "Pancreaticojejunostomy side-to-side",
+              "cpt_code": "48548",
+              "description": "Pancreaticojejunostomy side to side anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 24.56
             }
           ]
         }
