@@ -7756,7 +7756,7 @@
               "work_rvu": 12.85
             },
             {
-              "label": "Partial hepatectomy",
+              "label": "Partial hepatectomy / segmentectomy",
               "cpt_code": "47120",
               "description": "Hepatectomy, resection of liver; partial lobectomy",
               "modifiers": [],
@@ -7810,6 +7810,19 @@
               "work_rvu": 30.08
             },
             {
+              "label": "Open wedge resection / nonanatomic metastasectomy",
+              "cpt_code": "47120",
+              "description": "Hepatectomy, resection of liver; partial lobectomy",
+              "modifiers": [
+                "-52"
+              ],
+              "icd10": [
+                "C78.7",
+                "C22.0"
+              ],
+              "work_rvu": 24.85
+            },
+            {
               "label": "Simple liver injury repair",
               "cpt_code": "47350",
               "description": "Management of liver hemorrhage; simple repair of liver wound or injury",
@@ -7828,6 +7841,16 @@
                 "S36.113A"
               ],
               "work_rvu": 28.85
+            },
+            {
+              "label": "Re-exploration for removal of liver packing",
+              "cpt_code": "47362",
+              "description": "Management of liver hemorrhage; re-exploration of hepatic wound for removal of packing",
+              "modifiers": [],
+              "icd10": [
+                "S36.113A"
+              ],
+              "work_rvu": 22.85
             },
             {
               "label": "Laparoscopic liver RFA",
@@ -7895,6 +7918,28 @@
                 "K80.50"
               ],
               "work_rvu": 20.34
+            },
+            {
+              "label": "Open chole with choledochoduodenostomy",
+              "cpt_code": "47620",
+              "description": "Cholecystectomy with exploration of common duct with choledochoduodenostomy",
+              "modifiers": [],
+              "icd10": [
+                "K80.50",
+                "K83.1"
+              ],
+              "work_rvu": 22.5
+            },
+            {
+              "label": "Laparoscopic chole with cholangiography",
+              "cpt_code": "47563",
+              "description": "Laparoscopy, surgical; cholecystectomy with cholangiography",
+              "modifiers": [],
+              "icd10": [
+                "K80.20",
+                "K80.50"
+              ],
+              "work_rvu": 12.0
             },
             {
               "label": "Laparoscopic chole with CBD exploration",
@@ -8296,7 +8341,7 @@
               "work_rvu": 18.5
             },
             {
-              "label": "Excision of pancreatic lesion",
+              "label": "Enucleation / excision of pancreatic lesion",
               "cpt_code": "48120",
               "description": "Excision of pancreatic lesion",
               "modifiers": [],
@@ -8331,7 +8376,7 @@
             {
               "label": "Near-total distal pancreatectomy",
               "cpt_code": "48146",
-              "description": "Pancreatectomy, distal, with near-total",
+              "description": "Pancreatectomy, distal, with near-total pancreatectomy",
               "modifiers": [],
               "icd10": [
                 "C25.2",
@@ -8340,7 +8385,7 @@
               "work_rvu": 25.0
             },
             {
-              "label": "Ampullectomy",
+              "label": "Ampullectomy / excision of ampulla of Vater",
               "cpt_code": "48148",
               "description": "Excision of ampulla of Vater",
               "modifiers": [],
@@ -8364,7 +8409,7 @@
             {
               "label": "Whipple with pancreatojejunostomy",
               "cpt_code": "48152",
-              "description": "Whipple with pancreatojejunostomy",
+              "description": "Pancreatectomy, proximal subtotal with pancreatojejunostomy",
               "modifiers": [],
               "icd10": [
                 "C25.0",
@@ -8392,6 +8437,18 @@
                 "K86.1"
               ],
               "work_rvu": 36.95
+            },
+            {
+              "label": "Total pancreatectomy without islet autotransplant",
+              "cpt_code": "48999",
+              "description": "Unlisted pancreatic resection, used when complete pancreatectomy is performed without a more specific listed CPT code",
+              "modifiers": [],
+              "icd10": [
+                "C25.9",
+                "K86.1"
+              ],
+              "work_rvu": 36.0,
+              "coding_note": "Use with operative report and payer-specific comparison when total pancreatectomy is performed without islet autotransplant."
             }
           ]
         },
@@ -8411,7 +8468,7 @@
             {
               "label": "Drainage pancreatitis with cholecystostomy/gastrostomy/jejunostomy",
               "cpt_code": "48001",
-              "description": "Placement of drains peripancreatic for acute pancreatitis with cholecystostomy gastrostomy and jejunostomy",
+              "description": "Placement of drains peripancreatic for acute pancreatitis with cholecystostomy, gastrostomy, and jejunostomy",
               "modifiers": [],
               "icd10": [
                 "K85.91"
@@ -8419,9 +8476,9 @@
               "work_rvu": 22.56
             },
             {
-              "label": "Open pancreatic necrosis debridement workflow",
+              "label": "Open pancreatic necrosectomy / debridement workflow",
               "cpt_code": "48000",
-              "description": "Placement of drains peripancreatic for acute pancreatitis, often used in operative pancreatic necrosis debridement/drainage workflow when no dedicated necrosectomy CPT exists",
+              "description": "Operative drainage and debridement of infected pancreatic necrosis when no dedicated necrosectomy CPT exists",
               "modifiers": [
                 "-22"
               ],
@@ -8429,7 +8486,48 @@
                 "K85.91",
                 "K86.89"
               ],
-              "work_rvu": 20.34
+              "work_rvu": 20.34,
+              "coding_note": "Use modifier -22 with detailed documentation when operative necrosectomy substantially exceeds standard drainage work."
+            },
+            {
+              "label": "Staged repeat pancreatic necrosectomy / washout",
+              "cpt_code": "48000",
+              "description": "Repeat operative drainage and debridement of pancreatic necrosis at a separate session",
+              "modifiers": [
+                "-58",
+                "-22"
+              ],
+              "icd10": [
+                "K85.91",
+                "K86.89"
+              ],
+              "work_rvu": 20.34,
+              "coding_note": "Use when planned staged reoperation for ongoing pancreatic necrosis debridement is documented."
+            },
+            {
+              "label": "Video-assisted retroperitoneal pancreatic necrosectomy",
+              "cpt_code": "48999",
+              "description": "Unlisted pancreas procedure for minimally invasive retroperitoneal necrosectomy",
+              "modifiers": [],
+              "icd10": [
+                "K85.91",
+                "K86.89"
+              ],
+              "work_rvu": 18.5,
+              "coding_note": "Compare to open necrosectomy/drainage work and submit operative report."
+            },
+            {
+              "label": "Open debridement with feeding access adjunct",
+              "cpt_code": "48001",
+              "description": "Operative drainage/debridement for necrotizing pancreatitis with cholecystostomy, gastrostomy, and/or jejunostomy adjuncts",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "K85.91",
+                "K86.89"
+              ],
+              "work_rvu": 24.56
             },
             {
               "label": "Removal of pancreatic calculus",
@@ -8472,14 +8570,26 @@
               "work_rvu": 2.34
             },
             {
-              "label": "Pancreaticojejunostomy side-to-side",
-              "cpt_code": "48548",
-              "description": "Pancreaticojejunostomy side to side anastomosis",
+              "label": "Cystenterostomy for disconnected duct / chronic leak",
+              "cpt_code": "48520",
+              "description": "Internal anastomosis of pancreatic cyst or collection to gastrointestinal tract, direct",
               "modifiers": [],
               "icd10": [
-                "K86.1"
+                "K86.3",
+                "K86.89"
               ],
-              "work_rvu": 24.56
+              "work_rvu": 18.34
+            },
+            {
+              "label": "Roux-en-Y drainage for disconnected duct syndrome",
+              "cpt_code": "48540",
+              "description": "Internal anastomosis of pancreatic cyst or collection to gastrointestinal tract, Roux-en-Y",
+              "modifiers": [],
+              "icd10": [
+                "K86.3",
+                "K86.89"
+              ],
+              "work_rvu": 22.56
             }
           ]
         },
@@ -8518,9 +8628,9 @@
               "work_rvu": 22.85
             },
             {
-              "label": "Direct internal drainage pancreatic cyst",
+              "label": "Direct internal drainage pancreatic cyst / cystogastrostomy",
               "cpt_code": "48520",
-              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract direct",
+              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract, direct",
               "modifiers": [],
               "icd10": [
                 "K86.2",
@@ -8529,15 +8639,47 @@
               "work_rvu": 18.34
             },
             {
-              "label": "Roux-en-Y drainage pancreatic cyst",
+              "label": "Roux-en-Y drainage pancreatic cyst / cystjejunostomy",
               "cpt_code": "48540",
-              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract Roux-en-Y",
+              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract, Roux-en-Y",
               "modifiers": [],
               "icd10": [
                 "K86.2",
                 "K86.3"
               ],
               "work_rvu": 22.56
+            },
+            {
+              "label": "Pancreaticojejunostomy side-to-side for chronic ductal disease",
+              "cpt_code": "48548",
+              "description": "Pancreaticojejunostomy side-to-side anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 24.56
+            },
+            {
+              "label": "Excision of pancreatic cystic lesion",
+              "cpt_code": "48120",
+              "description": "Excision of pancreatic lesion",
+              "modifiers": [],
+              "icd10": [
+                "D13.6",
+                "K86.2"
+              ],
+              "work_rvu": 22.42
+            },
+            {
+              "label": "Distal pancreatectomy for mucinous cystic lesion",
+              "cpt_code": "48140",
+              "description": "Pancreatectomy, distal subtotal",
+              "modifiers": [],
+              "icd10": [
+                "D13.6",
+                "K86.2"
+              ],
+              "work_rvu": 32.85
             }
           ]
         },
@@ -8577,9 +8719,22 @@
               "work_rvu": 36.85
             },
             {
+              "label": "Distal pancreatectomy with splenectomy for trauma",
+              "cpt_code": "48145",
+              "description": "Distal pancreatectomy with splenectomy",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "S36.239A",
+                "S36.030A"
+              ],
+              "work_rvu": 30.9
+            },
+            {
               "label": "Operative drainage for pancreatic trauma / leak",
               "cpt_code": "48000",
-              "description": "Placement of drains peripancreatic for acute pancreatitis, adapted for operative pancreatic trauma drainage when clinically appropriate",
+              "description": "Placement of drains peripancreatic for traumatic pancreatic leak or injury when clinically appropriate",
               "modifiers": [
                 "-22"
               ],
@@ -8587,6 +8742,16 @@
                 "S36.239A"
               ],
               "work_rvu": 18.34
+            },
+            {
+              "label": "Intraoperative pancreatography for duct injury assessment",
+              "cpt_code": "48400",
+              "description": "Injection procedure for intraoperative pancreatography",
+              "modifiers": [],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 2.34
             }
           ]
         }
