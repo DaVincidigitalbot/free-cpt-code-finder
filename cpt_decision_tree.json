@@ -2834,6 +2834,20 @@
                 "K80.30",
                 "K80.50"
               ]
+            },
+            {
+              "label": "Add intraoperative choledochoscopy separately when performed (+47550)",
+              "cpt_code": "47550",
+              "description": "Biliary endoscopy, intraoperative (eg, choledochoscopy) (List separately in addition to code for primary procedure)",
+              "modifiers": [],
+              "icd10": [
+                "K80.30",
+                "K80.50",
+                "K83.8"
+              ],
+              "work_rvu": 6.5,
+              "_also_add": "47600/47605/47610/47612/47620",
+              "coding_note": "Report CPT 47550 separately in addition to the primary open cholecystectomy or biliary procedure when intraoperative choledochoscopy is performed and documented."
             }
           ]
         },
@@ -2870,6 +2884,20 @@
                 "K80.30",
                 "K80.50"
               ]
+            },
+            {
+              "label": "Add intraoperative choledochoscopy separately when performed (+47550)",
+              "cpt_code": "47550",
+              "description": "Biliary endoscopy, intraoperative (eg, choledochoscopy) (List separately in addition to code for primary procedure)",
+              "modifiers": [],
+              "icd10": [
+                "K80.30",
+                "K80.50",
+                "K83.8"
+              ],
+              "work_rvu": 6.5,
+              "_also_add": "47562/47563/47564",
+              "coding_note": "Report CPT 47550 separately in addition to the primary laparoscopic cholecystectomy or biliary procedure when intraoperative choledochoscopy is performed and documented."
             }
           ]
         }
@@ -7930,6 +7958,20 @@
                 "S36.13XA"
               ],
               "work_rvu": 16.78
+            },
+            {
+              "label": "Add intraoperative choledochoscopy separately (+47550)",
+              "cpt_code": "47550",
+              "description": "Biliary endoscopy, intraoperative (eg, choledochoscopy) (List separately in addition to code for primary procedure)",
+              "modifiers": [],
+              "icd10": [
+                "K80.30",
+                "K80.50",
+                "K83.8"
+              ],
+              "work_rvu": 6.5,
+              "_also_add": "47564/47600/47605/47610/47612/47620/47760",
+              "coding_note": "Use 47550 in addition to the primary cholecystectomy or biliary operation when intraoperative choledochoscopy is separately performed and documented."
             }
           ]
         },
