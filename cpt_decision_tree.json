@@ -8372,48 +8372,32 @@
           "question": "Type of OB/GYN procedure?",
           "options": [
             {
-              "label": "Cesarean Section",
-              "next": "cesarean_questions"
+              "label": "Vulvar / Bartholin procedures",
+              "next": "vulvar_questions"
             },
             {
-              "label": "Hysterectomy",
-              "next": "hysterectomy_questions"
-            },
-            {
-              "label": "Oophorectomy/Salpingectomy",
-              "next": "adnexal_questions"
-            },
-            {
-              "label": "Myomectomy",
-              "next": "myomectomy_questions"
-            },
-            {
-              "label": "D&C/Hysteroscopy",
-              "next": "dc_questions"
-            },
-            {
-              "label": "Ectopic Pregnancy",
-              "next": "ectopic_questions"
-            },
-            {
-              "label": "Other Gynecologic",
-              "next": "other_gyn_questions"
+              "label": "Vaginal surgery / vaginectomy",
+              "next": "vaginal_questions"
             },
             {
               "label": "Pelvic floor / urogynecology",
               "next": "urogyn_questions"
             },
             {
+              "label": "Cervical / colposcopy procedures",
+              "next": "cervical_questions"
+            },
+            {
+              "label": "Hysterectomy / uterine surgery",
+              "next": "hysterectomy_questions"
+            },
+            {
               "label": "Tubal / adnexal surgery",
               "next": "adnexal_expanded_questions"
             },
             {
-              "label": "Vaginal delivery / VBAC",
+              "label": "Obstetric delivery / VBAC",
               "next": "ob_delivery_questions"
-            },
-            {
-              "label": "Vulvar / Bartholin procedures",
-              "next": "vulvar_questions"
             },
             {
               "label": "Pregnancy loss / fetal procedures",
@@ -8423,332 +8407,265 @@
         }
       ],
       "branches": {
-        "cesarean_questions": {
-          "question": "Type of cesarean section?",
+        "vulvar_questions": {
+          "question": "Type of vulvar or Bartholin procedure?",
           "options": [
             {
-              "label": "Primary cesarean, low transverse",
-              "cpt_code": "59510",
-              "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care",
-              "modifiers": [],
-              "icd10": [
-                "O82",
-                "O34.21"
-              ],
-              "work_rvu": 22.85
-            },
-            {
-              "label": "Repeat cesarean section",
-              "cpt_code": "59510",
-              "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care",
-              "modifiers": [],
-              "icd10": [
-                "O82",
-                "O34.219"
-              ],
-              "work_rvu": 22.85
-            },
-            {
-              "label": "Classical cesarean section",
-              "cpt_code": "59510",
-              "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care",
-              "modifiers": [
-                "-22"
-              ],
-              "icd10": [
-                "O82",
-                "O65.5"
-              ],
-              "work_rvu": 28.85
-            }
-          ]
-        },
-        "hysterectomy_questions": {
-          "question": "Approach and extent?",
-          "options": [
-            {
-              "label": "Total abdominal hysterectomy",
-              "cpt_code": "58150",
-              "description": "Total abdominal hysterectomy (corpus and cervix), with or without removal of tube(s), with or without removal of ovary(s)",
-              "modifiers": [],
-              "icd10": [
-                "N92.0",
-                "D25.9"
-              ],
-              "work_rvu": 17.66
-            },
-            {
-              "label": "Total vaginal hysterectomy",
-              "cpt_code": "58260",
-              "description": "Vaginal hysterectomy, for uterus 250 g or less",
-              "modifiers": [],
-              "icd10": [
-                "N92.0",
-                "D25.9"
-              ],
-              "work_rvu": 15.56
-            },
-            {
-              "label": "Laparoscopic hysterectomy",
-              "cpt_code": "58541",
-              "description": "Laparoscopy, surgical, supracervical hysterectomy, for uterus 250 g or less",
-              "modifiers": [],
-              "icd10": [
-                "N92.0",
-                "D25.9"
-              ],
-              "work_rvu": 15.87
-            },
-            {
-              "label": "Robotic hysterectomy",
-              "cpt_code": "58541",
-              "description": "Laparoscopy, surgical, supracervical hysterectomy, for uterus 250 g or less",
-              "modifiers": [],
-              "icd10": [
-                "N92.0",
-                "D25.9"
-              ],
-              "work_rvu": 15.87
-            },
-            {
-              "label": "Radical hysterectomy",
-              "cpt_code": "58210",
-              "description": "Radical abdominal hysterectomy, with bilateral total pelvic lymphadenectomy and para-aortic lymph node sampling",
-              "modifiers": [],
-              "icd10": [
-                "C53.9",
-                "C54.1"
-              ],
-              "work_rvu": 33.25
-            }
-          ]
-        },
-        "adnexal_questions": {
-          "question": "Procedure and approach?",
-          "options": [
-            {
-              "label": "Unilateral oophorectomy, open",
-              "cpt_code": "58940",
-              "description": "Oophorectomy, partial or total, unilateral or bilateral",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "N83.20",
-                "C56.9"
-              ],
-              "work_rvu": 8.55
-            },
-            {
-              "label": "Bilateral oophorectomy",
-              "cpt_code": "58940",
-              "description": "Oophorectomy, partial or total, unilateral or bilateral",
-              "modifiers": [],
-              "icd10": [
-                "N83.20",
-                "C56.9"
-              ],
-              "work_rvu": 11.45
-            },
-            {
-              "label": "Laparoscopic oophorectomy",
-              "cpt_code": "58661",
-              "description": "Laparoscopy, surgical; with removal of adnexal structures (partial or total oophorectomy and/or salpingectomy)",
-              "modifiers": [],
-              "icd10": [
-                "N83.20",
-                "C56.9"
-              ],
-              "work_rvu": 9.95
-            },
-            {
-              "label": "Salpingectomy, unilateral",
-              "cpt_code": "58700",
-              "description": "Salpingectomy, complete or partial, unilateral or bilateral (separate procedure)",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "N83.6",
-                "C57.0"
-              ],
-              "work_rvu": 7.85
-            },
-            {
-              "label": "Tubal ligation, laparoscopic",
-              "cpt_code": "58670",
-              "description": "Laparoscopy, surgical; with fulguration of oviducts (with or without transection)",
-              "modifiers": [],
-              "icd10": [
-                "Z30.2"
-              ],
-              "work_rvu": 7.15
-            },
-            {
-              "label": "Postpartum tubal ligation",
-              "cpt_code": "58605",
-              "description": "Ligation or transection of fallopian tube(s), abdominal or vaginal approach, postpartum, unilateral or bilateral",
-              "modifiers": [],
-              "icd10": [
-                "Z30.2"
-              ],
-              "work_rvu": 6.85
-            }
-          ]
-        },
-        "myomectomy_questions": {
-          "question": "Approach?",
-          "options": [
-            {
-              "label": "Abdominal myomectomy",
-              "cpt_code": "58140",
-              "description": "Myomectomy, excision of fibroid tumor(s) of uterus, 1 to 4 intramural myomas with total weight of 250 g or less and/or removal of surface myomas",
-              "modifiers": [],
-              "icd10": [
-                "D25.9"
-              ],
-              "work_rvu": 16.72
-            },
-            {
-              "label": "Laparoscopic myomectomy",
-              "cpt_code": "58545",
-              "description": "Laparoscopy, surgical, myomectomy, excision; 1 to 4 intramural myomas with total weight of 250 g or less and/or removal of surface myomas",
-              "modifiers": [],
-              "icd10": [
-                "D25.9"
-              ],
-              "work_rvu": 18.64
-            },
-            {
-              "label": "Hysteroscopic myomectomy",
-              "cpt_code": "58558",
-              "description": "Hysteroscopy, surgical; with sampling (biopsy) of endometrium and/or polypectomy, with or without D & C",
-              "modifiers": [],
-              "icd10": [
-                "D25.1"
-              ],
-              "work_rvu": 6.99
-            }
-          ]
-        },
-        "dc_questions": {
-          "question": "Procedure type?",
-          "options": [
-            {
-              "label": "D&C, diagnostic",
-              "cpt_code": "58120",
-              "description": "Dilation and curettage, diagnostic and/or therapeutic (nonobstetrical)",
-              "modifiers": [],
-              "icd10": [
-                "N92.0",
-                "N93.8"
-              ],
-              "work_rvu": 4.05
-            },
-            {
-              "label": "D&C with hysteroscopy",
-              "cpt_code": "58558",
-              "description": "Hysteroscopy, surgical; with sampling (biopsy) of endometrium and/or polypectomy, with or without D & C",
-              "modifiers": [],
-              "icd10": [
-                "N92.0",
-                "N84.0"
-              ],
-              "work_rvu": 6.99
-            }
-          ]
-        },
-        "ectopic_questions": {
-          "question": "Approach?",
-          "options": [
-            {
-              "label": "Laparoscopic salpingectomy for ectopic",
-              "cpt_code": "59151",
-              "description": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or oophorectomy",
-              "modifiers": [],
-              "icd10": [
-                "O00.10"
-              ],
-              "work_rvu": 11.05
-            },
-            {
-              "label": "Laparoscopic salpingostomy for ectopic",
-              "cpt_code": "59150",
-              "description": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/or oophorectomy",
-              "modifiers": [],
-              "icd10": [
-                "O00.10"
-              ],
-              "work_rvu": 9.25
-            }
-          ]
-        },
-        "other_gyn_questions": {
-          "question": "Type of procedure?",
-          "options": [
-            {
-              "label": "Vaginal cerclage (McDonald)",
-              "cpt_code": "57700",
-              "description": "Cerclage of uterine cervix, nonobstetrical",
-              "modifiers": [],
-              "icd10": [
-                "N88.3",
-                "O34.30"
-              ],
-              "work_rvu": 5.35
-            },
-            {
-              "label": "Abdominal cerclage",
-              "cpt_code": "59325",
-              "description": "Cerclage of cervix, during pregnancy; abdominal",
-              "modifiers": [],
-              "icd10": [
-                "O34.30"
-              ],
-              "work_rvu": 12.85
-            },
-            {
-              "label": "Bartholin cyst I&D",
+              "label": "Incision and drainage of Bartholin's gland abscess",
               "cpt_code": "56420",
               "description": "Incision and drainage of Bartholin's gland abscess",
               "modifiers": [],
               "icd10": [
-                "N75.1"
+                "N75.0",
+                "N75.1",
+                "C51.9"
               ],
               "work_rvu": 3.25
             },
             {
-              "label": "Bartholin cyst marsupialization",
+              "label": "Marsupialization of Bartholin's gland cyst",
               "cpt_code": "56440",
               "description": "Marsupialization of Bartholin's gland cyst",
               "modifiers": [],
               "icd10": [
-                "N75.0"
+                "N75.0",
+                "N75.1",
+                "C51.9"
               ],
               "work_rvu": 4.85
             },
             {
-              "label": "Anterior/posterior colporrhaphy",
-              "cpt_code": "57240",
-              "description": "Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele",
+              "label": "Destruction of lesion(s), vulva; simple",
+              "cpt_code": "56501",
+              "description": "Destruction of lesion(s), vulva; simple",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N81.85"
+                "N75.0",
+                "N75.1",
+                "C51.9"
               ],
-              "work_rvu": 12.25
+              "work_rvu": 1.8
             },
             {
-              "label": "Sacrocolpopexy",
-              "cpt_code": "57425",
-              "description": "Laparoscopy, surgical, colpopexy (suspension of vaginal apex)",
+              "label": "Destruction of lesion(s), vulva; extensive",
+              "cpt_code": "56515",
+              "description": "Destruction of lesion(s), vulva; extensive",
               "modifiers": [],
               "icd10": [
-                "N81.4"
+                "N75.0",
+                "N75.1",
+                "C51.9"
               ],
-              "work_rvu": 17.85
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Biopsy of vulva or perineum, 1 lesion",
+              "cpt_code": "56605",
+              "description": "Biopsy of vulva or perineum, 1 lesion",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 1.92
+            },
+            {
+              "label": "Biopsy of vulva or perineum, each additional lesion",
+              "cpt_code": "56606",
+              "description": "Biopsy of vulva or perineum, each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 0.75
+            },
+            {
+              "label": "Vulvectomy, simple; partial",
+              "cpt_code": "56620",
+              "description": "Vulvectomy, simple; partial",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 8.85
+            },
+            {
+              "label": "Vulvectomy, radical, partial",
+              "cpt_code": "56630",
+              "description": "Vulvectomy, radical, partial",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 16.85
+            },
+            {
+              "label": "Vulvectomy, radical, complete, with unilateral or bilateral inguinofemor",
+              "cpt_code": "56637",
+              "description": "Vulvectomy, radical, complete, with unilateral or bilateral inguinofemoral lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 25.85
+            },
+            {
+              "label": "Plastic repair of introitus",
+              "cpt_code": "56800",
+              "description": "Plastic repair of introitus",
+              "modifiers": [],
+              "icd10": [
+                "N75.0",
+                "N75.1",
+                "C51.9"
+              ],
+              "work_rvu": 7.85
+            }
+          ]
+        },
+        "vaginal_questions": {
+          "question": "Type of vaginal surgery?",
+          "options": [
+            {
+              "label": "Incision of vaginal septum",
+              "cpt_code": "57010",
+              "description": "Incision of vaginal septum",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 3.45
+            },
+            {
+              "label": "I&D of vaginal hematoma, non-obstetrical",
+              "cpt_code": "57022",
+              "description": "I&D of vaginal hematoma, non-obstetrical",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Vaginectomy, partial removal vaginal wall",
+              "cpt_code": "57106",
+              "description": "Vaginectomy, partial removal vaginal wall",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 14.6
+            },
+            {
+              "label": "Vaginectomy, total removal vaginal wall",
+              "cpt_code": "57107",
+              "description": "Vaginectomy, total removal vaginal wall",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 18.4
+            },
+            {
+              "label": "Partial vaginectomy with paravaginal tissue removal",
+              "cpt_code": "57109",
+              "description": "Partial vaginectomy with paravaginal tissue removal",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 20.15
+            },
+            {
+              "label": "Complete vaginectomy",
+              "cpt_code": "57110",
+              "description": "Complete vaginectomy",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 22.3
+            },
+            {
+              "label": "Vaginectomy with pelvic lymphadenectomy",
+              "cpt_code": "57111",
+              "description": "Vaginectomy with pelvic lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 27.8
+            },
+            {
+              "label": "Exenteration of vagina; complete",
+              "cpt_code": "57112",
+              "description": "Exenteration of vagina; complete",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 35.4
+            },
+            {
+              "label": "Closure of vesicovaginal fistula, vaginal approach",
+              "cpt_code": "57120",
+              "description": "Closure of vesicovaginal fistula, vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 15.65
+            },
+            {
+              "label": "Closure of cystotomy, vesical neck, vagina, and/or urethra in female",
+              "cpt_code": "57130",
+              "description": "Closure of cystotomy, vesical neck, vagina, and/or urethra in female",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 13.2
+            },
+            {
+              "label": "Excision of vaginal cyst or tumor",
+              "cpt_code": "57135",
+              "description": "Excision of vaginal cyst or tumor",
+              "modifiers": [],
+              "icd10": [
+                "N89.8",
+                "N82.0",
+                "C52"
+              ],
+              "work_rvu": 6.85
             }
           ]
         },
@@ -8756,17 +8673,64 @@
           "question": "Type of pelvic floor or urogynecology procedure?",
           "options": [
             {
-              "label": "Anterior colporrhaphy, repair of cystocele with or without repair",
-              "cpt_code": "57240",
-              "description": "Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele",
-              "modifiers": [
-                "-50"
-              ],
+              "label": "Colporrhaphy, suture of injury of vagina",
+              "cpt_code": "57200",
+              "description": "Colporrhaphy, suture of injury of vagina",
+              "modifiers": [],
               "icd10": [
                 "N81.10",
-                "N39.3"
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 5.15
+            },
+            {
+              "label": "Colpopexy, extraperitoneal approach",
+              "cpt_code": "57210",
+              "description": "Colpopexy, extraperitoneal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 13.45
+            },
+            {
+              "label": "Revision of urethral suspension",
+              "cpt_code": "57230",
+              "description": "Revision of urethral suspension",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 9.85
+            },
+            {
+              "label": "Anterior colporrhaphy, repair of cystocele with or without repair of ure",
+              "cpt_code": "57240",
+              "description": "Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
               ],
               "work_rvu": 12.25
+            },
+            {
+              "label": "Posterior colporrhaphy, repair of rectocele",
+              "cpt_code": "57250",
+              "description": "Posterior colporrhaphy, repair of rectocele",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 10.1
             },
             {
               "label": "Combined anterior/posterior colporrhaphy",
@@ -8775,9 +8739,118 @@
               "modifiers": [],
               "icd10": [
                 "N81.10",
-                "N39.3"
+                "N39.3",
+                "N82.3"
               ],
               "work_rvu": 9.84
+            },
+            {
+              "label": "Combined anterior/posterior colporrhaphy with enterocele repair",
+              "cpt_code": "57265",
+              "description": "Combined anterior/posterior colporrhaphy with enterocele repair",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 13.75
+            },
+            {
+              "label": "Insertion of mesh or other prosthesis for repair of pelvic floor defect,",
+              "cpt_code": "57267",
+              "description": "Insertion of mesh or other prosthesis for repair of pelvic floor defect, each site",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Repair of enterocele, vaginal approach",
+              "cpt_code": "57268",
+              "description": "Repair of enterocele, vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Colpocleisis, Le Fort type",
+              "cpt_code": "57270",
+              "description": "Colpocleisis, Le Fort type",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 10.25
+            },
+            {
+              "label": "Colpopexy, abdominal approach",
+              "cpt_code": "57280",
+              "description": "Colpopexy, abdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 16.85
+            },
+            {
+              "label": "Colpopexy, vaginal; extraperitoneal approach",
+              "cpt_code": "57282",
+              "description": "Colpopexy, vaginal; extraperitoneal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 13.55
+            },
+            {
+              "label": "Colpopexy, vaginal; intraperitoneal approach",
+              "cpt_code": "57283",
+              "description": "Colpopexy, vaginal; intraperitoneal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 15.1
+            },
+            {
+              "label": "Paravaginal defect repair, open abdominal approach",
+              "cpt_code": "57284",
+              "description": "Paravaginal defect repair, open abdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 18.25
+            },
+            {
+              "label": "Paravaginal defect repair, vaginal approach",
+              "cpt_code": "57285",
+              "description": "Paravaginal defect repair, vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 14.35
             },
             {
               "label": "Sling operation for stress incontinence",
@@ -8786,20 +8859,596 @@
               "modifiers": [],
               "icd10": [
                 "N81.10",
-                "N39.3"
+                "N39.3",
+                "N82.3"
               ],
               "work_rvu": 10.22
             },
             {
-              "label": "Laparoscopy, surgical, colpopexy (suspension of vaginal apex)",
-              "cpt_code": "57425",
-              "description": "Laparoscopy, surgical, colpopexy (suspension of vaginal apex)",
+              "label": "Plastic repair of urethra",
+              "cpt_code": "57300",
+              "description": "Plastic repair of urethra",
               "modifiers": [],
               "icd10": [
                 "N81.10",
-                "N39.3"
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 9.65
+            },
+            {
+              "label": "Repair of rectovaginal fistula",
+              "cpt_code": "57305",
+              "description": "Repair of rectovaginal fistula",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
+              ],
+              "work_rvu": 15.75
+            },
+            {
+              "label": "Laparoscopy, surgical, colpopexy",
+              "cpt_code": "57425",
+              "description": "Laparoscopy, surgical, colpopexy",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3",
+                "N82.3"
               ],
               "work_rvu": 17.85
+            }
+          ]
+        },
+        "cervical_questions": {
+          "question": "Type of cervical or colposcopy procedure?",
+          "options": [
+            {
+              "label": "Dilation of cervical canal, instrumental",
+              "cpt_code": "57400",
+              "description": "Dilation of cervical canal, instrumental",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.25
+            },
+            {
+              "label": "Pelvic examination under anesthesia other than local",
+              "cpt_code": "57410",
+              "description": "Pelvic examination under anesthesia other than local",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Colposcopy of entire vagina with cervix if present",
+              "cpt_code": "57420",
+              "description": "Colposcopy of entire vagina with cervix if present",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.55
+            },
+            {
+              "label": "Colposcopy of entire vagina with biopsy(s)",
+              "cpt_code": "57421",
+              "description": "Colposcopy of entire vagina with biopsy(s)",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Colposcopy of entire vagina with loop electrode biopsy(s)",
+              "cpt_code": "57423",
+              "description": "Colposcopy of entire vagina with loop electrode biopsy(s)",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 3.85
+            },
+            {
+              "label": "Colposcopy of the cervix including upper/adjacent vagina; diagnostic",
+              "cpt_code": "57452",
+              "description": "Colposcopy of the cervix including upper/adjacent vagina; diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.1
+            },
+            {
+              "label": "Colposcopy of the cervix including upper/adjacent vagina; with biopsy(s)",
+              "cpt_code": "57454",
+              "description": "Colposcopy of the cervix including upper/adjacent vagina; with biopsy(s) and endocervical curettage",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 2.2
+            },
+            {
+              "label": "Biopsy of cervix, single or multiple, or local excision of lesion",
+              "cpt_code": "57500",
+              "description": "Biopsy of cervix, single or multiple, or local excision of lesion",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Endocervical curettage",
+              "cpt_code": "57505",
+              "description": "Endocervical curettage",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.35
+            },
+            {
+              "label": "Cauterization of cervix; cryocautery, initial or repeat",
+              "cpt_code": "57510",
+              "description": "Cauterization of cervix; cryocautery, initial or repeat",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.55
+            },
+            {
+              "label": "Cauterization of cervix; electro- or thermal",
+              "cpt_code": "57511",
+              "description": "Cauterization of cervix; electro- or thermal",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 1.65
+            },
+            {
+              "label": "Laser ablation of cervical lesions",
+              "cpt_code": "57513",
+              "description": "Laser ablation of cervical lesions",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Conization of cervix with LEEP",
+              "cpt_code": "57520",
+              "description": "Conization of cervix with LEEP",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 3.72
+            },
+            {
+              "label": "Conization of cervix, loop electrode excision",
+              "cpt_code": "57522",
+              "description": "Conization of cervix, loop electrode excision",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 5.15
+            },
+            {
+              "label": "Trachelectomy, amputation of cervix",
+              "cpt_code": "57530",
+              "description": "Trachelectomy, amputation of cervix",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 5.85
+            },
+            {
+              "label": "Radical trachelectomy",
+              "cpt_code": "57531",
+              "description": "Radical trachelectomy",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 18.9
+            },
+            {
+              "label": "Excision of cervix, stump, vaginal approach",
+              "cpt_code": "57540",
+              "description": "Excision of cervix, stump, vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 6.1
+            },
+            {
+              "label": "Excision of cervical stump, abdominal approach",
+              "cpt_code": "57545",
+              "description": "Excision of cervical stump, abdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 10.4
+            },
+            {
+              "label": "Injection into cervix",
+              "cpt_code": "57550",
+              "description": "Injection into cervix",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 0.8
+            },
+            {
+              "label": "Cervicectomy, vaginal, complete amputation",
+              "cpt_code": "57555",
+              "description": "Cervicectomy, vaginal, complete amputation",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 7.2
+            },
+            {
+              "label": "Cervicectomy, vaginal, radical",
+              "cpt_code": "57556",
+              "description": "Cervicectomy, vaginal, radical",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Cerclage of uterine cervix, nonobstetrical",
+              "cpt_code": "57700",
+              "description": "Cerclage of uterine cervix, nonobstetrical",
+              "modifiers": [],
+              "icd10": [
+                "N87.9",
+                "R87.619",
+                "D06.9"
+              ],
+              "work_rvu": 5.35
+            }
+          ]
+        },
+        "hysterectomy_questions": {
+          "question": "Type of hysterectomy or uterine surgery?",
+          "options": [
+            {
+              "label": "Endometrial biopsy",
+              "cpt_code": "58100",
+              "description": "Endometrial biopsy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 1.53
+            },
+            {
+              "label": "Dilation and curettage, diagnostic/therapeutic",
+              "cpt_code": "58120",
+              "description": "Dilation and curettage, diagnostic/therapeutic",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 4.11
+            },
+            {
+              "label": "Myomectomy, excision of fibroid tumor(s), 1 to 4 intramural myomas",
+              "cpt_code": "58140",
+              "description": "Myomectomy, excision of fibroid tumor(s), 1 to 4 intramural myomas",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 16.72
+            },
+            {
+              "label": "Total abdominal hysterectomy",
+              "cpt_code": "58150",
+              "description": "Total abdominal hysterectomy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 16.42
+            },
+            {
+              "label": "Total abdominal hysterectomy with colpo-urethrocystopexy",
+              "cpt_code": "58152",
+              "description": "Total abdominal hysterectomy with colpo-urethrocystopexy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 18.3
+            },
+            {
+              "label": "Supracervical abdominal hysterectomy",
+              "cpt_code": "58180",
+              "description": "Supracervical abdominal hysterectomy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 14.15
+            },
+            {
+              "label": "Total abdominal hysterectomy with radical dissection",
+              "cpt_code": "58200",
+              "description": "Total abdominal hysterectomy with radical dissection",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 27.48
+            },
+            {
+              "label": "Radical abdominal hysterectomy with lymph node dissection",
+              "cpt_code": "58210",
+              "description": "Radical abdominal hysterectomy with lymph node dissection",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 30.13
+            },
+            {
+              "label": "Pelvic exenteration for gynecologic malignancy",
+              "cpt_code": "58240",
+              "description": "Pelvic exenteration for gynecologic malignancy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 52.85
+            },
+            {
+              "label": "Vaginal hysterectomy, uterus \u2264250g",
+              "cpt_code": "58260",
+              "description": "Vaginal hysterectomy, uterus \u2264250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 13.03
+            },
+            {
+              "label": "Vaginal hysterectomy with removal of tubes/ovaries",
+              "cpt_code": "58262",
+              "description": "Vaginal hysterectomy with removal of tubes/ovaries",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 14.44
+            },
+            {
+              "label": "Vaginal hysterectomy with repair of enterocele",
+              "cpt_code": "58263",
+              "description": "Vaginal hysterectomy with repair of enterocele",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 15.84
+            },
+            {
+              "label": "Laparoscopic supracervical hysterectomy, uterus \u2264250g",
+              "cpt_code": "58541",
+              "description": "Laparoscopic supracervical hysterectomy, uterus \u2264250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 13.76
+            },
+            {
+              "label": "Laparoscopic supracervical hysterectomy, uterus >250g",
+              "cpt_code": "58542",
+              "description": "Laparoscopic supracervical hysterectomy, uterus >250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 15.26
+            },
+            {
+              "label": "Laparoscopy, surgical, myomectomy, excision; 1 to 4 intramural myomas",
+              "cpt_code": "58545",
+              "description": "Laparoscopy, surgical, myomectomy, excision; 1 to 4 intramural myomas",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 18.64
+            },
+            {
+              "label": "Laparoscopy, surgical, with radical hysterectomy",
+              "cpt_code": "58548",
+              "description": "Laparoscopy, surgical, with radical hysterectomy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 28.85
+            },
+            {
+              "label": "Laparoscopic-assisted vaginal hysterectomy, uterus \u2264250g",
+              "cpt_code": "58550",
+              "description": "Laparoscopic-assisted vaginal hysterectomy, uterus \u2264250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 14.71
+            },
+            {
+              "label": "Laparoscopic-assisted vaginal hysterectomy, uterus >250g",
+              "cpt_code": "58552",
+              "description": "Laparoscopic-assisted vaginal hysterectomy, uterus >250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 16.3
+            },
+            {
+              "label": "Hysteroscopy with biopsy/polypectomy",
+              "cpt_code": "58558",
+              "description": "Hysteroscopy with biopsy/polypectomy",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 4.78
+            },
+            {
+              "label": "Hysteroscopy with ablation of endometrium",
+              "cpt_code": "58563",
+              "description": "Hysteroscopy with ablation of endometrium",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 5.38
+            },
+            {
+              "label": "Hysteroscopy with bilateral tubal ligation",
+              "cpt_code": "58565",
+              "description": "Hysteroscopy with bilateral tubal ligation",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 5.14
+            },
+            {
+              "label": "Total laparoscopic hysterectomy, uterus \u2264250g",
+              "cpt_code": "58571",
+              "description": "Total laparoscopic hysterectomy, uterus \u2264250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 15.99
+            },
+            {
+              "label": "Total laparoscopic hysterectomy, uterus >250g",
+              "cpt_code": "58572",
+              "description": "Total laparoscopic hysterectomy, uterus >250g",
+              "modifiers": [],
+              "icd10": [
+                "D25.9",
+                "N92.0",
+                "C54.1"
+              ],
+              "work_rvu": 17.58
             }
           ]
         },
@@ -8807,9 +9456,9 @@
           "question": "Type of tubal or adnexal procedure?",
           "options": [
             {
-              "label": "Ligation or transection of fallopian tube(s), abdominal or vagina",
+              "label": "Ligation or transection of fallopian tube(s), postpartum",
               "cpt_code": "58605",
-              "description": "Ligation or transection of fallopian tube(s), abdominal or vaginal approach, postpartum, unilateral or bilateral",
+              "description": "Ligation or transection of fallopian tube(s), postpartum",
               "modifiers": [],
               "icd10": [
                 "N83.209",
@@ -8819,56 +9468,76 @@
               "work_rvu": 6.85
             },
             {
-              "label": "Laparoscopy, surgical; with removal of adnexal structures (partia",
+              "label": "Laparoscopy, removal of ovaries/tubes",
               "cpt_code": "58661",
-              "description": "Laparoscopy, surgical; with removal of adnexal structures (partial or total oophorectomy and/or salpingectomy)",
+              "description": "Laparoscopy, removal of ovaries/tubes",
               "modifiers": [],
               "icd10": [
                 "N83.209",
                 "Z30.2",
                 "N70.11"
               ],
-              "work_rvu": 9.95
+              "work_rvu": 9.59
             },
             {
-              "label": "Laparoscopy, surgical; with fulguration of oviducts (with or with",
+              "label": "Laparoscopy, excision of lesions, fulguration",
+              "cpt_code": "58662",
+              "description": "Laparoscopy, excision of lesions, fulguration",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 10.45
+            },
+            {
+              "label": "Laparoscopy, tubal ligation",
               "cpt_code": "58670",
-              "description": "Laparoscopy, surgical; with fulguration of oviducts (with or without transection)",
+              "description": "Laparoscopy, tubal ligation",
               "modifiers": [],
               "icd10": [
                 "N83.209",
                 "Z30.2",
                 "N70.11"
               ],
-              "work_rvu": 7.15
+              "work_rvu": 5.2
             },
             {
-              "label": "Salpingectomy, complete or partial, unilateral or bilateral (sepa",
+              "label": "Salpingectomy, complete or partial",
               "cpt_code": "58700",
-              "description": "Salpingectomy, complete or partial, unilateral or bilateral (separate procedure)",
-              "modifiers": [
-                "-50"
-              ],
+              "description": "Salpingectomy, complete or partial",
+              "modifiers": [],
               "icd10": [
                 "N83.209",
                 "Z30.2",
                 "N70.11"
               ],
-              "work_rvu": 7.85
+              "work_rvu": 8.7
             },
             {
-              "label": "Oophorectomy, partial or total, unilateral or bilateral",
-              "cpt_code": "58940",
-              "description": "Oophorectomy, partial or total, unilateral or bilateral",
-              "modifiers": [
-                "-50"
-              ],
+              "label": "Salpingo-oophorectomy, complete or partial",
+              "cpt_code": "58720",
+              "description": "Salpingo-oophorectomy, complete or partial",
+              "modifiers": [],
               "icd10": [
                 "N83.209",
                 "Z30.2",
                 "N70.11"
               ],
-              "work_rvu": 8.55
+              "work_rvu": 10.0
+            },
+            {
+              "label": "Oophorectomy, partial or total",
+              "cpt_code": "58940",
+              "description": "Oophorectomy, partial or total",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 8.53
             },
             {
               "label": "Oophorectomy for ovarian malignancy",
@@ -8883,7 +9552,7 @@
               "work_rvu": 18.08
             },
             {
-              "label": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal",
+              "label": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hyster",
               "cpt_code": "58952",
               "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy",
               "modifiers": [],
@@ -8895,7 +9564,7 @@
               "work_rvu": 28.85
             },
             {
-              "label": "Bilateral salpingo-oophorectomy with total omentectomy for malign",
+              "label": "Bilateral salpingo-oophorectomy with total omentectomy for malignancy",
               "cpt_code": "58956",
               "description": "Bilateral salpingo-oophorectomy with total omentectomy for malignancy",
               "modifiers": [],
@@ -8905,36 +9574,72 @@
                 "N70.11"
               ],
               "work_rvu": 22.85
-            },
-            {
-              "label": "Laparoscopic treatment of ectopic pregnancy; without salpingectom",
-              "cpt_code": "59150",
-              "description": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/or oophorectomy",
-              "modifiers": [],
-              "icd10": [
-                "N83.209",
-                "Z30.2",
-                "N70.11"
-              ],
-              "work_rvu": 9.25
-            },
-            {
-              "label": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy a",
-              "cpt_code": "59151",
-              "description": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or oophorectomy",
-              "modifiers": [],
-              "icd10": [
-                "N83.209",
-                "Z30.2",
-                "N70.11"
-              ],
-              "work_rvu": 11.05
             }
           ]
         },
         "ob_delivery_questions": {
           "question": "Type of obstetric delivery service?",
           "options": [
+            {
+              "label": "Amniocentesis, diagnostic",
+              "cpt_code": "59000",
+              "description": "Amniocentesis, diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 1.52
+            },
+            {
+              "label": "Cordocentesis/fetal blood sampling",
+              "cpt_code": "59012",
+              "description": "Cordocentesis/fetal blood sampling",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 3.09
+            },
+            {
+              "label": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/o",
+              "cpt_code": "59150",
+              "description": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/or oophorectomy",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 9.25
+            },
+            {
+              "label": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or o",
+              "cpt_code": "59151",
+              "description": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or oophorectomy",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 11.05
+            },
+            {
+              "label": "Cerclage of cervix, during pregnancy; abdominal",
+              "cpt_code": "59325",
+              "description": "Cerclage of cervix, during pregnancy; abdominal",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 12.85
+            },
             {
               "label": "Routine obstetric care, vaginal delivery",
               "cpt_code": "59400",
@@ -8972,16 +9677,16 @@
               "work_rvu": 15.53
             },
             {
-              "label": "Routine obstetric care including antepartum care, cesarean delive",
+              "label": "Routine obstetric care, cesarean delivery",
               "cpt_code": "59510",
-              "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care",
+              "description": "Routine obstetric care, cesarean delivery",
               "modifiers": [],
               "icd10": [
                 "O80",
                 "O82",
                 "O34.219"
               ],
-              "work_rvu": 22.85
+              "work_rvu": 24.27
             },
             {
               "label": "Cesarean delivery only",
@@ -9006,6 +9711,18 @@
                 "O34.219"
               ],
               "work_rvu": 17.15
+            },
+            {
+              "label": "Subtotal or total hysterectomy after cesarean",
+              "cpt_code": "59525",
+              "description": "Subtotal or total hysterectomy after cesarean",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 8.39
             },
             {
               "label": "Routine obstetric care, VBAC attempt",
@@ -9045,110 +9762,9 @@
             }
           ]
         },
-        "vulvar_questions": {
-          "question": "Type of vulvar or Bartholin procedure?",
-          "options": [
-            {
-              "label": "Incision and drainage of Bartholin's gland abscess",
-              "cpt_code": "56420",
-              "description": "Incision and drainage of Bartholin's gland abscess",
-              "modifiers": [],
-              "icd10": [
-                "N75.0",
-                "N75.1",
-                "C51.9"
-              ],
-              "work_rvu": 3.25
-            },
-            {
-              "label": "Marsupialization of Bartholin's gland cyst",
-              "cpt_code": "56440",
-              "description": "Marsupialization of Bartholin's gland cyst",
-              "modifiers": [],
-              "icd10": [
-                "N75.0",
-                "N75.1",
-                "C51.9"
-              ],
-              "work_rvu": 4.85
-            },
-            {
-              "label": "Vulvectomy, simple; partial",
-              "cpt_code": "56620",
-              "description": "Vulvectomy, simple; partial",
-              "modifiers": [],
-              "icd10": [
-                "N75.0",
-                "N75.1",
-                "C51.9"
-              ],
-              "work_rvu": 8.85
-            },
-            {
-              "label": "Vulvectomy, radical, partial",
-              "cpt_code": "56630",
-              "description": "Vulvectomy, radical, partial",
-              "modifiers": [],
-              "icd10": [
-                "N75.0",
-                "N75.1",
-                "C51.9"
-              ],
-              "work_rvu": 16.85
-            },
-            {
-              "label": "Vulvectomy, radical, complete, with unilateral or bilateral ingui",
-              "cpt_code": "56637",
-              "description": "Vulvectomy, radical, complete, with unilateral or bilateral inguinofemoral lymphadenectomy",
-              "modifiers": [],
-              "icd10": [
-                "N75.0",
-                "N75.1",
-                "C51.9"
-              ],
-              "work_rvu": 25.85
-            }
-          ]
-        },
         "pregnancy_loss_questions": {
           "question": "Type of fetal or pregnancy loss procedure?",
           "options": [
-            {
-              "label": "Amniocentesis, diagnostic",
-              "cpt_code": "59000",
-              "description": "Amniocentesis, diagnostic",
-              "modifiers": [],
-              "icd10": [
-                "O02.1",
-                "O03.4",
-                "O35.9XX0"
-              ],
-              "work_rvu": 1.52
-            },
-            {
-              "label": "Cordocentesis/fetal blood sampling",
-              "cpt_code": "59012",
-              "description": "Cordocentesis/fetal blood sampling",
-              "modifiers": [],
-              "icd10": [
-                "O02.1",
-                "O03.4",
-                "O35.9XX0"
-              ],
-              "work_rvu": 3.09
-            },
-            {
-              "label": "Cerclage of cervix, during pregnancy; abdominal",
-              "cpt_code": "59325",
-              "description": "Cerclage of cervix, during pregnancy; abdominal",
-              "modifiers": [],
-              "icd10": [
-                "O02.1",
-                "O03.4",
-                "O35.9XX0"
-              ],
-              "work_rvu": 12.85
-            },
             {
               "label": "Treatment of missed abortion, 1st trimester",
               "cpt_code": "59820",
