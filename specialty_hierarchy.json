@@ -1731,6 +1731,200 @@
           ]
         }
       ]
+    },
+    {
+      "key": "emergency_department_procedures",
+      "label": "Emergency Department Procedures",
+      "icon": "\u26a1",
+      "systems": [
+        {
+          "key": "ultrasound_access_airway",
+          "label": "Ultrasound, Access & Airway",
+          "groups": [
+            {
+              "label": "FAST / Ultrasound",
+              "codes": [
+                "93308",
+                "76604"
+              ]
+            },
+            {
+              "label": "Vascular Access",
+              "codes": [
+                "36556"
+              ]
+            },
+            {
+              "label": "Airway / Thoracic / Diagnostic Tap",
+              "codes": [
+                "31500",
+                "32551",
+                "32554",
+                "32555",
+                "49083",
+                "62270"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "bedside_procedures",
+          "label": "Bedside Procedures",
+          "groups": [
+            {
+              "label": "Joint / Bursa Procedures",
+              "codes": [
+                "20600",
+                "20604",
+                "20605",
+                "20606",
+                "20610",
+                "20611"
+              ]
+            },
+            {
+              "label": "I&D / Foreign Body / Debridement",
+              "codes": [
+                "10060",
+                "10061",
+                "10080",
+                "10081",
+                "10120",
+                "10121",
+                "10160",
+                "11042",
+                "11043",
+                "11044"
+              ]
+            },
+            {
+              "label": "Laceration Repair",
+              "codes": [
+                "12001",
+                "12002",
+                "12004",
+                "12005",
+                "12006",
+                "12007",
+                "12011",
+                "12013",
+                "12014",
+                "12015",
+                "12016",
+                "13131",
+                "13132",
+                "13151",
+                "13152"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "fractures_dislocations",
+          "label": "Fracture and Dislocation Reduction",
+          "groups": [
+            {
+              "label": "Shoulder / Arm / Elbow",
+              "codes": [
+                "23505",
+                "23540",
+                "23545",
+                "23600",
+                "24500",
+                "24505",
+                "24530",
+                "24535",
+                "24600",
+                "24605",
+                "24620"
+              ]
+            },
+            {
+              "label": "Forearm / Wrist / Hand",
+              "codes": [
+                "25500",
+                "25505",
+                "25520",
+                "25525",
+                "25530",
+                "25535",
+                "25560",
+                "25565",
+                "25600",
+                "25605",
+                "26600",
+                "26605",
+                "26641",
+                "26670",
+                "26700",
+                "26720",
+                "26725",
+                "26740",
+                "26742",
+                "26750",
+                "26755",
+                "26770",
+                "26775"
+              ]
+            },
+            {
+              "label": "Hip / Leg / Ankle / Foot",
+              "codes": [
+                "27250",
+                "27252",
+                "27265",
+                "27266",
+                "27500",
+                "27550",
+                "27552",
+                "27750",
+                "27760",
+                "27762",
+                "27786",
+                "27788",
+                "27808",
+                "27816",
+                "27818",
+                "27840",
+                "27842",
+                "28400",
+                "28405",
+                "28430",
+                "28435",
+                "28450",
+                "28455",
+                "28470",
+                "28475",
+                "28510",
+                "28515"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "casting_splinting",
+          "label": "Casting and Splinting",
+          "groups": [
+            {
+              "label": "Upper Extremity",
+              "codes": [
+                "29075",
+                "29085",
+                "29105",
+                "29125"
+              ]
+            },
+            {
+              "label": "Lower Extremity",
+              "codes": [
+                "29405",
+                "29505",
+                "29515"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
