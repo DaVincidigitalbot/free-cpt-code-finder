@@ -868,39 +868,78 @@
           "label": "Gynecologic",
           "groups": [
             {
-              "label": "Hysterectomy",
+              "label": "Vulvar / Cervical / Endometrial",
+              "codes": [
+                "56420",
+                "57520",
+                "57522",
+                "58100",
+                "58120"
+              ]
+            },
+            {
+              "label": "Pelvic Floor / Urogynecology",
+              "codes": [
+                "57240",
+                "57260",
+                "57288",
+                "57425"
+              ]
+            },
+            {
+              "label": "Myomectomy / Uterine Surgery",
+              "codes": [
+                "58140"
+              ]
+            },
+            {
+              "label": "Abdominal / Vaginal Hysterectomy",
               "codes": [
                 "58150",
+                "58152",
                 "58180",
                 "58200",
+                "58210",
+                "58240",
                 "58260",
+                "58262",
+                "58263"
+              ]
+            },
+            {
+              "label": "Laparoscopic Hysterectomy / Myomectomy",
+              "codes": [
                 "58541",
+                "58542",
+                "58545",
+                "58548",
                 "58550",
+                "58552",
+                "58558",
+                "58563",
+                "58565",
                 "58571",
                 "58572"
               ]
             },
             {
-              "label": "Laparoscopy",
+              "label": "Tubal / Adnexal Surgery",
               "codes": [
+                "58605",
                 "58661",
-                "58662",
-                "58670"
+                "58670",
+                "58700",
+                "58940",
+                "58943",
+                "58952",
+                "58956"
               ]
             },
             {
-              "label": "Hysteroscopy",
+              "label": "Ectopic Pregnancy",
               "codes": [
-                "58558",
-                "58563",
-                "58565"
-              ]
-            },
-            {
-              "label": "Urogynecology",
-              "codes": [
-                "57260",
-                "57288"
+                "59150",
+                "59151"
               ]
             }
           ]
@@ -909,11 +948,16 @@
           "label": "Obstetric",
           "groups": [
             {
-              "label": "Delivery",
+              "label": "Vaginal Delivery",
               "codes": [
                 "59400",
                 "59409",
-                "59410",
+                "59410"
+              ]
+            },
+            {
+              "label": "Cesarean Delivery",
+              "codes": [
                 "59510",
                 "59514",
                 "59515"
@@ -925,6 +969,12 @@
                 "59610",
                 "59612",
                 "59620"
+              ]
+            },
+            {
+              "label": "Pregnancy Loss Management",
+              "codes": [
+                "59820"
               ]
             }
           ]

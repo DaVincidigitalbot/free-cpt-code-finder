@@ -8398,6 +8398,18 @@
             {
               "label": "Other Gynecologic",
               "next": "other_gyn_questions"
+            },
+            {
+              "label": "Pelvic floor / urogynecology",
+              "next": "urogyn_questions"
+            },
+            {
+              "label": "Tubal / adnexal surgery",
+              "next": "adnexal_expanded_questions"
+            },
+            {
+              "label": "Vaginal delivery / VBAC",
+              "next": "ob_delivery_questions"
             }
           ]
         }
@@ -8729,6 +8741,299 @@
                 "N81.4"
               ],
               "work_rvu": 17.85
+            }
+          ]
+        },
+        "urogyn_questions": {
+          "question": "Type of pelvic floor or urogynecology procedure?",
+          "options": [
+            {
+              "label": "Anterior colporrhaphy, repair of cystocele with or without repair",
+              "cpt_code": "57240",
+              "description": "Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele",
+              "modifiers": [
+                "-50"
+              ],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 12.25
+            },
+            {
+              "label": "Combined anterior/posterior colporrhaphy",
+              "cpt_code": "57260",
+              "description": "Combined anterior/posterior colporrhaphy",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 9.84
+            },
+            {
+              "label": "Sling operation for stress incontinence",
+              "cpt_code": "57288",
+              "description": "Sling operation for stress incontinence",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 10.22
+            },
+            {
+              "label": "Laparoscopy, surgical, colpopexy (suspension of vaginal apex)",
+              "cpt_code": "57425",
+              "description": "Laparoscopy, surgical, colpopexy (suspension of vaginal apex)",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 17.85
+            }
+          ]
+        },
+        "adnexal_expanded_questions": {
+          "question": "Type of tubal or adnexal procedure?",
+          "options": [
+            {
+              "label": "Ligation or transection of fallopian tube(s), abdominal or vagina",
+              "cpt_code": "58605",
+              "description": "Ligation or transection of fallopian tube(s), abdominal or vaginal approach, postpartum, unilateral or bilateral",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 6.85
+            },
+            {
+              "label": "Laparoscopy, surgical; with removal of adnexal structures (partia",
+              "cpt_code": "58661",
+              "description": "Laparoscopy, surgical; with removal of adnexal structures (partial or total oophorectomy and/or salpingectomy)",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 9.95
+            },
+            {
+              "label": "Laparoscopy, surgical; with fulguration of oviducts (with or with",
+              "cpt_code": "58670",
+              "description": "Laparoscopy, surgical; with fulguration of oviducts (with or without transection)",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 7.15
+            },
+            {
+              "label": "Salpingectomy, complete or partial, unilateral or bilateral (sepa",
+              "cpt_code": "58700",
+              "description": "Salpingectomy, complete or partial, unilateral or bilateral (separate procedure)",
+              "modifiers": [
+                "-50"
+              ],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 7.85
+            },
+            {
+              "label": "Oophorectomy, partial or total, unilateral or bilateral",
+              "cpt_code": "58940",
+              "description": "Oophorectomy, partial or total, unilateral or bilateral",
+              "modifiers": [
+                "-50"
+              ],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 8.55
+            },
+            {
+              "label": "Oophorectomy for ovarian malignancy",
+              "cpt_code": "58943",
+              "description": "Oophorectomy for ovarian malignancy",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 18.08
+            },
+            {
+              "label": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal",
+              "cpt_code": "58952",
+              "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 28.85
+            },
+            {
+              "label": "Bilateral salpingo-oophorectomy with total omentectomy for malign",
+              "cpt_code": "58956",
+              "description": "Bilateral salpingo-oophorectomy with total omentectomy for malignancy",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 22.85
+            },
+            {
+              "label": "Laparoscopic treatment of ectopic pregnancy; without salpingectom",
+              "cpt_code": "59150",
+              "description": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/or oophorectomy",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 9.25
+            },
+            {
+              "label": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy a",
+              "cpt_code": "59151",
+              "description": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or oophorectomy",
+              "modifiers": [],
+              "icd10": [
+                "N83.209",
+                "Z30.2",
+                "N70.11"
+              ],
+              "work_rvu": 11.05
+            }
+          ]
+        },
+        "ob_delivery_questions": {
+          "question": "Type of obstetric delivery service?",
+          "options": [
+            {
+              "label": "Routine obstetric care, vaginal delivery",
+              "cpt_code": "59400",
+              "description": "Routine obstetric care, vaginal delivery",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 22.33
+            },
+            {
+              "label": "Vaginal delivery only",
+              "cpt_code": "59409",
+              "description": "Vaginal delivery only",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 12.62
+            },
+            {
+              "label": "Vaginal delivery including postpartum care",
+              "cpt_code": "59410",
+              "description": "Vaginal delivery including postpartum care",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 15.53
+            },
+            {
+              "label": "Routine obstetric care including antepartum care, cesarean delive",
+              "cpt_code": "59510",
+              "description": "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 22.85
+            },
+            {
+              "label": "Cesarean delivery only",
+              "cpt_code": "59514",
+              "description": "Cesarean delivery only",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 14.24
+            },
+            {
+              "label": "Cesarean delivery including postpartum care",
+              "cpt_code": "59515",
+              "description": "Cesarean delivery including postpartum care",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 17.15
+            },
+            {
+              "label": "Routine obstetric care, VBAC attempt",
+              "cpt_code": "59610",
+              "description": "Routine obstetric care, VBAC attempt",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 25.41
+            },
+            {
+              "label": "VBAC delivery only",
+              "cpt_code": "59612",
+              "description": "VBAC delivery only",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 15.35
+            },
+            {
+              "label": "Routine obstetric care, VBAC attempt resulting in cesarean",
+              "cpt_code": "59620",
+              "description": "Routine obstetric care, VBAC attempt resulting in cesarean",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82",
+                "O34.219"
+              ],
+              "work_rvu": 25.41
             }
           ]
         }
