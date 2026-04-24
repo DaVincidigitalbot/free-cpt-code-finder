@@ -17109,9 +17109,9 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
     "category": "cervical",
@@ -17138,7 +17138,7 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "57522": {
     "mod51_exempt": false,
@@ -17146,9 +17146,9 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
     "category": "cervical",
@@ -17175,7 +17175,7 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "57700": {
     "mod51_exempt": false,
@@ -17225,7 +17225,7 @@
     "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic",
+    "category": "cervical",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17701,7 +17701,7 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 10,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
@@ -17928,7 +17928,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "ectopic_pregnancy",
+    "category": "obstetric",
     "inclusive_of": [
       "12001",
       "12002",
@@ -17965,7 +17965,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "ectopic_pregnancy",
+    "category": "obstetric",
     "inclusive_of": [
       "12001",
       "12002",
@@ -22329,7 +22329,7 @@
     "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
-    "category": "gynecologic",
+    "category": "cervical",
     "inclusive_of": [
       "12001",
       "12002",
@@ -22953,9 +22953,9 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
     "category": "obstetric",
@@ -22982,7 +22982,7 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "59515": {
     "mod51_exempt": false,
@@ -23064,9 +23064,9 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
-    "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
     "distinct_procedure_class": null,
     "category": "obstetric",
@@ -23093,7 +23093,7 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 3
   },
   "59620": {
     "mod51_exempt": false,
