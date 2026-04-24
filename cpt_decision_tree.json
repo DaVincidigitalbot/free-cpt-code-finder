@@ -7686,20 +7686,28 @@
           "question": "Type of HPB procedure?",
           "options": [
             {
+              "label": "Pancreatic oncology resection",
+              "next": "pancreatic_oncology_questions"
+            },
+            {
+              "label": "Pancreatitis / necrosis / duct",
+              "next": "pancreatitis_necrosis_questions"
+            },
+            {
+              "label": "Pancreatic cyst / pseudocyst",
+              "next": "pancreatic_cyst_questions"
+            },
+            {
+              "label": "Pancreatic trauma",
+              "next": "pancreatic_trauma_questions"
+            },
+            {
               "label": "Liver procedures",
               "next": "liver_questions"
             },
             {
               "label": "Biliary procedures",
               "next": "biliary_questions"
-            },
-            {
-              "label": "Pancreatic procedures",
-              "next": "pancreas_questions"
-            },
-            {
-              "label": "Pancreatic cyst / pseudocyst",
-              "next": "pseudocyst_questions"
             }
           ]
         }
@@ -8206,6 +8214,337 @@
                 "K86.1"
               ],
               "work_rvu": 24.56
+            }
+          ]
+        },
+        "pancreatic_oncology_questions": {
+          "question": "Select pancreatic resection workflow",
+          "options": [
+            {
+              "label": "Open pancreatic biopsy",
+              "cpt_code": "48100",
+              "description": "Biopsy of pancreas, open",
+              "modifiers": [],
+              "icd10": [
+                "C25.9",
+                "K86.9"
+              ],
+              "work_rvu": 11.71
+            },
+            {
+              "label": "Percutaneous pancreatic biopsy",
+              "cpt_code": "48102",
+              "description": "Needle biopsy of pancreas, percutaneous",
+              "modifiers": [],
+              "icd10": [
+                "C25.9",
+                "K86.9"
+              ],
+              "work_rvu": 2.5
+            },
+            {
+              "label": "Resection of peripancreatic tumor",
+              "cpt_code": "48105",
+              "description": "Resection of peripancreatic tumor",
+              "modifiers": [],
+              "icd10": [
+                "C25.9",
+                "D13.6"
+              ],
+              "work_rvu": 18.5
+            },
+            {
+              "label": "Excision of pancreatic lesion",
+              "cpt_code": "48120",
+              "description": "Excision of pancreatic lesion",
+              "modifiers": [],
+              "icd10": [
+                "D13.6",
+                "K86.2"
+              ],
+              "work_rvu": 22.42
+            },
+            {
+              "label": "Distal pancreatectomy",
+              "cpt_code": "48140",
+              "description": "Pancreatectomy, distal subtotal",
+              "modifiers": [],
+              "icd10": [
+                "C25.2",
+                "D13.6"
+              ],
+              "work_rvu": 32.85
+            },
+            {
+              "label": "Distal pancreatectomy with splenectomy",
+              "cpt_code": "48145",
+              "description": "Distal pancreatectomy with splenectomy",
+              "modifiers": [],
+              "icd10": [
+                "C25.2",
+                "D13.6"
+              ],
+              "work_rvu": 24.9
+            },
+            {
+              "label": "Near-total distal pancreatectomy",
+              "cpt_code": "48146",
+              "description": "Pancreatectomy, distal, with near-total",
+              "modifiers": [],
+              "icd10": [
+                "C25.2",
+                "K86.1"
+              ],
+              "work_rvu": 25.0
+            },
+            {
+              "label": "Ampullectomy",
+              "cpt_code": "48148",
+              "description": "Excision of ampulla of Vater",
+              "modifiers": [],
+              "icd10": [
+                "C24.1",
+                "D13.5"
+              ],
+              "work_rvu": 15.83
+            },
+            {
+              "label": "Classic Whipple",
+              "cpt_code": "48150",
+              "description": "Pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (Whipple-type procedure)",
+              "modifiers": [],
+              "icd10": [
+                "C25.0",
+                "C24.0"
+              ],
+              "work_rvu": 62.85
+            },
+            {
+              "label": "Whipple with pancreatojejunostomy",
+              "cpt_code": "48152",
+              "description": "Whipple with pancreatojejunostomy",
+              "modifiers": [],
+              "icd10": [
+                "C25.0",
+                "C24.0"
+              ],
+              "work_rvu": 38.28
+            },
+            {
+              "label": "Pylorus-preserving Whipple",
+              "cpt_code": "48153",
+              "description": "Pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, Whipple-type procedure)",
+              "modifiers": [],
+              "icd10": [
+                "C25.0",
+                "C24.0"
+              ],
+              "work_rvu": 58.85
+            },
+            {
+              "label": "Total pancreatectomy with islet autotransplant",
+              "cpt_code": "48154",
+              "description": "Total pancreatectomy with transplantation of pancreatic islets",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 36.95
+            }
+          ]
+        },
+        "pancreatitis_necrosis_questions": {
+          "question": "Select pancreatitis, necrosis, or ductal drainage workflow",
+          "options": [
+            {
+              "label": "Drainage for acute pancreatitis",
+              "cpt_code": "48000",
+              "description": "Placement of drains peripancreatic for acute pancreatitis",
+              "modifiers": [],
+              "icd10": [
+                "K85.91"
+              ],
+              "work_rvu": 16.34
+            },
+            {
+              "label": "Drainage pancreatitis with cholecystostomy/gastrostomy/jejunostomy",
+              "cpt_code": "48001",
+              "description": "Placement of drains peripancreatic for acute pancreatitis with cholecystostomy gastrostomy and jejunostomy",
+              "modifiers": [],
+              "icd10": [
+                "K85.91"
+              ],
+              "work_rvu": 22.56
+            },
+            {
+              "label": "Open pancreatic necrosis debridement workflow",
+              "cpt_code": "48000",
+              "description": "Placement of drains peripancreatic for acute pancreatitis, often used in operative pancreatic necrosis debridement/drainage workflow when no dedicated necrosectomy CPT exists",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "K85.91",
+                "K86.89"
+              ],
+              "work_rvu": 20.34
+            },
+            {
+              "label": "Removal of pancreatic calculus",
+              "cpt_code": "48020",
+              "description": "Removal of pancreatic calculus",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 18.34
+            },
+            {
+              "label": "Puestow / lateral pancreaticojejunostomy",
+              "cpt_code": "48155",
+              "description": "Pancreatectomy, lateral, internal drainage (Puestow)",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 27.07
+            },
+            {
+              "label": "Pancreatojejunostomy, side-to-side",
+              "cpt_code": "48160",
+              "description": "Pancreatojejunostomy, side-to-side anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 22.42
+            },
+            {
+              "label": "Intraoperative pancreatography",
+              "cpt_code": "48400",
+              "description": "Injection procedure for intraoperative pancreatography",
+              "modifiers": [],
+              "icd10": [
+                "K86.9"
+              ],
+              "work_rvu": 2.34
+            },
+            {
+              "label": "Pancreaticojejunostomy side-to-side",
+              "cpt_code": "48548",
+              "description": "Pancreaticojejunostomy side to side anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "K86.1"
+              ],
+              "work_rvu": 24.56
+            }
+          ]
+        },
+        "pancreatic_cyst_questions": {
+          "question": "Select pancreatic cyst or pseudocyst workflow",
+          "options": [
+            {
+              "label": "Endoscopic pseudocyst drainage",
+              "cpt_code": "43240",
+              "description": "Esophagogastroduodenoscopy, flexible, transoral; with transmural drainage of pseudocyst",
+              "modifiers": [],
+              "icd10": [
+                "K86.3"
+              ],
+              "work_rvu": 12.85
+            },
+            {
+              "label": "Marsupialization pancreatic cyst",
+              "cpt_code": "48500",
+              "description": "Marsupialization of pancreatic cyst",
+              "modifiers": [],
+              "icd10": [
+                "K86.2",
+                "K86.3"
+              ],
+              "work_rvu": 14.56
+            },
+            {
+              "label": "Open external drainage pseudocyst",
+              "cpt_code": "48510",
+              "description": "External drainage, pseudocyst of pancreas; open",
+              "modifiers": [],
+              "icd10": [
+                "K86.3"
+              ],
+              "work_rvu": 22.85
+            },
+            {
+              "label": "Direct internal drainage pancreatic cyst",
+              "cpt_code": "48520",
+              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract direct",
+              "modifiers": [],
+              "icd10": [
+                "K86.2",
+                "K86.3"
+              ],
+              "work_rvu": 18.34
+            },
+            {
+              "label": "Roux-en-Y drainage pancreatic cyst",
+              "cpt_code": "48540",
+              "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract Roux-en-Y",
+              "modifiers": [],
+              "icd10": [
+                "K86.2",
+                "K86.3"
+              ],
+              "work_rvu": 22.56
+            }
+          ]
+        },
+        "pancreatic_trauma_questions": {
+          "question": "Select pancreatic trauma workflow",
+          "options": [
+            {
+              "label": "Pancreatorrhaphy for injury",
+              "cpt_code": "48545",
+              "description": "Pancreatorrhaphy for injury",
+              "modifiers": [],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 18.67
+            },
+            {
+              "label": "Duodenal exclusion with gastrojejunostomy for pancreatic injury",
+              "cpt_code": "48547",
+              "description": "Duodenal exclusion with gastrojejunostomy for pancreatic injury",
+              "modifiers": [],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 22.34
+            },
+            {
+              "label": "Distal pancreatectomy for traumatic distal gland injury",
+              "cpt_code": "48140",
+              "description": "Pancreatectomy, distal subtotal",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 36.85
+            },
+            {
+              "label": "Operative drainage for pancreatic trauma / leak",
+              "cpt_code": "48000",
+              "description": "Placement of drains peripancreatic for acute pancreatitis, adapted for operative pancreatic trauma drainage when clinically appropriate",
+              "modifiers": [
+                "-22"
+              ],
+              "icd10": [
+                "S36.239A"
+              ],
+              "work_rvu": 18.34
             }
           ]
         }
