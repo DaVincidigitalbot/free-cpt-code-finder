@@ -3523,6 +3523,14 @@
             {
               "label": "Reconstruction / Oncoplastic",
               "next": "breast_recon_extra"
+            },
+            {
+              "label": "Imaging / Sentinel Node / Radiation Adjuncts",
+              "next": "breast_adjunct_extra"
+            },
+            {
+              "label": "Advanced Reconstruction / Revision",
+              "next": "breast_revision_extra"
             }
           ]
         }
@@ -3942,20 +3950,15 @@
                 "D05.10"
               ],
               "work_rvu": 20.37
-            }
-          ]
-        },
-        "breast_recon_extra": {
-          "question": "Breast reconstruction / oncoplastic procedures?",
-          "options": [
+            },
             {
               "label": "Mastopexy",
               "cpt_code": "19316",
               "description": "Mastopexy",
               "modifiers": [],
               "icd10": [
-                "Z42.1",
-                "Z85.3"
+                "C50.919",
+                "D05.10"
               ],
               "work_rvu": 14.9
             },
@@ -3965,8 +3968,8 @@
               "description": "Reduction mammaplasty",
               "modifiers": [],
               "icd10": [
-                "Z42.1",
-                "Z85.3"
+                "C50.919",
+                "D05.10"
               ],
               "work_rvu": 15.6
             },
@@ -3976,11 +3979,16 @@
               "description": "Mammaplasty augmentation with prosthetic implant",
               "modifiers": [],
               "icd10": [
-                "Z42.1",
-                "Z85.3"
+                "C50.919",
+                "D05.10"
               ],
               "work_rvu": 13.2
-            },
+            }
+          ]
+        },
+        "breast_recon_extra": {
+          "question": "Breast reconstruction / oncoplastic procedures?",
+          "options": [
             {
               "label": "Breast augmentation with implant",
               "cpt_code": "19325",
@@ -4090,6 +4098,566 @@
                 "Z85.3"
               ],
               "work_rvu": 41.79
+            },
+            {
+              "label": "Breast reconstruction with other technique",
+              "cpt_code": "19366",
+              "description": "Breast reconstruction with other technique",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 22.4
+            },
+            {
+              "label": "Breast reconstruction with single pedicle TRAM flap",
+              "cpt_code": "19367",
+              "description": "Breast reconstruction with single pedicle TRAM flap",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 30.6
+            },
+            {
+              "label": "Breast reconstruction with single pedicle TRAM flap subsequent stage",
+              "cpt_code": "19368",
+              "description": "Breast reconstruction with single pedicle TRAM flap subsequent stage",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 18.2
+            },
+            {
+              "label": "Breast reconstruction with double pedicle TRAM flap",
+              "cpt_code": "19369",
+              "description": "Breast reconstruction with double pedicle TRAM flap",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 34.1
+            },
+            {
+              "label": "Open periprosthetic capsulotomy breast",
+              "cpt_code": "19370",
+              "description": "Open periprosthetic capsulotomy breast",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Periprosthetic capsulectomy breast complete",
+              "cpt_code": "19371",
+              "description": "Periprosthetic capsulectomy breast complete",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Revision reconstructed breast",
+              "cpt_code": "19380",
+              "description": "Revision reconstructed breast",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 10.6
+            },
+            {
+              "label": "Preparation molded custom breast prosthesis",
+              "cpt_code": "19396",
+              "description": "Preparation molded custom breast prosthesis",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Unlisted procedure breast",
+              "cpt_code": "19499",
+              "description": "Unlisted procedure breast",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 8.0
+            },
+            {
+              "label": "Tattooing intradermal introduction of insoluble opaque pigments up to 6 sq cm",
+              "cpt_code": "11920",
+              "description": "Tattooing intradermal introduction of insoluble opaque pigments up to 6 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 2.0
+            }
+          ]
+        },
+        "breast_adjunct_extra": {
+          "question": "Breast imaging / sentinel node / radiation adjunct procedures?",
+          "options": [
+            {
+              "label": "Tattooing each additional 6 sq cm",
+              "cpt_code": "11921",
+              "description": "Tattooing each additional 6 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.5
+            },
+            {
+              "label": "Implantation biologic implant soft tissue reinforcement",
+              "cpt_code": "15777",
+              "description": "Implantation biologic implant soft tissue reinforcement",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Biopsy/excision superficial lymph node",
+              "cpt_code": "38500",
+              "description": "Biopsy/excision superficial lymph node",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Biopsy/excision deep axillary node needle",
+              "cpt_code": "38505",
+              "description": "Biopsy/excision deep axillary node needle",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 2.8
+            },
+            {
+              "label": "Biopsy/excision deep cervical node",
+              "cpt_code": "38510",
+              "description": "Biopsy/excision deep cervical node",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Biopsy/excision deep cervical node(s)",
+              "cpt_code": "38520",
+              "description": "Biopsy/excision deep cervical node(s)",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Biopsy/excision deep axillary node(s)",
+              "cpt_code": "38525",
+              "description": "Biopsy/excision deep axillary node(s)",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 6.49
+            },
+            {
+              "label": "Biopsy/excision deep iliac/pelvic node(s)",
+              "cpt_code": "38530",
+              "description": "Biopsy/excision deep iliac/pelvic node(s)",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 6.7
+            },
+            {
+              "label": "Axillary lymphadenectomy superficial",
+              "cpt_code": "38740",
+              "description": "Axillary lymphadenectomy superficial",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 13.48
+            },
+            {
+              "label": "Axillary lymphadenectomy complete",
+              "cpt_code": "38745",
+              "description": "Axillary lymphadenectomy complete",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 16.27
+            },
+            {
+              "label": "Intraoperative identification sentinel lymph nodes including dye injection",
+              "cpt_code": "38900",
+              "description": "Intraoperative identification sentinel lymph nodes including dye injection",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Unlisted procedure hemic/lymphatic system",
+              "cpt_code": "38999",
+              "description": "Unlisted procedure hemic/lymphatic system",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Breast ultrasound complete unilateral",
+              "cpt_code": "76641",
+              "description": "Breast ultrasound complete unilateral",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.82
+            },
+            {
+              "label": "Breast ultrasound limited unilateral",
+              "cpt_code": "76642",
+              "description": "Breast ultrasound limited unilateral",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.54
+            },
+            {
+              "label": "Diagnostic mammography including CAD unilateral",
+              "cpt_code": "77065",
+              "description": "Diagnostic mammography including CAD unilateral",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.84
+            },
+            {
+              "label": "Diagnostic mammography including CAD bilateral",
+              "cpt_code": "77066",
+              "description": "Diagnostic mammography including CAD bilateral",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 1.13
+            },
+            {
+              "label": "Screening mammography bilateral",
+              "cpt_code": "77067",
+              "description": "Screening mammography bilateral",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.76
+            },
+            {
+              "label": "DXA bone density axial skeleton",
+              "cpt_code": "77080",
+              "description": "DXA bone density axial skeleton",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.66
+            },
+            {
+              "label": "DXA appendicular skeleton",
+              "cpt_code": "77081",
+              "description": "DXA appendicular skeleton",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.35
+            },
+            {
+              "label": "DXA bone density axial with vertebral fracture assessment",
+              "cpt_code": "77085",
+              "description": "DXA bone density axial with vertebral fracture assessment",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.91
+            },
+            {
+              "label": "Lymphatics and lymph node imaging",
+              "cpt_code": "78195",
+              "description": "Lymphatics and lymph node imaging",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.77
+            },
+            {
+              "label": "Salivary gland function study",
+              "cpt_code": "78232",
+              "description": "Salivary gland function study",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.64
+            },
+            {
+              "label": "Radiopharmaceutical localization tumor/inflammatory single area",
+              "cpt_code": "78800",
+              "description": "Radiopharmaceutical localization tumor/inflammatory single area",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 0.89
+            },
+            {
+              "label": "Radiopharmaceutical localization tumor/inflammatory two or more areas",
+              "cpt_code": "78801",
+              "description": "Radiopharmaceutical localization tumor/inflammatory two or more areas",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 1.12
+            },
+            {
+              "label": "Radiopharmaceutical localization abscess/tumor whole body",
+              "cpt_code": "78804",
+              "description": "Radiopharmaceutical localization abscess/tumor whole body",
+              "modifiers": [],
+              "icd10": [
+                "R92.8",
+                "C50.919"
+              ],
+              "work_rvu": 1.36
+            }
+          ]
+        },
+        "breast_revision_extra": {
+          "question": "Advanced breast reconstruction / revision procedures?",
+          "options": [
+            {
+              "label": "Surgical pathology gross and microscopic exam level IV",
+              "cpt_code": "88305",
+              "description": "Surgical pathology gross and microscopic exam level IV",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 0.72
+            },
+            {
+              "label": "Surgical pathology gross and microscopic exam level V",
+              "cpt_code": "88307",
+              "description": "Surgical pathology gross and microscopic exam level V",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 1.1
+            },
+            {
+              "label": "Surgical pathology gross and microscopic exam level VI",
+              "cpt_code": "88309",
+              "description": "Surgical pathology gross and microscopic exam level VI",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 1.45
+            },
+            {
+              "label": "Pathology consultation during surgery first tissue block frozen section",
+              "cpt_code": "88331",
+              "description": "Pathology consultation during surgery first tissue block frozen section",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 0.96
+            },
+            {
+              "label": "Pathology consultation during surgery each additional tissue block",
+              "cpt_code": "88332",
+              "description": "Pathology consultation during surgery each additional tissue block",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 0.38
+            },
+            {
+              "label": "Breast biopsy MRI guidance first lesion",
+              "cpt_code": "19085",
+              "description": "Breast biopsy MRI guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 6.2
+            },
+            {
+              "label": "Breast biopsy MRI each additional lesion",
+              "cpt_code": "19086",
+              "description": "Breast biopsy MRI each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 2.7
+            },
+            {
+              "label": "Breast biopsy MRI clip placement and specimen imaging",
+              "cpt_code": "19087",
+              "description": "Breast biopsy MRI clip placement and specimen imaging",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Placement radiotherapy afterloading balloon catheter into breast",
+              "cpt_code": "19296",
+              "description": "Placement radiotherapy afterloading balloon catheter into breast",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Placement radiotherapy afterloading catheter for interstitial radiation 1-5 catheters",
+              "cpt_code": "19297",
+              "description": "Placement radiotherapy afterloading catheter for interstitial radiation 1-5 catheters",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 9.1
+            },
+            {
+              "label": "Placement radiotherapy afterloading catheter complex 6 or more",
+              "cpt_code": "19298",
+              "description": "Placement radiotherapy afterloading catheter complex 6 or more",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 10.3
+            },
+            {
+              "label": "Delayed insertion breast prosthesis after mastopexy/mastectomy/reconstruction",
+              "cpt_code": "19342",
+              "description": "Delayed insertion breast prosthesis after mastopexy/mastectomy/reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 14.5
+            },
+            {
+              "label": "Nipple/areola reconstruction",
+              "cpt_code": "19350",
+              "description": "Nipple/areola reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Correction inverted nipple",
+              "cpt_code": "19355",
+              "description": "Correction inverted nipple",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 3.9
+            },
+            {
+              "label": "Tissue expander placement in breast reconstruction",
+              "cpt_code": "19357",
+              "description": "Tissue expander placement in breast reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "N64.89"
+              ],
+              "work_rvu": 16.65
             }
           ]
         }
@@ -11716,6 +12284,14 @@
             {
               "label": "Advanced Node / Retroperitoneal Oncologic",
               "next": "surg_onc_advanced_extra"
+            },
+            {
+              "label": "Regional Node / Chest Wall / Bone Oncologic",
+              "next": "surg_onc_regional_extra"
+            },
+            {
+              "label": "Abdominal HPB / Complex Oncologic Resection",
+              "next": "surg_onc_hpb_extra"
             }
           ]
         }
@@ -11866,20 +12442,15 @@
                 "C44.90"
               ],
               "work_rvu": 5.8
-            }
-          ]
-        },
-        "surg_onc_sarcoma_extra": {
-          "question": "Expanded sarcoma / radical resection procedures?",
-          "options": [
+            },
             {
               "label": "Radical resection soft tissue tumor neck/anterior thorax <5 cm",
               "cpt_code": "21555",
               "description": "Radical resection soft tissue tumor neck/anterior thorax <5 cm",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 14.6
             },
@@ -11889,8 +12460,8 @@
               "description": "Radical resection soft tissue tumor neck/anterior thorax 5 cm or greater",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 18.8
             },
@@ -11900,8 +12471,8 @@
               "description": "Excision soft tissue tumor back/flank subcutaneous <3 cm",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 4.9
             },
@@ -11911,8 +12482,8 @@
               "description": "Excision soft tissue tumor back/flank subcutaneous 3 cm or greater",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 5.8
             },
@@ -11922,8 +12493,8 @@
               "description": "Excision soft tissue tumor back/flank subfascial <5 cm",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 8.7
             },
@@ -11933,8 +12504,8 @@
               "description": "Excision soft tissue tumor back/flank subfascial 5 cm or greater",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 11.2
             },
@@ -11944,11 +12515,16 @@
               "description": "Radical resection soft tissue tumor back/flank 5 cm or greater",
               "modifiers": [],
               "icd10": [
-                "C49.9",
-                "D48.1"
+                "C43.9",
+                "C44.90"
               ],
               "work_rvu": 21.99
-            },
+            }
+          ]
+        },
+        "surg_onc_sarcoma_extra": {
+          "question": "Expanded sarcoma / radical resection procedures?",
+          "options": [
             {
               "label": "Excision abdominal wall tumor deep 5 cm or greater",
               "cpt_code": "22900",
@@ -12223,23 +12799,23 @@
                 "D48.1"
               ],
               "work_rvu": 17.9
-            },
-            {
-              "label": "Radical resection leg/ankle soft tissue tumor 5 cm or greater",
-              "cpt_code": "27635",
-              "description": "Radical resection leg/ankle soft tissue tumor 5 cm or greater",
-              "modifiers": [],
-              "icd10": [
-                "C49.9",
-                "D48.1"
-              ],
-              "work_rvu": 21.5
             }
           ]
         },
         "surg_onc_advanced_extra": {
           "question": "Advanced nodal / retroperitoneal oncologic procedures?",
           "options": [
+            {
+              "label": "Radical resection leg/ankle soft tissue tumor 5 cm or greater",
+              "cpt_code": "27635",
+              "description": "Radical resection leg/ankle soft tissue tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 21.5
+            },
             {
               "label": "Biopsy deep axillary node(s)",
               "cpt_code": "38525",
@@ -12283,6 +12859,566 @@
                 "C48.0"
               ],
               "work_rvu": 24.74
+            },
+            {
+              "label": "Excision chest wall tumor involving ribs",
+              "cpt_code": "19260",
+              "description": "Excision chest wall tumor involving ribs",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 17.5
+            },
+            {
+              "label": "Excision chest wall tumor with reconstruction",
+              "cpt_code": "19271",
+              "description": "Excision chest wall tumor with reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 22.4
+            },
+            {
+              "label": "Excision recurrent chest wall tumor with reconstruction",
+              "cpt_code": "19272",
+              "description": "Excision recurrent chest wall tumor with reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 24.1
+            },
+            {
+              "label": "Radical resection malignant tumor mandible",
+              "cpt_code": "21045",
+              "description": "Radical resection malignant tumor mandible",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 25.3
+            },
+            {
+              "label": "Radical resection malignant tumor maxilla",
+              "cpt_code": "21046",
+              "description": "Radical resection malignant tumor maxilla",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 26.0
+            },
+            {
+              "label": "Excision tumor soft tissue neck/thorax subcutaneous <3 cm",
+              "cpt_code": "21552",
+              "description": "Excision tumor soft tissue neck/thorax subcutaneous <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Excision tumor soft tissue neck/thorax subfascial <5 cm",
+              "cpt_code": "21554",
+              "description": "Excision tumor soft tissue neck/thorax subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Radical resection soft tissue tumor neck/anterior thorax <5 cm",
+              "cpt_code": "21555",
+              "description": "Radical resection soft tissue tumor neck/anterior thorax <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 14.6
+            },
+            {
+              "label": "Radical resection soft tissue tumor neck/anterior thorax 5 cm or greater",
+              "cpt_code": "21556",
+              "description": "Radical resection soft tissue tumor neck/anterior thorax 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 18.8
+            },
+            {
+              "label": "Radical resection abdominal wall tumor recurrent",
+              "cpt_code": "22903",
+              "description": "Radical resection abdominal wall tumor recurrent",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 24.0
+            },
+            {
+              "label": "Radical resection humerus/shoulder girdle bone tumor",
+              "cpt_code": "23075",
+              "description": "Radical resection humerus/shoulder girdle bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 26.6
+            },
+            {
+              "label": "Radical resection upper arm/elbow bone tumor",
+              "cpt_code": "24075",
+              "description": "Radical resection upper arm/elbow bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 24.9
+            },
+            {
+              "label": "Radical resection wrist/forearm tumor",
+              "cpt_code": "25170",
+              "description": "Radical resection wrist/forearm tumor",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 19.7
+            },
+            {
+              "label": "Excision tumor hand/finger deep subfascial",
+              "cpt_code": "26117",
+              "description": "Excision tumor hand/finger deep subfascial",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Radical resection hand/finger tumor",
+              "cpt_code": "26118",
+              "description": "Radical resection hand/finger tumor",
+              "modifiers": [],
+              "icd10": [
+                "C77.9",
+                "C48.0"
+              ],
+              "work_rvu": 14.2
+            }
+          ]
+        },
+        "surg_onc_regional_extra": {
+          "question": "Regional node / chest wall / bone oncologic procedures?",
+          "options": [
+            {
+              "label": "Radical resection pelvis/hip bone tumor",
+              "cpt_code": "27059",
+              "description": "Radical resection pelvis/hip bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 29.2
+            },
+            {
+              "label": "Radical resection thigh/knee bone tumor",
+              "cpt_code": "27365",
+              "description": "Radical resection thigh/knee bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 27.6
+            },
+            {
+              "label": "Radical resection tibia/fibula bone tumor",
+              "cpt_code": "27646",
+              "description": "Radical resection tibia/fibula bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 26.8
+            },
+            {
+              "label": "Radical resection foot/toe soft tissue tumor",
+              "cpt_code": "28046",
+              "description": "Radical resection foot/toe soft tissue tumor",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 17.2
+            },
+            {
+              "label": "Laparoscopy splenectomy",
+              "cpt_code": "38120",
+              "description": "Laparoscopy splenectomy",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 18.4
+            },
+            {
+              "label": "Open deep cervical lymph node biopsy with imaging guidance",
+              "cpt_code": "38562",
+              "description": "Open deep cervical lymph node biopsy with imaging guidance",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Laparoscopy with retroperitoneal lymph node biopsy single/multiple",
+              "cpt_code": "38564",
+              "description": "Laparoscopy with retroperitoneal lymph node biopsy single/multiple",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 9.6
+            },
+            {
+              "label": "Laparoscopy with retroperitoneal lymph node sampling biopsy",
+              "cpt_code": "38570",
+              "description": "Laparoscopy with retroperitoneal lymph node sampling biopsy",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Laparoscopy retroperitoneal lymph node dissection unilateral",
+              "cpt_code": "38571",
+              "description": "Laparoscopy retroperitoneal lymph node dissection unilateral",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 16.2
+            },
+            {
+              "label": "Laparoscopy retroperitoneal lymph node dissection bilateral",
+              "cpt_code": "38572",
+              "description": "Laparoscopy retroperitoneal lymph node dissection bilateral",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 20.1
+            },
+            {
+              "label": "Inguinofemoral lymphadenectomy superficial",
+              "cpt_code": "38760",
+              "description": "Inguinofemoral lymphadenectomy superficial",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Inguinofemoral lymphadenectomy superficial and deep",
+              "cpt_code": "38765",
+              "description": "Inguinofemoral lymphadenectomy superficial and deep",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 18.5
+            },
+            {
+              "label": "Pelvic lymphadenectomy open",
+              "cpt_code": "38770",
+              "description": "Pelvic lymphadenectomy open",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 16.4
+            },
+            {
+              "label": "Retroperitoneal transabdominal lymphadenectomy",
+              "cpt_code": "38780",
+              "description": "Retroperitoneal transabdominal lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 24.74
+            },
+            {
+              "label": "Injection procedure for identification of sentinel node",
+              "cpt_code": "38790",
+              "description": "Injection procedure for identification of sentinel node",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Intraoperative identification sentinel lymph nodes including dye injection",
+              "cpt_code": "38900",
+              "description": "Intraoperative identification sentinel lymph nodes including dye injection",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Unlisted procedure hemic or lymphatic system",
+              "cpt_code": "38999",
+              "description": "Unlisted procedure hemic or lymphatic system",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Excision one or more lesions small intestine",
+              "cpt_code": "44110",
+              "description": "Excision one or more lesions small intestine",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 13.8
+            },
+            {
+              "label": "Excision lesion small intestine with enterostomy",
+              "cpt_code": "44111",
+              "description": "Excision lesion small intestine with enterostomy",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 15.1
+            },
+            {
+              "label": "Enterectomy resection small intestine single resection and anastomosis",
+              "cpt_code": "44120",
+              "description": "Enterectomy resection small intestine single resection and anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C79.51",
+                "C50.919"
+              ],
+              "work_rvu": 17.24
+            }
+          ]
+        },
+        "surg_onc_hpb_extra": {
+          "question": "Abdominal HPB / complex oncologic resection procedures?",
+          "options": [
+            {
+              "label": "Enterectomy each additional resection and anastomosis",
+              "cpt_code": "44121",
+              "description": "Enterectomy each additional resection and anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Enterectomy with enterostomy",
+              "cpt_code": "44125",
+              "description": "Enterectomy with enterostomy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 17.9
+            },
+            {
+              "label": "Enterectomy each additional with enterostomy",
+              "cpt_code": "44126",
+              "description": "Enterectomy each additional with enterostomy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Pelvic exenteration for colorectal malignancy",
+              "cpt_code": "45126",
+              "description": "Pelvic exenteration for colorectal malignancy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 39.8
+            },
+            {
+              "label": "Partial hepatectomy resection total left lobectomy",
+              "cpt_code": "47120",
+              "description": "Partial hepatectomy resection total left lobectomy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 29.5
+            },
+            {
+              "label": "Trisegmentectomy liver",
+              "cpt_code": "47122",
+              "description": "Trisegmentectomy liver",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 36.2
+            },
+            {
+              "label": "Partial left hepatectomy",
+              "cpt_code": "47125",
+              "description": "Partial left hepatectomy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 24.7
+            },
+            {
+              "label": "Open radiofrequency ablation one or more liver tumors",
+              "cpt_code": "47130",
+              "description": "Open radiofrequency ablation one or more liver tumors",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 18.9
+            },
+            {
+              "label": "Donor hepatectomy from living donor",
+              "cpt_code": "47135",
+              "description": "Donor hepatectomy from living donor",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 40.4
+            },
+            {
+              "label": "Pancreatectomy proximal subtotal with total duodenectomy partial gastrectomy choledochoenterostomy and gastrojejunostomy",
+              "cpt_code": "48150",
+              "description": "Pancreatectomy proximal subtotal with total duodenectomy partial gastrectomy choledochoenterostomy and gastrojejunostomy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 40.6
+            },
+            {
+              "label": "Pancreatectomy proximal subtotal with pancreaticojejunostomy",
+              "cpt_code": "48153",
+              "description": "Pancreatectomy proximal subtotal with pancreaticojejunostomy",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 39.8
+            },
+            {
+              "label": "Pancreaticoduodenectomy with vascular reconstruction",
+              "cpt_code": "48154",
+              "description": "Pancreaticoduodenectomy with vascular reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 44.1
+            },
+            {
+              "label": "Unlisted procedure pancreas",
+              "cpt_code": "48999",
+              "description": "Unlisted procedure pancreas",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 10.0
+            },
+            {
+              "label": "Excision/intra-abdominal tumor cyst or endometriomas multiple",
+              "cpt_code": "49220",
+              "description": "Excision/intra-abdominal tumor cyst or endometriomas multiple",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 14.4
+            },
+            {
+              "label": "Omentectomy epiploectomy resection omentum",
+              "cpt_code": "49255",
+              "description": "Omentectomy epiploectomy resection omentum",
+              "modifiers": [],
+              "icd10": [
+                "C22.9",
+                "C25.9"
+              ],
+              "work_rvu": 11.27
             }
           ]
         }
@@ -18825,6 +19961,14 @@
             {
               "label": "Bladder / Cystoscopy / Diversion",
               "next": "uro_bladder"
+            },
+            {
+              "label": "Endourology / Ureteroscopy / TURP",
+              "next": "uro_endoscopy_extra"
+            },
+            {
+              "label": "Urethra / Reconstruction / Prosthetic outlet",
+              "next": "uro_urethra_extra"
             }
           ]
         }
@@ -19167,20 +20311,15 @@
                 "N20.1"
               ],
               "work_rvu": 10.3
-            }
-          ]
-        },
-        "uro_bladder": {
-          "question": "Bladder / cystoscopy / diversion procedures?",
-          "options": [
+            },
             {
               "label": "Cystorrhaphy simple",
               "cpt_code": "51520",
               "description": "Cystorrhaphy simple",
               "modifiers": [],
               "icd10": [
-                "C67.9",
-                "R31.9"
+                "N13.5",
+                "N20.1"
               ],
               "work_rvu": 11.1
             },
@@ -19190,8 +20329,8 @@
               "description": "Cystorrhaphy complicated",
               "modifiers": [],
               "icd10": [
-                "C67.9",
-                "R31.9"
+                "N13.5",
+                "N20.1"
               ],
               "work_rvu": 14.8
             },
@@ -19201,8 +20340,8 @@
               "description": "Cystectomy complete",
               "modifiers": [],
               "icd10": [
-                "C67.9",
-                "R31.9"
+                "N13.5",
+                "N20.1"
               ],
               "work_rvu": 27.7
             },
@@ -19212,8 +20351,8 @@
               "description": "Cystectomy complete with ureterosigmoidostomy",
               "modifiers": [],
               "icd10": [
-                "C67.9",
-                "R31.9"
+                "N13.5",
+                "N20.1"
               ],
               "work_rvu": 31.4
             },
@@ -19223,11 +20362,16 @@
               "description": "Cystectomy partial simple",
               "modifiers": [],
               "icd10": [
-                "C67.9",
-                "R31.9"
+                "N13.5",
+                "N20.1"
               ],
               "work_rvu": 19.2
-            },
+            }
+          ]
+        },
+        "uro_bladder": {
+          "question": "Bladder / cystoscopy / diversion procedures?",
+          "options": [
             {
               "label": "Cystectomy partial complicated",
               "cpt_code": "51575",
@@ -19392,6 +20536,566 @@
                 "R31.9"
               ],
               "work_rvu": 9.2
+            },
+            {
+              "label": "Cystourethroscopy with resection of bladder tumor 0.5-2 cm",
+              "cpt_code": "52246",
+              "description": "Cystourethroscopy with resection of bladder tumor 0.5-2 cm",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 6.6
+            },
+            {
+              "label": "Cystourethroscopy with resection of ureterocele",
+              "cpt_code": "52250",
+              "description": "Cystourethroscopy with resection of ureterocele",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Cystourethroscopy with dilation of bladder for interstitial cystitis",
+              "cpt_code": "52260",
+              "description": "Cystourethroscopy with dilation of bladder for interstitial cystitis",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Cystourethroscopy with mechanical ureteral dilation",
+              "cpt_code": "52265",
+              "description": "Cystourethroscopy with mechanical ureteral dilation",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Cystourethroscopy with internal urethrotomy",
+              "cpt_code": "52270",
+              "description": "Cystourethroscopy with internal urethrotomy",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 5.0
+            }
+          ]
+        },
+        "uro_endoscopy_extra": {
+          "question": "Endourology / ureteroscopy / TURP procedures?",
+          "options": [
+            {
+              "label": "Cystourethroscopy with calibration/dilation urethral stricture",
+              "cpt_code": "52275",
+              "description": "Cystourethroscopy with calibration/dilation urethral stricture",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Cystourethroscopy with direct vision internal urethrotomy",
+              "cpt_code": "52276",
+              "description": "Cystourethroscopy with direct vision internal urethrotomy",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 5.3
+            },
+            {
+              "label": "Cystourethroscopy with destruction lesion urethra or bladder neck",
+              "cpt_code": "52281",
+              "description": "Cystourethroscopy with destruction lesion urethra or bladder neck",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Cystourethroscopy with control postoperative bleeding",
+              "cpt_code": "52282",
+              "description": "Cystourethroscopy with control postoperative bleeding",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.4
+            },
+            {
+              "label": "Cystourethroscopy with steroid injection stricture",
+              "cpt_code": "52283",
+              "description": "Cystourethroscopy with steroid injection stricture",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Cystourethroscopy with resection ejaculatory duct",
+              "cpt_code": "52300",
+              "description": "Cystourethroscopy with resection ejaculatory duct",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 6.2
+            },
+            {
+              "label": "Cystourethroscopy with resection of bladder neck contracture",
+              "cpt_code": "52301",
+              "description": "Cystourethroscopy with resection of bladder neck contracture",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Cystourethroscopy with ureteral catheterization",
+              "cpt_code": "52305",
+              "description": "Cystourethroscopy with ureteral catheterization",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 2.8
+            },
+            {
+              "label": "Cystourethroscopy with removal foreign body/calculus/stent simple",
+              "cpt_code": "52310",
+              "description": "Cystourethroscopy with removal foreign body/calculus/stent simple",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Cystourethroscopy with removal foreign body/calculus/stent complicated",
+              "cpt_code": "52315",
+              "description": "Cystourethroscopy with removal foreign body/calculus/stent complicated",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Cystourethroscopy with removal foreign body/calculus from urethra",
+              "cpt_code": "52317",
+              "description": "Cystourethroscopy with removal foreign body/calculus from urethra",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 2.9
+            },
+            {
+              "label": "Cystourethroscopy with litholapaxy small stone <2.5 cm",
+              "cpt_code": "52318",
+              "description": "Cystourethroscopy with litholapaxy small stone <2.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Cystourethroscopy with ureteral stone manipulation",
+              "cpt_code": "52320",
+              "description": "Cystourethroscopy with ureteral stone manipulation",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Cystourethroscopy with ureteral catheterization and irrigation",
+              "cpt_code": "52325",
+              "description": "Cystourethroscopy with ureteral catheterization and irrigation",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 3.0
+            },
+            {
+              "label": "Cystourethroscopy with subureteric injection",
+              "cpt_code": "52327",
+              "description": "Cystourethroscopy with subureteric injection",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Cystourethroscopy with ureteral catheterization for radiologic study",
+              "cpt_code": "52330",
+              "description": "Cystourethroscopy with ureteral catheterization for radiologic study",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Cystourethroscopy with indwelling ureteral stent insertion",
+              "cpt_code": "52332",
+              "description": "Cystourethroscopy with indwelling ureteral stent insertion",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.3
+            },
+            {
+              "label": "Cystourethroscopy with ureteral stent exchange",
+              "cpt_code": "52334",
+              "description": "Cystourethroscopy with ureteral stent exchange",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Cystourethroscopy with treatment of ureterocele",
+              "cpt_code": "52341",
+              "description": "Cystourethroscopy with treatment of ureterocele",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Cystourethroscopy with balloon dilation ureteral stricture",
+              "cpt_code": "52344",
+              "description": "Cystourethroscopy with balloon dilation ureteral stricture",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy and/or pyeloscopy diagnostic",
+              "cpt_code": "52345",
+              "description": "Cystourethroscopy with ureteroscopy and/or pyeloscopy diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy and treatment ureteral stricture",
+              "cpt_code": "52346",
+              "description": "Cystourethroscopy with ureteroscopy and treatment ureteral stricture",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 6.0
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy diagnostic bilateral",
+              "cpt_code": "52351",
+              "description": "Cystourethroscopy with ureteroscopy diagnostic bilateral",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy and removal calculus/foreign body",
+              "cpt_code": "52352",
+              "description": "Cystourethroscopy with ureteroscopy and removal calculus/foreign body",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 6.7
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy laser lithotripsy",
+              "cpt_code": "52353",
+              "description": "Cystourethroscopy with ureteroscopy laser lithotripsy",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 8.2
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy biopsy ureter/renal pelvis",
+              "cpt_code": "52354",
+              "description": "Cystourethroscopy with ureteroscopy biopsy ureter/renal pelvis",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 6.4
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy and treatment ureteropelvic junction obstruction",
+              "cpt_code": "52355",
+              "description": "Cystourethroscopy with ureteroscopy and treatment ureteropelvic junction obstruction",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 7.0
+            },
+            {
+              "label": "Cystourethroscopy with ureteroscopy lithotripsy including stent",
+              "cpt_code": "52356",
+              "description": "Cystourethroscopy with ureteroscopy lithotripsy including stent",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Transurethral incision of bladder neck",
+              "cpt_code": "52400",
+              "description": "Transurethral incision of bladder neck",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Transurethral incision of ureterocele",
+              "cpt_code": "52402",
+              "description": "Transurethral incision of ureterocele",
+              "modifiers": [],
+              "icd10": [
+                "N40.1",
+                "N20.1"
+              ],
+              "work_rvu": 4.5
+            }
+          ]
+        },
+        "uro_urethra_extra": {
+          "question": "Urethral / reconstructive procedures?",
+          "options": [
+            {
+              "label": "Transurethral electrosurgical resection of prostate",
+              "cpt_code": "52601",
+              "description": "Transurethral electrosurgical resection of prostate",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 10.3
+            },
+            {
+              "label": "Transurethral resection residual/recurrent obstructive prostate tissue",
+              "cpt_code": "52612",
+              "description": "Transurethral resection residual/recurrent obstructive prostate tissue",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Transurethral resection postoperative bleeding",
+              "cpt_code": "52614",
+              "description": "Transurethral resection postoperative bleeding",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Transurethral electrovaporization of prostate",
+              "cpt_code": "52620",
+              "description": "Transurethral electrovaporization of prostate",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 8.8
+            },
+            {
+              "label": "Transurethral resection of bladder neck contracture",
+              "cpt_code": "52630",
+              "description": "Transurethral resection of bladder neck contracture",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 6.0
+            },
+            {
+              "label": "Transurethral resection postoperative bladder neck obstruction",
+              "cpt_code": "52640",
+              "description": "Transurethral resection postoperative bladder neck obstruction",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 6.4
+            },
+            {
+              "label": "Laser coagulation/enucleation prostate complete",
+              "cpt_code": "52647",
+              "description": "Laser coagulation/enucleation prostate complete",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 15.7
+            },
+            {
+              "label": "Laser vaporization of prostate including control bleeding",
+              "cpt_code": "52648",
+              "description": "Laser vaporization of prostate including control bleeding",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 11.2
+            },
+            {
+              "label": "Meatotomy",
+              "cpt_code": "53020",
+              "description": "Meatotomy",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Meatoplasty",
+              "cpt_code": "53025",
+              "description": "Meatoplasty",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 3.9
+            },
+            {
+              "label": "Division of urethral stricture by internal urethrotomy male",
+              "cpt_code": "53040",
+              "description": "Division of urethral stricture by internal urethrotomy male",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Biopsy urethra",
+              "cpt_code": "53200",
+              "description": "Biopsy urethra",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 2.7
+            },
+            {
+              "label": "Urethrectomy male partial",
+              "cpt_code": "53210",
+              "description": "Urethrectomy male partial",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 10.8
+            },
+            {
+              "label": "Urethroplasty first stage",
+              "cpt_code": "53400",
+              "description": "Urethroplasty first stage",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 12.2
+            },
+            {
+              "label": "Urethroplasty one-stage reconstruction male anterior urethra",
+              "cpt_code": "53410",
+              "description": "Urethroplasty one-stage reconstruction male anterior urethra",
+              "modifiers": [],
+              "icd10": [
+                "N35.919",
+                "R33.9"
+              ],
+              "work_rvu": 16.5
             }
           ]
         }
