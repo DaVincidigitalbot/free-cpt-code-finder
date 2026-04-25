@@ -9209,6 +9209,18 @@
             {
               "label": "Rectal Prolapse",
               "next": "prolapse_questions"
+            },
+            {
+              "label": "Proctectomy / rectal resection expanded",
+              "next": "crs_proctectomy_extra"
+            },
+            {
+              "label": "Endoscopy / sigmoidoscopy expanded",
+              "next": "crs_endoscopy_extra"
+            },
+            {
+              "label": "Anorectal / hemorrhoid / abscess expanded",
+              "next": "crs_anorectal_extra"
             }
           ]
         }
@@ -9568,6 +9580,571 @@
                 "K62.3"
               ],
               "work_rvu": 18.85
+            }
+          ]
+        },
+        "crs_proctectomy_extra": {
+          "question": "Proctectomy / rectal resection expanded?",
+          "options": [
+            {
+              "label": "Proctectomy partial with anastomosis, perineal approach",
+              "cpt_code": "45100",
+              "description": "Proctectomy partial with anastomosis, perineal approach",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 22.4
+            },
+            {
+              "label": "Proctectomy partial with coloproctostomy",
+              "cpt_code": "45108",
+              "description": "Proctectomy partial with coloproctostomy",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 25.1
+            },
+            {
+              "label": "Proctectomy complete combined abdominoperineal with colostomy",
+              "cpt_code": "45110",
+              "description": "Proctectomy complete combined abdominoperineal with colostomy",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 30.7
+            },
+            {
+              "label": "Proctectomy partial transsacral or transabdominal approach",
+              "cpt_code": "45111",
+              "description": "Proctectomy partial transsacral or transabdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 21.9
+            },
+            {
+              "label": "Excision lesion rectum transanal full thickness",
+              "cpt_code": "45112",
+              "description": "Excision lesion rectum transanal full thickness",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 10.2
+            },
+            {
+              "label": "Proctectomy partial with ostomy",
+              "cpt_code": "45113",
+              "description": "Proctectomy partial with ostomy",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 24.2
+            },
+            {
+              "label": "Proctectomy with coloanal anastomosis",
+              "cpt_code": "45114",
+              "description": "Proctectomy with coloanal anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 28.6
+            },
+            {
+              "label": "Proctectomy with reservoir",
+              "cpt_code": "45116",
+              "description": "Proctectomy with reservoir",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 31.4
+            },
+            {
+              "label": "Proctectomy combined abdominoperineal pull-through",
+              "cpt_code": "45119",
+              "description": "Proctectomy combined abdominoperineal pull-through",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 29.2
+            },
+            {
+              "label": "Proctectomy complete external proctectomy",
+              "cpt_code": "45120",
+              "description": "Proctectomy complete external proctectomy",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 27.7
+            },
+            {
+              "label": "Proctectomy partial with mucosectomy",
+              "cpt_code": "45121",
+              "description": "Proctectomy partial with mucosectomy",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 23.4
+            },
+            {
+              "label": "Proctectomy partial with sigmoidectomy",
+              "cpt_code": "45123",
+              "description": "Proctectomy partial with sigmoidectomy",
+              "modifiers": [],
+              "icd10": [
+                "C20",
+                "K62.89"
+              ],
+              "work_rvu": 26.1
+            }
+          ]
+        },
+        "crs_endoscopy_extra": {
+          "question": "Endoscopy / sigmoidoscopy expanded?",
+          "options": [
+            {
+              "label": "Proctosigmoidoscopy rigid diagnostic",
+              "cpt_code": "45300",
+              "description": "Proctosigmoidoscopy rigid diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 1.1
+            },
+            {
+              "label": "Proctosigmoidoscopy rigid with dilation",
+              "cpt_code": "45303",
+              "description": "Proctosigmoidoscopy rigid with dilation",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Proctosigmoidoscopy rigid with biopsy single or multiple",
+              "cpt_code": "45305",
+              "description": "Proctosigmoidoscopy rigid with biopsy single or multiple",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Proctosigmoidoscopy rigid with decompression",
+              "cpt_code": "45307",
+              "description": "Proctosigmoidoscopy rigid with decompression",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 1.6
+            },
+            {
+              "label": "Proctosigmoidoscopy rigid with removal foreign body",
+              "cpt_code": "45308",
+              "description": "Proctosigmoidoscopy rigid with removal foreign body",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.2
+            },
+            {
+              "label": "Proctosigmoidoscopy rigid with polypectomy",
+              "cpt_code": "45309",
+              "description": "Proctosigmoidoscopy rigid with polypectomy",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Sigmoidoscopy flexible with removal foreign body",
+              "cpt_code": "45315",
+              "description": "Sigmoidoscopy flexible with removal foreign body",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.9
+            },
+            {
+              "label": "Sigmoidoscopy flexible with control of bleeding",
+              "cpt_code": "45317",
+              "description": "Sigmoidoscopy flexible with control of bleeding",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Colonoscopy through stoma diagnostic",
+              "cpt_code": "45320",
+              "description": "Colonoscopy through stoma diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Colonoscopy through stoma with biopsy",
+              "cpt_code": "45327",
+              "description": "Colonoscopy through stoma with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Sigmoidoscopy flexible diagnostic",
+              "cpt_code": "45330",
+              "description": "Sigmoidoscopy flexible diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Sigmoidoscopy flexible with biopsy",
+              "cpt_code": "45331",
+              "description": "Sigmoidoscopy flexible with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Sigmoidoscopy flexible with mucosal resection",
+              "cpt_code": "45332",
+              "description": "Sigmoidoscopy flexible with mucosal resection",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Sigmoidoscopy flexible with hot biopsy forceps/ablation",
+              "cpt_code": "45333",
+              "description": "Sigmoidoscopy flexible with hot biopsy forceps/ablation",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.0
+            },
+            {
+              "label": "Sigmoidoscopy flexible with control bleeding",
+              "cpt_code": "45334",
+              "description": "Sigmoidoscopy flexible with control bleeding",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Sigmoidoscopy flexible with directed submucosal injection",
+              "cpt_code": "45335",
+              "description": "Sigmoidoscopy flexible with directed submucosal injection",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.7
+            },
+            {
+              "label": "Sigmoidoscopy flexible with decompression",
+              "cpt_code": "45337",
+              "description": "Sigmoidoscopy flexible with decompression",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Sigmoidoscopy flexible with lesion removal by snare",
+              "cpt_code": "45338",
+              "description": "Sigmoidoscopy flexible with lesion removal by snare",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.7
+            },
+            {
+              "label": "Sigmoidoscopy flexible with balloon dilation",
+              "cpt_code": "45339",
+              "description": "Sigmoidoscopy flexible with balloon dilation",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.3
+            },
+            {
+              "label": "Sigmoidoscopy flexible with stent",
+              "cpt_code": "45340",
+              "description": "Sigmoidoscopy flexible with stent",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Sigmoidoscopy with endoscopic ultrasound exam limited",
+              "cpt_code": "45341",
+              "description": "Sigmoidoscopy with endoscopic ultrasound exam limited",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Sigmoidoscopy with ultrasound-guided intramural/transmural FNA",
+              "cpt_code": "45342",
+              "description": "Sigmoidoscopy with ultrasound-guided intramural/transmural FNA",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Sigmoidoscopy with ablation tumor/polyp/lesion",
+              "cpt_code": "45346",
+              "description": "Sigmoidoscopy with ablation tumor/polyp/lesion",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 3.4
+            },
+            {
+              "label": "Sigmoidoscopy with placement of endoscopic stent",
+              "cpt_code": "45347",
+              "description": "Sigmoidoscopy with placement of endoscopic stent",
+              "modifiers": [],
+              "icd10": [
+                "K63.5",
+                "Z12.11"
+              ],
+              "work_rvu": 5.0
+            }
+          ]
+        },
+        "crs_anorectal_extra": {
+          "question": "Anorectal / hemorrhoid / abscess expanded?",
+          "options": [
+            {
+              "label": "Reduction rectal prolapse under anesthesia",
+              "cpt_code": "45900",
+              "description": "Reduction rectal prolapse under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 3.8
+            },
+            {
+              "label": "Dilation rectal stricture under anesthesia",
+              "cpt_code": "45905",
+              "description": "Dilation rectal stricture under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Anorectal exam under anesthesia diagnostic",
+              "cpt_code": "45910",
+              "description": "Anorectal exam under anesthesia diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Removal fecal impaction or foreign body under anesthesia",
+              "cpt_code": "45915",
+              "description": "Removal fecal impaction or foreign body under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 3.0
+            },
+            {
+              "label": "Placement seton",
+              "cpt_code": "46020",
+              "description": "Placement seton",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Endorectal advancement flap",
+              "cpt_code": "46030",
+              "description": "Endorectal advancement flap",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 12.8
+            },
+            {
+              "label": "Incision and drainage ischiorectal/perirectal abscess",
+              "cpt_code": "46040",
+              "description": "Incision and drainage ischiorectal/perirectal abscess",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Incision and drainage intramural abscess rectum/pelvis",
+              "cpt_code": "46045",
+              "description": "Incision and drainage intramural abscess rectum/pelvis",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Hemorrhoidectomy internal by rubber band ligation(s)",
+              "cpt_code": "46220",
+              "description": "Hemorrhoidectomy internal by rubber band ligation(s)",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Hemorrhoidectomy internal by rubber band ligation(s) additional",
+              "cpt_code": "46221",
+              "description": "Hemorrhoidectomy internal by rubber band ligation(s) additional",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 0.5
+            },
+            {
+              "label": "Excision thrombosed external hemorrhoid",
+              "cpt_code": "46230",
+              "description": "Excision thrombosed external hemorrhoid",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Hemorrhoidectomy external 2 or more columns/groups",
+              "cpt_code": "46250",
+              "description": "Hemorrhoidectomy external 2 or more columns/groups",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 6.3
+            },
+            {
+              "label": "Hemorrhoidectomy internal and external single column/group",
+              "cpt_code": "46255",
+              "description": "Hemorrhoidectomy internal and external single column/group",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 7.1
+            },
+            {
+              "label": "Hemorrhoidectomy internal and external complex/extensive",
+              "cpt_code": "46257",
+              "description": "Hemorrhoidectomy internal and external complex/extensive",
+              "modifiers": [],
+              "icd10": [
+                "K64.9",
+                "K61.1"
+              ],
+              "work_rvu": 8.5
             }
           ]
         }
