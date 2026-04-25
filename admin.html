@@ -8,22 +8,7 @@
 :root{--paper:#FAFAF7;--white:#fff;--ink:#0A0A0A;--ink2:#52525B;--ink3:#9A9A94;--line:#E4E4E0;--line2:#CFCCC0;--ox:#6E1919;--ox2:#F4EBEB;--moss:#2D5A3D;--warn:#A8611A}
 *{box-sizing:border-box;margin:0;padding:0} html,body{background:var(--paper);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.6}
 a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 72px}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:28px}.brand{display:flex;gap:14px;align-items:flex-start}.mark{width:34px;height:34px;border:2px solid var(--ink);border-radius:8px;display:grid;place-items:center;font-weight:800}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:700}.title{font-size:2rem;line-height:1.05;letter-spacing:-.03em;margin-top:6px}.sub{color:var(--ink2);max-width:760px;margin-top:8px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 1px 0 rgba(0,0,0,.03)}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-3{grid-column:span 3}@media(max-width:980px){.span-8,.span-6,.span-4,.span-3{grid-column:span 12}}h2{font-size:1.05rem;letter-spacing:-.02em;margin-bottom:12px}h3{font-size:.95rem;margin-bottom:10px}.metric{display:flex;flex-direction:column;gap:6px}.metric .label{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);font-weight:700}.metric .value{font-size:1.8rem;font-weight:800;letter-spacing:-.03em}.metric .hint{color:var(--ink2);font-size:.92rem}.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ox2);color:var(--ox);border:1px solid #ead8d8;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.list{display:grid;gap:10px}.row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.mono{font-family:'JetBrains Mono',ui-monospace,monospace}.muted{color:var(--ink2)}textarea{width:100%;min-height:190px;border:1px solid var(--line2);border-radius:16px;background:#fff;padding:14px 15px;font:14px/1.55 'JetBrains Mono',ui-monospace,monospace;color:var(--ink)}button{appearance:none;border:0;border-radius:12px;background:var(--ox);color:#fff;padding:11px 14px;font-weight:700;cursor:pointer}.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line2)}.btns{display:flex;gap:10px;flex-wrap:wrap}.tag{display:inline-block;border:1px solid var(--line2);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;color:var(--ink2);margin:0 8px 8px 0}.small{font-size:.92rem;color:var(--ink2)}.note{background:#fff8e8;border:1px solid #efd9a8;color:#6d4b00;border-radius:14px;padding:12px 14px;font-size:.93rem}.good{color:var(--moss);font-weight:700}.footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink2);font-size:.92rem}
-</style><script>
-(function(){
-  const USER='DaVincibot123';
-  const PASS='DaVincibot123';
-  const KEY='fccf-admin-auth-v1';
-  try{
-    if(sessionStorage.getItem(KEY)==='ok') return;
-    const u=prompt('FreeCPTCodeFinder admin username:');
-    if(u===null){document.body.innerHTML='<div style="font-family:Inter,sans-serif;padding:40px">Access canceled.</div>';throw new Error('cancelled');}
-    const p=prompt('FreeCPTCodeFinder admin password:');
-    if(p===null){document.body.innerHTML='<div style="font-family:Inter,sans-serif;padding:40px">Access canceled.</div>';throw new Error('cancelled');}
-    if(u!==USER||p!==PASS){document.body.innerHTML='<div style="font-family:Inter,sans-serif;padding:40px"><h2 style="margin:0 0 12px">Access denied</h2><p>Invalid username or password.</p></div>';throw new Error('denied');}
-    sessionStorage.setItem(KEY,'ok');
-  }catch(e){ if(e.message!=='cancelled'&&e.message!=='denied') console.error(e); }
-})();
-</script>
+</style>
 </head><body><div class="wrap">
   <div class="top">
     <div class="brand">
