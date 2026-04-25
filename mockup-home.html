@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free CPT Code Finder, home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FAFAF7;
+      --ink: #171412;
+      --muted: #756b63;
+      --line: #d9d2cb;
+      --accent: #7A1E1E;
+      --accent-soft: #f1e5e0;
+      --card: #f4eee8;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Inter', sans-serif;
+      --shadow: 0 18px 40px rgba(45, 22, 18, 0.08);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    body { min-height: 100vh; }
+
+    .shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) 360px;
+      min-height: 100vh;
+    }
+
+    .main {
+      padding: 28px 24px 120px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: var(--paper);
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .status {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .command-palette {
+      border: 2px solid var(--accent);
+      border-radius: 28px;
+      background: #fffdfa;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 26px;
+    }
+
+    .command-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .command-k {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 5px 8px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    .command-input {
+      flex: 1;
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .command-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .command-item {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(217,210,203,0.65);
+    }
+
+    .command-item:last-child { border-bottom: 0; }
+    .command-item.active { background: var(--accent-soft); }
+
+    .command-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+    }
+
+    .command-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .command-item span,
+    .command-item code {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .command-action {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-family: var(--mono);
+      font-size: 11px;
+      background: white;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card,
+    .signal-card,
+    .specialty,
+    .rail,
+    .sticky-mobile {
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .hero-card {
+      padding: 26px;
+      background: #fffdfa;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin: 0 0 14px;
+      max-width: 9ch;
+    }
+
+    .hero-copy {
+      max-width: 40ch;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .quick-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      font-size: 13px;
+    }
+
+    .signal-card {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      background: var(--card);
+    }
+
+    .signal-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .signal {
+      border: 1px solid rgba(122,30,30,0.18);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(250,250,247,0.72);
+    }
+
+    .signal label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .signal strong {
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .signal-note {
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .specialties {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .specialty {
+      padding: 18px;
+      background: #fffdfa;
+      min-height: 170px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 14px;
+    }
+
+    .specialty:hover { border-color: var(--accent); }
+
+    .spec-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .spec-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+    }
+
+    .specialty h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .specialty p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: 14px;
+      max-width: 24ch;
+    }
+
+    .spec-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 0;
+      border-radius: 0;
+      padding: 24px 22px;
+      border-left: 1px solid var(--line);
+      background: #f7f3ee;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 18px;
+    }
+
+    .rail-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rail h3 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+    }
+
+    .mono { font-family: var(--mono); }
+
+    .rail-total {
+      border: 2px solid var(--accent);
+      border-radius: 26px;
+      padding: 18px;
+      background: #fffdfa;
+    }
+
+    .rail-total label {
+      display: block;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .rail-total strong {
+      font-size: 48px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--accent);
+    }
+
+    .case-list {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .case {
+      border: 1px solid rgba(122,30,30,0.18);
+      border-radius: 20px;
+      background: #fffdfa;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .case strong {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .case-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .case-builder-action {
+      display: grid;
+      gap: 10px;
+    }
+
+    .primary,
+    .secondary {
+      width: 100%;
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-size: 14px;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    .secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .sticky-mobile {
+      display: none;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 30;
+      background: #fffdfa;
+      box-shadow: var(--shadow);
+      padding: 14px 16px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .sticky-mobile strong {
+      font-size: 34px;
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.05em;
+    }
+
+    svg { display: block; }
+
+    @media (max-width: 1100px) {
+      .specialties { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 920px) {
+      .shell { grid-template-columns: 1fr; }
+      .rail { display: none; }
+      .main { padding-bottom: 140px; }
+      .sticky-mobile { display: flex; }
+      .specialties { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <main class="main">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark">CPT</div>
+          <div>Free CPT Code Finder</div>
+        </div>
+        <div class="status">Fast path for between-case lookup</div>
+      </div>
+
+      <section class="command-palette" aria-label="Command palette preview">
+        <div class="command-top">
+          <div class="command-k">Cmd K</div>
+          <div class="command-input">Search procedure, specialty, modifier, or build a case...</div>
+        </div>
+        <div class="command-list">
+          <div class="command-item active">
+            <div class="command-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 6c2.4-1.7 5.5-1.9 8-.5 3.6 2 4.7 6.5 2.5 10-2.2 3.5-6.9 4.6-10.5 2.4C6.4 15.8 5.3 11.3 7.5 7.8"/>
+                <path d="M10.5 8.5c1.7 1.4 3.9 2.4 6.8 2.8"/>
+                <path d="M12 14c1.5.2 3.2 0 5-0.7"/>
+              </svg>
+            </div>
+            <div><strong>Open Trauma &amp; Acute Care</strong><span>Jump directly to damage control, washout, ex lap, bedside procedures</span></div>
+            <div class="command-action">Return</div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 7h12"/><path d="M6 12h16"/><path d="M9 17h10"/><path d="M11 22h6"/>
+              </svg>
+            </div>
+            <div><strong>Add code 49000 to case builder</strong><span>Exploratory laparotomy</span></div>
+            <div class="command-action">A</div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 5v18"/><path d="M7 10c0-3 2.4-5 7-5s7 2 7 5-2 4.2-7 5c-5 0.8-7 2.2-7 5s2.4 4 7 4 7-1.5 7-4"/>
+              </svg>
+            </div>
+            <div><strong>Review bundled conflicts</strong><span>Show likely overlap before signing out the case</span></div>
+            <div class="command-action">B</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero">
+        <article class="hero-card">
+          <div class="eyebrow">Built for the ugly hour</div>
+          <h1>Find the code before the pager goes off again.</h1>
+          <div class="hero-copy">This home screen is a launch pad, not a dashboard. Open a specialty, throw a likely code into the builder, keep moving. No vanity metrics. No dead air.</div>
+          <div class="quick-row">
+            <div class="chip">One-thumb search</div>
+            <div class="chip">Case builder always visible</div>
+            <div class="chip">Phone-first scan rhythm</div>
+          </div>
+        </article>
+        <aside class="signal-card">
+          <div class="eyebrow">What matters at 2 a.m.</div>
+          <div class="signal-strip">
+            <div class="signal"><label>Input</label><strong>Procedure first</strong></div>
+            <div class="signal"><label>Decision</label><strong>Less second-guessing</strong></div>
+            <div class="signal"><label>Output</label><strong>Ready to bill</strong></div>
+          </div>
+          <div class="signal-note">The layout treats every specialty like a hand-labeled tray card. Big anatomical marks, one sentence of orientation, and a direct path into the builder.</div>
+        </aside>
+      </section>
+
+      <section class="specialties" aria-label="Specialties">
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6c3-1.8 9-1.5 12 1.5 3 3 3.5 8.3.8 12.3-1.7 2.6-4.4 4.2-7.8 5.2"/><path d="M11 9c-1 3.5-.8 6.7.8 9.8"/><path d="M15 13c1.7.7 3.8 1 6.3.8"/><path d="M14 24c-.3 1.4-.2 2.8.5 4"/></svg></div><h2>General Surgery</h2></div><p>Appendix, gallbladder, hernia, bowel. Open fast and move straight to core abdominal work.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7c2.4-2.1 6.6-2.6 10-1 4.8 2.2 6.2 8.1 3.3 12.6-2.3 3.4-5.9 4.8-9.2 5.7"/><path d="M11 11c1.9 1.2 4.6 2.3 8.2 2.6"/><path d="M12 17c1.8.3 4 .1 6.5-.6"/><path d="M12.5 24c0 1.5.2 2.8.8 3.8"/></svg></div><h2>Trauma &amp; Acute Care</h2></div><p>Damage control, re-exploration, washout, tube work, fasciotomy, urgent source control.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 8c1.2-1.5 3.2-2.5 5.6-2.5 4.5 0 7.9 3.3 7.9 7.4 0 2.5-1.2 4.3-3.2 5.7"/><path d="M11.5 10.5c-2 1.6-3.1 3.9-3.1 6.6 0 4.9 3.9 8.4 8.9 8.4 2 0 3.9-.5 5.2-1.4"/><path d="M15 7v20"/></svg></div><h2>Colorectal</h2></div><p>Colon, rectum, ostomy, anorectal procedures, and the codes that usually travel together.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 9c3-3.2 9.7-3.2 12.6.4 2.1 2.6 2.2 6.7-.1 9.3-1.5 1.8-3.8 2.8-6.5 3"/><path d="M12 10c-.7 3 0 5.8 1.6 8.4"/><path d="M19 20c.8 2 .7 4-.3 6"/></svg></div><h2>HPB</h2></div><p>Liver, pancreas, biliary. High-friction code sets organized like an operative field, not a spreadsheet.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6c3.5 0 6.5 2.7 6.5 6.1 0 3.9-2.8 5.8-6.5 7.6-3.7-1.8-6.5-3.7-6.5-7.6C10.5 8.7 13.5 6 17 6Z"/><path d="M17 20v8"/><path d="M13.5 25h7"/></svg></div><h2>Endocrine</h2></div><p>Thyroid, parathyroid, adrenal. Quick access to clean endocrine families without noise.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9c1.8-2 5.5-2.5 8-.8 2.8 1.9 3.8 5.5 2.5 8.5-1 2.3-3.1 3.9-5.8 4.8"/><path d="M13.5 11.5c1.1 1.6 2.8 2.8 5.2 3.5"/><path d="M13 24c2.2-1.2 4.7-1.5 7.3-.8"/></svg></div><h2>Breast</h2></div><p>Lumpectomy to mastectomy patterns, node work, and the add-ons you need visible at a glance.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17c0-6 5-10 10-10 2.6 0 4.8 1 6 2.8"/><path d="M9 18c0 5 3.8 8.8 9.4 8.8 4.3 0 7.4-2 9.1-5.1"/><path d="M8 16c3.8 0 7.6-.9 11.1-2.6"/></svg></div><h2>Surgical Oncology</h2></div><p>Resection families arranged around extent, margins, and nodal work instead of alphabetical lists.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6c3.5 0 6 2.9 6 6.2 0 2.6-1.2 4.7-3.5 6.2"/><path d="M17 6c-3.5 0-6 2.9-6 6.2 0 2.6 1.2 4.7 3.5 6.2"/><path d="M14 18c-1.8 2.2-2.5 4.8-2 7.6"/><path d="M20 18c1.8 2.2 2.5 4.8 2 7.6"/></svg></div><h2>Cardiothoracic</h2></div><p>Thoracic access, lung, chest wall, mediastinum, cardiac exposure, and high-value combinations.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6c2.7 0 5 2.5 5 5.6 0 2.8-1.6 5.4-3.9 7.8-2.3 2.3-3.8 5-4.1 8"/><path d="M19 7c2 0 4.5 1.2 5.8 3.4"/><path d="M13.5 22c2.6-1.2 5.2-1.5 7.7-.8"/></svg></div><h2>Vascular</h2></div><p>Exposure, repair, bypass, thrombectomy, and vessel-specific choices surfaced in one motion.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8c3.3-.6 6.1.5 7.8 2.8 1.5 2 1.9 4.5 1.4 7.1"/><path d="M19.2 17.8c1.8-.4 3.5-.2 5.3.8 2.7 1.6 3.7 5.2 2.1 7.9"/><path d="M13 10 9.5 6.5"/><path d="M18.5 21.5l-4 4"/></svg></div><h2>Orthopedic Trauma</h2></div><p>Open fractures, fixation logic, debridement, compartment work, and reduction paths.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6c3.4 0 6.1 2.6 6.1 5.8 0 2.8-2.1 4.9-4.8 6.2"/><path d="M17 6c-3.4 0-6.1 2.6-6.1 5.8 0 2.8 2.1 4.9 4.8 6.2"/><path d="M17 18v9"/><path d="M13 22h8"/></svg></div><h2>Neurosurgery</h2></div><p>Cranial, spine, decompression, access, and the fine-grain distinctions that usually slow you down.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8c3.8 0 6.8 2.8 6.8 6.4 0 1.9-.8 3.6-2.3 4.9"/><path d="M17 8c-3.8 0-6.8 2.8-6.8 6.4 0 1.9.8 3.6 2.3 4.9"/><path d="M13 20c-.5 2 .1 4.2 1.7 5.8"/><path d="M21 20c.5 2-.1 4.2-1.7 5.8"/></svg></div><h2>Pediatric Surgery</h2></div><p>Neonatal and pediatric operative families distilled for quick recognition, not long reading.</p><div class="spec-link">Open tray ↗</div></article>
+        <article class="specialty"><div class="spec-top"><div class="spec-icon"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 9c1.8-2.2 4.9-3.5 8-3.1 4 .5 7.1 3.7 7.1 7.8 0 3.4-2.1 6.2-5.1 7.7"/><path d="M11 9c-.8 2.8-.5 5.7 1 8.4"/><path d="M14 23c2.1.8 4.4 1 6.9.5"/></svg></div><h2>Bariatric</h2></div><p>Sleeve, bypass, revision, access, and the edge-case combinations that matter on submission.</p><div class="spec-link">Open tray ↗</div></article>
+      </section>
+    </main>
+
+    <aside class="rail">
+      <div class="rail-head">
+        <h3>Case builder</h3>
+        <div class="status">Sticky</div>
+      </div>
+      <div class="rail-total">
+        <label>Current wRVU total</label>
+        <strong>46.8</strong>
+      </div>
+      <div class="case-list">
+        <article class="case">
+          <strong>49000 Exploratory laparotomy</strong>
+          <div class="case-meta"><span>Trauma &amp; Acute Care</span><span>14.1 wRVU</span></div>
+        </article>
+        <article class="case">
+          <strong>97606 Negative pressure dressing, abdomen</strong>
+          <div class="case-meta"><span>Adjunct</span><span>3.2 wRVU</span></div>
+        </article>
+        <article class="case">
+          <strong>49002 Re-opening laparotomy</strong>
+          <div class="case-meta"><span>Return to OR</span><span>12.5 wRVU</span></div>
+        </article>
+        <article class="case">
+          <strong>11005 Debridement for necrotizing soft tissue infection</strong>
+          <div class="case-meta"><span>Urgent add-on</span><span>17.0 wRVU</span></div>
+        </article>
+      </div>
+      <div class="case-builder-action">
+        <button class="primary">Review conflicts</button>
+        <button class="secondary">Clear case</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="sticky-mobile">
+    <div>
+      <div class="mono" style="font-size:11px;color:var(--muted);margin-bottom:4px;">Case builder</div>
+      <strong>46.8</strong>
+    </div>
+    <button class="primary" style="width:auto;padding-inline:18px;">Open</button>
+  </div>
+</body>
+</html>
