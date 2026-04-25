@@ -3513,169 +3513,583 @@
           "question": "Type of procedure?",
           "options": [
             {
-              "label": "Biopsy",
-              "next": "breast_biopsy"
+              "label": "Biopsy / Localization / Duct",
+              "next": "breast_localization_extra"
             },
             {
-              "label": "Lumpectomy",
-              "next": "breast_lumpectomy"
+              "label": "Lumpectomy / Mastectomy",
+              "next": "breast_mastectomy_core"
             },
             {
-              "label": "Mastectomy",
-              "next": "breast_mastectomy"
+              "label": "Reconstruction / Oncoplastic",
+              "next": "breast_recon_extra"
             }
           ]
         }
       ],
       "branches": {
-        "breast_biopsy": {
-          "question": "Type of biopsy?",
+        "breast_localization_extra": {
+          "question": "Breast biopsy / localization / duct procedures?",
           "options": [
             {
-              "label": "Core needle biopsy",
-              "cpt_code": "19083",
-              "description": "Biopsy, breast, with placement of breast localization device",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Breast biopsy, stereotactic guidance first lesion",
+              "cpt_code": "19081",
+              "description": "Breast biopsy, stereotactic guidance first lesion",
+              "modifiers": [],
               "icd10": [
-                "N63.10",
-                "N63.20",
+                "N63.0",
                 "R92.8"
-              ]
+              ],
+              "work_rvu": 4.73
             },
             {
-              "label": "Open surgical biopsy",
+              "label": "Breast biopsy, stereotactic each additional lesion",
+              "cpt_code": "19082",
+              "description": "Breast biopsy, stereotactic each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 2.2
+            },
+            {
+              "label": "Breast biopsy, ultrasound guidance first lesion",
+              "cpt_code": "19083",
+              "description": "Breast biopsy, ultrasound guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 3.84
+            },
+            {
+              "label": "Breast biopsy, ultrasound each additional lesion",
+              "cpt_code": "19084",
+              "description": "Breast biopsy, ultrasound each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 1.9
+            },
+            {
+              "label": "Breast biopsy, MRI guidance first lesion",
+              "cpt_code": "19085",
+              "description": "Breast biopsy, MRI guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 6.2
+            },
+            {
+              "label": "Breast biopsy, MRI each additional lesion",
+              "cpt_code": "19086",
+              "description": "Breast biopsy, MRI each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 2.7
+            },
+            {
+              "label": "Puncture aspiration breast cyst",
+              "cpt_code": "19000",
+              "description": "Puncture aspiration breast cyst",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 0.84
+            },
+            {
+              "label": "Puncture aspiration each additional cyst",
+              "cpt_code": "19001",
+              "description": "Puncture aspiration each additional cyst",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 0.4
+            },
+            {
+              "label": "Mastotomy with exploration/drainage deep abscess",
+              "cpt_code": "19020",
+              "description": "Mastotomy with exploration/drainage deep abscess",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Injection for mammary ductography",
+              "cpt_code": "19030",
+              "description": "Injection for mammary ductography",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 0.7
+            },
+            {
+              "label": "Open incisional breast biopsy",
               "cpt_code": "19101",
-              "description": "Biopsy of breast; open, incisional",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "description": "Open incisional breast biopsy",
+              "modifiers": [],
               "icd10": [
-                "N63.10",
-                "N63.20",
+                "N63.0",
                 "R92.8"
-              ]
+              ],
+              "work_rvu": 4.4
             },
             {
-              "label": "Vacuum-assisted biopsy",
-              "cpt_code": "19083",
-              "description": "Biopsy, breast, with placement of breast localization device",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Nipple exploration including excision duct lesion",
+              "cpt_code": "19110",
+              "description": "Nipple exploration including excision duct lesion",
+              "modifiers": [],
               "icd10": [
-                "N63.10",
-                "N63.20",
+                "N63.0",
                 "R92.8"
-              ]
-            }
-          ]
-        },
-        "breast_lumpectomy": {
-          "question": "Additional procedures?",
-          "options": [
-            {
-              "label": "Simple lumpectomy",
-              "cpt_code": "19301",
-              "description": "Mastectomy, partial",
-              "modifiers": [
-                "-LT",
-                "-RT"
               ],
-              "icd10": [
-                "C50.911",
-                "C50.912",
-                "D05.90"
-              ]
+              "work_rvu": 5.6
             },
             {
-              "label": "With sentinel lymph node biopsy",
-              "cpt_code": "19302",
-              "description": "Mastectomy, partial, with axillary lymphadenectomy",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Excision lactiferous duct fistula",
+              "cpt_code": "19112",
+              "description": "Excision lactiferous duct fistula",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C50.912"
-              ]
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 5.4
             },
             {
-              "label": "With wire localization",
+              "label": "Excision breast lesion open",
+              "cpt_code": "19120",
+              "description": "Excision breast lesion open",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Excision breast lesion identified by localization device first lesion",
               "cpt_code": "19125",
-              "description": "Excision of breast lesion identified by preoperative placement of radiological marker",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "description": "Excision breast lesion identified by localization device first lesion",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C50.912"
-              ]
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 7.75
+            },
+            {
+              "label": "Excision each additional lesion localization device",
+              "cpt_code": "19126",
+              "description": "Excision each additional lesion localization device",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 3.88
+            },
+            {
+              "label": "Mastectomy for gynecomastia",
+              "cpt_code": "19160",
+              "description": "Mastectomy for gynecomastia",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Excision chest wall tumor involving ribs",
+              "cpt_code": "19260",
+              "description": "Excision chest wall tumor involving ribs",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 17.5
+            },
+            {
+              "label": "Excision chest wall tumor with reconstruction",
+              "cpt_code": "19271",
+              "description": "Excision chest wall tumor with reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 22.4
+            },
+            {
+              "label": "Excision chest wall tumor recurrent with reconstruction",
+              "cpt_code": "19272",
+              "description": "Excision chest wall tumor recurrent with reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 24.1
+            },
+            {
+              "label": "Placement breast localization device mammographic first lesion",
+              "cpt_code": "19281",
+              "description": "Placement breast localization device mammographic first lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Placement localization device mammographic each additional",
+              "cpt_code": "19282",
+              "description": "Placement localization device mammographic each additional",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 0.6
+            },
+            {
+              "label": "Placement localization device ultrasound first lesion",
+              "cpt_code": "19283",
+              "description": "Placement localization device ultrasound first lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 1.0
+            },
+            {
+              "label": "Placement localization device ultrasound each additional",
+              "cpt_code": "19284",
+              "description": "Placement localization device ultrasound each additional",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 0.5
+            },
+            {
+              "label": "Placement localization device MRI first lesion",
+              "cpt_code": "19285",
+              "description": "Placement localization device MRI first lesion",
+              "modifiers": [],
+              "icd10": [
+                "N63.0",
+                "R92.8"
+              ],
+              "work_rvu": 1.5
             }
           ]
         },
-        "breast_mastectomy": {
-          "question": "Type of mastectomy?",
+        "breast_mastectomy_core": {
+          "question": "Lumpectomy / mastectomy procedures?",
           "options": [
             {
-              "label": "Simple/Total",
+              "label": "Placement localization device MRI each additional",
+              "cpt_code": "19286",
+              "description": "Placement localization device MRI each additional",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 0.7
+            },
+            {
+              "label": "Placement breast localization wire first lesion",
+              "cpt_code": "19290",
+              "description": "Placement breast localization wire first lesion",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Placement additional wire localization",
+              "cpt_code": "19291",
+              "description": "Placement additional wire localization",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 0.6
+            },
+            {
+              "label": "Preparation and placement of radiological marker",
+              "cpt_code": "19294",
+              "description": "Preparation and placement of radiological marker",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 0.9
+            },
+            {
+              "label": "Mastectomy for gynecomastia variant",
+              "cpt_code": "19300",
+              "description": "Mastectomy for gynecomastia variant",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 7.8
+            },
+            {
+              "label": "Partial mastectomy",
+              "cpt_code": "19301",
+              "description": "Partial mastectomy",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 10.49
+            },
+            {
+              "label": "Partial mastectomy with axillary lymphadenectomy",
+              "cpt_code": "19302",
+              "description": "Partial mastectomy with axillary lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 14.36
+            },
+            {
+              "label": "Simple complete mastectomy",
               "cpt_code": "19303",
-              "description": "Mastectomy, simple, complete",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "description": "Simple complete mastectomy",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C50.912",
-                "D05.90"
-              ]
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 16.25
             },
             {
-              "label": "Modified radical",
-              "cpt_code": "19307",
-              "description": "Mastectomy, modified radical, including axillary lymph nodes",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C50.911",
-                "C50.912"
-              ]
-            },
-            {
-              "label": "Radical",
-              "cpt_code": "19305",
-              "description": "Mastectomy, radical, including pectoral muscles, axillary lymph nodes",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C50.911",
-                "C50.912"
-              ]
-            },
-            {
-              "label": "Skin-sparing",
+              "label": "Subcutaneous mastectomy",
               "cpt_code": "19304",
-              "description": "Mastectomy, subcutaneous",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "description": "Subcutaneous mastectomy",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C50.912",
-                "Z40.01"
-              ]
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 14.3
+            },
+            {
+              "label": "Radical mastectomy",
+              "cpt_code": "19305",
+              "description": "Radical mastectomy",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 21.63
+            },
+            {
+              "label": "Radical mastectomy internal mammary nodes",
+              "cpt_code": "19306",
+              "description": "Radical mastectomy internal mammary nodes",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 24.31
+            },
+            {
+              "label": "Modified radical mastectomy",
+              "cpt_code": "19307",
+              "description": "Modified radical mastectomy",
+              "modifiers": [],
+              "icd10": [
+                "C50.919",
+                "D05.10"
+              ],
+              "work_rvu": 20.37
+            }
+          ]
+        },
+        "breast_recon_extra": {
+          "question": "Breast reconstruction / oncoplastic procedures?",
+          "options": [
+            {
+              "label": "Mastopexy",
+              "cpt_code": "19316",
+              "description": "Mastopexy",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 14.9
+            },
+            {
+              "label": "Reduction mammaplasty",
+              "cpt_code": "19318",
+              "description": "Reduction mammaplasty",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 15.6
+            },
+            {
+              "label": "Mammaplasty augmentation with prosthetic implant",
+              "cpt_code": "19324",
+              "description": "Mammaplasty augmentation with prosthetic implant",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 13.2
+            },
+            {
+              "label": "Breast augmentation with implant",
+              "cpt_code": "19325",
+              "description": "Breast augmentation with implant",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 13.3
+            },
+            {
+              "label": "Removal intact breast implant",
+              "cpt_code": "19328",
+              "description": "Removal intact breast implant",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Removal implant and replacement same session",
+              "cpt_code": "19330",
+              "description": "Removal implant and replacement same session",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 12.4
+            },
+            {
+              "label": "Immediate insertion breast prosthesis after mastectomy",
+              "cpt_code": "19340",
+              "description": "Immediate insertion breast prosthesis after mastectomy",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 12.91
+            },
+            {
+              "label": "Delayed insertion breast prosthesis",
+              "cpt_code": "19342",
+              "description": "Delayed insertion breast prosthesis",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 14.5
+            },
+            {
+              "label": "Nipple/areola reconstruction",
+              "cpt_code": "19350",
+              "description": "Nipple/areola reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Correction inverted nipple",
+              "cpt_code": "19355",
+              "description": "Correction inverted nipple",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 3.9
+            },
+            {
+              "label": "Tissue expander placement in breast reconstruction",
+              "cpt_code": "19357",
+              "description": "Tissue expander placement in breast reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 16.65
+            },
+            {
+              "label": "Breast reconstruction with latissimus dorsi flap",
+              "cpt_code": "19361",
+              "description": "Breast reconstruction with latissimus dorsi flap",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 26.82
+            },
+            {
+              "label": "Breast reconstruction with free flap",
+              "cpt_code": "19364",
+              "description": "Breast reconstruction with free flap",
+              "modifiers": [],
+              "icd10": [
+                "Z42.1",
+                "Z85.3"
+              ],
+              "work_rvu": 41.79
             }
           ]
         }
@@ -10596,365 +11010,583 @@
           "question": "Type of oncologic procedure?",
           "options": [
             {
-              "label": "Wide Local Excision",
-              "next": "wide_excision_questions"
+              "label": "Malignant Skin / Melanoma Excision",
+              "next": "surg_onc_skin_node_extra"
             },
             {
-              "label": "Sentinel Lymph Node Biopsy",
-              "next": "slnb_questions"
+              "label": "Sarcoma / Radical Soft Tissue Resection",
+              "next": "surg_onc_sarcoma_extra"
             },
             {
-              "label": "Lymph Node Dissection",
-              "next": "lymph_dissection_questions"
-            },
-            {
-              "label": "Soft Tissue Sarcoma",
-              "next": "sarcoma_questions"
-            },
-            {
-              "label": "Melanoma Excision",
-              "next": "melanoma_questions"
-            },
-            {
-              "label": "Complex Oncologic",
-              "next": "complex_onc_questions"
+              "label": "Advanced Node / Retroperitoneal Oncologic",
+              "next": "surg_onc_advanced_extra"
             }
           ]
         }
       ],
       "branches": {
-        "wide_excision_questions": {
-          "question": "Location and size?",
+        "surg_onc_skin_node_extra": {
+          "question": "Malignant skin / melanoma / nodal procedures?",
           "options": [
             {
-              "label": "WLE trunk, \u22642cm",
+              "label": "Excision malignant lesion trunk/arms/legs 0.5 cm or less",
+              "cpt_code": "11600",
+              "description": "Excision malignant lesion trunk/arms/legs 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 0.6 to 1.0 cm",
+              "cpt_code": "11601",
+              "description": "Excision malignant lesion trunk/arms/legs 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 1.1 to 2.0 cm",
               "cpt_code": "11602",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; 1.1 to 2.0 cm",
+              "description": "Excision malignant lesion trunk/arms/legs 1.1 to 2.0 cm",
               "modifiers": [],
               "icd10": [
-                "C43.59",
-                "C44.509"
+                "C43.9",
+                "C44.90"
               ],
-              "work_rvu": 3.25
+              "work_rvu": 2.9
             },
             {
-              "label": "WLE trunk, 2.1-4cm",
+              "label": "Excision malignant lesion trunk/arms/legs 2.1 to 3.0 cm",
               "cpt_code": "11603",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; 2.1 to 3.0 cm",
+              "description": "Excision malignant lesion trunk/arms/legs 2.1 to 3.0 cm",
               "modifiers": [],
               "icd10": [
-                "C43.59",
-                "C44.509"
+                "C43.9",
+                "C44.90"
               ],
-              "work_rvu": 3.95
+              "work_rvu": 3.3
             },
             {
-              "label": "WLE trunk, >4cm",
-              "cpt_code": "11606",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; over 4.0 cm",
+              "label": "Excision malignant lesion trunk/arms/legs 3.1 to 4.0 cm",
+              "cpt_code": "11604",
+              "description": "Excision malignant lesion trunk/arms/legs 3.1 to 4.0 cm",
               "modifiers": [],
               "icd10": [
-                "C43.59",
-                "C44.509"
+                "C43.9",
+                "C44.90"
               ],
-              "work_rvu": 6.25
+              "work_rvu": 3.8
             },
             {
-              "label": "WLE extremity with margins",
+              "label": "Excision malignant lesion trunk/arms/legs over 4.0 cm",
               "cpt_code": "11606",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; over 4.0 cm",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "description": "Excision malignant lesion trunk/arms/legs over 4.0 cm",
+              "modifiers": [],
               "icd10": [
-                "C43.60",
-                "C44.60"
+                "C43.9",
+                "C44.90"
               ],
-              "work_rvu": 6.25
+              "work_rvu": 4.68
+            },
+            {
+              "label": "Excision malignant lesion scalp/neck/hands/feet/genitalia 0.5 cm or less",
+              "cpt_code": "11620",
+              "description": "Excision malignant lesion scalp/neck/hands/feet/genitalia 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 2.5
+            },
+            {
+              "label": "Excision malignant lesion scalp/neck/hands/feet/genitalia 0.6 to 1.0 cm",
+              "cpt_code": "11621",
+              "description": "Excision malignant lesion scalp/neck/hands/feet/genitalia 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 2.7
+            },
+            {
+              "label": "Excision malignant lesion scalp/neck/hands/feet/genitalia 1.1 to 2.0 cm",
+              "cpt_code": "11622",
+              "description": "Excision malignant lesion scalp/neck/hands/feet/genitalia 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Excision malignant lesion scalp/neck/hands/feet/genitalia 2.1 to 3.0 cm",
+              "cpt_code": "11623",
+              "description": "Excision malignant lesion scalp/neck/hands/feet/genitalia 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 3.5
+            },
+            {
+              "label": "Excision malignant lesion scalp/neck/hands/feet/genitalia 3.1 to 4.0 cm",
+              "cpt_code": "11624",
+              "description": "Excision malignant lesion scalp/neck/hands/feet/genitalia 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 3.9
+            },
+            {
+              "label": "Excision malignant lesion face/ears/eyelids/nose/lips/mucous membrane over 4.0 cm",
+              "cpt_code": "11626",
+              "description": "Excision malignant lesion face/ears/eyelids/nose/lips/mucous membrane over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 5.15
+            },
+            {
+              "label": "Excision breast lesion open",
+              "cpt_code": "19120",
+              "description": "Excision breast lesion open",
+              "modifiers": [],
+              "icd10": [
+                "C43.9",
+                "C44.90"
+              ],
+              "work_rvu": 5.8
             }
           ]
         },
-        "slnb_questions": {
-          "question": "Location?",
+        "surg_onc_sarcoma_extra": {
+          "question": "Expanded sarcoma / radical resection procedures?",
           "options": [
             {
-              "label": "Breast SLNB",
-              "cpt_code": "38500",
-              "description": "Biopsy or excision of lymph node(s); open, superficial",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Radical resection soft tissue tumor neck/anterior thorax <5 cm",
+              "cpt_code": "21555",
+              "description": "Radical resection soft tissue tumor neck/anterior thorax <5 cm",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C50.912"
+                "C49.9",
+                "D48.1"
               ],
-              "work_rvu": 3.85
+              "work_rvu": 14.6
             },
             {
-              "label": "Melanoma SLNB, axilla",
-              "cpt_code": "38500",
-              "description": "Biopsy or excision of lymph node(s); open, superficial",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Radical resection soft tissue tumor neck/anterior thorax 5 cm or greater",
+              "cpt_code": "21556",
+              "description": "Radical resection soft tissue tumor neck/anterior thorax 5 cm or greater",
+              "modifiers": [],
               "icd10": [
-                "C43.59"
+                "C49.9",
+                "D48.1"
               ],
-              "work_rvu": 3.85
+              "work_rvu": 18.8
             },
             {
-              "label": "Melanoma SLNB, groin",
-              "cpt_code": "38500",
-              "description": "Biopsy or excision of lymph node(s); open, superficial",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Excision soft tissue tumor back/flank subcutaneous <3 cm",
+              "cpt_code": "21930",
+              "description": "Excision soft tissue tumor back/flank subcutaneous <3 cm",
+              "modifiers": [],
               "icd10": [
-                "C43.70"
+                "C49.9",
+                "D48.1"
               ],
-              "work_rvu": 3.85
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Excision soft tissue tumor back/flank subcutaneous 3 cm or greater",
+              "cpt_code": "21931",
+              "description": "Excision soft tissue tumor back/flank subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Excision soft tissue tumor back/flank subfascial <5 cm",
+              "cpt_code": "21932",
+              "description": "Excision soft tissue tumor back/flank subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Excision soft tissue tumor back/flank subfascial 5 cm or greater",
+              "cpt_code": "21933",
+              "description": "Excision soft tissue tumor back/flank subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 11.2
+            },
+            {
+              "label": "Radical resection soft tissue tumor back/flank 5 cm or greater",
+              "cpt_code": "21935",
+              "description": "Radical resection soft tissue tumor back/flank 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 21.99
+            },
+            {
+              "label": "Excision abdominal wall tumor deep 5 cm or greater",
+              "cpt_code": "22900",
+              "description": "Excision abdominal wall tumor deep 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 16.92
+            },
+            {
+              "label": "Radical resection abdominal wall tumor less than 5 cm",
+              "cpt_code": "22901",
+              "description": "Radical resection abdominal wall tumor less than 5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 18.1
+            },
+            {
+              "label": "Radical resection abdominal wall tumor 5 cm or greater",
+              "cpt_code": "22902",
+              "description": "Radical resection abdominal wall tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 22.4
+            },
+            {
+              "label": "Excision shoulder soft tissue tumor subcutaneous <3 cm",
+              "cpt_code": "23071",
+              "description": "Excision shoulder soft tissue tumor subcutaneous <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Excision shoulder soft tissue tumor subcutaneous 3 cm or greater",
+              "cpt_code": "23072",
+              "description": "Excision shoulder soft tissue tumor subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 5.7
+            },
+            {
+              "label": "Excision shoulder soft tissue tumor subfascial <5 cm",
+              "cpt_code": "23073",
+              "description": "Excision shoulder soft tissue tumor subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 8.8
+            },
+            {
+              "label": "Excision shoulder soft tissue tumor subfascial 5 cm or greater",
+              "cpt_code": "23074",
+              "description": "Excision shoulder soft tissue tumor subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 11.1
+            },
+            {
+              "label": "Radical resection shoulder soft tissue tumor <5 cm",
+              "cpt_code": "23076",
+              "description": "Radical resection shoulder soft tissue tumor <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 17.8
+            },
+            {
+              "label": "Radical resection shoulder soft tissue tumor 5 cm or greater",
+              "cpt_code": "23077",
+              "description": "Radical resection shoulder soft tissue tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 21.7
+            },
+            {
+              "label": "Excision upper arm/elbow soft tissue tumor subcutaneous <3 cm",
+              "cpt_code": "24071",
+              "description": "Excision upper arm/elbow soft tissue tumor subcutaneous <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Excision upper arm/elbow soft tissue tumor subcutaneous 3 cm or greater",
+              "cpt_code": "24072",
+              "description": "Excision upper arm/elbow soft tissue tumor subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Excision upper arm/elbow soft tissue tumor subfascial <5 cm",
+              "cpt_code": "24073",
+              "description": "Excision upper arm/elbow soft tissue tumor subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Excision upper arm/elbow soft tissue tumor subfascial 5 cm or greater",
+              "cpt_code": "24074",
+              "description": "Excision upper arm/elbow soft tissue tumor subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Radical resection upper arm/elbow soft tissue tumor <5 cm",
+              "cpt_code": "24076",
+              "description": "Radical resection upper arm/elbow soft tissue tumor <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 17.5
+            },
+            {
+              "label": "Radical resection upper arm/elbow soft tissue tumor 5 cm or greater",
+              "cpt_code": "24077",
+              "description": "Radical resection upper arm/elbow soft tissue tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 21.2
+            },
+            {
+              "label": "Excision pelvis/hip soft tissue tumor subcutaneous 3 cm or greater",
+              "cpt_code": "27043",
+              "description": "Excision pelvis/hip soft tissue tumor subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 5.9
+            },
+            {
+              "label": "Excision pelvis/hip soft tissue tumor subfascial 5 cm or greater",
+              "cpt_code": "27045",
+              "description": "Excision pelvis/hip soft tissue tumor subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 11.6
+            },
+            {
+              "label": "Radical resection pelvis/hip soft tissue tumor 5 cm or greater",
+              "cpt_code": "27047",
+              "description": "Radical resection pelvis/hip soft tissue tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 22.1
+            },
+            {
+              "label": "Excision thigh/knee soft tissue tumor subcutaneous 3 cm or greater",
+              "cpt_code": "27327",
+              "description": "Excision thigh/knee soft tissue tumor subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Excision thigh/knee soft tissue tumor subfascial 5 cm or greater",
+              "cpt_code": "27329",
+              "description": "Excision thigh/knee soft tissue tumor subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 11.3
+            },
+            {
+              "label": "Radical resection thigh/knee soft tissue tumor <5 cm",
+              "cpt_code": "27339",
+              "description": "Radical resection thigh/knee soft tissue tumor <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 18.5
+            },
+            {
+              "label": "Radical resection thigh/knee soft tissue tumor 5 cm or greater",
+              "cpt_code": "27364",
+              "description": "Radical resection thigh/knee soft tissue tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 22.0
+            },
+            {
+              "label": "Excision leg/ankle soft tissue tumor subcutaneous 3 cm or greater",
+              "cpt_code": "27618",
+              "description": "Excision leg/ankle soft tissue tumor subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 5.7
+            },
+            {
+              "label": "Excision leg/ankle soft tissue tumor subfascial 5 cm or greater",
+              "cpt_code": "27619",
+              "description": "Excision leg/ankle soft tissue tumor subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 11.0
+            },
+            {
+              "label": "Radical resection leg/ankle soft tissue tumor <5 cm",
+              "cpt_code": "27634",
+              "description": "Radical resection leg/ankle soft tissue tumor <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 17.9
+            },
+            {
+              "label": "Radical resection leg/ankle soft tissue tumor 5 cm or greater",
+              "cpt_code": "27635",
+              "description": "Radical resection leg/ankle soft tissue tumor 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C49.9",
+                "D48.1"
+              ],
+              "work_rvu": 21.5
             }
           ]
         },
-        "lymph_dissection_questions": {
-          "question": "Type of lymph node dissection?",
+        "surg_onc_advanced_extra": {
+          "question": "Advanced nodal / retroperitoneal oncologic procedures?",
           "options": [
             {
-              "label": "Axillary LND, levels I-II",
-              "cpt_code": "38740",
-              "description": "Axillary lymphadenectomy; superficial",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Biopsy deep axillary node(s)",
+              "cpt_code": "38525",
+              "description": "Biopsy deep axillary node(s)",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C43.59"
+                "C77.9",
+                "C48.0"
               ],
-              "work_rvu": 9.25
+              "work_rvu": 6.49
             },
             {
-              "label": "Axillary LND, levels I-III",
-              "cpt_code": "38745",
-              "description": "Axillary lymphadenectomy; complete",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
+              "label": "Biopsy deep iliac/pelvic node(s)",
+              "cpt_code": "38530",
+              "description": "Biopsy deep iliac/pelvic node(s)",
+              "modifiers": [],
               "icd10": [
-                "C50.911",
-                "C43.59"
+                "C77.9",
+                "C48.0"
               ],
-              "work_rvu": 14.55
-            },
-            {
-              "label": "Inguinal lymphadenectomy",
-              "cpt_code": "38760",
-              "description": "Inguinofemoral lymphadenectomy, superficial, including Cloquet's node (separate procedure)",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C43.70",
-                "C51.9"
-              ],
-              "work_rvu": 15.85
-            },
-            {
-              "label": "Radical neck dissection",
-              "cpt_code": "38720",
-              "description": "Cervical lymphadenectomy (complete)",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C76.0",
-                "C77.0"
-              ],
-              "work_rvu": 19.25
+              "work_rvu": 6.7
             },
             {
               "label": "Modified radical neck dissection",
               "cpt_code": "38724",
-              "description": "Cervical lymphadenectomy (modified radical neck dissection)",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C76.0",
-                "C77.0"
-              ],
-              "work_rvu": 16.85
-            },
-            {
-              "label": "Selective neck dissection",
-              "cpt_code": "38700",
-              "description": "Suprahyoid lymphadenectomy",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C76.0",
-                "C77.0"
-              ],
-              "work_rvu": 12.85
-            }
-          ]
-        },
-        "sarcoma_questions": {
-          "question": "Size and depth?",
-          "options": [
-            {
-              "label": "Superficial sarcoma <5cm",
-              "cpt_code": "11406",
-              "description": "Excision, benign lesion including margins, trunk/arms/legs; over 4.0 cm",
+              "description": "Modified radical neck dissection",
               "modifiers": [],
               "icd10": [
-                "C49.9"
-              ],
-              "work_rvu": 4.95
-            },
-            {
-              "label": "Deep sarcoma <5cm",
-              "cpt_code": "21930",
-              "description": "Excision, tumor, soft tissue of back or flank, subfascial (eg, intramuscular); 5 cm or greater",
-              "modifiers": [],
-              "icd10": [
-                "C49.9"
-              ],
-              "work_rvu": 18.85
-            },
-            {
-              "label": "Large sarcoma >5cm",
-              "cpt_code": "21930",
-              "description": "Excision, tumor, soft tissue of back or flank, subfascial (eg, intramuscular); 5 cm or greater",
-              "modifiers": [
-                "-22"
-              ],
-              "icd10": [
-                "C49.9"
-              ],
-              "work_rvu": 28.85
-            },
-            {
-              "label": "Retroperitoneal sarcoma",
-              "cpt_code": "49203",
-              "description": "Excision or destruction, open, intra-abdominal tumors, cysts or endometriomas, 1 or more peritoneal, mesenteric, or retroperitoneal primary or secondary tumors; largest tumor 5 cm diameter or less",
-              "modifiers": [],
-              "icd10": [
+                "C77.9",
                 "C48.0"
               ],
-              "work_rvu": 22.85
-            }
-          ]
-        },
-        "melanoma_questions": {
-          "question": "Size and additional procedures?",
-          "options": [
+              "work_rvu": 21.69
+            },
             {
-              "label": "Melanoma WLE \u22641cm",
-              "cpt_code": "11601",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; 0.6 to 1.0 cm",
+              "label": "Retroperitoneal transabdominal lymphadenectomy",
+              "cpt_code": "38780",
+              "description": "Retroperitoneal transabdominal lymphadenectomy",
               "modifiers": [],
               "icd10": [
-                "C43.9"
+                "C77.9",
+                "C48.0"
               ],
-              "work_rvu": 2.65
-            },
-            {
-              "label": "Melanoma WLE 1-2cm",
-              "cpt_code": "11602",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; 1.1 to 2.0 cm",
-              "modifiers": [],
-              "icd10": [
-                "C43.9"
-              ],
-              "work_rvu": 3.25
-            },
-            {
-              "label": "Melanoma WLE >2cm",
-              "cpt_code": "11603",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; 2.1 to 3.0 cm",
-              "modifiers": [],
-              "icd10": [
-                "C43.9"
-              ],
-              "work_rvu": 3.95
-            },
-            {
-              "label": "Melanoma WLE + SLNB",
-              "cpt_code": "11603",
-              "description": "Excision, malignant lesion including margins, trunk/arms/legs; 2.1 to 3.0 cm",
-              "modifiers": [
-                "-51"
-              ],
-              "icd10": [
-                "C43.9"
-              ],
-              "work_rvu": 7.8
-            }
-          ]
-        },
-        "complex_onc_questions": {
-          "question": "Type of complex procedure?",
-          "options": [
-            {
-              "label": "Cytoreductive surgery (debulking)",
-              "cpt_code": "58952",
-              "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy",
-              "modifiers": [],
-              "icd10": [
-                "C78.6"
-              ],
-              "work_rvu": 28.85
-            },
-            {
-              "label": "HIPEC (heated chemotherapy)",
-              "cpt_code": "58952",
-              "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy",
-              "modifiers": [
-                "-22"
-              ],
-              "icd10": [
-                "C78.6"
-              ],
-              "work_rvu": 42.85
-            },
-            {
-              "label": "Adrenalectomy, open",
-              "cpt_code": "60540",
-              "description": "Adrenalectomy, partial or complete, or exploration of adrenal gland with or without biopsy, transabdominal, lumbar or dorsal (separate procedure)",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C74.90",
-                "D35.00"
-              ],
-              "work_rvu": 20.85
-            },
-            {
-              "label": "Laparoscopic adrenalectomy",
-              "cpt_code": "60650",
-              "description": "Laparoscopy, surgical, with adrenalectomy, partial or complete, or exploration of adrenal gland with or without biopsy, transabdominal, lumbar or dorsal",
-              "modifiers": [
-                "-LT",
-                "-RT"
-              ],
-              "icd10": [
-                "C74.90",
-                "D35.00"
-              ],
-              "work_rvu": 22.85
+              "work_rvu": 24.74
             }
           ]
         }
@@ -15726,6 +16358,1186 @@
               "icd10": [
                 "J39.2"
               ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Endocrine Surgery",
+      "specialty": "Endocrine",
+      "questions": [
+        {
+          "question": "Type of endocrine operation?",
+          "options": [
+            {
+              "label": "Thyroid / Thyroglossal",
+              "next": "endo_thyroid"
+            },
+            {
+              "label": "Parathyroid / Thymus",
+              "next": "endo_parathyroid"
+            },
+            {
+              "label": "Adrenal / Node / Adjunct",
+              "next": "endo_adrenal"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "endo_thyroid": {
+          "question": "Thyroid / thyroglossal procedures?",
+          "options": [
+            {
+              "label": "Partial thyroid lobectomy, unilateral with contralateral subtotal lobectomy",
+              "cpt_code": "60212",
+              "description": "Partial thyroid lobectomy, unilateral with contralateral subtotal lobectomy",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 14.3
+            },
+            {
+              "label": "Total thyroidectomy",
+              "cpt_code": "60240",
+              "description": "Total thyroidectomy",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 17.31
+            },
+            {
+              "label": "Total thyroidectomy with limited neck dissection",
+              "cpt_code": "60252",
+              "description": "Total thyroidectomy with limited neck dissection",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 21.48
+            },
+            {
+              "label": "Total thyroidectomy with radical neck dissection",
+              "cpt_code": "60254",
+              "description": "Total thyroidectomy with radical neck dissection",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 27.21
+            },
+            {
+              "label": "Completion thyroidectomy",
+              "cpt_code": "60260",
+              "description": "Completion thyroidectomy",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 18.69
+            },
+            {
+              "label": "Thyroidectomy with sternal split/transthoracic approach",
+              "cpt_code": "60270",
+              "description": "Thyroidectomy with sternal split/transthoracic approach",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 23.03
+            },
+            {
+              "label": "Cervical approach to substernal thyroid",
+              "cpt_code": "60271",
+              "description": "Cervical approach to substernal thyroid",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 19.9
+            },
+            {
+              "label": "Excision thyroglossal duct cyst or sinus",
+              "cpt_code": "60280",
+              "description": "Excision thyroglossal duct cyst or sinus",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 9.8
+            },
+            {
+              "label": "Excision recurrent thyroglossal duct cyst/sinus",
+              "cpt_code": "60281",
+              "description": "Excision recurrent thyroglossal duct cyst/sinus",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 11.53
+            },
+            {
+              "label": "Unlisted thyroid procedure",
+              "cpt_code": "60299",
+              "description": "Unlisted thyroid procedure",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 10.0
+            },
+            {
+              "label": "Excision thyroid lesion",
+              "cpt_code": "60300",
+              "description": "Excision thyroid lesion",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Thyroid lobectomy with frozen section",
+              "cpt_code": "60310",
+              "description": "Thyroid lobectomy with frozen section",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 15.2
+            },
+            {
+              "label": "Parathyroidectomy/exploration of parathyroids",
+              "cpt_code": "60500",
+              "description": "Parathyroidectomy/exploration of parathyroids",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 16.75
+            },
+            {
+              "label": "Re-exploration parathyroids",
+              "cpt_code": "60502",
+              "description": "Re-exploration parathyroids",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 22.0
+            },
+            {
+              "label": "Parathyroidectomy or exploration with mediastinal exploration",
+              "cpt_code": "60505",
+              "description": "Parathyroidectomy or exploration with mediastinal exploration",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 26.97
+            },
+            {
+              "label": "Parathyroid autotransplantation add-on",
+              "cpt_code": "60512",
+              "description": "Parathyroid autotransplantation add-on",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 2.5
+            },
+            {
+              "label": "Thymectomy, transcervical",
+              "cpt_code": "60520",
+              "description": "Thymectomy, transcervical",
+              "modifiers": [],
+              "icd10": [
+                "E04.1",
+                "C73"
+              ],
+              "work_rvu": 14.4
+            }
+          ]
+        },
+        "endo_parathyroid": {
+          "question": "Parathyroid / thymus procedures?",
+          "options": [
+            {
+              "label": "Thymectomy, partial/total, transsternal or transthoracic",
+              "cpt_code": "60521",
+              "description": "Thymectomy, partial/total, transsternal or transthoracic",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 19.7
+            },
+            {
+              "label": "Radical thymectomy",
+              "cpt_code": "60522",
+              "description": "Radical thymectomy",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 24.2
+            },
+            {
+              "label": "Adrenalectomy, partial or complete, open",
+              "cpt_code": "60540",
+              "description": "Adrenalectomy, partial or complete, open",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 21.4
+            },
+            {
+              "label": "Adrenalectomy with exploration/retroperitoneal tumor",
+              "cpt_code": "60545",
+              "description": "Adrenalectomy with exploration/retroperitoneal tumor",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 27.92
+            },
+            {
+              "label": "Excision carotid body tumor",
+              "cpt_code": "60600",
+              "description": "Excision carotid body tumor",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 18.6
+            },
+            {
+              "label": "Excision carotid body tumor with vessel resection/repair",
+              "cpt_code": "60605",
+              "description": "Excision carotid body tumor with vessel resection/repair",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 25.1
+            },
+            {
+              "label": "Laparoscopy, surgical, adrenalectomy, partial or complete",
+              "cpt_code": "60650",
+              "description": "Laparoscopy, surgical, adrenalectomy, partial or complete",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 22.71
+            },
+            {
+              "label": "Unlisted laparoscopy procedure, endocrine system",
+              "cpt_code": "60659",
+              "description": "Unlisted laparoscopy procedure, endocrine system",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 12.0
+            },
+            {
+              "label": "Unlisted endocrine surgery procedure",
+              "cpt_code": "60699",
+              "description": "Unlisted endocrine surgery procedure",
+              "modifiers": [],
+              "icd10": [
+                "E21.3",
+                "E32.0"
+              ],
+              "work_rvu": 12.0
+            }
+          ]
+        },
+        "endo_adrenal": {
+          "question": "Adrenal / node / adjunct endocrine procedures?",
+          "options": [
+            {
+              "label": "Biopsy/excision superficial lymph node",
+              "cpt_code": "38500",
+              "description": "Biopsy/excision superficial lymph node",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Biopsy/excision deep cervical lymph node",
+              "cpt_code": "38510",
+              "description": "Biopsy/excision deep cervical lymph node",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Biopsy/excision deep cervical node(s)",
+              "cpt_code": "38520",
+              "description": "Biopsy/excision deep cervical node(s)",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Biopsy/excision deep axillary node(s)",
+              "cpt_code": "38525",
+              "description": "Biopsy/excision deep axillary node(s)",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 6.49
+            },
+            {
+              "label": "Biopsy/excision deep iliac or pelvic node(s)",
+              "cpt_code": "38530",
+              "description": "Biopsy/excision deep iliac or pelvic node(s)",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 6.7
+            },
+            {
+              "label": "Radical resection of neck nodes",
+              "cpt_code": "38542",
+              "description": "Radical resection of neck nodes",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Suprahyoid lymphadenectomy",
+              "cpt_code": "38700",
+              "description": "Suprahyoid lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 12.1
+            },
+            {
+              "label": "Cervical lymphadenectomy radical",
+              "cpt_code": "38720",
+              "description": "Cervical lymphadenectomy radical",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 20.5
+            },
+            {
+              "label": "Modified radical neck dissection",
+              "cpt_code": "38724",
+              "description": "Modified radical neck dissection",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 21.69
+            },
+            {
+              "label": "Excision parotid or lateral salivary cyst/tumor",
+              "cpt_code": "42409",
+              "description": "Excision parotid or lateral salivary cyst/tumor",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 7.0
+            },
+            {
+              "label": "Parotidectomy lateral lobe with nerve dissection/preservation",
+              "cpt_code": "42415",
+              "description": "Parotidectomy lateral lobe with nerve dissection/preservation",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 20.87
+            },
+            {
+              "label": "Parotidectomy total with nerve dissection/preservation",
+              "cpt_code": "42420",
+              "description": "Parotidectomy total with nerve dissection/preservation",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 25.89
+            },
+            {
+              "label": "Parotidectomy total with nerve sacrifice",
+              "cpt_code": "42425",
+              "description": "Parotidectomy total with nerve sacrifice",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 22.0
+            },
+            {
+              "label": "Excision submandibular gland",
+              "cpt_code": "42440",
+              "description": "Excision submandibular gland",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 10.67
+            },
+            {
+              "label": "Excision sublingual gland",
+              "cpt_code": "42450",
+              "description": "Excision sublingual gland",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Esophagoscopy rigid diagnostic",
+              "cpt_code": "43180",
+              "description": "Esophagoscopy rigid diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Esophagoscopy rigid diagnostic with specimen",
+              "cpt_code": "43191",
+              "description": "Esophagoscopy rigid diagnostic with specimen",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Esophagoscopy rigid with biopsy",
+              "cpt_code": "43192",
+              "description": "Esophagoscopy rigid with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Total excision single thyroid lobe",
+              "cpt_code": "60220",
+              "description": "Total excision single thyroid lobe",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 14.43
+            },
+            {
+              "label": "Biopsy thyroid open/incisional",
+              "cpt_code": "60100",
+              "description": "Biopsy thyroid open/incisional",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 1.28
+            },
+            {
+              "label": "Fine needle aspiration without imaging guidance first lesion",
+              "cpt_code": "10021",
+              "description": "Fine needle aspiration without imaging guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 1.27
+            },
+            {
+              "label": "FNA with ultrasound first lesion",
+              "cpt_code": "10005",
+              "description": "FNA with ultrasound first lesion",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Ultrasound guidance for needle placement",
+              "cpt_code": "76942",
+              "description": "Ultrasound guidance for needle placement",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 1.1
+            },
+            {
+              "label": "Parathyroid planar imaging",
+              "cpt_code": "78070",
+              "description": "Parathyroid planar imaging",
+              "modifiers": [],
+              "icd10": [
+                "E27.8",
+                "D35.00"
+              ],
+              "work_rvu": 0.9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Urology",
+      "specialty": "Urology",
+      "questions": [
+        {
+          "question": "Type of urologic procedure?",
+          "options": [
+            {
+              "label": "Kidney / Renal / Stone",
+              "next": "uro_kidney"
+            },
+            {
+              "label": "Ureter / Reconstruction",
+              "next": "uro_ureter"
+            },
+            {
+              "label": "Bladder / Cystoscopy / Diversion",
+              "next": "uro_bladder"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "uro_kidney": {
+          "question": "Kidney / stone procedures?",
+          "options": [
+            {
+              "label": "Renal exploration, not otherwise specified",
+              "cpt_code": "50010",
+              "description": "Renal exploration, not otherwise specified",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 9.8
+            },
+            {
+              "label": "Drainage abscess/perinephric cyst/open",
+              "cpt_code": "50020",
+              "description": "Drainage abscess/perinephric cyst/open",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 10.7
+            },
+            {
+              "label": "Nephrotomy, removal calculus",
+              "cpt_code": "50040",
+              "description": "Nephrotomy, removal calculus",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 14.9
+            },
+            {
+              "label": "Nephrotomy with exploration",
+              "cpt_code": "50045",
+              "description": "Nephrotomy with exploration",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 16.2
+            },
+            {
+              "label": "Nephrolithotomy removal calculus, uncomplicated",
+              "cpt_code": "50060",
+              "description": "Nephrolithotomy removal calculus, uncomplicated",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 19.1
+            },
+            {
+              "label": "Nephrolithotomy removal calculus, complicated or staghorn",
+              "cpt_code": "50065",
+              "description": "Nephrolithotomy removal calculus, complicated or staghorn",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 23.5
+            },
+            {
+              "label": "Pyelolithotomy simple",
+              "cpt_code": "50075",
+              "description": "Pyelolithotomy simple",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 14.6
+            },
+            {
+              "label": "Pyelolithotomy complicated",
+              "cpt_code": "50080",
+              "description": "Pyelolithotomy complicated",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 18.4
+            },
+            {
+              "label": "Percutaneous nephrostolithotomy/pyelostolithotomy >2 cm",
+              "cpt_code": "50081",
+              "description": "Percutaneous nephrostolithotomy/pyelostolithotomy >2 cm",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 17.4
+            },
+            {
+              "label": "Extracorporeal shock wave lithotripsy",
+              "cpt_code": "50090",
+              "description": "Extracorporeal shock wave lithotripsy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 7.1
+            },
+            {
+              "label": "Lap ablation renal cysts",
+              "cpt_code": "50541",
+              "description": "Lap ablation renal cysts",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 13.3
+            },
+            {
+              "label": "Lap ablation renal mass cryotherapy",
+              "cpt_code": "50543",
+              "description": "Lap ablation renal mass cryotherapy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 21.7
+            },
+            {
+              "label": "Lap radical nephrectomy",
+              "cpt_code": "50545",
+              "description": "Lap radical nephrectomy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 23.8
+            },
+            {
+              "label": "Lap nephrectomy donor",
+              "cpt_code": "50546",
+              "description": "Lap nephrectomy donor",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 27.9
+            },
+            {
+              "label": "Lap partial nephrectomy",
+              "cpt_code": "50547",
+              "description": "Lap partial nephrectomy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 26.4
+            },
+            {
+              "label": "Lap pyeloplasty",
+              "cpt_code": "50548",
+              "description": "Lap pyeloplasty",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 24.6
+            },
+            {
+              "label": "Lap nephrolithotomy/pyelolithotomy",
+              "cpt_code": "50549",
+              "description": "Lap nephrolithotomy/pyelolithotomy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 22.3
+            },
+            {
+              "label": "Ureteropyelostomy",
+              "cpt_code": "50551",
+              "description": "Ureteropyelostomy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 18.2
+            },
+            {
+              "label": "Renal autotransplantation",
+              "cpt_code": "50553",
+              "description": "Renal autotransplantation",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 36.1
+            },
+            {
+              "label": "Lap ureteroneocystostomy",
+              "cpt_code": "50555",
+              "description": "Lap ureteroneocystostomy",
+              "modifiers": [],
+              "icd10": [
+                "N20.0",
+                "N28.89"
+              ],
+              "work_rvu": 20.9
+            }
+          ]
+        },
+        "uro_ureter": {
+          "question": "Ureteral reconstruction procedures?",
+          "options": [
+            {
+              "label": "Ureterotomy with drainage",
+              "cpt_code": "50605",
+              "description": "Ureterotomy with drainage",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 12.4
+            },
+            {
+              "label": "Ureterolithotomy upper one-third",
+              "cpt_code": "50620",
+              "description": "Ureterolithotomy upper one-third",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 15.8
+            },
+            {
+              "label": "Ureterolithotomy mid-ureter",
+              "cpt_code": "50630",
+              "description": "Ureterolithotomy mid-ureter",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 16.1
+            },
+            {
+              "label": "Ureterectomy with bladder cuff",
+              "cpt_code": "50650",
+              "description": "Ureterectomy with bladder cuff",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 19.4
+            },
+            {
+              "label": "Ureterolysis",
+              "cpt_code": "50715",
+              "description": "Ureterolysis",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 14.2
+            },
+            {
+              "label": "Revision ureteral anastomosis",
+              "cpt_code": "50727",
+              "description": "Revision ureteral anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 17.3
+            },
+            {
+              "label": "Ureteroneocystostomy",
+              "cpt_code": "50728",
+              "description": "Ureteroneocystostomy",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 18.7
+            },
+            {
+              "label": "Ureteral reimplantation with psoas hitch",
+              "cpt_code": "50760",
+              "description": "Ureteral reimplantation with psoas hitch",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 21.2
+            },
+            {
+              "label": "Transureteroureterostomy",
+              "cpt_code": "50770",
+              "description": "Transureteroureterostomy",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 20.1
+            },
+            {
+              "label": "Cystotomy simple",
+              "cpt_code": "51500",
+              "description": "Cystotomy simple",
+              "modifiers": [],
+              "icd10": [
+                "N13.5",
+                "N20.1"
+              ],
+              "work_rvu": 10.3
+            }
+          ]
+        },
+        "uro_bladder": {
+          "question": "Bladder / cystoscopy / diversion procedures?",
+          "options": [
+            {
+              "label": "Cystorrhaphy simple",
+              "cpt_code": "51520",
+              "description": "Cystorrhaphy simple",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 11.1
+            },
+            {
+              "label": "Cystorrhaphy complicated",
+              "cpt_code": "51525",
+              "description": "Cystorrhaphy complicated",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Cystectomy complete",
+              "cpt_code": "51550",
+              "description": "Cystectomy complete",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 27.7
+            },
+            {
+              "label": "Cystectomy complete with ureterosigmoidostomy",
+              "cpt_code": "51555",
+              "description": "Cystectomy complete with ureterosigmoidostomy",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 31.4
+            },
+            {
+              "label": "Cystectomy partial simple",
+              "cpt_code": "51570",
+              "description": "Cystectomy partial simple",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 19.2
+            },
+            {
+              "label": "Cystectomy partial complicated",
+              "cpt_code": "51575",
+              "description": "Cystectomy partial complicated",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 23.0
+            },
+            {
+              "label": "Injection study bladder/urethra",
+              "cpt_code": "51600",
+              "description": "Injection study bladder/urethra",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 1.5
+            },
+            {
+              "label": "Insertion nonindwelling bladder catheter",
+              "cpt_code": "51701",
+              "description": "Insertion nonindwelling bladder catheter",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 0.61
+            },
+            {
+              "label": "Insertion temporary indwelling bladder catheter simple",
+              "cpt_code": "51702",
+              "description": "Insertion temporary indwelling bladder catheter simple",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 0.82
+            },
+            {
+              "label": "Insertion temporary indwelling bladder catheter complicated",
+              "cpt_code": "51703",
+              "description": "Insertion temporary indwelling bladder catheter complicated",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Anterior vesicourethropexy",
+              "cpt_code": "51800",
+              "description": "Anterior vesicourethropexy",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 15.1
+            },
+            {
+              "label": "Urachal cyst/sinus excision",
+              "cpt_code": "51820",
+              "description": "Urachal cyst/sinus excision",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 11.8
+            },
+            {
+              "label": "Repair bladder exstrophy",
+              "cpt_code": "51900",
+              "description": "Repair bladder exstrophy",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 32.2
+            },
+            {
+              "label": "Continent diversion revision",
+              "cpt_code": "51925",
+              "description": "Continent diversion revision",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 24.4
+            },
+            {
+              "label": "Cystourethroscopy with biopsy",
+              "cpt_code": "52204",
+              "description": "Cystourethroscopy with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 3.3
+            },
+            {
+              "label": "Cystourethroscopy with fulguration trigone/neck/small lesion",
+              "cpt_code": "52214",
+              "description": "Cystourethroscopy with fulguration trigone/neck/small lesion",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Cystourethroscopy with fulguration medium lesion",
+              "cpt_code": "52224",
+              "description": "Cystourethroscopy with fulguration medium lesion",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Cystourethroscopy with fulguration small bladder tumor 0.5-2 cm",
+              "cpt_code": "52234",
+              "description": "Cystourethroscopy with fulguration small bladder tumor 0.5-2 cm",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 6.0
+            },
+            {
+              "label": "Cystourethroscopy with fulguration medium bladder tumor 2-5 cm",
+              "cpt_code": "52235",
+              "description": "Cystourethroscopy with fulguration medium bladder tumor 2-5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 7.1
+            },
+            {
+              "label": "Cystourethroscopy with fulguration large bladder tumor >5 cm",
+              "cpt_code": "52240",
+              "description": "Cystourethroscopy with fulguration large bladder tumor >5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C67.9",
+                "R31.9"
+              ],
+              "work_rvu": 9.2
             }
           ]
         }
