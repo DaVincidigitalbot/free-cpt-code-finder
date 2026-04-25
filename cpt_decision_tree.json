@@ -13491,6 +13491,18 @@
             {
               "label": "Nasal Valve / Reconstruction",
               "next": "ent_nasal_valve"
+            },
+            {
+              "label": "Nose / Epistaxis / Rhinoplasty",
+              "next": "ent_nose_extra"
+            },
+            {
+              "label": "Laryngoscopy / Voice / Airway advanced",
+              "next": "ent_larynx_extra"
+            },
+            {
+              "label": "Palate / Pharynx / Salivary advanced",
+              "next": "ent_pharynx_extra"
             }
           ]
         }
@@ -14153,6 +14165,471 @@
               "modifiers": [],
               "icd10": [
                 "J34.89"
+              ]
+            }
+          ]
+        },
+        "ent_nose_extra": {
+          "question": "Advanced nasal / rhinology procedures?",
+          "options": [
+            {
+              "label": "Intranasal biopsy",
+              "cpt_code": "30117",
+              "description": "Intranasal biopsy",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Excision/intranasal lesion",
+              "cpt_code": "30118",
+              "description": "Excision/intranasal lesion",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Rhinectomy, partial",
+              "cpt_code": "30124",
+              "description": "Rhinectomy, partial",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Rhinectomy, total",
+              "cpt_code": "30125",
+              "description": "Rhinectomy, total",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Foreign body removal, intranasal office",
+              "cpt_code": "30300",
+              "description": "Foreign body removal, intranasal office",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Foreign body removal, intranasal OR",
+              "cpt_code": "30310",
+              "description": "Foreign body removal, intranasal OR",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Rhinoplasty, primary, lateral cartilage",
+              "cpt_code": "30400",
+              "description": "Rhinoplasty, primary, lateral cartilage",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Rhinoplasty, complete, primary",
+              "cpt_code": "30410",
+              "description": "Rhinoplasty, complete, primary",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Rhinoplasty, secondary, minor",
+              "cpt_code": "30420",
+              "description": "Rhinoplasty, secondary, minor",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Rhinoplasty, secondary, major",
+              "cpt_code": "30430",
+              "description": "Rhinoplasty, secondary, major",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Repair choanal atresia",
+              "cpt_code": "30540",
+              "description": "Repair choanal atresia",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Ablation inferior turbinate, superficial",
+              "cpt_code": "30801",
+              "description": "Ablation inferior turbinate, superficial",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Ablation inferior turbinate, intramural",
+              "cpt_code": "30802",
+              "description": "Ablation inferior turbinate, intramural",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Control nasal hemorrhage, limited",
+              "cpt_code": "30901",
+              "description": "Control nasal hemorrhage, limited",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Control nasal hemorrhage, complex",
+              "cpt_code": "30903",
+              "description": "Control nasal hemorrhage, complex",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Control nasal hemorrhage, posterior simple",
+              "cpt_code": "30905",
+              "description": "Control nasal hemorrhage, posterior simple",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Control nasal hemorrhage, posterior complex",
+              "cpt_code": "30906",
+              "description": "Control nasal hemorrhage, posterior complex",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Lavage puncture maxillary sinus",
+              "cpt_code": "31000",
+              "description": "Lavage puncture maxillary sinus",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Nasal/sinus endoscopy with dacryocystorhinostomy",
+              "cpt_code": "31290",
+              "description": "Nasal/sinus endoscopy with dacryocystorhinostomy",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Balloon dilation maxillary sinus",
+              "cpt_code": "31295",
+              "description": "Balloon dilation maxillary sinus",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Balloon dilation frontal sinus",
+              "cpt_code": "31296",
+              "description": "Balloon dilation frontal sinus",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            },
+            {
+              "label": "Balloon dilation sphenoid sinus",
+              "cpt_code": "31297",
+              "description": "Balloon dilation sphenoid sinus",
+              "modifiers": [],
+              "icd10": [
+                "J34.89"
+              ]
+            }
+          ]
+        },
+        "ent_larynx_extra": {
+          "question": "Advanced larynx / airway procedures?",
+          "options": [
+            {
+              "label": "Direct laryngoscopy, diagnostic",
+              "cpt_code": "31525",
+              "description": "Direct laryngoscopy, diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Direct laryngoscopy with microscope",
+              "cpt_code": "31526",
+              "description": "Direct laryngoscopy with microscope",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Operative laryngoscopy with biopsy",
+              "cpt_code": "31535",
+              "description": "Operative laryngoscopy with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Operative laryngoscopy with biopsy and microscope",
+              "cpt_code": "31536",
+              "description": "Operative laryngoscopy with biopsy and microscope",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Laryngoscopy with excision lesion, no microscope",
+              "cpt_code": "31541",
+              "description": "Laryngoscopy with excision lesion, no microscope",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Laryngoscopy with injection vocal cord",
+              "cpt_code": "31545",
+              "description": "Laryngoscopy with injection vocal cord",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Laryngoplasty, medialization",
+              "cpt_code": "31546",
+              "description": "Laryngoplasty, medialization",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Laryngoscopy with tumor excision",
+              "cpt_code": "31571",
+              "description": "Laryngoscopy with tumor excision",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Flexible fiberoptic laryngoscopy",
+              "cpt_code": "31575",
+              "description": "Flexible fiberoptic laryngoscopy",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Stroboscopy",
+              "cpt_code": "31579",
+              "description": "Stroboscopy",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            },
+            {
+              "label": "Laryngeal reinnervation",
+              "cpt_code": "31584",
+              "description": "Laryngeal reinnervation",
+              "modifiers": [],
+              "icd10": [
+                "J38.7"
+              ]
+            }
+          ]
+        },
+        "ent_pharynx_extra": {
+          "question": "Advanced palate / pharynx / salivary procedures?",
+          "options": [
+            {
+              "label": "Excision lesion palate/uvula",
+              "cpt_code": "42104",
+              "description": "Excision lesion palate/uvula",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Uvulectomy",
+              "cpt_code": "42140",
+              "description": "Uvulectomy",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Palatopharyngoplasty",
+              "cpt_code": "42145",
+              "description": "Palatopharyngoplasty",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Palatal fistula repair",
+              "cpt_code": "42200",
+              "description": "Palatal fistula repair",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Drainage abscess, parotid",
+              "cpt_code": "42320",
+              "description": "Drainage abscess, parotid",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Sialolithotomy, submandibular/parotid uncomplicated",
+              "cpt_code": "42330",
+              "description": "Sialolithotomy, submandibular/parotid uncomplicated",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Sialodochoplasty",
+              "cpt_code": "42335",
+              "description": "Sialodochoplasty",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Dilation salivary duct",
+              "cpt_code": "42340",
+              "description": "Dilation salivary duct",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Biopsy pharynx",
+              "cpt_code": "42800",
+              "description": "Biopsy pharynx",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Biopsy nasopharynx visible lesion",
+              "cpt_code": "42804",
+              "description": "Biopsy nasopharynx visible lesion",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Excision lesion pharynx",
+              "cpt_code": "42808",
+              "description": "Excision lesion pharynx",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Excision lesion pharynx extensive",
+              "cpt_code": "42809",
+              "description": "Excision lesion pharynx extensive",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Pharyngoplasty",
+              "cpt_code": "42950",
+              "description": "Pharyngoplasty",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Repair pharyngeal wall defect",
+              "cpt_code": "42953",
+              "description": "Repair pharyngeal wall defect",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Control oropharyngeal hemorrhage, primary",
+              "cpt_code": "42955",
+              "description": "Control oropharyngeal hemorrhage, primary",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Esophagoscopy rigid diagnostic",
+              "cpt_code": "43191",
+              "description": "Esophagoscopy rigid diagnostic",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
+              ]
+            },
+            {
+              "label": "Esophagoscopy rigid with biopsy",
+              "cpt_code": "43192",
+              "description": "Esophagoscopy rigid with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "J39.2"
               ]
             }
           ]
