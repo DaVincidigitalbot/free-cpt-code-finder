@@ -22808,6 +22808,1155 @@
           ]
         }
       }
+    },
+    {
+      "name": "Orthopedic Oncology / Limb Salvage",
+      "specialty": "Orthopedic Oncology / Limb Salvage",
+      "questions": [
+        {
+          "question": "Type of orthopedic oncology / limb salvage procedure?",
+          "options": [
+            {
+              "label": "Upper Extremity Tumor / Salvage",
+              "next": "ortho_onc_upper"
+            },
+            {
+              "label": "Pelvis / Hip / Femur Tumor / Salvage",
+              "next": "ortho_onc_pelvis_femur"
+            },
+            {
+              "label": "Leg / Foot / Amputation / Reconstruction",
+              "next": "ortho_onc_lower"
+            },
+            {
+              "label": "Bone Tumor Ablation / Navigation / Adjuncts",
+              "next": "ortho_onc_adjuncts"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "ortho_onc_upper": {
+          "question": "Upper extremity orthopedic oncology / limb salvage procedures?",
+          "options": [
+            {
+              "label": "Ablation therapy bone tumor radiofrequency including adjacent soft tissue",
+              "cpt_code": "20982",
+              "description": "Ablation therapy bone tumor radiofrequency including adjacent soft tissue",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 13.2
+            },
+            {
+              "label": "Ablation therapy soft tissue tumor radiofrequency including adjacent tissue",
+              "cpt_code": "20983",
+              "description": "Ablation therapy soft tissue tumor radiofrequency including adjacent tissue",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 12.8
+            },
+            {
+              "label": "Computer-assisted musculoskeletal surgical navigational procedure",
+              "cpt_code": "20985",
+              "description": "Computer-assisted musculoskeletal surgical navigational procedure",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Unlisted musculoskeletal procedure",
+              "cpt_code": "20999",
+              "description": "Unlisted musculoskeletal procedure",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 8.0
+            },
+            {
+              "label": "Excision tumor soft tissue shoulder area subcutaneous <3 cm",
+              "cpt_code": "23071",
+              "description": "Excision tumor soft tissue shoulder area subcutaneous <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Excision tumor soft tissue shoulder area subcutaneous 3 cm or greater",
+              "cpt_code": "23072",
+              "description": "Excision tumor soft tissue shoulder area subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 5.7
+            },
+            {
+              "label": "Excision tumor soft tissue shoulder area subfascial <5 cm",
+              "cpt_code": "23073",
+              "description": "Excision tumor soft tissue shoulder area subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 8.8
+            },
+            {
+              "label": "Excision tumor soft tissue shoulder area subfascial 5 cm or greater",
+              "cpt_code": "23074",
+              "description": "Excision tumor soft tissue shoulder area subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 11.1
+            },
+            {
+              "label": "Radical resection tumor humerus or scapula",
+              "cpt_code": "23075",
+              "description": "Radical resection tumor humerus or scapula",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 26.6
+            },
+            {
+              "label": "Radical resection tumor soft tissue shoulder area <5 cm",
+              "cpt_code": "23076",
+              "description": "Radical resection tumor soft tissue shoulder area <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 17.8
+            },
+            {
+              "label": "Radical resection tumor soft tissue shoulder area 5 cm or greater",
+              "cpt_code": "23077",
+              "description": "Radical resection tumor soft tissue shoulder area 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 21.7
+            },
+            {
+              "label": "Partial excision clavicle",
+              "cpt_code": "23150",
+              "description": "Partial excision clavicle",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 10.4
+            },
+            {
+              "label": "Radical resection clavicular tumor",
+              "cpt_code": "23156",
+              "description": "Radical resection clavicular tumor",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 17.2
+            },
+            {
+              "label": "Resection or transplant shoulder tumor proximal humerus reconstruction",
+              "cpt_code": "23220",
+              "description": "Resection or transplant shoulder tumor proximal humerus reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 24.5
+            },
+            {
+              "label": "Removal prosthesis shoulder for tumor revision",
+              "cpt_code": "23334",
+              "description": "Removal prosthesis shoulder for tumor revision",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 18.8
+            },
+            {
+              "label": "Amputation interthoracoscapular forequarter",
+              "cpt_code": "23900",
+              "description": "Amputation interthoracoscapular forequarter",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 35.2
+            },
+            {
+              "label": "Disarticulation shoulder",
+              "cpt_code": "23920",
+              "description": "Disarticulation shoulder",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 18.1
+            },
+            {
+              "label": "Excision tumor upper arm/elbow subcutaneous <3 cm",
+              "cpt_code": "24071",
+              "description": "Excision tumor upper arm/elbow subcutaneous <3 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Excision tumor upper arm/elbow subcutaneous 3 cm or greater",
+              "cpt_code": "24072",
+              "description": "Excision tumor upper arm/elbow subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Excision tumor upper arm/elbow subfascial <5 cm",
+              "cpt_code": "24073",
+              "description": "Excision tumor upper arm/elbow subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Excision tumor upper arm/elbow subfascial 5 cm or greater",
+              "cpt_code": "24074",
+              "description": "Excision tumor upper arm/elbow subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Radical resection tumor upper arm/elbow bone",
+              "cpt_code": "24075",
+              "description": "Radical resection tumor upper arm/elbow bone",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 24.9
+            },
+            {
+              "label": "Radical resection tumor soft tissue upper arm/elbow <5 cm",
+              "cpt_code": "24076",
+              "description": "Radical resection tumor soft tissue upper arm/elbow <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 17.5
+            },
+            {
+              "label": "Radical resection tumor soft tissue upper arm/elbow 5 cm or greater",
+              "cpt_code": "24077",
+              "description": "Radical resection tumor soft tissue upper arm/elbow 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 21.2
+            },
+            {
+              "label": "Partial excision distal humerus/proximal ulna/olecranon tumor",
+              "cpt_code": "24150",
+              "description": "Partial excision distal humerus/proximal ulna/olecranon tumor",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 13.6
+            },
+            {
+              "label": "Excision or curettage bone cyst/benign tumor humerus/coracoid",
+              "cpt_code": "24152",
+              "description": "Excision or curettage bone cyst/benign tumor humerus/coracoid",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 11.8
+            },
+            {
+              "label": "Excision or curettage bone cyst/benign tumor humerus with allograft",
+              "cpt_code": "24155",
+              "description": "Excision or curettage bone cyst/benign tumor humerus with allograft",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 14.2
+            },
+            {
+              "label": "Radical resection distal humerus/proximal forearm tumor",
+              "cpt_code": "24160",
+              "description": "Radical resection distal humerus/proximal forearm tumor",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 23.6
+            },
+            {
+              "label": "Disarticulation elbow",
+              "cpt_code": "24920",
+              "description": "Disarticulation elbow",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 17.4
+            },
+            {
+              "label": "Amputation arm through humerus",
+              "cpt_code": "24930",
+              "description": "Amputation arm through humerus",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 15.8
+            },
+            {
+              "label": "Radical resection tumor radius/ulna",
+              "cpt_code": "25170",
+              "description": "Radical resection tumor radius/ulna",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 19.7
+            },
+            {
+              "label": "Carpectomy one bone",
+              "cpt_code": "25210",
+              "description": "Carpectomy one bone",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 7.4
+            },
+            {
+              "label": "Carpectomy all bones proximal row",
+              "cpt_code": "25215",
+              "description": "Carpectomy all bones proximal row",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 11.1
+            },
+            {
+              "label": "Excision distal ulna partial/complete",
+              "cpt_code": "25240",
+              "description": "Excision distal ulna partial/complete",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 8.5
+            },
+            {
+              "label": "Biopsy bone open carpus/metacarpal/phalanges",
+              "cpt_code": "25246",
+              "description": "Biopsy bone open carpus/metacarpal/phalanges",
+              "modifiers": [],
+              "icd10": [
+                "C40.0",
+                "C49.10"
+              ],
+              "work_rvu": 6.2
+            }
+          ]
+        },
+        "ortho_onc_pelvis_femur": {
+          "question": "Pelvis / hip / femur tumor and limb salvage procedures?",
+          "options": [
+            {
+              "label": "Excision or curettage bone cyst/tumor carpal/metacarpal",
+              "cpt_code": "25248",
+              "description": "Excision or curettage bone cyst/tumor carpal/metacarpal",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 8.3
+            },
+            {
+              "label": "Excision or curettage bone cyst/tumor carpal/metacarpal with allograft",
+              "cpt_code": "25249",
+              "description": "Excision or curettage bone cyst/tumor carpal/metacarpal with allograft",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 10.1
+            },
+            {
+              "label": "Carpectomy with prosthetic replacement for tumor",
+              "cpt_code": "25295",
+              "description": "Carpectomy with prosthetic replacement for tumor",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 18.9
+            },
+            {
+              "label": "Amputation forearm through radius/ulna",
+              "cpt_code": "25900",
+              "description": "Amputation forearm through radius/ulna",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 14.4
+            },
+            {
+              "label": "Excision tumor hand/finger subcutaneous <1.5 cm",
+              "cpt_code": "26115",
+              "description": "Excision tumor hand/finger subcutaneous <1.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Excision tumor hand/finger subcutaneous 1.5 cm or greater",
+              "cpt_code": "26116",
+              "description": "Excision tumor hand/finger subcutaneous 1.5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Excision tumor hand/finger deep subfascial",
+              "cpt_code": "26117",
+              "description": "Excision tumor hand/finger deep subfascial",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Radical resection tumor hand/finger",
+              "cpt_code": "26118",
+              "description": "Radical resection tumor hand/finger",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 14.2
+            },
+            {
+              "label": "Fasciectomy palm only Dupuytren single digit",
+              "cpt_code": "26123",
+              "description": "Fasciectomy palm only Dupuytren single digit",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 7.2
+            },
+            {
+              "label": "Fasciectomy palm and finger single digit",
+              "cpt_code": "26125",
+              "description": "Fasciectomy palm and finger single digit",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Excision lesion tendon sheath/capsule hand/finger",
+              "cpt_code": "26160",
+              "description": "Excision lesion tendon sheath/capsule hand/finger",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 4.5
+            },
+            {
+              "label": "Amputation metacarpal with finger single ray",
+              "cpt_code": "26910",
+              "description": "Amputation metacarpal with finger single ray",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 12.8
+            },
+            {
+              "label": "Amputation finger/thumb primary",
+              "cpt_code": "26951",
+              "description": "Amputation finger/thumb primary",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 7.0
+            },
+            {
+              "label": "Amputation finger/thumb secondary closure/scar revision",
+              "cpt_code": "26952",
+              "description": "Amputation finger/thumb secondary closure/scar revision",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Excision tumor pelvis/hip subcutaneous 3 cm or greater",
+              "cpt_code": "27043",
+              "description": "Excision tumor pelvis/hip subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 5.9
+            },
+            {
+              "label": "Excision tumor pelvis/hip subfascial 5 cm or greater",
+              "cpt_code": "27045",
+              "description": "Excision tumor pelvis/hip subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 11.6
+            },
+            {
+              "label": "Radical resection tumor pelvis/hip soft tissue 5 cm or greater",
+              "cpt_code": "27047",
+              "description": "Radical resection tumor pelvis/hip soft tissue 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 22.1
+            },
+            {
+              "label": "Excision or curettage bone cyst/benign tumor pelvis/hip",
+              "cpt_code": "27048",
+              "description": "Excision or curettage bone cyst/benign tumor pelvis/hip",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 13.7
+            },
+            {
+              "label": "Excision or curettage bone cyst/benign tumor pelvis with graft",
+              "cpt_code": "27049",
+              "description": "Excision or curettage bone cyst/benign tumor pelvis with graft",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 16.3
+            },
+            {
+              "label": "Radical resection pelvis/hip bone tumor",
+              "cpt_code": "27054",
+              "description": "Radical resection pelvis/hip bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 29.2
+            },
+            {
+              "label": "Partial excision pelvis/acetabulum",
+              "cpt_code": "27170",
+              "description": "Partial excision pelvis/acetabulum",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 18.4
+            },
+            {
+              "label": "Prophylactic treatment femur with nail/plate for impending pathologic fracture",
+              "cpt_code": "27187",
+              "description": "Prophylactic treatment femur with nail/plate for impending pathologic fracture",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 18.6
+            },
+            {
+              "label": "Interpelviabdominal amputation hemipelvectomy",
+              "cpt_code": "27290",
+              "description": "Interpelviabdominal amputation hemipelvectomy",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 44.0
+            },
+            {
+              "label": "Disarticulation hip",
+              "cpt_code": "27295",
+              "description": "Disarticulation hip",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 19.7
+            },
+            {
+              "label": "Excision tumor thigh/knee subcutaneous 3 cm or greater",
+              "cpt_code": "27327",
+              "description": "Excision tumor thigh/knee subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 5.8
+            },
+            {
+              "label": "Excision tumor thigh/knee subfascial <5 cm",
+              "cpt_code": "27328",
+              "description": "Excision tumor thigh/knee subfascial <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Excision tumor thigh/knee subfascial 5 cm or greater",
+              "cpt_code": "27329",
+              "description": "Excision tumor thigh/knee subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 11.3
+            },
+            {
+              "label": "Excision lesion/tumor femur open",
+              "cpt_code": "27337",
+              "description": "Excision lesion/tumor femur open",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 10.8
+            },
+            {
+              "label": "Radical resection tumor thigh/knee soft tissue <5 cm",
+              "cpt_code": "27339",
+              "description": "Radical resection tumor thigh/knee soft tissue <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 18.5
+            },
+            {
+              "label": "Excision lesion/tumor knee condyle open",
+              "cpt_code": "27347",
+              "description": "Excision lesion/tumor knee condyle open",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 11.2
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor femur with graft",
+              "cpt_code": "27355",
+              "description": "Excision/curettage bone cyst/benign tumor femur with graft",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 16.0
+            },
+            {
+              "label": "Radical resection tumor femur",
+              "cpt_code": "27360",
+              "description": "Radical resection tumor femur",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 28.4
+            },
+            {
+              "label": "Radical resection tumor thigh/knee soft tissue 5 cm or greater",
+              "cpt_code": "27364",
+              "description": "Radical resection tumor thigh/knee soft tissue 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 22.0
+            },
+            {
+              "label": "Prophylactic treatment tibia impending pathologic fracture",
+              "cpt_code": "27495",
+              "description": "Prophylactic treatment tibia impending pathologic fracture",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 16.7
+            },
+            {
+              "label": "Amputation thigh through femur any level",
+              "cpt_code": "27590",
+              "description": "Amputation thigh through femur any level",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C41.4"
+              ],
+              "work_rvu": 16.2
+            }
+          ]
+        },
+        "ortho_onc_lower": {
+          "question": "Leg / foot / amputation / limb salvage procedures?",
+          "options": [
+            {
+              "label": "Amputation thigh through femur re-amputation",
+              "cpt_code": "27591",
+              "description": "Amputation thigh through femur re-amputation",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 18.0
+            },
+            {
+              "label": "Excision tumor leg/ankle subcutaneous 3 cm or greater",
+              "cpt_code": "27618",
+              "description": "Excision tumor leg/ankle subcutaneous 3 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 5.7
+            },
+            {
+              "label": "Excision tumor leg/ankle subfascial 5 cm or greater",
+              "cpt_code": "27619",
+              "description": "Excision tumor leg/ankle subfascial 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 11.0
+            },
+            {
+              "label": "Radical resection tumor leg/ankle soft tissue <5 cm",
+              "cpt_code": "27634",
+              "description": "Radical resection tumor leg/ankle soft tissue <5 cm",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 17.9
+            },
+            {
+              "label": "Radical resection tumor leg/ankle soft tissue 5 cm or greater",
+              "cpt_code": "27635",
+              "description": "Radical resection tumor leg/ankle soft tissue 5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 21.5
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor tibia/fibula",
+              "cpt_code": "27640",
+              "description": "Excision/curettage bone cyst/benign tumor tibia/fibula",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 13.4
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor tibia/fibula with graft",
+              "cpt_code": "27645",
+              "description": "Excision/curettage bone cyst/benign tumor tibia/fibula with graft",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 15.6
+            },
+            {
+              "label": "Radical resection tibia/fibula bone tumor",
+              "cpt_code": "27646",
+              "description": "Radical resection tibia/fibula bone tumor",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 26.8
+            },
+            {
+              "label": "Amputation leg through tibia/fibula",
+              "cpt_code": "27705",
+              "description": "Amputation leg through tibia/fibula",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Removal tibial or fibular implant deep",
+              "cpt_code": "27892",
+              "description": "Removal tibial or fibular implant deep",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Excision tumor foot/toe subcutaneous 1.5 cm or greater",
+              "cpt_code": "28043",
+              "description": "Excision tumor foot/toe subcutaneous 1.5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Excision tumor foot/toe subfascial 1.5 cm or greater",
+              "cpt_code": "28045",
+              "description": "Excision tumor foot/toe subfascial 1.5 cm or greater",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Radical resection tumor foot/toe",
+              "cpt_code": "28046",
+              "description": "Radical resection tumor foot/toe",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 17.2
+            },
+            {
+              "label": "Partial excision bone talus/calcaneus",
+              "cpt_code": "28120",
+              "description": "Partial excision bone talus/calcaneus",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 11.1
+            },
+            {
+              "label": "Partial excision bone tarsal/metatarsal",
+              "cpt_code": "28122",
+              "description": "Partial excision bone tarsal/metatarsal",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 9.8
+            },
+            {
+              "label": "Hemiphalangectomy toe",
+              "cpt_code": "28160",
+              "description": "Hemiphalangectomy toe",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 7.2
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor phalanx of foot",
+              "cpt_code": "28171",
+              "description": "Excision/curettage bone cyst/benign tumor phalanx of foot",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 8.3
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor metatarsal/tarsal",
+              "cpt_code": "28173",
+              "description": "Excision/curettage bone cyst/benign tumor metatarsal/tarsal",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 10.4
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor calcaneus/talus",
+              "cpt_code": "28175",
+              "description": "Excision/curettage bone cyst/benign tumor calcaneus/talus",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 12.8
+            },
+            {
+              "label": "Excision/curettage bone cyst/benign tumor calcaneus/talus with graft",
+              "cpt_code": "28176",
+              "description": "Excision/curettage bone cyst/benign tumor calcaneus/talus with graft",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 14.6
+            },
+            {
+              "label": "Amputation foot midtarsal Chopart",
+              "cpt_code": "28800",
+              "description": "Amputation foot midtarsal Chopart",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 12.1
+            },
+            {
+              "label": "Amputation foot transmetatarsal",
+              "cpt_code": "28805",
+              "description": "Amputation foot transmetatarsal",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 12.6
+            },
+            {
+              "label": "Amputation metatarsal with toe single ray",
+              "cpt_code": "28810",
+              "description": "Amputation metatarsal with toe single ray",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 10.9
+            },
+            {
+              "label": "Amputation toe metatarsophalangeal joint",
+              "cpt_code": "28820",
+              "description": "Amputation toe metatarsophalangeal joint",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 7.6
+            },
+            {
+              "label": "Amputation toe interphalangeal joint",
+              "cpt_code": "28825",
+              "description": "Amputation toe interphalangeal joint",
+              "modifiers": [],
+              "icd10": [
+                "C40.2",
+                "C49.20"
+              ],
+              "work_rvu": 5.2
+            }
+          ]
+        },
+        "ortho_onc_adjuncts": {
+          "question": "Bone tumor ablation / navigation / adjunct procedures?",
+          "options": [
+            {
+              "label": "Autograft for spine surgery morselized through separate fascial incision",
+              "cpt_code": "20937",
+              "description": "Autograft for spine surgery morselized through separate fascial incision",
+              "modifiers": [],
+              "icd10": [
+                "D16.9",
+                "M84.50XA"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Structural allograft for spine surgery",
+              "cpt_code": "20938",
+              "description": "Structural allograft for spine surgery",
+              "modifiers": [],
+              "icd10": [
+                "D16.9",
+                "M84.50XA"
+              ],
+              "work_rvu": 3.0
+            },
+            {
+              "label": "Bone marrow aspiration for bone grafting spine surgery only",
+              "cpt_code": "20939",
+              "description": "Bone marrow aspiration for bone grafting spine surgery only",
+              "modifiers": [],
+              "icd10": [
+                "D16.9",
+                "M84.50XA"
+              ],
+              "work_rvu": 1.6
+            },
+            {
+              "label": "Unlisted spine procedure",
+              "cpt_code": "22899",
+              "description": "Unlisted spine procedure",
+              "modifiers": [],
+              "icd10": [
+                "D16.9",
+                "M84.50XA"
+              ],
+              "work_rvu": 8.0
+            },
+            {
+              "label": "Insertion bone anchored fixation limb salvage navigation",
+              "cpt_code": "61889",
+              "description": "Insertion bone anchored fixation limb salvage navigation",
+              "modifiers": [],
+              "icd10": [
+                "D16.9",
+                "M84.50XA"
+              ],
+              "work_rvu": 4.2
+            }
+          ]
+        }
+      }
     }
   ]
 }
