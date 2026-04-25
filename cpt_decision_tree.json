@@ -11561,6 +11561,14 @@
             {
               "label": "Oral Pathology",
               "next": "oral_pathology_questions"
+            },
+            {
+              "label": "TMJ / Genioplasty / Augmentation",
+              "next": "omfs_tmj_extra"
+            },
+            {
+              "label": "LeFort / Craniofacial Reconstruction",
+              "next": "omfs_craniofacial_extra"
             }
           ]
         }
@@ -11894,6 +11902,516 @@
                 "M89.9"
               ],
               "work_rvu": 52.85
+            }
+          ]
+        },
+        "omfs_tmj_extra": {
+          "question": "TMJ / genioplasty / augmentation procedures?",
+          "options": [
+            {
+              "label": "Arthrotomy TMJ",
+              "cpt_code": "21010",
+              "description": "Arthrotomy TMJ",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 6.25
+            },
+            {
+              "label": "Radical resection soft tissue tumor face <2 cm",
+              "cpt_code": "21015",
+              "description": "Radical resection soft tissue tumor face <2 cm",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 8.1
+            },
+            {
+              "label": "Radical resection soft tissue tumor face 2 cm or more",
+              "cpt_code": "21016",
+              "description": "Radical resection soft tissue tumor face 2 cm or more",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 11.5
+            },
+            {
+              "label": "Excision bone mandible",
+              "cpt_code": "21025",
+              "description": "Excision bone mandible",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 12.85
+            },
+            {
+              "label": "Excision bone maxilla",
+              "cpt_code": "21026",
+              "description": "Excision bone maxilla",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 12.2
+            },
+            {
+              "label": "Contour benign lesion mandible",
+              "cpt_code": "21029",
+              "description": "Contour benign lesion mandible",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 10.6
+            },
+            {
+              "label": "Excision lesion mandible",
+              "cpt_code": "21030",
+              "description": "Excision lesion mandible",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Excision cyst/tumor mandible requiring osteotomy",
+              "cpt_code": "21031",
+              "description": "Excision cyst/tumor mandible requiring osteotomy",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 13.7
+            },
+            {
+              "label": "Excision cyst/tumor maxilla requiring osteotomy",
+              "cpt_code": "21032",
+              "description": "Excision cyst/tumor maxilla requiring osteotomy",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 13.1
+            },
+            {
+              "label": "Excision zygomatic arch tumor",
+              "cpt_code": "21034",
+              "description": "Excision zygomatic arch tumor",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 10.2
+            },
+            {
+              "label": "Excision TMJ",
+              "cpt_code": "21040",
+              "description": "Excision TMJ",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 13.4
+            },
+            {
+              "label": "Radical resection malignant tumor mandible",
+              "cpt_code": "21045",
+              "description": "Radical resection malignant tumor mandible",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 25.3
+            },
+            {
+              "label": "Radical resection malignant tumor maxilla",
+              "cpt_code": "21046",
+              "description": "Radical resection malignant tumor maxilla",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 26.0
+            },
+            {
+              "label": "Excision benign tumor maxilla extensive",
+              "cpt_code": "21047",
+              "description": "Excision benign tumor maxilla extensive",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 15.2
+            },
+            {
+              "label": "Excision benign tumor mandible extensive",
+              "cpt_code": "21048",
+              "description": "Excision benign tumor mandible extensive",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 15.9
+            },
+            {
+              "label": "Meniscectomy TMJ",
+              "cpt_code": "21060",
+              "description": "Meniscectomy TMJ",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 14.1
+            },
+            {
+              "label": "Coronoidectomy unilateral",
+              "cpt_code": "21070",
+              "description": "Coronoidectomy unilateral",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Coronoidectomy bilateral",
+              "cpt_code": "21073",
+              "description": "Coronoidectomy bilateral",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 12.4
+            },
+            {
+              "label": "Application intermaxillary fixation device",
+              "cpt_code": "21110",
+              "description": "Application intermaxillary fixation device",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Excision external bone cyst/tumor mandible",
+              "cpt_code": "21116",
+              "description": "Excision external bone cyst/tumor mandible",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 8.2
+            },
+            {
+              "label": "Genioplasty sliding osteotomy, single piece",
+              "cpt_code": "21120",
+              "description": "Genioplasty sliding osteotomy, single piece",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 16.3
+            },
+            {
+              "label": "Genioplasty sliding osteotomy, two or more pieces",
+              "cpt_code": "21121",
+              "description": "Genioplasty sliding osteotomy, two or more pieces",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 19.1
+            },
+            {
+              "label": "Genioplasty augmentation",
+              "cpt_code": "21122",
+              "description": "Genioplasty augmentation",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 12.4
+            },
+            {
+              "label": "Genioplasty reduction",
+              "cpt_code": "21123",
+              "description": "Genioplasty reduction",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 11.8
+            },
+            {
+              "label": "Augmentation mandibular body/angle prosthetic",
+              "cpt_code": "21125",
+              "description": "Augmentation mandibular body/angle prosthetic",
+              "modifiers": [],
+              "icd10": [
+                "M26.60"
+              ],
+              "work_rvu": 13.2
+            }
+          ]
+        },
+        "omfs_craniofacial_extra": {
+          "question": "LeFort / craniofacial reconstruction procedures?",
+          "options": [
+            {
+              "label": "Augmentation maxilla prosthetic",
+              "cpt_code": "21127",
+              "description": "Augmentation maxilla prosthetic",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 13.8
+            },
+            {
+              "label": "Reduction forehead contouring",
+              "cpt_code": "21137",
+              "description": "Reduction forehead contouring",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 16.8
+            },
+            {
+              "label": "Reconstruction forehead/supraorbital rims",
+              "cpt_code": "21138",
+              "description": "Reconstruction forehead/supraorbital rims",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 24.7
+            },
+            {
+              "label": "Reconstruction midface LeFort I single piece",
+              "cpt_code": "21139",
+              "description": "Reconstruction midface LeFort I single piece",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 26.5
+            },
+            {
+              "label": "LeFort I maxilla advancement single piece",
+              "cpt_code": "21141",
+              "description": "LeFort I maxilla advancement single piece",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 27.4
+            },
+            {
+              "label": "LeFort I maxilla advancement segmented",
+              "cpt_code": "21142",
+              "description": "LeFort I maxilla advancement segmented",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 31.2
+            },
+            {
+              "label": "LeFort I maxilla advancement with bone graft",
+              "cpt_code": "21143",
+              "description": "LeFort I maxilla advancement with bone graft",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 32.6
+            },
+            {
+              "label": "LeFort II osteotomy",
+              "cpt_code": "21145",
+              "description": "LeFort II osteotomy",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 33.4
+            },
+            {
+              "label": "LeFort III osteotomy",
+              "cpt_code": "21146",
+              "description": "LeFort III osteotomy",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 39.2
+            },
+            {
+              "label": "Reconstruction midface LeFort II/III with graft",
+              "cpt_code": "21147",
+              "description": "Reconstruction midface LeFort II/III with graft",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 42.0
+            },
+            {
+              "label": "Reconstruction zygomatic arch/zygoma",
+              "cpt_code": "21150",
+              "description": "Reconstruction zygomatic arch/zygoma",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 19.7
+            },
+            {
+              "label": "Reconstruction orbital rim/floor with graft",
+              "cpt_code": "21151",
+              "description": "Reconstruction orbital rim/floor with graft",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 18.9
+            },
+            {
+              "label": "Reconstruction nasal maxillary complex",
+              "cpt_code": "21154",
+              "description": "Reconstruction nasal maxillary complex",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 23.3
+            },
+            {
+              "label": "Reconstruction malar area prosthesis/graft",
+              "cpt_code": "21155",
+              "description": "Reconstruction malar area prosthesis/graft",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 17.4
+            },
+            {
+              "label": "Bone graft skull to facial bones",
+              "cpt_code": "21206",
+              "description": "Bone graft skull to facial bones",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 12.6
+            },
+            {
+              "label": "Osteoplasty facial bones with autograft",
+              "cpt_code": "21208",
+              "description": "Osteoplasty facial bones with autograft",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 16.0
+            },
+            {
+              "label": "Osteoplasty facial bones with allograft",
+              "cpt_code": "21209",
+              "description": "Osteoplasty facial bones with allograft",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Graft bone nasal/maxillary/malar areas",
+              "cpt_code": "21210",
+              "description": "Graft bone nasal/maxillary/malar areas",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Graft bone mandible",
+              "cpt_code": "21215",
+              "description": "Graft bone mandible",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 17.5
+            },
+            {
+              "label": "Rib graft facial bones",
+              "cpt_code": "21230",
+              "description": "Rib graft facial bones",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 15.7
+            },
+            {
+              "label": "Ear cartilage graft to face/jaw",
+              "cpt_code": "21235",
+              "description": "Ear cartilage graft to face/jaw",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 7.9
+            },
+            {
+              "label": "Arthroplasty TMJ with prosthesis",
+              "cpt_code": "21240",
+              "description": "Arthroplasty TMJ with prosthesis",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 26.8
+            },
+            {
+              "label": "Insertion interosseous implant craniofacial",
+              "cpt_code": "21242",
+              "description": "Insertion interosseous implant craniofacial",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Reconstruction mandible/maxilla implant",
+              "cpt_code": "21243",
+              "description": "Reconstruction mandible/maxilla implant",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 21.1
+            },
+            {
+              "label": "Open treatment complicated mandibular fracture",
+              "cpt_code": "21470",
+              "description": "Open treatment complicated mandibular fracture",
+              "modifiers": [],
+              "icd10": [
+                "M95.2"
+              ],
+              "work_rvu": 18.2
             }
           ]
         }
