@@ -10845,6 +10845,10 @@
           "question": "Type of OB/GYN procedure?",
           "options": [
             {
+              "label": "Vulva / Vagina / Cervix",
+              "next": "obgyn_vvc"
+            },
+            {
               "label": "Hysterectomy / Major GYN Surgery",
               "next": "obgyn_major"
             },
@@ -10864,8 +10868,8 @@
         }
       ],
       "branches": {
-        "obgyn_major": {
-          "question": "Major gynecologic surgery procedures?",
+        "obgyn_vvc": {
+          "question": "Vulvar / vaginal / cervical procedures?",
           "options": [
             {
               "label": "Incision and drainage of Bartholin's gland abscess",
@@ -10873,8 +10877,8 @@
               "description": "Incision and drainage of Bartholin's gland abscess",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 3.25
             },
@@ -10884,8 +10888,8 @@
               "description": "Marsupialization of Bartholin's gland cyst",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 4.85
             },
@@ -10895,8 +10899,8 @@
               "description": "Destruction of lesion(s), vulva; simple",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 1.8
             },
@@ -10906,8 +10910,8 @@
               "description": "Destruction of lesion(s), vulva; extensive",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 3.2
             },
@@ -10917,8 +10921,8 @@
               "description": "Biopsy of vulva or perineum, 1 lesion",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 1.92
             },
@@ -10928,8 +10932,8 @@
               "description": "Biopsy of vulva or perineum, each additional lesion",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 0.75
             },
@@ -10939,8 +10943,8 @@
               "description": "Vulvectomy, simple; partial",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 8.85
             },
@@ -10950,8 +10954,8 @@
               "description": "Vulvectomy, radical, partial",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 16.85
             },
@@ -10961,8 +10965,8 @@
               "description": "Vulvectomy, radical, complete, with unilateral or bilateral inguinofemoral lymphadenectomy",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 25.85
             },
@@ -10972,8 +10976,8 @@
               "description": "Plastic repair of introitus",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 7.85
             },
@@ -10983,8 +10987,8 @@
               "description": "Incision of vaginal septum",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 3.45
             },
@@ -10994,8 +10998,8 @@
               "description": "I&D of vaginal hematoma, non-obstetrical",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 4.1
             },
@@ -11005,8 +11009,8 @@
               "description": "Vaginectomy, partial removal vaginal wall",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 14.6
             },
@@ -11016,8 +11020,8 @@
               "description": "Vaginectomy, total removal vaginal wall",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 18.4
             },
@@ -11027,8 +11031,8 @@
               "description": "Partial vaginectomy with paravaginal tissue removal",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 20.15
             },
@@ -11038,8 +11042,8 @@
               "description": "Complete vaginectomy",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 22.3
             },
@@ -11049,8 +11053,8 @@
               "description": "Vaginectomy with pelvic lymphadenectomy",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 27.8
             },
@@ -11060,8 +11064,8 @@
               "description": "Exenteration of vagina; complete",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 35.4
             },
@@ -11071,8 +11075,8 @@
               "description": "Closure of vesicovaginal fistula, vaginal approach",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 15.65
             },
@@ -11082,8 +11086,8 @@
               "description": "Closure of cystotomy, vesical neck, vagina, and/or urethra in female",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 13.2
             },
@@ -11093,8 +11097,8 @@
               "description": "Excision of vaginal cyst or tumor",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 6.85
             },
@@ -11104,8 +11108,8 @@
               "description": "Colporrhaphy, suture of injury of vagina",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 5.15
             },
@@ -11115,8 +11119,8 @@
               "description": "Colpopexy, extraperitoneal approach",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 13.45
             },
@@ -11126,8 +11130,8 @@
               "description": "Revision of urethral suspension",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 9.85
             },
@@ -11137,8 +11141,8 @@
               "description": "Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 12.25
             },
@@ -11148,8 +11152,8 @@
               "description": "Posterior colporrhaphy, repair of rectocele",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 10.1
             },
@@ -11159,8 +11163,8 @@
               "description": "Combined anterior/posterior colporrhaphy",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 9.84
             },
@@ -11170,8 +11174,8 @@
               "description": "Combined anterior/posterior colporrhaphy with enterocele repair",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 13.75
             },
@@ -11181,8 +11185,8 @@
               "description": "Insertion of mesh or other prosthesis for repair of pelvic floor defect, each site",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 4.8
             },
@@ -11192,24 +11196,19 @@
               "description": "Repair of enterocele, vaginal approach",
               "modifiers": [],
               "icd10": [
-                "N80.9",
-                "D25.9"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 11.4
-            }
-          ]
-        },
-        "obgyn_obstetrics": {
-          "question": "Obstetric / delivery procedures?",
-          "options": [
+            },
             {
               "label": "Colpocleisis, Le Fort type",
               "cpt_code": "57270",
               "description": "Colpocleisis, Le Fort type",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 10.25
             },
@@ -11219,8 +11218,8 @@
               "description": "Colpopexy, abdominal approach",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 16.85
             },
@@ -11230,8 +11229,8 @@
               "description": "Colpopexy, vaginal; extraperitoneal approach",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 13.55
             },
@@ -11241,8 +11240,8 @@
               "description": "Colpopexy, vaginal; intraperitoneal approach",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 15.1
             },
@@ -11252,8 +11251,8 @@
               "description": "Paravaginal defect repair, open abdominal approach",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 18.25
             },
@@ -11263,8 +11262,8 @@
               "description": "Paravaginal defect repair, vaginal approach",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 14.35
             },
@@ -11274,8 +11273,8 @@
               "description": "Sling operation for stress incontinence",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 10.22
             },
@@ -11285,8 +11284,8 @@
               "description": "Plastic repair of urethra",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 9.65
             },
@@ -11296,8 +11295,8 @@
               "description": "Repair of rectovaginal fistula",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 15.75
             },
@@ -11307,19 +11306,24 @@
               "description": "Dilation of cervical canal, instrumental",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N90.89",
+                "N89.8"
               ],
               "work_rvu": 1.25
-            },
+            }
+          ]
+        },
+        "obgyn_major": {
+          "question": "Major gynecologic surgery procedures?",
+          "options": [
             {
               "label": "Pelvic examination under anesthesia other than local",
               "cpt_code": "57410",
               "description": "Pelvic examination under anesthesia other than local",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.4
             },
@@ -11329,8 +11333,8 @@
               "description": "Colposcopy of entire vagina with cervix if present",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.55
             },
@@ -11340,8 +11344,8 @@
               "description": "Colposcopy of entire vagina with biopsy(s)",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 2.1
             },
@@ -11351,8 +11355,8 @@
               "description": "Colposcopy of entire vagina with loop electrode biopsy(s)",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 3.85
             },
@@ -11362,8 +11366,8 @@
               "description": "Laparoscopy, surgical, colpopexy",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 17.85
             },
@@ -11373,8 +11377,8 @@
               "description": "Colposcopy of the cervix including upper/adjacent vagina; diagnostic",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.1
             },
@@ -11384,8 +11388,8 @@
               "description": "Colposcopy of the cervix including upper/adjacent vagina; with biopsy(s) and endocervical curettage",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 2.2
             },
@@ -11395,8 +11399,8 @@
               "description": "Biopsy of cervix, single or multiple, or local excision of lesion",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.4
             },
@@ -11406,8 +11410,8 @@
               "description": "Endocervical curettage",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.35
             },
@@ -11417,24 +11421,19 @@
               "description": "Cauterization of cervix; cryocautery, initial or repeat",
               "modifiers": [],
               "icd10": [
-                "O80",
-                "O82"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.55
-            }
-          ]
-        },
-        "obgyn_prolapse_extra": {
-          "question": "Vaginal / prolapse / urogynecologic procedures?",
-          "options": [
+            },
             {
               "label": "Cauterization of cervix; electro- or thermal",
               "cpt_code": "57511",
               "description": "Cauterization of cervix; electro- or thermal",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.65
             },
@@ -11444,8 +11443,8 @@
               "description": "Laser ablation of cervical lesions",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 2.6
             },
@@ -11455,8 +11454,8 @@
               "description": "Conization of cervix with LEEP",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 3.72
             },
@@ -11466,8 +11465,8 @@
               "description": "Conization of cervix, loop electrode excision",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 5.15
             },
@@ -11477,8 +11476,8 @@
               "description": "Trachelectomy, amputation of cervix",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 5.85
             },
@@ -11488,8 +11487,8 @@
               "description": "Radical trachelectomy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 18.9
             },
@@ -11499,8 +11498,8 @@
               "description": "Excision of cervix, stump, vaginal approach",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 6.1
             },
@@ -11510,8 +11509,8 @@
               "description": "Excision of cervical stump, abdominal approach",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 10.4
             },
@@ -11521,8 +11520,8 @@
               "description": "Injection into cervix",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 0.8
             },
@@ -11532,8 +11531,8 @@
               "description": "Cervicectomy, vaginal, complete amputation",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 7.2
             },
@@ -11543,8 +11542,8 @@
               "description": "Cervicectomy, vaginal, radical",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 14.8
             },
@@ -11554,8 +11553,8 @@
               "description": "Cerclage of uterine cervix, nonobstetrical",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 5.35
             },
@@ -11565,8 +11564,8 @@
               "description": "Endometrial biopsy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 1.53
             },
@@ -11576,8 +11575,8 @@
               "description": "Dilation and curettage, diagnostic/therapeutic",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 4.11
             },
@@ -11587,8 +11586,8 @@
               "description": "Myomectomy, excision of fibroid tumor(s), 1 to 4 intramural myomas",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 16.72
             },
@@ -11598,8 +11597,8 @@
               "description": "Total abdominal hysterectomy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 16.42
             },
@@ -11609,8 +11608,8 @@
               "description": "Total abdominal hysterectomy with colpo-urethrocystopexy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 18.3
             },
@@ -11620,8 +11619,8 @@
               "description": "Supracervical abdominal hysterectomy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 14.15
             },
@@ -11631,8 +11630,8 @@
               "description": "Total abdominal hysterectomy with radical dissection",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 27.48
             },
@@ -11642,8 +11641,8 @@
               "description": "Radical abdominal hysterectomy with lymph node dissection",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 30.13
             },
@@ -11653,8 +11652,8 @@
               "description": "Pelvic exenteration for gynecologic malignancy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 52.85
             },
@@ -11664,8 +11663,8 @@
               "description": "Vaginal hysterectomy, uterus \\u2264250g",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 13.03
             },
@@ -11675,8 +11674,8 @@
               "description": "Vaginal hysterectomy with removal of tubes/ovaries",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 14.44
             },
@@ -11686,8 +11685,8 @@
               "description": "Vaginal hysterectomy with repair of enterocele",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 15.84
             },
@@ -11697,8 +11696,8 @@
               "description": "Laparoscopic supracervical hysterectomy, uterus \\u2264250g",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 13.76
             },
@@ -11708,8 +11707,8 @@
               "description": "Laparoscopic supracervical hysterectomy, uterus >250g",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 15.26
             },
@@ -11719,8 +11718,8 @@
               "description": "Laparoscopy, surgical, myomectomy, excision; 1 to 4 intramural myomas",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 18.64
             },
@@ -11730,8 +11729,8 @@
               "description": "Laparoscopy, surgical, with radical hysterectomy",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 28.85
             },
@@ -11741,8 +11740,8 @@
               "description": "Laparoscopic-assisted vaginal hysterectomy, uterus \\u2264250g",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 14.71
             },
@@ -11752,15 +11751,15 @@
               "description": "Laparoscopic-assisted vaginal hysterectomy, uterus >250g",
               "modifiers": [],
               "icd10": [
-                "N81.10",
-                "N39.3"
+                "N80.9",
+                "D25.9"
               ],
               "work_rvu": 16.3
             }
           ]
         },
-        "obgyn_cervix_extra": {
-          "question": "Colposcopy / cervix / vaginal procedures?",
+        "obgyn_obstetrics": {
+          "question": "Obstetric / delivery procedures?",
           "options": [
             {
               "label": "Hysteroscopy with biopsy/polypectomy",
@@ -11768,8 +11767,8 @@
               "description": "Hysteroscopy with biopsy/polypectomy",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 4.78
             },
@@ -11779,8 +11778,8 @@
               "description": "Hysteroscopy with ablation of endometrium",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 5.38
             },
@@ -11790,8 +11789,8 @@
               "description": "Hysteroscopy with bilateral tubal ligation",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 5.14
             },
@@ -11801,8 +11800,8 @@
               "description": "Total laparoscopic hysterectomy, uterus \\u2264250g",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 15.99
             },
@@ -11812,8 +11811,8 @@
               "description": "Total laparoscopic hysterectomy, uterus >250g",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 17.58
             },
@@ -11823,8 +11822,8 @@
               "description": "Ligation or transection of fallopian tube(s), postpartum",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 6.85
             },
@@ -11834,8 +11833,8 @@
               "description": "Laparoscopy, removal of ovaries/tubes",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 9.59
             },
@@ -11845,8 +11844,8 @@
               "description": "Laparoscopy, excision of lesions, fulguration",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 10.45
             },
@@ -11856,8 +11855,8 @@
               "description": "Laparoscopy, tubal ligation",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 5.2
             },
@@ -11867,8 +11866,8 @@
               "description": "Salpingectomy, complete or partial",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 8.7
             },
@@ -11878,8 +11877,8 @@
               "description": "Salpingo-oophorectomy, complete or partial",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 10.0
             },
@@ -11889,8 +11888,8 @@
               "description": "Oophorectomy, partial or total",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 8.53
             },
@@ -11900,8 +11899,8 @@
               "description": "Oophorectomy for ovarian malignancy",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 18.08
             },
@@ -11911,8 +11910,8 @@
               "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 28.85
             },
@@ -11922,8 +11921,8 @@
               "description": "Bilateral salpingo-oophorectomy with total omentectomy for malignancy",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 22.85
             },
@@ -11933,8 +11932,8 @@
               "description": "Amniocentesis, diagnostic",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 1.52
             },
@@ -11944,8 +11943,8 @@
               "description": "Cordocentesis/fetal blood sampling",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 3.09
             },
@@ -11955,8 +11954,8 @@
               "description": "Laparoscopic treatment of ectopic pregnancy; without salpingectomy and/or oophorectomy",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 9.25
             },
@@ -11966,8 +11965,8 @@
               "description": "Laparoscopic treatment of ectopic pregnancy; with salpingectomy and/or oophorectomy",
               "modifiers": [],
               "icd10": [
-                "R87.619",
-                "N89.8"
+                "O80",
+                "O82"
               ],
               "work_rvu": 11.05
             },
@@ -11977,10 +11976,702 @@
               "description": "Cerclage of cervix, during pregnancy; abdominal",
               "modifiers": [],
               "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 12.85
+            },
+            {
+              "label": "Routine obstetric care, vaginal delivery",
+              "cpt_code": "59400",
+              "description": "Routine obstetric care, vaginal delivery",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 22.33
+            },
+            {
+              "label": "Vaginal delivery only",
+              "cpt_code": "59409",
+              "description": "Vaginal delivery only",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 12.62
+            },
+            {
+              "label": "Vaginal delivery including postpartum care",
+              "cpt_code": "59410",
+              "description": "Vaginal delivery including postpartum care",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 15.53
+            },
+            {
+              "label": "Routine obstetric care, cesarean delivery",
+              "cpt_code": "59510",
+              "description": "Routine obstetric care, cesarean delivery",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 24.27
+            },
+            {
+              "label": "Cesarean delivery only",
+              "cpt_code": "59514",
+              "description": "Cesarean delivery only",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 14.24
+            },
+            {
+              "label": "Cesarean delivery including postpartum care",
+              "cpt_code": "59515",
+              "description": "Cesarean delivery including postpartum care",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 17.15
+            },
+            {
+              "label": "Subtotal or total hysterectomy after cesarean",
+              "cpt_code": "59525",
+              "description": "Subtotal or total hysterectomy after cesarean",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 8.39
+            },
+            {
+              "label": "Routine obstetric care, VBAC attempt",
+              "cpt_code": "59610",
+              "description": "Routine obstetric care, VBAC attempt",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 25.41
+            },
+            {
+              "label": "VBAC delivery only",
+              "cpt_code": "59612",
+              "description": "VBAC delivery only",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 15.35
+            },
+            {
+              "label": "Routine obstetric care, VBAC attempt resulting in cesarean",
+              "cpt_code": "59620",
+              "description": "Routine obstetric care, VBAC attempt resulting in cesarean",
+              "modifiers": [],
+              "icd10": [
+                "O80",
+                "O82"
+              ],
+              "work_rvu": 25.41
+            }
+          ]
+        },
+        "obgyn_prolapse_extra": {
+          "question": "Vaginal / prolapse / urogynecologic procedures?",
+          "options": [
+            {
+              "label": "Treatment of missed abortion, 1st trimester",
+              "cpt_code": "59820",
+              "description": "Treatment of missed abortion, 1st trimester",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 4.55
+            },
+            {
+              "label": "Treatment of missed abortion, 2nd trimester",
+              "cpt_code": "59821",
+              "description": "Treatment of missed abortion, 2nd trimester",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 5.97
+            },
+            {
+              "label": "Biopsy vagina simple",
+              "cpt_code": "57100",
+              "description": "Biopsy vagina simple",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Biopsy vagina extensive requiring suture",
+              "cpt_code": "57105",
+              "description": "Biopsy vagina extensive requiring suture",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Vaginectomy partial removal vaginal wall",
+              "cpt_code": "57106",
+              "description": "Vaginectomy partial removal vaginal wall",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Vaginectomy total with paravaginal tissue removal",
+              "cpt_code": "57107",
+              "description": "Vaginectomy total with paravaginal tissue removal",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 14.2
+            },
+            {
+              "label": "Vaginectomy partial with pelvic lymphadenectomy",
+              "cpt_code": "57109",
+              "description": "Vaginectomy partial with pelvic lymphadenectomy",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 16.1
+            },
+            {
+              "label": "Vaginectomy complete",
+              "cpt_code": "57110",
+              "description": "Vaginectomy complete",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 17.8
+            },
+            {
+              "label": "Vaginectomy complete with pelvic node sampling",
+              "cpt_code": "57111",
+              "description": "Vaginectomy complete with pelvic node sampling",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 19.4
+            },
+            {
+              "label": "Paravaginal defect repair open abdominal approach",
+              "cpt_code": "57112",
+              "description": "Paravaginal defect repair open abdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 13.6
+            },
+            {
+              "label": "Closure of vagina",
+              "cpt_code": "57120",
+              "description": "Closure of vagina",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 6.2
+            },
+            {
+              "label": "Excision of vaginal septum",
+              "cpt_code": "57130",
+              "description": "Excision of vaginal septum",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Excision of vaginal cyst/tumor",
+              "cpt_code": "57135",
+              "description": "Excision of vaginal cyst/tumor",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Colporrhaphy suture of injury vagina nonobstetrical",
+              "cpt_code": "57200",
+              "description": "Colporrhaphy suture of injury vagina nonobstetrical",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Colpoperineorrhaphy repair cystocele/rectocele",
+              "cpt_code": "57210",
+              "description": "Colpoperineorrhaphy repair cystocele/rectocele",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Plastic operation urethrocele/vaginal prolapse",
+              "cpt_code": "57220",
+              "description": "Plastic operation urethrocele/vaginal prolapse",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 10.1
+            },
+            {
+              "label": "Culdoplasty with uterosacral suspension",
+              "cpt_code": "57230",
+              "description": "Culdoplasty with uterosacral suspension",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 12.7
+            },
+            {
+              "label": "Anterior colporrhaphy cystocele with or without urethrocele repair",
+              "cpt_code": "57240",
+              "description": "Anterior colporrhaphy cystocele with or without urethrocele repair",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 9.6
+            },
+            {
+              "label": "Posterior colporrhaphy rectocele with or without perineorrhaphy",
+              "cpt_code": "57250",
+              "description": "Posterior colporrhaphy rectocele with or without perineorrhaphy",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 9.8
+            },
+            {
+              "label": "Combined anteroposterior colporrhaphy",
+              "cpt_code": "57260",
+              "description": "Combined anteroposterior colporrhaphy",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 13.9
+            },
+            {
+              "label": "Combined anteroposterior colporrhaphy with enterocele repair",
+              "cpt_code": "57265",
+              "description": "Combined anteroposterior colporrhaphy with enterocele repair",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 15.1
+            },
+            {
+              "label": "Insertion mesh/pelvic floor prosthesis repair pelvic floor defect each site",
+              "cpt_code": "57267",
+              "description": "Insertion mesh/pelvic floor prosthesis repair pelvic floor defect each site",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Repair enterocele vaginal approach",
+              "cpt_code": "57268",
+              "description": "Repair enterocele vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 10.4
+            },
+            {
+              "label": "Repair enterocele abdominal approach separate procedure",
+              "cpt_code": "57270",
+              "description": "Repair enterocele abdominal approach separate procedure",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 11.3
+            },
+            {
+              "label": "Colpopexy abdominal approach",
+              "cpt_code": "57280",
+              "description": "Colpopexy abdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 15.9
+            },
+            {
+              "label": "Colpopexy extraperitoneal approach sacrospinous/sacroiliac fixation",
+              "cpt_code": "57282",
+              "description": "Colpopexy extraperitoneal approach sacrospinous/sacroiliac fixation",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Colpopexy intraperitoneal approach uterosacral levator myorrhaphy",
+              "cpt_code": "57283",
+              "description": "Colpopexy intraperitoneal approach uterosacral levator myorrhaphy",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 15.4
+            },
+            {
+              "label": "Paravaginal defect repair open abdominal approach additional support",
+              "cpt_code": "57284",
+              "description": "Paravaginal defect repair open abdominal approach additional support",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 14.7
+            },
+            {
+              "label": "Paravaginal defect repair vaginal approach",
+              "cpt_code": "57285",
+              "description": "Paravaginal defect repair vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 13.5
+            },
+            {
+              "label": "Removal/revision prosthetic vaginal graft open abdominal",
+              "cpt_code": "57287",
+              "description": "Removal/revision prosthetic vaginal graft open abdominal",
+              "modifiers": [],
+              "icd10": [
+                "N81.10",
+                "N39.3"
+              ],
+              "work_rvu": 10.6
+            }
+          ]
+        },
+        "obgyn_cervix_extra": {
+          "question": "Colposcopy / cervix / vaginal procedures?",
+          "options": [
+            {
+              "label": "Sling operation stress incontinence e.g. fascia or synthetic",
+              "cpt_code": "57288",
+              "description": "Sling operation stress incontinence e.g. fascia or synthetic",
+              "modifiers": [],
+              "icd10": [
                 "R87.619",
                 "N89.8"
               ],
-              "work_rvu": 12.85
+              "work_rvu": 12.2
+            },
+            {
+              "label": "Pereyra or Stamey endoscopic suspension",
+              "cpt_code": "57289",
+              "description": "Pereyra or Stamey endoscopic suspension",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 9.7
+            },
+            {
+              "label": "Construction/revision vaginal graft",
+              "cpt_code": "57291",
+              "description": "Construction/revision vaginal graft",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 8.5
+            },
+            {
+              "label": "Construction/revision artificial vagina",
+              "cpt_code": "57292",
+              "description": "Construction/revision artificial vagina",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 14.9
+            },
+            {
+              "label": "Revision vaginal graft via vaginal approach",
+              "cpt_code": "57295",
+              "description": "Revision vaginal graft via vaginal approach",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Revision vaginal graft via abdominal approach",
+              "cpt_code": "57296",
+              "description": "Revision vaginal graft via abdominal approach",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 10.8
+            },
+            {
+              "label": "Dilation of vagina under anesthesia",
+              "cpt_code": "57400",
+              "description": "Dilation of vagina under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Pelvic exam under anesthesia other than local",
+              "cpt_code": "57410",
+              "description": "Pelvic exam under anesthesia other than local",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.5
+            },
+            {
+              "label": "Removal impacted vaginal foreign body under anesthesia",
+              "cpt_code": "57415",
+              "description": "Removal impacted vaginal foreign body under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 2.8
+            },
+            {
+              "label": "Colposcopy entire vagina with cervix if present",
+              "cpt_code": "57420",
+              "description": "Colposcopy entire vagina with cervix if present",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.6
+            },
+            {
+              "label": "Colposcopy entire vagina with biopsy",
+              "cpt_code": "57421",
+              "description": "Colposcopy entire vagina with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 2.2
+            },
+            {
+              "label": "Colposcopy vagina with loop electrode biopsy",
+              "cpt_code": "57423",
+              "description": "Colposcopy vagina with loop electrode biopsy",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Laparoscopy surgical colpopexy",
+              "cpt_code": "57425",
+              "description": "Laparoscopy surgical colpopexy",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 17.4
+            },
+            {
+              "label": "Revision/removal prosthetic vaginal graft laparoscopic",
+              "cpt_code": "57426",
+              "description": "Revision/removal prosthetic vaginal graft laparoscopic",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 11.9
+            },
+            {
+              "label": "Colposcopy of cervix including upper/adjacent vagina",
+              "cpt_code": "57452",
+              "description": "Colposcopy of cervix including upper/adjacent vagina",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Colposcopy cervix with biopsies and endocervical curettage",
+              "cpt_code": "57454",
+              "description": "Colposcopy cervix with biopsies and endocervical curettage",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.9
+            },
+            {
+              "label": "Colposcopy cervix with biopsy(s) of cervix and upper vagina",
+              "cpt_code": "57455",
+              "description": "Colposcopy cervix with biopsy(s) of cervix and upper vagina",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Colposcopy cervix with adjacent vaginal biopsy and curettage",
+              "cpt_code": "57456",
+              "description": "Colposcopy cervix with adjacent vaginal biopsy and curettage",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Loop electrode conization cervix",
+              "cpt_code": "57460",
+              "description": "Loop electrode conization cervix",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Biopsy cervix single/multiple or local excision lesion",
+              "cpt_code": "57500",
+              "description": "Biopsy cervix single/multiple or local excision lesion",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Endocervical curettage",
+              "cpt_code": "57505",
+              "description": "Endocervical curettage",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Cautery cervix cryocautery initial/repeat",
+              "cpt_code": "57510",
+              "description": "Cautery cervix cryocautery initial/repeat",
+              "modifiers": [],
+              "icd10": [
+                "R87.619",
+                "N89.8"
+              ],
+              "work_rvu": 1.3
             }
           ]
         }
