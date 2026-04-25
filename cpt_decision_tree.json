@@ -19413,8 +19413,16 @@
               "next": "plastic_flaps"
             },
             {
-              "label": "Aesthetic / body contour / eyelids",
+              "label": "Aesthetic / contour / body procedures",
               "next": "plastic_aesthetic"
+            },
+            {
+              "label": "Pressure sore / breast revision / craniofacial",
+              "next": "plastic_reconstructive_extra"
+            },
+            {
+              "label": "Facial / lip / brow / eyelid reconstruction",
+              "next": "plastic_face_extra"
             }
           ]
         }
@@ -19917,15 +19925,20 @@
                 "D23.9"
               ],
               "work_rvu": 1.43
-            },
+            }
+          ]
+        },
+        "plastic_flaps": {
+          "question": "Flaps / grafts / reconstructive wound procedures?",
+          "options": [
             {
               "label": "Complex repair scalp/arms/legs 1.1 to 2.5 cm",
               "cpt_code": "13120",
               "description": "Complex repair scalp/arms/legs 1.1 to 2.5 cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 3.4
             },
@@ -19935,8 +19948,8 @@
               "description": "Complex repair scalp/arms/legs each additional 5 cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 1.5
             },
@@ -19946,8 +19959,8 @@
               "description": "Complex repair forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet 1.1 to 2.5 cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 4.09
             },
@@ -19957,8 +19970,8 @@
               "description": "Complex repair forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet each additional 5 cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 1.73
             },
@@ -19968,8 +19981,8 @@
               "description": "Complex repair eyelids/nose/ears/lips 1.1 to 2.5 cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 4.56
             },
@@ -19979,8 +19992,8 @@
               "description": "Complex repair eyelids/nose/ears/lips each additional 5 cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 1.91
             },
@@ -19990,8 +20003,8 @@
               "description": "Adjacent tissue transfer trunk defect 10 sq cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 5.2
             },
@@ -20001,8 +20014,8 @@
               "description": "Adjacent tissue transfer trunk defect 10.1 to 30.0 sq cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 6.8
             },
@@ -20012,8 +20025,8 @@
               "description": "Adjacent tissue transfer scalp/arms/legs defect 10 sq cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 5.4
             },
@@ -20023,8 +20036,8 @@
               "description": "Adjacent tissue transfer scalp/arms/legs defect 10.1 to 30.0 sq cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 7.1
             },
@@ -20034,8 +20047,8 @@
               "description": "Adjacent tissue transfer forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet defect 10 sq cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 6.1
             },
@@ -20045,8 +20058,8 @@
               "description": "Adjacent tissue transfer forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet defect 10.1 to 30.0 sq cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 7.9
             },
@@ -20056,8 +20069,8 @@
               "description": "Adjacent tissue transfer eyelids/nose/ears/lips defect 10 sq cm or less",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 6.7
             },
@@ -20067,8 +20080,8 @@
               "description": "Adjacent tissue transfer eyelids/nose/ears/lips defect 10.1 to 30.0 sq cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 8.6
             },
@@ -20078,16 +20091,11 @@
               "description": "Adjacent tissue transfer unusual/complicated trunk 30.1 to 60.0 sq cm",
               "modifiers": [],
               "icd10": [
-                "L98.9",
-                "D23.9"
+                "S81.809A",
+                "T81.89XA"
               ],
               "work_rvu": 10.8
-            }
-          ]
-        },
-        "plastic_flaps": {
-          "question": "Flaps / grafts / reconstructive wound procedures?",
-          "options": [
+            },
             {
               "label": "Adjacent tissue transfer each additional 30 sq cm",
               "cpt_code": "14302",
@@ -20421,7 +20429,7 @@
           ]
         },
         "plastic_aesthetic": {
-          "question": "Aesthetic / contour / eyelid procedures?",
+          "question": "Aesthetic / contour / body procedures?",
           "options": [
             {
               "label": "Grafting autologous fat by liposuction 50 cc or less",
@@ -20430,7 +20438,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 4.1
             },
@@ -20441,7 +20449,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 0.95
             },
@@ -20452,7 +20460,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 8.4
             },
@@ -20463,7 +20471,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 9.2
             },
@@ -20474,7 +20482,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 7.8
             },
@@ -20485,7 +20493,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 8.7
             },
@@ -20496,7 +20504,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 11.6
             },
@@ -20507,7 +20515,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 13.8
             },
@@ -20518,7 +20526,7 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 15.9
             },
@@ -20529,9 +20537,569 @@
               "modifiers": [],
               "icd10": [
                 "Z41.1",
-                "H02.409"
+                "L98.7"
               ],
               "work_rvu": 21.5
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue thigh",
+              "cpt_code": "15832",
+              "description": "Excision excessive skin/subcutaneous tissue thigh",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 14.1
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue leg",
+              "cpt_code": "15833",
+              "description": "Excision excessive skin/subcutaneous tissue leg",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 14.4
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue hip",
+              "cpt_code": "15834",
+              "description": "Excision excessive skin/subcutaneous tissue hip",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 14.6
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue buttock",
+              "cpt_code": "15835",
+              "description": "Excision excessive skin/subcutaneous tissue buttock",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 14.8
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue arm",
+              "cpt_code": "15836",
+              "description": "Excision excessive skin/subcutaneous tissue arm",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 13.5
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue forearm/hand",
+              "cpt_code": "15837",
+              "description": "Excision excessive skin/subcutaneous tissue forearm/hand",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 12.9
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue submental fat pad",
+              "cpt_code": "15838",
+              "description": "Excision excessive skin/subcutaneous tissue submental fat pad",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 10.2
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue other area",
+              "cpt_code": "15839",
+              "description": "Excision excessive skin/subcutaneous tissue other area",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Suction assisted lipectomy head and neck",
+              "cpt_code": "15876",
+              "description": "Suction assisted lipectomy head and neck",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 8.8
+            },
+            {
+              "label": "Suction assisted lipectomy trunk",
+              "cpt_code": "15877",
+              "description": "Suction assisted lipectomy trunk",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 10.9
+            },
+            {
+              "label": "Suction assisted lipectomy upper extremity",
+              "cpt_code": "15878",
+              "description": "Suction assisted lipectomy upper extremity",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Suction assisted lipectomy lower extremity",
+              "cpt_code": "15879",
+              "description": "Suction assisted lipectomy lower extremity",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 10.1
+            },
+            {
+              "label": "Chemical peel facial epidermal",
+              "cpt_code": "15880",
+              "description": "Chemical peel facial epidermal",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Chemical peel facial dermal",
+              "cpt_code": "15881",
+              "description": "Chemical peel facial dermal",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 6.2
+            },
+            {
+              "label": "Chemical peel nonfacial epidermal",
+              "cpt_code": "15882",
+              "description": "Chemical peel nonfacial epidermal",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Chemical peel nonfacial dermal",
+              "cpt_code": "15883",
+              "description": "Chemical peel nonfacial dermal",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 5.3
+            },
+            {
+              "label": "Excision excessive skin upper abdomen infraumbilical with umbilical transposition",
+              "cpt_code": "15884",
+              "description": "Excision excessive skin upper abdomen infraumbilical with umbilical transposition",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 18.4
+            },
+            {
+              "label": "Excision excessive skin and subcutaneous tissue superolateral breast",
+              "cpt_code": "15886",
+              "description": "Excision excessive skin and subcutaneous tissue superolateral breast",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 12.1
+            },
+            {
+              "label": "Excision excessive skin and subcutaneous tissue other area with lipectomy",
+              "cpt_code": "15887",
+              "description": "Excision excessive skin and subcutaneous tissue other area with lipectomy",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 13.7
+            },
+            {
+              "label": "Excision pressure ulcer sacral with skin flap closure",
+              "cpt_code": "15920",
+              "description": "Excision pressure ulcer sacral with skin flap closure",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "L98.7"
+              ],
+              "work_rvu": 16.5
+            }
+          ]
+        },
+        "plastic_reconstructive_extra": {
+          "question": "Pressure sore / breast revision / craniofacial procedures?",
+          "options": [
+            {
+              "label": "Excision pressure ulcer sacral with myocutaneous flap closure",
+              "cpt_code": "15922",
+              "description": "Excision pressure ulcer sacral with myocutaneous flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 20.2
+            },
+            {
+              "label": "Excision pressure ulcer trochanteric with skin flap closure",
+              "cpt_code": "15931",
+              "description": "Excision pressure ulcer trochanteric with skin flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 15.8
+            },
+            {
+              "label": "Excision pressure ulcer trochanteric with myocutaneous flap closure",
+              "cpt_code": "15933",
+              "description": "Excision pressure ulcer trochanteric with myocutaneous flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 19.9
+            },
+            {
+              "label": "Excision pressure ulcer ischial with skin flap closure",
+              "cpt_code": "15936",
+              "description": "Excision pressure ulcer ischial with skin flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 16.0
+            },
+            {
+              "label": "Excision pressure ulcer ischial with myocutaneous flap closure",
+              "cpt_code": "15937",
+              "description": "Excision pressure ulcer ischial with myocutaneous flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 20.4
+            },
+            {
+              "label": "Excision pressure ulcer coccygeal with flap closure",
+              "cpt_code": "15940",
+              "description": "Excision pressure ulcer coccygeal with flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 15.2
+            },
+            {
+              "label": "Excision pressure ulcer coccygeal with myocutaneous flap closure",
+              "cpt_code": "15941",
+              "description": "Excision pressure ulcer coccygeal with myocutaneous flap closure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 19.1
+            },
+            {
+              "label": "Revision reconstructed breast",
+              "cpt_code": "19380",
+              "description": "Revision reconstructed breast",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 10.6
+            },
+            {
+              "label": "Preparation molded custom breast prosthesis",
+              "cpt_code": "19396",
+              "description": "Preparation molded custom breast prosthesis",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Injection collagenase palmar cord Dupuytren contracture",
+              "cpt_code": "20527",
+              "description": "Injection collagenase palmar cord Dupuytren contracture",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Application uniplane external fixation system",
+              "cpt_code": "20690",
+              "description": "Application uniplane external fixation system",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 6.0
+            },
+            {
+              "label": "Tissue grafts other autogenous graft e.g. paratenon, fat, dermis",
+              "cpt_code": "20926",
+              "description": "Tissue grafts other autogenous graft e.g. paratenon, fat, dermis",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Unlisted musculoskeletal procedure",
+              "cpt_code": "20999",
+              "description": "Unlisted musculoskeletal procedure",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 8.0
+            },
+            {
+              "label": "Reconstruction mandible/maxilla with endosteal implant",
+              "cpt_code": "21248",
+              "description": "Reconstruction mandible/maxilla with endosteal implant",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 23.4
+            },
+            {
+              "label": "Repair nasal vestibular stenosis spreader grafting/lateral wall reconstruction",
+              "cpt_code": "30465",
+              "description": "Repair nasal vestibular stenosis spreader grafting/lateral wall reconstruction",
+              "modifiers": [],
+              "icd10": [
+                "L89.90",
+                "Z42.1"
+              ],
+              "work_rvu": 14.9
+            }
+          ]
+        },
+        "plastic_face_extra": {
+          "question": "Facial / lip / brow / eyelid reconstruction procedures?",
+          "options": [
+            {
+              "label": "Repair nasal valve collapse with implant",
+              "cpt_code": "30468",
+              "description": "Repair nasal valve collapse with implant",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Repair fistula oronasal",
+              "cpt_code": "30580",
+              "description": "Repair fistula oronasal",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Septal or other intranasal dermatoplasty",
+              "cpt_code": "30620",
+              "description": "Septal or other intranasal dermatoplasty",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 8.1
+            },
+            {
+              "label": "Repair lip full thickness vermilion only",
+              "cpt_code": "40650",
+              "description": "Repair lip full thickness vermilion only",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 5.7
+            },
+            {
+              "label": "Repair lip full thickness up to half vertical height",
+              "cpt_code": "40652",
+              "description": "Repair lip full thickness up to half vertical height",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 7.4
+            },
+            {
+              "label": "Repair lip full thickness over half vertical height or complex",
+              "cpt_code": "40654",
+              "description": "Repair lip full thickness over half vertical height or complex",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 9.6
+            },
+            {
+              "label": "Plastic repair cleft lip/nasal deformity primary bilateral",
+              "cpt_code": "40700",
+              "description": "Plastic repair cleft lip/nasal deformity primary bilateral",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 17.8
+            },
+            {
+              "label": "Plastic repair cleft lip/nasal deformity primary unilateral",
+              "cpt_code": "40701",
+              "description": "Plastic repair cleft lip/nasal deformity primary unilateral",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 15.5
+            },
+            {
+              "label": "Plastic repair cleft lip/nasal deformity secondary bilateral",
+              "cpt_code": "40702",
+              "description": "Plastic repair cleft lip/nasal deformity secondary bilateral",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 18.6
+            },
+            {
+              "label": "Muscle flap head/neck",
+              "cpt_code": "40720",
+              "description": "Muscle flap head/neck",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 14.3
+            },
+            {
+              "label": "Vestibuloplasty posterior unilateral",
+              "cpt_code": "40818",
+              "description": "Vestibuloplasty posterior unilateral",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Vestibuloplasty posterior bilateral",
+              "cpt_code": "40819",
+              "description": "Vestibuloplasty posterior bilateral",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Repair brow ptosis",
+              "cpt_code": "67900",
+              "description": "Repair brow ptosis",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 9.2
+            },
+            {
+              "label": "Repair blepharoptosis levator resection/advancement",
+              "cpt_code": "67904",
+              "description": "Repair blepharoptosis levator resection/advancement",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 10.4
+            },
+            {
+              "label": "Repair blepharoptosis superior rectus technique with fascial sling",
+              "cpt_code": "67906",
+              "description": "Repair blepharoptosis superior rectus technique with fascial sling",
+              "modifiers": [],
+              "icd10": [
+                "H02.409",
+                "Q36.9"
+              ],
+              "work_rvu": 11.8
             }
           ]
         }
