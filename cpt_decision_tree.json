@@ -14760,6 +14760,14 @@
             {
               "label": "Structural / Mechanical Support",
               "next": "ic_structural_expanded"
+            },
+            {
+              "label": "Pacemaker / ICD / Device Work",
+              "next": "ic_device_extra"
+            },
+            {
+              "label": "EP / Ablation / Advanced Cardiac Intervention",
+              "next": "ic_ep_extra"
             }
           ]
         }
@@ -15201,20 +15209,15 @@
                 "R07.9"
               ],
               "work_rvu": 0.9
-            }
-          ]
-        },
-        "ic_structural_expanded": {
-          "question": "Interventional cardiology structural/mechanical support procedures?",
-          "options": [
+            },
             {
               "label": "Percutaneous transcatheter closure congenital interatrial communication",
               "cpt_code": "93580",
               "description": "Percutaneous transcatheter closure congenital interatrial communication",
               "modifiers": [],
               "icd10": [
-                "I35.0",
-                "Q21.10"
+                "I25.10",
+                "R07.9"
               ],
               "work_rvu": 19.8
             },
@@ -15224,8 +15227,8 @@
               "description": "Percutaneous transcatheter closure ventricular septal defect",
               "modifiers": [],
               "icd10": [
-                "I35.0",
-                "Q21.10"
+                "I25.10",
+                "R07.9"
               ],
               "work_rvu": 22.1
             },
@@ -15235,8 +15238,8 @@
               "description": "Percutaneous transcatheter closure patent ductus arteriosus",
               "modifiers": [],
               "icd10": [
-                "I35.0",
-                "Q21.10"
+                "I25.10",
+                "R07.9"
               ],
               "work_rvu": 17.4
             },
@@ -15246,8 +15249,8 @@
               "description": "Percutaneous transcatheter septal reduction therapy",
               "modifiers": [],
               "icd10": [
-                "I35.0",
-                "Q21.10"
+                "I25.10",
+                "R07.9"
               ],
               "work_rvu": 23.7
             },
@@ -15257,11 +15260,16 @@
               "description": "Percutaneous transcatheter ventricular repair",
               "modifiers": [],
               "icd10": [
-                "I35.0",
-                "Q21.10"
+                "I25.10",
+                "R07.9"
               ],
               "work_rvu": 24.2
-            },
+            }
+          ]
+        },
+        "ic_structural_expanded": {
+          "question": "Interventional cardiology structural/mechanical support procedures?",
+          "options": [
             {
               "label": "Percutaneous transcatheter tricuspid valve annuloplasty",
               "cpt_code": "93596",
@@ -15327,6 +15335,566 @@
                 "Q21.10"
               ],
               "work_rvu": 40.2
+            },
+            {
+              "label": "Insertion pacemaker pulse generator with existing single lead system",
+              "cpt_code": "33206",
+              "description": "Insertion pacemaker pulse generator with existing single lead system",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Insertion pacemaker pulse generator with existing dual leads",
+              "cpt_code": "33207",
+              "description": "Insertion pacemaker pulse generator with existing dual leads",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 9.3
+            },
+            {
+              "label": "Insertion or replacement permanent pacemaker with transvenous electrodes atrial and ventricular",
+              "cpt_code": "33208",
+              "description": "Insertion or replacement permanent pacemaker with transvenous electrodes atrial and ventricular",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 12.6
+            },
+            {
+              "label": "Insertion/replacement temporary transvenous single chamber pacing catheter",
+              "cpt_code": "33210",
+              "description": "Insertion/replacement temporary transvenous single chamber pacing catheter",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Insertion/replacement temporary transvenous dual chamber pacing catheter",
+              "cpt_code": "33211",
+              "description": "Insertion/replacement temporary transvenous dual chamber pacing catheter",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Insertion pacemaker pulse generator only with existing dual leads",
+              "cpt_code": "33212",
+              "description": "Insertion pacemaker pulse generator only with existing dual leads",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 7.6
+            },
+            {
+              "label": "Insertion pacemaker pulse generator only with existing multi leads",
+              "cpt_code": "33213",
+              "description": "Insertion pacemaker pulse generator only with existing multi leads",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Upgrade single chamber to dual chamber system",
+              "cpt_code": "33214",
+              "description": "Upgrade single chamber to dual chamber system",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 13.2
+            },
+            {
+              "label": "Repositioning of previously implanted transvenous pacemaker/ICD lead",
+              "cpt_code": "33215",
+              "description": "Repositioning of previously implanted transvenous pacemaker/ICD lead",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 6.1
+            },
+            {
+              "label": "Insertion of single transvenous electrode permanent pacemaker/ICD",
+              "cpt_code": "33216",
+              "description": "Insertion of single transvenous electrode permanent pacemaker/ICD",
+              "modifiers": [],
+              "icd10": [
+                "I35.0",
+                "Q21.10"
+              ],
+              "work_rvu": 7.4
+            }
+          ]
+        },
+        "ic_device_extra": {
+          "question": "Interventional cardiology pacemaker / ICD / device procedures?",
+          "options": [
+            {
+              "label": "Insertion of two transvenous electrodes permanent pacemaker/ICD",
+              "cpt_code": "33217",
+              "description": "Insertion of two transvenous electrodes permanent pacemaker/ICD",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 9.5
+            },
+            {
+              "label": "Repair single transvenous electrode pacemaker/ICD",
+              "cpt_code": "33218",
+              "description": "Repair single transvenous electrode pacemaker/ICD",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Repair two transvenous electrodes pacemaker/ICD",
+              "cpt_code": "33220",
+              "description": "Repair two transvenous electrodes pacemaker/ICD",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Insertion or replacement pulse generator permanent pacemaker with existing single lead",
+              "cpt_code": "33221",
+              "description": "Insertion or replacement pulse generator permanent pacemaker with existing single lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 8.1
+            },
+            {
+              "label": "Relocation skin pocket pacemaker",
+              "cpt_code": "33222",
+              "description": "Relocation skin pocket pacemaker",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 4.3
+            },
+            {
+              "label": "Insertion pacing electrode cardiac venous system for CRT",
+              "cpt_code": "33224",
+              "description": "Insertion pacing electrode cardiac venous system for CRT",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 10.2
+            },
+            {
+              "label": "Repositioning previously implanted cardiac venous lead",
+              "cpt_code": "33225",
+              "description": "Repositioning previously implanted cardiac venous lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 6.7
+            },
+            {
+              "label": "Removal and replacement permanent pacemaker pulse generator single lead",
+              "cpt_code": "33227",
+              "description": "Removal and replacement permanent pacemaker pulse generator single lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 7.1
+            },
+            {
+              "label": "Removal and replacement permanent pacemaker pulse generator dual lead",
+              "cpt_code": "33228",
+              "description": "Removal and replacement permanent pacemaker pulse generator dual lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 8.0
+            },
+            {
+              "label": "Removal and replacement permanent pacemaker pulse generator multiple leads",
+              "cpt_code": "33229",
+              "description": "Removal and replacement permanent pacemaker pulse generator multiple leads",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Insertion or replacement defibrillator pulse generator only with existing single lead",
+              "cpt_code": "33230",
+              "description": "Insertion or replacement defibrillator pulse generator only with existing single lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 11.9
+            },
+            {
+              "label": "Insertion or replacement defibrillator pulse generator only with existing dual leads",
+              "cpt_code": "33231",
+              "description": "Insertion or replacement defibrillator pulse generator only with existing dual leads",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 12.8
+            },
+            {
+              "label": "Insertion single/dual lead ICD system",
+              "cpt_code": "33240",
+              "description": "Insertion single/dual lead ICD system",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 18.2
+            },
+            {
+              "label": "Removal defibrillator pulse generator only",
+              "cpt_code": "33241",
+              "description": "Removal defibrillator pulse generator only",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Removal single lead ICD system",
+              "cpt_code": "33243",
+              "description": "Removal single lead ICD system",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 10.8
+            },
+            {
+              "label": "Removal transvenous ICD lead(s) by extraction",
+              "cpt_code": "33244",
+              "description": "Removal transvenous ICD lead(s) by extraction",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 20.4
+            },
+            {
+              "label": "Insertion/replacement ICD system with transvenous lead(s)",
+              "cpt_code": "33249",
+              "description": "Insertion/replacement ICD system with transvenous lead(s)",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 19.1
+            },
+            {
+              "label": "Removal and replacement ICD pulse generator single lead",
+              "cpt_code": "33262",
+              "description": "Removal and replacement ICD pulse generator single lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 12.4
+            },
+            {
+              "label": "Removal and replacement ICD pulse generator dual lead",
+              "cpt_code": "33263",
+              "description": "Removal and replacement ICD pulse generator dual lead",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 13.0
+            },
+            {
+              "label": "Removal and replacement ICD pulse generator multiple leads",
+              "cpt_code": "33264",
+              "description": "Removal and replacement ICD pulse generator multiple leads",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 13.5
+            },
+            {
+              "label": "Insertion subcutaneous ICD electrode",
+              "cpt_code": "33270",
+              "description": "Insertion subcutaneous ICD electrode",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Insertion subcutaneous ICD pulse generator",
+              "cpt_code": "33271",
+              "description": "Insertion subcutaneous ICD pulse generator",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 10.9
+            },
+            {
+              "label": "Repositioning subcutaneous ICD electrode",
+              "cpt_code": "33272",
+              "description": "Repositioning subcutaneous ICD electrode",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 6.1
+            },
+            {
+              "label": "Removal and replacement subcutaneous ICD pulse generator",
+              "cpt_code": "33273",
+              "description": "Removal and replacement subcutaneous ICD pulse generator",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Transcatheter leadless pacemaker single chamber ventricular",
+              "cpt_code": "33274",
+              "description": "Transcatheter leadless pacemaker single chamber ventricular",
+              "modifiers": [],
+              "icd10": [
+                "I49.5",
+                "Z95.0"
+              ],
+              "work_rvu": 17.6
+            }
+          ]
+        },
+        "ic_ep_extra": {
+          "question": "Interventional cardiology EP / ablation / advanced cardiac intervention procedures?",
+          "options": [
+            {
+              "label": "Revision/removal leadless pacemaker",
+              "cpt_code": "33275",
+              "description": "Revision/removal leadless pacemaker",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 12.2
+            },
+            {
+              "label": "Insertion subcutaneous cardiac rhythm monitor",
+              "cpt_code": "33285",
+              "description": "Insertion subcutaneous cardiac rhythm monitor",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Removal subcutaneous cardiac rhythm monitor",
+              "cpt_code": "33286",
+              "description": "Removal subcutaneous cardiac rhythm monitor",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 1.9
+            },
+            {
+              "label": "Left heart cath by transseptal puncture through intact septum/add-on",
+              "cpt_code": "93462",
+              "description": "Left heart cath by transseptal puncture through intact septum/add-on",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Injection procedure selective coronary angiography during congenital heart cath",
+              "cpt_code": "93566",
+              "description": "Injection procedure selective coronary angiography during congenital heart cath",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 1.7
+            },
+            {
+              "label": "Pulmonary angiography selective bilat during congenital heart cath",
+              "cpt_code": "93567",
+              "description": "Pulmonary angiography selective bilat during congenital heart cath",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Injection procedure pulmonary artery/aortography during congenital cath",
+              "cpt_code": "93568",
+              "description": "Injection procedure pulmonary artery/aortography during congenital cath",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Intracardiac electrophysiologic 3D mapping",
+              "cpt_code": "93613",
+              "description": "Intracardiac electrophysiologic 3D mapping",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Comprehensive electrophysiologic evaluation with induction",
+              "cpt_code": "93620",
+              "description": "Comprehensive electrophysiologic evaluation with induction",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 13.4
+            },
+            {
+              "label": "Comprehensive electrophysiologic evaluation with left atrial recording/pacing",
+              "cpt_code": "93621",
+              "description": "Comprehensive electrophysiologic evaluation with left atrial recording/pacing",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 2.9
+            },
+            {
+              "label": "Comprehensive electrophysiologic evaluation with left ventricular pacing/recording",
+              "cpt_code": "93622",
+              "description": "Comprehensive electrophysiologic evaluation with left ventricular pacing/recording",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Programmed stimulation and pacing after IV drug infusion",
+              "cpt_code": "93623",
+              "description": "Programmed stimulation and pacing after IV drug infusion",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "EP ablation supraventricular tachycardia",
+              "cpt_code": "93653",
+              "description": "EP ablation supraventricular tachycardia",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 20.8
+            },
+            {
+              "label": "EP ablation ventricular tachycardia",
+              "cpt_code": "93654",
+              "description": "EP ablation ventricular tachycardia",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 27.6
+            },
+            {
+              "label": "EP ablation atrial fibrillation pulmonary vein isolation",
+              "cpt_code": "93656",
+              "description": "EP ablation atrial fibrillation pulmonary vein isolation",
+              "modifiers": [],
+              "icd10": [
+                "I48.91",
+                "I47.1"
+              ],
+              "work_rvu": 30.4
             }
           ]
         }
@@ -15348,8 +15916,16 @@
               "next": "ir_vascular_expanded"
             },
             {
-              "label": "Biliary / Drainage / GU",
+              "label": "Drainage / Biliary / GU",
               "next": "ir_drains_expanded"
+            },
+            {
+              "label": "Image Guidance / Biopsy / Thoracic",
+              "next": "ir_image_guidance_extra"
+            },
+            {
+              "label": "Thrombolysis / Thrombectomy / Neuro IR",
+              "next": "ir_thrombo_neuro_extra"
             }
           ]
         }
@@ -15672,20 +16248,15 @@
                 "I72.9"
               ],
               "work_rvu": 6.2
-            }
-          ]
-        },
-        "ir_drains_expanded": {
-          "question": "Interventional radiology drainage / biliary / GU procedures?",
-          "options": [
+            },
             {
               "label": "Injection procedure cholangiography existing access",
               "cpt_code": "47531",
               "description": "Injection procedure cholangiography existing access",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 1.3
             },
@@ -15695,8 +16266,8 @@
               "description": "Exchange biliary drainage catheter",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 4.0
             },
@@ -15706,8 +16277,8 @@
               "description": "Placement biliary drainage catheter internal-external",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 8.4
             },
@@ -15717,8 +16288,8 @@
               "description": "Placement biliary drainage catheter external",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 7.6
             },
@@ -15728,8 +16299,8 @@
               "description": "Conversion external biliary drain to internal-external",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 6.5
             },
@@ -15739,8 +16310,8 @@
               "description": "Biliary catheter removal",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 2.2
             },
@@ -15750,8 +16321,8 @@
               "description": "Percutaneous biopsy pancreas",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 3.7
             },
@@ -15761,8 +16332,8 @@
               "description": "Percutaneous abdominal/retroperitoneal abscess drainage catheter placement",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 5.1
             },
@@ -15772,8 +16343,8 @@
               "description": "Image-guided fluid collection drainage by catheter soft tissue",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 5.4
             },
@@ -15783,11 +16354,16 @@
               "description": "Image-guided fluid collection drainage by catheter visceral",
               "modifiers": [],
               "icd10": [
-                "K83.1",
-                "N13.30"
+                "I82.409",
+                "I72.9"
               ],
               "work_rvu": 5.7
-            },
+            }
+          ]
+        },
+        "ir_drains_expanded": {
+          "question": "Interventional radiology drainage / biliary / GU procedures?",
+          "options": [
             {
               "label": "Tunneled intraperitoneal catheter placement",
               "cpt_code": "49418",
@@ -15897,6 +16473,566 @@
                 "N13.30"
               ],
               "work_rvu": 5.6
+            },
+            {
+              "label": "Renal endoscopy through nephrotomy or pyelotomy with removal foreign body/calculus",
+              "cpt_code": "50574",
+              "description": "Renal endoscopy through nephrotomy or pyelotomy with removal foreign body/calculus",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 11.8
+            },
+            {
+              "label": "Endovascular intracranial prolonged administration pharmacologic agent",
+              "cpt_code": "61650",
+              "description": "Endovascular intracranial prolonged administration pharmacologic agent",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 9.8
+            },
+            {
+              "label": "Endovascular intracranial infusion other than thrombolysis",
+              "cpt_code": "61651",
+              "description": "Endovascular intracranial infusion other than thrombolysis",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 10.2
+            },
+            {
+              "label": "Endovascular temporary balloon occlusion head/neck vessel",
+              "cpt_code": "61623",
+              "description": "Endovascular temporary balloon occlusion head/neck vessel",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Transcatheter intracranial mechanical thrombectomy",
+              "cpt_code": "61624",
+              "description": "Transcatheter intracranial mechanical thrombectomy",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 14.7
+            },
+            {
+              "label": "Transcatheter occlusion/embolization CNS non-head/neck hemorrhage/lesion",
+              "cpt_code": "61626",
+              "description": "Transcatheter occlusion/embolization CNS non-head/neck hemorrhage/lesion",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 13.4
+            },
+            {
+              "label": "Transcatheter closure arterial puncture or closure device",
+              "cpt_code": "61630",
+              "description": "Transcatheter closure arterial puncture or closure device",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Angiography extremity unilateral radiological supervision and interpretation",
+              "cpt_code": "75710",
+              "description": "Angiography extremity unilateral radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 1.9
+            },
+            {
+              "label": "Angiography extremity bilateral radiological supervision and interpretation",
+              "cpt_code": "75716",
+              "description": "Angiography extremity bilateral radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 2.8
+            },
+            {
+              "label": "Venography extremity unilateral radiological supervision and interpretation",
+              "cpt_code": "75820",
+              "description": "Venography extremity unilateral radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "K83.1",
+                "N13.30"
+              ],
+              "work_rvu": 1.6
+            }
+          ]
+        },
+        "ir_image_guidance_extra": {
+          "question": "Interventional radiology image guidance / biopsy / thoracic procedures?",
+          "options": [
+            {
+              "label": "Venography extremity bilateral radiological supervision and interpretation",
+              "cpt_code": "75822",
+              "description": "Venography extremity bilateral radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Cavography inferior vena cava radiological supervision and interpretation",
+              "cpt_code": "75825",
+              "description": "Cavography inferior vena cava radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.7
+            },
+            {
+              "label": "Transcatheter therapy infusion other than thrombolysis radiological supervision and interpretation",
+              "cpt_code": "75970",
+              "description": "Transcatheter therapy infusion other than thrombolysis radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 2.9
+            },
+            {
+              "label": "Angioplasty peripheral vessel radiological supervision and interpretation initial",
+              "cpt_code": "75978",
+              "description": "Angioplasty peripheral vessel radiological supervision and interpretation initial",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Exchange drainage catheter radiological supervision and interpretation",
+              "cpt_code": "75980",
+              "description": "Exchange drainage catheter radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.3
+            },
+            {
+              "label": "Percutaneous drainage radiological supervision and interpretation",
+              "cpt_code": "75982",
+              "description": "Percutaneous drainage radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Change abscess drainage catheter radiological supervision and interpretation",
+              "cpt_code": "75984",
+              "description": "Change abscess drainage catheter radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Removal tunneled intraperitoneal catheter radiological supervision and interpretation",
+              "cpt_code": "75989",
+              "description": "Removal tunneled intraperitoneal catheter radiological supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.1
+            },
+            {
+              "label": "CT limited or localized follow-up study",
+              "cpt_code": "76380",
+              "description": "CT limited or localized follow-up study",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 0.9
+            },
+            {
+              "label": "MR spectroscopy",
+              "cpt_code": "76390",
+              "description": "MR spectroscopy",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Ultrasound guidance for needle placement imaging supervision and interpretation",
+              "cpt_code": "76942",
+              "description": "Ultrasound guidance for needle placement imaging supervision and interpretation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.1
+            },
+            {
+              "label": "Ultrasound guidance intraoperative",
+              "cpt_code": "76978",
+              "description": "Ultrasound guidance intraoperative",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 0.9
+            },
+            {
+              "label": "Fluoroscopic guidance for needle placement",
+              "cpt_code": "77002",
+              "description": "Fluoroscopic guidance for needle placement",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 0.7
+            },
+            {
+              "label": "Fluoroscopic guidance for spine/paraspinous diagnostic/therapeutic injection",
+              "cpt_code": "77003",
+              "description": "Fluoroscopic guidance for spine/paraspinous diagnostic/therapeutic injection",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 0.8
+            },
+            {
+              "label": "CT guidance for needle placement",
+              "cpt_code": "77012",
+              "description": "CT guidance for needle placement",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "MR guidance for needle placement",
+              "cpt_code": "77013",
+              "description": "MR guidance for needle placement",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "MRI guidance for parenchymal tissue ablation",
+              "cpt_code": "77021",
+              "description": "MRI guidance for parenchymal tissue ablation",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 2.3
+            },
+            {
+              "label": "Placement soft tissue localization device first lesion image guided",
+              "cpt_code": "10035",
+              "description": "Placement soft tissue localization device first lesion image guided",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Placement soft tissue localization device each additional lesion",
+              "cpt_code": "10036",
+              "description": "Placement soft tissue localization device each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 0.7
+            },
+            {
+              "label": "FNA with ultrasound guidance first lesion",
+              "cpt_code": "10005",
+              "description": "FNA with ultrasound guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "R91.8",
+                "R18.8"
+              ],
+              "work_rvu": 1.4
+            }
+          ]
+        },
+        "ir_thrombo_neuro_extra": {
+          "question": "Interventional radiology thrombolysis / thrombectomy / neuroendovascular procedures?",
+          "options": [
+            {
+              "label": "FNA with ultrasound guidance each additional lesion",
+              "cpt_code": "10006",
+              "description": "FNA with ultrasound guidance each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 0.5
+            },
+            {
+              "label": "FNA with fluoroscopic guidance first lesion",
+              "cpt_code": "10009",
+              "description": "FNA with fluoroscopic guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 1.5
+            },
+            {
+              "label": "FNA with fluoroscopic guidance each additional lesion",
+              "cpt_code": "10010",
+              "description": "FNA with fluoroscopic guidance each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 0.6
+            },
+            {
+              "label": "FNA with CT guidance first lesion",
+              "cpt_code": "10011",
+              "description": "FNA with CT guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 1.6
+            },
+            {
+              "label": "FNA with CT guidance each additional lesion",
+              "cpt_code": "10012",
+              "description": "FNA with CT guidance each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 0.7
+            },
+            {
+              "label": "FNA without imaging guidance first lesion",
+              "cpt_code": "10021",
+              "description": "FNA without imaging guidance first lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 1.27
+            },
+            {
+              "label": "FNA without imaging guidance each additional lesion",
+              "cpt_code": "10022",
+              "description": "FNA without imaging guidance each additional lesion",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 0.4
+            },
+            {
+              "label": "Placement indwelling tunneled pleural catheter with cuff",
+              "cpt_code": "32553",
+              "description": "Placement indwelling tunneled pleural catheter with cuff",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Thoracentesis diagnostic or therapeutic needle/catheter aspiration",
+              "cpt_code": "32554",
+              "description": "Thoracentesis diagnostic or therapeutic needle/catheter aspiration",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Thoracentesis with imaging guidance",
+              "cpt_code": "32555",
+              "description": "Thoracentesis with imaging guidance",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 1.51
+            },
+            {
+              "label": "Pleural drainage by tube/catheter without imaging",
+              "cpt_code": "32556",
+              "description": "Pleural drainage by tube/catheter without imaging",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 2.1
+            },
+            {
+              "label": "Pleural drainage by tube/catheter with imaging",
+              "cpt_code": "32557",
+              "description": "Pleural drainage by tube/catheter with imaging",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Primary percutaneous arterial mechanical thrombectomy noncoronary/nonintracranial",
+              "cpt_code": "37184",
+              "description": "Primary percutaneous arterial mechanical thrombectomy noncoronary/nonintracranial",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 12.1
+            },
+            {
+              "label": "Secondary/each additional segment arterial mechanical thrombectomy",
+              "cpt_code": "37185",
+              "description": "Secondary/each additional segment arterial mechanical thrombectomy",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Primary percutaneous venous mechanical thrombectomy noncoronary/nonintracranial",
+              "cpt_code": "37186",
+              "description": "Primary percutaneous venous mechanical thrombectomy noncoronary/nonintracranial",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Secondary/each additional venous segment mechanical thrombectomy",
+              "cpt_code": "37187",
+              "description": "Secondary/each additional venous segment mechanical thrombectomy",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 4.5
+            },
+            {
+              "label": "Transcatheter thrombolysis arterial initial day",
+              "cpt_code": "37211",
+              "description": "Transcatheter thrombolysis arterial initial day",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Transcatheter thrombolysis venous initial day",
+              "cpt_code": "37212",
+              "description": "Transcatheter thrombolysis venous initial day",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 6.5
+            },
+            {
+              "label": "Transcatheter thrombolysis arterial infusion subsequent day",
+              "cpt_code": "37213",
+              "description": "Transcatheter thrombolysis arterial infusion subsequent day",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Transcatheter thrombolysis venous infusion subsequent day",
+              "cpt_code": "37214",
+              "description": "Transcatheter thrombolysis venous infusion subsequent day",
+              "modifiers": [],
+              "icd10": [
+                "I63.9",
+                "I74.9"
+              ],
+              "work_rvu": 4.7
             }
           ]
         }
