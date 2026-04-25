@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administration Dashboard · Free CPT Code Finder</title>
+<meta name="description" content="Internal administration dashboard for monitoring FreeCPTCodeFinder traffic, referral sources, and content priorities.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://freecptcodefinder.com/admin.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFAF7;--white:#fff;--ink:#0A0A0A;--ink2:#52525B;--ink3:#9A9A94;--line:#E4E4E0;--line2:#CFCCC0;--ox:#6E1919;--ox2:#F4EBEB;--moss:#2D5A3D;--warn:#A8611A}
+*{box-sizing:border-box;margin:0;padding:0} html,body{background:var(--paper);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 72px}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:28px}.brand{display:flex;gap:14px;align-items:flex-start}.mark{width:34px;height:34px;border:2px solid var(--ink);border-radius:8px;display:grid;place-items:center;font-weight:800}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:700}.title{font-size:2rem;line-height:1.05;letter-spacing:-.03em;margin-top:6px}.sub{color:var(--ink2);max-width:760px;margin-top:8px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 1px 0 rgba(0,0,0,.03)}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-3{grid-column:span 3}@media(max-width:980px){.span-8,.span-6,.span-4,.span-3{grid-column:span 12}}h2{font-size:1.05rem;letter-spacing:-.02em;margin-bottom:12px}h3{font-size:.95rem;margin-bottom:10px}.metric{display:flex;flex-direction:column;gap:6px}.metric .label{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);font-weight:700}.metric .value{font-size:1.8rem;font-weight:800;letter-spacing:-.03em}.metric .hint{color:var(--ink2);font-size:.92rem}.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ox2);color:var(--ox);border:1px solid #ead8d8;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.list{display:grid;gap:10px}.row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.mono{font-family:'JetBrains Mono',ui-monospace,monospace}.muted{color:var(--ink2)}textarea{width:100%;min-height:190px;border:1px solid var(--line2);border-radius:16px;background:#fff;padding:14px 15px;font:14px/1.55 'JetBrains Mono',ui-monospace,monospace;color:var(--ink)}button{appearance:none;border:0;border-radius:12px;background:var(--ox);color:#fff;padding:11px 14px;font-weight:700;cursor:pointer}.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line2)}.btns{display:flex;gap:10px;flex-wrap:wrap}.tag{display:inline-block;border:1px solid var(--line2);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;color:var(--ink2);margin:0 8px 8px 0}.small{font-size:.92rem;color:var(--ink2)}.note{background:#fff8e8;border:1px solid #efd9a8;color:#6d4b00;border-radius:14px;padding:12px 14px;font-size:.93rem}.good{color:var(--moss);font-weight:700}.footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink2);font-size:.92rem}
+</style></head><body><div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <div class="mark">↗</div>
+      <div>
+        <div class="eyebrow">Free CPT Code Finder</div>
+        <div class="title">Administration Dashboard</div>
+        <p class="sub">Static internal dashboard for tracking traffic, referrals, top pages, growth actions, and reporting snapshots. This page is designed for GitHub Pages, so live analytics must come from GA4, Search Console, or exported data pasted here.</p>
+      </div>
+    </div>
+    <div class="pill">Internal Use</div>
+  </div>
+
+  <div class="grid">
+    <section class="card span-3"><div class="metric"><div class="label">Last Review</div><div class="value mono" id="lastReview">Not set</div><div class="hint">Update after each traffic check</div></div></section>
+    <section class="card span-3"><div class="metric"><div class="label">Sessions</div><div class="value mono" id="sessionsValue">--</div><div class="hint">Paste GA4 or manual count</div></div></section>
+    <section class="card span-3"><div class="metric"><div class="label">Referrals</div><div class="value mono" id="referralsValue">--</div><div class="hint">Top external source count</div></div></section>
+    <section class="card span-3"><div class="metric"><div class="label">Conversion Focus</div><div class="value" style="font-size:1.1rem;line-height:1.3">AdSense-ready trust + repeat search traffic</div><div class="hint">Current operating goal</div></div></section>
+
+    <section class="card span-8">
+      <h2>Traffic and Referral Snapshot</h2>
+      <div class="note" style="margin-bottom:14px">Because FreeCPTCodeFinder is currently a static GitHub Pages site, this dashboard does <strong>not</strong> pull live analytics by itself. Use it as the operating panel for pasted GA4 / Search Console / referral data and quick decisions.</div>
+      <div class="btns" style="margin-bottom:12px">
+        <button id="saveSnapshot">Save snapshot locally</button>
+        <button class="btn-ghost" id="clearSnapshot">Clear snapshot</button>
+      </div>
+      <textarea id="snapshotBox" placeholder="Paste GA4 metrics, top pages, top referrals, Search Console notes, or manual daily summary here.
+
+Example:
+Sessions: 412
+Users: 301
+Top referrals: LinkedIn 57, Google organic 188, direct 121
+Top pages: / 162, /codes/44970.html 48, /blog/guides/cpt-code-appendectomy.html 41"></textarea>
+      <p class="small" style="margin-top:10px">Saved in browser local storage on this machine only.</p>
+    </section>
+
+    <section class="card span-4">
+      <h2>Quick Links</h2>
+      <div class="list">
+        <div class="row"><span>Homepage</span><a class="mono" href="/" target="_blank">open</a></div>
+        <div class="row"><span>GA4 Property</span><span class="mono">G-NPFGH437ZS</span></div>
+        <div class="row"><span>Search Console</span><a class="mono" href="https://search.google.com/search-console" target="_blank">open</a></div>
+        <div class="row"><span>GitHub Pages Site</span><a class="mono" href="https://freecptcodefinder.com" target="_blank">open</a></div>
+      </div>
+    </section>
+
+    <section class="card span-6">
+      <h2>Referral Sites to Watch</h2>
+      <div>
+        <span class="tag">Google Organic</span>
+        <span class="tag">LinkedIn</span>
+        <span class="tag">Facebook</span>
+        <span class="tag">Reddit</span>
+        <span class="tag">Twitter/X</span>
+        <span class="tag">Direct</span>
+        <span class="tag">Surgical forums</span>
+        <span class="tag">Training program sites</span>
+      </div>
+      <p class="small" style="margin-top:10px">Track which channels actually send quality users, not just vanity traffic.</p>
+    </section>
+
+    <section class="card span-6">
+      <h2>Priority Metrics</h2>
+      <div class="list">
+        <div class="row"><span>Sessions</span><span class="mono">daily / weekly</span></div>
+        <div class="row"><span>Top referral domains</span><span class="mono">quality > volume</span></div>
+        <div class="row"><span>Top landing pages</span><span class="mono">homepage + code pages + guides</span></div>
+        <div class="row"><span>Bounce / engagement quality</span><span class="mono">manual review</span></div>
+        <div class="row"><span>Repeat traffic signs</span><span class="mono">brand/direct/returning</span></div>
+      </div>
+    </section>
+
+    <section class="card span-6">
+      <h2>Top Referral Domains</h2>
+      <div class="list" id="referralList">
+        <div class="row"><span class="muted">No referral data saved yet</span><span class="mono">--</span></div>
+      </div>
+    </section>
+
+    <section class="card span-6">
+      <h2>Top Traffic Pages</h2>
+      <div class="list" id="pageList">
+        <div class="row"><span class="muted">No page data saved yet</span><span class="mono">--</span></div>
+      </div>
+    </section>
+
+    <section class="card span-12">
+      <h2>Operating Notes</h2>
+      <div class="list">
+        <div class="row"><span>AdSense readiness</span><span class="good">Wait until GitHub Pages fixes the www certificate</span></div>
+        <div class="row"><span>Best growth paths</span><span class="muted">high-intent Google searches, founder-led LinkedIn posts, practical coding guides</span></div>
+        <div class="row"><span>Best referral opportunities</span><span class="muted">surgery communities, resident education, coding discussions, physician social posts</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer">This page is intentionally lightweight and static so it works on GitHub Pages. If you want live traffic/referral reporting inside the site, the next step is a small backend that reads GA4/Search Console APIs securely.</div>
+</div>
+<script>
+const KEY='fccf-admin-snapshot-v1';
+const box=document.getElementById('snapshotBox');
+const lastReview=document.getElementById('lastReview');
+const sessionsValue=document.getElementById('sessionsValue');
+const referralsValue=document.getElementById('referralsValue');
+const referralList=document.getElementById('referralList');
+const pageList=document.getElementById('pageList');
+
+function parseLines(text){
+  const lines=text.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  const pages=[]; const refs=[]; let sessions='--';
+  for(const line of lines){
+    if(/^sessions:/i.test(line)) sessions=line.split(':').slice(1).join(':').trim();
+    if(/^top referrals?:/i.test(line)){
+      line.split(':').slice(1).join(':').split(',').map(x=>x.trim()).filter(Boolean).forEach(x=>refs.push(x));
+    }
+    if(/^top pages?:/i.test(line)){
+      line.split(':').slice(1).join(':').split(',').map(x=>x.trim()).filter(Boolean).forEach(x=>pages.push(x));
+    }
+  }
+  return {sessions,pages,refs};
+}
+function renderDerived(text, stamp){
+  const {sessions,pages,refs}=parseLines(text);
+  sessionsValue.textContent=sessions||'--';
+  referralsValue.textContent=refs.length?String(refs.length):'--';
+  lastReview.textContent=stamp||'Not set';
+  referralList.innerHTML=refs.length?refs.map(x=>`<div class="row"><span>${x.split(/\s+(?=\d+$)/)[0]}</span><span class="mono">${x.match(/\d+$/)?.[0]||''}</span></div>`).join(''):'<div class="row"><span class="muted">No referral data saved yet</span><span class="mono">--</span></div>';
+  pageList.innerHTML=pages.length?pages.map(x=>`<div class="row"><span>${x.split(/\s+(?=\d+$)/)[0]}</span><span class="mono">${x.match(/\d+$/)?.[0]||''}</span></div>`).join(''):'<div class="row"><span class="muted">No page data saved yet</span><span class="mono">--</span></div>';
+}
+const saved=localStorage.getItem(KEY);
+if(saved){
+  try{const data=JSON.parse(saved);box.value=data.text||'';renderDerived(data.text||'',data.stamp||'Not set');}catch(e){}
+}
+document.getElementById('saveSnapshot').onclick=()=>{const payload={text:box.value,stamp:new Date().toLocaleString()};localStorage.setItem(KEY,JSON.stringify(payload));renderDerived(payload.text,payload.stamp);};
+document.getElementById('clearSnapshot').onclick=()=>{localStorage.removeItem(KEY);box.value='';renderDerived('', 'Not set');};
+</script></body></html>
