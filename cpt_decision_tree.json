@@ -23957,6 +23957,1155 @@
           ]
         }
       }
+    },
+    {
+      "name": "Orthopedic Traumatology",
+      "specialty": "Orthopedic Traumatology",
+      "questions": [
+        {
+          "question": "Type of orthopedic trauma procedure?",
+          "options": [
+            {
+              "label": "Shoulder / Humerus / Elbow Trauma",
+              "next": "ortho_tr_upper"
+            },
+            {
+              "label": "Forearm / Wrist / Hand Trauma",
+              "next": "ortho_tr_forearm_hand"
+            },
+            {
+              "label": "Spine / Chest / Pelvis Trauma",
+              "next": "ortho_tr_axial"
+            },
+            {
+              "label": "Lower Extremity / External Fixation / Limb Salvage Trauma",
+              "next": "ortho_tr_lower"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "ortho_tr_upper": {
+          "question": "Upper extremity orthopedic trauma procedures?",
+          "options": [
+            {
+              "label": "Application uniplane external fixation system",
+              "cpt_code": "20690",
+              "description": "Application uniplane external fixation system",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 6.0
+            },
+            {
+              "label": "Application multiplane external fixation system",
+              "cpt_code": "20692",
+              "description": "Application multiplane external fixation system",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Adjustment/revision external fixation system requiring anesthesia",
+              "cpt_code": "20693",
+              "description": "Adjustment/revision external fixation system requiring anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Removal external fixation system under anesthesia",
+              "cpt_code": "20694",
+              "description": "Removal external fixation system under anesthesia",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 3.8
+            },
+            {
+              "label": "Open treatment nasal fracture with stabilization",
+              "cpt_code": "21334",
+              "description": "Open treatment nasal fracture with stabilization",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Open treatment septal fracture with stabilization",
+              "cpt_code": "21335",
+              "description": "Open treatment septal fracture with stabilization",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.9
+            },
+            {
+              "label": "Open treatment nasal septal fracture with or without stabilization",
+              "cpt_code": "21336",
+              "description": "Open treatment nasal septal fracture with or without stabilization",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 6.1
+            },
+            {
+              "label": "Closed treatment nasal septal fracture with stabilization",
+              "cpt_code": "21337",
+              "description": "Closed treatment nasal septal fracture with stabilization",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Open treatment LeFort I fracture",
+              "cpt_code": "21422",
+              "description": "Open treatment LeFort I fracture",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 18.9
+            },
+            {
+              "label": "Open treatment LeFort I fracture multiple approaches",
+              "cpt_code": "21423",
+              "description": "Open treatment LeFort I fracture multiple approaches",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 21.5
+            },
+            {
+              "label": "Open treatment LeFort II fracture",
+              "cpt_code": "21431",
+              "description": "Open treatment LeFort II fracture",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 24.7
+            },
+            {
+              "label": "Open treatment LeFort II fracture multiple approaches",
+              "cpt_code": "21432",
+              "description": "Open treatment LeFort II fracture multiple approaches",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 27.1
+            },
+            {
+              "label": "Open treatment complicated LeFort II fracture",
+              "cpt_code": "21435",
+              "description": "Open treatment complicated LeFort II fracture",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 29.8
+            },
+            {
+              "label": "Open treatment LeFort III fracture",
+              "cpt_code": "21436",
+              "description": "Open treatment LeFort III fracture",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 31.4
+            },
+            {
+              "label": "Open treatment craniofacial separation fracture",
+              "cpt_code": "21440",
+              "description": "Open treatment craniofacial separation fracture",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 34.2
+            },
+            {
+              "label": "Open treatment mandible fracture body/simple",
+              "cpt_code": "21445",
+              "description": "Open treatment mandible fracture body/simple",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 14.7
+            },
+            {
+              "label": "Closed treatment mandibular fracture without manipulation",
+              "cpt_code": "21450",
+              "description": "Closed treatment mandibular fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Closed treatment mandibular fracture with manipulation",
+              "cpt_code": "21451",
+              "description": "Closed treatment mandibular fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 7.2
+            },
+            {
+              "label": "Percutaneous treatment mandibular fracture with external fixation",
+              "cpt_code": "21452",
+              "description": "Percutaneous treatment mandibular fracture with external fixation",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 10.6
+            },
+            {
+              "label": "Closed treatment mandibular fracture with interdental fixation",
+              "cpt_code": "21453",
+              "description": "Closed treatment mandibular fracture with interdental fixation",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 7.6
+            },
+            {
+              "label": "Open treatment mandibular fracture with internal fixation",
+              "cpt_code": "21454",
+              "description": "Open treatment mandibular fracture with internal fixation",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 15.8
+            },
+            {
+              "label": "Open treatment mandibular condylar fracture",
+              "cpt_code": "21461",
+              "description": "Open treatment mandibular condylar fracture",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 16.4
+            },
+            {
+              "label": "Open treatment mandibular condylar fracture complex",
+              "cpt_code": "21462",
+              "description": "Open treatment mandibular condylar fracture complex",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 18.2
+            },
+            {
+              "label": "Open treatment mandibular fracture with interdental fixation",
+              "cpt_code": "21465",
+              "description": "Open treatment mandibular fracture with interdental fixation",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 15.1
+            },
+            {
+              "label": "Open treatment rib fracture fixation unilateral 1-3 ribs",
+              "cpt_code": "21811",
+              "description": "Open treatment rib fracture fixation unilateral 1-3 ribs",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 11.0
+            },
+            {
+              "label": "Open treatment rib fracture fixation unilateral 4-6 ribs",
+              "cpt_code": "21812",
+              "description": "Open treatment rib fracture fixation unilateral 4-6 ribs",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 14.0
+            },
+            {
+              "label": "Open treatment rib fracture fixation unilateral 7 or more ribs",
+              "cpt_code": "21813",
+              "description": "Open treatment rib fracture fixation unilateral 7 or more ribs",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 17.0
+            },
+            {
+              "label": "Closed treatment vertebral body fracture without manipulation requiring cast/brace cervical",
+              "cpt_code": "22310",
+              "description": "Closed treatment vertebral body fracture without manipulation requiring cast/brace cervical",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Closed treatment vertebral process fracture without manipulation cervical",
+              "cpt_code": "22315",
+              "description": "Closed treatment vertebral process fracture without manipulation cervical",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Closed treatment vertebral body fracture without manipulation thoracic",
+              "cpt_code": "22318",
+              "description": "Closed treatment vertebral body fracture without manipulation thoracic",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 7.0
+            },
+            {
+              "label": "Closed treatment vertebral process fracture without manipulation thoracic",
+              "cpt_code": "22319",
+              "description": "Closed treatment vertebral process fracture without manipulation thoracic",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Open treatment vertebral fracture/dislocation one vertebral segment lumbar",
+              "cpt_code": "22325",
+              "description": "Open treatment vertebral fracture/dislocation one vertebral segment lumbar",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 20.03
+            },
+            {
+              "label": "Open treatment vertebral fracture/dislocation each additional segment",
+              "cpt_code": "22326",
+              "description": "Open treatment vertebral fracture/dislocation each additional segment",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Open treatment vertebral fracture/dislocation one cervical vertebral segment",
+              "cpt_code": "22327",
+              "description": "Open treatment vertebral fracture/dislocation one cervical vertebral segment",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 22.8
+            },
+            {
+              "label": "Open treatment vertebral fracture/dislocation each additional cervical segment",
+              "cpt_code": "22328",
+              "description": "Open treatment vertebral fracture/dislocation each additional cervical segment",
+              "modifiers": [],
+              "icd10": [
+                "S42.90XA",
+                "S52.90XA"
+              ],
+              "work_rvu": 5.8
+            }
+          ]
+        },
+        "ortho_tr_forearm_hand": {
+          "question": "Forearm / wrist / hand orthopedic trauma procedures?",
+          "options": [
+            {
+              "label": "Open treatment vertebral fracture/dislocation thoracic vertebral segment",
+              "cpt_code": "22329",
+              "description": "Open treatment vertebral fracture/dislocation thoracic vertebral segment",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 21.4
+            },
+            {
+              "label": "Open treatment vertebral fracture/dislocation each additional thoracic segment",
+              "cpt_code": "22330",
+              "description": "Open treatment vertebral fracture/dislocation each additional thoracic segment",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Open treatment clavicular fracture internal fixation",
+              "cpt_code": "23515",
+              "description": "Open treatment clavicular fracture internal fixation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 10.5
+            },
+            {
+              "label": "Closed treatment clavicular fracture without manipulation",
+              "cpt_code": "23530",
+              "description": "Closed treatment clavicular fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Closed treatment clavicular fracture with manipulation",
+              "cpt_code": "23532",
+              "description": "Closed treatment clavicular fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.5
+            },
+            {
+              "label": "Open treatment scapular fracture body/glenoid neck",
+              "cpt_code": "23545",
+              "description": "Open treatment scapular fracture body/glenoid neck",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 15.4
+            },
+            {
+              "label": "Closed treatment scapular fracture",
+              "cpt_code": "23570",
+              "description": "Closed treatment scapular fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 3.8
+            },
+            {
+              "label": "Closed treatment proximal humeral fracture without manipulation",
+              "cpt_code": "23600",
+              "description": "Closed treatment proximal humeral fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Closed treatment proximal humeral fracture with manipulation",
+              "cpt_code": "23605",
+              "description": "Closed treatment proximal humeral fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Open treatment proximal humeral fracture internal fixation/prosthetic replacement",
+              "cpt_code": "23615",
+              "description": "Open treatment proximal humeral fracture internal fixation/prosthetic replacement",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 16.0
+            },
+            {
+              "label": "Open treatment proximal humeral fracture greater tuberosity",
+              "cpt_code": "23616",
+              "description": "Open treatment proximal humeral fracture greater tuberosity",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 12.6
+            },
+            {
+              "label": "Closed treatment greater humeral tuberosity fracture",
+              "cpt_code": "23620",
+              "description": "Closed treatment greater humeral tuberosity fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Closed treatment surgical neck humerus fracture",
+              "cpt_code": "23630",
+              "description": "Closed treatment surgical neck humerus fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.3
+            },
+            {
+              "label": "Open treatment shoulder dislocation with humeral avulsion",
+              "cpt_code": "23665",
+              "description": "Open treatment shoulder dislocation with humeral avulsion",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 14.2
+            },
+            {
+              "label": "Closed treatment humeral shaft fracture without manipulation",
+              "cpt_code": "24500",
+              "description": "Closed treatment humeral shaft fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.5
+            },
+            {
+              "label": "Closed treatment humeral shaft fracture with manipulation",
+              "cpt_code": "24505",
+              "description": "Closed treatment humeral shaft fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Open treatment humeral shaft fracture with plate/screws",
+              "cpt_code": "24515",
+              "description": "Open treatment humeral shaft fracture with plate/screws",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 13.8
+            },
+            {
+              "label": "Open treatment humeral shaft fracture with intramedullary implant",
+              "cpt_code": "24516",
+              "description": "Open treatment humeral shaft fracture with intramedullary implant",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 14.4
+            },
+            {
+              "label": "Closed treatment humeral condylar fracture",
+              "cpt_code": "24535",
+              "description": "Closed treatment humeral condylar fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Percutaneous skeletal fixation supracondylar/intercondylar humeral fracture",
+              "cpt_code": "24538",
+              "description": "Percutaneous skeletal fixation supracondylar/intercondylar humeral fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 10.4
+            },
+            {
+              "label": "Open treatment humeral supracondylar/intercondylar fracture",
+              "cpt_code": "24545",
+              "description": "Open treatment humeral supracondylar/intercondylar fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 15.0
+            },
+            {
+              "label": "Open treatment humeral supracondylar/intercondylar fracture with bone graft",
+              "cpt_code": "24546",
+              "description": "Open treatment humeral supracondylar/intercondylar fracture with bone graft",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 16.8
+            },
+            {
+              "label": "Closed treatment humeral epicondylar fracture medial/lateral",
+              "cpt_code": "24575",
+              "description": "Closed treatment humeral epicondylar fracture medial/lateral",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Closed treatment humeral epicondylar fracture with manipulation",
+              "cpt_code": "24579",
+              "description": "Closed treatment humeral epicondylar fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Percutaneous fixation humeral epicondylar fracture",
+              "cpt_code": "24582",
+              "description": "Percutaneous fixation humeral epicondylar fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 8.2
+            },
+            {
+              "label": "Open treatment humeral epicondylar fracture",
+              "cpt_code": "24586",
+              "description": "Open treatment humeral epicondylar fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 11.6
+            },
+            {
+              "label": "Closed treatment elbow dislocation",
+              "cpt_code": "24605",
+              "description": "Closed treatment elbow dislocation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 3.7
+            },
+            {
+              "label": "Open treatment acute/chronic elbow dislocation",
+              "cpt_code": "24615",
+              "description": "Open treatment acute/chronic elbow dislocation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 13.3
+            },
+            {
+              "label": "Closed treatment condylar fracture distal humerus",
+              "cpt_code": "24620",
+              "description": "Closed treatment condylar fracture distal humerus",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.4
+            },
+            {
+              "label": "Closed treatment Monteggia fracture dislocation",
+              "cpt_code": "24635",
+              "description": "Closed treatment Monteggia fracture dislocation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 5.3
+            },
+            {
+              "label": "Open treatment radial head/neck fracture",
+              "cpt_code": "24655",
+              "description": "Open treatment radial head/neck fracture",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 12.3
+            },
+            {
+              "label": "Open treatment radial head/neck fracture with prosthetic replacement",
+              "cpt_code": "24665",
+              "description": "Open treatment radial head/neck fracture with prosthetic replacement",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 14.5
+            },
+            {
+              "label": "Closed treatment ulnar fracture proximal end",
+              "cpt_code": "24670",
+              "description": "Closed treatment ulnar fracture proximal end",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Closed treatment ulnar fracture proximal end with manipulation",
+              "cpt_code": "24675",
+              "description": "Closed treatment ulnar fracture proximal end with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Open treatment ulnar fracture proximal end",
+              "cpt_code": "24685",
+              "description": "Open treatment ulnar fracture proximal end",
+              "modifiers": [],
+              "icd10": [
+                "S52.90XA",
+                "S62.90XA"
+              ],
+              "work_rvu": 11.1
+            }
+          ]
+        },
+        "ortho_tr_axial": {
+          "question": "Axial / chest / spine / pelvis trauma procedures?",
+          "options": [
+            {
+              "label": "Closed treatment radial/ulnar shaft fractures one bone",
+              "cpt_code": "24705",
+              "description": "Closed treatment radial/ulnar shaft fractures one bone",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Open treatment radial/ulnar shaft fracture one bone",
+              "cpt_code": "24715",
+              "description": "Open treatment radial/ulnar shaft fracture one bone",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 11.4
+            },
+            {
+              "label": "Closed treatment Monteggia fracture-dislocation one bone forearm",
+              "cpt_code": "24735",
+              "description": "Closed treatment Monteggia fracture-dislocation one bone forearm",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Open treatment radial/ulnar shaft fractures both bones with/without internal fixation",
+              "cpt_code": "24765",
+              "description": "Open treatment radial/ulnar shaft fractures both bones with/without internal fixation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 14.3
+            },
+            {
+              "label": "Closed treatment elbow fracture/dislocation",
+              "cpt_code": "24800",
+              "description": "Closed treatment elbow fracture/dislocation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Open treatment elbow fracture/dislocation",
+              "cpt_code": "24805",
+              "description": "Open treatment elbow fracture/dislocation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 16.9
+            },
+            {
+              "label": "Closed treatment radial shaft fracture without manipulation",
+              "cpt_code": "25500",
+              "description": "Closed treatment radial shaft fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Closed treatment radial shaft fracture with manipulation",
+              "cpt_code": "25505",
+              "description": "Closed treatment radial shaft fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Open treatment radial shaft fracture",
+              "cpt_code": "25515",
+              "description": "Open treatment radial shaft fracture",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 11.0
+            },
+            {
+              "label": "Closed treatment ulnar shaft fracture without manipulation",
+              "cpt_code": "25520",
+              "description": "Closed treatment ulnar shaft fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Closed treatment ulnar shaft fracture with manipulation",
+              "cpt_code": "25525",
+              "description": "Closed treatment ulnar shaft fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 4.9
+            },
+            {
+              "label": "Open treatment ulnar shaft fracture",
+              "cpt_code": "25530",
+              "description": "Open treatment ulnar shaft fracture",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 10.9
+            },
+            {
+              "label": "Open treatment radial and ulnar shaft fractures with/without fixation",
+              "cpt_code": "25545",
+              "description": "Open treatment radial and ulnar shaft fractures with/without fixation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 13.7
+            },
+            {
+              "label": "Closed treatment distal radial fracture extra-articular",
+              "cpt_code": "25560",
+              "description": "Closed treatment distal radial fracture extra-articular",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Closed treatment distal radial fracture extra-articular with manipulation",
+              "cpt_code": "25565",
+              "description": "Closed treatment distal radial fracture extra-articular with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S22.009A",
+                "S32.9XXA"
+              ],
+              "work_rvu": 5.1
+            }
+          ]
+        },
+        "ortho_tr_lower": {
+          "question": "Lower extremity / external fixation / limb salvage trauma procedures?",
+          "options": [
+            {
+              "label": "Closed treatment distal radial fracture intra-articular 2 fragments",
+              "cpt_code": "25600",
+              "description": "Closed treatment distal radial fracture intra-articular 2 fragments",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Closed treatment distal radial fracture intra-articular 2 fragments with manipulation",
+              "cpt_code": "25605",
+              "description": "Closed treatment distal radial fracture intra-articular 2 fragments with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 5.6
+            },
+            {
+              "label": "Percutaneous skeletal fixation distal radial fracture 2 fragments",
+              "cpt_code": "25606",
+              "description": "Percutaneous skeletal fixation distal radial fracture 2 fragments",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 9.4
+            },
+            {
+              "label": "Open treatment distal radial extra-articular fracture internal fixation",
+              "cpt_code": "25607",
+              "description": "Open treatment distal radial extra-articular fracture internal fixation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 12.2
+            },
+            {
+              "label": "Open treatment distal radial intra-articular 2 fragments",
+              "cpt_code": "25608",
+              "description": "Open treatment distal radial intra-articular 2 fragments",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 13.0
+            },
+            {
+              "label": "Open treatment distal radial intra-articular 3 or more fragments",
+              "cpt_code": "25609",
+              "description": "Open treatment distal radial intra-articular 3 or more fragments",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 14.2
+            },
+            {
+              "label": "Open treatment distal radial extra-articular fracture with fixation distal radioulnar joint",
+              "cpt_code": "25611",
+              "description": "Open treatment distal radial extra-articular fracture with fixation distal radioulnar joint",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 13.8
+            },
+            {
+              "label": "Closed treatment carpal scaphoid fracture without manipulation",
+              "cpt_code": "25622",
+              "description": "Closed treatment carpal scaphoid fracture without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 4.3
+            },
+            {
+              "label": "Closed treatment carpal scaphoid fracture with manipulation",
+              "cpt_code": "25624",
+              "description": "Closed treatment carpal scaphoid fracture with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Open treatment carpal scaphoid fracture with internal fixation",
+              "cpt_code": "25628",
+              "description": "Open treatment carpal scaphoid fracture with internal fixation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 10.6
+            },
+            {
+              "label": "Closed treatment ulnar styloid fracture",
+              "cpt_code": "25650",
+              "description": "Closed treatment ulnar styloid fracture",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 3.5
+            },
+            {
+              "label": "Closed treatment metacarpal fracture single without manipulation",
+              "cpt_code": "26600",
+              "description": "Closed treatment metacarpal fracture single without manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 3.8
+            },
+            {
+              "label": "Closed treatment metacarpal fracture single with manipulation",
+              "cpt_code": "26605",
+              "description": "Closed treatment metacarpal fracture single with manipulation",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 4.6
+            },
+            {
+              "label": "Percutaneous fixation metacarpal fracture single",
+              "cpt_code": "26607",
+              "description": "Percutaneous fixation metacarpal fracture single",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 8.2
+            },
+            {
+              "label": "Open treatment metacarpal fracture single",
+              "cpt_code": "26615",
+              "description": "Open treatment metacarpal fracture single",
+              "modifiers": [],
+              "icd10": [
+                "S72.90XA",
+                "S82.90XA"
+              ],
+              "work_rvu": 10.7
+            }
+          ]
+        }
+      }
     }
   ]
 }
