@@ -12451,6 +12451,18 @@
             {
               "label": "ICP Monitoring",
               "next": "icp_monitor_questions"
+            },
+            {
+              "label": "Cranial / hemorrhage / decompression",
+              "next": "neuro_cranial_extra"
+            },
+            {
+              "label": "Tumor / skull base / stereotactic",
+              "next": "neuro_tumor_extra"
+            },
+            {
+              "label": "Functional / shunt / cranial reconstruction",
+              "next": "neuro_functional_extra"
             }
           ]
         }
@@ -12832,6 +12844,571 @@
                 "G93.2"
               ],
               "work_rvu": 38.85
+            }
+          ]
+        },
+        "neuro_cranial_extra": {
+          "question": "Cranial / hemorrhage / decompression procedures?",
+          "options": [
+            {
+              "label": "Twist drill craniostomy",
+              "cpt_code": "61107",
+              "description": "Twist drill craniostomy",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 7.4
+            },
+            {
+              "label": "Twist drill craniostomy with catheter",
+              "cpt_code": "61108",
+              "description": "Twist drill craniostomy with catheter",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 8.1
+            },
+            {
+              "label": "Burr hole aspiration hematoma/cyst",
+              "cpt_code": "61120",
+              "description": "Burr hole aspiration hematoma/cyst",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 8.9
+            },
+            {
+              "label": "Burr hole ventricular puncture",
+              "cpt_code": "61140",
+              "description": "Burr hole ventricular puncture",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Craniectomy trephination exploratory",
+              "cpt_code": "61150",
+              "description": "Craniectomy trephination exploratory",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 13.4
+            },
+            {
+              "label": "Craniectomy trephination with biopsy",
+              "cpt_code": "61151",
+              "description": "Craniectomy trephination with biopsy",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 15.1
+            },
+            {
+              "label": "Craniectomy subdural hematoma",
+              "cpt_code": "61154",
+              "description": "Craniectomy subdural hematoma",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 18.7
+            },
+            {
+              "label": "Craniotomy supratentorial hematoma",
+              "cpt_code": "61210",
+              "description": "Craniotomy supratentorial hematoma",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 24.2
+            },
+            {
+              "label": "Craniotomy subdural hematoma",
+              "cpt_code": "61215",
+              "description": "Craniotomy subdural hematoma",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 21.9
+            },
+            {
+              "label": "Craniotomy aneurysm anterior circulation",
+              "cpt_code": "61304",
+              "description": "Craniotomy aneurysm anterior circulation",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 38.5
+            },
+            {
+              "label": "Craniotomy aneurysm carotid circulation",
+              "cpt_code": "61305",
+              "description": "Craniotomy aneurysm carotid circulation",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 41.3
+            },
+            {
+              "label": "Craniotomy subdural/epidural hematoma child",
+              "cpt_code": "61312",
+              "description": "Craniotomy subdural/epidural hematoma child",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 21.4
+            },
+            {
+              "label": "Craniectomy intracerebral hematoma",
+              "cpt_code": "61313",
+              "description": "Craniectomy intracerebral hematoma",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 25.8
+            },
+            {
+              "label": "Craniectomy posterior fossa hematoma",
+              "cpt_code": "61314",
+              "description": "Craniectomy posterior fossa hematoma",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 27.1
+            },
+            {
+              "label": "Craniectomy for ischemic stroke/decompression",
+              "cpt_code": "61315",
+              "description": "Craniectomy for ischemic stroke/decompression",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 24.6
+            },
+            {
+              "label": "Craniotomy abscess supratentorial",
+              "cpt_code": "61320",
+              "description": "Craniotomy abscess supratentorial",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 24.4
+            },
+            {
+              "label": "Craniectomy abscess posterior fossa",
+              "cpt_code": "61321",
+              "description": "Craniectomy abscess posterior fossa",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 25.0
+            },
+            {
+              "label": "Craniotomy epilepsy focus excision",
+              "cpt_code": "61440",
+              "description": "Craniotomy epilepsy focus excision",
+              "modifiers": [],
+              "icd10": [
+                "I62.9",
+                "S06.5XAA"
+              ],
+              "work_rvu": 31.7
+            }
+          ]
+        },
+        "neuro_tumor_extra": {
+          "question": "Tumor / skull base / stereotactic procedures?",
+          "options": [
+            {
+              "label": "Craniotomy corpus callosotomy",
+              "cpt_code": "61450",
+              "description": "Craniotomy corpus callosotomy",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 34.6
+            },
+            {
+              "label": "Craniectomy skull base lesion anterior fossa extradural",
+              "cpt_code": "61500",
+              "description": "Craniectomy skull base lesion anterior fossa extradural",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 35.2
+            },
+            {
+              "label": "Craniectomy suboccipital cerebellopontine angle tumor",
+              "cpt_code": "61510",
+              "description": "Craniectomy suboccipital cerebellopontine angle tumor",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 37.4
+            },
+            {
+              "label": "Craniectomy skull base middle fossa",
+              "cpt_code": "61512",
+              "description": "Craniectomy skull base middle fossa",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 36.9
+            },
+            {
+              "label": "Craniectomy skull base extradural lesion posterior fossa",
+              "cpt_code": "61516",
+              "description": "Craniectomy skull base extradural lesion posterior fossa",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 34.8
+            },
+            {
+              "label": "Craniotomy infratentorial brain tumor",
+              "cpt_code": "61518",
+              "description": "Craniotomy infratentorial brain tumor",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 35.6
+            },
+            {
+              "label": "Craniotomy supratentorial brain tumor",
+              "cpt_code": "61519",
+              "description": "Craniotomy supratentorial brain tumor",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 34.9
+            },
+            {
+              "label": "Craniotomy for excision brain abscess/tumor cyst",
+              "cpt_code": "61520",
+              "description": "Craniotomy for excision brain abscess/tumor cyst",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 32.7
+            },
+            {
+              "label": "Craniotomy transsphenoidal hypophysectomy",
+              "cpt_code": "61521",
+              "description": "Craniotomy transsphenoidal hypophysectomy",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 29.8
+            },
+            {
+              "label": "Bifrontal craniotomy anterior skull base lesion",
+              "cpt_code": "61526",
+              "description": "Bifrontal craniotomy anterior skull base lesion",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 40.2
+            },
+            {
+              "label": "Resection AVM cerebellum",
+              "cpt_code": "61605",
+              "description": "Resection AVM cerebellum",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 43.1
+            },
+            {
+              "label": "Resection AVM cerebrum",
+              "cpt_code": "61606",
+              "description": "Resection AVM cerebrum",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 44.0
+            },
+            {
+              "label": "Carotid-cavernous fistula intracranial repair",
+              "cpt_code": "61607",
+              "description": "Carotid-cavernous fistula intracranial repair",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 41.6
+            },
+            {
+              "label": "Infratemporal preauricular skull base lesion",
+              "cpt_code": "61608",
+              "description": "Infratemporal preauricular skull base lesion",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 45.2
+            },
+            {
+              "label": "Subtemporal skull base lesion",
+              "cpt_code": "61610",
+              "description": "Subtemporal skull base lesion",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 42.7
+            },
+            {
+              "label": "Transcochlear skull base lesion",
+              "cpt_code": "61611",
+              "description": "Transcochlear skull base lesion",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 47.3
+            },
+            {
+              "label": "Orbitocranial zygomatic skull base approach",
+              "cpt_code": "61615",
+              "description": "Orbitocranial zygomatic skull base approach",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 44.8
+            },
+            {
+              "label": "Lesioning thalamus/pallidum",
+              "cpt_code": "61720",
+              "description": "Lesioning thalamus/pallidum",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 28.6
+            },
+            {
+              "label": "Stereotactic biopsy intracranial lesion",
+              "cpt_code": "61735",
+              "description": "Stereotactic biopsy intracranial lesion",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 20.1
+            },
+            {
+              "label": "Stereotactic computer-assisted procedure intracranial extradural add-on",
+              "cpt_code": "61750",
+              "description": "Stereotactic computer-assisted procedure intracranial extradural add-on",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 4.0
+            },
+            {
+              "label": "Stereotactic computer-assisted procedure intracranial intradural add-on",
+              "cpt_code": "61751",
+              "description": "Stereotactic computer-assisted procedure intracranial intradural add-on",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Neuronavigation cranial extradural add-on",
+              "cpt_code": "61781",
+              "description": "Neuronavigation cranial extradural add-on",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Neuronavigation cranial intradural add-on",
+              "cpt_code": "61782",
+              "description": "Neuronavigation cranial intradural add-on",
+              "modifiers": [],
+              "icd10": [
+                "D49.6",
+                "C71.9"
+              ],
+              "work_rvu": 5.0
+            }
+          ]
+        },
+        "neuro_functional_extra": {
+          "question": "Functional / shunt / cranial reconstruction procedures?",
+          "options": [
+            {
+              "label": "Burr hole placement neurostimulator electrode",
+              "cpt_code": "61850",
+              "description": "Burr hole placement neurostimulator electrode",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 23.4
+            },
+            {
+              "label": "Cranial neurostimulator insertion pulse generator",
+              "cpt_code": "61860",
+              "description": "Cranial neurostimulator insertion pulse generator",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 18.2
+            },
+            {
+              "label": "Cranioplasty skull defect <=5 cm",
+              "cpt_code": "62100",
+              "description": "Cranioplasty skull defect <=5 cm",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 17.7
+            },
+            {
+              "label": "Cranioplasty skull defect >5 cm",
+              "cpt_code": "62110",
+              "description": "Cranioplasty skull defect >5 cm",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 21.3
+            },
+            {
+              "label": "Reduction/enlargement cranial defect infant",
+              "cpt_code": "62115",
+              "description": "Reduction/enlargement cranial defect infant",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 18.4
+            },
+            {
+              "label": "Craniectomy craniosynostosis single suture",
+              "cpt_code": "62116",
+              "description": "Craniectomy craniosynostosis single suture",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 22.1
+            },
+            {
+              "label": "Repair encephalocele skull",
+              "cpt_code": "62120",
+              "description": "Repair encephalocele skull",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 24.7
+            },
+            {
+              "label": "Creation ventriculoperitoneal shunt",
+              "cpt_code": "62223",
+              "description": "Creation ventriculoperitoneal shunt",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 18.85
+            },
+            {
+              "label": "Revision/removal CSF shunt",
+              "cpt_code": "62230",
+              "description": "Revision/removal CSF shunt",
+              "modifiers": [],
+              "icd10": [
+                "G91.9",
+                "Q75.0"
+              ],
+              "work_rvu": 15.2
             }
           ]
         }
