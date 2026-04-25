@@ -17542,6 +17542,1146 @@
           ]
         }
       }
+    },
+    {
+      "name": "Plastic Surgery",
+      "specialty": "Plastic Surgery",
+      "questions": [
+        {
+          "question": "Type of plastic surgery procedure?",
+          "options": [
+            {
+              "label": "Skin lesions / repair / closure",
+              "next": "plastic_closure"
+            },
+            {
+              "label": "Flaps / grafts / wound bed prep",
+              "next": "plastic_flaps"
+            },
+            {
+              "label": "Aesthetic / body contour / eyelids",
+              "next": "plastic_aesthetic"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "plastic_closure": {
+          "question": "Skin lesion excision / repair procedures?",
+          "options": [
+            {
+              "label": "Incision and drainage abscess, simple or single",
+              "cpt_code": "10060",
+              "description": "Incision and drainage abscess, simple or single",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.05
+            },
+            {
+              "label": "Incision and drainage abscess, complicated or multiple",
+              "cpt_code": "10061",
+              "description": "Incision and drainage abscess, complicated or multiple",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.12
+            },
+            {
+              "label": "Incision and drainage hematoma/seroma/fluid collection",
+              "cpt_code": "10140",
+              "description": "Incision and drainage hematoma/seroma/fluid collection",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.5
+            },
+            {
+              "label": "Debridement subcutaneous tissue first 20 sq cm or less",
+              "cpt_code": "11042",
+              "description": "Debridement subcutaneous tissue first 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.84
+            },
+            {
+              "label": "Debridement muscle and/or fascia first 20 sq cm or less",
+              "cpt_code": "11043",
+              "description": "Debridement muscle and/or fascia first 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.95
+            },
+            {
+              "label": "Debridement bone first 20 sq cm or less",
+              "cpt_code": "11044",
+              "description": "Debridement bone first 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.25
+            },
+            {
+              "label": "Excision benign lesion trunk/arms/legs 0.5 cm or less",
+              "cpt_code": "11400",
+              "description": "Excision benign lesion trunk/arms/legs 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.1
+            },
+            {
+              "label": "Excision benign lesion trunk/arms/legs 0.6 to 1.0 cm",
+              "cpt_code": "11401",
+              "description": "Excision benign lesion trunk/arms/legs 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.4
+            },
+            {
+              "label": "Excision benign lesion trunk/arms/legs 1.1 to 2.0 cm",
+              "cpt_code": "11402",
+              "description": "Excision benign lesion trunk/arms/legs 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.8
+            },
+            {
+              "label": "Excision benign lesion trunk/arms/legs 2.1 to 3.0 cm",
+              "cpt_code": "11403",
+              "description": "Excision benign lesion trunk/arms/legs 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.2
+            },
+            {
+              "label": "Excision benign lesion trunk/arms/legs 3.1 to 4.0 cm",
+              "cpt_code": "11404",
+              "description": "Excision benign lesion trunk/arms/legs 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.7
+            },
+            {
+              "label": "Excision benign lesion trunk/arms/legs over 4.0 cm",
+              "cpt_code": "11406",
+              "description": "Excision benign lesion trunk/arms/legs over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.3
+            },
+            {
+              "label": "Excision benign lesion scalp/neck/hands/feet/genitalia 0.5 cm or less",
+              "cpt_code": "11420",
+              "description": "Excision benign lesion scalp/neck/hands/feet/genitalia 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.2
+            },
+            {
+              "label": "Excision benign lesion scalp/neck/hands/feet/genitalia 0.6 to 1.0 cm",
+              "cpt_code": "11421",
+              "description": "Excision benign lesion scalp/neck/hands/feet/genitalia 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.5
+            },
+            {
+              "label": "Excision benign lesion scalp/neck/hands/feet/genitalia 1.1 to 2.0 cm",
+              "cpt_code": "11422",
+              "description": "Excision benign lesion scalp/neck/hands/feet/genitalia 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.9
+            },
+            {
+              "label": "Excision benign lesion scalp/neck/hands/feet/genitalia 2.1 to 3.0 cm",
+              "cpt_code": "11423",
+              "description": "Excision benign lesion scalp/neck/hands/feet/genitalia 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.3
+            },
+            {
+              "label": "Excision benign lesion scalp/neck/hands/feet/genitalia 3.1 to 4.0 cm",
+              "cpt_code": "11424",
+              "description": "Excision benign lesion scalp/neck/hands/feet/genitalia 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.8
+            },
+            {
+              "label": "Excision benign lesion scalp/neck/hands/feet/genitalia over 4.0 cm",
+              "cpt_code": "11426",
+              "description": "Excision benign lesion scalp/neck/hands/feet/genitalia over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.5
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 0.5 cm or less",
+              "cpt_code": "11600",
+              "description": "Excision malignant lesion trunk/arms/legs 0.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.4
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 0.6 to 1.0 cm",
+              "cpt_code": "11601",
+              "description": "Excision malignant lesion trunk/arms/legs 0.6 to 1.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 1.1 to 2.0 cm",
+              "cpt_code": "11602",
+              "description": "Excision malignant lesion trunk/arms/legs 1.1 to 2.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.9
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 2.1 to 3.0 cm",
+              "cpt_code": "11603",
+              "description": "Excision malignant lesion trunk/arms/legs 2.1 to 3.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.3
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs 3.1 to 4.0 cm",
+              "cpt_code": "11604",
+              "description": "Excision malignant lesion trunk/arms/legs 3.1 to 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.8
+            },
+            {
+              "label": "Excision malignant lesion trunk/arms/legs over 4.0 cm",
+              "cpt_code": "11606",
+              "description": "Excision malignant lesion trunk/arms/legs over 4.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.68
+            },
+            {
+              "label": "Simple repair superficial wounds trunk/extremities 2.5 cm or less",
+              "cpt_code": "12001",
+              "description": "Simple repair superficial wounds trunk/extremities 2.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.53
+            },
+            {
+              "label": "Simple repair superficial wounds trunk/extremities 2.6 to 7.5 cm",
+              "cpt_code": "12002",
+              "description": "Simple repair superficial wounds trunk/extremities 2.6 to 7.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.85
+            },
+            {
+              "label": "Simple repair superficial wounds trunk/extremities 7.6 to 12.5 cm",
+              "cpt_code": "12004",
+              "description": "Simple repair superficial wounds trunk/extremities 7.6 to 12.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.73
+            },
+            {
+              "label": "Simple repair superficial wounds trunk/extremities 12.6 to 20.0 cm",
+              "cpt_code": "12005",
+              "description": "Simple repair superficial wounds trunk/extremities 12.6 to 20.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.59
+            },
+            {
+              "label": "Simple repair superficial wounds trunk/extremities 20.1 to 30.0 cm",
+              "cpt_code": "12006",
+              "description": "Simple repair superficial wounds trunk/extremities 20.1 to 30.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.29
+            },
+            {
+              "label": "Simple repair superficial wounds trunk/extremities over 30.0 cm",
+              "cpt_code": "12007",
+              "description": "Simple repair superficial wounds trunk/extremities over 30.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips 2.5 cm or less",
+              "cpt_code": "12011",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips 2.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.64
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips 2.6 to 5.0 cm",
+              "cpt_code": "12013",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips 2.6 to 5.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.28
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips 5.1 to 7.5 cm",
+              "cpt_code": "12014",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips 5.1 to 7.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.02
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips 7.6 to 12.5 cm",
+              "cpt_code": "12015",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips 7.6 to 12.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.88
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips 12.6 to 20.0 cm",
+              "cpt_code": "12016",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips 12.6 to 20.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.74
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips 20.1 to 30.0 cm",
+              "cpt_code": "12017",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips 20.1 to 30.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.5
+            },
+            {
+              "label": "Simple repair superficial wounds face/ears/eyelids/nose/lips over 30.0 cm",
+              "cpt_code": "12018",
+              "description": "Simple repair superficial wounds face/ears/eyelids/nose/lips over 30.0 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 6.3
+            },
+            {
+              "label": "Intermediate repair wounds trunk/extremities 2.5 cm or less",
+              "cpt_code": "12031",
+              "description": "Intermediate repair wounds trunk/extremities 2.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.72
+            },
+            {
+              "label": "Intermediate repair wounds trunk/extremities 2.6 to 7.5 cm",
+              "cpt_code": "12032",
+              "description": "Intermediate repair wounds trunk/extremities 2.6 to 7.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.64
+            },
+            {
+              "label": "Intermediate repair wounds trunk/extremities 7.6 to 12.5 cm",
+              "cpt_code": "12034",
+              "description": "Intermediate repair wounds trunk/extremities 7.6 to 12.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.1
+            },
+            {
+              "label": "Intermediate repair wounds neck/hands/feet/genitalia 2.5 cm or less",
+              "cpt_code": "12041",
+              "description": "Intermediate repair wounds neck/hands/feet/genitalia 2.5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 2.86
+            },
+            {
+              "label": "Intermediate repair wounds neck/hands/feet/genitalia 2.6 to 7.5 cm",
+              "cpt_code": "12042",
+              "description": "Intermediate repair wounds neck/hands/feet/genitalia 2.6 to 7.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.05
+            },
+            {
+              "label": "Intermediate repair wounds neck/hands/feet/genitalia 7.6 to 12.5 cm",
+              "cpt_code": "12044",
+              "description": "Intermediate repair wounds neck/hands/feet/genitalia 7.6 to 12.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.53
+            },
+            {
+              "label": "Complex repair trunk 1.1 to 2.5 cm",
+              "cpt_code": "13100",
+              "description": "Complex repair trunk 1.1 to 2.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.32
+            },
+            {
+              "label": "Complex repair trunk each additional 5 cm or less",
+              "cpt_code": "13101",
+              "description": "Complex repair trunk each additional 5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.43
+            },
+            {
+              "label": "Complex repair scalp/arms/legs 1.1 to 2.5 cm",
+              "cpt_code": "13120",
+              "description": "Complex repair scalp/arms/legs 1.1 to 2.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 3.4
+            },
+            {
+              "label": "Complex repair scalp/arms/legs each additional 5 cm or less",
+              "cpt_code": "13121",
+              "description": "Complex repair scalp/arms/legs each additional 5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.5
+            },
+            {
+              "label": "Complex repair forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet 1.1 to 2.5 cm",
+              "cpt_code": "13131",
+              "description": "Complex repair forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet 1.1 to 2.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.09
+            },
+            {
+              "label": "Complex repair forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet each additional 5 cm or less",
+              "cpt_code": "13132",
+              "description": "Complex repair forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet each additional 5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.73
+            },
+            {
+              "label": "Complex repair eyelids/nose/ears/lips 1.1 to 2.5 cm",
+              "cpt_code": "13151",
+              "description": "Complex repair eyelids/nose/ears/lips 1.1 to 2.5 cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 4.56
+            },
+            {
+              "label": "Complex repair eyelids/nose/ears/lips each additional 5 cm or less",
+              "cpt_code": "13152",
+              "description": "Complex repair eyelids/nose/ears/lips each additional 5 cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 1.91
+            },
+            {
+              "label": "Adjacent tissue transfer trunk defect 10 sq cm or less",
+              "cpt_code": "14000",
+              "description": "Adjacent tissue transfer trunk defect 10 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.2
+            },
+            {
+              "label": "Adjacent tissue transfer trunk defect 10.1 to 30.0 sq cm",
+              "cpt_code": "14001",
+              "description": "Adjacent tissue transfer trunk defect 10.1 to 30.0 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 6.8
+            },
+            {
+              "label": "Adjacent tissue transfer scalp/arms/legs defect 10 sq cm or less",
+              "cpt_code": "14020",
+              "description": "Adjacent tissue transfer scalp/arms/legs defect 10 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Adjacent tissue transfer scalp/arms/legs defect 10.1 to 30.0 sq cm",
+              "cpt_code": "14021",
+              "description": "Adjacent tissue transfer scalp/arms/legs defect 10.1 to 30.0 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 7.1
+            },
+            {
+              "label": "Adjacent tissue transfer forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet defect 10 sq cm or less",
+              "cpt_code": "14040",
+              "description": "Adjacent tissue transfer forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet defect 10 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 6.1
+            },
+            {
+              "label": "Adjacent tissue transfer forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet defect 10.1 to 30.0 sq cm",
+              "cpt_code": "14041",
+              "description": "Adjacent tissue transfer forehead/cheeks/chin/mouth/neck/axillae/genitalia/hands/feet defect 10.1 to 30.0 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 7.9
+            },
+            {
+              "label": "Adjacent tissue transfer eyelids/nose/ears/lips defect 10 sq cm or less",
+              "cpt_code": "14060",
+              "description": "Adjacent tissue transfer eyelids/nose/ears/lips defect 10 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 6.7
+            },
+            {
+              "label": "Adjacent tissue transfer eyelids/nose/ears/lips defect 10.1 to 30.0 sq cm",
+              "cpt_code": "14061",
+              "description": "Adjacent tissue transfer eyelids/nose/ears/lips defect 10.1 to 30.0 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Adjacent tissue transfer unusual/complicated trunk 30.1 to 60.0 sq cm",
+              "cpt_code": "14301",
+              "description": "Adjacent tissue transfer unusual/complicated trunk 30.1 to 60.0 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "L98.9",
+                "D23.9"
+              ],
+              "work_rvu": 10.8
+            }
+          ]
+        },
+        "plastic_flaps": {
+          "question": "Flaps / grafts / reconstructive wound procedures?",
+          "options": [
+            {
+              "label": "Adjacent tissue transfer each additional 30 sq cm",
+              "cpt_code": "14302",
+              "description": "Adjacent tissue transfer each additional 30 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 2.6
+            },
+            {
+              "label": "Surgical prep/creation recipient site trunk/arms/legs first 100 sq cm",
+              "cpt_code": "15002",
+              "description": "Surgical prep/creation recipient site trunk/arms/legs first 100 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 5.0
+            },
+            {
+              "label": "Surgical prep/creation recipient site trunk/arms/legs each additional 100 sq cm",
+              "cpt_code": "15003",
+              "description": "Surgical prep/creation recipient site trunk/arms/legs each additional 100 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 1.2
+            },
+            {
+              "label": "Surgical prep/creation recipient site face/scalp/eyelids/mouth/neck first 100 sq cm",
+              "cpt_code": "15004",
+              "description": "Surgical prep/creation recipient site face/scalp/eyelids/mouth/neck first 100 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 5.4
+            },
+            {
+              "label": "Surgical prep/creation recipient site face/scalp/eyelids/mouth/neck each additional 100 sq cm",
+              "cpt_code": "15005",
+              "description": "Surgical prep/creation recipient site face/scalp/eyelids/mouth/neck each additional 100 sq cm",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 1.4
+            },
+            {
+              "label": "Split-thickness skin graft trunk/arms/legs first 100 sq cm or less",
+              "cpt_code": "15100",
+              "description": "Split-thickness skin graft trunk/arms/legs first 100 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 7.0
+            },
+            {
+              "label": "Split-thickness autograft each additional 100 sq cm or part thereof",
+              "cpt_code": "15101",
+              "description": "Split-thickness autograft each additional 100 sq cm or part thereof",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Split-thickness skin graft face/scalp/eyelids/mouth/neck/ears/orbits/genitalia/hands/feet first 100 sq cm or less",
+              "cpt_code": "15110",
+              "description": "Split-thickness skin graft face/scalp/eyelids/mouth/neck/ears/orbits/genitalia/hands/feet first 100 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 7.8
+            },
+            {
+              "label": "Split-thickness autograft each additional 100 sq cm or part thereof",
+              "cpt_code": "15111",
+              "description": "Split-thickness autograft each additional 100 sq cm or part thereof",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Full-thickness graft trunk/arms/legs 20 sq cm or less",
+              "cpt_code": "15200",
+              "description": "Full-thickness graft trunk/arms/legs 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 7.4
+            },
+            {
+              "label": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "cpt_code": "15201",
+              "description": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 1.7
+            },
+            {
+              "label": "Full-thickness graft scalp/arms/legs 20 sq cm or less",
+              "cpt_code": "15220",
+              "description": "Full-thickness graft scalp/arms/legs 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 7.6
+            },
+            {
+              "label": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "cpt_code": "15221",
+              "description": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 1.8
+            },
+            {
+              "label": "Full-thickness graft face/neck/hands/feet/genitalia 20 sq cm or less",
+              "cpt_code": "15240",
+              "description": "Full-thickness graft face/neck/hands/feet/genitalia 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 8.1
+            },
+            {
+              "label": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "cpt_code": "15241",
+              "description": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 1.9
+            },
+            {
+              "label": "Full-thickness graft eyelids/nose/ears/lips 20 sq cm or less",
+              "cpt_code": "15260",
+              "description": "Full-thickness graft eyelids/nose/ears/lips 20 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 8.6
+            },
+            {
+              "label": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "cpt_code": "15261",
+              "description": "Full-thickness graft each additional 20 sq cm or part thereof",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 2.0
+            },
+            {
+              "label": "Delay flap or sectioning flap trunk",
+              "cpt_code": "15600",
+              "description": "Delay flap or sectioning flap trunk",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 6.3
+            },
+            {
+              "label": "Delay flap or sectioning flap scalp/arms/legs",
+              "cpt_code": "15610",
+              "description": "Delay flap or sectioning flap scalp/arms/legs",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 6.5
+            },
+            {
+              "label": "Delay flap or sectioning flap face/scalp/eyelids/mouth/neck",
+              "cpt_code": "15620",
+              "description": "Delay flap or sectioning flap face/scalp/eyelids/mouth/neck",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 7.1
+            },
+            {
+              "label": "Muscle skin or fasciocutaneous flap trunk",
+              "cpt_code": "15733",
+              "description": "Muscle skin or fasciocutaneous flap trunk",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 18.5
+            },
+            {
+              "label": "Muscle skin or fasciocutaneous flap trunk reconstructive",
+              "cpt_code": "15734",
+              "description": "Muscle skin or fasciocutaneous flap trunk reconstructive",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 20.22
+            },
+            {
+              "label": "Muscle/myocutaneous flap upper extremity",
+              "cpt_code": "15736",
+              "description": "Muscle/myocutaneous flap upper extremity",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 18.7
+            },
+            {
+              "label": "Muscle/myocutaneous flap lower extremity",
+              "cpt_code": "15738",
+              "description": "Muscle/myocutaneous flap lower extremity",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 19.4
+            },
+            {
+              "label": "Island pedicle flap trunk",
+              "cpt_code": "15740",
+              "description": "Island pedicle flap trunk",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 13.8
+            },
+            {
+              "label": "Neurovascular pedicle flap direct cutaneous",
+              "cpt_code": "15750",
+              "description": "Neurovascular pedicle flap direct cutaneous",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 14.7
+            },
+            {
+              "label": "Free muscle or myocutaneous flap with microvascular anastomosis",
+              "cpt_code": "15756",
+              "description": "Free muscle or myocutaneous flap with microvascular anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 33.2
+            },
+            {
+              "label": "Free skin flap with microvascular anastomosis",
+              "cpt_code": "15757",
+              "description": "Free skin flap with microvascular anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 31.8
+            },
+            {
+              "label": "Free fascial flap with microvascular anastomosis",
+              "cpt_code": "15758",
+              "description": "Free fascial flap with microvascular anastomosis",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 32.0
+            },
+            {
+              "label": "Graft dermal autograft first 100 sq cm or less",
+              "cpt_code": "15769",
+              "description": "Graft dermal autograft first 100 sq cm or less",
+              "modifiers": [],
+              "icd10": [
+                "S81.809A",
+                "T81.89XA"
+              ],
+              "work_rvu": 6.2
+            }
+          ]
+        },
+        "plastic_aesthetic": {
+          "question": "Aesthetic / contour / eyelid procedures?",
+          "options": [
+            {
+              "label": "Grafting autologous fat by liposuction 50 cc or less",
+              "cpt_code": "15771",
+              "description": "Grafting autologous fat by liposuction 50 cc or less",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 4.1
+            },
+            {
+              "label": "Grafting autologous fat each additional 50 cc",
+              "cpt_code": "15772",
+              "description": "Grafting autologous fat each additional 50 cc",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 0.95
+            },
+            {
+              "label": "Blepharoplasty lower eyelid",
+              "cpt_code": "15820",
+              "description": "Blepharoplasty lower eyelid",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 8.4
+            },
+            {
+              "label": "Blepharoplasty lower eyelid with extensive herniated fat pad",
+              "cpt_code": "15821",
+              "description": "Blepharoplasty lower eyelid with extensive herniated fat pad",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 9.2
+            },
+            {
+              "label": "Blepharoplasty upper eyelid",
+              "cpt_code": "15822",
+              "description": "Blepharoplasty upper eyelid",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 7.8
+            },
+            {
+              "label": "Blepharoplasty upper eyelid with excessive skin weighting down lid",
+              "cpt_code": "15823",
+              "description": "Blepharoplasty upper eyelid with excessive skin weighting down lid",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 8.7
+            },
+            {
+              "label": "Rhytidectomy forehead",
+              "cpt_code": "15824",
+              "description": "Rhytidectomy forehead",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 11.6
+            },
+            {
+              "label": "Rhytidectomy cheek/chin/neck",
+              "cpt_code": "15828",
+              "description": "Rhytidectomy cheek/chin/neck",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 13.8
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue abdomen infraumbilical panniculectomy",
+              "cpt_code": "15830",
+              "description": "Excision excessive skin/subcutaneous tissue abdomen infraumbilical panniculectomy",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 15.9
+            },
+            {
+              "label": "Excision excessive skin/subcutaneous tissue abdomen with umbilical transposition and fascial plication",
+              "cpt_code": "15847",
+              "description": "Excision excessive skin/subcutaneous tissue abdomen with umbilical transposition and fascial plication",
+              "modifiers": [],
+              "icd10": [
+                "Z41.1",
+                "H02.409"
+              ],
+              "work_rvu": 21.5
+            }
+          ]
+        }
+      }
     }
   ]
 }
