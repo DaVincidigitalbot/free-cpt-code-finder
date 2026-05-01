@@ -7,7 +7,8 @@ def test_homepage_title_and_metadata_do_not_use_cyrionyx_branding():
     assert '<title>Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly</title>' in INDEX_HTML
     assert 'content="Free CPT Code Finder — Search CPT & ICD-10 Codes Instantly"' in INDEX_HTML
     assert 'Cyrionyx – Free CPT Code Finder' not in INDEX_HTML
-    assert 'content="CYRIONYX"' not in INDEX_HTML
+    assert '"name": "CYRIONYX"' not in INDEX_HTML
+    assert 'CYRIONYX builds focused healthcare workflow products' not in INDEX_HTML
 
 
 def test_homepage_top_shell_does_not_include_cyrionyx_header_markup():
@@ -22,6 +23,12 @@ def test_homepage_uses_freecptcodefinder_header_and_tagline():
     assert 'FreeCPTCodeFinder' in INDEX_HTML
     assert 'Find the exact CPT or ICD-10 code in seconds' in INDEX_HTML
     assert "CYRIONYX medical coding platform" not in INDEX_HTML
+
+
+def test_homepage_does_not_include_cyrionyx_footer():
+    assert '<footer class="cyrionyx-footer"' not in INDEX_HTML
+    assert 'Cyrionyx © 2026' not in INDEX_HTML
+    assert 'Clinical Intelligence Platform' not in INDEX_HTML
 
 
 def test_bottom_specialty_links_remain_present():
