@@ -373,6 +373,7 @@
 
     renderSpecialtyTiles();
     resetDecisionTreePanel();
+    fetchDecisionTreeData().then(data=>{ if(data&&typeof data==='object'){ SPECS=data; renderSpecialtyTiles(); resetDecisionTreePanel(); } }).catch(()=>{});
     loadCptSearchIndex();
     render();
     go('#/');
