@@ -16,53 +16,38 @@ def test_restructure_has_requested_hero_copy():
 
 def test_restructure_has_surgical_subspecialty_grid():
     assert 'Surgical Subspecialties' in INDEX_HTML
-    for href in [
-        'specialty.html?s=general',
-        'specialty.html?s=trauma',
-        'specialty.html?s=colorectal',
-        'specialty.html?s=hpb',
-        'specialty.html?s=endocrine',
-        'specialty.html?s=breast',
-        'specialty.html?s=surgonc',
-        'specialty.html?s=ct',
-        'specialty.html?s=vascular',
-        'specialty.html?s=ortho',
-        'specialty.html?s=neuro',
-        'specialty.html?s=ent',
-        'specialty.html?s=omfs',
-        'specialty.html?s=plastics',
-        'specialty.html?s=peds',
-        'specialty.html?s=urology',
-        'specialty.html?s=obgyn',
-        'specialty.html?s=gynonc',
-        'specialty.html?s=transplant',
-        'specialty.html?s=bariatric',
-        'specialty.html?s=ir',
-        'specialty.html?s=intcards',
+    assert '#/specialty/' in INDEX_HTML
+    assert 'specialty.html?s=' not in INDEX_HTML
+    for text in [
+        'General Surgery',
+        'Trauma / Acute Care',
+        'Colorectal Surgery',
+        'HPB Surgery',
+        'Endocrine Surgery',
+        'Breast Surgery',
+        'Surgical Oncology',
+        'Cardiothoracic Surgery',
+        'Vascular Surgery',
+        'Orthopedic Trauma',
+        'Neurosurgery',
+        'Pediatric Surgery',
+        'Interventional Radiology',
+        'Interventional Cardiology',
     ]:
-        assert href in INDEX_HTML
+        assert text in INDEX_HTML
 
 
 def test_restructure_has_inpatient_and_outpatient_cards():
     assert 'Inpatient Coding' in INDEX_HTML
     assert 'Outpatient Coding' in INDEX_HTML
-    for href in [
-        'inpatient.html#admit',
-        'inpatient.html#subseq',
-        'inpatient.html#discharge',
-        'inpatient.html#consult',
-        'inpatient.html#cc',
-        'inpatient.html#obs',
-        'inpatient.html#proc',
-        'inpatient.html#prolonged',
-        'inpatient.html#modifiers',
-        'outpatient.html#new',
-        'outpatient.html#est',
-        'outpatient.html#consult',
-        'outpatient.html#postop',
-        'outpatient.html#minor',
-        'outpatient.html#asc',
-        'outpatient.html#wound',
-        'outpatient.html#modifiers',
+    assert "go('#/inpatient')" in INDEX_HTML
+    assert "go('#/outpatient')" in INDEX_HTML
+    assert 'inpatient.html#' not in INDEX_HTML
+    assert 'outpatient.html#' not in INDEX_HTML
+    for text in [
+        'Admit / subsequent / discharge',
+        'Critical care',
+        'Clinic / postop / wound',
+        'ASC / office procedures',
     ]:
-        assert href in INDEX_HTML
+        assert text in INDEX_HTML
