@@ -13,7 +13,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPFGH437ZS"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NPFGH437ZS');</script>
 <style>
-:root{--paper:#FAFAF7;--ink:#0A0A0A;--ink2:#52525B;--ink3:#9A9A94;--line:#E4E4E0;--line2:#CFCCC0;--ox:#6E1919;--ox2:#F4EBEB;--steel:#1E3A5F;--moss:#2D5A3D;--warn:#A8611A;--white:#fff}
+:root{--paper:var(--paper);--ink:var(--ink);--ink2:var(--ink2);--ink3:var(--ink3);--line:var(--line);--line2:var(--line2);--ox:var(--ox);--ox2:var(--ox2);--steel:#1E3A5F;--moss:#2D5A3D;--warn:var(--warn);--white:var(--white)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--paper);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
@@ -112,7 +112,7 @@ a{color:inherit;text-decoration:none}
 .lat-cancel:hover{color:var(--ox)}
 .approach-tray{display:flex;gap:6px;align-items:center;grid-column:1/-1;padding:0 0 6px;margin-top:6px}
 .approach-tray .lat-lbl{margin-right:2px}
-.bi-note{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--moss);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;font-family:'JetBrains Mono',monospace}
+.bi-note{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--moss);color:var(--white);font-size:10px;padding:3px 8px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;font-family:'JetBrains Mono',monospace}
 .bi-note.show{opacity:1}
 
 /* INPATIENT/OUTPATIENT */
@@ -187,7 +187,7 @@ a{color:inherit;text-decoration:none}
 
 /* AI ASSISTANT */
 .ai-launch{position:fixed;right:22px;bottom:22px;z-index:120;display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:999px;background:var(--ox);color:var(--white);box-shadow:0 18px 36px rgba(10,10,10,.18);font-weight:600;letter-spacing:-.01em}
-.ai-launch:hover{background:#541212}
+.ai-launch:hover{background:var(--ox-dark)}
 .ai-dot{width:8px;height:8px;border-radius:50%;background:#9EE6B0}
 .ai-panel{position:fixed;right:22px;bottom:84px;width:380px;max-width:calc(100vw - 24px);height:560px;max-height:calc(100vh - 120px);background:var(--white);border:1px solid var(--line2);border-radius:16px;box-shadow:0 24px 64px rgba(10,10,10,.18);z-index:130;display:none;flex-direction:column;overflow:hidden}
 .ai-panel.open{display:flex}
@@ -196,7 +196,7 @@ a{color:inherit;text-decoration:none}
 .ai-head-sub{font-size:11px;color:var(--ink2);margin-top:3px;font-family:'JetBrains Mono',monospace;line-height:1.45}
 .ai-close{color:var(--ink3);font-size:18px;padding:0 4px}
 .ai-close:hover{color:var(--ox)}
-.ai-messages{flex:1;overflow:auto;padding:16px;background:linear-gradient(180deg,var(--paper),#fff 35%)}
+.ai-messages{flex:1;overflow:auto;padding:16px;background:linear-gradient(180deg,var(--paper),var(--white) 35%)}
 .ai-msg{margin-bottom:12px;max-width:92%}
 .ai-msg.user{margin-left:auto}
 .ai-bubble{border-radius:12px;padding:12px 13px;font-size:13px;line-height:1.5;border:1px solid var(--line)}
@@ -212,7 +212,7 @@ a{color:inherit;text-decoration:none}
 .ai-actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px}
 .ai-note{font-size:10px;color:var(--ink3);font-family:'JetBrains Mono',monospace;line-height:1.4}
 .ai-send{padding:10px 14px;border-radius:8px;background:var(--ox);color:var(--white);font-weight:600}
-.ai-send:hover{background:#541212}
+.ai-send:hover{background:var(--ox-dark)}
 @media(max-width:700px){.ai-launch{right:14px;left:14px;justify-content:center;bottom:14px}.ai-panel{right:12px;left:12px;bottom:72px;width:auto;height:70vh;max-height:none}}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"FreeCPTCodeFinder.com","url":"https://freecptcodefinder.com/","publisher":{"@type":"Organization","name":"Free CPT Code Finder"}},{"@type":"WebSite","name":"FreeCPTCodeFinder.com","url":"https://freecptcodefinder.com/"},{"@type":"Person","name":"Graydon Stallard","honorificSuffix":"DO, FACOS, FACS","jobTitle":"Surgeon; Founder and Author of FreeCPTCodeFinder.com","knowsAbout":["General Surgery","Surgical Critical Care","Trauma","CPT coding education","surgical documentation"],"url":"https://freecptcodefinder.com/authors/graydon-stallard-do.html"}]}</script></head><body style="overflow-x:hidden">
 
@@ -256,7 +256,7 @@ a{color:inherit;text-decoration:none}
 </div>
 </header>
 
-<section style="margin:0 0 32px;padding:24px;border:1px solid var(--line);border-radius:10px;background:var(--white);overflow:hidden"><div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start"><div style="min-width:0"><div class="search-label">Trust and editorial transparency</div><h2 style="font-size:22px;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px">Built by a trauma surgeon for real-world case logging and coding education</h2><p style="color:var(--ink2);margin-bottom:10px">FreeCPTCodeFinder.com was created by Graydon Stallard, DO, FACOS, FACS, a board-certified general surgeon and surgical critical care surgeon. He built it to help medical students, residents, fellows, APPs, and early-career clinicians find CPT codes faster, understand the coding logic behind them, and verify what they use against official sources.</p><p style="color:var(--ink2);margin-bottom:0">Educational reference only. Always verify CPT, CMS, payer, and program-specific requirements before submitting claims or logging cases.</p><div class="quick-links" style="margin-top:16px"><a class="quick-link" href="/authors/graydon-stallard-do.html">About the Founder</a><a class="quick-link" href="/editorial-policy.html">Editorial Policy</a><a class="quick-link" href="/contact.html">Contact / Corrections</a></div></div><img src="/assets/images/graydon-stallard-do-facos-facs.png" alt="Graydon Stallard, DO, FACOS, FACS" style="width:96px;height:96px;max-width:100%;border-radius:12px;object-fit:cover;border:1px solid var(--line)" onerror="this.style.display='none'"></div></section><div class="search-wrap">
+<section style="margin:0 0 32px;padding:24px;border:1px solid var(--line);border-radius:10px;background:var(--white);overflow:hidden"><div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start"><div style="min-width:0"><div class="search-label">Trust and editorial transparency</div><h2 style="font-size:22px;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px">Built by a trauma surgeon for real-world case logging and coding education</h2><p style="color:var(--ink2);margin-bottom:10px">FreeCPTCodeFinder.com was created by Graydon Stallard, DO, FACOS, FACS, a board-certified general surgeon and surgical critical care surgeon. He built it to help medical students, residents, fellows, APPs, and early-career clinicians find CPT codes faster, understand the coding logic behind them, and verify what they use against official sources.</p><p style="color:var(--ink2);margin-bottom:0">Educational reference only. Always verify CPT, CMS, payer, and program-specific requirements before submitting claims or logging cases.</p><div class="quick-links"><a class="quick-link" href="/authors/graydon-stallard-do.html">About the Founder</a><a class="quick-link" href="/editorial-policy.html">Editorial Policy</a><a class="quick-link" href="/contact.html">Contact / Corrections</a></div></div><img src="/assets/images/graydon-stallard-do-facos-facs.png" alt="Graydon Stallard, DO, FACOS, FACS" style="width:96px;height:96px;max-width:100%;border-radius:12px;object-fit:cover;border:1px solid var(--line)" onerror="this.style.display='none'"></div></section><div class="search-wrap">
 <div class="quick-links">
 <a class="quick-link" href="/blog/">Read Coding Blog</a>
 <a class="quick-link" href="/blog/guides/cpt-code-appendectomy.html">Appendectomy CPT guide</a>
@@ -896,44 +896,44 @@ function openAuditReport(){
 <style>
 @page{size:letter;margin:0.6in}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:11pt;line-height:1.5;color:#0a0a0a;background:#fff;padding:40px;max-width:8.5in;margin:auto}
-.header{border-bottom:2px solid #6E1919;padding-bottom:14px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:flex-start}
-.header h1{font-size:18pt;font-weight:600;letter-spacing:-.01em;color:#6E1919}
-.header .sub{font-size:10pt;color:#52525B;margin-top:2px}
-.header .meta{text-align:right;font-size:9pt;color:#52525B;font-family:ui-monospace,Menlo,monospace;line-height:1.7}
-.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #E4E4E0;border-radius:6px;margin-bottom:22px}
-.summary>div{padding:12px 14px;border-right:1px solid #E4E4E0}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:11pt;line-height:1.5;color:#0a0a0a;background:var(--white);padding:40px;max-width:8.5in;margin:auto}
+.header{border-bottom:2px solid var(--ox);padding-bottom:14px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:flex-start}
+.header h1{font-size:18pt;font-weight:600;letter-spacing:-.01em;color:var(--ox)}
+.header .sub{font-size:10pt;color:var(--ink2);margin-top:2px}
+.header .meta{text-align:right;font-size:9pt;color:var(--ink2);font-family:ui-monospace,Menlo,monospace;line-height:1.7}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:6px;margin-bottom:22px}
+.summary>div{padding:12px 14px;border-right:1px solid var(--line)}
 .summary>div:last-child{border-right:0}
-.summary .lbl{font-size:8pt;text-transform:uppercase;letter-spacing:.08em;color:#9A9A94;margin-bottom:4px;font-weight:600}
+.summary .lbl{font-size:8pt;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:4px;font-weight:600}
 .summary .val{font-size:14pt;font-weight:500;font-family:ui-monospace,monospace}
 .summary .val.money{color:#2D5A3D}
-h2{font-size:11pt;text-transform:uppercase;letter-spacing:.1em;color:#9A9A94;margin:22px 0 10px;font-weight:600}
+h2{font-size:11pt;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);margin:22px 0 10px;font-weight:600}
 table{width:100%;border-collapse:collapse;font-size:10pt}
-.line-row td{padding:10px 8px;border-top:1px solid #E4E4E0;vertical-align:top}
-.line-row .num{text-align:right;color:#9A9A94;font-family:ui-monospace,monospace;width:28px}
+.line-row td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+.line-row .num{text-align:right;color:var(--ink3);font-family:ui-monospace,monospace;width:28px}
 .line-row .rank-cell{width:80px}
 .line-row .cpt-cell{width:130px;font-family:ui-monospace,monospace;font-weight:500}
 .line-row .mono{font-family:ui-monospace,monospace;width:60px}
-.rank-badge{display:inline-block;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border:1px solid #CFCCC0;border-radius:3px;color:#52525B}
-.rank-badge.p{color:#6E1919;border-color:#6E1919;background:#F4EBEB}
+.rank-badge{display:inline-block;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border:1px solid var(--line2);border-radius:3px;color:var(--ink2)}
+.rank-badge.p{color:var(--ox);border-color:var(--ox);background:var(--ox2)}
 .rank-badge.em{color:#2D5A3D;border-color:#2D5A3D;background:#EAF3ED}
-.rank-badge.s{color:#52525B}
-.mod-tag{font-family:ui-monospace,monospace;color:#6E1919;font-weight:500;margin-left:4px;font-size:9pt}
-.rationale-row td{padding:4px 8px 14px;border-top:0;background:#FAFAF7}
-.rank-reason{font-size:9.5pt;color:#0a0a0a;margin-bottom:8px;padding:8px 10px;background:#fff;border-left:3px solid #6E1919}
-.rationale-item{padding:6px 10px;margin-top:4px;background:#fff;border:1px solid #E4E4E0;border-radius:4px;font-size:9pt}
-.rationale-mod{font-weight:600;color:#6E1919;font-size:8.5pt;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.rank-badge.s{color:var(--ink2)}
+.mod-tag{font-family:ui-monospace,monospace;color:var(--ox);font-weight:500;margin-left:4px;font-size:9pt}
+.rationale-row td{padding:4px 8px 14px;border-top:0;background:var(--paper)}
+.rank-reason{font-size:9.5pt;color:#0a0a0a;margin-bottom:8px;padding:8px 10px;background:var(--white);border-left:3px solid var(--ox)}
+.rationale-item{padding:6px 10px;margin-top:4px;background:var(--white);border:1px solid var(--line);border-radius:4px;font-size:9pt}
+.rationale-mod{font-weight:600;color:var(--ox);font-size:8.5pt;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
 .rationale-text{color:#0a0a0a;margin-bottom:4px}
-.rationale-cite{font-size:8pt;color:#9A9A94;font-style:italic;font-family:ui-monospace,monospace}
-.totals{margin-top:20px;padding:14px 16px;background:#FAFAF7;border:1px solid #E4E4E0;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
-.totals .left{font-size:10pt;color:#52525B}
+.rationale-cite{font-size:8pt;color:var(--ink3);font-style:italic;font-family:ui-monospace,monospace}
+.totals{margin-top:20px;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.totals .left{font-size:10pt;color:var(--ink2)}
 .totals .right{font-size:16pt;font-weight:500;font-family:ui-monospace,monospace}
 .totals .right .money{color:#2D5A3D}
-.footer{margin-top:28px;padding-top:14px;border-top:1px solid #E4E4E0;font-size:8pt;color:#9A9A94;line-height:1.6}
-.footer strong{color:#52525B}
+.footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:8pt;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
 .sig{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.sig-line{border-top:1px solid #0a0a0a;padding-top:6px;font-size:8.5pt;color:#52525B}
-.print-btn{position:fixed;top:14px;right:14px;background:#6E1919;color:#fff;border:0;padding:10px 18px;border-radius:5px;font-size:11pt;font-weight:500;cursor:pointer}
+.sig-line{border-top:1px solid #0a0a0a;padding-top:6px;font-size:8.5pt;color:var(--ink2)}
+.print-btn{position:fixed;top:14px;right:14px;background:var(--ox);color:var(--white);border:0;padding:10px 18px;border-radius:5px;font-size:11pt;font-weight:500;cursor:pointer}
 @media print{.print-btn{display:none}}
 </style></head><body>
 
@@ -960,7 +960,7 @@ table{width:100%;border-collapse:collapse;font-size:10pt}
 
 <h2>Line items with coding rationale</h2>
 <table>
-<tr style="font-size:8.5pt;color:#9A9A94;text-transform:uppercase;letter-spacing:.06em">
+<tr style="font-size:8.5pt;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
 <td></td><td>Rank</td><td>CPT / modifiers</td><td>Description</td><td style="text-align:right">wRVU</td><td style="text-align:right">Payment</td>
 </tr>
 ${rows}
@@ -972,7 +972,7 @@ ${rows}
 </div>
 
 <h2>Activity log</h2>
-<div style="font-family:ui-monospace,monospace;font-size:8.5pt;color:#52525B;background:#FAFAF7;border:1px solid #E4E4E0;border-radius:4px;padding:12px;line-height:1.6;white-space:pre-wrap">${audit.slice().reverse().join('\n')||'No activity recorded.'}</div>
+<div style="font-family:ui-monospace,monospace;font-size:8.5pt;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px;line-height:1.6;white-space:pre-wrap">${audit.slice().reverse().join('\n')||'No activity recorded.'}</div>
 
 <div class="sig">
 <div class="sig-line">Coder signature &nbsp;·&nbsp; date</div>
@@ -1501,7 +1501,7 @@ document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLower
 renderSpecs();
 renderGuidedCards();
 loadCptSearchIndex();
-</script><style>.site-footer{margin-top:36px;background:#0B1220;color:#D7DFEA}.site-footer-inner{max-width:1200px;margin:0 auto;padding:32px 40px}.site-footer-brand{font-size:14px;font-weight:700;color:#fff}.site-footer-copy{margin-top:10px;font-size:14px;line-height:1.7;color:#D7DFEA;max-width:980px}.site-footer-copy strong{color:#fff}.site-footer-nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.site-footer-nav a{color:#8ec5ff;text-decoration:none;font-size:14px}@media(max-width:1000px){.site-footer-inner{padding:24px 20px}}</style><footer class="site-footer">
+</script><style>.site-footer{margin-top:36px;background:var(--ink);color:#D7DFEA}.site-footer-inner{max-width:1200px;margin:0 auto;padding:32px 40px}.site-footer-brand{font-size:14px;font-weight:700;color:var(--white)}.site-footer-copy{margin-top:10px;font-size:14px;line-height:1.7;color:#D7DFEA;max-width:980px}.site-footer-copy strong{color:var(--white)}.site-footer-nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.site-footer-nav a{color:#8ec5ff;text-decoration:none;font-size:14px}@media(max-width:1000px){.site-footer-inner{padding:24px 20px}}</style><footer class="site-footer">
   <div class="site-footer-inner">
     <div class="site-footer-brand">FreeCPTCodeFinder.com</div>
     <p class="site-footer-copy">FreeCPTCodeFinder.com is an independent educational reference for CPT coding, RVUs, reimbursement, and documentation. Educational information only. Always verify coding, coverage, reimbursement, and compliance decisions with current AMA, CMS, payer, and regulatory guidance.</p>
