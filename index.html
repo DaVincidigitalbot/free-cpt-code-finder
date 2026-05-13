@@ -13,7 +13,8 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPFGH437ZS"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NPFGH437ZS');</script>
 <style>
-:root{--paper:var(--paper);--ink:var(--ink);--ink2:var(--ink2);--ink3:var(--ink3);--line:var(--line);--line2:var(--line2);--ox:var(--ox);--ox2:var(--ox2);--steel:#1E3A5F;--moss:#2D5A3D;--warn:var(--warn);--white:var(--white)}
+:root{color-scheme:light;--paper:#F7F7F3;--ink:#0F1720;--ink2:#4A5563;--ink3:#7B8794;--line:#E5E7EB;--line2:#D5DAE1;--ox:#23577B;--ox2:#EAF2F8;--warn:#6B4F2A;--white:#FFFFFF;--steel:#1E3A5F;--moss:#2D5A3D}
+html[data-theme='dark']{color-scheme:dark;--paper:#0B1220;--ink:#E6EDF5;--ink2:#B8C2CF;--ink3:#8A97A8;--line:#223049;--line2:#30415D;--ox:#7EC8FF;--ox2:#102235;--warn:#E8C07D;--white:#111A2A;--steel:#9BC3E6;--moss:#63B883}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--paper);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
@@ -39,6 +40,8 @@ a{color:inherit;text-decoration:none}
 .topnav{display:flex;gap:18px;align-items:center;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .topnav a{color:var(--ink2)}
 .topnav a:hover,.topnav a.active{color:var(--ox)}
+.theme-toggle{display:inline-flex;align-items:center;gap:6px}
+.theme-toggle .theme-icon{font-size:13px;line-height:1}
 .meta{display:flex;gap:16px;font-size:11px;color:var(--ink2);font-family:'JetBrains Mono',monospace;align-items:center}
 .meta .sep{width:1px;height:10px;background:var(--line2)}
 @media(max-width:700px){.hdr-top{flex-direction:column;align-items:flex-start}.hdr-right{align-items:flex-start;max-width:100%}.topnav{flex-wrap:wrap;gap:12px;max-width:100%}.topnav a{max-width:100%}.quick-links{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}.quick-link{white-space:nowrap;flex:0 0 auto}.search-wrap{margin:0 0 20px}.search{padding:14px 16px;border-width:2px;border-radius:12px;box-shadow:0 10px 24px rgba(10,10,10,.08)}.search input{min-width:0;font-size:16px}.autocomplete-results{left:0;right:0;top:calc(100% + 6px);max-height:min(55vh,360px);border-radius:12px;box-shadow:0 22px 40px rgba(10,10,10,.16);z-index:999}.kbd{display:none}}
@@ -250,6 +253,7 @@ a{color:inherit;text-decoration:none}
 <a href="/privacy.html">Privacy</a>
 <a href="/terms.html">Terms</a>
 <a href="/legal.html">Legal</a>
+<a href="#" id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode"><span class="theme-icon">🌙</span><span id="themeToggleLabel">Dark mode</span></a>
 </nav>
 <div class="meta"><span>CMS 2026</span><span class="sep"></span><span>CF 32.3465</span><span class="sep"></span><span class="live">live</span></div>
 </div>
@@ -1497,6 +1501,29 @@ document.addEventListener('click',e=>{
 });
 
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('q').focus()}});
+
+const THEME_KEY='fccf-theme';
+function applyTheme(theme){
+ const root=document.documentElement;
+ const next=theme==='dark'?'dark':'light';
+ root.setAttribute('data-theme',next);
+ const label=document.getElementById('themeToggleLabel');
+ const icon=document.querySelector('#themeToggle .theme-icon');
+ if(label)label.textContent=next==='dark'?'Light mode':'Dark mode';
+ if(icon)icon.textContent=next==='dark'?'☀️':'🌙';
+}
+function getPreferredTheme(){
+ const saved=localStorage.getItem(THEME_KEY);
+ if(saved==='dark'||saved==='light')return saved;
+ return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+}
+applyTheme(getPreferredTheme());
+document.getElementById('themeToggle').addEventListener('click',e=>{
+ e.preventDefault();
+ const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+ localStorage.setItem(THEME_KEY,next);
+ applyTheme(next);
+});
 
 renderSpecs();
 renderGuidedCards();
