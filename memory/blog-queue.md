@@ -26,6 +26,7 @@
 - [ ] How to Increase Your Surgical RVUs Legally → /blog/rvu/increase-surgical-rvus.html
 - [x] RVU Optimization for Surgical Practices → /blog/rvu/rvu-optimization-surgical-practice.html (published)
 - [x] 2026 Surgical RVU Benchmarks → /blog/rvu/surgical-rvu-benchmarks-2026.html (published)
+- [x] Why 90-Day Global Procedures Can Fool Your RVU Math → /blog/rvu/rvu-90-day-global-surprises.html (published 2026-05-17)
 
 ## ICD-10 CODING
 - [ ] ICD-10 Codes for Common General Surgery Diagnoses → /blog/icd10/icd10-common-general-surgery.html
