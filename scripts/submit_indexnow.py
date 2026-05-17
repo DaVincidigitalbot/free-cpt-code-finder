@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path('/home/setup/Desktop/FreeCPTCodeFinder')
 HOST = 'freecptcodefinder.com'
-KEY = 'freecpt-indexnow-20260517'
+KEY = '5f3c8a91d7e24b6fa0c935b12d8e4f607a9c1b3d5e6f708192a4b6c8d0e1f234'
 KEY_LOCATION = f'https://{HOST}/indexnow-key.txt'
 ENDPOINT = 'https://api.indexnow.org/indexnow'
 
