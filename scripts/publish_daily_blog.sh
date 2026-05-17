@@ -100,6 +100,7 @@ for i in {1..12}; do
   has_ads="$(grep -c 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' /tmp/freecpt_daily_blog.html || true)"
   echo "live_check attempt=$i code=$code ads=$has_ads"
   if [[ "$code" == "200" && "$has_ads" != "0" ]]; then
+    python3 scripts/submit_indexnow.py 100 || true
     echo "live verified"
     exit 0
   fi
