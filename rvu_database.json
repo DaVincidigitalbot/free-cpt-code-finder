@@ -3607,7 +3607,7 @@
       "global_period": 90
     },
     "15275": {
-      "description": "Application of skin substitute graft to face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and/or multiple digits; first 25 sq cm or less",
+      "description": "Application of skin substitute graft to face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and/or multiple digits; total wound surface area up to 100 sq cm, first 25 sq cm or less",
       "work_rvu": 1.78,
       "pe_rvu": 2.82,
       "mp_rvu": 0.2,
@@ -3615,7 +3615,7 @@
       "global_period": 0
     },
     "15276": {
-      "description": "Application of skin substitute graft to face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and/or multiple digits; each additional 25 sq cm",
+      "description": "Application of skin substitute graft to face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and/or multiple digits; each additional 25 sq cm wound surface area, or part thereof",
       "work_rvu": 0.49,
       "pe_rvu": 0.45,
       "mp_rvu": 0.07,
@@ -3623,7 +3623,7 @@
       "global_period": 0
     },
     "15277": {
-      "description": "Application of skin substitute graft to trunk, arms, or legs; first 100 sq cm or less, or 1% body area of infants and children",
+      "description": "Application of skin substitute graft to face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and/or multiple digits; total wound surface area 100 sq cm or greater, first 100 sq cm or 1% body area of infants and children",
       "work_rvu": 3.9,
       "pe_rvu": 6.2,
       "mp_rvu": 0.71,
@@ -3631,11 +3631,43 @@
       "global_period": 0
     },
     "15278": {
-      "description": "Application of skin substitute graft to trunk, arms, or legs; each additional 100 sq cm, or each additional 1% body area of infants and children",
+      "description": "Application of skin substitute graft to face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and/or multiple digits; each additional 100 sq cm wound surface area, or part thereof, or each additional 1% body area of infants and children",
       "work_rvu": 0.98,
       "pe_rvu": 1.85,
       "mp_rvu": 0.2,
       "total_rvu": 3.03,
+      "global_period": 0
+    },
+    "15271": {
+      "description": "Application of skin substitute graft to trunk, arms, or legs; total wound surface area up to 100 sq cm, first 25 sq cm or less",
+      "work_rvu": 1.46,
+      "pe_rvu": 3.06,
+      "mp_rvu": 0.21,
+      "total_rvu": 4.73,
+      "global_period": 0
+    },
+    "15272": {
+      "description": "Application of skin substitute graft to trunk, arms, or legs; each additional 25 sq cm wound surface area, or part thereof",
+      "work_rvu": 0.32,
+      "pe_rvu": 0.4,
+      "mp_rvu": 0.05,
+      "total_rvu": 0.77,
+      "global_period": 0
+    },
+    "15273": {
+      "description": "Application of skin substitute graft to trunk, arms, or legs; total wound surface area 100 sq cm or greater, first 100 sq cm or 1% body area of infants and children",
+      "work_rvu": 3.41,
+      "pe_rvu": 5.61,
+      "mp_rvu": 0.62,
+      "total_rvu": 9.64,
+      "global_period": 0
+    },
+    "15274": {
+      "description": "Application of skin substitute graft to trunk, arms, or legs; each additional 100 sq cm wound surface area, or part thereof, or each additional 1% body area of infants and children",
+      "work_rvu": 0.78,
+      "pe_rvu": 1.65,
+      "mp_rvu": 0.17,
+      "total_rvu": 2.6,
       "global_period": 0
     }
   }
