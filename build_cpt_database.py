@@ -1039,8 +1039,8 @@ def build_surgery_codes():
         ("49587", "Repair umbilical hernia, age 5 years or older; incarcerated or strangulated", "Digestive", "Hernia", "general_surgery", 6.00, 90),
         ("49590", "Repair spigelian hernia", "Digestive", "Hernia", "general_surgery", 7.00, 90),
         # Laparoscopic hernia repairs
-        ("49650", "Laparoscopy, surgical; repair initial inguinal hernia", "Digestive", "Hernia", "general_surgery", 6.00, 90),
-        ("49651", "Laparoscopy, surgical; repair recurrent inguinal hernia", "Digestive", "Hernia", "general_surgery", 7.50, 90),
+        ("49650", "Laparoscopy, surgical; repair initial inguinal hernia", "Digestive", "Hernia", "general_surgery", 6.20, 90),
+        ("49651", "Laparoscopy, surgical; repair recurrent inguinal hernia", "Digestive", "Hernia", "general_surgery", 8.17, 90),
         ("49652", "Laparoscopy, surgical; repair, ventral, umbilical, spigelian or epigastric hernia (includes mesh insertion, when performed); reducible", "Digestive", "Hernia", "general_surgery", 8.00, 90),
         ("49653", "Laparoscopy, surgical; repair, ventral, umbilical, spigelian or epigastric hernia (includes mesh insertion, when performed); incarcerated or strangulated", "Digestive", "Hernia", "general_surgery", 10.00, 90),
         ("49654", "Laparoscopy, surgical; repair, incisional hernia (includes mesh insertion, when performed); reducible", "Digestive", "Hernia", "general_surgery", 10.44, 90),
