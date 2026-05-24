@@ -272,120 +272,120 @@
     const TREE = {
       "General Surgery": {
         "Hernia": [
-          { cpt: "49505", desc: "Inguinal hernia repair, initial, reducible, age 5 or older", wrvu: 7.96, approaches: ["open"], lat: true, paired: true },
-          { cpt: "49650", desc: "Laparoscopic inguinal hernia repair, initial, unilateral", wrvu: 8.85, approaches: ["lap", "robotic"], lat: true, paired: false, bilateralCode: "49651", bilateralWrvu: 12.85 },
-          { cpt: "49591", desc: "Initial ventral/incisional hernia repair, reducible, under 3 cm", wrvu: 8.56, approaches: ["open"], lat: false },
-          { cpt: "49593", desc: "Initial ventral/incisional hernia repair, reducible, 3 to 10 cm", wrvu: 12.85, approaches: ["open"], lat: false },
-          { cpt: "49595", desc: "Initial ventral/incisional hernia repair, reducible, over 10 cm", wrvu: 18.50, approaches: ["open"], lat: false },
-          { cpt: "15734", desc: "Myofascial flap, trunk, unilateral component separation or TAR", wrvu: 20.22, approaches: ["open"], lat: true, paired: true, alwaysFull: true }
+          { cpt: "49505", desc: "Inguinal hernia repair, initial, reducible, age 5 or older", wrvu: 7.76, approaches: ["open"], lat: true, paired: true },
+          { cpt: "49650", desc: "Laparoscopic inguinal hernia repair, initial, unilateral", wrvu: 6.2, approaches: ["lap", "robotic"], lat: true, paired: false, bilateralCode: "49651", bilateralWrvu: 12.85 },
+          { cpt: "49591", desc: "Initial ventral/incisional hernia repair, reducible, under 3 cm", wrvu: 5.81, approaches: ["open"], lat: false },
+          { cpt: "49593", desc: "Initial ventral/incisional hernia repair, reducible, 3 to 10 cm", wrvu: 10.0, approaches: ["open"], lat: false },
+          { cpt: "49595", desc: "Initial ventral/incisional hernia repair, reducible, over 10 cm", wrvu: 13.59, approaches: ["open"], lat: false },
+          { cpt: "15734", desc: "Myofascial flap, trunk, unilateral component separation or TAR", wrvu: 22.43, approaches: ["open"], lat: true, paired: true, alwaysFull: true }
         ],
         "Gallbladder": [
-          { cpt: "47562", desc: "Laparoscopic cholecystectomy", wrvu: 9.85, approaches: ["lap", "robotic"], lat: false },
-          { cpt: "47563", desc: "Laparoscopic cholecystectomy with cholangiography", wrvu: 11.25, approaches: ["lap", "robotic"], lat: false },
-          { cpt: "47564", desc: "Laparoscopic cholecystectomy with common duct exploration", wrvu: 14.85, approaches: ["lap", "robotic"], lat: false },
-          { cpt: "47600", desc: "Open cholecystectomy", wrvu: 13.55, approaches: ["open"], lat: false }
+          { cpt: "47562", desc: "Laparoscopic cholecystectomy", wrvu: 10.21, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "47563", desc: "Laparoscopic cholecystectomy with cholangiography", wrvu: 11.18, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "47564", desc: "Laparoscopic cholecystectomy with common duct exploration", wrvu: 17.55, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "47600", desc: "Open cholecystectomy", wrvu: 17.04, approaches: ["open"], lat: false }
         ],
         "Appendix": [
-          { cpt: "44970", desc: "Laparoscopic appendectomy", wrvu: 8.25, approaches: ["lap", "robotic"], lat: false },
-          { cpt: "44960", desc: "Open appendectomy for ruptured appendix with abscess or generalized peritonitis", wrvu: 12.85, approaches: ["open"], lat: false }
+          { cpt: "44970", desc: "Laparoscopic appendectomy", wrvu: 9.21, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "44960", desc: "Open appendectomy for ruptured appendix with abscess or generalized peritonitis", wrvu: 14.14, approaches: ["open"], lat: false }
         ],
         "Small bowel": [
-          { cpt: "44120", desc: "Enterectomy with single resection and anastomosis", wrvu: 14.85, approaches: ["open"], lat: false },
-          { cpt: "44202", desc: "Laparoscopic enterectomy with resection and anastomosis", wrvu: 16.85, approaches: ["lap", "robotic"], lat: false }
+          { cpt: "44120", desc: "Enterectomy with single resection and anastomosis", wrvu: 20.3, approaches: ["open"], lat: false },
+          { cpt: "44202", desc: "Laparoscopic enterectomy with resection and anastomosis", wrvu: 22.81, approaches: ["lap", "robotic"], lat: false }
         ],
         "Exploratory": [
-          { cpt: "49000", desc: "Exploratory laparotomy", wrvu: 11.25, approaches: ["open"], lat: false, generallyIncluded: true },
-          { cpt: "49320", desc: "Diagnostic laparoscopy", wrvu: 5.25, approaches: ["lap"], lat: false, generallyIncluded: true, estimated: true }
+          { cpt: "49000", desc: "Exploratory laparotomy", wrvu: 12.23, approaches: ["open"], lat: false, generallyIncluded: true },
+          { cpt: "49320", desc: "Diagnostic laparoscopy", wrvu: 5.01, approaches: ["lap"], lat: false, generallyIncluded: true, estimated: true }
         ]
       },
       "Trauma / Acute Care": {
         "Rib fixation": [
-          { cpt: "21811", desc: "ORIF rib fracture(s), first 3 ribs", wrvu: 17.61, approaches: ["open"], lat: true },
-          { cpt: "21812", desc: "ORIF rib fracture(s), each additional 3 ribs", wrvu: 5.00, approaches: ["open"], lat: false, addon: true, alwaysFull: true },
-          { cpt: "49002", desc: "Reopening of recent laparotomy", wrvu: 17.56, approaches: ["open"], lat: false }
+          { cpt: "21811", desc: "ORIF rib fracture(s), first 3 ribs", wrvu: 10.52, approaches: ["open"], lat: true },
+          { cpt: "21812", desc: "ORIF rib fracture(s), each additional 3 ribs", wrvu: 12.68, approaches: ["open"], lat: false, addon: true, alwaysFull: true },
+          { cpt: "49002", desc: "Reopening of recent laparotomy", wrvu: 17.19, approaches: ["open"], lat: false }
         ],
         "Damage control": [
-          { cpt: "49002", desc: "Reopening of recent laparotomy", wrvu: 17.56, approaches: ["open"], lat: false },
-          { cpt: "35840", desc: "Exploration for postoperative hemorrhage, abdomen", wrvu: 17.41, approaches: ["open"], lat: false }
+          { cpt: "49002", desc: "Reopening of recent laparotomy", wrvu: 17.19, approaches: ["open"], lat: false },
+          { cpt: "35840", desc: "Exploration for postoperative hemorrhage, abdomen", wrvu: 20.23, approaches: ["open"], lat: false }
         ]
       },
       "Colorectal": {
         "Colon": [
-          { cpt: "44140", desc: "Partial colectomy with anastomosis", wrvu: 22.96, approaches: ["open"], lat: false },
-          { cpt: "44204", desc: "Laparoscopic partial colectomy with anastomosis", wrvu: 22.91, approaches: ["lap", "robotic"], lat: false },
-          { cpt: "44160", desc: "Right colectomy with ileocolostomy", wrvu: 23.74, approaches: ["open"], lat: false },
-          { cpt: "44205", desc: "Laparoscopic right colectomy with ileocolostomy", wrvu: 22.97, approaches: ["lap", "robotic"], lat: false }
+          { cpt: "44140", desc: "Partial colectomy with anastomosis", wrvu: 22.03, approaches: ["open"], lat: false },
+          { cpt: "44204", desc: "Laparoscopic partial colectomy with anastomosis", wrvu: 25.76, approaches: ["lap", "robotic"], lat: false },
+          { cpt: "44160", desc: "Right colectomy with ileocolostomy", wrvu: 20.37, approaches: ["open"], lat: false },
+          { cpt: "44205", desc: "Laparoscopic right colectomy with ileocolostomy", wrvu: 22.38, approaches: ["lap", "robotic"], lat: false }
         ]
       },
       "Breast": {
         "Excisional": [
-          { cpt: "19301", desc: "Partial mastectomy (lumpectomy)", wrvu: 10.49, approaches: ["open"], lat: true, paired: true },
-          { cpt: "19303", desc: "Simple mastectomy", wrvu: 16.25, approaches: ["open"], lat: true, paired: true },
-          { cpt: "19307", desc: "Modified radical mastectomy", wrvu: 20.37, approaches: ["open"], lat: true, paired: true }
+          { cpt: "19301", desc: "Partial mastectomy (lumpectomy)", wrvu: 9.88, approaches: ["open"], lat: true, paired: true },
+          { cpt: "19303", desc: "Simple mastectomy", wrvu: 14.63, approaches: ["open"], lat: true, paired: true },
+          { cpt: "19307", desc: "Modified radical mastectomy", wrvu: 17.54, approaches: ["open"], lat: true, paired: true }
         ]
       },
       "Endocrine": {
         "Thyroid": [
-          { cpt: "60220", desc: "Thyroid lobectomy", wrvu: 14.43, approaches: ["open"], lat: true },
-          { cpt: "60240", desc: "Total thyroidectomy", wrvu: 17.31, approaches: ["open"], lat: false }
+          { cpt: "60220", desc: "Thyroid lobectomy", wrvu: 10.91, approaches: ["open"], lat: true },
+          { cpt: "60240", desc: "Total thyroidectomy", wrvu: 14.66, approaches: ["open"], lat: false }
         ],
         "Parathyroid": [
-          { cpt: "60500", desc: "Parathyroidectomy", wrvu: 16.75, approaches: ["open"], lat: false }
+          { cpt: "60500", desc: "Parathyroidectomy", wrvu: 15.21, approaches: ["open"], lat: false }
         ]
       },
       "HPB": {
         "Liver": [
-          { cpt: "47120", desc: "Partial hepatectomy", wrvu: 34.43, approaches: ["open"], lat: false }
+          { cpt: "47120", desc: "Partial hepatectomy", wrvu: 38.03, approaches: ["open"], lat: false }
         ],
         "Pancreas": [
-          { cpt: "48150", desc: "Whipple", wrvu: 52.21, approaches: ["open"], lat: false }
+          { cpt: "48150", desc: "Whipple", wrvu: 51.52, approaches: ["open"], lat: false }
         ]
       },
       "Cardiothoracic": {
         "Lung": [
-          { cpt: "32480", desc: "Open lobectomy", wrvu: 25.44, approaches: ["open"], lat: true },
-          { cpt: "32663", desc: "Thoracoscopic lobectomy", wrvu: 27.23, approaches: ["thora", "robotic"], lat: true }
+          { cpt: "32480", desc: "Open lobectomy", wrvu: 25.17, approaches: ["open"], lat: true },
+          { cpt: "32663", desc: "Thoracoscopic lobectomy", wrvu: 24.02, approaches: ["thora", "robotic"], lat: true }
         ]
       },
       "Vascular": {
         "Open": [
-          { cpt: "35081", desc: "Open abdominal aortic aneurysm repair", wrvu: 32.50, approaches: ["open"], lat: false }
+          { cpt: "35081", desc: "Open abdominal aortic aneurysm repair", wrvu: 32.69, approaches: ["open"], lat: false }
         ]
       },
       "Surgical Oncology": {
         "Soft tissue": [
-          { cpt: "21935", desc: "Radical resection soft tissue tumor, back or flank, over 5 cm", wrvu: 21.99, approaches: ["open"], lat: true }
+          { cpt: "21935", desc: "Radical resection soft tissue tumor, back or flank, over 5 cm", wrvu: 15.33, approaches: ["open"], lat: true }
         ]
       },
       "Neurosurgery": {
         "Cranial": [
-          { cpt: "61510", desc: "Craniectomy for supratentorial tumor", wrvu: 37.71, approaches: ["open"], lat: true }
+          { cpt: "61510", desc: "Craniectomy for supratentorial tumor", wrvu: 30.06, approaches: ["open"], lat: true }
         ]
       },
       "Orthopedic": {
         "Long bone": [
-          { cpt: "27506", desc: "ORIF femoral shaft fracture", wrvu: 20.98, approaches: ["open"], lat: true, paired: true }
+          { cpt: "27506", desc: "ORIF femoral shaft fracture", wrvu: 19.16, approaches: ["open"], lat: true, paired: true }
         ]
       },
       "ENT": {
         "Neck": [
-          { cpt: "42415", desc: "Parotidectomy, lateral lobe, with nerve preservation", wrvu: 20.87, approaches: ["open"], lat: true, paired: true }
+          { cpt: "42415", desc: "Parotidectomy, lateral lobe, with nerve preservation", wrvu: 16.73, approaches: ["open"], lat: true, paired: true }
         ]
       },
       "OB/GYN": {
         "Uterus": [
-          { cpt: "58150", desc: "Total abdominal hysterectomy", wrvu: 22.55, approaches: ["open"], lat: false },
-          { cpt: "58571", desc: "Laparoscopic total hysterectomy, 250 g or less", wrvu: 21.73, approaches: ["lap", "robotic"], lat: false }
+          { cpt: "58150", desc: "Total abdominal hysterectomy", wrvu: 16.88, approaches: ["open"], lat: false },
+          { cpt: "58571", desc: "Laparoscopic total hysterectomy, 250 g or less", wrvu: 14.63, approaches: ["lap", "robotic"], lat: false }
         ]
       },
       "Pediatric Surgery": {
         "Common": [
-          { cpt: "49491", desc: "Inguinal hernia repair, preterm infant", wrvu: 9.68, approaches: ["open"], lat: true, paired: true }
+          { cpt: "49491", desc: "Inguinal hernia repair, preterm infant", wrvu: 12.22, approaches: ["open"], lat: true, paired: true }
         ]
       },
       "Interventional Radiology": {
         "Access": [
-          { cpt: "36561", desc: "Tunneled central venous port insertion", wrvu: 5.22, approaches: ["open"], lat: false }
+          { cpt: "36561", desc: "Tunneled central venous port insertion", wrvu: 5.65, approaches: ["open"], lat: false }
         ]
       }
     };
