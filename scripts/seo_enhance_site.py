@@ -118,6 +118,10 @@ def ensure_og_twitter(path: Path, raw: str) -> str:
     return raw
 
 
+def remove_render_blocking_font_link(raw: str) -> str:
+    return re.sub(r'\s*<link\s+href=["\']https://fonts\.googleapis\.com/[^"\']+["\']\s+rel=["\']stylesheet["\']>\s*', "\n", raw, flags=re.I)
+
+
 def breadcrumb_from_path(path: Path, title: str) -> dict:
     rel = path.relative_to(ROOT).as_posix()
     items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"}]
@@ -339,6 +343,8 @@ def main() -> None:
         raw = read(path)
         raw = fix_robots_meta(path, raw)
         if not rel.startswith("public/") and rel not in PUBLIC_NO_INDEX:
+            if rel != "index.html":
+                raw = remove_render_blocking_font_link(raw)
             raw = ensure_og_twitter(path, raw)
             if rel.startswith("codes/"):
                 raw = ensure_webpage_schema(path, raw) if path.name == "index.html" else ensure_code_schema(path, raw)
