@@ -81,13 +81,14 @@ print('sitemap xml ok')
 PY
 
 python3 scripts/generate_seo_assets.py
+python3 scripts/seo_enhance_site.py
 
 if ! grep -q 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' "$published"; then
   echo "AdSense script missing from $published"
   exit 3
 fi
 
-git add "$published" blog/index.html sitemap.xml feed.xml robots.txt index.html
+git add "$published" blog/index.html sitemap.xml feed.xml robots.txt index.html scripts/seo_enhance_site.py
 git commit -m "Publish daily FreeCPTCodeFinder blog: $(basename "$published" .html)"
 git push origin main
 
