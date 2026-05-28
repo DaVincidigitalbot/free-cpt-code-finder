@@ -6,8 +6,6 @@ main
 ## Commit Hash
 4158630
 
-Latest handoff update: 62ff6c1
-
 ## Live / Preview URL
 https://freecptcodefinder.com/
 
