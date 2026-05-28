@@ -1,0 +1,79 @@
+# SEO Indexing Handoff
+
+## Branch
+main
+
+## Commit Hash
+361500f
+
+## Live / Preview URL
+https://freecptcodefinder.com/
+
+## Summary of Changes
+- Standardized primary public-facing brand signals to **FreeCPTCodeFinder.com**.
+- Kept **Free CPT Code Finder** only as a readable alternate phrase where useful for search intent and natural language.
+- Removed legacy CYRIONYX/Cyrionyx/Cyrioniq text from indexable public HTML surfaces.
+- Converted the legacy /cyrioniq/ page into a noindex/canonical transition page pointing to the homepage.
+- Updated homepage title, meta description, Open Graph/Twitter tags, and JSON-LD.
+- Normalized Open Graph site_name and structured-data publisher/site names to FreeCPTCodeFinder.com.
+- Added/confirmed Person schema for Graydon Stallard, DO, FACOS, FACS on the about/founder surfaces.
+- Added datePublished to blog Article schema where missing.
+- Improved homepage internal links to codes index, CPT Code For, case builder, modifier guides, RVU guide, global period guide, about, and editorial policy.
+- Regenerated sitemap.xml from canonical, indexable public HTML pages.
+- Cleaned robots.txt and confirmed it references sitemap.xml.
+
+## CYRIONYX Cleanup
+PASS: Local audit found **0** remaining CYRIONYX/Cyrionyx/Cyrioniq hits in HTML after cleanup.
+
+## Sitemap
+PASS: sitemap.xml regenerated with 758 canonical URLs.
+PASS: Includes homepage, blog index, codes index, CPT Code For, about/contact/legal/editorial pages, all indexed blog posts, and all indexed CPT code detail pages.
+PASS: robots.txt references https://freecptcodefinder.com/sitemap.xml.
+
+## Indexability
+PASS: Local HTML audit found:
+- 758 indexable HTML pages
+- 14 intentional noindex pages (admin/test/mockup/legacy/demo surfaces)
+- 0 missing title/meta/canonical on indexable pages
+- 0 bad canonical URLs
+- 0 duplicate titles
+- 0 duplicate meta descriptions
+- 0 missing/multiple H1 issues on indexable pages
+- 0 broken internal links in local public HTML audit
+
+## Key Title / Meta Changes
+- Homepage title: FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers & Case Builder
+- Homepage meta description: Free CPT code lookup for medical students, residents, APPs, surgeons, and coders. Search CPT codes, wRVUs, modifiers, global periods, billing guides, and build cases with a free wRVU case builder.
+- Blog index title normalized to FreeCPTCodeFinder.com branding.
+- Codes index title normalized to FreeCPTCodeFinder.com branding.
+- CPT Code For title normalized to FreeCPTCodeFinder.com branding.
+- Code detail title suffixes normalized to FreeCPTCodeFinder.com.
+- Blog page publisher/site_name signals normalized to FreeCPTCodeFinder.com.
+
+## Search Console URL Inspection Findings
+BLOCKED: Google Search Console inspection/submission could not be run from this environment because no authenticated Search Console API credential or browser-authenticated GSC session is available locally.
+
+Requested inspection URLs:
+- https://freecptcodefinder.com/
+- https://freecptcodefinder.com/blog/
+- https://freecptcodefinder.com/codes/
+- https://freecptcodefinder.com/codes/10060.html
+- https://freecptcodefinder.com/about.html
+- https://freecptcodefinder.com/editorial-policy.html
+
+Status fields not available without GSC auth:
+- URL is on Google
+- Page is indexable
+- User-declared canonical
+- Google-selected canonical
+- Last crawl date
+- Crawl/indexing errors
+- Whether indexing was requested
+
+## Sitemap Submission Status
+BLOCKED: Sitemap submission in Google Search Console requires authenticated Search Console access. The site now exposes the canonical sitemap at:
+https://freecptcodefinder.com/sitemap.xml
+
+## Remaining Issues
+- Search Console property verification and URL inspection still need authenticated GSC access.
+- After deployment, run live validation for headers, robots.txt, sitemap.xml, canonical tags, HTTPS, and www/non-www redirects.
