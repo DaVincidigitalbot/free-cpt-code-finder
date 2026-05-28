@@ -36,16 +36,16 @@ def test_inguinal_wrvu_source_data_is_current_work_rvu():
         data = load_json(path)
         if "codes" in data:
             data = data["codes"]
-        assert data["49650"]["work_rvu"] == 6.20
-        assert data["49651"]["work_rvu"] == 8.17
+        assert data["49650"]["work_rvu"] == 8.26
+        assert data["49651"]["work_rvu"] == 9.33
 
 
 def test_inguinal_guideline_table_uses_wrvu_labels_and_values():
     assert "<th>WRVU</th>" in GUIDE_HTML
     assert "12.00" not in GUIDE_HTML
     assert "14.22" not in GUIDE_HTML
-    assert guide_wrvu("49650") == 6.20
-    assert guide_wrvu("49651") == 8.17
+    assert guide_wrvu("49650") == 8.26
+    assert guide_wrvu("49651") == 9.33
 
 
 def test_search_and_case_builder_wrvus_match_guideline_table():
@@ -57,15 +57,15 @@ def test_search_and_case_builder_wrvus_match_guideline_table():
 
 
 def test_bilateral_modifier_calculates_expected_wrvu():
-    assert 6.20 * 1.5 == pytest.approx(9.30)
-    assert 8.17 * 1.5 == pytest.approx(12.255)
-    assert Decimal("12.255").quantize(Decimal("0.01"), rounding=ROUND_HALF_UP) == Decimal("12.26")
+    assert 8.26 * 1.5 == pytest.approx(12.39)
+    assert 9.33 * 1.5 == pytest.approx(13.995)
+    assert Decimal("13.995").quantize(Decimal("0.01"), rounding=ROUND_HALF_UP) == Decimal("14.00")
     assert "l.effWrvu=Number((l.baseWrvu*1.5).toFixed(6))" in INDEX_HTML
 
 
 def test_case_builder_has_inguinal_bilateral_sources():
-    assert re.search(r'\["49650","[^"]+",6\.2,1\]', INDEX_HTML)
-    assert re.search(r'\["49651","[^"]+",8\.17,1\]', INDEX_HTML)
+    assert re.search(r'\["49650","[^"]+",8\.26,1\]', INDEX_HTML)
+    assert re.search(r'\["49651","[^"]+",9\.33,1\]', INDEX_HTML)
     assert "'49651':['K40.91','K40.31']" in INDEX_HTML
 
 
