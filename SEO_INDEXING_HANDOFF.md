@@ -6,6 +6,8 @@ main
 ## Commit Hash
 4158630
 
+Latest handoff update: 62ff6c1
+
 ## Live / Preview URL
 https://freecptcodefinder.com/
 
@@ -74,6 +76,47 @@ Status fields not available without GSC auth:
 BLOCKED: Sitemap submission in Google Search Console requires authenticated Search Console access. The site now exposes the canonical sitemap at:
 https://freecptcodefinder.com/sitemap.xml
 
+## Live Validation
+PASS: Cache-busted live homepage returned the updated title, meta description, canonical URL, and robots meta.
+
+PASS: These live URLs returned 200 and did not send an X-Robots-Tag noindex header:
+- https://freecptcodefinder.com/
+- https://freecptcodefinder.com/blog/
+- https://freecptcodefinder.com/codes/
+- https://freecptcodefinder.com/codes/10060.html
+- https://freecptcodefinder.com/about.html
+- https://freecptcodefinder.com/editorial-policy.html
+- https://freecptcodefinder.com/robots.txt
+- https://freecptcodefinder.com/sitemap.xml
+
+PASS: Live sitemap.xml contains 758 URLs and includes:
+- https://freecptcodefinder.com/
+- https://freecptcodefinder.com/blog/
+- https://freecptcodefinder.com/codes/
+- https://freecptcodefinder.com/codes/10060.html
+- https://freecptcodefinder.com/about.html
+- https://freecptcodefinder.com/editorial-policy.html
+
+PASS: Live robots.txt references:
+Sitemap: https://freecptcodefinder.com/sitemap.xml
+
+PASS: Key live page signals verified:
+- Homepage title: FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers & Case Builder
+- Homepage canonical: https://freecptcodefinder.com/
+- Blog canonical: https://freecptcodefinder.com/blog/
+- Codes canonical: https://freecptcodefinder.com/codes/
+- CPT 10060 canonical: https://freecptcodefinder.com/codes/10060.html
+
+## Hosting / Redirect Findings
+PASS: https://freecptcodefinder.com/ works.
+
+FAIL: https://www.freecptcodefinder.com/ currently fails TLS validation because the certificate does not include www.freecptcodefinder.com.
+
+FAIL: http://freecptcodefinder.com/ currently returns 200 instead of redirecting to https://freecptcodefinder.com/.
+
+FAIL: GitHub Pages API inspection could not be completed because the local gh CLI is not authenticated in this shell.
+
 ## Remaining Issues
 - Search Console property verification and URL inspection still need authenticated GSC access.
-- After deployment, run live validation for headers, robots.txt, sitemap.xml, canonical tags, HTTPS, and www/non-www redirects.
+- Fix GitHub Pages/DNS/certificate handling for https://www.freecptcodefinder.com/.
+- Enforce HTTP to HTTPS redirect for the apex domain.
