@@ -105,6 +105,9 @@ PASS: Key live page signals verified:
 - Codes canonical: https://freecptcodefinder.com/codes/
 - CPT 10060 canonical: https://freecptcodefinder.com/codes/10060.html
 
+PASS: Headless Chrome screenshots captured locally under:
+qa_artifacts/seo_indexing_2026_05_28/
+
 ## Hosting / Redirect Findings
 PASS: https://freecptcodefinder.com/ works.
 
