@@ -14,6 +14,16 @@ echo "== FreeCPTCodeFinder daily blog publish =="
 echo "date: $TODAY"
 echo "repo: $REPO"
 
+if [[ "$TODAY" == "2026-05-29" ]]; then
+  echo "Scheduled override: publish better surgeon attestation documentation guide"
+  exec "$REPO/scripts/scheduled-publish/publish_better_attestation_2026_05_29.sh"
+fi
+
+if [[ "$TODAY" == "2026-05-30" ]]; then
+  echo "Scheduled override: publish resident operative note education guide"
+  exec "$REPO/scripts/scheduled-publish/publish_resident_operative_notes_2026_05_30.sh"
+fi
+
 TOPICS=(
   "trauma-laparotomy-cpt-guide"
   "icd10-postop-complications-guide"

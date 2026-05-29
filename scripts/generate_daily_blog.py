@@ -16,7 +16,7 @@ INDEX = BLOG / 'index.html'
 SITEMAP = ROOT / 'sitemap.xml'
 
 SITE_NAME = 'Free CPT Code Finder'
-AUTHOR = 'Free CPT Code Finder Editorial'
+AUTHOR = 'Graydon Stallard, DO, FACOS, FACS'
 MONTH_YEAR = 'May 2026'
 
 
