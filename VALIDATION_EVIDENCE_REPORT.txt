@@ -16,7 +16,7 @@ Current Build Data Counts
 
 Required EP Data Checks
 - Cardiac Electrophysiology specialty present.
-- Required 50 Cardiac Electrophysiology CPT codes present.
+- Required 50 requested Cardiac Electrophysiology CPT codes present, plus 93619 and 93620 retained as EP study codes to resolve prior database/category inconsistencies.
 - Required 12 Cardiac Electrophysiology aliases/search terms present.
 - 33225, 93655, and 93657 flagged as add-on codes and not standalone-primary allowed.
 - 93229 and 93296 flagged as technical-component monitoring codes with 0.00 physician work RVU.
@@ -55,10 +55,20 @@ Automated Test Evidence
   - electrophysiology returns Cardiac Electrophysiology results.
   - 93656 returns Cardiac Electrophysiology, 16.58 wRVU.
   - 93620 returns Cardiac Electrophysiology, 10.23 wRVU.
-- Browser category audit: /categories/cardiac-electrophysiology.html renders 52 EP cards from fetched cpt_database.json.
+- Browser category audit: /categories/cardiac-electrophysiology.html renders 52 EP cards from fetched cpt_database.json (the 50 requested codes plus 93619 and 93620).
 - Browser case-builder audit:
   - 93656 + 93657 = 21.94 WRVU.
   - 93295 + 93296 = 0.72 WRVU with 93296 shown as a technical/monitoring service at 0.00 physician work RVU.
+- Staging-readiness visual audit:
+  - Homepage desktop 100%, 110%, 125%, and 150% zoom-equivalent widths: 0 horizontal overflow, 0 clipped logo/header/nav/headings.
+  - Homepage mobile: 0 horizontal overflow, 0 clipped logo/header/nav/headings.
+  - Cardiac Electrophysiology category desktop/tablet/mobile: 52 cards rendered, 0 horizontal overflow, 0 card text/badge spillover.
+- Staging-readiness screenshot set generated in qa_artifacts/safe_ep_staging_ready:
+  - Homepage desktop 100%, 125%, and mobile.
+  - /sources.html.
+  - Cardiac Electrophysiology category.
+  - Search results for Cardiac Electrophysiology, 93656, and 93229.
+  - Case builder examples for 93656 + 93657 and 93295 + 93296.
 
 Remaining Required Review Step
 - Use staging/preview deployment for user review before any production deployment.

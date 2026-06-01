@@ -95,7 +95,7 @@ def test_ep_category_loader_supports_object_database_and_empty_state():
 def test_ep_specialty_aliases_and_required_codes_present():
     rows = ep_rows()
     assert REQUIRED_EP_CODES <= set(rows)
-    assert len(rows) >= 50
+    assert len(rows) == 52
 
     ep_specialty = next(
         specialty
