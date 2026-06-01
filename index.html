@@ -621,12 +621,12 @@ document.addEventListener('keydown',e=>{
 });
 
 // ===== ADD HANDLERS =====
-function addProc(cpt,desc,wrvu,laterality,bi,approach,dx){
+function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const existing=caseLines.filter(l=>l.kind==='proc'&&l.cpt===cpt);
  const lateralToken=String(laterality||'').toUpperCase();
  const normalizedDesc=String(desc||'');
  const inferredMidline=/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(normalizedDesc);
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline};
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt)};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
  if(existing.length>0){
@@ -649,7 +649,8 @@ function addEM(cpt,desc,wrvu){
 function removeLine(i){log(`REMOVE ${caseLines[i].cpt}`);caseLines.splice(i,1);recalc('line removed')}
 function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
 
-function isAddonCode(cpt){return ['49568'].includes(String(cpt||''))}
+function isAddonCode(cpt){return ['49568','33225','93655','93657'].includes(String(cpt||''))}
+function isTechnicalCode(cpt){return ['93229','93296'].includes(String(cpt||''))}
 function isMajorSurgeryCode(cpt){return /^49|^15|^31/.test(String(cpt||''))}
 function getModifierConflictState(){
  if(caseLines.some(l=>l.engineState==='BLOCKED'))return 'BLOCKED';
@@ -728,6 +729,11 @@ function computeMods(){
   if(pIdx===0){
    l.rank=isAddonCode(l.cpt)?'Add-on':'Primary';l.rankReason=`Highest wRVU (${l.effWrvu.toFixed(2)}). Billed 100%.`;
    l.rationale.unshift({mod:'Rank',reason:isAddonCode(l.cpt)?'Add-on code detected. Primary ranking blocked until parent code is present.':'Primary procedure — no MPPR reduction.',cite:RULES.PRIMARY});
+  }else if(isAddonCode(l.cpt)){
+   l.rank='Add-on';
+   l.rankReason=`Add-on code reported with primary ${procs[0].cpt}; physician work RVU counted at 100%.`;
+   l.effWrvu=l.baseWrvu;
+   l.rationale.push({mod:'Rank',reason:'Add-on code - full physician work RVU, no MPPR reduction.',cite:'CMS Physician Fee Schedule add-on code logic'});
   }else{
    l.rank=`Secondary #${pIdx}`;
    l.rankReason=`Secondary procedure, ranked below primary ${procs[0].cpt}.`;
@@ -846,7 +852,7 @@ function recalc(why){
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${l.kind==='proc'&&rk>1?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
-    <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}</div>
+    <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
     <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
    </div>`}).join('');
@@ -1279,16 +1285,17 @@ async function loadCptSearchIndex(){
   const data=await res.json();
   const specIndex=buildSearchIndexFromSpecs();
   const seen=new Set(specIndex.map(item=>item.code));
-  const external=Array.isArray(data?.codes)?data.codes:[];
-  const externalIndex=external.slice(0,4000).map(entry=>({
+	  const external=Array.isArray(data?.codes)?data.codes:Object.entries(data||{}).map(([code,entry])=>({code,...entry}));
+	  const externalIndex=external.slice(0,4000).map(entry=>({
    code:String(entry.code||''),
    description:String(entry.description||''),
-   wrvu:Number(entry.work_rvu||entry.total_rvu||0),
-   bi:0,
-   specialty:'Database',
-   si:null,
-   pi:null,
-   haystack:normalizeSearchValue(`${entry.code||''} ${entry.description||''}`)
+	   wrvu:Number(entry.work_rvu||0),
+	   bi:0,
+	   specialty:entry.specialty||'Database',
+	   si:null,
+	   pi:null,
+	   technicalComponent:!!entry.technical_component,
+	   haystack:normalizeSearchValue(`${entry.code||''} ${entry.description||''} ${entry.specialty||''} ${(entry.search_terms||[]).join(' ')} ${(entry.specialty_aliases||[]).join(' ')} ${entry.notes||''} ${entry.component_type||''}`)
   })).filter(item=>item.code&&!seen.has(item.code));
   searchState.cptSearchIndex=[...specIndex,...externalIndex];
  }catch(err){
@@ -1464,15 +1471,15 @@ function addAutocompleteResultToCase(item){
    if(promptLapRoboticAnteriorHernia({code:cpt,description:desc,wrvu:w}))return;
   }
   if(promptUnilateralBilateralCase({cpt,desc,wrvu:w,bi,approach:undefined,dx:undefined}))return;
-  if((bi===1||bi===2)&&bi!==2){
-   addProc(cpt,desc,w,'',1);
-  }else{
-   addProc(cpt,desc,w,'',bi||0);
-  }
+	  if((bi===1||bi===2)&&bi!==2){
+	   addProc(cpt,desc,w,'',1,undefined,undefined,{technicalComponent:isTechnicalCode(cpt)});
+	  }else{
+	   addProc(cpt,desc,w,'',bi||0,undefined,undefined,{technicalComponent:isTechnicalCode(cpt)});
+	  }
   return;
  }
  if(promptUnilateralBilateralCase({cpt:item.code,desc:item.description,wrvu:item.wrvu||0,bi:item.bi||0,approach:item.approach,dx:item.dx||[]}))return;
- addProc(item.code,item.description,item.wrvu||0,'',item.bi||0);
+	 addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,{technicalComponent:item.technicalComponent});
 }
 
 function selectAutocompleteResult(index){
