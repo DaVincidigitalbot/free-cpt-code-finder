@@ -26,18 +26,18 @@
   <meta name="twitter:image" content="https://freecptcodefinder.com/og-image.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Cardiac Electrophysiology CPT Codes","url":"https://freecptcodefinder.com/categories/cardiac-electrophysiology.html","description":"Cardiac Electrophysiology CPT codes with physician work RVUs and educational case-builder context.","isPartOf":{"@type":"WebSite","name":"FreeCPTCodeFinder.com","url":"https://freecptcodefinder.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://freecptcodefinder.com/"},{"@type":"ListItem","position":2,"name":"Cardiac Electrophysiology","item":"https://freecptcodefinder.com/categories/cardiac-electrophysiology.html"}]}]}</script>
   <style>
-    .code-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
-    .code-card{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--white);min-width:0;overflow:hidden}
-    .code-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-    .code-top a{font-size:20px;font-weight:800;text-decoration:none;line-height:1.1;white-space:nowrap}
+    .code-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:14px;margin-top:18px}
+    .ep-code-card{display:block!important;border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--white);min-width:0;overflow:hidden;text-decoration:none}
+    .ep-code-card .code-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+    .ep-code-card .code-top a{font-size:20px;font-weight:800;text-decoration:none;line-height:1.1;white-space:nowrap}
+    .code-meta{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;min-width:0}
     .wrvu-pill{font-size:12px;font-weight:700;border:1px solid var(--line2);border-radius:999px;padding:4px 8px;white-space:nowrap}
-    .code-card p{margin:0;color:var(--ink2);overflow-wrap:anywhere;line-height:1.45}
-    .flag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-    .flag{font-size:11px;font-weight:700;border:1px solid var(--line2);border-radius:4px;padding:3px 6px;text-transform:uppercase;color:var(--ink2);max-width:100%;overflow-wrap:anywhere;line-height:1.25}
+    .ep-code-card .code-desc{display:block!important;width:100%!important;min-width:100%!important;margin:0!important;color:var(--ink2);word-break:normal;overflow-wrap:break-word;line-height:1.45;white-space:normal!important}
+    .flag{font-size:11px;font-weight:700;border:1px solid var(--line2);border-radius:4px;padding:3px 6px;text-transform:uppercase;color:var(--ink2);white-space:nowrap;line-height:1.25}
     .alias-list{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
     .alias-list span{border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:13px;color:var(--ink2)}
-    @media(max-width:980px){.code-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:640px){.code-grid{grid-template-columns:1fr}.code-card{padding:13px}}
+    @media(max-width:980px){.code-grid{grid-template-columns:repeat(2,minmax(300px,1fr))}}
+    @media(max-width:700px){.code-grid{grid-template-columns:1fr}.ep-code-card{padding:13px}.code-meta{justify-content:flex-start}}
   </style>
 </head>
 <body>
@@ -90,8 +90,8 @@ fetch('/cpt_database.json').then(r=>r.json()).then(data=>{
     const code=String(c.code);
     const flags=[];
     if(addOnCodes.has(code))flags.push('<span class="flag">Add-on code</span>');
-    if(technicalCodes.has(code))flags.push('<span class="flag">Technical / monitoring service</span>');
-    return '<article class="code-card"><div class="code-top"><a href="/codes/'+code+'.html">'+code+'</a><span class="wrvu-pill">'+Number(c.work_rvu||0).toFixed(2)+' wRVU</span></div><p>'+c.description+'</p><div class="flag-row">'+flags.join('')+'</div></article>';
+    if(technicalCodes.has(code))flags.push('<span class="flag">Technical / monitoring</span>');
+    return '<article class="code-card ep-code-card"><div class="code-top"><a href="/codes/'+code+'.html">'+code+'</a><div class="code-meta"><span class="wrvu-pill">'+Number(c.work_rvu||0).toFixed(2)+' wRVU</span>'+flags.join('')+'</div></div><p class="code-desc">'+c.description+'</p></article>';
   }).join('');
 }).catch(()=>{
   document.getElementById('ep-codes').innerHTML='<p>Cardiac Electrophysiology CPT code data could not load. Use the CPT code search or case builder from the homepage.</p>';

@@ -69,6 +69,19 @@ Automated Test Evidence
   - Cardiac Electrophysiology category.
   - Search results for Cardiac Electrophysiology, 93656, and 93229.
   - Case builder examples for 93656 + 93657 and 93295 + 93296.
+- EP card visual QA added:
+  - Tool: tools/audit_ep_category_cards.py
+  - Live staging run: qa_artifacts/safe_ep_staging_cards_fixed/ep_card_audit_report.json
+  - Desktop/tablet/mobile EP category cards: 52 cards, 0 visual failures.
+  - Maximum EP card height: 133.84 px desktop/tablet and 131.84 px mobile.
+  - Minimum EP description width: 369 px desktop, 349 px tablet, 330 px mobile.
+  - Checks include excessive card height, description width below 140 px, tall-skinny aspect ratio, and badge spillover.
+- Latest staging screenshot set generated in qa_artifacts/safe_ep_staging_cards_fixed:
+  - Cardiac Electrophysiology category desktop and mobile.
+  - Homepage desktop 100%, homepage desktop 125%, homepage mobile.
+  - /sources.html.
+  - Case builder examples for 93656 + 93657 and 93295 + 93296.
+  - Search result screenshots for Cardiac Electrophysiology, 93656, and 93229.
 
 Remaining Required Review Step
 - Use staging/preview deployment for user review before any production deployment.

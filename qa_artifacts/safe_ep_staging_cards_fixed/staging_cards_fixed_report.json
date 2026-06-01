@@ -1,0 +1,126 @@
+{
+  "base": "https://comply-clear-situations-overall.trycloudflare.com",
+  "pages": [
+    {
+      "name": "homepage_desktop_100",
+      "url": "/",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "title": "FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers & Case Builder",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "bad": [],
+      "cardCount": 0
+    },
+    {
+      "name": "homepage_desktop_125",
+      "url": "/",
+      "viewport": [
+        1152,
+        800
+      ],
+      "title": "FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers & Case Builder",
+      "scrollWidth": 1152,
+      "clientWidth": 1152,
+      "overflow": false,
+      "bad": [],
+      "cardCount": 0
+    },
+    {
+      "name": "homepage_mobile",
+      "url": "/",
+      "viewport": [
+        390,
+        900
+      ],
+      "title": "FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers & Case Builder",
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "bad": [],
+      "cardCount": 0
+    },
+    {
+      "name": "sources_page",
+      "url": "/sources.html",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "title": "Sources and Coding References | FreeCPTCodeFinder.com",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "bad": [],
+      "cardCount": 0
+    },
+    {
+      "name": "cardiac_electrophysiology_category_desktop",
+      "url": "/categories/cardiac-electrophysiology.html",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "title": "Cardiac Electrophysiology CPT Codes | FreeCPTCodeFinder.com",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "bad": [],
+      "cardCount": 52
+    },
+    {
+      "name": "cardiac_electrophysiology_category_mobile",
+      "url": "/categories/cardiac-electrophysiology.html",
+      "viewport": [
+        390,
+        900
+      ],
+      "title": "Cardiac Electrophysiology CPT Codes | FreeCPTCodeFinder.com",
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "bad": [],
+      "cardCount": 52
+    }
+  ],
+  "search_Cardiac Electrophysiology": "93650\nAV node ablation\nCardiac Electrophysiology\nwRVU 9.98\nadd\n93660\nTilt table evaluation\nCardiac Electrophysiology\nwRVU 1.84\nadd\n93283\nICD programming dual-lead\nCardiac Electrophysiology\nwRVU 1.12\nadd\n93282\nICD programming single-lead\nCardiac Electrophysiology\nwRVU 0.83\nadd\n93289\nICD interrogation in-person\nCardiac Electrophysiology\nwRVU 0.73\nadd\n33233\nPacemaker generator removal\nCardiac Electrophysiology\nwRVU 3.06\nadd\n93280\nPacemaker programming dual-lead\nCardiac Electrophysiology\nwRVU 0.75\nadd\n99204\nNew patient office visit level 4\nCardiac Electrophysiology\nwRVU 2.60\nadd\n92960\nExternal electrical cardioversion\nCardiac Electrophysiology\nwRVU 1.95\nadd\n93288\nPacemaker interrogation in-person\nCardiac Electrophysiology\nwRVU 0.42\nadd\n93284\nICD/CRT-D programming multiple-lead\nCardiac Electrophysiology\nwRVU 1.22\nadd\n93224\nHolter monitor up to 48 hours global\nCardiac Electrophysiology\nwRVU 0.38\nadd",
+  "search_93656": "93656\nAtrial fibrillation ablation / pulmonary vein isolation\nCardiac Electrophysiology\nwRVU 16.58\nadd",
+  "search_93229": "93229\nMobile cardiac telemetry technical component\nCardiac Electrophysiology\nwRVU 0.00\nadd",
+  "case_builder_93656_93657": {
+    "total": "21.94",
+    "lines": "PRIMARY\n93656\n\u00d7\nAtrial fibrillation ablation / pulmonary vein isolation\nwRVU 16.58\n$536.30\nSEC 1\n93657\nedit\n\u00d7\nAdd-on additional AF ablation beyond PVI\nwRVU 5.36\n$86.69"
+  },
+  "case_builder_93295_93296": {
+    "total": "0.72",
+    "lines": "PRIMARY\n93295\n\u00d7\nRemote ICD interrogation professional review\nwRVU 0.72\n$23.29\nSEC 1\n93296\nedit\n\u00d7\nRemote pacemaker/ICD technical monitoring \u00b7 Technical/monitoring service: 0.00 physician work RVU\nwRVU 0.00\n$0.00"
+  },
+  "math": {
+    "93656": {
+      "expected": "16.58",
+      "actual": "16.58"
+    },
+    "93656+93657": {
+      "expected": "21.94",
+      "actual": "21.94"
+    },
+    "33249": {
+      "expected": "14.55",
+      "actual": "14.55"
+    },
+    "33249+33225": {
+      "expected": "22.67",
+      "actual": "22.67"
+    },
+    "93229": {
+      "expected": "0.00",
+      "actual": "0.00"
+    },
+    "93295+93296": {
+      "expected": "0.72",
+      "actual": "0.72"
+    }
+  }
+}
