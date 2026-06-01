@@ -57,18 +57,26 @@ class UnifiedSearchEngine {
       if (!d) continue;
       const cat = this._categorizeCPT(code);
       const specialty = d.specialty || cat;
+      const aliases = [
+        ...(Array.isArray(d.search_terms) ? d.search_terms : []),
+        ...(Array.isArray(d.specialty_aliases) ? d.specialty_aliases : []),
+        d.notes || '',
+        d.component_type || ''
+      ].join(' ');
       this.cptIndex.push({
         type: 'cpt',
         code,
         description: d.description || '',
         wRVU: d.work_rvu || 0,
-        totalRVU: d.total_rvu || 0,
+        totalRVU: d.technical_component ? 0 : (d.total_rvu || 0),
         peRVU: d.pe_rvu || 0,
         mpRVU: d.mp_rvu || 0,
         globalPeriod: d.global_period || 0,
         category: cat,
         specialty,
-        _search: `${code} ${(d.description || '').toLowerCase()} ${specialty.toLowerCase()}`,
+        componentType: d.component_type || '',
+        technicalComponent: !!d.technical_component,
+        _search: `${code} ${(d.description || '').toLowerCase()} ${specialty.toLowerCase()} ${aliases.toLowerCase()}`,
       });
     }
 

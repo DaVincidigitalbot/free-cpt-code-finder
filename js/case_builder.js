@@ -85,9 +85,11 @@ class CaseBuilder {
       work_rvu: item.wRVU || item.work_rvu || 0,
       pe_rvu: item.peRVU || item.pe_rvu || 0,
       mp_rvu: item.mpRVU || item.mp_rvu || 0,
-      total_rvu: item.totalRVU || item.total_rvu || 0,
+      total_rvu: (item.technicalComponent || item.technical_component) ? 0 : (item.totalRVU || item.total_rvu || 0),
       globalPeriod: item.globalPeriod || item.global_period || 0,
       specialty: item.specialty || item.category || '',
+      component_type: item.componentType || item.component_type || '',
+      technical_component: !!(item.technicalComponent || item.technical_component),
       laterality: options.laterality || 'none',
       bilateral: options.bilateral || false,
       bilateral_eligible: meta.bilateral_eligible || false,
@@ -242,6 +244,7 @@ class CaseBuilder {
             <button class="case-item__remove" data-remove="${proc.id}" title="Remove">&times;</button>
           </div>
           <div class="case-item__desc">${this._truncate(proc.description, 80)}</div>
+          ${proc.technical_component ? `<div style="font-size:0.6875rem;color:var(--text-muted);margin-top:4px">Technical/monitoring service: 0.00 physician work RVU.</div>` : ''}
           ${lateralityControls}
           <div class="case-item__meta">
             ${this._renderModifiers(ap)}
@@ -292,7 +295,7 @@ class CaseBuilder {
     for (const p of (analysis.procedures || [])) {
       if (p.rank !== 'suppressed' && p.rank !== 'bundled' && p.rank !== 'included') {
         totalWRVU += (p.adjustedWRVU || 0);
-        totalRVU += (p.adjustedWRVU || 0) + (p.pe_rvu || 0) + (p.mp_rvu || 0);
+        totalRVU += (p.adjustedWRVU || 0);
       }
     }
 
@@ -307,8 +310,8 @@ class CaseBuilder {
           <div class="case-total-item__value">${totalWRVU.toFixed(2)}</div>
         </div>
         <div class="case-total-item">
-          <div class="case-total-item__label">Est. Payment</div>
-          <div class="case-total-item__value big">$${(totalRVU * 33.89).toFixed(0)}</div>
+          <div class="case-total-item__label">Basis</div>
+          <div class="case-total-item__value big">wRVU only</div>
         </div>
       </div>
       <div style="display:flex;gap:6px">

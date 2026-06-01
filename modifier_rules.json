@@ -25184,5 +25184,83 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2
+  },
+  "33225": {
+    "mod51_exempt": true,
+    "addon_code": true,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": "ZZZ",
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "cardiac_electrophysiology_addon",
+    "category": "cardiac_electrophysiology",
+    "inclusive_of": [],
+    "never_primary_with": ["33206", "33207", "33208", "33224", "33227", "33228", "33229", "33249", "33262", "33263", "33264"],
+    "specialty_bundle_rules": {
+      "ent": {"always_with": [], "never_with": []},
+      "general": {"always_with": [], "never_with": []}
+    },
+    "payer_notes": {
+      "medicare": "Add-on code - report with supported primary procedure; no MPPR reduction to physician work RVU.",
+      "commercial": "Verify payer-specific parent-code and add-on reporting rules."
+    },
+    "x_modifier_eligible": false,
+    "hierarchy_tier": 3,
+    "code_family": "ep_device_procedures"
+  },
+  "93655": {
+    "mod51_exempt": true,
+    "addon_code": true,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": "ZZZ",
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "cardiac_electrophysiology_addon",
+    "category": "cardiac_electrophysiology",
+    "inclusive_of": [],
+    "never_primary_with": ["93650", "93653", "93654", "93656"],
+    "specialty_bundle_rules": {
+      "ent": {"always_with": [], "never_with": []},
+      "general": {"always_with": [], "never_with": []}
+    },
+    "payer_notes": {
+      "medicare": "Add-on code - report with supported primary procedure; no MPPR reduction to physician work RVU.",
+      "commercial": "Verify payer-specific parent-code and add-on reporting rules."
+    },
+    "x_modifier_eligible": false,
+    "hierarchy_tier": 3,
+    "code_family": "ep_ablation"
+  },
+  "93657": {
+    "mod51_exempt": true,
+    "addon_code": true,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": "ZZZ",
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "cardiac_electrophysiology_addon",
+    "category": "cardiac_electrophysiology",
+    "inclusive_of": [],
+    "never_primary_with": ["93656"],
+    "specialty_bundle_rules": {
+      "ent": {"always_with": [], "never_with": []},
+      "general": {"always_with": [], "never_with": []}
+    },
+    "payer_notes": {
+      "medicare": "Add-on code - report with supported primary procedure; no MPPR reduction to physician work RVU.",
+      "commercial": "Verify payer-specific parent-code and add-on reporting rules."
+    },
+    "x_modifier_eligible": false,
+    "hierarchy_tier": 3,
+    "code_family": "ep_ablation"
   }
 }
