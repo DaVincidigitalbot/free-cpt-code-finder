@@ -541,7 +541,8 @@ function renderSpecs(){
  const c=document.getElementById('specs');
  const specialtyNotes={
   'Vascular Surgery':'<div class="spec-note"><strong>Duplicate-code note:</strong> Some vascular and endovascular CPT codes may also appear under <strong>Interventional Radiology</strong>. If a duplicate or expected vascular code is not obvious here, check both sections.</div>',
-  'Interventional Radiology':'<div class="spec-note"><strong>Duplicate-code note:</strong> Some endovascular, access, and vascular-related CPT codes may also appear under <strong>Vascular Surgery</strong>. For duplicate or hard-to-locate codes, check both sections.</div>'
+  'Interventional Radiology':'<div class="spec-note"><strong>Duplicate-code note:</strong> Some endovascular, access, and vascular-related CPT codes may also appear under <strong>Vascular Surgery</strong>. For duplicate or hard-to-locate codes, check both sections.</div>',
+  'Cardiac Electrophysiology':'<div class="spec-note"><strong>Cardiac Electrophysiology:</strong> Office visits, EKG interpretation, rhythm monitoring, pacemaker/ICD programming, remote monitoring, device procedures, and EP ablation. <a href="/categories/cardiac-electrophysiology.html">Open EP category page</a>.</div>'
  };
  c.innerHTML=Object.entries(SPECS).map(([name,procs],si)=>`
   <div class="spec" id="sp${si}">
