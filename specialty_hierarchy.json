@@ -3,7 +3,7 @@
     {
       "id": "general_surgery",
       "label": "General Surgery",
-      "icon": "\ud83d\udd2a",
+      "icon": "🔪",
       "systems": [
         {
           "label": "Abdominal",
@@ -167,7 +167,7 @@
     {
       "id": "trauma",
       "label": "Trauma Surgery",
-      "icon": "\ud83d\ude91",
+      "icon": "🚑",
       "systems": [
         {
           "label": "Thoracic Trauma",
@@ -265,7 +265,7 @@
     {
       "id": "ent",
       "label": "Otolaryngology (ENT)",
-      "icon": "\ud83d\udc42",
+      "icon": "👂",
       "systems": [
         {
           "label": "Sinus Surgery",
@@ -350,7 +350,7 @@
     {
       "id": "orthopedic",
       "label": "Orthopedic Surgery",
-      "icon": "\ud83e\uddb4",
+      "icon": "🦴",
       "systems": [
         {
           "label": "Hip",
@@ -492,7 +492,7 @@
     {
       "id": "cardiothoracic",
       "label": "Cardiothoracic Surgery",
-      "icon": "\u2764\ufe0f",
+      "icon": "❤️",
       "systems": [
         {
           "label": "Thoracic",
@@ -615,12 +615,138 @@
         "Cardiophysiology"
       ],
       "intro": "Cardiac Electrophysiology CPT codes include common office visits, EKG interpretation, cardioversion, external rhythm monitoring, pacemaker and ICD interrogation/programming, remote device monitoring, pacemaker/ICD/CRT procedures, loop recorder insertion, leadless pacemaker procedures, and EP ablation procedures. WRVU values shown are physician work RVUs and are intended for education, documentation awareness, and case-building support.",
-      "systems": []
+      "systems": [
+        {
+          "label": "Clinic and Diagnostics",
+          "groups": [
+            {
+              "label": "EP Clinic E/M",
+              "codes": [
+                "99204",
+                "99214",
+                "99215"
+              ]
+            },
+            {
+              "label": "ECG, Cardioversion, Tilt Table",
+              "codes": [
+                "93000",
+                "93010",
+                "92960",
+                "93660"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Rhythm Monitoring",
+          "groups": [
+            {
+              "label": "Holter and External ECG Monitoring",
+              "codes": [
+                "93224",
+                "93227",
+                "93228",
+                "93229",
+                "93241",
+                "93244",
+                "93248"
+              ]
+            },
+            {
+              "label": "Loop Recorder and Remote Monitoring",
+              "codes": [
+                "93291",
+                "93294",
+                "93295",
+                "93296",
+                "93298"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pacemaker and ICD Management",
+          "groups": [
+            {
+              "label": "Device Programming",
+              "codes": [
+                "93279",
+                "93280",
+                "93281",
+                "93282",
+                "93283",
+                "93284"
+              ]
+            },
+            {
+              "label": "In-Person Device Interrogation",
+              "codes": [
+                "93288",
+                "93289"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pacemaker, ICD, CRT, and Loop Recorder Procedures",
+          "groups": [
+            {
+              "label": "Pacemaker and CRT-P Procedures",
+              "codes": [
+                "33206",
+                "33207",
+                "33208",
+                "33224",
+                "33225",
+                "33227",
+                "33228",
+                "33229",
+                "33233",
+                "33274"
+              ]
+            },
+            {
+              "label": "ICD and CRT-D Procedures",
+              "codes": [
+                "33244",
+                "33249",
+                "33262",
+                "33263",
+                "33264",
+                "33270"
+              ]
+            },
+            {
+              "label": "Loop Recorder Insertion",
+              "codes": [
+                "33285"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "EP Ablation Procedures",
+          "groups": [
+            {
+              "label": "Ablation Packages and Add-ons",
+              "codes": [
+                "93650",
+                "93653",
+                "93654",
+                "93655",
+                "93656",
+                "93657"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "vascular",
       "label": "Vascular Surgery",
-      "icon": "\ud83e\ude78",
+      "icon": "🩸",
       "systems": [
         {
           "label": "Carotid",
@@ -716,7 +842,7 @@
     {
       "id": "neurosurgery",
       "label": "Neurosurgery",
-      "icon": "\ud83e\udde0",
+      "icon": "🧠",
       "systems": [
         {
           "label": "Cranial",
@@ -802,7 +928,7 @@
     {
       "id": "urology",
       "label": "Urology",
-      "icon": "\ud83d\udca7",
+      "icon": "💧",
       "systems": [
         {
           "label": "Kidney",
@@ -883,7 +1009,7 @@
     {
       "id": "obgyn",
       "label": "OB/GYN",
-      "icon": "\ud83d\udc76",
+      "icon": "👶",
       "systems": [
         {
           "label": "Gynecologic",
@@ -1082,7 +1208,7 @@
     {
       "id": "ophthalmology",
       "label": "Ophthalmology",
-      "icon": "\ud83d\udc41\ufe0f",
+      "icon": "👁️",
       "systems": [
         {
           "label": "Eye Exams & Diagnostics",
@@ -1244,7 +1370,7 @@
     {
       "id": "gastroenterology",
       "label": "Gastroenterology",
-      "icon": "\ud83e\udec1",
+      "icon": "🫁",
       "systems": [
         {
           "label": "Upper GI",
@@ -1316,7 +1442,7 @@
     {
       "id": "interventional_radiology",
       "label": "Interventional Radiology",
-      "icon": "\ud83d\udce1",
+      "icon": "📡",
       "systems": [
         {
           "label": "Vascular IR",
@@ -1374,7 +1500,7 @@
     {
       "id": "pain_pmr",
       "label": "Pain Management / PM&R",
-      "icon": "\ud83d\udc89",
+      "icon": "💉",
       "systems": [
         {
           "label": "Spinal Procedures",
@@ -1443,7 +1569,7 @@
     {
       "id": "emergency_medicine",
       "label": "Emergency Medicine",
-      "icon": "\ud83c\udfe5",
+      "icon": "🏥",
       "systems": [
         {
           "label": "ED Visits",
@@ -1472,7 +1598,7 @@
     {
       "id": "internal_medicine",
       "label": "Internal Medicine",
-      "icon": "\ud83e\ude7a",
+      "icon": "🩺",
       "systems": [
         {
           "label": "Office Visits",
@@ -1531,7 +1657,7 @@
     {
       "id": "plastic_surgery",
       "label": "Plastic Surgery",
-      "icon": "\u2728",
+      "icon": "✨",
       "systems": [
         {
           "label": "Reconstructive",
@@ -1594,7 +1720,7 @@
     {
       "id": "radiology",
       "label": "Radiology",
-      "icon": "\ud83d\udcf7",
+      "icon": "📷",
       "systems": [
         {
           "label": "CT",
@@ -1756,7 +1882,7 @@
     {
       "key": "emergency_department_procedures",
       "label": "Emergency Department Procedures",
-      "icon": "\u26a1",
+      "icon": "⚡",
       "systems": [
         {
           "key": "ultrasound_access_airway",
