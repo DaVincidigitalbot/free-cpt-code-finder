@@ -45,6 +45,20 @@ Homepage Safety Checks
 Automated Test Evidence
 - pytest -q: 8 passed.
 - The previous stale pytest suite was removed because it asserted a different homepage/application shell than the stable production base. Replacement tests cover the current intended EP/source rebuild behavior and deployment blockers.
+- node case_test_suite.js: 110/110 surgical case scenarios passed.
+- node final_hardening_validation.js: passed; current engine reports 680 CPT rules and 89 NCCI bundles.
+- node tools/audit_sources_page.js .: passed; 839 HTML files scanned, 0 missing internal links, 0 missing source links, 0 non-root source links.
+- Static link/anchor audit: passed; 839 HTML files scanned, 0 missing internal links, 0 missing anchors.
+- Scoped stale-branding audit across HTML, screenshots, and proof files: passed; 0 CYRIONYX/AVENYX hits.
+- Browser search audit from the local static build:
+  - EP returns Cardiac Electrophysiology results.
+  - electrophysiology returns Cardiac Electrophysiology results.
+  - 93656 returns Cardiac Electrophysiology, 16.58 wRVU.
+  - 93620 returns Cardiac Electrophysiology, 10.23 wRVU.
+- Browser category audit: /categories/cardiac-electrophysiology.html renders 52 EP cards from fetched cpt_database.json.
+- Browser case-builder audit:
+  - 93656 + 93657 = 21.94 WRVU.
+  - 93295 + 93296 = 0.72 WRVU with 93296 shown as a technical/monitoring service at 0.00 physician work RVU.
 
 Remaining Required Review Step
 - Use staging/preview deployment for user review before any production deployment.

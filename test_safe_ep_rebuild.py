@@ -129,6 +129,7 @@ def test_ep_study_codes_are_normalized_and_93620_is_not_zero():
         assert "Cardiac Electrophysiology" in page
         assert "0.00 Work RVU" not in page
         assert not entry.get("inclusive_of")
+    assert "93620" not in active_spec_codes()
 
 
 def test_homepage_hydrates_embedded_specs_from_database_source_of_truth():

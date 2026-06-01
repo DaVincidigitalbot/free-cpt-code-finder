@@ -1,0 +1,50 @@
+{
+  "search_Cardiac Electrophysiology": {
+    "query": "Cardiac Electrophysiology",
+    "autocomplete": "93650\nAV node ablation\nCardiac Electrophysiology\nwRVU 9.98\nadd\n93660\nTilt table evaluation\nCardiac Electrophysiology\nwRVU 1.84\nadd\n93283\nICD programming dual-lead\nCardiac Electrophysiology\nwRVU 1.12\nadd\n93282\nICD programming single-lead\nCardiac Electrophysiology\nwRVU 0.83\nadd\n93289\nICD interrogation in-person\nCardiac Electrophysiology\nwRVU 0.73\nadd\n33233\nPacemaker generator removal\nCardiac Electrophysiology\nwRVU 3.06\nadd\n93280\nPacemaker programming dual-lead\nCardiac Electrophysiology\nwRVU 0.75\nadd\n99204\nNew patient office visit level 4\nCardiac Electrophysiology\nwRVU 2.60\nadd\n92960\nExternal electrical cardioversion\nCardiac Electrophysiology\nwRVU 1.95\nadd\n93288\nPacemaker interrogation in-person\nCardiac Electrophysiology\nwRVU 0.42\nadd\n93284\nICD/CRT-D programming multiple-lead\nCardiac Electrophysiology\nwRVU 1.22\nadd\n93224\nHolter monitor up to 48 hours global\nCardiac Electrophysiology\nwRVU 0.38\nadd"
+  },
+  "search_93656": {
+    "query": "93656 Atrial fibrillation ablation / pulmonary vein isolation",
+    "autocomplete": "93656\nAtrial fibrillation ablation / pulmonary vein isolation\nCardiac Electrophysiology\nwRVU 16.58\nadd"
+  },
+  "search_93229": {
+    "query": "93229 Mobile cardiac telemetry technical component",
+    "autocomplete": "93229\nMobile cardiac telemetry technical component\nCardiac Electrophysiology\nwRVU 0.00\nadd"
+  },
+  "caseAdds_case_builder_93656_93657": [
+    {
+      "added": true,
+      "code": "93656",
+      "wrvu": 16.58
+    },
+    {
+      "added": true,
+      "code": "93657",
+      "wrvu": 5.36
+    }
+  ],
+  "case_builder_93656_93657": {
+    "total": "21.94",
+    "status": "$622.99 \u00b7 MPPR applied",
+    "lines": "PRIMARY\n93656\n\u00d7\nAtrial fibrillation ablation / pulmonary vein isolation\nwRVU 16.58\n$536.30\nSEC 1\n93657\nedit\n\u00d7\nAdd-on additional AF ablation beyond PVI\nwRVU 5.36\n$86.69",
+    "rm": "2 lines \u00b7 medicare \u00b7 CLEAN"
+  },
+  "caseAdds_case_builder_93295_93296": [
+    {
+      "added": true,
+      "code": "93295",
+      "wrvu": 0.72
+    },
+    {
+      "added": true,
+      "code": "93296",
+      "wrvu": 0
+    }
+  ],
+  "case_builder_93295_93296": {
+    "total": "0.72",
+    "status": "$23.29 \u00b7 MPPR applied",
+    "lines": "PRIMARY\n93295\n\u00d7\nRemote ICD interrogation professional review\nwRVU 0.72\n$23.29\nSEC 1\n93296\nedit\n\u00d7\nRemote pacemaker/ICD technical monitoring \u00b7 Technical/monitoring service: 0.00 physician work RVU\nwRVU 0.00\n$0.00",
+    "rm": "2 lines \u00b7 medicare \u00b7 CLEAN"
+  }
+}
