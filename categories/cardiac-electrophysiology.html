@@ -74,7 +74,15 @@
 const addOnCodes=new Set(['33225','93655','93657']);
 const technicalCodes=new Set(['93229','93296']);
 fetch('/cpt_database.json').then(r=>r.json()).then(data=>{
-  const rows=(data.codes||[]).filter(c=>c.specialty==='Cardiac Electrophysiology').sort((a,b)=>String(a.code).localeCompare(String(b.code)));
+  const rows=(Array.isArray(data.codes)
+    ? data.codes
+    : Object.entries(data||{}).map(([code,entry])=>({code,...entry})))
+    .filter(c=>c.specialty_id === "cardiac_electrophysiology" || c.specialty === "Cardiac Electrophysiology")
+    .sort((a,b)=>String(a.code).localeCompare(String(b.code)));
+  if(!rows.length){
+    document.getElementById('ep-codes').innerHTML='<div class="quick-answer"><h2>No Cardiac Electrophysiology CPT rows loaded</h2><p>No EP CPT rows were found in cpt_database.json. This is a deployment-blocking data problem; use the homepage CPT search while the source data is checked.</p></div>';
+    return;
+  }
   document.getElementById('ep-codes').innerHTML=rows.map(c=>{
     const code=String(c.code);
     const flags=[];

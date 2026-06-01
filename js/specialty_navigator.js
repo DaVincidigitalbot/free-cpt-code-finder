@@ -62,7 +62,7 @@ class SpecialtyNavigator {
               label: 'Hernia Repair',
               groups: [
                 { label: 'Inguinal Hernia', codes: ['49505','49507','49520','49525','49650','49651'] },
-                { label: 'Ventral / Incisional', codes: ['49560','49561','49565','49566','49568','49652','49653','49654','49655','49656','49657'] },
+                { label: 'Ventral / Incisional', codes: ['49591','49592','49593','49594','49595','49596','49613','49614','49615','49616','49617','49618'] },
                 { label: 'Umbilical', codes: ['49580','49582','49585','49587'] },
                 { label: 'Femoral', codes: ['49550','49553','49555','49557'] },
                 { label: 'Hiatal / Diaphragmatic', codes: ['43280','43281','43282','43283'] },
