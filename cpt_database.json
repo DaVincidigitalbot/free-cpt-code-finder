@@ -1797,9 +1797,9 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "11010",
-    "code_family": "abos_hand_surgery",
+    "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement including removal of foreign material associated with open fractures and or dislocations; skin and subcutaneous tissues",
+    "description": "Debridement associated with open fracture or dislocation, skin and subcutaneous tissue",
     "estimated": false,
     "global_period_days": 10,
     "hierarchy_tier": 2,
@@ -1808,7 +1808,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.63,
     "specialty": "orthopedic_surgery",
-    "subcategory": "orthopedic_hand_surgery",
+    "subcategory": "debridement",
     "total_rvu": 7.47,
     "typical_modifiers": [],
     "work_rvu": 4.09,
@@ -1820,11 +1820,36 @@
     "hand_surgery_subsection": "Hand Surgery",
     "search_terms": [
       "ABOS hand surgery case list",
-      "orthopedic hand surgery",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
       "hand surgery",
-      "orthopedic surgery"
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic hand surgery",
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
     ],
-    "estimated_medicare_payment": 249.5
+    "estimated_medicare_payment": 249.5,
+    "additional_specialties": [
+      "general_surgery",
+      "orthopedic_surgery"
+    ],
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_context": "open fracture/dislocation",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11011": {
     "addon_code": false,
@@ -1832,9 +1857,9 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "11011",
-    "code_family": "abos_hand_surgery",
+    "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement including removal of foreign material associated with open fractures and or dislocations; skin, subcutaneous tissue, muscle fascia, and muscle",
+    "description": "Debridement associated with open fracture or dislocation, skin, subcutaneous tissue, muscle fascia, and muscle",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
@@ -1843,7 +1868,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.16,
     "specialty": "orthopedic_surgery",
-    "subcategory": "orthopedic_hand_surgery",
+    "subcategory": "debridement",
     "total_rvu": 7.93,
     "typical_modifiers": [],
     "work_rvu": 4.82,
@@ -1855,11 +1880,36 @@
     "hand_surgery_subsection": "Hand Surgery",
     "search_terms": [
       "ABOS hand surgery case list",
-      "orthopedic hand surgery",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
       "hand surgery",
-      "orthopedic surgery"
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic hand surgery",
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
     ],
-    "estimated_medicare_payment": 264.87
+    "estimated_medicare_payment": 264.87,
+    "additional_specialties": [
+      "general_surgery",
+      "orthopedic_surgery"
+    ],
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_context": "open fracture/dislocation",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11012": {
     "addon_code": false,
@@ -1867,9 +1917,9 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "11012",
-    "code_family": "abos_hand_surgery",
+    "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement including removal of foreign material associated with open fractures and or dislocations; skin, subcutaneous tissue, muscle fascia, muscle, and bone",
+    "description": "Debridement associated with open fracture or dislocation, skin, subcutaneous tissue, muscle fascia, muscle, and bone",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
@@ -1878,7 +1928,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.83,
     "specialty": "orthopedic_surgery",
-    "subcategory": "orthopedic_hand_surgery",
+    "subcategory": "debridement",
     "total_rvu": 10.85,
     "typical_modifiers": [],
     "work_rvu": 6.7,
@@ -1890,11 +1940,36 @@
     "hand_surgery_subsection": "Hand Surgery",
     "search_terms": [
       "ABOS hand surgery case list",
-      "orthopedic hand surgery",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
       "hand surgery",
-      "orthopedic surgery"
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic hand surgery",
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
     ],
-    "estimated_medicare_payment": 362.4
+    "estimated_medicare_payment": 362.4,
+    "additional_specialties": [
+      "general_surgery",
+      "orthopedic_surgery"
+    ],
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_context": "open fracture/dislocation",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11040": {
     "addon_code": false,
@@ -1974,7 +2049,7 @@
     "code": "11042",
     "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement, subcutaneous tissue; first 20 sq cm or less",
+    "description": "Excisional debridement, Subcutaneous tissue; first 20 sq cm or less",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 5,
@@ -1994,15 +2069,37 @@
     "abos_hand_source_url": "https://ebhmc.com/cptabos/",
     "hand_surgery_subsection": "Hand Surgery",
     "additional_specialties": [
+      "general_surgery",
       "orthopedic_surgery"
     ],
     "search_terms": [
       "ABOS hand surgery case list",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
       "hand surgery",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
       "orthopedic hand surgery",
-      "orthopedic surgery"
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
     ],
-    "estimated_medicare_payment": 132.6
+    "estimated_medicare_payment": 132.6,
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_depth": "subcutaneous",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11043": {
     "addon_code": false,
@@ -2012,7 +2109,7 @@
     "code": "11043",
     "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement, muscle and/or fascia; first 20 sq cm or less",
+    "description": "Excisional debridement, Muscle and/or fascia; first 20 sq cm or less",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 5,
@@ -2034,15 +2131,37 @@
     "abos_hand_source_url": "https://ebhmc.com/cptabos/",
     "hand_surgery_subsection": "Hand Surgery",
     "additional_specialties": [
+      "general_surgery",
       "orthopedic_surgery"
     ],
     "search_terms": [
       "ABOS hand surgery case list",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
       "hand surgery",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
       "orthopedic hand surgery",
-      "orthopedic surgery"
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
     ],
-    "estimated_medicare_payment": 239.48
+    "estimated_medicare_payment": 239.48,
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_depth": "muscle/fascia",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11044": {
     "addon_code": false,
@@ -2052,7 +2171,7 @@
     "code": "11044",
     "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement, bone; first 20 sq cm or less",
+    "description": "Excisional debridement, Bone; first 20 sq cm or less",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 5,
@@ -2075,15 +2194,37 @@
     "abos_hand_source_url": "https://ebhmc.com/cptabos/",
     "hand_surgery_subsection": "Hand Surgery",
     "additional_specialties": [
+      "general_surgery",
       "orthopedic_surgery"
     ],
     "search_terms": [
       "ABOS hand surgery case list",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
       "hand surgery",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
       "orthopedic hand surgery",
-      "orthopedic surgery"
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
     ],
-    "estimated_medicare_payment": 320.65
+    "estimated_medicare_payment": 320.65,
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_depth": "bone",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11045": {
     "addon_code": true,
@@ -2093,7 +2234,7 @@
     "code": "11045",
     "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement, subcutaneous tissue; each additional 20 sq cm",
+    "description": "Excisional debridement, Subcutaneous tissue; each additional 20 sq cm or part thereof",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
@@ -2108,13 +2249,42 @@
     "never_primary_with": [],
     "pe_rvu": 0.69,
     "specialty": "debridement",
-    "subcategory": null,
+    "subcategory": "debridement",
     "total_rvu": 1.25,
     "typical_modifiers": [],
     "work_rvu": 0.49,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "additional_specialties": [
+      "general_surgery",
+      "orthopedic_surgery"
+    ],
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "estimated_medicare_payment": 41.75,
+    "search_terms": [
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
+    ],
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_depth": "subcutaneous",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11046": {
     "addon_code": true,
@@ -2124,7 +2294,7 @@
     "code": "11046",
     "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement, muscle and/or fascia; each additional 20 sq cm",
+    "description": "Excisional debridement, Muscle and/or fascia; each additional 20 sq cm or part thereof",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
@@ -2139,13 +2309,42 @@
     "never_primary_with": [],
     "pe_rvu": 1.1,
     "specialty": "debridement",
-    "subcategory": null,
+    "subcategory": "debridement",
     "total_rvu": 2.29,
     "typical_modifiers": [],
     "work_rvu": 1,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "additional_specialties": [
+      "general_surgery",
+      "orthopedic_surgery"
+    ],
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "estimated_medicare_payment": 76.49,
+    "search_terms": [
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
+    ],
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_depth": "muscle/fascia",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11047": {
     "addon_code": true,
@@ -2155,7 +2354,7 @@
     "code": "11047",
     "code_family": "debridement",
     "cosurgeon_eligible": false,
-    "description": "Debridement, bone; each additional 20 sq cm",
+    "description": "Excisional debridement, Bone; each additional 20 sq cm or part thereof",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
@@ -2170,13 +2369,42 @@
     "never_primary_with": [],
     "pe_rvu": 1.74,
     "specialty": "debridement",
-    "subcategory": null,
+    "subcategory": "debridement",
     "total_rvu": 3.85,
     "typical_modifiers": [],
     "work_rvu": 1.76,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "additional_specialties": [
+      "general_surgery",
+      "orthopedic_surgery"
+    ],
+    "orthopedic_subsection": "Excisional Debridement",
+    "general_surgery_subsection": "Wound Management / Excisional Debridement",
+    "estimated_medicare_payment": 128.59,
+    "search_terms": [
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic surgery",
+      "wound debridement",
+      "wound surface area"
+    ],
+    "documentation_notes": [
+      "Active wound care exclusion: 97597/97598 should not be billed for the same wound on the same date as excisional debridement codes 11042-11047.",
+      "Deepest layer rule: for a single wound with multiple tissue depths, report one excisional debridement code based on the deepest layer of tissue actually removed.",
+      "Document instrument used, tissue type actually excised, total sq cm by depth, and whether debridement is associated with an open fracture/dislocation.",
+      "Excisional requirement: 11042-11047 and 11010-11012 require surgical/excisional debridement using instruments such as scalpel, scissors, or curette; routine dressing changes and non-surgical wound care do not qualify.",
+      "Multiple wound rule: add together square centimeters only for wounds debrided to the same tissue depth."
+    ],
+    "debridement_depth": "bone",
+    "incompatible_same_wound_same_day": [
+      "97597",
+      "97598"
+    ]
   },
   "11055": {
     "addon_code": false,
@@ -106731,10 +106959,10 @@
     "bilateral_eligible": false,
     "category": "Medicine",
     "code": "97597",
-    "code_family": "pt_ot",
+    "code_family": "debridement",
     "cosurgeon_eligible": false,
     "description": "Debridement open wound first 20 sq cm",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
     "inclusive_of": [],
@@ -106742,13 +106970,38 @@
     "never_primary_with": [],
     "pe_rvu": 2.24,
     "specialty": "physical_medicine",
-    "subcategory": null,
+    "subcategory": "debridement",
     "total_rvu": 3.04,
     "typical_modifiers": [],
     "work_rvu": 0.75,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "estimated_medicare_payment": 101.54,
+    "search_terms": [
+      "active wound care",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
+      "not same wound as excisional debridement",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic surgery",
+      "selective debridement",
+      "wound debridement",
+      "wound surface area"
+    ],
+    "documentation_notes": [
+      "Do not report active wound care debridement 97597/97598 for the same wound on the same date as excisional debridement 11042-11047."
+    ],
+    "incompatible_same_wound_same_day": [
+      "11042",
+      "11043",
+      "11044",
+      "11045",
+      "11046",
+      "11047"
+    ]
   },
   "97598": {
     "addon_code": false,
@@ -106756,10 +107009,10 @@
     "bilateral_eligible": false,
     "category": "Medicine",
     "code": "97598",
-    "code_family": "pt_ot",
+    "code_family": "debridement",
     "cosurgeon_eligible": false,
     "description": "Debridement open wound each additional 20 sq cm",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
     "inclusive_of": [],
@@ -106767,13 +107020,38 @@
     "never_primary_with": [],
     "pe_rvu": 0.88,
     "specialty": "physical_medicine",
-    "subcategory": null,
+    "subcategory": "debridement",
     "total_rvu": 1.43,
     "typical_modifiers": [],
     "work_rvu": 0.49,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "estimated_medicare_payment": 47.76,
+    "search_terms": [
+      "active wound care",
+      "deepest layer",
+      "excisional debridement",
+      "general surgery",
+      "not same wound as excisional debridement",
+      "open fracture debridement",
+      "orthopedic excisional debridement",
+      "orthopedic surgery",
+      "selective debridement",
+      "wound debridement",
+      "wound surface area"
+    ],
+    "documentation_notes": [
+      "Do not report active wound care debridement 97597/97598 for the same wound on the same date as excisional debridement 11042-11047."
+    ],
+    "incompatible_same_wound_same_day": [
+      "11042",
+      "11043",
+      "11044",
+      "11045",
+      "11046",
+      "11047"
+    ]
   },
   "97602": {
     "addon_code": false,

@@ -1,0 +1,205 @@
+{
+  "source": "Graydon Telegram request 2026-06-06",
+  "requested_codes": [
+    "11042",
+    "11043",
+    "11044",
+    "11045",
+    "11046",
+    "11047",
+    "11010",
+    "11011",
+    "11012"
+  ],
+  "active_wound_care_reference_codes": [
+    "97597",
+    "97598"
+  ],
+  "total_requested_codes": 9,
+  "new_codes_added": 0,
+  "already_present": 9,
+  "duplicates_added": 0,
+  "rows": [
+    {
+      "code": "11042",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Excisional Debridement",
+      "work_rvu": 0.98,
+      "estimated_medicare_payment": 132.6,
+      "notes_added": true
+    },
+    {
+      "code": "11043",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Excisional Debridement",
+      "work_rvu": 2.63,
+      "estimated_medicare_payment": 239.48,
+      "notes_added": true
+    },
+    {
+      "code": "11044",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Excisional Debridement",
+      "work_rvu": 4,
+      "estimated_medicare_payment": 320.65,
+      "notes_added": true
+    },
+    {
+      "code": "11045",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Excisional Debridement Add-on",
+      "work_rvu": 0.49,
+      "estimated_medicare_payment": 41.75,
+      "notes_added": true
+    },
+    {
+      "code": "11046",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Excisional Debridement Add-on",
+      "work_rvu": 1,
+      "estimated_medicare_payment": 76.49,
+      "notes_added": true
+    },
+    {
+      "code": "11047",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Excisional Debridement Add-on",
+      "work_rvu": 1.76,
+      "estimated_medicare_payment": 128.59,
+      "notes_added": true
+    },
+    {
+      "code": "11010",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Open Fracture Debridement",
+      "work_rvu": 4.09,
+      "estimated_medicare_payment": 249.5,
+      "notes_added": true
+    },
+    {
+      "code": "11011",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Open Fracture Debridement",
+      "work_rvu": 4.82,
+      "estimated_medicare_payment": 264.87,
+      "notes_added": true
+    },
+    {
+      "code": "11012",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Open Fracture Debridement",
+      "work_rvu": 6.7,
+      "estimated_medicare_payment": 362.4,
+      "notes_added": true
+    },
+    {
+      "code": "97597",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Active Wound Care Debridement",
+      "work_rvu": 0.75,
+      "estimated_medicare_payment": 101.54,
+      "notes_added": true
+    },
+    {
+      "code": "97598",
+      "already_present": true,
+      "newly_added": false,
+      "group": "Active Wound Care Debridement",
+      "work_rvu": 0.49,
+      "estimated_medicare_payment": 47.76,
+      "notes_added": true
+    }
+  ],
+  "hierarchy_duplicates_removed": [
+    {
+      "specialty": "General Surgery",
+      "system": "Wound Management",
+      "group": "Debridement",
+      "code": "11042"
+    },
+    {
+      "specialty": "General Surgery",
+      "system": "Wound Management",
+      "group": "Debridement",
+      "code": "11043"
+    },
+    {
+      "specialty": "General Surgery",
+      "system": "Wound Management",
+      "group": "Debridement",
+      "code": "11044"
+    },
+    {
+      "specialty": "General Surgery",
+      "system": "Wound Management",
+      "group": "Debridement",
+      "code": "11045"
+    },
+    {
+      "specialty": "General Surgery",
+      "system": "Wound Management",
+      "group": "Debridement",
+      "code": "11046"
+    },
+    {
+      "specialty": "General Surgery",
+      "system": "Wound Management",
+      "group": "Debridement",
+      "code": "11047"
+    },
+    {
+      "specialty": "Orthopedic Surgery",
+      "system": "Hand Surgery",
+      "group": "ABOS Hand Surgery",
+      "code": "11010"
+    },
+    {
+      "specialty": "Orthopedic Surgery",
+      "system": "Hand Surgery",
+      "group": "ABOS Hand Surgery",
+      "code": "11011"
+    },
+    {
+      "specialty": "Orthopedic Surgery",
+      "system": "Hand Surgery",
+      "group": "ABOS Hand Surgery",
+      "code": "11012"
+    },
+    {
+      "specialty": "Orthopedic Surgery",
+      "system": "Hand Surgery",
+      "group": "ABOS Hand Surgery",
+      "code": "11042"
+    },
+    {
+      "specialty": "Orthopedic Surgery",
+      "system": "Hand Surgery",
+      "group": "ABOS Hand Surgery",
+      "code": "11043"
+    },
+    {
+      "specialty": "Orthopedic Surgery",
+      "system": "Hand Surgery",
+      "group": "ABOS Hand Surgery",
+      "code": "11044"
+    }
+  ],
+  "canonical_hierarchy_groups": {
+    "Orthopedic Surgery": "Wound Management > Excisional Debridement",
+    "General Surgery": "Wound Management > Excisional Debridement"
+  },
+  "verified_wrvu_count": 9,
+  "missing_wrvu_codes": [],
+  "not_found_deleted_inactive_codes": [],
+  "payment_methodology": "Existing site Medicare payment fields / conversion methodology; no ABOS PDF RVU values used."
+}
