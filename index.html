@@ -518,7 +518,8 @@ const MOD_OPTS=[
 const EM_MOD_OPTS=[
  {v:'',code:'none',label:'No modifier',desc:'Use when no same-day procedure or global-period modifier is needed.'},
  {v:'57',code:'-57',label:'Decision for surgery',desc:'E/M resulted in the decision for major surgery. Common for same-day urgent/emergent operations.'},
- {v:'25',code:'-25',label:'Separate E/M service',desc:'Significant, separately identifiable E/M on the same day as a minor procedure.'}
+ {v:'25',code:'-25',label:'Separate E/M service',desc:'Significant, separately identifiable E/M on the same day as a minor procedure.'},
+ {v:'24',code:'-24',label:'Unrelated postop E/M',desc:'Unrelated E/M during a postoperative global period.'}
 ];
 
 function log(m){audit.unshift(`[${new Date().toLocaleTimeString()}] ${m}`)}
@@ -656,9 +657,11 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  recalc('procedure added');
 }
 function addEM(cpt,desc,wrvu){
- caseLines.push({id:nextLineId++,cpt,desc,baseWrvu:wrvu,kind:'em',mods:[],userMod:''});
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,kind:'em',mods:[],userMod:''};
+ caseLines.push(line);
  log(`ADD E/M ${cpt} "${desc}" wRVU=${wrvu}`);
  recalc('E/M added');
+ openMpick(line.id,{suggestion:'57',reason:'Select the E/M modifier for this service. For same-day decision for major surgery, choose -57. Modifier choice does not change wRVU; it changes claim context.'});
 }
 function removeLine(i){log(`REMOVE ${caseLines[i].cpt}`);caseLines.splice(i,1);recalc('line removed')}
 function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
@@ -695,12 +698,24 @@ function computeMods(){
   if(l.kind==='em'){
    if(procs.length>0){
     const major=procs.some(p=>isMajorSurgeryCode(p.cpt));
-    if(major&&l.userMod==='25'){
-     l.conflicts.push('Modifier -25 conflicts with same-day major surgery decision context; use -57 when decision for major surgery is documented.');
-     l.userMod='57';
+    if(l.userMod){
+     l.mods.push(l.userMod);
+     const opt=EM_MOD_OPTS.find(o=>o.v===l.userMod);
+     const cite=l.userMod==='57'?RULES.MOD_57:(l.userMod==='24'?RULES.MOD_24:RULES.MOD_25);
+     l.rationale.push({mod:l.userMod,reason:`Coder-selected E/M modifier: ${opt?opt.label:'modifier '+l.userMod}. Documentation must support this selection.`,cite});
+     if(major&&l.userMod==='25'){
+      l.engineState='WARNING';
+      l.warnings.push('Same-day major surgery context detected. Modifier -57 is usually the decision-for-surgery modifier; confirm documentation before using -25.');
+     }
+    }else if(major){
+     l.mods.push('57');
+     l.engineState='WARNING';
+     l.rationale.push({mod:'57',reason:`E/M on same day as major surgery decision. Modifier 57 used when the evaluation resulted in the decision for surgery.`,cite:RULES.MOD_57});
+    }else{
+     l.engineState='WARNING';
+     l.warnings.push('No E/M modifier selected. Use edit to choose -57, -25, -24, or none based on documentation.');
+     l.rationale.push({mod:'—',reason:'No E/M modifier was selected automatically. Surgeon/coder should choose the modifier that matches the documented encounter.',cite:'FreeCPTCodeFinder E/M modifier selection rule'});
     }
-    if(l.userMod==='57'||major){l.mods.push('57');l.engineState='WARNING';l.rationale.push({mod:'57',reason:`E/M on same day as major surgery decision. Modifier 57 used instead of -25 when the evaluation resulted in the decision for surgery.`,cite:RULES.MOD_57})}
-    else{l.mods.push('25');l.rationale.push({mod:'25',reason:`E/M billed same session as ${procs[0].cpt}. Modifier 25 required.`,cite:RULES.MOD_25})}
    }else if(l.userMod==='57'){
     l.mods.push('57');
     l.engineState='WARNING';
@@ -709,6 +724,10 @@ function computeMods(){
     l.mods.push('25');
     l.engineState='WARNING';
     l.rationale.push({mod:'25',reason:'Coder-affirmed separate E/M modifier. Confirm a separately identifiable same-day service is documented.',cite:RULES.MOD_25});
+   }else if(l.userMod==='24'){
+    l.mods.push('24');
+    l.engineState='WARNING';
+    l.rationale.push({mod:'24',reason:'Coder-affirmed unrelated E/M during postoperative global period. Confirm unrelated diagnosis/problem and documentation.',cite:RULES.MOD_24});
    }
    l.effWrvu=l.baseWrvu;l.rank='E/M';l.rankReason='Evaluation & management service.';return;
   }
@@ -915,6 +934,7 @@ const RULES={
  MOD_51:"CPT 2026 Appendix A — modifier 51 identifies secondary procedures when multiple procedures performed same session (commercial payers only; Medicare uses MPPR)",
  MOD_25:"CPT 2026 Appendix A — modifier 25 indicates significant, separately identifiable E/M on same day as a procedure",
  MOD_57:"CPT 2026 Appendix A — modifier 57 indicates the decision for major surgery was made during the E/M service",
+ MOD_24:"CPT 2026 Appendix A — modifier 24 indicates an unrelated E/M service during a postoperative period",
  MOD_50:"CPT 2026 Appendix A — modifier 50 for bilateral procedures; paid at 150% of base",
  MOD_RT_LT:"HCPCS Level II — anatomic laterality modifiers",
  MOD_50_ALT:"Payer variation note — some payers require bilateral split billing with RT/LT instead of modifier 50",

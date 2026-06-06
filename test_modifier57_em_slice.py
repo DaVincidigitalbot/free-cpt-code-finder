@@ -23,6 +23,7 @@ def test_case_builder_exposes_modifier57_for_em_lines():
     for text in [
         "const EM_MOD_OPTS=",
         "{v:'57',code:'-57'",
+        "{v:'24',code:'-24'",
         "Select E/M modifier",
         "line.kind==='em'",
         "openMpick(${l.id})",
@@ -32,11 +33,12 @@ def test_case_builder_exposes_modifier57_for_em_lines():
 
 def test_case_builder_keeps_modifier57_in_em_calculation():
     for text in [
-        "l.userMod==='57'||major",
         "l.mods.push('57')",
+        "No E/M modifier selected. Use edit to choose -57, -25, -24, or none based on documentation.",
         "l.effWrvu=l.baseWrvu",
         "Coder-affirmed decision for surgery modifier",
         "/^(44|47|48|49|15|31|43|60)/.test(code)",
+        "Modifier -57 is usually the decision-for-surgery modifier; confirm documentation before using -25.",
     ]:
         assert text in INDEX_HTML
 
