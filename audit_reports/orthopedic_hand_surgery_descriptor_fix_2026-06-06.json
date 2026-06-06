@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-06",
+  "issue": "Removed ABOS source-list label from user-facing Orthopedic Hand Surgery listings",
+  "total_hand_surgery_cpt_codes_audited": 786,
+  "total_cpt_codes_corrected": 136,
+  "display_rows_regenerated": 786,
+  "description_mismatches_vs_master_cpt_database": [],
+  "codes_with_wrvu_data": 750,
+  "codes_without_wrvu_data": 36,
+  "wrvu_mismatches_vs_cpt_database": [],
+  "payment_mismatches_vs_cpt_database": [],
+  "malformed_or_truncated_descriptions": [],
+  "abos_phrase_removed_from_user_facing_pages": true,
+  "before_screenshot": "qa_artifacts/orthopedic_hand_surgery_abos_prefix_fix_2026_06_06/before_live_section.png",
+  "after_screenshot": "qa_artifacts/orthopedic_hand_surgery_abos_prefix_fix_2026_06_06/after_local_section.png",
+  "corrected_open_fracture_debridement_descriptors": {
+    "11010": "Debridement including removal of foreign material associated with open fracture(s) and/or dislocation(s); skin and subcutaneous tissues",
+    "11011": "Debridement including removal of foreign material associated with open fracture(s) and/or dislocation(s); skin, subcutaneous tissue, muscle fascia, and muscle",
+    "11012": "Debridement including removal of foreign material associated with open fracture(s) and/or dislocation(s); skin, subcutaneous tissue, muscle fascia, muscle, and bone"
+  }
+}
