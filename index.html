@@ -308,15 +308,15 @@ a{color:inherit;text-decoration:none}
 <div class="sec-h in"><span class="bdot"></span>Inpatient Provider Codes</div>
 
 <div class="em-group"><div class="em-gh">Admission</div><div class="em-levels">
-<button class="em-l" onclick="addEM('99221','Initial hosp care, low',1.92)"><span class="lvl">Lvl 1</span>99221<span class="wr">1.92</span></button>
-<button class="em-l" onclick="addEM('99222','Initial hosp care, mod',2.61)"><span class="lvl">Lvl 2</span>99222<span class="wr">2.61</span></button>
-<button class="em-l" onclick="addEM('99223','Initial hosp care, high',3.86)"><span class="lvl">Lvl 3</span>99223<span class="wr">3.86</span></button>
+<button class="em-l" onclick="addEM('99221','Initial hosp care, low',1.63)"><span class="lvl">Lvl 1</span>99221<span class="wr">1.63</span></button>
+<button class="em-l" onclick="addEM('99222','Initial hosp care, mod',2.60)"><span class="lvl">Lvl 2</span>99222<span class="wr">2.60</span></button>
+<button class="em-l" onclick="addEM('99223','Initial hosp care, high',3.50)"><span class="lvl">Lvl 3</span>99223<span class="wr">3.50</span></button>
 </div></div>
 
 <div class="em-group"><div class="em-gh">Subsequent care</div><div class="em-levels">
-<button class="em-l" onclick="addEM('99231','Subsq hosp, low',0.76)"><span class="lvl">Lvl 1</span>99231<span class="wr">0.76</span></button>
-<button class="em-l" onclick="addEM('99232','Subsq hosp, mod',1.39)"><span class="lvl">Lvl 2</span>99232<span class="wr">1.39</span></button>
-<button class="em-l" onclick="addEM('99233','Subsq hosp, high',2.00)"><span class="lvl">Lvl 3</span>99233<span class="wr">2.00</span></button>
+<button class="em-l" onclick="addEM('99231','Subsq hosp, low',1.00)"><span class="lvl">Lvl 1</span>99231<span class="wr">1.00</span></button>
+<button class="em-l" onclick="addEM('99232','Subsq hosp, mod',1.59)"><span class="lvl">Lvl 2</span>99232<span class="wr">1.59</span></button>
+<button class="em-l" onclick="addEM('99233','Subsq hosp, high',2.40)"><span class="lvl">Lvl 3</span>99233<span class="wr">2.40</span></button>
 </div></div>
 
 <div class="em-group"><div class="em-gh">Discharge</div><div class="em-levels">
@@ -325,10 +325,10 @@ a{color:inherit;text-decoration:none}
 </div></div>
 
 <div class="em-group"><div class="em-gh">Consultation</div><div class="em-levels">
-<button class="em-l" onclick="addEM('99252','Inpt consult, straightforward',1.20)"><span class="lvl">Lvl 2</span>99252<span class="wr">1.20</span></button>
-<button class="em-l" onclick="addEM('99253','Inpt consult, low',1.80)"><span class="lvl">Lvl 3</span>99253<span class="wr">1.80</span></button>
-<button class="em-l" onclick="addEM('99254','Inpt consult, mod',2.70)"><span class="lvl">Lvl 4</span>99254<span class="wr">2.70</span></button>
-<button class="em-l" onclick="addEM('99255','Inpt consult, high',3.50)"><span class="lvl">Lvl 5</span>99255<span class="wr">3.50</span></button>
+<button class="em-l" onclick="addEM('99252','Inpt consult, straightforward',1.50)"><span class="lvl">Lvl 2</span>99252<span class="wr">1.50</span></button>
+<button class="em-l" onclick="addEM('99253','Inpt consult, low',2.00)"><span class="lvl">Lvl 3</span>99253<span class="wr">2.00</span></button>
+<button class="em-l" onclick="addEM('99254','Inpt consult, mod',2.72)"><span class="lvl">Lvl 4</span>99254<span class="wr">2.72</span></button>
+<button class="em-l" onclick="addEM('99255','Inpt consult, high',3.86)"><span class="lvl">Lvl 5</span>99255<span class="wr">3.86</span></button>
 </div></div>
 
 <div class="em-group"><div class="em-gh">Critical care</div><div class="em-levels">
@@ -515,6 +515,11 @@ const MOD_OPTS=[
  {v:'XP',code:'-XP',label:'Separate practitioner',desc:'Procedure performed by a different practitioner.'},
  {v:'XU',code:'-XU',label:'Unusual non-overlapping service',desc:'Does not overlap usual components of the primary service.'}
 ];
+const EM_MOD_OPTS=[
+ {v:'',code:'none',label:'No modifier',desc:'Use when no same-day procedure or global-period modifier is needed.'},
+ {v:'57',code:'-57',label:'Decision for surgery',desc:'E/M resulted in the decision for major surgery. Common for same-day urgent/emergent operations.'},
+ {v:'25',code:'-25',label:'Separate E/M service',desc:'Significant, separately identifiable E/M on the same day as a minor procedure.'}
+];
 
 function log(m){audit.unshift(`[${new Date().toLocaleTimeString()}] ${m}`)}
 function isRoboticAllowed(cpt){return ROBOTIC_ALLOWED.includes(String(cpt))}
@@ -651,7 +656,7 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  recalc('procedure added');
 }
 function addEM(cpt,desc,wrvu){
- caseLines.push({cpt,desc,baseWrvu:wrvu,kind:'em',mods:[]});
+ caseLines.push({id:nextLineId++,cpt,desc,baseWrvu:wrvu,kind:'em',mods:[],userMod:''});
  log(`ADD E/M ${cpt} "${desc}" wRVU=${wrvu}`);
  recalc('E/M added');
 }
@@ -660,7 +665,14 @@ function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
 
 function isAddonCode(cpt){return ['33225','93655','93657'].includes(String(cpt||''))}
 function isTechnicalCode(cpt){return ['93229','93296'].includes(String(cpt||''))}
-function isMajorSurgeryCode(cpt){return /^49|^15|^31/.test(String(cpt||''))}
+function isMajorSurgeryCode(cpt){
+ const code=String(cpt||'');
+ const row=Object.values(SPECS).flat().find(p=>String(p[0]).split(' ')[0]===code);
+ if(row&&Number(row[3]||0)>=90)return true;
+ const db=typeof CPT_DATA!=='undefined'&&CPT_DATA?CPT_DATA[code]:null;
+ if(db&&Number(db.global_period_days||0)>=90)return true;
+ return /^(44|47|48|49|15|31|43|60)/.test(code);
+}
 function getModifierConflictState(){
  if(caseLines.some(l=>l.engineState==='BLOCKED'))return 'BLOCKED';
  if(caseLines.some(l=>l.engineState==='WARNING'))return 'WARNING';
@@ -689,6 +701,14 @@ function computeMods(){
     }
     if(l.userMod==='57'||major){l.mods.push('57');l.engineState='WARNING';l.rationale.push({mod:'57',reason:`E/M on same day as major surgery decision. Modifier 57 used instead of -25 when the evaluation resulted in the decision for surgery.`,cite:RULES.MOD_57})}
     else{l.mods.push('25');l.rationale.push({mod:'25',reason:`E/M billed same session as ${procs[0].cpt}. Modifier 25 required.`,cite:RULES.MOD_25})}
+   }else if(l.userMod==='57'){
+    l.mods.push('57');
+    l.engineState='WARNING';
+    l.rationale.push({mod:'57',reason:'Coder-affirmed decision for surgery modifier. Add the operative CPT line when building the complete same-day surgical case.',cite:RULES.MOD_57});
+   }else if(l.userMod==='25'){
+    l.mods.push('25');
+    l.engineState='WARNING';
+    l.rationale.push({mod:'25',reason:'Coder-affirmed separate E/M modifier. Confirm a separately identifiable same-day service is documented.',cite:RULES.MOD_25});
    }
    l.effWrvu=l.baseWrvu;l.rank='E/M';l.rankReason='Evaluation & management service.';return;
   }
@@ -786,26 +806,28 @@ function openMpick(lineId,opts={}){
  const line=caseLines.find(l=>l.id===lineId);if(!line)return;
  mpickLineId=lineId;
  document.getElementById('mpick-title').textContent=`${line.cpt} · ${line.desc}`;
- document.getElementById('mpick-sub').textContent=`Select distinct-service modifier`;
+ const isEM=line.kind==='em';
+ document.getElementById('mpick-sub').textContent=isEM?`Select E/M modifier`:`Select distinct-service modifier`;
  const primary=caseLines.filter(l=>l.kind==='proc')[0];
  const ncciEl=document.getElementById('mpick-ncci');
- if(primary&&primary.cpt!==line.cpt){
+ if(!isEM&&primary&&primary.cpt!==line.cpt){
   const edit=ncciCheck(primary.cpt,line.cpt);
   if(edit){ncciEl.textContent=`NCCI edit: ${edit.note}`;ncciEl.classList.add('show')}
   else{ncciEl.classList.remove('show')}
  }else ncciEl.classList.remove('show');
- if(opts.reason){
-  const w=document.getElementById('mpick-warn');
-  w.innerHTML=opts.reason+'<br><br>Documentation must support the selection before submission.';
- }
+ const w=document.getElementById('mpick-warn');
+ if(opts.reason)w.innerHTML=opts.reason+'<br><br>Documentation must support the selection before submission.';
+ else if(isEM)w.innerHTML='Modifier 57 is for the E/M service where the decision for major surgery is made. It does not change wRVU; it preserves the E/M line as separately billable when documentation supports the same-day decision for surgery.';
+ else w.innerHTML='Modifier 59 and X-modifiers signal distinct procedural services. Documentation must support the selection, separate incision, separate site, separate encounter, or unusual circumstance. Medicare prefers X-modifiers over 59 when the situation is specific.';
  const suggestion=opts.suggestion||line.userMod||'';
+ const availableOpts=isEM?EM_MOD_OPTS:MOD_OPTS;
  const optsEl=document.getElementById('mpick-opts');
- optsEl.innerHTML=MOD_OPTS.map((o,i)=>`
+ optsEl.innerHTML=availableOpts.map((o,i)=>`
   <button class="mpick-opt ${o.v===''?'none':''} ${o.v===suggestion?'hl':''}" data-i="${i}" data-v="${o.v}" onclick="commitMpick('${o.v}')">
    <div class="mk">${o.code}</div>
    <div><div class="ml">${o.label}</div><div class="md">${o.desc}</div></div>
   </button>`).join('');
- mpickIndex=Math.max(0,MOD_OPTS.findIndex(o=>o.v===suggestion));
+ mpickIndex=Math.max(0,availableOpts.findIndex(o=>o.v===suggestion));
  updateMpickHL();
  document.getElementById('mpick').classList.add('open');
 }
@@ -825,9 +847,11 @@ function closeMpick(){document.getElementById('mpick').classList.remove('open');
 document.addEventListener('keydown',e=>{
  if(!document.getElementById('mpick').classList.contains('open'))return;
  if(e.key==='Escape'){closeMpick();e.preventDefault()}
- if(e.key==='ArrowDown'){mpickIndex=Math.min(MOD_OPTS.length-1,mpickIndex+1);updateMpickHL();e.preventDefault()}
+ const line=caseLines.find(l=>l.id===mpickLineId);
+ const opts=line&&line.kind==='em'?EM_MOD_OPTS:MOD_OPTS;
+ if(e.key==='ArrowDown'){mpickIndex=Math.min(opts.length-1,mpickIndex+1);updateMpickHL();e.preventDefault()}
  if(e.key==='ArrowUp'){mpickIndex=Math.max(0,mpickIndex-1);updateMpickHL();e.preventDefault()}
- if(e.key==='Enter'){commitMpick(MOD_OPTS[mpickIndex].v);e.preventDefault()}
+ if(e.key==='Enter'){commitMpick(opts[mpickIndex].v);e.preventDefault()}
 });
 
 function renderDxList(){
@@ -860,7 +884,7 @@ function recalc(why){
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
    return `<div class="rl">
-    <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${l.kind==='proc'&&rk>1?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
+    <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${(l.kind==='em'||(l.kind==='proc'&&rk>1))?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
     <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
