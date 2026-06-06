@@ -1,0 +1,737 @@
+code,source_description,orthopedic_subsection,status,wrvu_status,wrvu_missing_reason,work_rvu,total_rvu,global_period_days,estimated_medicare_payment,cms_source_file
+10060,"Incision and drainage of abscess eg, carbuncle, suppurative hidradenitis, and other cutaneous or subcutaneous abscess, cyst, furuncle, or paronychia; simple or single",Hand Surgery,already_present,verified,,1.19,3.85,10,128.59,PPRRVU2026_Jul_nonQPP.csv
+10061,"Incision and drainage of abscess eg, carbuncle, suppurative hidradenitis, and other cutaneous or subcutaneous abscess, cyst, furuncle, or paronychia); complicated or multiple",Hand Surgery,already_present,verified,,2.39,6.59,10,220.11,PPRRVU2026_Jul_nonQPP.csv
+10120,"Incision and removal of foreign body, subcutaneous tissues; simple",Hand Surgery,already_present,verified,,1.19,4.71,10,157.32,PPRRVU2026_Jul_nonQPP.csv
+10121,"Incision and removal of foreign body, subcutaneous tissues; complicated",Hand Surgery,already_present,verified,,2.67,8.24,10,275.22,PPRRVU2026_Jul_nonQPP.csv
+10140,"Incision and drainage of hematoma, seroma or fluid collection",Hand Surgery,already_present,verified,,1.54,5.22,10,174.35,PPRRVU2026_Jul_nonQPP.csv
+10160,"Puncture aspiration of abscess, hematoma, bulla, or cyst",Hand Surgery,already_present,verified,,1.22,3.94,10,131.6,PPRRVU2026_Jul_nonQPP.csv
+10180,"Incision and drainage, complex, postoperative wound infection",Hand Surgery,already_present,verified,,2.24,8.63,10,288.25,PPRRVU2026_Jul_nonQPP.csv
+11000,Debridement of extensive eczematous or infected skin; up to 10% of body surface,Hand Surgery,newly_added,verified,,0.59,0.73,0,24.38,PPRRVU2026_Jul_nonQPP.csv
+11001,Debridement of extensive eczematous or infected skin; each additional 10% of the body surface,Hand Surgery,newly_added,verified,,0.29,0.38,0,12.69,PPRRVU2026_Jul_nonQPP.csv
+11010,Debridement including removal of foreign material associated with open fractures and or dislocations; skin and subcutaneous tissues,Hand Surgery,newly_added,verified,,4.09,7.47,10,249.5,PPRRVU2026_Jul_nonQPP.csv
+11011,"Debridement including removal of foreign material associated with open fractures and or dislocations; skin, subcutaneous tissue, muscle fascia, and muscle",Hand Surgery,newly_added,verified,,4.82,7.93,0,264.87,PPRRVU2026_Jul_nonQPP.csv
+11012,"Debridement including removal of foreign material associated with open fractures and or dislocations; skin, subcutaneous tissue, muscle fascia, muscle, and bone",Hand Surgery,newly_added,verified,,6.7,10.85,0,362.4,PPRRVU2026_Jul_nonQPP.csv
+11040,"Debridement; skin, partial thickness",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+11041,"Debridement; skin, full thickness",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+11042,"Debridement; skin, and subcutaneous tissue",Hand Surgery,already_present,verified,,0.98,3.97,0,132.6,PPRRVU2026_Jul_nonQPP.csv
+11043,"Debridement; skin, subcutaneous tissue, and muscle",Hand Surgery,already_present,verified,,2.63,7.17,0,239.48,PPRRVU2026_Jul_nonQPP.csv
+11044,"Debridement; skin, subcutaneous tissue, muscle, and bone",Hand Surgery,already_present,verified,,4,9.6,0,320.65,PPRRVU2026_Jul_nonQPP.csv
+11055,Paring or curettement of benign hyperkeratotic skin lesion; single,Hand Surgery,newly_added,verified,,0.34,0.41,0,13.69,PPRRVU2026_Jul_nonQPP.csv
+11056,Paring or curettement of benign hyperkeratotic skin lesions; two to four,Hand Surgery,newly_added,verified,,0.49,0.59,0,19.71,PPRRVU2026_Jul_nonQPP.csv
+11057,Paring or curettement of benign hyperkeratotic skin lesions; more than four,Hand Surgery,newly_added,verified,,0.63,0.76,0,25.38,PPRRVU2026_Jul_nonQPP.csv
+11100,"Biopsy of skin, subcutaneous tissue and/or mucous membrane (including simple closure), unless",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+11101,"Biopsy of skin, subcutaneous tissue and/or mucous membrane (including simple closure), unless",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+11200,"Removal of skin tags, multiple fibrocutaneous tags, any area; up to and including 15 lesions",Hand Surgery,already_present,verified,,0.8,2.76,10,92.19,PPRRVU2026_Jul_nonQPP.csv
+11201,"Removal of skin tags, multiple fibrocutaneous tags, any area; each additional ten lesions",Hand Surgery,already_present,verified,,0.28,0.55,0,18.37,PPRRVU2026_Jul_nonQPP.csv
+11400,"Excision, benign lesion, except skin tag (unless listed elsewhere), trunk, arms or legs; lesion diameter 0.5",Hand Surgery,already_present,verified,,0.88,3.83,10,127.93,PPRRVU2026_Jul_nonQPP.csv
+11401,"Excision, benign lesion, except skin tag (unless listed elsewhere), trunk, arms or legs; lesion diameter 0.6",Hand Surgery,already_present,verified,,1.25,4.64,10,154.98,PPRRVU2026_Jul_nonQPP.csv
+11402,"Excision, benign lesion, except skin tag (unless listed elsewhere), trunk, arms or legs; lesion diameter 1.1",Hand Surgery,already_present,verified,,1.41,5.12,10,171.01,PPRRVU2026_Jul_nonQPP.csv
+11403,"Excision, benign lesion, except skin tag (unless listed elsewhere), trunk, arms or legs; lesion diameter 2.1",Hand Surgery,already_present,verified,,1.79,5.98,10,199.74,PPRRVU2026_Jul_nonQPP.csv
+11404,"Excision, benign lesion, except skin tag (unless listed elsewhere), trunk, arms or legs; lesion diameter 3.1",Hand Surgery,already_present,verified,,2.06,6.92,10,231.13,PPRRVU2026_Jul_nonQPP.csv
+11406,"Excision, benign lesion, except skin tag (unless listed elsewhere), trunk, arms or legs; lesion diameter over",Hand Surgery,already_present,verified,,3.43,9.99,10,333.67,PPRRVU2026_Jul_nonQPP.csv
+11420,"Excision, benign lesion, except skin tag (unless listed elsewhere), scalp, neck, hands, feet, genitalia; lesion",Hand Surgery,already_present,verified,,1,3.74,10,124.92,PPRRVU2026_Jul_nonQPP.csv
+11421,"Excision, benign lesion, except skin tag (unless listed elsewhere), scalp, neck, hands, feet, genitalia; lesion diameter 0.6 to 1.0 cm",Hand Surgery,already_present,verified,,1.43,4.77,10,159.32,PPRRVU2026_Jul_nonQPP.csv
+11422,"Excision, benign lesion, except skin tag (unless listed elsewhere), scalp, neck, hands, feet, genitalia; lesion",Hand Surgery,already_present,verified,,1.64,5.38,10,179.7,PPRRVU2026_Jul_nonQPP.csv
+11423,"Excision, benign lesion, except skin tag (unless listed elsewhere), scalp, neck, hands, feet, genitalia; lesion",Hand Surgery,already_present,verified,,2.01,6.25,10,208.76,PPRRVU2026_Jul_nonQPP.csv
+11424,"Excision, benign lesion, except skin tag (unless listed elsewhere), scalp, neck, hands, feet, genitalia; lesion",Hand Surgery,already_present,verified,,2.42,7.3,10,243.83,PPRRVU2026_Jul_nonQPP.csv
+11426,"Excision, benign lesion, except skin tag (unless listed elsewhere), scalp, neck, hands, feet, genitalia; lesion",Hand Surgery,already_present,verified,,3.99,10.18,10,340.02,PPRRVU2026_Jul_nonQPP.csv
+11600,"Excision, malignant lesion, trunk, arms, or legs; lesion diameter 0.5 cm or less",Hand Surgery,already_present,verified,,1.59,5.94,10,198.4,PPRRVU2026_Jul_nonQPP.csv
+11601,"Excision, malignant lesion, trunk, arms, or legs; lesion diameter 0.6 to 1.0 cm",Hand Surgery,already_present,verified,,2.02,6.8,10,227.13,PPRRVU2026_Jul_nonQPP.csv
+11602,"Excision, malignant lesion, trunk, arms, or legs; lesion diameter 1.1 to 2.0 cm",Hand Surgery,already_present,verified,,2.21,7.2,10,240.49,PPRRVU2026_Jul_nonQPP.csv
+11603,"Excision, malignant lesion, trunk, arms, or legs; lesion diameter 2.1 to 3.0 cm",Hand Surgery,already_present,verified,,2.75,8.27,10,276.23,PPRRVU2026_Jul_nonQPP.csv
+11604,"Excision, malignant lesion, trunk, arms, or legs; lesion diameter 3.1 to 4.0 cm",Hand Surgery,already_present,verified,,3.09,9.31,10,310.96,PPRRVU2026_Jul_nonQPP.csv
+11606,"Excision, malignant lesion, trunk, arms, or legs; lesion diameter over 4.0 cm",Hand Surgery,already_present,verified,,4.89,13.88,10,463.6,PPRRVU2026_Jul_nonQPP.csv
+11620,"Excision, malignant lesion, scalp, neck, hands, feet, genitalia; lesion diameter 0.5 cm or less",Hand Surgery,already_present,verified,,1.6,5.95,10,198.74,PPRRVU2026_Jul_nonQPP.csv
+11621,"Excision, malignant lesion, scalp, neck, hands, feet, genitalia; lesion diameter 0.6 to 1.0 cm",Hand Surgery,already_present,verified,,2.03,6.84,10,228.46,PPRRVU2026_Jul_nonQPP.csv
+11622,"Excision, malignant lesion, scalp, neck, hands, feet, genitalia; lesion diameter 1.1 to 2.0 cm",Hand Surgery,already_present,verified,,2.35,7.48,10,249.84,PPRRVU2026_Jul_nonQPP.csv
+11623,"Excision, malignant lesion, scalp, neck, hands, feet, genitalia; lesion diameter 2.1 cm to 3.0 cm",Hand Surgery,already_present,verified,,3.03,8.84,10,295.26,PPRRVU2026_Jul_nonQPP.csv
+11624,"Excision, malignant lesion, scalp, neck, hands, feet, genitalia; lesion diameter 3.1 to 4.0 cm",Hand Surgery,already_present,verified,,3.53,10.16,10,339.35,PPRRVU2026_Jul_nonQPP.csv
+11626,"Excision, malignant lesion, scalp, neck, hands, feet, genitalia; lesion diameter over 4.0 cm",Hand Surgery,already_present,verified,,4.49,12.55,10,419.18,PPRRVU2026_Jul_nonQPP.csv
+11719,"Trimming of nondystrophic nails, any number",Hand Surgery,newly_added,verified,,0.17,0.2,0,6.68,PPRRVU2026_Jul_nonQPP.csv
+11730,"Avulsion of nail plate, partial or complete, simple; single",Hand Surgery,newly_added,verified,,1.02,1.46,0,48.77,PPRRVU2026_Jul_nonQPP.csv
+11732,"Avulsion of nail plate, partial or complete, simple; each additional nail plate",Hand Surgery,newly_added,verified,,0.37,0.45,0,15.03,PPRRVU2026_Jul_nonQPP.csv
+11740,Evacuation of subungual hematoma,Hand Surgery,newly_added,verified,,0.36,0.94,0,31.4,PPRRVU2026_Jul_nonQPP.csv
+11750,"Excision of nail and nail matrix, partial or complete, eg, ingrown or deformed nail) for permanent removal",Hand Surgery,newly_added,verified,,1.54,2.82,10,94.19,PPRRVU2026_Jul_nonQPP.csv
+11752,"Excision of nail and nail matrix, partial or complete, eg, ingrown or deformed nail) for permanent",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+11755,"Biopsy of nail unit eg, plate, bed, matrix, hyponychium, proximal and lateral nail folds separate procedure",Hand Surgery,newly_added,verified,,1.22,1.63,0,54.44,PPRRVU2026_Jul_nonQPP.csv
+11760,Repair of nail bed,Hand Surgery,newly_added,verified,,1.59,3.11,10,103.88,PPRRVU2026_Jul_nonQPP.csv
+11762,Reconstruction of nail bed with graft,Hand Surgery,newly_added,verified,,2.87,5.24,10,175.02,PPRRVU2026_Jul_nonQPP.csv
+11765,"Wedge excision of skin of nail fold eg, for ingrown toenail)",Hand Surgery,newly_added,verified,,1.19,2.67,10,89.18,PPRRVU2026_Jul_nonQPP.csv
+12001,"Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities (including hands and feet); 2.5 cm or less",Hand Surgery,already_present,verified,,0.82,3.41,0,113.9,PPRRVU2026_Jul_nonQPP.csv
+12002,"Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities (including hands and feet); 2.6 cm to 7.5 cm",Hand Surgery,already_present,verified,,1.11,4.17,0,139.28,PPRRVU2026_Jul_nonQPP.csv
+12004,"Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities (including hands and feet); 7.6 cm to 12.5 cm",Hand Surgery,already_present,verified,,1.4,4.85,0,161.99,PPRRVU2026_Jul_nonQPP.csv
+12005,"Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities",Hand Surgery,already_present,verified,,1.92,6.32,0,211.09,PPRRVU2026_Jul_nonQPP.csv
+12006,"Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities",Hand Surgery,already_present,verified,,2.33,7.19,0,240.15,PPRRVU2026_Jul_nonQPP.csv
+12007,"Simple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities",Hand Surgery,already_present,verified,,2.83,7.66,0,255.85,PPRRVU2026_Jul_nonQPP.csv
+12020,Treatment of superficial wound dehiscence; simple closure,Hand Surgery,newly_added,verified,,2.6,5.35,10,178.69,PPRRVU2026_Jul_nonQPP.csv
+12021,Treatment of superficial wound dehiscence; with packing,Hand Surgery,newly_added,verified,,1.84,4.03,10,134.61,PPRRVU2026_Jul_nonQPP.csv
+12031,"Layer closure of wounds of scalp, axillae, trunk and/or extremities (excluding hands and feet); 2.5 cm or less",Hand Surgery,already_present,verified,,1.95,7.78,10,259.86,PPRRVU2026_Jul_nonQPP.csv
+12032,"Layer closure of wounds of scalp, axillae, trunk and/or extremities (excluding hands and feet); 2.6 cm to 7.5 cm",Hand Surgery,already_present,verified,,2.46,8.98,10,299.94,PPRRVU2026_Jul_nonQPP.csv
+12034,"Layer closure of wounds of scalp, axillae, trunk and/or extremities (excluding hands and feet); 7.6 cm to",Hand Surgery,already_present,verified,,2.9,10.02,10,334.68,PPRRVU2026_Jul_nonQPP.csv
+12035,"Layer closure of wounds of scalp, axillae, trunk and/or extremities (excluding hands and feet); 12.6 cm to 20.0 cm",Hand Surgery,already_present,verified,,3.41,12.4,10,414.17,PPRRVU2026_Jul_nonQPP.csv
+12036,"Layer closure of wounds of scalp, axillae, trunk and/or extremities (excluding hands and feet); 20.1 cm to 30.0 cm",Hand Surgery,already_present,verified,,4.12,14.37,10,479.97,PPRRVU2026_Jul_nonQPP.csv
+12037,"Layer closure of wounds of scalp, axillae, trunk and/or extremities (excluding hands and feet); over 30.0 cm",Hand Surgery,already_present,verified,,4.88,16.05,10,536.08,PPRRVU2026_Jul_nonQPP.csv
+12041,"Layer closure of wounds of neck, hands, feet and/or external genitalia; 2.5 cm or less",Hand Surgery,already_present,verified,,2.05,7.87,10,262.87,PPRRVU2026_Jul_nonQPP.csv
+12042,"Layer closure of wounds of neck, hands, feet and/or external genitalia; 2.6 cm to 7.5 cm",Hand Surgery,already_present,verified,,2.72,9.13,10,304.95,PPRRVU2026_Jul_nonQPP.csv
+12044,"Layer closure of wounds of neck, hands, feet and/or external genitalia; 7.6 cm to 12.5 cm",Hand Surgery,already_present,verified,,3.11,11.62,10,388.12,PPRRVU2026_Jul_nonQPP.csv
+12045,"Layer closure of wounds of neck, hands, feet and/or external genitalia; 12.6 cm to 20.0 cm",Hand Surgery,already_present,verified,,3.66,13.58,10,453.58,PPRRVU2026_Jul_nonQPP.csv
+12046,"Layer closure of wounds of neck, hands, feet and/or external genitalia; 20.1 cm to 30.0 cm",Hand Surgery,already_present,verified,,4.19,16.68,10,557.13,PPRRVU2026_Jul_nonQPP.csv
+12047,"Layer closure of wounds of neck, hands, feet and/or external genitalia; over 30.0 cm",Hand Surgery,already_present,verified,,4.83,18.27,10,610.23,PPRRVU2026_Jul_nonQPP.csv
+13100,"Repair, complex, trunk; 1.1 cm to 2.5 cm",Hand Surgery,already_present,verified,,2.93,10.12,10,338.02,PPRRVU2026_Jul_nonQPP.csv
+13101,"Repair, complex, trunk; 2.6 cm to 7.5 cm",Hand Surgery,already_present,verified,,3.41,11.69,10,390.46,PPRRVU2026_Jul_nonQPP.csv
+13102,"Repair, complex, trunk; each additional 5 cm",Hand Surgery,already_present,verified,,1.21,3.6,0,120.24,PPRRVU2026_Jul_nonQPP.csv
+13120,"Repair, complex, scalp, arms, and/or legs; 1.1 cm to 2.5 cm",Hand Surgery,already_present,verified,,3.15,10.51,10,351.04,PPRRVU2026_Jul_nonQPP.csv
+13121,"Repair, complex, scalp, arms, and/or legs; 2.6 cm to 7.5 cm",Hand Surgery,already_present,verified,,3.9,12.51,10,417.85,PPRRVU2026_Jul_nonQPP.csv
+13122,"Repair, complex, scalp, arms, and/or legs; each additional 5 cm",Hand Surgery,already_present,verified,,1.4,3.84,0,128.26,PPRRVU2026_Jul_nonQPP.csv
+13131,"Repair, complex, forehead, cheeks, chin, mouth, neck, axillae, genitalia, hands and/or feet; 1.1 cm to 2.5 cm",Hand Surgery,already_present,verified,,3.64,11.51,10,384.44,PPRRVU2026_Jul_nonQPP.csv
+13132,"Repair, complex, forehead, cheeks, chin, mouth, neck, axillae, genitalia, hands and/or feet; 2.6 cm to 7.5 cm",Hand Surgery,already_present,verified,,4.66,13.84,10,462.27,PPRRVU2026_Jul_nonQPP.csv
+13133,"Repair, complex, forehead, cheeks, chin, mouth, neck, axillae, genitalia, hands and/or feet; each additional 5 cm",Hand Surgery,already_present,verified,,2.14,5.03,0,168.01,PPRRVU2026_Jul_nonQPP.csv
+13160,"Secondary closure of surgical wound or dehiscence, extensive or complicated",Hand Surgery,already_present,verified,,11.74,22.18,90,740.83,PPRRVU2026_Jul_nonQPP.csv
+14000,"Adjacent tissue transfer or rearrangement, trunk; defect 10 sq cm or less",Hand Surgery,already_present,verified,,6.21,19.98,90,667.35,PPRRVU2026_Jul_nonQPP.csv
+14020,"Adjacent tissue transfer or rearrangement, scalp, arms and/or legs; defect 10 sq cm or less",Hand Surgery,already_present,verified,,7.04,21.48,90,717.45,PPRRVU2026_Jul_nonQPP.csv
+14021,"Adjacent tissue transfer or rearrangement, scalp, arms and/or legs; defect 10.1 sq cm to 30.0 sq cm",Hand Surgery,already_present,verified,,9.48,26.43,90,882.79,PPRRVU2026_Jul_nonQPP.csv
+14040,"Adjacent tissue transfer or rearrangement, forehead, cheeks, chin, mouth, neck, axillae, genitalia, hands and/or feet; defect 10 sq cm or less",Hand Surgery,already_present,verified,,8.39,22.97,90,767.22,PPRRVU2026_Jul_nonQPP.csv
+14041,"Adjacent tissue transfer or rearrangement, forehead, cheeks, chin, mouth, neck, axillae, genitalia, hands and/or feet; defect 10.1 sq cm to 30.0 sq cm",Hand Surgery,already_present,verified,,10.56,27.73,90,926.21,PPRRVU2026_Jul_nonQPP.csv
+14300,"Adjacent tissue transfer or rearrangement, more than 30 sq cm, unusual or complicated, any area",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+14350,"Filleted finger or toe flap, including preparation of recipient site",Hand Surgery,newly_added,verified,,10.77,18.41,90,614.91,PPRRVU2026_Jul_nonQPP.csv
+15000,"Excisional preparation or creation of recipient site by excision of essentially intact skin (including subcutaneous tissues), scar, or other lesion prior to repair with free skin graft (list as separate service) Surgical preparation or creation of recipient site by excision of open wounds, burn eschar, or scar",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15002,"including subcutaneous tissues, or incisional release of scar contracture, trunk, arms, legs; first 100 sq or 1 per cent of body area of infants and children Surgical preparation or creation of recipient site by excision of open wounds, burn eschar, or scar",Hand Surgery,already_present,verified,,3.56,10.87,0,363.07,PPRRVU2026_Jul_nonQPP.csv
+15003,"including subcutaneous tissues, or incisional release of scar contracture, trunk, arms, legs; each additional 100 sq cm or each additional 1 per cent of body area of infants and children List separately in additional to code for primary procedure",Hand Surgery,already_present,verified,,0.78,2.24,0,74.82,PPRRVU2026_Jul_nonQPP.csv
+15004,"Surgical preparation or creation of recipient site by excision of open wounds, burn eschar, or scar including subcutaneous tissues, or incisional release of scar contracture, face, scalp, eyelids, mouth,, Surgical preparation or creation of recipient site by excision of open wounds, burn eschar, or scar",Hand Surgery,already_present,verified,,4.47,12.11,0,404.48,PPRRVU2026_Jul_nonQPP.csv
+15005,"including subcutaneous tissues, or incisional release of scar contracture, face, scalp, eyelids, mouth,, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; each additional 100 sq cm or each",Hand Surgery,already_present,verified,,1.56,3.73,0,124.59,PPRRVU2026_Jul_nonQPP.csv
+15050,"Pinch graft, single or multiple, to cover small ulcer, tip of digit, or other minimal open area (except on face), up to defect size of 2 cm diameter",Hand Surgery,already_present,verified,,5.43,18.14,90,605.89,PPRRVU2026_Jul_nonQPP.csv
+15100,"Split graft, trunk, scalp, arms, legs, hands, and/or feet (except multiple digits); 100 sq cm or less, or each one percent of body area of infants and children (except 15050)",Hand Surgery,already_present,verified,,9.65,27.62,90,922.53,PPRRVU2026_Jul_nonQPP.csv
+15101,"Split graft, trunk, scalp, arms, legs, hands, and/or feet (except multiple digits); each additional 100 sq cm, or each one percent of body area of infants and children, or part thereof",Hand Surgery,already_present,verified,,1.68,6.03,0,201.41,PPRRVU2026_Jul_nonQPP.csv
+15110,"Epidermal autograft, trunk, arms, legs; first sq cm or less, or 1 per cent of body area of infants and children",Hand Surgery,already_present,verified,,10.7,26.94,90,899.82,PPRRVU2026_Jul_nonQPP.csv
+15111,"Epidermal autograft, trunk, arms, legs; each additional 100 sq cm, or each additional 1 per cent of body",Hand Surgery,already_present,verified,,1.8,3.64,0,121.58,PPRRVU2026_Jul_nonQPP.csv
+15115,"Epidermal autograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or, multiple",Hand Surgery,already_present,verified,,11,25.83,90,862.75,PPRRVU2026_Jul_nonQPP.csv
+15116,"Epidermal autograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or, multiple digits; each additional 100 sq cm, or each additional 1 per cent of body area of infants and children, or",Hand Surgery,already_present,verified,,2.44,4.93,0,164.67,PPRRVU2026_Jul_nonQPP.csv
+15120,"Split graft, face, eyelids, mouth, neck, ears, orbits, genitalia, and/or multiple digits; 100 sq cm or less, or",Hand Surgery,already_present,verified,,9.9,26.17,90,874.1,PPRRVU2026_Jul_nonQPP.csv
+15121,"Split graft, face, eyelids, mouth, neck, ears, orbits, genitalia, and/or multiple digits; each additional 100 sq",Hand Surgery,already_present,verified,,1.95,6.62,0,221.11,PPRRVU2026_Jul_nonQPP.csv
+15130,"Dermal autograft, trunk, arms, legs; first 100 sq cm or less, or 1 per cent of body area of infants and",Hand Surgery,already_present,verified,,7.34,23.09,90,771.23,PPRRVU2026_Jul_nonQPP.csv
+15131,"Dermal autograft, trunk, arms, legs; each additional 100 sq cm, or each additional 1 per cent of body area",Hand Surgery,already_present,verified,,1.46,3.09,0,103.21,PPRRVU2026_Jul_nonQPP.csv
+15135,"Dermal autograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple",Hand Surgery,already_present,verified,,10.75,26.99,90,901.49,PPRRVU2026_Jul_nonQPP.csv
+15136,"Dermal autograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple",Hand Surgery,already_present,verified,,1.46,3.04,0,101.54,PPRRVU2026_Jul_nonQPP.csv
+15170,"Acellular dermal replacement, trunk, arms, legs; first 100 sq cm less, or 1 per cent of body area of infants",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15171,"Acellular dermal replacement, trunk, arms, legs; each additional 100 sq cm, or each additional 1 per cent",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15175,"Acellular dermal replacement, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15176,"Acellular dermal replacement, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15220,"Full thickness graft, free, including direct closure of donor site, scalp, arms, and/or legs; 20 sq cm or less",Hand Surgery,already_present,verified,,7.89,23.44,90,782.92,PPRRVU2026_Jul_nonQPP.csv
+15221,"Full thickness graft, free, including direct closure of donor site, scalp, arms, and/or legs; each additional 20 sq cm",Hand Surgery,already_present,verified,,1.16,4.01,0,133.94,PPRRVU2026_Jul_nonQPP.csv
+15240,"Full thickness graft, free, including direct closure of donor site, forehead, cheeks, chin, mouth, neck, axillae, genitalia, hands, and/or feet; 20 sq cm or less",Hand Surgery,already_present,verified,,10.15,28.07,90,937.56,PPRRVU2026_Jul_nonQPP.csv
+15241,"Full thickness graft, free, including direct closure of donor site, forehead, cheeks, chin, mouth, neck,",Hand Surgery,already_present,verified,,1.81,5.38,0,179.7,PPRRVU2026_Jul_nonQPP.csv
+15300,"Allograft skin for temporary wound closure, trunk, arms, legs; first 100 sq cm less, or 1 per cent of body area of infants and children",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15301,"Allograft skin for temporary wound closure, trunk, arms, legs; each additional 100 sq cm, or each",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15320,"Allograft skin for temporary wound closure, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; first 100 sq cm or less, or 1 per cent of body area of infants and",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15321,"Allograft skin for temporary wound closure, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; each additional 100 sq cm, or each additional 1 per cent of body area",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15330,"Acellular dermal allograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; first 100 sq cm or less, or 1 per cent of body area of infants and children",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15335,"Acellular dermal allograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; first 100 sq cm or less, or 1 per cent of body area of infants and children",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15336,"Acellular dermal allograft, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; each additional 100 sq cm, or each additional 1 per cent of body area of infants and",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15400,"Xenograft, skin dermal for temporary wound closure, trunk, arms, legs; first 100 sq cm less, or 1 per cent of body area of infants and children",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15401,"Xenograft, skin dermal for temporary wound closure, trunk, arms, legs; each additional 100 sq cm, or each additional 1 per cent of body area of infants and children, or part thereof List separately in addition",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15420,"Xenograft, skin dermal for temporary wound closure, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; first 100 sq cm or less, or 1 per cent of body area of infants",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15421,"Xenograft, skin dermal for temporary wound closure, face, scalp, eyelids, mouth, neck, ears, orbits, genitalia, hands, feet, and or multiple digits; each additional 100 sq cm, or each additional 1 per cent of",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15430,"Acellular xenograft implant; first 100 sq cm less, or 1 per cent of body area of infants and children",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15431,"Acellular xenograft implant; each additional 100 sq cm, or each additional 1 per cent of body area of infants and children, or part thereof List separately in addition to code for primary procedure",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15570,"Formation of direct or tubed pedicle, with or without transfer; trunk",Hand Surgery,already_present,verified,,9.95,29.38,90,981.32,PPRRVU2026_Jul_nonQPP.csv
+15572,"Formation of direct or tubed pedicle, with or without transfer; scalp, arms, or legs",Hand Surgery,newly_added,verified,,9.87,20.06,90,670.02,PPRRVU2026_Jul_nonQPP.csv
+15574,"Formation of direct or tubed pedicle, with or without transfer; forehead, cheeks, chin, mouth, neck,",Hand Surgery,newly_added,verified,,10.43,19.15,90,639.63,PPRRVU2026_Jul_nonQPP.csv
+15600,Delay of flap or sectioning of flap (division and inset); at trunk,Hand Surgery,already_present,verified,,1.96,11.18,90,373.42,PPRRVU2026_Jul_nonQPP.csv
+15610,"Delay of flap or sectioning of flap (division and inset); at scalp, arms or legs",Hand Surgery,newly_added,verified,,2.46,7.05,90,235.48,PPRRVU2026_Jul_nonQPP.csv
+15650,"Transfer, intermediate, of any pedicle flap eg, abdomen to wrist, walking tube), any location",Hand Surgery,newly_added,verified,,4.65,11.46,90,382.77,PPRRVU2026_Jul_nonQPP.csv
+15734,"Muscle, myocutaneous, or fasciocutaneous flap; trunk",Hand Surgery,already_present,verified,,22.43,41.52,90,1386.81,PPRRVU2026_Jul_nonQPP.csv
+15736,"Muscle, myocutaneous, or fasciocutaneous flap; upper extremity",Hand Surgery,newly_added,verified,,16.61,33.27,90,1111.25,PPRRVU2026_Jul_nonQPP.csv
+15738,"Muscle, myocutaneous, or fasciocutaneous flap; lower extremity",Hand Surgery,newly_added,verified,,18.56,34.38,90,1148.32,PPRRVU2026_Jul_nonQPP.csv
+15740,Flap; island pedicle,Hand Surgery,newly_added,verified,,11.51,22.49,90,751.19,PPRRVU2026_Jul_nonQPP.csv
+15750,Flap; neurovascular pedicle,Hand Surgery,newly_added,verified,,12.64,25.14,90,839.7,PPRRVU2026_Jul_nonQPP.csv
+15756,Muscle or myocutaneous free flap (microvascular transfer),Hand Surgery,already_present,verified,,36.02,58.74,90,1961.97,PPRRVU2026_Jul_nonQPP.csv
+15757,Free skin flap (microvascular transfer),Hand Surgery,already_present,verified,,36.22,58.25,90,1945.6,PPRRVU2026_Jul_nonQPP.csv
+15758,Free fascia flap (microvascular transfer),Hand Surgery,newly_added,verified,,35.98,58.12,90,1941.26,PPRRVU2026_Jul_nonQPP.csv
+15760,"Graft, composite including skin, including primary closure of donor area",Hand Surgery,already_present,verified,,9.61,25.67,90,857.4,PPRRVU2026_Jul_nonQPP.csv
+15770,"Graft, composite including dermis‐fat‐fascia, including primary closure of donor area",Hand Surgery,newly_added,verified,,8.74,18.15,90,606.23,PPRRVU2026_Jul_nonQPP.csv
+15850,"Removal of sutures under anesthesia (other than local), same surgeon",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+15851,"Removal of sutures under anesthesia (other than local), other surgeon",Hand Surgery,newly_added,verified,,1.07,1.75,0,58.45,PPRRVU2026_Jul_nonQPP.csv
+15852,Dressing change (for other than burns) under anesthesia (other than local),Hand Surgery,newly_added,verified,,0.84,1.16,0,38.75,PPRRVU2026_Jul_nonQPP.csv
+15860,"Intravenous injection of agent eg, fluorescein) to test blood flow in flap or graft",Hand Surgery,newly_added,verified,,1.9,2.79,0,93.19,PPRRVU2026_Jul_nonQPP.csv
+16000,"Initial treatment, first degree burn, when no more than local treatment is required",Hand Surgery,newly_added,verified,,0.87,1.26,0,42.09,PPRRVU2026_Jul_nonQPP.csv
+16020,"Dressings and/or debridement, initial or subsequent; without anesthesia, office or hospital, small",Hand Surgery,already_present,verified,,0.69,2.78,0,92.85,PPRRVU2026_Jul_nonQPP.csv
+16025,"Dressings and/or debridement, initial or subsequent; without anesthesia, medium eg, whole face or whole extremity)",Hand Surgery,already_present,verified,,1.7,4.96,0,165.67,PPRRVU2026_Jul_nonQPP.csv
+16030,"Dressings and/or debridement, initial or subsequent; without anesthesia, large eg, more than one",Hand Surgery,already_present,verified,,2.03,6.4,0,213.77,PPRRVU2026_Jul_nonQPP.csv
+16035,Escharotomy,Hand Surgery,already_present,verified,,3.65,5.35,0,178.69,PPRRVU2026_Jul_nonQPP.csv
+16036,"Escharotomy, each additional incision List separately in addition to code for primary procedure",Hand Surgery,newly_added,verified,,1.46,2.2,0,73.48,PPRRVU2026_Jul_nonQPP.csv
+17000,Destruction premalignint lesion,Hand Surgery,already_present,verified,,0.59,1.99,10,66.47,PPRRVU2026_Jul_nonQPP.csv
+17250,"Chemical cauterization of granulation tissue (proud flesh, sinus or fistula)",Hand Surgery,already_present,verified,,0.49,2.7,0,90.18,PPRRVU2026_Jul_nonQPP.csv
+17260,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage trunk, arms or",Hand Surgery,already_present,verified,,0.94,2.9,10,96.86,PPRRVU2026_Jul_nonQPP.csv
+17261,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage trunk, arms or",Hand Surgery,already_present,verified,,1.19,4.32,10,144.29,PPRRVU2026_Jul_nonQPP.csv
+17262,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage trunk, arms or",Hand Surgery,already_present,verified,,1.59,5.2,10,173.68,PPRRVU2026_Jul_nonQPP.csv
+17263,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage trunk, arms or",Hand Surgery,already_present,verified,,1.79,5.64,10,188.38,PPRRVU2026_Jul_nonQPP.csv
+17264,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage trunk, arms or",Hand Surgery,already_present,verified,,1.94,6.05,10,202.08,PPRRVU2026_Jul_nonQPP.csv
+17266,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage trunk, arms or",Hand Surgery,already_present,verified,,2.33,6.9,10,230.47,PPRRVU2026_Jul_nonQPP.csv
+17270,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage hands; lesion",Hand Surgery,already_present,verified,,1.34,4.4,10,146.96,PPRRVU2026_Jul_nonQPP.csv
+17271,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage hands; lesion diameter 0.6 to 1.0 cm",Hand Surgery,already_present,verified,,1.5,4.86,10,162.33,PPRRVU2026_Jul_nonQPP.csv
+17272,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage hands; lesion",Hand Surgery,already_present,verified,,1.77,5.49,10,183.37,PPRRVU2026_Jul_nonQPP.csv
+17273,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage hands; lesion",Hand Surgery,already_present,verified,,2.05,6.11,10,204.08,PPRRVU2026_Jul_nonQPP.csv
+17274,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage hands; lesion",Hand Surgery,already_present,verified,,2.57,7.16,10,239.15,PPRRVU2026_Jul_nonQPP.csv
+17276,"Destruction, malignant lesion e.g. laser surgery, cryosurgery, chemosurgery, curettage hands; lesion",Hand Surgery,already_present,verified,,3.17,8.36,10,279.23,PPRRVU2026_Jul_nonQPP.csv
+20000,"Incision of soft tissue abscess eg, secondary to osteomyelitis); superficial",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+20005,"Incision of soft tissue abscess eg, secondary to osteomyelitis); deep or complicated",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+20103,Exploration of penetrating extremity wound separate procedure,Hand Surgery,newly_added,verified,,5.21,9.48,10,316.64,PPRRVU2026_Jul_nonQPP.csv
+20150,"Excision of epiphyseal bar, with or without autogenous soft tissue graft obtained through the same fascial",Hand Surgery,already_present,verified,,14.38,27.57,90,920.86,PPRRVU2026_Jul_nonQPP.csv
+20200,"Biopsy, muscle; superficial",Hand Surgery,already_present,verified,,1.42,7.24,0,241.82,PPRRVU2026_Jul_nonQPP.csv
+20205,"Biopsy, muscle; deep",Hand Surgery,already_present,verified,,2.29,10.14,0,338.69,PPRRVU2026_Jul_nonQPP.csv
+20240,Bone biopsy; superficial,Hand Surgery,already_present,verified,,2.54,3.79,0,126.59,PPRRVU2026_Jul_nonQPP.csv
+20245,Bone biopsy; deep,Hand Surgery,already_present,verified,,5.85,9.08,0,303.28,PPRRVU2026_Jul_nonQPP.csv
+20501,Injection of sinus tract; diagnostic (sinogram),Hand Surgery,already_present,verified,,0.74,4.06,0,135.61,PPRRVU2026_Jul_nonQPP.csv
+20520,Removal of foreign body in muscle or tendon sheath; simple,Hand Surgery,already_present,verified,,1.85,6.88,10,229.8,PPRRVU2026_Jul_nonQPP.csv
+20525,Removal of foreign body in muscle or tendon sheath; deep or complicated,Hand Surgery,already_present,verified,,3.45,14.88,10,497.01,PPRRVU2026_Jul_nonQPP.csv
+20526,"Injection, therapeutic; carpal tunnel",Hand Surgery,already_present,verified,,0.92,2.64,0,88.18,PPRRVU2026_Jul_nonQPP.csv
+20550,"Injection, tendon sheath, ligament, trigger points or ganglion cyst",Hand Surgery,already_present,verified,,0.73,1.81,0,60.46,PPRRVU2026_Jul_nonQPP.csv
+20551,"Injection, therapeutic; single tendon origin or insertion",Hand Surgery,already_present,verified,,0.73,1.81,0,60.46,PPRRVU2026_Jul_nonQPP.csv
+20600,"Arthrocentesis, aspiration and/or injection; small joint, bursa or ganglion cyst eg, fingers, toes)",Hand Surgery,already_present,verified,,0.64,1.68,0,56.11,PPRRVU2026_Jul_nonQPP.csv
+20605,"Arthrocentesis, aspiration and/or injection; intermediate joint, bursa or ganglion cyst eg,",Hand Surgery,already_present,verified,,0.66,1.71,0,57.12,PPRRVU2026_Jul_nonQPP.csv
+20610,"Arthrocentesis, aspiration and/or injection; major joint or bursa eg, shoulder, hip, knee joint, subacromial bursa)",Hand Surgery,already_present,verified,,0.77,2.06,0,68.81,PPRRVU2026_Jul_nonQPP.csv
+20612,Aspiration or injection ganglion cyst,Hand Surgery,already_present,verified,,0.68,2.03,0,67.8,PPRRVU2026_Jul_nonQPP.csv
+20615,Aspiration or injection bone cyst,Hand Surgery,already_present,verified,,2.27,7.47,10,249.5,PPRRVU2026_Jul_nonQPP.csv
+20650,"Insertion of wire or pin with application of skeletal traction, including removal separate procedure",Hand Surgery,already_present,verified,,2.22,7.47,10,249.5,PPRRVU2026_Jul_nonQPP.csv
+20670,"Removal of implant; superficial, eg, buried wire, pin or rod) separate procedure removal hardware",Hand Surgery,already_present,verified,,1.75,11.09,10,370.42,PPRRVU2026_Jul_nonQPP.csv
+20680,"Removal of implant; deep, eg, buried wire, pin, screw, metal band, nail, rod or plate) removal of",Hand Surgery,already_present,verified,,5.81,18.92,90,631.95,PPRRVU2026_Jul_nonQPP.csv
+20690,"Application of a uniplane (pins or wires in one plane), unilateral, external fixation system",Hand Surgery,already_present,verified,,8.56,16.34,90,545.77,PPRRVU2026_Jul_nonQPP.csv
+20692,"Application of a multiplane (pins or wires in more than one plane), unilateral, external fixation system eg,",Hand Surgery,already_present,verified,,15.86,31.35,90,1047.12,PPRRVU2026_Jul_nonQPP.csv
+20693,"Adjustment or revision of external fixation system requiring anesthesia eg, new pin or wire and/or new",Hand Surgery,already_present,verified,,5.91,12.87,90,429.87,PPRRVU2026_Jul_nonQPP.csv
+20694,"Removal, under anesthesia, of external fixation system",Hand Surgery,already_present,verified,,4.17,13.83,90,461.93,PPRRVU2026_Jul_nonQPP.csv
+20802,"Replantation, arm (includes surgical neck of humerus through elbow joint); complete amputation",Hand Surgery,newly_added,verified,,41.55,73.42,90,2452.29,PPRRVU2026_Jul_nonQPP.csv
+20805,"Replantation, forearm (includes radius and ulna to radial carpal joint); complete amputation",Hand Surgery,newly_added,verified,,50.17,86.8,90,2899.2,PPRRVU2026_Jul_nonQPP.csv
+20808,"Replantation, hand (includes hand through metacarpophalangeal joints); complete amputation",Hand Surgery,newly_added,verified,,61.51,104.17,90,3479.37,PPRRVU2026_Jul_nonQPP.csv
+20816,"Replantation, digit, excluding thumb (includes metacarpophalangeal joint to insertion of flexor sublimis",Hand Surgery,newly_added,verified,,31.15,54.96,90,1835.71,PPRRVU2026_Jul_nonQPP.csv
+20822,"Replantation, digit, excluding thumb (includes distal tip to sublimis tendon insertion); complete",Hand Surgery,newly_added,verified,,25.99,47.98,90,1602.58,PPRRVU2026_Jul_nonQPP.csv
+20824,"Replantation, thumb (includes carpometacarpal joint to MP joint); complete amputation",Hand Surgery,newly_added,verified,,31.15,55.12,90,1841.06,PPRRVU2026_Jul_nonQPP.csv
+20827,"Replantation, thumb (includes distal tip to MP joint); complete amputation",Hand Surgery,newly_added,verified,,26.79,49.21,90,1643.66,PPRRVU2026_Jul_nonQPP.csv
+20900,"Bone graft, any donor area; minor or small eg, dowel or button)",Hand Surgery,already_present,verified,,2.93,11.92,0,398.14,PPRRVU2026_Jul_nonQPP.csv
+20902,"Bone graft, any donor area; major or large",Hand Surgery,already_present,verified,,4.47,7.24,0,241.82,PPRRVU2026_Jul_nonQPP.csv
+20910,Cartilage graft; costochondral,Hand Surgery,already_present,verified,,5.39,13.89,90,463.94,PPRRVU2026_Jul_nonQPP.csv
+20920,Fascia lata graft; by stripper,Hand Surgery,already_present,verified,,5.37,10.71,90,357.72,PPRRVU2026_Jul_nonQPP.csv
+20922,"Fascia lata graft; by incision and area exposure, complex or sheet",Hand Surgery,already_present,verified,,6.76,19.68,90,657.33,PPRRVU2026_Jul_nonQPP.csv
+20924,"Tendon graft, from a distance eg, palmaris, toe extensor, plantaris)",Hand Surgery,already_present,verified,,6.51,14.07,90,469.95,PPRRVU2026_Jul_nonQPP.csv
+20926,"Tissue grafts, other eg, paratenon, fat, dermis, etc)",Hand Surgery,already_present,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",3.45,0,0,0,
+20950,"Monitoring of interstitial fluid pressure (includes insertion of device eg, wick catheter technique, needle",Hand Surgery,newly_added,verified,,1.23,2.5,0,83.5,PPRRVU2026_Jul_nonQPP.csv
+20955,Bone graft with microvascular anastomosis; fibula,Hand Surgery,newly_added,verified,,39.25,67.9,90,2267.92,PPRRVU2026_Jul_nonQPP.csv
+20956,Bone graft with microvascular anastomosis; metatarsal,Hand Surgery,newly_added,verified,,40.15,70.52,90,2355.43,PPRRVU2026_Jul_nonQPP.csv
+20962,Bone graft with microvascular anastomosis; other bone graft,Hand Surgery,newly_added,verified,,38.23,72.7,90,2428.25,PPRRVU2026_Jul_nonQPP.csv
+20969,"Free osteocutaneous flap with microvascular anastomosis, other than iliac crest, rib, metatarsal, or great",Hand Surgery,newly_added,verified,,44.29,69.53,90,2322.36,PPRRVU2026_Jul_nonQPP.csv
+20970,Free osteocutaneous flap with microvascular anastomosis; iliac crest,Hand Surgery,newly_added,verified,,43.47,76.07,90,2540.81,PPRRVU2026_Jul_nonQPP.csv
+20972,Free osteocutaneous flap with microvascular anastomosis; metatarsal,Hand Surgery,newly_added,verified,,43.4,75.8,90,2531.79,PPRRVU2026_Jul_nonQPP.csv
+20973,Free osteocutaneous flap with microvascular anastomosis; great toe with web space,Hand Surgery,newly_added,verified,,46.09,79.95,90,2670.4,PPRRVU2026_Jul_nonQPP.csv
+23930,"Incision deep, with opening of bone cortex; elbow or upper arm",Hand Surgery,newly_added,verified,,2.92,6.14,10,205.08,PPRRVU2026_Jul_nonQPP.csv
+23931,Incision and drainage elbow bursa,Hand Surgery,newly_added,verified,,1.79,4.75,10,158.65,PPRRVU2026_Jul_nonQPP.csv
+24000,"Arthrotomy, elbow, for infection, with exploration, drainage or removal of foreign body",Hand Surgery,newly_added,verified,,5.93,13.81,90,461.27,PPRRVU2026_Jul_nonQPP.csv
+24006,"Arthrotomy of the elbow, with capsular excision for capsular release separate procedure",Hand Surgery,already_present,verified,,9.5,19.89,90,664.34,PPRRVU2026_Jul_nonQPP.csv
+24065,"Biopsy, soft tissue of upper arm or elbow area; superficial",Hand Surgery,newly_added,verified,,2.08,4.45,10,148.63,PPRRVU2026_Jul_nonQPP.csv
+24066,"Biopsy, soft tissue of upper arm or elbow area; deep",Hand Surgery,newly_added,verified,,5.22,12.45,90,415.84,PPRRVU2026_Jul_nonQPP.csv
+24075,Excision subcutaneous soft tissue tumor; upper arm or elbow,Hand Surgery,newly_added,verified,,4.13,9.6,90,320.65,PPRRVU2026_Jul_nonQPP.csv
+24076,"Excision, tumor, upper arm or elbow area; deep, subfascial or intramuscular",Hand Surgery,newly_added,verified,,7.22,15.6,90,521.05,PPRRVU2026_Jul_nonQPP.csv
+24077,Radical resection of tumor; upper arm or elbow,Hand Surgery,newly_added,verified,,15.33,28.68,90,957.94,PPRRVU2026_Jul_nonQPP.csv
+24100,"Arthrotomy, elbow; with synovial biopsy only",Hand Surgery,newly_added,verified,,4.94,12.31,90,411.17,PPRRVU2026_Jul_nonQPP.csv
+24101,"Arthrotomy, elbow; with joint exploration, with or without biopsy, with or without removal of loose or",Hand Surgery,already_present,verified,,6.14,14.45,90,482.64,PPRRVU2026_Jul_nonQPP.csv
+24102,"Arthrotomy, elbow, with synovectomy",Hand Surgery,already_present,verified,,8.05,17.33,90,578.84,PPRRVU2026_Jul_nonQPP.csv
+24105,"Excision, olecranon bursa",Hand Surgery,already_present,verified,,3.69,10.72,90,358.06,PPRRVU2026_Jul_nonQPP.csv
+24110,Excision or curettage of bone cyst or benign tumor; humerus,Hand Surgery,newly_added,verified,,7.39,16.95,90,566.15,PPRRVU2026_Jul_nonQPP.csv
+24115,Excision or curettage of bone cyst or benign tumor; humerus; with autograft includes graft harvest,Hand Surgery,newly_added,verified,,9.87,20.75,90,693.07,PPRRVU2026_Jul_nonQPP.csv
+24116,Excision or curettage of bone cyst or benign tumor; humerus; with allograft,Hand Surgery,newly_added,verified,,11.92,23.89,90,797.95,PPRRVU2026_Jul_nonQPP.csv
+24120,Excision or curettage of bone cyst or benign tumor; radial head or neck or olecranon process,Hand Surgery,newly_added,verified,,6.65,15.19,90,507.36,PPRRVU2026_Jul_nonQPP.csv
+24125,Excision or curettage of bone cyst or benign tumor; radial head or neck or olecranon process; with autograft includes graft harvest,Hand Surgery,newly_added,verified,,7.94,17.8,90,594.54,PPRRVU2026_Jul_nonQPP.csv
+24126,Excision or curettage of bone cyst or benign tumor; radial head or neck or olecranon process; with allograft,Hand Surgery,newly_added,verified,,8.4,18.49,90,617.58,PPRRVU2026_Jul_nonQPP.csv
+24130,Radial head excision,Hand Surgery,newly_added,verified,,6.26,14.53,90,485.32,PPRRVU2026_Jul_nonQPP.csv
+24134,"Sequetrestomy, shaft or distal humerus",Hand Surgery,newly_added,verified,,9.96,21.05,90,703.09,PPRRVU2026_Jul_nonQPP.csv
+24136,"Sequetrestomy, radial head or neck",Hand Surgery,newly_added,verified,,8.19,17.98,90,600.55,PPRRVU2026_Jul_nonQPP.csv
+24138,"Sequetrestomy, olecranon process",Hand Surgery,newly_added,verified,,8.29,19.79,90,661.0,PPRRVU2026_Jul_nonQPP.csv
+24140,"Partial excision, humerus",Hand Surgery,newly_added,verified,,9.31,19.64,90,655.99,PPRRVU2026_Jul_nonQPP.csv
+24145,"Partial excision, radial head or neck",Hand Surgery,newly_added,verified,,7.61,16.95,90,566.15,PPRRVU2026_Jul_nonQPP.csv
+24147,"Partial excision, olecranon process",Hand Surgery,newly_added,verified,,7.64,17.86,90,596.54,PPRRVU2026_Jul_nonQPP.csv
+24149,"Radical resection of capsule, soft tissue and heterotopic bone, elbow, with contracture release",Hand Surgery,newly_added,verified,,15.81,32.64,90,1090.21,PPRRVU2026_Jul_nonQPP.csv
+24150,"Radical resection for tumor, shaft or distal humerus",Hand Surgery,newly_added,verified,,22.87,41.83,90,1397.16,PPRRVU2026_Jul_nonQPP.csv
+24151,"Radical resection for tumor, shaft or distal humerus, with autograft, including graft harvest",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+24152,"Radical resection for tumor, radial head or neck",Hand Surgery,newly_added,verified,,19.49,36.65,90,1224.14,PPRRVU2026_Jul_nonQPP.csv
+24153,"Radical resection for tumor, radial head or neck, with autograft, including graft harvest",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+24155,Resection of elbow joint arthrectomy,Hand Surgery,newly_added,verified,,11.79,23.69,90,791.27,PPRRVU2026_Jul_nonQPP.csv
+24160,"Implant removal, elbow joint",Hand Surgery,newly_added,verified,,18.16,34.38,90,1148.32,PPRRVU2026_Jul_nonQPP.csv
+24164,"Implant removal, radial head",Hand Surgery,newly_added,verified,,9.75,20.43,90,682.38,PPRRVU2026_Jul_nonQPP.csv
+24200,"Removal of foreign body; elbow or upper arm, subcutaneous",Hand Surgery,already_present,verified,,1.76,4.29,10,143.29,PPRRVU2026_Jul_nonQPP.csv
+24201,"Removal of foreign body; elbow or upper arm, deep",Hand Surgery,already_present,verified,,4.58,11.75,90,392.46,PPRRVU2026_Jul_nonQPP.csv
+24300,Manipulation; elbow; under anesthesia,Hand Surgery,newly_added,verified,,3.94,13.36,90,446.24,PPRRVU2026_Jul_nonQPP.csv
+24301,"Muscle or tendon transfer, any type, upper arm or elbow, single",Hand Surgery,already_present,verified,,10.12,20.98,90,700.75,PPRRVU2026_Jul_nonQPP.csv
+24305,"Tendon lengthening, upper arm or elbow, single, each",Hand Surgery,already_present,verified,,7.43,16.19,90,540.76,PPRRVU2026_Jul_nonQPP.csv
+24310,"Tenotomy, open elbow to shoulder, single, each",Hand Surgery,already_present,verified,,5.97,13.24,90,442.23,PPRRVU2026_Jul_nonQPP.csv
+24320,"Tenoplasty, with muscle transfer, with or without free graft, elbow to shoulder, single (Seddon‐ Brookes",Hand Surgery,already_present,verified,,10.59,21.84,90,729.48,PPRRVU2026_Jul_nonQPP.csv
+24330,"Flexor‐plasty, elbow, eg, Steindler type advancement)",Hand Surgery,newly_added,verified,,9.55,20.27,90,677.04,PPRRVU2026_Jul_nonQPP.csv
+24331,"Flexor‐plasty, elbow, eg, Steindler type advancement); with extensor advancement",Hand Surgery,newly_added,verified,,10.68,21.98,90,734.15,PPRRVU2026_Jul_nonQPP.csv
+24332,"Tenolysis, triceps",Hand Surgery,already_present,verified,,7.71,17.66,90,589.86,PPRRVU2026_Jul_nonQPP.csv
+24340,"Tenodesis of biceps tendon at elbow, separate procedure",Hand Surgery,already_present,verified,,7.88,17.47,90,583.51,PPRRVU2026_Jul_nonQPP.csv
+24341,"Repair, tendon or muscle, upper arm or elbow, each",Hand Surgery,already_present,verified,,9.25,21.2,90,708.1,PPRRVU2026_Jul_nonQPP.csv
+24342,"Reinsertion of ruptured biceps tendon, distal, with or without tendon graft (includes obtaining graft)",Hand Surgery,already_present,verified,,10.59,21.44,90,716.12,PPRRVU2026_Jul_nonQPP.csv
+24343,"Repair lateral collateral ligament, elbow, with local tissue",Hand Surgery,already_present,verified,,8.93,20.26,90,676.7,PPRRVU2026_Jul_nonQPP.csv
+24344,"Repair lateral collateral ligament, elbow, with tendon graft, including graft harvest",Hand Surgery,already_present,verified,,14.83,30.85,90,1030.42,PPRRVU2026_Jul_nonQPP.csv
+24345,"Repair medial collateral ligament, elbow, with local tissue",Hand Surgery,already_present,verified,,8.93,20.2,90,674.7,PPRRVU2026_Jul_nonQPP.csv
+24346,"Repair medial collateral ligament, elbow, with tendon graft, including graft harvest",Hand Surgery,already_present,verified,,14.83,30.85,90,1030.42,PPRRVU2026_Jul_nonQPP.csv
+24357,Percutaneous medial or lateral epicondyle tenotomy,Hand Surgery,already_present,verified,,5.3,11.51,90,384.44,PPRRVU2026_Jul_nonQPP.csv
+24358,Medial or lateral epicondyle debridement,Hand Surgery,already_present,verified,,6.49,14.97,90,500.01,PPRRVU2026_Jul_nonQPP.csv
+24359,Medial or lateral epicondyle debridement with tendon repair or reattachment,Hand Surgery,already_present,verified,,8.76,18.47,90,616.91,PPRRVU2026_Jul_nonQPP.csv
+24360,"Arthroplasty, elbow, with membrane or fascia",Hand Surgery,newly_added,verified,,12.35,25.08,90,837.69,PPRRVU2026_Jul_nonQPP.csv
+24361,"Arthroplasty, elbow, with distal humeral prosthetic replacement",Hand Surgery,newly_added,verified,,14.05,27.86,90,930.55,PPRRVU2026_Jul_nonQPP.csv
+24362,"Arthroplasty, elbow, with implant and fascia lata ligament reconstruction",Hand Surgery,newly_added,verified,,14.94,29.22,90,975.97,PPRRVU2026_Jul_nonQPP.csv
+24363,"Arthroplasty, elbow, with distal humeral and proximal ulnar prosthetic replacement; total elbow",Hand Surgery,newly_added,verified,,21.45,38.94,90,1300.63,PPRRVU2026_Jul_nonQPP.csv
+24365,"Arthroplasty, radial head",Hand Surgery,newly_added,verified,,8.4,18.13,90,605.56,PPRRVU2026_Jul_nonQPP.csv
+24366,"Arthroplasty, radial head, with implant",Hand Surgery,newly_added,verified,,9.13,19.02,90,635.29,PPRRVU2026_Jul_nonQPP.csv
+24495,"Decompression fasciotomy, forearm, with brachial artery exploration",Hand Surgery,newly_added,verified,,8.2,27.14,90,906.5,PPRRVU2026_Jul_nonQPP.csv
+24500,Closed treatment of humeral shaft fracture; without manipulation,Hand Surgery,already_present,verified,,3.32,12.43,90,415.17,PPRRVU2026_Jul_nonQPP.csv
+24505,"Closed treatment of humeral shaft fracture; with manipulation, with or without skeletal traction",Hand Surgery,already_present,verified,,5.26,17.43,90,582.18,PPRRVU2026_Jul_nonQPP.csv
+24515,"Open treatment of humeral shaft fracture, with plate/screws, with or without cerclage",Hand Surgery,already_present,verified,,11.82,24.62,90,822.33,PPRRVU2026_Jul_nonQPP.csv
+24516,Treatment of humeral shaft fracture with insertion of intramedullary implant with or without cerclage or locking screws,Hand Surgery,already_present,verified,,11.89,23.88,90,797.61,PPRRVU2026_Jul_nonQPP.csv
+24530,"Closed treatment of supracondylar or transcondylar humeral fracture, with or without intercondylar",Hand Surgery,already_present,verified,,3.6,13,90,434.21,PPRRVU2026_Jul_nonQPP.csv
+24535,"Closed treatment of supracondylar or transcondylar humeral fracture, with or without intercondylar extension; with manipulation, with or without skin or skeletal traction",Hand Surgery,already_present,verified,,6.93,20.66,90,690.06,PPRRVU2026_Jul_nonQPP.csv
+24538,"Percutaneous skeletal fixation of supracondylar or transcondylar humeral fracture, with or without",Hand Surgery,already_present,verified,,9.53,22.51,90,751.85,PPRRVU2026_Jul_nonQPP.csv
+24545,"Open treatment of humeral supracondylar or transcondylar fracture, with or without internal or external",Hand Surgery,already_present,verified,,12.82,25.76,90,860.41,PPRRVU2026_Jul_nonQPP.csv
+24546,"Open treatment of humeral supracondylar or transcondylar fracture, with or without internal or external",Hand Surgery,already_present,verified,,14.54,28.55,90,953.6,PPRRVU2026_Jul_nonQPP.csv
+24560,"Closed treatment of humeral epicondylar fracture, medial or lateral; without manipulation",Hand Surgery,already_present,verified,,2.91,11.7,90,390.79,PPRRVU2026_Jul_nonQPP.csv
+24565,"Closed treatment of humeral epicondylar fracture, medial or lateral; with manipulation",Hand Surgery,already_present,verified,,5.64,18.01,90,601.55,PPRRVU2026_Jul_nonQPP.csv
+24566,"Percutaneous treatment of humeral epicondylar fracture, medial or lateral, with manipulation",Hand Surgery,already_present,verified,,8.83,20.68,90,690.73,PPRRVU2026_Jul_nonQPP.csv
+24575,"Open treatment of humeral epicondylar fracture, medial or lateral, with or without internal or external",Hand Surgery,already_present,verified,,9.47,20.8,90,694.74,PPRRVU2026_Jul_nonQPP.csv
+24576,"Closed treatment of humeral condylar fracture, medial or lateral; without manipulation",Hand Surgery,already_present,verified,,2.98,12.27,90,409.83,PPRRVU2026_Jul_nonQPP.csv
+24577,"Closed treatment of humeral condylar fracture, medial or lateral; with manipulation",Hand Surgery,already_present,verified,,5.86,18.5,90,617.92,PPRRVU2026_Jul_nonQPP.csv
+24579,"Open treatment of humeral condylar fracture, medial or lateral, with or without internal or external",Hand Surgery,already_present,verified,,11.15,23.36,90,780.25,PPRRVU2026_Jul_nonQPP.csv
+24582,"Percutaneous treatment of humeral condylar fracture, medial or lateral, with manipulation",Hand Surgery,already_present,verified,,9.89,23.44,90,782.92,PPRRVU2026_Jul_nonQPP.csv
+24586,Open treatment of periarticular fracture and/or dislocation of the elbow (fracture distal humerus and,Hand Surgery,already_present,verified,,15.39,29.62,90,989.33,PPRRVU2026_Jul_nonQPP.csv
+24587,Open treatment of periarticular fracture and/or dislocation of the elbow (fracture distal humerus and proximal ulna and/or proximal radius); with implant arthroplasty,Hand Surgery,newly_added,verified,,15.4,29.92,90,999.35,PPRRVU2026_Jul_nonQPP.csv
+24600,Treatment of closed elbow dislocation; without anesthesia,Hand Surgery,already_present,verified,,4.26,14.27,90,476.63,PPRRVU2026_Jul_nonQPP.csv
+24605,Treatment of closed elbow dislocation; requiring anesthesia,Hand Surgery,already_present,verified,,5.5,14.35,90,479.3,PPRRVU2026_Jul_nonQPP.csv
+24615,Open treatment of acute or chronic elbow dislocation,Hand Surgery,already_present,verified,,9.58,19.9,90,664.68,PPRRVU2026_Jul_nonQPP.csv
+24620,Closed treatment of Monteggia type elbow fracture dislocation radial head fracture with proximal ulna,Hand Surgery,already_present,verified,,7.04,17,90,567.82,PPRRVU2026_Jul_nonQPP.csv
+24635,"Open treatment of Monteggia type of fracture dislocation at elbow (fracture proximal end of ulna with dislocation of radial head), with or without internal or external fixation",Hand Surgery,already_present,verified,,8.58,19.16,90,639.96,PPRRVU2026_Jul_nonQPP.csv
+24640,"Closed treatment of radial head subluxation in child, nursemaid elbow, with manipulation",Hand Surgery,newly_added,verified,,1.22,2.14,10,71.48,PPRRVU2026_Jul_nonQPP.csv
+24650,Closed treatment of radial head or neck fracture; without manipulation,Hand Surgery,already_present,verified,,2.25,9.03,90,301.61,PPRRVU2026_Jul_nonQPP.csv
+24655,Closed treatment of radial head or neck fracture; with manipulation,Hand Surgery,already_present,verified,,4.5,15.95,90,532.74,PPRRVU2026_Jul_nonQPP.csv
+24665,"Open treatment of radial head or neck fracture, with or without internal fixation or radial head excision",Hand Surgery,already_present,verified,,8.15,18.63,90,622.26,PPRRVU2026_Jul_nonQPP.csv
+24666,"Open treatment of radial head or neck fracture, with or without internal fixation or radial head excision; with radial head prosthetic replacement",Hand Surgery,already_present,verified,,9.61,20.51,90,685.05,PPRRVU2026_Jul_nonQPP.csv
+24670,"Closed treatment of ulnar fracture, proximal end (olecranon process); without manipulation",Hand Surgery,already_present,verified,,2.62,10.08,90,336.68,PPRRVU2026_Jul_nonQPP.csv
+24675,"Closed treatment of ulnar fracture, proximal end (olecranon process); with manipulation",Hand Surgery,already_present,verified,,4.79,15.47,90,516.71,PPRRVU2026_Jul_nonQPP.csv
+24685,"Open treatment of ulnar fracture proximal end (olecranon process), with or without internal or external",Hand Surgery,already_present,verified,,8.16,18.63,90,622.26,PPRRVU2026_Jul_nonQPP.csv
+24800,"Arthrodesis, elbow joint; with or without local autograft or allograft",Hand Surgery,newly_added,verified,,11.12,23.38,90,780.91,PPRRVU2026_Jul_nonQPP.csv
+24802,"Arthrodesis, elbow joint; with autograft (includes obtaining graft other than locally obtained)",Hand Surgery,newly_added,verified,,13.96,27.74,90,926.54,PPRRVU2026_Jul_nonQPP.csv
+24900,"Amputation, arm through humerus; with primary closure",Hand Surgery,newly_added,verified,,9.93,21.56,90,720.12,PPRRVU2026_Jul_nonQPP.csv
+24920,"Amputation, arm through humerus; open, circular (guillotine)",Hand Surgery,newly_added,verified,,9.88,20.57,90,687.06,PPRRVU2026_Jul_nonQPP.csv
+24925,"Amputation, arm through humerus; secondary closure or scar revision",Hand Surgery,newly_added,verified,,7.12,16.33,90,545.44,PPRRVU2026_Jul_nonQPP.csv
+24930,Transhumeral re‐amputation,Hand Surgery,newly_added,verified,,10.56,21.62,90,722.13,PPRRVU2026_Jul_nonQPP.csv
+24931,Transhumeral amputation with implant,Hand Surgery,newly_added,verified,,13.1,25.69,90,858.07,PPRRVU2026_Jul_nonQPP.csv
+24935,"Stump elongation, upper extremity",Hand Surgery,newly_added,verified,,16.04,34.05,90,1137.3,PPRRVU2026_Jul_nonQPP.csv
+24940,"Cineplasty, upper extremity, complete procedure",Hand Surgery,newly_added,no_work_rvu,"CMS source lists zero work RVU; likely unlisted, contractor-priced, add-on/global indicator, or non-valued",0.0,0.0,90,0,PPRRVU2026_Jul_nonQPP.csv
+24999,"Unlisted procedure, upper extremity",Hand Surgery,newly_added,no_work_rvu,"CMS source lists zero work RVU; likely unlisted, contractor-priced, add-on/global indicator, or non-valued",0.0,0.0,90,0,PPRRVU2026_Jul_nonQPP.csv
+25000,"Tendon sheath incision; at radial styloid eg, for deQuervains disease)",Hand Surgery,newly_added,verified,,3.46,10.19,90,340.36,PPRRVU2026_Jul_nonQPP.csv
+25001,"Incision, flexor tendon sheath, wrist",Hand Surgery,newly_added,verified,,3.7,10.22,90,341.36,PPRRVU2026_Jul_nonQPP.csv
+25020,"Decompression fasciotomy, forearm and/or wrist; flexor or extensor compartment",Hand Surgery,already_present,verified,,5.91,21.61,90,721.79,PPRRVU2026_Jul_nonQPP.csv
+25023,"Decompression fasciotomy, forearm and/or wrist; with debridement of nonviable muscle and/or nerve",Hand Surgery,already_present,verified,,13.48,37.84,90,1263.89,PPRRVU2026_Jul_nonQPP.csv
+25024,"Decompression fasciotomy,forearm and or wrist, flexor and extensor compartments, without",Hand Surgery,already_present,verified,,10.52,21.76,90,726.8,PPRRVU2026_Jul_nonQPP.csv
+25025,"Decompression fasciotomy,forearm and or wrist, flexor and extensor compartments, with debridement",Hand Surgery,already_present,verified,,17.49,33.66,90,1124.27,PPRRVU2026_Jul_nonQPP.csv
+25028,"Incision and drainage, forearm and/or wrist; deep abscess or hematoma",Hand Surgery,already_present,verified,,5.26,20.6,90,688.06,PPRRVU2026_Jul_nonQPP.csv
+25031,"Incision and drainage, forearm and/or wrist; infected bursa",Hand Surgery,already_present,verified,,4.15,10.9,90,364.07,PPRRVU2026_Jul_nonQPP.csv
+25035,"Incision, deep, with opening of bone cortex eg, for osteomyelitis or bone abscess), forearm and/or wrist",Hand Surgery,already_present,verified,,7.46,16.87,90,563.47,PPRRVU2026_Jul_nonQPP.csv
+25040,"Arthrotomy, radiocarpal or mediocarpal joint, with exploration, drainage, or removal of foreign body",Hand Surgery,already_present,verified,,7.31,15.71,90,524.73,PPRRVU2026_Jul_nonQPP.csv
+25065,"Biopsy, soft tissue of forearm and/or wrist; superficial",Hand Surgery,newly_added,verified,,1.99,4.37,10,145.96,PPRRVU2026_Jul_nonQPP.csv
+25066,"Biopsy, soft tissue of forearm and/or wrist; deep",Hand Surgery,newly_added,verified,,4.16,10.73,90,358.39,PPRRVU2026_Jul_nonQPP.csv
+25075,"Excision, tumor, forearm and/or wrist area; subcutaneous",Hand Surgery,newly_added,verified,,3.86,9.18,90,306.62,PPRRVU2026_Jul_nonQPP.csv
+25076,"Excision, tumor, forearm and/or wrist area; deep, subfascial or intramuscular",Hand Surgery,newly_added,verified,,6.57,14.7,90,490.99,PPRRVU2026_Jul_nonQPP.csv
+25077,"Radical resection of tumor eg, malignant neoplasm), soft tissue of forearm and/or wrist area",Hand Surgery,newly_added,verified,,12.61,24.87,90,830.68,PPRRVU2026_Jul_nonQPP.csv
+25085,"Capsulotomy, wrist eg, for contracture)",Hand Surgery,newly_added,verified,,5.5,12.76,90,426.2,PPRRVU2026_Jul_nonQPP.csv
+25100,"Arthrotomy, wrist joint, with biopsy",Hand Surgery,newly_added,verified,,3.92,10.39,90,347.04,PPRRVU2026_Jul_nonQPP.csv
+25101,"Arthrotomy, wrist joint; with joint exploration, with or without biopsy, with or without removal of loose",Hand Surgery,newly_added,verified,,4.71,11.74,90,392.13,PPRRVU2026_Jul_nonQPP.csv
+25105,"Arthrotomy, wrist joint, with synovectomy",Hand Surgery,newly_added,verified,,5.87,13.9,90,464.27,PPRRVU2026_Jul_nonQPP.csv
+25107,"Arthrotomy, distal radioulnar joint for repair of triangular cartilage complex",Hand Surgery,newly_added,verified,,7.51,17.6,90,587.86,PPRRVU2026_Jul_nonQPP.csv
+25109,"Excision of tendon, forearm and or wrist, flexor or extensor, each",Hand Surgery,newly_added,verified,,6.77,15.15,90,506.02,PPRRVU2026_Jul_nonQPP.csv
+25110,"Excision, lesion of tendon sheath, forearm and/or wrist",Hand Surgery,newly_added,verified,,3.94,10.11,90,337.68,PPRRVU2026_Jul_nonQPP.csv
+25111,"Excision of ganglion, wrist (dorsal or volar); primary",Hand Surgery,newly_added,verified,,3.44,9.61,90,320.98,PPRRVU2026_Jul_nonQPP.csv
+25112,"Excision of ganglion, wrist (dorsal or volar); recurrent",Hand Surgery,newly_added,verified,,4.55,11.29,90,377.1,PPRRVU2026_Jul_nonQPP.csv
+25115,"Radical excision of bursa, synovia of wrist, or forearm tendon sheaths eg, tenosynovitis, fungus, Tbc, or other granulomas, rheumatoid arthritis); flexors",Hand Surgery,newly_added,verified,,9.84,21.06,90,703.42,PPRRVU2026_Jul_nonQPP.csv
+25116,"Radical excision of bursa, synovia of wrist, or forearm tendon sheaths eg, tenosynovitis, fungus, Tbc, or other granulomas, rheumatoid arthritis); extensors (with or without transposition of dorsal retinaculum)",Hand Surgery,newly_added,verified,,7.37,17.1,90,571.16,PPRRVU2026_Jul_nonQPP.csv
+25118,"Synovectomy, extensor tendon sheath, wrist, single compartment",Hand Surgery,newly_added,verified,,4.4,11.07,90,369.75,PPRRVU2026_Jul_nonQPP.csv
+25119,"Synovectomy, extensor tendon sheath, wrist, single compartment; with resection of distal ulna",Hand Surgery,newly_added,verified,,6.05,14.57,90,486.65,PPRRVU2026_Jul_nonQPP.csv
+25120,Excision or curettage of bone cyst or benign tumor of radius or ulna (excluding head or neck of radius and,Hand Surgery,newly_added,verified,,6.11,14.23,90,475.29,PPRRVU2026_Jul_nonQPP.csv
+25125,Excision or curettage of bone cyst or benign tumor of radius or ulna (excluding head or neck of radius and olecranon process); with auto graft (includes obtaining graft),Hand Surgery,newly_added,verified,,7.48,17.09,90,570.82,PPRRVU2026_Jul_nonQPP.csv
+25126,Excision or curettage of bone cyst or benign tumor of radius or ulna (excluding head or neck of radius and olecranon process); with allograft,Hand Surgery,newly_added,verified,,7.55,17.2,90,574.5,PPRRVU2026_Jul_nonQPP.csv
+25130,Excision or curettage of bone cyst or benign tumor of carpal bones,Hand Surgery,newly_added,verified,,5.29,12.9,90,430.87,PPRRVU2026_Jul_nonQPP.csv
+25135,Excision or curettage of bone cyst or benign tumor of carpal bones; with autograft (includes obtaining,Hand Surgery,newly_added,verified,,6.9,16.2,90,541.09,PPRRVU2026_Jul_nonQPP.csv
+25136,Excision or curettage of bone cyst or benign tumor of carpal bones; with allograft,Hand Surgery,newly_added,verified,,5.99,14.47,90,483.31,PPRRVU2026_Jul_nonQPP.csv
+25145,"Sequestrectomy eg, for osteomyelitis or bone abscess), forearm and/or wrist",Hand Surgery,newly_added,verified,,6.38,15.04,90,502.35,PPRRVU2026_Jul_nonQPP.csv
+25150,"Partial excision (craterization, saucerization or diaphysectomy) of bone eg, for osteomyelitis); ulna",Hand Surgery,newly_added,verified,,7.2,16.01,90,534.75,PPRRVU2026_Jul_nonQPP.csv
+25151,"Partial excision (craterization, saucerization or diaphysectomy) of bone eg, for osteomyelitis); radius",Hand Surgery,newly_added,verified,,7.49,16.34,90,545.77,PPRRVU2026_Jul_nonQPP.csv
+25170,"Radical resection for tumor, radius or ulna",Hand Surgery,newly_added,verified,,21.65,39.81,90,1329.69,PPRRVU2026_Jul_nonQPP.csv
+25210,Carpectomy; one bone,Hand Surgery,already_present,verified,,5.97,13.99,90,467.28,PPRRVU2026_Jul_nonQPP.csv
+25215,Carpectomy; all bones of proximal row,Hand Surgery,newly_added,verified,,7.94,17.3,90,577.84,PPRRVU2026_Jul_nonQPP.csv
+25230,Radial styloidectomy separate procedure,Hand Surgery,newly_added,verified,,5.24,12.38,90,413.5,PPRRVU2026_Jul_nonQPP.csv
+25240,"Excision distal ulna, partial or comlete eg, Darrach type or matched resection)",Hand Surgery,newly_added,verified,,5.18,12.29,90,410.5,PPRRVU2026_Jul_nonQPP.csv
+25248,"Exploration with removal of deep foreign body, forearm or wrist",Hand Surgery,newly_added,verified,,5.18,12.22,90,408.16,PPRRVU2026_Jul_nonQPP.csv
+25250,Removal of wrist prosthesis; separate procedure,Hand Surgery,newly_added,verified,,6.6,15.38,90,513.71,PPRRVU2026_Jul_nonQPP.csv
+25251,"Removal of wrist prosthesis; complicated, including total wrist",Hand Surgery,newly_added,verified,,9.57,20.29,90,677.7,PPRRVU2026_Jul_nonQPP.csv
+25259,"Manipulation, wrist, under anesthesia",Hand Surgery,newly_added,verified,,3.94,13.09,90,437.22,PPRRVU2026_Jul_nonQPP.csv
+25260,"Repair, tendon or muscle, flexor, forearm and/or wrist; primary, single, each tendon or muscle",Hand Surgery,already_present,verified,,7.84,17.94,90,599.21,PPRRVU2026_Jul_nonQPP.csv
+25263,"Repair, tendon or muscle, flexor, forearm and/or wrist; secondary, single, each tendon or muscle",Hand Surgery,already_present,verified,,7.84,18.2,90,607.9,PPRRVU2026_Jul_nonQPP.csv
+25265,"Repair, tendon or muscle, flexor, forearm and/or wrist; secondary, with free graft (includes obtaining",Hand Surgery,already_present,verified,,9.85,20.6,90,688.06,PPRRVU2026_Jul_nonQPP.csv
+25270,"Repair, tendon or muscle, extensor, forearm and/or wrist; primary, single, each tendon or muscle",Hand Surgery,already_present,verified,,6.02,14.1,90,470.95,PPRRVU2026_Jul_nonQPP.csv
+25272,"Repair, tendon or muscle, extensor, forearm and/or wrist; secondary, single, each tendon or muscle",Hand Surgery,already_present,verified,,7.03,16.04,90,535.75,PPRRVU2026_Jul_nonQPP.csv
+25274,"Repair, tendon or muscle, extensor, secondary, with tendon graft (includes obtaining graft), forearm",Hand Surgery,already_present,verified,,8.72,18.44,90,615.91,PPRRVU2026_Jul_nonQPP.csv
+25275,"Repair, tendon sheath, extensor, forearm and or wrist, with free graft includes graft harvest",Hand Surgery,already_present,verified,,8.74,18.68,90,623.93,PPRRVU2026_Jul_nonQPP.csv
+25280,"Lengthening or shortening of flexor or extensor tendon, forearm and/or wrist, single, each tendon",Hand Surgery,newly_added,verified,,7.21,15.94,90,532.41,PPRRVU2026_Jul_nonQPP.csv
+25290,"Tenotomy, open flexor or extensor tendon, forearm and/or wrist, single, each tendon",Hand Surgery,newly_added,verified,,5.29,12.41,90,414.51,PPRRVU2026_Jul_nonQPP.csv
+25295,"Tenolysis, flexor or extensor tendon, forearm and/or wrist, single, each tendon",Hand Surgery,newly_added,verified,,6.55,14.88,90,497.01,PPRRVU2026_Jul_nonQPP.csv
+25300,Tenodesis at wrist; flexors of fingers,Hand Surgery,newly_added,verified,,8.79,19.65,90,656.33,PPRRVU2026_Jul_nonQPP.csv
+25301,Tenodesis at wrist; extensors of fingers,Hand Surgery,newly_added,verified,,8.38,17.94,90,599.21,PPRRVU2026_Jul_nonQPP.csv
+25310,"Tendon transplantation or transfer, flexor or extensor, forearm and/or wrist, single; each tendon",Hand Surgery,already_present,verified,,8.78,20.01,90,668.35,PPRRVU2026_Jul_nonQPP.csv
+25312,"Tendon transplantation or transfer, flexor or extensor, forearm and/or wrist, single; with tendon graft",Hand Surgery,newly_added,verified,,9.57,19.88,90,664.01,PPRRVU2026_Jul_nonQPP.csv
+25315,"Flexor origin slide eg, for cerebral palsy, Volkmann contracture), forearm and/or wrist",Hand Surgery,newly_added,verified,,10.41,21.58,90,720.79,PPRRVU2026_Jul_nonQPP.csv
+25316,"Flexor origin slide for cerebral palsy, forearm and/or wrist; with tendon transfer",Hand Surgery,newly_added,verified,,12.58,25.47,90,850.72,PPRRVU2026_Jul_nonQPP.csv
+25320,"Capsulorrhaphy or reconstruction, wrist, any method eg, capsulodesis, ligament repair, tendon transfer",Hand Surgery,already_present,verified,,12.43,27.77,90,927.54,PPRRVU2026_Jul_nonQPP.csv
+25332,"Arthroplasty, wrist",Hand Surgery,newly_added,verified,,11.45,23.2,90,774.9,PPRRVU2026_Jul_nonQPP.csv
+25335,"Centralization of wrist on ulna eg, radial club hand)",Hand Surgery,newly_added,verified,,13.06,26.19,90,874.77,PPRRVU2026_Jul_nonQPP.csv
+25337,Reconstruction of unstable distal radioulnar joint,Hand Surgery,already_present,verified,,11.44,24.8,90,828.34,PPRRVU2026_Jul_nonQPP.csv
+25350,"Osteotomy, radius; distal third",Hand Surgery,newly_added,verified,,8.86,18.77,90,626.93,PPRRVU2026_Jul_nonQPP.csv
+25355,"Osteotomy, radius; middle or proximal third",Hand Surgery,newly_added,verified,,10.27,21.51,90,718.45,PPRRVU2026_Jul_nonQPP.csv
+25360,Osteotomy; ulna,Hand Surgery,newly_added,verified,,8.52,18.26,90,609.9,PPRRVU2026_Jul_nonQPP.csv
+25365,Osteotomy; radius and ulna,Hand Surgery,newly_added,verified,,12.59,25.48,90,851.05,PPRRVU2026_Jul_nonQPP.csv
+25370,"Multiple osteotomies, with realignment on intramedullary rod (Sofield type procedure); radius OR ulna",Hand Surgery,newly_added,verified,,13.75,28.16,90,940.57,PPRRVU2026_Jul_nonQPP.csv
+25375,"Multiple osteotomies, with realignment on intramedullary rod (Sofield type procedure); radius AND ulna",Hand Surgery,newly_added,verified,,13.21,26.44,90,883.12,PPRRVU2026_Jul_nonQPP.csv
+25390,"Osteoplasty, radius OR ulna; shortening",Hand Surgery,newly_added,verified,,10.43,21.1,90,704.76,PPRRVU2026_Jul_nonQPP.csv
+25391,"Osteoplasty, radius OR ulna; lengthening with autograft",Hand Surgery,newly_added,verified,,13.92,27.52,90,919.19,PPRRVU2026_Jul_nonQPP.csv
+25392,"Osteoplasty, radius AND ulna; shortening (excluding 64876)",Hand Surgery,newly_added,verified,,14.22,27.97,90,934.22,PPRRVU2026_Jul_nonQPP.csv
+25393,"Osteoplasty, carpal bone, shortening",Hand Surgery,newly_added,verified,,16.15,30.93,90,1033.09,PPRRVU2026_Jul_nonQPP.csv
+25400,"Repair of nonunion or malunion, radius OR ulna; without graft eg, compression technique)",Hand Surgery,newly_added,verified,,11.0,22.07,90,737.16,PPRRVU2026_Jul_nonQPP.csv
+25405,"Repair of nonunion or malunion, radius OR ulna; with iliac or other autograft (includes obtaining graft)",Hand Surgery,newly_added,verified,,14.63,28.12,90,939.23,PPRRVU2026_Jul_nonQPP.csv
+25415,"Repair of nonunion or malunion, radius AND ulna; without graft eg, compression technique, etc)",Hand Surgery,newly_added,verified,,13.46,26.81,90,895.48,PPRRVU2026_Jul_nonQPP.csv
+25420,"Repair of nonunion or malunion, radius AND ulna; with iliac or other autograft (includes obtaining graft)",Hand Surgery,newly_added,verified,,16.61,31.99,90,1068.49,PPRRVU2026_Jul_nonQPP.csv
+25425,Repair of defect with autograft; radius OR ulna,Hand Surgery,newly_added,verified,,13.38,26.68,90,891.14,PPRRVU2026_Jul_nonQPP.csv
+25426,Repair of defect with autograft; radius AND ulna,Hand Surgery,newly_added,verified,,16.04,30.75,90,1027.08,PPRRVU2026_Jul_nonQPP.csv
+25430,Insertion vascular pedicle into carpal bone,Hand Surgery,newly_added,verified,,9.47,20.82,90,695.41,PPRRVU2026_Jul_nonQPP.csv
+25431,"Repair of carpal bone nonunion other than scaphoid, each, including graft and fixation",Hand Surgery,already_present,verified,,10.62,22.12,90,738.83,PPRRVU2026_Jul_nonQPP.csv
+25440,"Repair of nonunion, scaphoid navicular bone, with or without radial styloidectomy (includes obtaining",Hand Surgery,already_present,verified,,10.41,21.1,90,704.76,PPRRVU2026_Jul_nonQPP.csv
+25441,"Arthroplasty with prosthetic replacement, distal radius",Hand Surgery,newly_added,verified,,12.96,26.02,90,869.09,PPRRVU2026_Jul_nonQPP.csv
+25442,"Arthroplasty with prosthetic replacement, distal ulna",Hand Surgery,newly_added,verified,,10.84,22.17,90,740.5,PPRRVU2026_Jul_nonQPP.csv
+25443,"Arthroplasty with prosthetic replacement, scaphoid",Hand Surgery,newly_added,verified,,10.39,22.08,90,737.49,PPRRVU2026_Jul_nonQPP.csv
+25444,"Arthroplasty with prosthetic replacement, lunate",Hand Surgery,newly_added,verified,,11.13,22.74,90,759.54,PPRRVU2026_Jul_nonQPP.csv
+25445,"Arthroplasty with prosthetic replacement, trapezium",Hand Surgery,newly_added,verified,,9.63,19.88,90,664.01,PPRRVU2026_Jul_nonQPP.csv
+25446,Arthroplasty with prosthetic replacement; distal radius and partial or entire carpus (total wrist),Hand Surgery,newly_added,verified,,16.87,31.49,90,1051.79,PPRRVU2026_Jul_nonQPP.csv
+25447,"Interposition arthroplasty, intercarpal or carpometacarpal joints",Hand Surgery,newly_added,verified,,10.24,22.27,90,743.84,PPRRVU2026_Jul_nonQPP.csv
+25449,"Revision of arthroplasty, including removal of implant, wrist joint",Hand Surgery,newly_added,verified,,14.57,27.91,90,932.22,PPRRVU2026_Jul_nonQPP.csv
+25450,Epiphyseal arrest by epiphysiodesis or stapling; distal radius OR ulna,Hand Surgery,newly_added,verified,,7.86,17.67,90,590.19,PPRRVU2026_Jul_nonQPP.csv
+25455,Epiphyseal arrest by epiphysiodesis or stapling; distal radius AND ulna,Hand Surgery,newly_added,verified,,9.47,20.7,90,691.4,PPRRVU2026_Jul_nonQPP.csv
+25490,"Prophylactic treatment (nailing, pinning, plating or wiring) with or without methyl methacrylate; radius",Hand Surgery,newly_added,verified,,9.49,20.32,90,678.71,PPRRVU2026_Jul_nonQPP.csv
+25491,"Prophylactic treatment (nailing, pinning, plating or wiring) with or without methyl methacrylate; ulna",Hand Surgery,newly_added,verified,,9.9,20.8,90,694.74,PPRRVU2026_Jul_nonQPP.csv
+25492,"Prophylactic treatment (nailing, pinning, plating or wiring) with or without methyl methacrylate; radius",Hand Surgery,newly_added,verified,,12.34,25.25,90,843.37,PPRRVU2026_Jul_nonQPP.csv
+25500,Closed treatment of radial shaft fracture; without manipulation,Hand Surgery,already_present,verified,,2.54,9.78,90,326.66,PPRRVU2026_Jul_nonQPP.csv
+25505,Closed treatment of radial shaft fracture; with manipulation,Hand Surgery,already_present,verified,,5.31,17.67,90,590.19,PPRRVU2026_Jul_nonQPP.csv
+25515,"Open treatment of radial shaft fracture, with or without internal or external fixation",Hand Surgery,already_present,verified,,8.58,18.98,90,633.95,PPRRVU2026_Jul_nonQPP.csv
+25520,"Closed treatment of radial shaft fracture, with dislocation of distal radioulnar joint (Galeazzi fracture/dislocation)",Hand Surgery,already_present,verified,,6.34,19.06,90,636.62,PPRRVU2026_Jul_nonQPP.csv
+25525,"Open treatment of radial shaft fracture, with internal and/or external fixation and closed treatment of dislocation of distal radioulnar joint (Galeazzi fracture/dislocation), with or without percutaneous skeletal",Hand Surgery,already_present,verified,,10.29,22.06,90,736.82,PPRRVU2026_Jul_nonQPP.csv
+25526,"Open treatment of radial shaft fracture, with internal and/or external fixation and open treatment, with or without internal or external fixation of distal radioulnar joint (Galeazzi fracture/dislocation), includes",Hand Surgery,already_present,verified,,12.82,26.8,90,895.14,PPRRVU2026_Jul_nonQPP.csv
+25530,Closed treatment of ulnar shaft fracture; without manipulation,Hand Surgery,already_present,verified,,2.18,9.04,90,301.94,PPRRVU2026_Jul_nonQPP.csv
+25535,Closed treatment of ulnar shaft fracture; with manipulation,Hand Surgery,already_present,verified,,5.23,16.41,90,548.11,PPRRVU2026_Jul_nonQPP.csv
+25545,"Open treatment of ulnar shaft fracture, with or without internal or external fixation",Hand Surgery,already_present,verified,,7.74,17.81,90,594.87,PPRRVU2026_Jul_nonQPP.csv
+25560,Closed treatment of radial and ulnar shaft fractures; without manipulation,Hand Surgery,already_present,verified,,2.53,9.94,90,332.0,PPRRVU2026_Jul_nonQPP.csv
+25565,Closed treatment of radial and ulnar shaft fractures; with manipulation,Hand Surgery,already_present,verified,,5.7,18.67,90,623.59,PPRRVU2026_Jul_nonQPP.csv
+25574,"Open treatment of radial and ulnar shaft fractures, with internal or external fixation; of radius OR ulna",Hand Surgery,already_present,verified,,8.58,19.19,90,640.96,PPRRVU2026_Jul_nonQPP.csv
+25575,"Open treatment of radial and ulnar shaft fractures, with internal or external fixation; of radius AND ulna",Hand Surgery,already_present,verified,,11.98,25.32,90,845.71,PPRRVU2026_Jul_nonQPP.csv
+25600,"Closed treatment of distal radial fracture eg, Colles or Smith type) or epiphyseal separation, with or",Hand Surgery,already_present,verified,,2.71,11.54,90,385.45,PPRRVU2026_Jul_nonQPP.csv
+25605,"Closed treatment of distal radial fracture eg, Colles or Smith type) or epiphyseal separation, with or",Hand Surgery,already_present,verified,,6.09,19,90,634.62,PPRRVU2026_Jul_nonQPP.csv
+25606,Percutaneous fixation distal radius fracture or epiphyseal separation,Hand Surgery,already_present,verified,,8.1,19.21,90,641.63,PPRRVU2026_Jul_nonQPP.csv
+25607,"Open treatment of extraarticular distal radial fracture or epiphyseal separation, with or without fracture",Hand Surgery,already_present,verified,,9.32,20.88,90,697.41,PPRRVU2026_Jul_nonQPP.csv
+25608,Open treatment of intraarticular distal radial fracture or epiphyseal separation with internal fixation of,Hand Surgery,already_present,verified,,10.79,23.11,90,771.89,PPRRVU2026_Jul_nonQPP.csv
+25609,Open treatment of intraarticular distal radial fracture or epiphyseal separation with internal fixation of,Hand Surgery,already_present,verified,,14.02,28.99,90,968.29,PPRRVU2026_Jul_nonQPP.csv
+25622,Closed treatment of carpal scaphoid navicular fracture; without manipulation,Hand Surgery,already_present,verified,,2.72,10.5,90,350.71,PPRRVU2026_Jul_nonQPP.csv
+25624,Closed treatment of carpal scaphoid navicular fracture; with manipulation,Hand Surgery,already_present,verified,,4.65,16.44,90,549.11,PPRRVU2026_Jul_nonQPP.csv
+25628,"Open treatment of carpal scaphoid navicular fracture, with or without internal or external fixation",Hand Surgery,already_present,verified,,9.43,20.03,90,669.02,PPRRVU2026_Jul_nonQPP.csv
+25630,"Closed treatment of carpal bone fracture (excluding carpal scaphoid navicular); without manipulation,",Hand Surgery,already_present,verified,,2.95,10.33,90,345.03,PPRRVU2026_Jul_nonQPP.csv
+25635,"Closed treatment of carpal bone fracture (excluding carpal scaphoid navicular); with manipulation, each",Hand Surgery,already_present,verified,,4.49,15.59,90,520.72,PPRRVU2026_Jul_nonQPP.csv
+25645,"Open treatment of carpal bone fracture (excluding carpal scaphoid navicular), each bone",Hand Surgery,already_present,verified,,7.23,16.35,90,546.1,PPRRVU2026_Jul_nonQPP.csv
+25650,Closed treatment of ulnar styloid fracture,Hand Surgery,newly_added,verified,,3.15,9.73,90,324.99,PPRRVU2026_Jul_nonQPP.csv
+25651,Percutaneous fixation ulnar styloid fracture,Hand Surgery,already_present,verified,,5.67,14.18,90,473.62,PPRRVU2026_Jul_nonQPP.csv
+25652,Open treatment ulnar styloid fracture,Hand Surgery,already_present,verified,,7.86,17.69,90,590.86,PPRRVU2026_Jul_nonQPP.csv
+25660,"Closed treatment of radiocarpal or intercarpal dislocation, one or more bones, with manipulation",Hand Surgery,newly_added,verified,,4.86,13.35,90,445.9,PPRRVU2026_Jul_nonQPP.csv
+25670,"Open treatment of radiocarpal or intercarpal dislocation, one or more bones",Hand Surgery,already_present,verified,,7.89,17.37,90,580.17,PPRRVU2026_Jul_nonQPP.csv
+25671,Percutaneous fixation distal radioulnar dislocation,Hand Surgery,already_present,verified,,6.3,15.65,90,522.72,PPRRVU2026_Jul_nonQPP.csv
+25675,Closed treatment of distal radioulnar dislocation with manipulation,Hand Surgery,newly_added,verified,,4.77,14.65,90,489.32,PPRRVU2026_Jul_nonQPP.csv
+25676,"Open treatment of distal radioulnar dislocation, acute or chronic",Hand Surgery,already_present,verified,,8.08,17.82,90,595.2,PPRRVU2026_Jul_nonQPP.csv
+25680,"Closed treatment of trans‐scaphoperilunar type of fracture dislocation, with manipulation",Hand Surgery,newly_added,verified,,6.07,15.54,90,519.05,PPRRVU2026_Jul_nonQPP.csv
+25685,Open treatment of trans‐scaphoperilunar type of fracture dislocation,Hand Surgery,already_present,verified,,9.84,20.7,90,691.4,PPRRVU2026_Jul_nonQPP.csv
+25690,"Closed treatment of lunate dislocation, with manipulation",Hand Surgery,newly_added,verified,,5.58,14.44,90,482.31,PPRRVU2026_Jul_nonQPP.csv
+25695,Open treatment of lunate dislocation,Hand Surgery,already_present,verified,,8.3,17.99,90,600.88,PPRRVU2026_Jul_nonQPP.csv
+25800,"Arthrodesis, wrist joint (including radiocarpal and/or ulnocarpal fusion); without bone graft",Hand Surgery,newly_added,verified,,9.82,20.16,90,673.36,PPRRVU2026_Jul_nonQPP.csv
+25805,"Arthrodesis, wrist joint (including radiocarpal and/or ulnocarpal fusion); with sliding graft",Hand Surgery,newly_added,verified,,11.44,23.72,90,792.27,PPRRVU2026_Jul_nonQPP.csv
+25810,"Arthrodesis, wrist joint (including radiocarpal and/or ulnocarpal fusion); with iliac or other autograft",Hand Surgery,newly_added,verified,,11.65,23.77,90,793.94,PPRRVU2026_Jul_nonQPP.csv
+25820,Intercarpal fusion; without bone graft,Hand Surgery,newly_added,verified,,7.45,18.42,90,615.24,PPRRVU2026_Jul_nonQPP.csv
+25825,Intercarpal fusion; with autograft (includes obtaining graft),Hand Surgery,newly_added,verified,,9.45,22.27,90,743.84,PPRRVU2026_Jul_nonQPP.csv
+25830,Arthrodesis and resection of radioulnar joint,Hand Surgery,newly_added,verified,,10.61,29.06,90,970.63,PPRRVU2026_Jul_nonQPP.csv
+25900,"Amputation, forearm, through radius and ulna",Hand Surgery,already_present,verified,,9.37,20.06,90,670.02,PPRRVU2026_Jul_nonQPP.csv
+25905,"Amputation, forearm, through radius and ulna; open, circular (guillotine)",Hand Surgery,newly_added,verified,,9.35,19.76,90,660.0,PPRRVU2026_Jul_nonQPP.csv
+25907,"Amputation, forearm, through radius and ulna; secondary closure or scar revision",Hand Surgery,newly_added,verified,,7.89,17.53,90,585.52,PPRRVU2026_Jul_nonQPP.csv
+25909,"Amputation, forearm, through radius and ulna; reamputation",Hand Surgery,newly_added,verified,,9.08,19.34,90,645.97,PPRRVU2026_Jul_nonQPP.csv
+25915,Krukenberg procedure,Hand Surgery,newly_added,verified,,17.08,31.72,90,1059.48,PPRRVU2026_Jul_nonQPP.csv
+25920,Disarticulation through wrist,Hand Surgery,newly_added,verified,,8.8,20.88,90,697.41,PPRRVU2026_Jul_nonQPP.csv
+25922,Disarticulation through wrist; secondary closure or scar revision,Hand Surgery,newly_added,verified,,7.46,18.68,90,623.93,PPRRVU2026_Jul_nonQPP.csv
+25924,Disarticulation through wrist; reamputation,Hand Surgery,newly_added,verified,,8.59,20.41,90,681.71,PPRRVU2026_Jul_nonQPP.csv
+25927,Transmetacarpal amputation,Hand Surgery,newly_added,verified,,8.86,25.15,90,840.03,PPRRVU2026_Jul_nonQPP.csv
+25929,Transmetacarpal amputation; secondary closure or scar revision,Hand Surgery,newly_added,verified,,7.62,17.12,90,571.82,PPRRVU2026_Jul_nonQPP.csv
+25931,Transmetacarpal amputation; reamputation,Hand Surgery,newly_added,verified,,7.84,23.42,90,782.25,PPRRVU2026_Jul_nonQPP.csv
+25999,"Unlisted procedure, forearm or wrist",Hand Surgery,newly_added,no_work_rvu,"CMS source lists zero work RVU; likely unlisted, contractor-priced, add-on/global indicator, or non-valued",0.0,0.0,90,0,PPRRVU2026_Jul_nonQPP.csv
+26010,Drainage of finger abscess; simple,Hand Surgery,already_present,verified,,1.55,11.23,10,375.09,PPRRVU2026_Jul_nonQPP.csv
+26011,"Drainage of finger abscess; complicated eg, felon, etc)",Hand Surgery,already_present,verified,,2.18,15.48,10,517.05,PPRRVU2026_Jul_nonQPP.csv
+26020,"Drainage of tendon sheath, one digit and/or palm",Hand Surgery,already_present,verified,,6.67,15.93,90,532.08,PPRRVU2026_Jul_nonQPP.csv
+26025,"Drainage of palmar bursa; single, ulnar or radial",Hand Surgery,already_present,verified,,4.95,12.11,90,404.48,PPRRVU2026_Jul_nonQPP.csv
+26030,Drainage of palmar bursa; multiple or complicated,Hand Surgery,already_present,verified,,6.09,13.95,90,465.94,PPRRVU2026_Jul_nonQPP.csv
+26034,"Incision, deep, with opening of bone cortex eg, for osteomyelitis or bone abscess), hand or finger",Hand Surgery,already_present,verified,,6.46,15.75,90,526.06,PPRRVU2026_Jul_nonQPP.csv
+26035,"Decompression fingers and/or hand, injection injury eg, grease gun, etc)",Hand Surgery,already_present,verified,,11.09,24.41,90,815.32,PPRRVU2026_Jul_nonQPP.csv
+26037,"Decompressive fasciotomy, hand (excludes 26035)",Hand Surgery,already_present,verified,,7.38,15.78,90,527.07,PPRRVU2026_Jul_nonQPP.csv
+26040,"Fasciotomy, palmar, for Dupuytrens contracture; closed (subcutaneous)",Hand Surgery,already_present,verified,,3.37,9.24,90,308.62,PPRRVU2026_Jul_nonQPP.csv
+26045,"Fasciotomy, palmar, for Dupuytrens contracture; open, partial",Hand Surgery,already_present,verified,,5.59,13.57,90,453.25,PPRRVU2026_Jul_nonQPP.csv
+26055,"Tendon sheath incision eg, for trigger finger)",Hand Surgery,already_present,verified,,3.03,18.85,90,629.61,PPRRVU2026_Jul_nonQPP.csv
+26060,"Tenotomy, subcutaneous, single, each digit",Hand Surgery,already_present,verified,,2.84,7.29,90,243.49,PPRRVU2026_Jul_nonQPP.csv
+26070,"Arthrotomy, for infection, with exploration, drainage or removal of foreign body; carpometacarpal joint",Hand Surgery,already_present,verified,,3.71,9.37,90,312.97,PPRRVU2026_Jul_nonQPP.csv
+26075,"Arthrotomy, for infection, with exploration, drainage or removal of foreign body; metacarpophalangeal",Hand Surgery,already_present,verified,,3.81,9.88,90,330.0,PPRRVU2026_Jul_nonQPP.csv
+26080,"Arthrotomy, for infection, with exploration, drainage or removal of foreign body; interphalangeal joint, each",Hand Surgery,already_present,verified,,4.36,11.61,90,387.78,PPRRVU2026_Jul_nonQPP.csv
+26100,Arthrotomy with synovial biopsy; carpometacarpal joint,Hand Surgery,already_present,verified,,3.7,10.14,90,338.69,PPRRVU2026_Jul_nonQPP.csv
+26105,Arthrotomy for synovial biopsy; metacarpophalangeal joint,Hand Surgery,already_present,verified,,3.73,10.19,90,340.36,PPRRVU2026_Jul_nonQPP.csv
+26110,"Arthrotomy for synovial biopsy; interphalangeal joint, each",Hand Surgery,already_present,verified,,3.56,9.52,90,317.98,PPRRVU2026_Jul_nonQPP.csv
+26115,"Excision, tumor or vascular malformation, hand or finger; subcutaneous",Hand Surgery,already_present,verified,,3.86,17.61,90,588.19,PPRRVU2026_Jul_nonQPP.csv
+26116,"Excision, tumor or vascular malformation, hand or finger; deep, subfascial, intramuscular",Hand Surgery,already_present,verified,,6.57,14.79,90,494.0,PPRRVU2026_Jul_nonQPP.csv
+26117,"Radical resection of tumor eg, malignant neoplasm), soft tissue of hand or finger",Hand Surgery,already_present,verified,,9.88,20.79,90,694.4,PPRRVU2026_Jul_nonQPP.csv
+26121,"Fasciectomy, palmar only, with or without z‐plasty, other local tissue rearrangement, or skin grafting (includes obtaining graft);",Hand Surgery,already_present,verified,,7.54,16.82,90,561.8,PPRRVU2026_Jul_nonQPP.csv
+26123,"Fasciectomy, palmar only, with or without z‐plasty, other local tissue rearrangement, or skin grafting (includes obtaining graft); partial palmar excision with release of single digit including proximal",Hand Surgery,already_present,verified,,10.61,23.39,90,781.25,PPRRVU2026_Jul_nonQPP.csv
+26125,"Fasciectomy, palmar only, with or without z‐plasty, other local tissue rearrangement, or skin grafting (includes obtaining graft); partial palmar excision with release of each additional digit, including proximal",Hand Surgery,already_present,verified,,4.49,6.83,0,228.13,PPRRVU2026_Jul_nonQPP.csv
+26130,"Synovectomy, carpometacarpal joint",Hand Surgery,already_present,verified,,5.45,13.73,90,458.59,PPRRVU2026_Jul_nonQPP.csv
+26135,"Synovectomy, metacarpophalangeal joint including intrinsic release and extensor hood reconstruction, each digit",Hand Surgery,already_present,verified,,6.95,15.55,90,519.38,PPRRVU2026_Jul_nonQPP.csv
+26140,"Synovectomy, proximal interphalangeal joint, including extensor reconstruction, each interphalangeal joint",Hand Surgery,already_present,verified,,6.18,14.39,90,480.64,PPRRVU2026_Jul_nonQPP.csv
+26145,"Synovectomy tendon sheath, radical tenosynovectomy, flexor, palm or finger, single, each digit",Hand Surgery,already_present,verified,,6.33,14.58,90,486.99,PPRRVU2026_Jul_nonQPP.csv
+26160,"Excision of lesion of tendon sheath or capsule eg, cyst, mucous cyst, or ganglion), hand or finger",Hand Surgery,already_present,verified,,3.48,19.69,90,657.66,PPRRVU2026_Jul_nonQPP.csv
+26170,"Excision of tendon, palm, flexor, single separate procedure, each",Hand Surgery,already_present,verified,,4.79,11.73,90,391.79,PPRRVU2026_Jul_nonQPP.csv
+26180,"Excision of tendon, finger, flexor separate procedure",Hand Surgery,already_present,verified,,5.22,12.91,90,431.21,PPRRVU2026_Jul_nonQPP.csv
+26185,"Sesamoidectomy, finger or thumb",Hand Surgery,already_present,verified,,6.36,16.39,90,547.44,PPRRVU2026_Jul_nonQPP.csv
+26200,Excision or curettage of bone cyst or benign tumor of metacarpal,Hand Surgery,already_present,verified,,5.51,12.85,90,429.2,PPRRVU2026_Jul_nonQPP.csv
+26205,Excision or curettage of bone cyst or benign tumor of metacarpal; with autograft (includes obtaining,Hand Surgery,already_present,verified,,7.73,17.25,90,576.17,PPRRVU2026_Jul_nonQPP.csv
+26210,"Excision or curettage of bone cyst or benign tumor of proximal, middle or distal phalanx of finger",Hand Surgery,already_present,verified,,5.19,12.83,90,428.53,PPRRVU2026_Jul_nonQPP.csv
+26215,"Excision or curettage of bone cyst or benign tumor of proximal, middle or distal phalanx of finger; with",Hand Surgery,already_present,verified,,7.09,16.26,90,543.1,PPRRVU2026_Jul_nonQPP.csv
+26230,"Partial excision craterization, saucerization, or diaphysectomy of bone eg, for osteomyelitis); metacarpal",Hand Surgery,already_present,verified,,6.31,14.12,90,471.62,PPRRVU2026_Jul_nonQPP.csv
+26235,"Partial excision craterization, saucerization, or diaphysectomy of bone eg, for osteomyelitis); proximal or middle phalanx of finger",Hand Surgery,already_present,verified,,6.17,13.91,90,464.61,PPRRVU2026_Jul_nonQPP.csv
+26236,"Partial excision craterization, saucerization, or diaphysectomy of bone eg, for osteomyelitis); distal phalanx of finger",Hand Surgery,already_present,verified,,5.32,12.64,90,422.19,PPRRVU2026_Jul_nonQPP.csv
+26250,"Radical resection ostectomy for tumor, metacarpal",Hand Surgery,already_present,verified,,14.83,29.52,90,985.99,PPRRVU2026_Jul_nonQPP.csv
+26255,"Radical resection ostectomy for tumor, metacarpal; with autograft (includes obtaining graft)",Hand Surgery,newly_added,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",0.0,0.0,0,0,
+26260,"Radical resection ostectomy for tumor, proximal or middle phalanx of finger",Hand Surgery,already_present,verified,,10.88,22.33,90,745.84,PPRRVU2026_Jul_nonQPP.csv
+26261,"Radical resection ostectomy for tumor, proximal or middle phalanx of finger; with autograft (includes",Hand Surgery,already_present,not_found_deleted_inactive,"Code is absent from current CMS RVU26C non-QPP source; likely deleted, inactive, or not valued in MPFS",12.78,0,90,0,
+26262,"Radical resection ostectomy for tumor, distal phalanx of finger",Hand Surgery,already_present,verified,,8.08,18.03,90,602.22,PPRRVU2026_Jul_nonQPP.csv
+26320,Removal of implant from finger or hand,Hand Surgery,already_present,verified,,4,10.11,90,337.68,PPRRVU2026_Jul_nonQPP.csv
+26340,"Manipulation finger joint under anesthesia, each joint",Hand Surgery,already_present,verified,,2.73,10.94,90,365.41,PPRRVU2026_Jul_nonQPP.csv
+26350,"Flexor tendon repair or advancement, single, not in no mans land; primary or secondary without free graft, each tendon",Hand Surgery,already_present,verified,,6.05,22.12,90,738.83,PPRRVU2026_Jul_nonQPP.csv
+26352,"Flexor tendon repair or advancement, single, not in no mans land; secondary with free graft (includes",Hand Surgery,already_present,verified,,7.67,24.09,90,804.63,PPRRVU2026_Jul_nonQPP.csv
+26356,"Flexor tendon repair or advancement, single, in no mans land; primary, each tendon",Hand Surgery,already_present,verified,,9.32,22.56,90,753.52,PPRRVU2026_Jul_nonQPP.csv
+26357,"Flexor tendon repair or advancement, single, in no mans land; secondary, each tendon",Hand Surgery,already_present,verified,,10.73,25.55,90,853.39,PPRRVU2026_Jul_nonQPP.csv
+26358,"Flexor tendon repair or advancement, single, in no mans land secondary with free graft (includes",Hand Surgery,already_present,verified,,12.29,27.94,90,933.22,PPRRVU2026_Jul_nonQPP.csv
+26370,"Profundus tendon repair or advancement, with intact sublimis; primary",Hand Surgery,already_present,verified,,7.1,22.75,90,759.87,PPRRVU2026_Jul_nonQPP.csv
+26372,"Profundus tendon repair or advancement, with intact sublimis; secondary with free graft (includes",Hand Surgery,already_present,verified,,8.78,26.88,90,897.82,PPRRVU2026_Jul_nonQPP.csv
+26373,"Profundus tendon repair or advancement, with intact sublimis; secondary without free graft",Hand Surgery,already_present,verified,,8.2,26,90,868.42,PPRRVU2026_Jul_nonQPP.csv
+26390,"Flexor tendon excision, implantation of plastic tube or rod for delayed tendon graft, hand or finger",Hand Surgery,already_present,verified,,9.19,25.49,90,851.39,PPRRVU2026_Jul_nonQPP.csv
+26392,"Removal of tube or rod and insertion of flexor tendon graft (includes obtaining graft), hand or finger",Hand Surgery,already_present,verified,,10.24,29.12,90,972.63,PPRRVU2026_Jul_nonQPP.csv
+26410,"Extensor tendon repair, dorsum of hand, single, primary or secondary; without free graft, each tendon",Hand Surgery,already_present,verified,,4.65,17.92,90,598.54,PPRRVU2026_Jul_nonQPP.csv
+26412,"Extensor tendon repair, dorsum of hand, single, primary or secondary; with free graft, (includes obtaining",Hand Surgery,already_present,verified,,6.32,20.82,90,695.41,PPRRVU2026_Jul_nonQPP.csv
+26415,"Extensor tendon excision, implantation of plastic tube or rod for delayed extensor tendon graft, hand or",Hand Surgery,already_present,verified,,8.3,24.95,90,833.35,PPRRVU2026_Jul_nonQPP.csv
+26416,"Removal of tube or rod and insertion of extensor tendon graft (includes obtaining graft), hand or finger",Hand Surgery,already_present,verified,,9.32,26.86,90,897.15,PPRRVU2026_Jul_nonQPP.csv
+26418,"Extensor tendon repair, dorsum of finger, single, primary or secondary, without free graft, each tendon",Hand Surgery,already_present,verified,,4.36,18.79,90,627.6,PPRRVU2026_Jul_nonQPP.csv
+26420,"Extensor tendon repair, dorsum of finger, single, primary or secondary, with free graft, (includes",Hand Surgery,already_present,verified,,6.77,21.5,90,718.12,PPRRVU2026_Jul_nonQPP.csv
+26426,"Extensor tendon repair, central slip repair, secondary (boutonniere deformity); using local tissues",Hand Surgery,already_present,verified,,6.16,14.25,90,475.96,PPRRVU2026_Jul_nonQPP.csv
+26428,"Extensor tendon repair, central slip repair, secondary (boutonniere deformity); with free graft (includes",Hand Surgery,already_present,verified,,7.22,23.63,90,789.26,PPRRVU2026_Jul_nonQPP.csv
+26432,"Extensor tendon repair, distal insertion (mallet finger), closed, splinting with or without percutaneous",Hand Surgery,already_present,verified,,4.06,16.25,90,542.76,PPRRVU2026_Jul_nonQPP.csv
+26433,"Extensor tendon repair, distal insertion (mallet finger), open, primary or secondary repair; without graft",Hand Surgery,already_present,verified,,4.58,17,90,567.82,PPRRVU2026_Jul_nonQPP.csv
+26434,"Extensor tendon repair, distal insertion (mallet finger), open, primary or secondary repair; with graft",Hand Surgery,already_present,verified,,6.1,20.76,90,693.4,PPRRVU2026_Jul_nonQPP.csv
+26437,"Extensor tendon realignment, hand",Hand Surgery,already_present,verified,,5.84,19.45,90,649.65,PPRRVU2026_Jul_nonQPP.csv
+26440,"Tenolysis, simple, flexor tendon; palm OR finger, single, each tendon",Hand Surgery,already_present,verified,,5.03,19.24,90,642.63,PPRRVU2026_Jul_nonQPP.csv
+26442,"Tenolysis, simple, flexor tendon; palm AND finger, each tendon",Hand Surgery,already_present,verified,,9.51,28.77,90,960.94,PPRRVU2026_Jul_nonQPP.csv
+26445,"Tenolysis, extensor tendon, dorsum of hand or finger, each tendon",Hand Surgery,already_present,verified,,4.34,18.11,90,604.89,PPRRVU2026_Jul_nonQPP.csv
+26449,"Tenolysis, complex, extensor tendon, dorsum of hand or finger, including hand and forearm",Hand Surgery,already_present,verified,,8.38,19.78,90,660.67,PPRRVU2026_Jul_nonQPP.csv
+26450,"Tenotomy, flexor, single, palm, open, each",Hand Surgery,already_present,verified,,3.7,13.74,90,458.93,PPRRVU2026_Jul_nonQPP.csv
+26455,"Tenotomy, flexor, single, finger, open, each",Hand Surgery,already_present,verified,,3.67,13.74,90,458.93,PPRRVU2026_Jul_nonQPP.csv
+26460,"Tenotomy, extensor hand or finger, single, open, each",Hand Surgery,already_present,verified,,3.49,13.43,90,448.57,PPRRVU2026_Jul_nonQPP.csv
+26471,Tenodesis; for proximal interphalangeal joint stabilization,Hand Surgery,already_present,verified,,5.75,19.27,90,643.64,PPRRVU2026_Jul_nonQPP.csv
+26474,Tenodesis; for distal joint stabilization,Hand Surgery,already_present,verified,,5.35,19.61,90,654.99,PPRRVU2026_Jul_nonQPP.csv
+26476,"Tendon lengthening, extensor, hand or finger, single, each",Hand Surgery,already_present,verified,,5.22,19.41,90,648.31,PPRRVU2026_Jul_nonQPP.csv
+26477,"Tendon shortening, extensor, hand or finger, single, each",Hand Surgery,already_present,verified,,5.19,18.38,90,613.91,PPRRVU2026_Jul_nonQPP.csv
+26478,"Tendon lengthening, flexor, hand or finger, single, each",Hand Surgery,already_present,verified,,5.82,19.49,90,650.98,PPRRVU2026_Jul_nonQPP.csv
+26479,"Tendon shortening, flexor, hand or finger, single, each",Hand Surgery,already_present,verified,,5.76,20.24,90,676.03,PPRRVU2026_Jul_nonQPP.csv
+26480,"Tendon transfer or transplant, carpometacarpal area or dorsum of hand, single; without free graft, each",Hand Surgery,already_present,verified,,8.78,20,90,668.02,PPRRVU2026_Jul_nonQPP.csv
+26483,"Tendon transfer or transplant, carpometacarpal area or dorsum of hand, single; with free tendon graft",Hand Surgery,already_present,verified,,8.27,25,90,835.02,PPRRVU2026_Jul_nonQPP.csv
+26485,"Tendon transfer or transplant, palmar, single, each tendon; without free tendon graft",Hand Surgery,already_present,verified,,7.69,24.16,90,806.97,PPRRVU2026_Jul_nonQPP.csv
+26489,"Tendon transfer or transplant, palmar, single, each tendon; with free tendon graft (includes obtaining",Hand Surgery,already_present,verified,,9.61,28.16,90,940.57,PPRRVU2026_Jul_nonQPP.csv
+26490,Opponens plasty; sublimis tendon transfer type,Hand Surgery,already_present,verified,,8.39,24.59,90,821.33,PPRRVU2026_Jul_nonQPP.csv
+26492,Opponens plasty; tendon transfer with graft (includes obtaining graft),Hand Surgery,already_present,verified,,9.59,27.02,90,902.49,PPRRVU2026_Jul_nonQPP.csv
+26494,Opponens plasty; hypothenar muscle transfer,Hand Surgery,already_present,verified,,8.44,24.67,90,824.0,PPRRVU2026_Jul_nonQPP.csv
+26496,Opponens plasty; other methods,Hand Surgery,already_present,verified,,9.54,26.37,90,880.78,PPRRVU2026_Jul_nonQPP.csv
+26497,Tendon transfer to restore intrinsic function; ring and small finger,Hand Surgery,already_present,verified,,9.52,26.34,90,879.78,PPRRVU2026_Jul_nonQPP.csv
+26498,Tendon transfer to restore intrinsic function; all four fingers,Hand Surgery,already_present,verified,,13.85,33.53,90,1119.93,PPRRVU2026_Jul_nonQPP.csv
+26499,"Correction claw finger, other methods",Hand Surgery,newly_added,verified,,8.94,25.46,90,850.39,PPRRVU2026_Jul_nonQPP.csv
+26500,"Tendon pulley reconstruction, with local tissues separate procedure",Hand Surgery,already_present,verified,,5.98,20.57,90,687.06,PPRRVU2026_Jul_nonQPP.csv
+26502,Tendon pulley reconstruction; with tendon or fascial graft (includes obtaining graft) separate procedure,Hand Surgery,already_present,verified,,7.13,22.31,90,745.17,PPRRVU2026_Jul_nonQPP.csv
+26508,Thenar muscle release for thumb contracture,Hand Surgery,already_present,verified,,6.03,19.2,90,641.3,PPRRVU2026_Jul_nonQPP.csv
+26510,Cross intrinsic transfer,Hand Surgery,already_present,verified,,5.46,18.79,90,627.6,PPRRVU2026_Jul_nonQPP.csv
+26516,Capsulodesis for M‐P joint stabilization; single digit,Hand Surgery,already_present,verified,,7.14,21.48,90,717.45,PPRRVU2026_Jul_nonQPP.csv
+26517,Capsulodesis for M‐P joint stabilization; two digits,Hand Surgery,already_present,verified,,8.85,25.31,90,845.38,PPRRVU2026_Jul_nonQPP.csv
+26518,Capsulodesis for M‐P joint stabilization; three or four digits,Hand Surgery,already_present,verified,,9.04,25.6,90,855.06,PPRRVU2026_Jul_nonQPP.csv
+26520,"Capsulectomy or capsulotomy for contracture; metacarpophalangeal joint, single, each",Hand Surgery,already_present,verified,,5.33,20.08,90,670.69,PPRRVU2026_Jul_nonQPP.csv
+26525,"Capsulectomy or capsulotomy for contracture; interphalangeal joint, single each",Hand Surgery,already_present,verified,,5.36,20.27,90,677.04,PPRRVU2026_Jul_nonQPP.csv
+26530,"Arthroplasty, metacarpophalangeal joint; single, each",Hand Surgery,already_present,verified,,6.71,15.26,90,509.7,PPRRVU2026_Jul_nonQPP.csv
+26531,"Arthroplasty, metacarpophalangeal joint; with prosthetic implant, single, each",Hand Surgery,already_present,verified,,7.93,17.61,90,588.19,PPRRVU2026_Jul_nonQPP.csv
+26535,"Arthroplasty, interphalangeal joint; single, each",Hand Surgery,already_present,verified,,5.27,12.57,90,419.85,PPRRVU2026_Jul_nonQPP.csv
+26536,"Arthroplasty, interphalangeal joint; with prosthetic implant, single, each",Hand Surgery,already_present,verified,,6.4,21.89,90,731.15,PPRRVU2026_Jul_nonQPP.csv
+26540,"Primary repair of collateral ligament, metacarpophalangeal joint",Hand Surgery,already_present,verified,,6.44,20.34,90,679.37,PPRRVU2026_Jul_nonQPP.csv
+26541,"Primary repair of collateral ligament, metacarpophalangeal joint; with tendon or fascial graft (includes",Hand Surgery,already_present,verified,,8.59,23.94,90,799.62,PPRRVU2026_Jul_nonQPP.csv
+26542,"Primary repair of collateral ligament, metacarpophalangeal joint; with local tissue eg, adductor",Hand Surgery,already_present,verified,,6.78,20.86,90,696.74,PPRRVU2026_Jul_nonQPP.csv
+26545,"Reconstruction, collateral ligament, interphalangeal joint, single, including graft, each joint",Hand Surgery,already_present,verified,,6.93,21.18,90,707.43,PPRRVU2026_Jul_nonQPP.csv
+26546,"Repair nonunion, metacarpal or phalanx, including bone graft harvest",Hand Surgery,already_present,verified,,10.56,29.74,90,993.34,PPRRVU2026_Jul_nonQPP.csv
+26548,"Repair and reconstruction, finger volar plate, interphalangeal joint",Hand Surgery,already_present,verified,,8.01,22.93,90,765.88,PPRRVU2026_Jul_nonQPP.csv
+26550,Pollicization of a digit,Hand Surgery,already_present,verified,,21.14,46.06,90,1538.45,PPRRVU2026_Jul_nonQPP.csv
+26551,Digit reconstruction with wrap‐around toe and bone graft,Hand Surgery,already_present,verified,,47.27,89.08,90,2975.35,PPRRVU2026_Jul_nonQPP.csv
+26553,Digit reconstruction with toe other than great toe,Hand Surgery,already_present,verified,,46.97,88.47,90,2954.98,PPRRVU2026_Jul_nonQPP.csv
+26554,Digit reconstructions with toes other than great toe ‐ double,Hand Surgery,already_present,verified,,55.58,102.57,90,3425.93,PPRRVU2026_Jul_nonQPP.csv
+26555,Positional change of other finger,Hand Surgery,already_present,verified,,16.65,39.19,90,1308.98,PPRRVU2026_Jul_nonQPP.csv
+26556,"Transfer, free toe joint with microvascular anastomosis",Hand Surgery,already_present,verified,,48.51,92.21,90,3079.9,PPRRVU2026_Jul_nonQPP.csv
+26560,Repair of syndactyly web finger each web space; with skin flaps,Hand Surgery,already_present,verified,,5.38,19.1,90,637.96,PPRRVU2026_Jul_nonQPP.csv
+26561,Repair of syndactyly web finger each web space; with skin flaps and grafts,Hand Surgery,already_present,verified,,10.82,28.33,90,946.25,PPRRVU2026_Jul_nonQPP.csv
+26562,"Repair of syndactyly web finger each web space; complex, involving bone, nails, etc",Hand Surgery,already_present,verified,,16.26,39.21,90,1309.65,PPRRVU2026_Jul_nonQPP.csv
+26565,Osteotomy for correction of deformity; metacarpal,Hand Surgery,already_present,verified,,6.74,20.67,90,690.4,PPRRVU2026_Jul_nonQPP.csv
+26567,Osteotomy for correction of deformity; phalanx of finger,Hand Surgery,already_present,verified,,6.82,20.96,90,700.08,PPRRVU2026_Jul_nonQPP.csv
+26568,Osteoplasty for lengthening of metacarpal or phalanx,Hand Surgery,already_present,verified,,9.04,27.28,90,911.18,PPRRVU2026_Jul_nonQPP.csv
+26580,Repair cleft hand,Hand Surgery,already_present,verified,,19.26,43.35,90,1447.93,PPRRVU2026_Jul_nonQPP.csv
+26587,"Reconstruction of supernumerary digit, soft tissue and bone",Hand Surgery,already_present,verified,,14.14,29.08,90,971.3,PPRRVU2026_Jul_nonQPP.csv
+26590,Repair macrodactylia,Hand Surgery,already_present,verified,,18.2,40.11,90,1339.71,PPRRVU2026_Jul_nonQPP.csv
+26591,"Repair, intrinsic muscles of hand",Hand Surgery,already_present,verified,,3.3,14.74,90,492.33,PPRRVU2026_Jul_nonQPP.csv
+26593,"Release, intrinsic muscles of hand",Hand Surgery,already_present,verified,,5.36,19.03,90,635.62,PPRRVU2026_Jul_nonQPP.csv
+26596,"Excision of constricting ring of finger, with multiple Z‐plasties",Hand Surgery,already_present,verified,,8.91,23.73,90,792.6,PPRRVU2026_Jul_nonQPP.csv
+26600,"Closed treatment of metacarpal fracture, single; without manipulation, each bone",Hand Surgery,already_present,verified,,2.54,10.23,90,341.69,PPRRVU2026_Jul_nonQPP.csv
+26605,"Closed treatment of metacarpal fracture, single; with manipulation, each bone",Hand Surgery,already_present,verified,,2.95,11.27,90,376.43,PPRRVU2026_Jul_nonQPP.csv
+26607,"Closed treatment of metacarpal fracture, single; with manipulation, with internal or external fixation, each bone",Hand Surgery,already_present,verified,,5.34,14.89,90,497.34,PPRRVU2026_Jul_nonQPP.csv
+26608,"Percutaneous skeletal fixation of metacarpal fracture, each bone",Hand Surgery,already_present,verified,,5.41,13.9,90,464.27,PPRRVU2026_Jul_nonQPP.csv
+26615,"Open treatment of metacarpal fracture, single, with or without internal or external fixation, each bone",Hand Surgery,already_present,verified,,6.89,16.4,90,547.77,PPRRVU2026_Jul_nonQPP.csv
+26641,"Closed treatment of carpometacarpal dislocation, thumb, with manipulation",Hand Surgery,already_present,verified,,4.03,14.05,90,469.28,PPRRVU2026_Jul_nonQPP.csv
+26645,"Closed treatment of carpometacarpal fracture dislocation, thumb Bennett fracture, with manipulation",Hand Surgery,already_present,verified,,4.47,14.48,90,483.65,PPRRVU2026_Jul_nonQPP.csv
+26650,"Percutaneous skeletal fixation of carpometacarpal fracture dislocation, thumb Bennett fracture, with manipulation, with or without external fixation",Hand Surgery,already_present,verified,,5.22,14.09,90,470.62,PPRRVU2026_Jul_nonQPP.csv
+26665,"Open treatment of carpometacarpal fracture dislocation, thumb Bennett fracture, with or without internal or external fixation",Hand Surgery,already_present,verified,,7.74,17.3,90,577.84,PPRRVU2026_Jul_nonQPP.csv
+26670,"Closed treatment of carpometacarpal dislocation, other than thumb Bennett fracture, single, with",Hand Surgery,already_present,verified,,3.73,12.87,90,429.87,PPRRVU2026_Jul_nonQPP.csv
+26675,"Closed treatment of carpometacarpal dislocation, other than thumb Bennett fracture, single, with",Hand Surgery,already_present,verified,,4.71,15.43,90,515.38,PPRRVU2026_Jul_nonQPP.csv
+26676,"Percutaneous skeletal fixation of carpometacarpal dislocation, other than thumb Bennett fracture, single,",Hand Surgery,already_present,verified,,5.6,14.64,90,488.99,PPRRVU2026_Jul_nonQPP.csv
+26685,"Open treatment of carpometacarpal dislocation, other than thumb Bennett fracture; single, with or without internal or external fixation",Hand Surgery,already_present,verified,,6.89,16.03,90,535.42,PPRRVU2026_Jul_nonQPP.csv
+26686,"Open treatment of carpometacarpal dislocation, other than thumb Bennett fracture; complex, multiple or delayed reduction",Hand Surgery,already_present,verified,,7.97,17.74,90,592.53,PPRRVU2026_Jul_nonQPP.csv
+26700,"Closed treatment of metacarpophalangeal dislocation, single, with manipulation; without anesthesia",Hand Surgery,already_present,verified,,3.73,12.18,90,406.82,PPRRVU2026_Jul_nonQPP.csv
+26705,"Closed treatment of metacarpophalangeal dislocation, single, with manipulation; requiring anesthesia",Hand Surgery,already_present,verified,,4.27,14.63,90,488.66,PPRRVU2026_Jul_nonQPP.csv
+26706,"Percutaneous skeletal fixation of metacarpophalangeal dislocation, single, with manipulation",Hand Surgery,already_present,verified,,5.18,12.52,90,418.18,PPRRVU2026_Jul_nonQPP.csv
+26715,"Open treatment of metacarpophalangeal dislocation, single, with or without internal or external fixation",Hand Surgery,already_present,verified,,6.85,16.32,90,545.1,PPRRVU2026_Jul_nonQPP.csv
+26720,"Closed treatment of phalangeal shaft fracture, proximal or middle phalanx, finger or thumb; without",Hand Surgery,already_present,verified,,1.72,7.05,90,235.48,PPRRVU2026_Jul_nonQPP.csv
+26725,"Closed treatment of phalangeal shaft fracture, proximal or middle phalanx, finger or thumb; with",Hand Surgery,already_present,verified,,3.39,11.85,90,395.8,PPRRVU2026_Jul_nonQPP.csv
+26727,"Percutaneous skeletal fixation of unstable phalangeal shaft fracture, proximal or middle phalanx, finger or",Hand Surgery,already_present,verified,,5.28,13.68,90,456.92,PPRRVU2026_Jul_nonQPP.csv
+26735,"Open treatment of phalangeal shaft fracture, proximal or middle phalanx, finger or thumb, with or without internal or external fixation, each",Hand Surgery,already_present,verified,,7.23,16.9,90,564.48,PPRRVU2026_Jul_nonQPP.csv
+26740,"Closed treatment of articular fracture, involving metacarpophalangeal or proximal interphalangeal joint;",Hand Surgery,already_present,verified,,2.02,7.85,90,262.2,PPRRVU2026_Jul_nonQPP.csv
+26742,"Closed treatment of articular fracture, involving metacarpophalangeal or proximal interphalangeal joint;",Hand Surgery,already_present,verified,,3.89,12.64,90,422.19,PPRRVU2026_Jul_nonQPP.csv
+26746,"Open treatment of articular fracture, involving metacarpophalangeal or proximal interphalangeal joint, with or without internal or external fixation, each",Hand Surgery,already_present,verified,,9.56,20.61,90,688.39,PPRRVU2026_Jul_nonQPP.csv
+26750,"Closed treatment of distal phalangeal fracture, finger or thumb; without manipulation, each",Hand Surgery,already_present,verified,,1.76,6.6,90,220.45,PPRRVU2026_Jul_nonQPP.csv
+26755,"Closed treatment of distal phalangeal fracture, finger or thumb; with manipulation, each",Hand Surgery,already_present,verified,,3.15,11.41,90,381.1,PPRRVU2026_Jul_nonQPP.csv
+26756,"Percutaneous skeletal fixation of distal phalangeal fracture, finger or thumb, each",Hand Surgery,already_present,verified,,4.47,12.42,90,414.84,PPRRVU2026_Jul_nonQPP.csv
+26765,"Open treatment of distal phalangeal fracture, finger or thumb, with or without internal or external fixation, each",Hand Surgery,already_present,verified,,5.71,14.57,90,486.65,PPRRVU2026_Jul_nonQPP.csv
+26770,"Closed treatment of interphalangeal joint dislocation, single, with manipulation; without anesthesia",Hand Surgery,already_present,verified,,3.07,10.83,90,361.73,PPRRVU2026_Jul_nonQPP.csv
+26775,"Closed treatment of interphalangeal joint dislocation, single, with manipulation; requiring anesthesia",Hand Surgery,already_present,verified,,3.8,13.15,90,439.22,PPRRVU2026_Jul_nonQPP.csv
+26776,"Percutaneous skeletal fixation of interphalangeal joint dislocation, single, with manipulation",Hand Surgery,already_present,verified,,4.87,13.02,90,434.88,PPRRVU2026_Jul_nonQPP.csv
+26785,"Open treatment of interphalangeal joint dislocation, with or without internal or external fixation, single",Hand Surgery,already_present,verified,,6.44,15.7,90,524.39,PPRRVU2026_Jul_nonQPP.csv
+26820,"Fusion in opposition, thumb, with autogenous graft (includes obtaining graft)",Hand Surgery,newly_added,verified,,8.24,24.37,90,813.98,PPRRVU2026_Jul_nonQPP.csv
+26841,"Arthrodesis, carpometacarpal joint, thumb, with or without internal fixation",Hand Surgery,newly_added,verified,,7.17,22.49,90,751.19,PPRRVU2026_Jul_nonQPP.csv
+26842,"Arthrodesis, carpometacarpal joint, thumb, with or without internal fixation; with autograft (includes obtaining graft)",Hand Surgery,newly_added,verified,,8.28,24.43,90,815.98,PPRRVU2026_Jul_nonQPP.csv
+26843,"Arthrodesis, carpometacarpal joint, digits, other than thumb",Hand Surgery,newly_added,verified,,7.59,23.04,90,769.56,PPRRVU2026_Jul_nonQPP.csv
+26844,"Arthrodesis, carpometacarpal joint, digits, other than thumb; with autograft (includes obtaining graft)",Hand Surgery,newly_added,verified,,8.76,25.17,90,840.7,PPRRVU2026_Jul_nonQPP.csv
+26850,"Arthrodesis, metacarpophalangeal joint, with or without internal fixation",Hand Surgery,newly_added,verified,,6.96,21.15,90,706.43,PPRRVU2026_Jul_nonQPP.csv
+26852,"Arthrodesis, metacarpophalangeal joint, with or without internal fixation; with autograft (includes obtaining graft)",Hand Surgery,newly_added,verified,,8.49,23.81,90,795.28,PPRRVU2026_Jul_nonQPP.csv
+26860,"Arthrodesis, interphalangeal joint, with or without internal fixation",Hand Surgery,newly_added,verified,,4.76,18.16,90,606.56,PPRRVU2026_Jul_nonQPP.csv
+26861,"Arthrodesis, interphalangeal joint, with or without internal fixation; each additional interphalangeal joint",Hand Surgery,newly_added,verified,,1.7,2.6,0,86.84,PPRRVU2026_Jul_nonQPP.csv
+26862,"Arthrodesis, interphalangeal joint, with or without internal fixation; with autograft (includes obtaining",Hand Surgery,newly_added,verified,,7.37,22.08,90,737.49,PPRRVU2026_Jul_nonQPP.csv
+26863,"Arthrodesis, interphalangeal joint, with or without internal fixation; with autograft (includes obtaining graft), each additional joint",Hand Surgery,newly_added,verified,,3.79,5.74,0,191.72,PPRRVU2026_Jul_nonQPP.csv
+26910,"Amputation, metacarpal, with finger or thumb (ray amputation), single, with or without interosseous transfer",Hand Surgery,already_present,verified,,7.6,22.17,90,740.5,PPRRVU2026_Jul_nonQPP.csv
+26951,"Amputation, finger or thumb, primary or secondary, any joint or phalanx, finger, including neurectomies; with direct closure",Hand Surgery,already_present,verified,,5.89,20.94,90,699.41,PPRRVU2026_Jul_nonQPP.csv
+26952,"Amputation, finger or thumb, primary or secondary, any joint or phalanx, finger, including neurectomies; with local advancement flaps (V‐Y, hood)",Hand Surgery,already_present,verified,,6.32,19.99,90,667.68,PPRRVU2026_Jul_nonQPP.csv
+26989,"Unlisted procedure, hand or fingers",Hand Surgery,already_present,no_work_rvu,"CMS source lists zero work RVU; likely unlisted, contractor-priced, add-on/global indicator, or non-valued",0,0,90,0,PPRRVU2026_Jul_nonQPP.csv
+29065,Application of cast; shoulder to hand (long arm),Hand Surgery,already_present,verified,,0.85,3.24,0,108.22,PPRRVU2026_Jul_nonQPP.csv
+29075,Application of cast; elbow to finger (short arm),Hand Surgery,already_present,verified,,0.75,2.92,0,97.53,PPRRVU2026_Jul_nonQPP.csv
+29085,Application of cast; hand to lower forearm (gauntlet),Hand Surgery,already_present,verified,,0.85,3.2,0,106.88,PPRRVU2026_Jul_nonQPP.csv
+29086,Application of finger cast,Hand Surgery,already_present,verified,,0.6,2.47,0,82.5,PPRRVU2026_Jul_nonQPP.csv
+29105,Application of long arm splint (shoulder to hand),Hand Surgery,already_present,verified,,0.78,2.91,0,97.2,PPRRVU2026_Jul_nonQPP.csv
+29125,Application of short arm splint (forearm to hand); static,Hand Surgery,already_present,verified,,0.49,2.37,0,79.16,PPRRVU2026_Jul_nonQPP.csv
+29126,Application of short arm splint (forearm to hand); dynamic,Hand Surgery,already_present,verified,,0.66,2.56,0,85.51,PPRRVU2026_Jul_nonQPP.csv
+29130,Application of finger splint; static,Hand Surgery,already_present,verified,,0.49,1.38,0,46.09,PPRRVU2026_Jul_nonQPP.csv
+29131,Application of finger splint; dynamic,Hand Surgery,already_present,verified,,0.54,1.78,0,59.45,PPRRVU2026_Jul_nonQPP.csv
+29240,Strapping; shoulder,Hand Surgery,already_present,verified,,0.38,0.86,0,28.72,PPRRVU2026_Jul_nonQPP.csv
+29260,Strapping; elbow or wrist,Hand Surgery,already_present,verified,,0.38,0.86,0,28.72,PPRRVU2026_Jul_nonQPP.csv
+29280,Strapping; hand or finger,Hand Surgery,already_present,verified,,0.38,0.9,0,30.06,PPRRVU2026_Jul_nonQPP.csv
+29840,"Arthroscopy, wrist, diagnostic; with or without synovial biopsy",Hand Surgery,already_present,verified,,5.54,13.21,90,441.23,PPRRVU2026_Jul_nonQPP.csv
+29843,"Arthroscopy, wrist, surgical; for infection, lavage and drainage",Hand Surgery,already_present,verified,,6,14.06,90,469.62,PPRRVU2026_Jul_nonQPP.csv
+29844,"Arthroscopy, wrist, surgical; synovectomy, partial",Hand Surgery,already_present,verified,,6.35,14.1,90,470.95,PPRRVU2026_Jul_nonQPP.csv
+29845,"Arthroscopy, wrist, surgical; synovectomy, complete",Hand Surgery,already_present,verified,,7.5,16.37,90,546.77,PPRRVU2026_Jul_nonQPP.csv
+29846,"Arthroscopy, wrist, surgical; excision of triangular fibrocartilage and/or joint debridement",Hand Surgery,already_present,verified,,6.72,14.61,90,487.99,PPRRVU2026_Jul_nonQPP.csv
+29847,"Arthroscopy, wrist, surgical; internal fixation for fracture or instability",Hand Surgery,already_present,verified,,7.04,15.48,90,517.05,PPRRVU2026_Jul_nonQPP.csv
+29848,Endoscopic carpal tunnel release,Hand Surgery,already_present,verified,,6.23,14.54,90,485.65,PPRRVU2026_Jul_nonQPP.csv
+35045,"Direct repair of aneurysm or excision (partial or total) and graft insertion, with or without patch graft; for aneurysm, false aneurism and associated occlusive disease, radial or ulnar artery",Hand Surgery,newly_added,verified,,17.56,26.08,90,871.1,PPRRVU2026_Jul_nonQPP.csv
+35206,"Repair blood vessel, direct; upper extremity",Hand Surgery,newly_added,verified,,13.49,21.68,90,724.13,PPRRVU2026_Jul_nonQPP.csv
+35207,"Repair blood vessel, direct; hand, finger",Hand Surgery,newly_added,verified,,10.67,20.46,90,683.38,PPRRVU2026_Jul_nonQPP.csv
+35236,Repair blood vessel with vein graft; upper extremity,Hand Surgery,newly_added,verified,,17.57,27.46,90,917.19,PPRRVU2026_Jul_nonQPP.csv
+35266,Repair blood vessel with graft other than vein; upper extremity,Hand Surgery,newly_added,verified,,15.43,23.59,90,787.93,PPRRVU2026_Jul_nonQPP.csv
+37618,"Ligation, major artery eg, post‐traumatic, rupture); extremity",Hand Surgery,newly_added,verified,,5.88,11.06,90,369.41,PPRRVU2026_Jul_nonQPP.csv
+37799,Unlisted vascular procedure,Hand Surgery,newly_added,no_work_rvu,"CMS source lists zero work RVU; likely unlisted, contractor-priced, add-on/global indicator, or non-valued",0.0,0.0,90,0,PPRRVU2026_Jul_nonQPP.csv
+38220,Bone marrow; aspiration only,Hand Surgery,newly_added,verified,,1.17,1.66,0,55.45,PPRRVU2026_Jul_nonQPP.csv
+38241,Bone marrow transplantation; autologous,Hand Surgery,newly_added,verified,,2.93,4.46,0,148.97,PPRRVU2026_Jul_nonQPP.csv
+64450,"Injection, anesthetic agent; other peripheral nerve or branch",Hand Surgery,already_present,verified,,0.73,2.42,0,80.83,PPRRVU2026_Jul_nonQPP.csv
+64702,"Neuroplasty; digital, one or both, same digit",Hand Surgery,newly_added,verified,,6.1,14.63,90,488.66,PPRRVU2026_Jul_nonQPP.csv
+64704,Neuroplasty; nerve of hand or foot,Hand Surgery,newly_added,verified,,4.57,9.23,90,308.29,PPRRVU2026_Jul_nonQPP.csv
+64708,"Neuroplasty, major peripheral nerve, arm or leg; other than specified",Hand Surgery,newly_added,verified,,6.2,13.9,90,464.27,PPRRVU2026_Jul_nonQPP.csv
+64712,"Neuroplasty, major peripheral nerve, arm or leg; sciatic nerve",Hand Surgery,newly_added,verified,,7.87,16.69,90,557.46,PPRRVU2026_Jul_nonQPP.csv
+64713,"Neuroplasty, major peripheral nerve, arm or leg; brachial plexus",Hand Surgery,newly_added,verified,,11.12,22.31,90,745.17,PPRRVU2026_Jul_nonQPP.csv
+64718,Neuroplasty and/or transposition; ulnar nerve at elbow,Hand Surgery,already_present,verified,,7.08,17.22,90,575.16,PPRRVU2026_Jul_nonQPP.csv
+64719,Neuroplasty and/or transposition; ulnar nerve at wrist,Hand Surgery,already_present,verified,,4.85,11.61,90,387.78,PPRRVU2026_Jul_nonQPP.csv
+64721,Neuroplasty and/or transposition; median nerve at carpal tunnel,Hand Surgery,already_present,verified,,4.85,14.45,90,482.64,PPRRVU2026_Jul_nonQPP.csv
+64722,Decompression; unspecified nerve,Hand Surgery,newly_added,verified,,4.7,11.17,90,373.09,PPRRVU2026_Jul_nonQPP.csv
+64774,"Excision of neuroma; cutaneous nerve, surgically identifiable",Hand Surgery,newly_added,verified,,5.66,12.33,90,411.83,PPRRVU2026_Jul_nonQPP.csv
+64776,"Excision of neuroma; digital nerve, one or both, same digit",Hand Surgery,newly_added,verified,,5.46,11.21,90,374.42,PPRRVU2026_Jul_nonQPP.csv
+64778,"Excision of neuroma; digital nerve, each additional digit (list separately by this number)",Hand Surgery,newly_added,verified,,3.03,4.64,0,154.98,PPRRVU2026_Jul_nonQPP.csv
+64782,"Excision of neuroma; hand or foot, except digital nerve",Hand Surgery,newly_added,verified,,6.69,13.06,90,436.22,PPRRVU2026_Jul_nonQPP.csv
+64783,"Excision of neuroma; hand or foot, each additional nerve, except same digit (list separately by this number)",Hand Surgery,newly_added,verified,,3.62,5.55,0,185.37,PPRRVU2026_Jul_nonQPP.csv
+64784,"Excision of neuroma; major peripheral nerve, except sciatic",Hand Surgery,newly_added,verified,,10.35,20.15,90,673.03,PPRRVU2026_Jul_nonQPP.csv
+64787,Implantation of nerve end into bone or muscle (list separately in addition to neuroma excision),Hand Surgery,newly_added,verified,,4.18,6.1,0,203.75,PPRRVU2026_Jul_nonQPP.csv
+64788,Excision of neurofibroma or neurolemmoma; cutaneous nerve,Hand Surgery,newly_added,verified,,5.11,11.71,90,391.12,PPRRVU2026_Jul_nonQPP.csv
+64790,Excision of neurofibroma or neurolemmoma; major peripheral nerve,Hand Surgery,newly_added,verified,,11.8,24.07,90,803.96,PPRRVU2026_Jul_nonQPP.csv
+64792,Excision of neurofibroma or neurolemmoma; extensive (including malignant type),Hand Surgery,newly_added,verified,,15.46,36.32,90,1213.12,PPRRVU2026_Jul_nonQPP.csv
+64795,Biopsy of nerve,Hand Surgery,newly_added,verified,,2.93,5.58,0,186.38,PPRRVU2026_Jul_nonQPP.csv
+64820,"Sympathectomy, digital arteries, with magnification, each digit",Hand Surgery,newly_added,verified,,10.47,20.94,90,699.41,PPRRVU2026_Jul_nonQPP.csv
+64821,"Periarterial sympathectomy, radial artery",Hand Surgery,newly_added,verified,,9.1,19.77,90,660.34,PPRRVU2026_Jul_nonQPP.csv
+64822,"Periarterial sympathectomy, ulnar artery",Hand Surgery,newly_added,verified,,9.1,19.77,90,660.34,PPRRVU2026_Jul_nonQPP.csv
+64823,"Periarterial sympathectomy, superficial palmar arch",Hand Surgery,newly_added,verified,,10.67,22.16,90,740.16,PPRRVU2026_Jul_nonQPP.csv
+64831,"Suture of digital nerve, hand or foot; one nerve",Hand Surgery,already_present,verified,,8.93,19.27,90,643.64,PPRRVU2026_Jul_nonQPP.csv
+64832,"Suture of digital nerve, hand or foot; each additional",Hand Surgery,already_present,verified,,5.51,8.43,0,281.57,PPRRVU2026_Jul_nonQPP.csv
+64834,"Suture of one nerve, hand or foot; common sensory nerve",Hand Surgery,already_present,verified,,10.54,19.78,90,660.67,PPRRVU2026_Jul_nonQPP.csv
+64835,"Suture of one nerve, hand or foot; median motor thenar",Hand Surgery,already_present,verified,,11.44,22.61,90,755.19,PPRRVU2026_Jul_nonQPP.csv
+64836,"Suture of one nerve, hand or foot; ulnar motor",Hand Surgery,already_present,verified,,11.44,22.61,90,755.19,PPRRVU2026_Jul_nonQPP.csv
+64837,"Suture of each additional nerve, hand or foot",Hand Surgery,already_present,verified,,6.09,9.33,0,311.63,PPRRVU2026_Jul_nonQPP.csv
+64856,"Suture of major peripheral nerve, arm or leg, except sciatic; including transposition",Hand Surgery,already_present,verified,,14.69,27.53,90,919.53,PPRRVU2026_Jul_nonQPP.csv
+64857,"Suture of major peripheral nerve, arm or leg, except sciatic; without transposition",Hand Surgery,already_present,verified,,15.42,28.29,90,944.91,PPRRVU2026_Jul_nonQPP.csv
+64859,Suture of each additional major peripheral nerve,Hand Surgery,already_present,verified,,4.14,6.35,0,212.1,PPRRVU2026_Jul_nonQPP.csv
+64861,Suture of; brachial plexus,Hand Surgery,already_present,verified,,20.37,45.27,90,1512.06,PPRRVU2026_Jul_nonQPP.csv
+64872,Suture of nerve; requiring secondary or delayed suture list separately in addition to code for primary,Hand Surgery,already_present,verified,,1.94,2.98,0,99.53,PPRRVU2026_Jul_nonQPP.csv
+64874,"Suture of nerve; requiring extensive mobilization, or transposition of nerve (in addition to nerve suture)",Hand Surgery,already_present,verified,,2.91,4.45,0,148.63,PPRRVU2026_Jul_nonQPP.csv
+64876,Suture of nerve; requiring shortening of bone list separately in addition to code for primary neurorrhaphy,Hand Surgery,already_present,verified,,3.29,5.03,0,168.01,PPRRVU2026_Jul_nonQPP.csv
+64890,"Nerve graft (includes obtaining graft), single strand, hand or foot; up to 4 cm in length",Hand Surgery,already_present,verified,,15.83,29.33,90,979.65,PPRRVU2026_Jul_nonQPP.csv
+64891,"Nerve graft (includes obtaining graft), single strand, hand or foot; more than 4 cm in length",Hand Surgery,already_present,verified,,16.92,31.16,90,1040.77,PPRRVU2026_Jul_nonQPP.csv
+64892,"Nerve graft (includes obtaining graft), single strand, arm or leg; up to 4 cm in length",Hand Surgery,already_present,verified,,15.35,28.59,90,954.93,PPRRVU2026_Jul_nonQPP.csv
+64893,"Nerve graft (includes obtaining graft), single strand, arm or leg; more than 4 cm in length",Hand Surgery,already_present,verified,,16.45,30.43,90,1016.39,PPRRVU2026_Jul_nonQPP.csv
+64895,"Nerve graft (includes obtaining graft), multiple strands (cable), hand or foot; up to 4 cm length",Hand Surgery,already_present,verified,,19.88,35.69,90,1192.08,PPRRVU2026_Jul_nonQPP.csv
+64896,"Nerve graft (includes obtaining graft), multiple strands (cable), hand or foot; more than 4 cm length",Hand Surgery,already_present,verified,,21.41,38.51,90,1286.27,PPRRVU2026_Jul_nonQPP.csv
+64897,"Nerve graft including harvest, multiple strands, arm, up to 4 cm in length",Hand Surgery,already_present,verified,,18.9,34.18,90,1141.64,PPRRVU2026_Jul_nonQPP.csv
+64898,"Nerve graft including harvest, multiple strands, arm, greather than 4 cm in length",Hand Surgery,already_present,verified,,20.45,37.02,90,1236.5,PPRRVU2026_Jul_nonQPP.csv
+64901,"Nerve graft, each additional nerve; single strand",Hand Surgery,already_present,verified,,9.95,15.24,0,509.03,PPRRVU2026_Jul_nonQPP.csv
+64902,"Nerve graft, each additional nerve; multiple strands (cable)",Hand Surgery,already_present,verified,,11.51,17.64,0,589.19,PPRRVU2026_Jul_nonQPP.csv
+64905,Nerve pedicle transfer; first stage,Hand Surgery,already_present,verified,,14.73,26.69,90,891.47,PPRRVU2026_Jul_nonQPP.csv
+64907,Nerve pedicle transfer; second stage,Hand Surgery,already_present,verified,,19.53,35.01,90,1169.37,PPRRVU2026_Jul_nonQPP.csv
+64910,"Nerve repair with synthetic conduit, each",Hand Surgery,already_present,verified,,10.26,20.87,90,697.08,PPRRVU2026_Jul_nonQPP.csv
+64911,"Nerve repair with autogenous vein conduit, each, including graft harvest",Hand Surgery,already_present,verified,,13.65,28.45,90,950.26,PPRRVU2026_Jul_nonQPP.csv
+64999,"Nerve procedure, unlisted",Hand Surgery,newly_added,no_work_rvu,"CMS source lists zero work RVU; likely unlisted, contractor-priced, add-on/global indicator, or non-valued",0.0,0.0,90,0,PPRRVU2026_Jul_nonQPP.csv
