@@ -7,7 +7,7 @@ Node/Express backend for the FreeCPTCodeFinder assistant. It uses OpenAI's Respo
 - GET /health - readiness, OpenAI config, CPT rows, report count
 - GET /report-tester - staging submission form with a no-PHI warning
 - POST /assistant - grounded coding assistant; bug/report language is routed into the report workflow
-- POST /reports - structured report intake for CPT errors, wRVU errors, modifier bugs, missing codes, search problems, and Case Builder issues
+- POST /reports - structured report intake for CPT errors, Wrong wRVU reports, modifier bugs, missing codes, search problems, and Case Builder issues
 - GET /admin/reports?key=... - simple admin dashboard backed by assistant-backend/data/bug_reports.json
 
 ## Required OpenAI Tools/Functions
@@ -19,7 +19,7 @@ The report workflow exposes these function tools to the Responses API:
 - classify_issue_type
 - suggest_fix_for_review
 
-The server also has deterministic local handlers for the same functions so reports still get classified, logged, and review-gated if OpenAI is not configured.
+The server also has deterministic local handlers for the same functions so reports still get classified, logged, and review-gated if OpenAI is not configured. The machine classification for Wrong wRVU is wrvu_error.
 
 ## Safety Guardrail
 The AI may suggest a fix for human review only. Every report includes:

@@ -34,9 +34,10 @@ For each test, capture the user submission screenshot, admin dashboard screensho
 - canDeploy=false
 - humanApprovalRequired=true
 
-### A. Wrong WRVU Report
+### A. Wrong wRVU Report
 Report: CPT 22585 WRVU appears incorrect.
 Expected classification: wrvu_error
+Expected user-facing label: Wrong wRVU
 
 ### B. Missing CPT Code Report
 Report: CPT 20225 is missing.
