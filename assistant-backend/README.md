@@ -8,7 +8,7 @@ Node/Express backend for the FreeCPTCodeFinder assistant. It uses OpenAI's Respo
 - GET /report-tester - staging submission form with a no-PHI warning
 - POST /assistant - grounded coding assistant; bug/report language is routed into the report workflow
 - POST /reports - structured report intake for CPT errors, Wrong wRVU reports, modifier bugs, missing codes, search problems, and Case Builder issues
-- GET /admin/reports?key=... - simple admin dashboard backed by assistant-backend/data/bug_reports.json
+- GET /admin/reports?key=... - admin dashboard backed by runtime JSON or GitHub Issues durable storage
 
 ## Required OpenAI Tools/Functions
 The report workflow exposes these function tools to the Responses API:
@@ -39,6 +39,7 @@ ADMIN_REPORTS_KEY=change_me
 
 # Optional delivery
 CREATE_GITHUB_ISSUES=false
+GITHUB_ISSUES_DURABLE_STORE=false
 GITHUB_TOKEN=optional_github_token
 GITHUB_REPO=DaVincidigitalbot/free-cpt-code-finder
 NOTIFY_EMAIL=developer@example.com
@@ -49,7 +50,7 @@ REPORT_RATE_LIMIT_WINDOW_MS=900000
 REPORT_RATE_LIMIT_MAX=30
 ~~~
 
-GitHub issues are created only when CREATE_GITHUB_ISSUES=true and GITHUB_TOKEN is configured. Email notification uses Resend when NOTIFY_EMAIL and RESEND_API_KEY are configured. Otherwise the report is still logged and visible in the admin dashboard.
+GitHub issues are created only when CREATE_GITHUB_ISSUES=true and GITHUB_TOKEN is configured. When GITHUB_ISSUES_DURABLE_STORE=true, the admin dashboard reads open user-report issues back from GitHub so reports survive Render redeploys. Email notification uses Resend when NOTIFY_EMAIL and RESEND_API_KEY are configured. Otherwise the report is still logged locally and visible in the admin dashboard until the next Render filesystem reset.
 
 ## Security Notes
 - /admin/reports requires ADMIN_REPORTS_KEY when configured.
@@ -59,7 +60,7 @@ GitHub issues are created only when CREATE_GITHUB_ISSUES=true and GITHUB_TOKEN i
 - CORS is limited by ALLOWED_ORIGINS.
 
 ## Persistence Warning
-assistant-backend/data/bug_reports.json is runtime filesystem storage. It is acceptable for staging validation, but it may not survive Render redeploys, restarts, or instance replacement. Production should use persistent storage such as Render PostgreSQL, Supabase Postgres, Neon, or a GitHub Issues-only workflow with the admin dashboard reading from GitHub.
+assistant-backend/data/bug_reports.json is runtime filesystem storage. It is acceptable for staging validation, but it may not survive Render redeploys, restarts, or instance replacement. Production should use persistent storage. The first production-ready path is GitHub Issues with CREATE_GITHUB_ISSUES=true and GITHUB_ISSUES_DURABLE_STORE=true, because every report becomes a durable ticket and the admin dashboard can read reports back from GitHub after redeploy.
 
 ## Example Report Request
 ~~~json

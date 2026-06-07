@@ -20,6 +20,10 @@ const adminReportsKey = process.env.ADMIN_REPORTS_KEY || process.env.ADMIN_DASHB
 const notifyEmail = process.env.NOTIFY_EMAIL || process.env.DEVELOPER_EMAIL;
 const notifyEmailProvider = process.env.NOTIFY_EMAIL_PROVIDER || 'resend';
 const reportFromEmail = process.env.NOTIFY_FROM_EMAIL || process.env.REPORT_FROM_EMAIL || 'FreeCPTCodeFinder <reports@freecptcodefinder.com>';
+const githubRepo = process.env.GITHUB_REPO || 'DaVincidigitalbot/free-cpt-code-finder';
+const githubToken = process.env.GITHUB_TOKEN;
+const githubIssuesEnabled = process.env.CREATE_GITHUB_ISSUES === 'true';
+const githubIssuesDurableStore = process.env.GITHUB_ISSUES_DURABLE_STORE === 'true';
 const reportRateLimit = rateLimit({
   windowMs: Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000),
   max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30),
@@ -206,13 +210,17 @@ function markOpenAiFallback(report, err) {
 }
 
 async function createGithubIssue(report) {
-  if (process.env.CREATE_GITHUB_ISSUES !== 'true') return { skipped: true, reason: 'CREATE_GITHUB_ISSUES is not true' };
-  const token = process.env.GITHUB_TOKEN;
-  const repo = process.env.GITHUB_REPO || 'DaVincidigitalbot/free-cpt-code-finder';
-  if (!token) return { skipped: true, reason: 'GITHUB_TOKEN is not set' };
+  if (!githubIssuesEnabled) return { skipped: true, reason: 'CREATE_GITHUB_ISSUES is not true' };
+  if (!githubToken) return { skipped: true, reason: 'GITHUB_TOKEN is not set' };
+  await ensureGithubLabels(['user-report', report.issueType]);
   const body = [
+    '<!-- FREECPT_REPORT_JSON_START',
+    JSON.stringify(report, null, 2),
+    'FREECPT_REPORT_JSON_END -->',
+    '',
     'Report ID: ' + report.id,
     'Type: ' + report.issueType,
+    'Label: ' + (report.issueLabel || issueLabel(report.issueType)),
     'Severity: ' + report.severity,
     '',
     '## Summary',
@@ -237,14 +245,83 @@ async function createGithubIssue(report) {
     '',
     'Safety: AI may suggest a fix only. No autonomous commit, merge, push, or deploy.'
   ].join('\n');
-  const response = await fetch('https://api.github.com/repos/' + repo + '/issues', {
+  const response = await githubFetch('/issues', {
     method: 'POST',
-    headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: '[' + report.issueType + '] ' + report.title, body, labels: ['user-report', report.issueType] })
+    body: JSON.stringify({ title: '[freecpt-report][' + report.issueType + '] ' + report.title, body, labels: ['user-report', report.issueType] })
   });
   const json = await response.json();
   if (!response.ok) throw new Error(json.message || 'GitHub issue creation failed (' + response.status + ')');
   return { url: json.html_url, number: json.number };
+}
+
+async function githubFetch(pathname, options = {}) {
+  const response = await fetch('https://api.github.com/repos/' + githubRepo + pathname, {
+    ...options,
+    headers: {
+      Authorization: 'Bearer ' + githubToken,
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'Content-Type': 'application/json',
+      ...(options.headers || {})
+    }
+  });
+  return response;
+}
+
+async function ensureGithubLabels(labels) {
+  for (const name of labels) {
+    const safeName = sanitizeText(name, 50);
+    if (!safeName) continue;
+    const check = await githubFetch('/labels/' + encodeURIComponent(safeName));
+    if (check.ok) continue;
+    const color = safeName === 'user-report' ? '2563eb' : '64748b';
+    const created = await githubFetch('/labels', {
+      method: 'POST',
+      body: JSON.stringify({ name: safeName, color, description: 'FreeCPTCodeFinder report intake label' })
+    });
+    if (!created.ok && created.status !== 422) {
+      const json = await created.json().catch(() => ({}));
+      throw new Error(json.message || 'GitHub label creation failed (' + created.status + ')');
+    }
+  }
+}
+
+async function listGithubIssueReports() {
+  if (!githubIssuesDurableStore || !githubToken) return [];
+  const response = await githubFetch('/issues?state=open&labels=user-report&per_page=100&sort=created&direction=desc');
+  const issues = await response.json();
+  if (!response.ok) throw new Error(issues.message || 'GitHub issue report list failed (' + response.status + ')');
+  return issues.map(issue => reportFromGithubIssue(issue)).filter(Boolean);
+}
+
+function reportFromGithubIssue(issue) {
+  const body = String(issue.body || '');
+  const match = body.match(/FREECPT_REPORT_JSON_START\n([\s\S]*?)\nFREECPT_REPORT_JSON_END/);
+  if (match) {
+    try {
+      const report = JSON.parse(match[1]);
+      report.delivery = report.delivery || {};
+      report.delivery.githubIssueUrl = issue.html_url;
+      report.github = { issueNumber: issue.number, state: issue.state, url: issue.html_url };
+      return report;
+    } catch {}
+  }
+  const label = (issue.labels || []).map(l => l.name).find(name => name !== 'user-report') || 'other';
+  return {
+    id: 'GH-' + issue.number,
+    createdAt: issue.created_at,
+    status: issue.state,
+    issueType: label,
+    issueLabel: issueLabel(label),
+    severity: 'needs_triage',
+    title: issue.title,
+    summary: body.slice(0, 500),
+    cptCodes: [],
+    delivery: { githubIssueUrl: issue.html_url, errors: [] },
+    suggestedFix: { summary: 'Review GitHub issue body.', reviewOnly: true },
+    safety: { canSuggestFix: true, canCommit: false, canMerge: false, canDeploy: false, humanApprovalRequired: true },
+    github: { issueNumber: issue.number, state: issue.state, url: issue.html_url }
+  };
 }
 
 async function notifyAgent(report) {
@@ -337,7 +414,7 @@ function answerTextFromResponse(response) {
 }
 
 app.get('/health', (_req, res) => {
-  res.json({ ok: true, provider: 'openai_responses_api', openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, reports: loadReports().length, allowedOrigins, rateLimit: { reports: { windowMs: reportRateLimit.windowMs || Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000), max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30) } }, phiWarning: 'Do not submit PHI. Reports should use test data or de-identified workflow details only.' });
+  res.json({ ok: true, provider: 'openai_responses_api', openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, reports: loadReports().length, reportStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', githubIssues: { enabled: githubIssuesEnabled, durableStore: githubIssuesDurableStore, repo: githubRepo }, allowedOrigins, rateLimit: { reports: { windowMs: reportRateLimit.windowMs || Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000), max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30) } }, phiWarning: 'Do not submit PHI. Reports should use test data or de-identified workflow details only.' });
 });
 
 app.get('/report-tester', (_req, res) => {
@@ -384,12 +461,21 @@ app.post('/reports', reportRateLimit, async (req, res) => {
   }
 });
 
-app.get('/admin/reports', (req, res) => {
+app.get('/admin/reports', async (req, res) => {
   const configuredKey = adminReportsKey;
   if (configuredKey && req.query.key !== configuredKey) return res.status(401).send('Unauthorized');
-  const reports = loadReports();
+  let dashboardErrors = [];
+  let reports = loadReports();
+  try {
+    const githubReports = await listGithubIssueReports();
+    const seen = new Set(githubReports.map(report => report.id));
+    reports = githubReports.concat(reports.filter(report => !seen.has(report.id)));
+  } catch (err) {
+    dashboardErrors.push(err.message);
+  }
   const rows = reports.map(report => '<tr><td><code>' + escapeHtml(report.id) + '</code><br><small>' + escapeHtml(report.createdAt) + '</small></td><td>' + escapeHtml(report.issueLabel || issueLabel(report.issueType)) + '<br><small>' + escapeHtml(report.issueType) + ' / ' + escapeHtml(report.severity) + '</small></td><td><strong>' + escapeHtml(report.title) + '</strong><br>' + escapeHtml(report.summary || report.description) + '</td><td>' + escapeHtml((report.cptCodes || []).join(', ')) + '</td><td>' + (report.delivery.githubIssueUrl ? '<a href="' + escapeAttr(report.delivery.githubIssueUrl) + '">GitHub</a>' : 'Logged') + '<br><small>' + escapeHtml((report.delivery.errors || []).join(' | ')) + '</small></td><td>' + escapeHtml(report.suggestedFix?.summary || '') + '<br><small>No commit, merge, push, or deploy without human approval.</small></td></tr>').join('');
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}</style></head><body><header><h1>Report Dashboard</h1><div>' + reports.length + ' logged reports</div></header><main><table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>CPT</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="6">No reports logged yet.</td></tr>') + '</tbody></table></main></body></html>');
+  const errorBlock = dashboardErrors.length ? '<div class="err">GitHub dashboard store error: ' + escapeHtml(dashboardErrors.join(' | ')) + '</div>' : '';
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}</style></head><body><header><h1>Report Dashboard</h1><div>' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>CPT</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="6">No reports logged yet.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 function escapeHtml(value) {
