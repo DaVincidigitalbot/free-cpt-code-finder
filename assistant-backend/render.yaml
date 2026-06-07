@@ -9,9 +9,27 @@ services:
     healthCheckPath: /health
     autoDeploy: true
     envVars:
-      - key: GEMINI_API_KEY
+      - key: OPENAI_API_KEY
         sync: false
-      - key: GEMINI_MODEL
-        value: gemini-2.5-flash
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
       - key: ALLOWED_ORIGINS
         value: https://freecptcodefinder.com,https://www.freecptcodefinder.com
+      - key: ADMIN_REPORTS_KEY
+        sync: false
+      - key: CREATE_GITHUB_ISSUES
+        value: "false"
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        value: DaVincidigitalbot/free-cpt-code-finder
+      - key: NOTIFY_EMAIL
+        sync: false
+      - key: NOTIFY_EMAIL_PROVIDER
+        value: resend
+      - key: RESEND_API_KEY
+        sync: false
+      - key: REPORT_RATE_LIMIT_WINDOW_MS
+        value: "900000"
+      - key: REPORT_RATE_LIMIT_MAX
+        value: "30"
