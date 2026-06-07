@@ -147,7 +147,7 @@ a{color:inherit;text-decoration:none}
 .tl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3);margin-bottom:6px}
 .tn{font-size:54px;font-weight:500;letter-spacing:-.035em;line-height:.95;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
 .ts{font-size:13px;color:var(--ink2);margin-top:8px;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace}
-.lns{padding:14px 0;flex:1;min-height:180px}
+.lns{padding:14px 0;flex:0 0 auto;min-height:180px}
 .lns-empty{font-size:12px;color:var(--ink3);font-style:italic;padding:16px 0;text-align:center}
 .rl{padding:12px 0;border-bottom:1px solid var(--line);position:relative}
 .rl:last-child{border:0}
@@ -653,6 +653,12 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt)};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
+ if(existing.length>0&&isAddonCode(cpt)){
+  caseLines.push(line);
+  log(`ADD ${cpt} "${desc}" [ADD-ON REPEAT #${existing.length+1}] — no distinct-service modifier prompt`);
+  recalc('repeat add-on code added');
+  return;
+ }
  if(existing.length>0){
   caseLines.push(line);
   log(`ADD ${cpt} "${desc}" [REPEAT #${existing.length+1}] — modifier picker opened`);
@@ -790,7 +796,7 @@ function computeMods(){
    l.rank='Add-on';
    l.rankReason=`Add-on code reported with primary ${procs[0].cpt}; physician work RVU counted at 100%.`;
    l.effWrvu=l.baseWrvu;
-   l.rationale.push({mod:'Rank',reason:'Add-on code - full physician work RVU, no MPPR reduction.',cite:'CMS Physician Fee Schedule add-on code logic'});
+   l.rationale.push({mod:'Rank',reason:'Add-on code - full physician work RVU, no MPPR reduction. Repeated add-on units do not require modifier 59 or X-modifiers solely because the add-on code is reported more than once.',cite:'CMS Physician Fee Schedule add-on code logic'});
   }else{
    l.rank=`Secondary #${pIdx}`;
    l.rankReason=`Secondary procedure, ranked below primary ${procs[0].cpt}.`;
@@ -911,8 +917,9 @@ function recalc(why){
    let label;
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
+   const canEditModifier=l.kind==='em'||(l.kind==='proc'&&rk>1&&!isAddonCode(l.cpt));
    return `<div class="rl">
-    <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${(l.kind==='em'||(l.kind==='proc'&&rk>1))?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
+    <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
     <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
@@ -1587,13 +1594,19 @@ function getCptSearchEntry(code){
 function addCptDirectly(code){const item=getCptSearchEntry(code);if(item)addAutocompleteResultToCase(item)}
 function toggleAlifAssistantSuggestion(checked){alifAssistantSelected=!!checked;recalc('ALIF assistant surgeon suggestion toggled')}
 function hasCaseCode(code){return caseLines.some(l=>String(l.cpt||'')===String(code||''))}
+function countCaseCode(code){return caseLines.filter(l=>String(l.cpt||'')===String(code||'')).length}
 function renderAlifBuilderSuggestion(){
  if(!hasCaseCode('22558'))return '';
  const needs22585=!hasCaseCode('22585');
  let out='<div class="alif-builder-suggestion"><div class="alif-builder-title">ALIF companion code suggestion</div><div>Common Companion Code: <strong>22585</strong> - Each additional interspace.</div>';
  out+='<div style="margin-top:6px"><strong>One-Level ALIF</strong><br>22558<br><strong>Two-Level ALIF</strong><br>22558<br>22585<br><strong>Three-Level ALIF</strong><br>22558<br>22585<br>22585</div>';
  out+='<div class="alif-builder-actions">'+(needs22585?'<button onclick="addCptDirectly(\'22585\')">Add 22585</button>':'')+'<label style="display:flex;align-items:center;gap:6px"><input type="checkbox" '+(alifAssistantSelected?'checked':'')+' onchange="toggleAlifAssistantSuggestion(this.checked)"> Assistant Surgeon</label></div>';
- if(alifAssistantSelected)out+='<div class="alif-assistant-example"><strong>Assistant Exposure Surgeon suggestion</strong><br><code>22558-80</code><br><code>22585-80</code><br>Use when the assistant surgeon participated in all reported ALIF levels and payer policy permits modifier 80.</div>';
+ if(alifAssistantSelected){
+  const addOnCount=Math.max(1,countCaseCode('22585'));
+  const primaryLines=['22558'].concat(Array(addOnCount).fill('22585'));
+  const assistantLines=['22558-80'].concat(Array(addOnCount).fill('22585-80'));
+  out+='<div class="alif-assistant-example"><strong>Assistant Exposure Surgeon suggestion</strong><br><div style="margin-top:6px"><strong>Primary Surgeon</strong><br>'+primaryLines.map(c=>'<code>'+c+'</code>').join('<br>')+'</div><div style="margin-top:6px"><strong>Assistant Surgeon</strong><br>'+assistantLines.map(c=>'<code>'+c+'</code>').join('<br>')+'</div><div style="margin-top:8px">Use modifier 80 when the assistant surgeon participated in all reported ALIF levels and payer policy permits it.</div></div>';
+ }
  return out+'</div>';
 }
 
