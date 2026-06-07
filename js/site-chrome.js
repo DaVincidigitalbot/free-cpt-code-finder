@@ -102,5 +102,12 @@
         )
           el.classList.add("site-hide-legacy");
       });
+    if (!document.querySelector("script[data-fccf-report-widget]")) {
+      const reportScript = document.createElement("script");
+      reportScript.src = root + "js/report-widget.js";
+      reportScript.defer = true;
+      reportScript.dataset.fccfReportWidget = "1";
+      document.head.appendChild(reportScript);
+    }
   });
 })();
