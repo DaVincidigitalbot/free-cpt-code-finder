@@ -16955,7 +16955,54 @@
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "specialty_id": "spine_neurosurgery"
+    "specialty_id": "spine_neurosurgery",
+    "search_terms": [
+      "ALIF",
+      "anterior lumbar interbody fusion",
+      "anterior retroperitoneal exposure",
+      "exposure surgeon",
+      "assistant surgeon modifier 80",
+      "modifier 62 co-surgeon"
+    ],
+    "notes": "ALIF exposure surgeon education: when the exposure surgeon assists throughout the case, modifier 80 is commonly appended to 22558 and each reported 22585 level, subject to payer-specific rules."
+  },
+  "22585": {
+    "addon_code": true,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "category": "Surgery",
+    "code": "22585",
+    "code_family": "spine_neurosurgery",
+    "cosurgeon_eligible": false,
+    "description": "Arthrodesis, anterior interbody technique, including minimal discectomy to prepare interspace (other than for decompression); each additional interspace",
+    "estimated": true,
+    "global_period_days": 90,
+    "hierarchy_tier": 3,
+    "inclusive_of": [],
+    "mp_rvu": 1.1,
+    "never_primary_with": [],
+    "pe_rvu": 2.1,
+    "specialty": "Spine Neurosurgery",
+    "subcategory": null,
+    "total_rvu": 8.7,
+    "typical_modifiers": [
+      "80"
+    ],
+    "work_rvu": 5.5,
+    "wrvu_source": "Estimated from legacy site expansion data; verify against current CMS MPFS before billing",
+    "wrvu_source_file": null,
+    "wrvu_source_url": null,
+    "specialty_id": "spine_neurosurgery",
+    "search_terms": [
+      "ALIF",
+      "anterior lumbar interbody fusion",
+      "additional interspace",
+      "anterior retroperitoneal exposure",
+      "exposure surgeon",
+      "assistant surgeon modifier 80",
+      "modifier 62 co-surgeon"
+    ],
+    "notes": "ALIF additional-level add-on code. If the exposure surgeon participates in all operative levels, modifier 80 is commonly appended to each reported 22585 level, subject to payer-specific rules."
   },
   "22600": {
     "addon_code": false,

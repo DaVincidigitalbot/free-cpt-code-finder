@@ -22564,6 +22564,18 @@
               "label": "Lumbar ALIF, 1 level",
               "modifiers": [],
               "work_rvu": 22.94
+            },
+            {
+              "cpt_code": "22585",
+              "description": "Arthrodesis, anterior interbody technique, including minimal discectomy to prepare interspace (other than for decompression); each additional interspace",
+              "icd10": [
+                "M51.36"
+              ],
+              "label": "Lumbar ALIF, each additional interspace",
+              "modifiers": [
+                "-80 when reported by exposure / assistant surgeon if supported"
+              ],
+              "work_rvu": 5.5
             }
           ],
           "question": "Location and levels?"
