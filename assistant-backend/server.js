@@ -27,7 +27,7 @@ const reportRateLimit = rateLimit({
   legacyHeaders: false
 });
 
-app.use(cors({ origin(origin, callback) { if (!origin || allowedOrigins.includes(origin)) return callback(null, true); return callback(new Error('Not allowed by CORS')); } }));
+app.use(cors({ origin(origin, callback) { if (!origin || allowedOrigins.includes(origin)) return callback(null, true); return callback(null, false); } }));
 app.use(express.json({ limit: '1mb' }));
 
 let cptDb = [];
