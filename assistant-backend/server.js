@@ -195,6 +195,16 @@ function buildBugReport(args = {}) {
   };
 }
 
+function markOpenAiFallback(report, err) {
+  report.ai = {
+    provider: 'openai_responses_api',
+    used: false,
+    error: sanitizeText(err?.message || err || 'OpenAI Responses API call failed', 500)
+  };
+  report.delivery.errors.push('OpenAI Responses API unavailable; deterministic fallback classification used');
+  return report;
+}
+
 async function createGithubIssue(report) {
   if (process.env.CREATE_GITHUB_ISSUES !== 'true') return { skipped: true, reason: 'CREATE_GITHUB_ISSUES is not true' };
   const token = process.env.GITHUB_TOKEN;
@@ -270,27 +280,35 @@ async function runReportPipeline(input) {
   let report = buildBugReport({ title: input.title || description.slice(0, 90) || 'FreeCPTCodeFinder user report', summary: input.summary || description, description, issueType, severity: input.severity || 'needs_triage', expectedBehavior: input.expectedBehavior || '', actualBehavior: input.actualBehavior || '', reproductionSteps: input.reproductionSteps || [], cptCodes: input.cptCodes || pageContext.cptCodes, reporterName: input.reporterName || '', reporterEmail: input.reporterEmail || '', pageContext, suggestedFix });
 
   if (openai) {
-    const response = await openai.responses.create({
-      model: process.env.OPENAI_MODEL || 'gpt-4.1-mini',
-      temperature: 0.1,
-      input: [
-        { role: 'system', content: 'You structure FreeCPTCodeFinder reports using the provided function tools. Reports may involve CPT errors, wRVU errors, modifier bugs, missing codes, search problems, and Case Builder issues. Suggest fixes for human review only. Never commit, merge, push, deploy, or imply production changes are approved.' },
-        { role: 'user', content: JSON.stringify({ ...input, description, pageContext }, null, 2) }
-      ],
-      tools: reportTools,
-      tool_choice: 'required'
-    });
-    for (const item of response.output || []) {
-      if (item.type !== 'function_call') continue;
-      const args = JSON.parse(item.arguments || '{}');
-      if (item.name === 'classify_issue_type') report.issueType = classifyIssueType(args);
-      if (item.name === 'attach_page_context') report.pageContext = attachPageContext(args);
-      if (item.name === 'suggest_fix_for_review') report.suggestedFix = suggestFixForReview(args);
-      if (item.name === 'create_bug_report') {
-        const structured = buildBugReport(args);
-        report = { ...report, ...structured, id: report.id, createdAt: report.createdAt };
+    try {
+      const response = await openai.responses.create({
+        model: process.env.OPENAI_MODEL || 'gpt-4.1-mini',
+        temperature: 0.1,
+        input: [
+          { role: 'system', content: 'You structure FreeCPTCodeFinder reports using the provided function tools. Reports may involve CPT errors, wRVU errors, modifier bugs, missing codes, search problems, and Case Builder issues. Suggest fixes for human review only. Never commit, merge, push, deploy, or imply production changes are approved.' },
+          { role: 'user', content: JSON.stringify({ ...input, description, pageContext }, null, 2) }
+        ],
+        tools: reportTools,
+        tool_choice: 'required'
+      });
+      report.ai = { provider: 'openai_responses_api', used: true, responseId: response.id || null };
+      for (const item of response.output || []) {
+        if (item.type !== 'function_call') continue;
+        const args = JSON.parse(item.arguments || '{}');
+        if (item.name === 'classify_issue_type') report.issueType = classifyIssueType(args);
+        if (item.name === 'attach_page_context') report.pageContext = attachPageContext(args);
+        if (item.name === 'suggest_fix_for_review') report.suggestedFix = suggestFixForReview(args);
+        if (item.name === 'create_bug_report') {
+          const structured = buildBugReport(args);
+          report = { ...report, ...structured, id: report.id, createdAt: report.createdAt, ai: report.ai };
+        }
       }
+      report.issueLabel = issueLabel(report.issueType);
+    } catch (err) {
+      report = markOpenAiFallback(report, err);
     }
+  } else {
+    report.ai = { provider: 'openai_responses_api', used: false, error: 'OPENAI_API_KEY is not configured' };
   }
 
   report.suggestedFix = report.suggestedFix || suggestFixForReview(report);
