@@ -2654,7 +2654,7 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
     "cosurgeon_eligible": false,
     "inherently_bilateral": false,
@@ -2679,8 +2679,8 @@
       }
     },
     "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
+      "medicare": "0-day global period in the RVU database; confirm image guidance, biopsy approach, and payer-specific modifier rules for deep bone or vertebral biopsy.",
+      "commercial": "Verify coverage, imaging guidance, and modifier requirements with payer policy."
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2

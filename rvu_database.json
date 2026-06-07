@@ -2715,7 +2715,7 @@
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
     "20220": {
-      "description": "Bone biopsy trocar or needle superficial",
+      "description": "Bone biopsy, trocar or needle; superficial",
       "global_period": 0,
       "mp_rvu": 0.17,
       "pe_rvu": 4.9,
@@ -2723,10 +2723,13 @@
       "work_rvu": 1.61,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "practice_expense_rvu": 4.9,
+      "malpractice_rvu": 0.17,
+      "global_period_days": 0
+  },
     "20225": {
-      "description": "CPT 20225",
+      "description": "Bone biopsy, trocar or needle; deep",
       "global_period": 0,
       "mp_rvu": 0.26,
       "pe_rvu": 8.27,
@@ -2734,10 +2737,13 @@
       "work_rvu": 2.39,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "practice_expense_rvu": 8.27,
+      "malpractice_rvu": 0.26,
+      "global_period_days": 0
+  },
     "20240": {
-      "description": "Bone biopsy excisional superficial",
+      "description": "Bone biopsy, excisional; superficial",
       "global_period": 0,
       "mp_rvu": 0.3,
       "pe_rvu": 0.95,
@@ -2745,10 +2751,13 @@
       "work_rvu": 2.54,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "practice_expense_rvu": 0.95,
+      "malpractice_rvu": 0.3,
+      "global_period_days": 0
+  },
     "20245": {
-      "description": "Bone biopsy excisional deep",
+      "description": "Bone biopsy, excisional; deep",
       "global_period": 0,
       "mp_rvu": 1.05,
       "pe_rvu": 2.18,
@@ -2756,10 +2765,13 @@
       "work_rvu": 5.85,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "practice_expense_rvu": 2.18,
+      "malpractice_rvu": 1.05,
+      "global_period_days": 0
+  },
     "20250": {
-      "description": "Open bone biopsy superficial",
+      "description": "Open bone biopsy; superficial",
       "global_period": 10,
       "mp_rvu": 1.46,
       "pe_rvu": 5.08,
@@ -2767,10 +2779,13 @@
       "work_rvu": 5.06,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "practice_expense_rvu": 5.08,
+      "malpractice_rvu": 1.46,
+      "global_period_days": 10
+  },
     "20251": {
-      "description": "Open bone biopsy deep",
+      "description": "Open bone biopsy; deep",
       "global_period": 10,
       "mp_rvu": 1.66,
       "pe_rvu": 5.37,
@@ -2778,8 +2793,11 @@
       "work_rvu": 5.58,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "practice_expense_rvu": 5.37,
+      "malpractice_rvu": 1.66,
+      "global_period_days": 10
+  },
     "20500": {
       "description": "Injection of sinus tract diagnostic",
       "global_period": 10,
