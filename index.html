@@ -1179,7 +1179,33 @@ const searchState={
  cptSearchIndexLoaded:false,
  cptSearchIndexLoading:null,
  activeResultIndex:-1,
- suppressTypeahead:false
+ suppressTypeahead:false,
+ zeroResultLogged:new Set()
+};
+const REPORT_BACKEND_URL='https://free-cpt-code-finder.onrender.com';
+const CLINICAL_SEARCH_PRIORITIES={
+ 'colostomy reversal':['44626','44625','44620','44227'],
+ 'hartmann reversal':['44626'],
+ 'hartmanns reversal':['44626'],
+ 'reversal of hartmann procedure':['44626'],
+ 'stoma reversal':['44626','44625','44620','44227'],
+ 'ostomy reversal':['44626','44625','44620','44227'],
+ 'end colostomy takedown':['44626','44625','44620','44227'],
+ 'colostomy takedown':['44626','44625','44620','44227'],
+ 'colostomy closure':['44626','44625','44620'],
+ 'closure of colostomy':['44626','44625','44620'],
+ 'restore bowel continuity':['44626','44625','44620'],
+ 'colorectal anastomosis after hartmann':['44626'],
+ 'coloproctostomy':['44626','44146','45108'],
+ 'laparoscopic colostomy reversal':['44626','44227','44625','44620'],
+ 'robotic colostomy reversal':['44626','44227','44625','44620'],
+ 'open colostomy reversal':['44626','44625','44620'],
+ 'ileostomy reversal':['44620','44625','44626'],
+ 'ileostomy takedown':['44620','44625','44626'],
+ 'loop ileostomy closure':['44620','44625','44626'],
+ 'stoma closure':['44620','44625','44626'],
+ 'ostomy closure':['44620','44625','44626'],
+ 'enterostomy closure':['44620','44625','44626']
 };
 
 function normalizeSearchValue(value){
@@ -1396,9 +1422,9 @@ function buildSearchIndexFromSpecs(){
    '28810':'ray amputation toe ray amputation metatarsal amputation with toe toe and metatarsal amputation',
    '28820':'toe amputation MTP toe amputation amputation of toe digital amputation toe',
    '28825':'partial toe amputation toe amputation interphalangeal distal toe amputation',
-   '44620':'colostomy reversal stoma reversal end colostomy closure ileostomy closure enterostomy closure ostomy takedown',
-   '44625':'colostomy reversal stoma reversal end colostomy closure ileostomy closure enterostomy closure ostomy takedown with resection and anastomosis',
-   '44626':'Hartmann reversal Hartmann procedure reversal coloproctostomy colostomy reversal stoma reversal end colostomy closure low colorectal anastomosis',
+   '44620':'colostomy reversal stoma reversal ostomy reversal end colostomy closure colostomy takedown colostomy closure closure of colostomy ileostomy reversal ileostomy takedown loop ileostomy closure stoma closure ostomy closure ileostomy closure enterostomy closure ostomy takedown without resection without anastomosis',
+   '44625':'colostomy reversal stoma reversal ostomy reversal end colostomy closure colostomy takedown colostomy closure closure of colostomy ileostomy reversal ileostomy takedown loop ileostomy closure stoma closure ostomy closure ileostomy closure enterostomy closure ostomy takedown with resection and anastomosis',
+   '44626':'colostomy reversal Hartmann reversal Hartmanns reversal Hartmann procedure reversal reversal of Hartmann procedure stoma reversal ostomy reversal end colostomy takedown colostomy takedown colostomy closure closure of colostomy restore bowel continuity colorectal anastomosis after Hartmann coloproctostomy laparoscopic colostomy reversal robotic colostomy reversal open colostomy reversal low colorectal anastomosis',
    '44640':'enterocutaneous fistula intestinal cutaneous fistula bowel-skin fistula fistula closure stoma fistula repair',
    '27590':'AKA above knee amputation transfemoral amputation above-knee amputation amputation thigh through femur',
    '27591':'AKA above knee amputation transfemoral amputation immediate fitting technique immediate prosthetic fitting',
@@ -1502,6 +1528,9 @@ function scoreSearchResult(item,query){
  if(!q)return -1;
  const desc=normalizeSearchValue(item.description);
  const words=q.split(' ').filter(Boolean);
+ const priorityCodes=CLINICAL_SEARCH_PRIORITIES[q]||[];
+ const priorityIndex=priorityCodes.indexOf(String(item.code||''));
+ if(priorityIndex>=0)return 96-priorityIndex;
  if(item.code===raw)return 100;
  if(item.code.startsWith(raw))return 80;
  if(item.specialty==='Cardiac Electrophysiology'&&['ep','cardiac ep','electrophysiology'].includes(q))return 77;
@@ -1514,6 +1543,17 @@ function scoreSearchResult(item,query){
  if(words.length&&words.every(word=>desc.includes(word)))return 46;
  if(words.length&&words.every(word=>item.haystack.includes(word)))return 40;
  return -1;
+}
+
+function logZeroResultSearch(query,resultCount){
+ const normalized=normalizeSearchValue(query);
+ if(!normalized||normalized.length<2||resultCount!==0||searchState.zeroResultLogged.has(normalized))return;
+ searchState.zeroResultLogged.add(normalized);
+ fetch(REPORT_BACKEND_URL+'/search-analytics',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({searchTerm:String(query||'').trim(),resultCount:0,pagePath:location.pathname})
+ }).catch(()=>{});
 }
 
 function filterSpecialtyCards(){
@@ -1540,6 +1580,27 @@ function appendAlifExposureExample(){
  const card=document.createElement('div');
  card.className='alif-example-card';
  card.innerHTML="<div class=\"alif-example-title\">Two-Level ALIF with Exposure Surgeon</div><div class=\"alif-example-grid\"><div><strong>Primary Surgeon</strong><br><span>22558</span><br><span>22585</span></div><div><strong>Assistant Surgeon</strong><br><span>22558-80</span><br><span>22585-80</span></div></div><p>When the exposure surgeon participates throughout all ALIF levels, modifier 80 is commonly appended to the primary ALIF code and each additional-level code, subject to payer rules. Do not confuse modifier 80 with co-surgeon modifier 62.</p>";
+ box.appendChild(card);
+ box.classList.add('show');
+}
+function shouldShowEnterostomyClosureHelper(){
+ const q=normalizeSearchValue(searchState.searchQuery);
+ return [
+  'colostomy reversal','hartmann reversal','hartmanns reversal','reversal of hartmann procedure',
+  'stoma reversal','ostomy reversal','end colostomy takedown','colostomy takedown',
+  'colostomy closure','closure of colostomy','restore bowel continuity',
+  'colorectal anastomosis after hartmann','coloproctostomy','laparoscopic colostomy reversal',
+  'robotic colostomy reversal','open colostomy reversal','ileostomy reversal','ileostomy takedown',
+  'loop ileostomy closure','stoma closure','ostomy closure','enterostomy closure'
+ ].includes(q);
+}
+function appendEnterostomyClosureHelper(){
+ if(!shouldShowEnterostomyClosureHelper())return;
+ const box=document.getElementById('autocompleteResults');
+ if(!box||box.querySelector('.enterostomy-helper-card'))return;
+ const card=document.createElement('div');
+ card.className='alif-example-card enterostomy-helper-card';
+ card.innerHTML='<div class="alif-example-title">Looking for colostomy reversal?</div><p>CPT terminology usually describes this as closure of enterostomy. If the case includes colorectal anastomosis/Hartmann reversal, review <strong>CPT 44626</strong>. If closure requires bowel resection and anastomosis, review <strong>CPT 44625</strong>. If no resection/anastomosis is performed, review <strong>CPT 44620</strong>.</p>';
  box.appendChild(card);
  box.classList.add('show');
 }
@@ -1589,7 +1650,9 @@ async function filterSearchExperience(query){
  await loadCptSearchIndex();
  const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,12).map(entry=>entry.item);
  searchState.searchResults=ranked;
+ logZeroResultSearch(query,ranked.length);
  renderAutocompleteResults();
+ appendEnterostomyClosureHelper();
  appendAlifExposureExample();
  applyTypeaheadSuggestion(query);
 }

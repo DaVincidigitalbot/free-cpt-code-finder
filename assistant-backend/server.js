@@ -13,6 +13,7 @@ const projectRoot = path.resolve(__dirname, '..');
 const cptDbPath = path.join(projectRoot, 'cpt_database.json');
 const dataDir = path.join(__dirname, 'data');
 const reportLogPath = path.join(dataDir, 'bug_reports.json');
+const unsuccessfulSearchLogPath = path.join(dataDir, 'unsuccessful_searches.json');
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 const app = express();
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'https://freecptcodefinder.com,https://www.freecptcodefinder.com').split(',').map(s => s.trim()).filter(Boolean);
@@ -33,6 +34,11 @@ const reportRateLimit = rateLimit({
 
 app.use(cors({ origin(origin, callback) { if (!origin || allowedOrigins.includes(origin)) return callback(null, true); return callback(null, false); } }));
 app.use(express.json({ limit: '1mb' }));
+app.use('/staging-frontend', express.static(projectRoot));
+app.use('/styles', express.static(path.join(projectRoot, 'styles')));
+app.use('/js', express.static(path.join(projectRoot, 'js')));
+app.use('/assets', express.static(path.join(projectRoot, 'assets')));
+app.get('/cpt_database.json', (_req, res) => res.sendFile(cptDbPath));
 
 let cptDb = [];
 try {
@@ -45,6 +51,7 @@ try {
 function ensureDataDir() {
   fs.mkdirSync(dataDir, { recursive: true });
   if (!fs.existsSync(reportLogPath)) fs.writeFileSync(reportLogPath, '[]\n');
+  if (!fs.existsSync(unsuccessfulSearchLogPath)) fs.writeFileSync(unsuccessfulSearchLogPath, '[]\n');
 }
 
 function loadReports() {
@@ -61,6 +68,35 @@ function saveReport(report) {
   const reports = loadReports();
   reports.unshift(report);
   fs.writeFileSync(reportLogPath, JSON.stringify(reports.slice(0, 1000), null, 2) + '\n');
+}
+
+function loadUnsuccessfulSearches() {
+  ensureDataDir();
+  try {
+    const parsed = JSON.parse(fs.readFileSync(unsuccessfulSearchLogPath, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveUnsuccessfulSearch(entry) {
+  const searches = loadUnsuccessfulSearches();
+  searches.unshift(entry);
+  fs.writeFileSync(unsuccessfulSearchLogPath, JSON.stringify(searches.slice(0, 2000), null, 2) + '\n');
+}
+
+function topUnsuccessfulSearches(limit = 20) {
+  const grouped = new Map();
+  for (const entry of loadUnsuccessfulSearches()) {
+    const term = normalizeSearchTerm(entry.searchTerm || '');
+    if (!term) continue;
+    const current = grouped.get(term) || { searchTerm: term, count: 0, lastSeenAt: entry.createdAt || '' };
+    current.count += 1;
+    if (String(entry.createdAt || '') > String(current.lastSeenAt || '')) current.lastSeenAt = entry.createdAt;
+    grouped.set(term, current);
+  }
+  return [...grouped.values()].sort((a, b) => b.count - a.count || String(b.lastSeenAt).localeCompare(String(a.lastSeenAt))).slice(0, limit);
 }
 
 function sanitizeText(value, maxLength = 2000) {
@@ -95,6 +131,36 @@ function sanitizeObject(value, depth = 0) {
   return value;
 }
 
+function normalizeIssueType(issueType) {
+  const value = sanitizeText(issueType || '', 80).toLowerCase();
+  if (value === 'missing_code' || value === 'missing-cpt-code' || value === 'missing cpt code') return 'missing_cpt_code';
+  return value || 'other';
+}
+
+function normalizeSearchTerm(value) {
+  return sanitizeText(value || '', 160).toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function looksLikePhiSearch(value) {
+  const text = String(value || '').trim();
+  if (!text) return false;
+  if (/\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b/.test(text)) return true;
+  if (/\b\d{3}-\d{2}-\d{4}\b/.test(text)) return true;
+  if (/\b(?:mrn|dob|patient|chart|acct|account|ssn)\b/i.test(text)) return true;
+  if (/[A-Z][a-z]+,\s*[A-Z][a-z]+/.test(text)) return true;
+  if (/\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/.test(text) && !/\b(cpt|rvu|colostomy|ileostomy|ostomy|hartmann|amputation|hernia|appendectomy|cholecystectomy|colectomy|reversal|closure|takedown|procedure|surgery)\b/i.test(text)) return true;
+  return false;
+}
+
+function pagePathOnly(value) {
+  try {
+    const parsed = new URL(String(value || ''), 'https://freecptcodefinder.com');
+    return sanitizeText(parsed.pathname || '/', 240);
+  } catch {
+    return null;
+  }
+}
+
 function searchCpt(query, limit = 8) {
   const q = String(query || '').toLowerCase().trim();
   if (!q || !Array.isArray(cptDb)) return [];
@@ -113,11 +179,13 @@ function searchCpt(query, limit = 8) {
 
 function classifyIssueType({ description = '', reportedType = '' }) {
   const text = (reportedType + ' ' + description).toLowerCase();
+  const normalizedReportedType = normalizeIssueType(reportedType);
+  if (normalizedReportedType === 'missing_cpt_code') return 'missing_cpt_code';
   if (/w\s*rvu|rvu|work\s*rvu|medicare|payment/.test(text)) return 'wrvu_error';
   if (/modifier|mod\s?\d+|-\d{2}|x[epsu]|59|80|62|51/.test(text)) return 'modifier_bug';
   if (/category|placement|specialty|section|taxonomy|under neurosurgery|under spine/.test(text)) return 'category_placement';
   if (/search|autocomplete|result|finding|query/.test(text)) return 'search_problem';
-  if (/missing|add code|not listed|absent|can't find code/.test(text)) return 'missing_code';
+  if (/missing|add code|not listed|absent|can't find code|cannot find code/.test(text)) return 'missing_cpt_code';
   if (/case builder|builder|case line|duplicate|bundle|mppr|ncci/.test(text)) return 'case_builder_issue';
   if (/cpt|description|wrong code|incorrect code|taxonomy|specialty/.test(text)) return 'cpt_error';
   return 'other';
@@ -140,13 +208,13 @@ function attachPageContext(args = {}) {
 }
 
 function suggestFixForReview(args = {}) {
-  const issueType = args.issueType || 'other';
+  const issueType = normalizeIssueType(args.issueType || 'other');
   const codes = Array.isArray(args.cptCodes) ? args.cptCodes : [];
   const guidance = {
     cpt_error: 'Review CPT description, specialty taxonomy, code page content, inline CPT_DATA, and cpt_decision_tree.json for sync drift.',
     wrvu_error: 'Verify work RVU, total RVU, global period, MPPR behavior, and Medicare estimate against the current CMS physician fee schedule.',
     modifier_bug: 'Reproduce in Case Builder, then inspect modifier_engine_enhanced.js, enhanced_billing.js, and related Case Builder UI state.',
-    missing_code: 'Add the CPT row to the canonical database, generated pages, specialty/category indexes, search data, sitemap, and inline CPT_DATA if applicable.',
+    missing_cpt_code: 'Review whether the requested procedure is absent or hard to find. If missing, add the CPT row to the canonical database, generated pages, specialty/category indexes, search data, sitemap, and inline CPT_DATA if applicable.',
     search_problem: 'Check search aliases, specialty hierarchy, tokenization, and generated index coverage for the reported query.',
     category_placement: 'Review specialty/category placement in specialty_hierarchy.json, generated category pages, code pages, search filters, and cpt_decision_tree.json.',
     case_builder_issue: 'Reproduce with the reported active case, then inspect duplicate/add-on handling, modifier prompts, MPPR math, and right-rail rendering.'
@@ -164,6 +232,7 @@ function issueLabel(issueType) {
     wrvu_error: 'Wrong wRVU',
     cpt_error: 'CPT Error',
     modifier_bug: 'Modifier Bug',
+    missing_cpt_code: 'Missing CPT Code',
     missing_code: 'Missing CPT Code',
     search_problem: 'Search Issue',
     category_placement: 'Category Placement Issue',
@@ -176,21 +245,29 @@ function buildBugReport(args = {}) {
   args = sanitizeObject(args);
   const now = new Date().toISOString();
   const context = attachPageContext(args.pageContext || args);
-  const issueType = args.issueType || classifyIssueType({ description: args.description || args.summary || '', reportedType: args.reportedType || '' });
+  const issueType = normalizeIssueType(args.issueType || classifyIssueType({ description: args.description || args.summary || '', reportedType: args.reportedType || '' }));
+  const missingCpt = issueType === 'missing_cpt_code' ? {
+    procedureName: sanitizeText(args.procedureName || args.procedure || '', 160),
+    specialty: sanitizeText(args.specialty || '', 120),
+    suggestedCpt: sanitizeText(args.suggestedCpt || args.cptCode || (Array.isArray(args.cptCodes) ? args.cptCodes[0] : ''), 20),
+    notes: sanitizeText(args.notes || args.description || '', 2000),
+    status: sanitizeText(args.missingCptStatus || args.status || 'New', 40) || 'New'
+  } : null;
   return {
     id: 'FCCF-' + now.slice(0, 10).replace(/-/g, '') + '-' + crypto.randomBytes(3).toString('hex').toUpperCase(),
     createdAt: now,
-    status: 'new',
+    status: issueType === 'missing_cpt_code' ? missingCpt.status : 'new',
     issueType,
     issueLabel: issueLabel(issueType),
     severity: args.severity || 'needs_triage',
-    title: sanitizeText(args.title || issueType.replace(/_/g, ' ') + ' report', 160),
+    title: sanitizeText(args.title || (missingCpt?.procedureName ? '[MISSING CPT] ' + missingCpt.procedureName : issueType.replace(/_/g, ' ') + ' report'), 160),
     summary: sanitizeText(args.summary || args.description || '', 2000),
     description: sanitizeText(args.description || '', 4000),
     expectedBehavior: sanitizeText(args.expectedBehavior || '', 2000),
     actualBehavior: sanitizeText(args.actualBehavior || '', 2000),
     reproductionSteps: sanitizeStringArray(args.reproductionSteps, 12, 500),
     cptCodes: Array.isArray(args.cptCodes) ? sanitizeStringArray(args.cptCodes, 20, 20) : context.cptCodes,
+    missingCpt,
     reporter: { name: sanitizeText(args.reporterName || '', 100), email: sanitizeText(args.reporterEmail || '', 200) },
     pageContext: context,
     suggestedFix: args.suggestedFix || null,
@@ -213,6 +290,36 @@ async function createGithubIssue(report) {
   if (!githubIssuesEnabled) return { skipped: true, reason: 'CREATE_GITHUB_ISSUES is not true' };
   if (!githubToken) return { skipped: true, reason: 'GITHUB_TOKEN is not set' };
   await ensureGithubLabels(['user-report', report.issueType]);
+  if (report.issueType === 'missing_cpt_code') {
+    const procedureName = sanitizeText(report.missingCpt?.procedureName || report.title.replace(/^\[MISSING CPT\]\s*/i, '') || 'Missing CPT Code', 160);
+    const body = [
+      '<!-- FREECPT_REPORT_JSON_START',
+      JSON.stringify(report, null, 2),
+      'FREECPT_REPORT_JSON_END -->',
+      '',
+      'Procedure Name:',
+      procedureName || '(not provided)',
+      '',
+      'Specialty:',
+      report.missingCpt?.specialty || '(not provided)',
+      '',
+      'Suggested CPT:',
+      report.missingCpt?.suggestedCpt || '(not provided)',
+      '',
+      'Notes:',
+      report.missingCpt?.notes || report.summary || '(none)',
+      '',
+      'Submitted From:',
+      'FreeCPTCodeFinder.com'
+    ].join('\n');
+    const response = await githubFetch('/issues', {
+      method: 'POST',
+      body: JSON.stringify({ title: '[MISSING CPT] ' + procedureName, body, labels: ['user-report', 'missing_cpt_code'] })
+    });
+    const json = await response.json();
+    if (!response.ok) throw new Error(json.message || 'GitHub issue creation failed (' + response.status + ')');
+    return { url: json.html_url, number: json.number };
+  }
   const body = [
     '<!-- FREECPT_REPORT_JSON_START',
     JSON.stringify(report, null, 2),
@@ -344,17 +451,21 @@ const reportTools = [
   { type: 'function', name: 'create_github_issue', description: 'Create a GitHub issue for the completed report when GitHub delivery is configured.', parameters: { type: 'object', additionalProperties: false, properties: { reportId: { type: 'string' } }, required: ['reportId'] } },
   { type: 'function', name: 'notify_agent', description: 'Send a structured email notification to the developer or agent when email delivery is configured.', parameters: { type: 'object', additionalProperties: false, properties: { reportId: { type: 'string' } }, required: ['reportId'] } },
   { type: 'function', name: 'attach_page_context', description: 'Attach page, query, CPT codes, browser, viewport, and active Case Builder context to a report.', parameters: { type: 'object', additionalProperties: false, properties: { pageUrl: { type: ['string', 'null'] }, pageTitle: { type: ['string', 'null'] }, searchQuery: { type: ['string', 'null'] }, cptCodes: { type: 'array', items: { type: 'string' } }, browser: { type: ['string', 'null'] }, viewport: { type: ['string', 'null'] }, activeCase: { type: 'array', items: { type: 'object', additionalProperties: true } }, description: { type: ['string', 'null'] } }, required: ['pageUrl', 'pageTitle', 'searchQuery', 'cptCodes', 'browser', 'viewport', 'activeCase', 'description'] } },
-  { type: 'function', name: 'classify_issue_type', description: 'Classify report into cpt_error, wrvu_error (user-facing label: Wrong wRVU), modifier_bug, missing_code, search_problem, category_placement, case_builder_issue, or other.', parameters: { type: 'object', additionalProperties: false, properties: { description: { type: 'string' }, reportedType: { type: ['string', 'null'] } }, required: ['description', 'reportedType'] } },
+  { type: 'function', name: 'classify_issue_type', description: 'Classify report into cpt_error, wrvu_error (user-facing label: Wrong wRVU), modifier_bug, missing_cpt_code, search_problem, category_placement, case_builder_issue, or other.', parameters: { type: 'object', additionalProperties: false, properties: { description: { type: 'string' }, reportedType: { type: ['string', 'null'] } }, required: ['description', 'reportedType'] } },
   { type: 'function', name: 'suggest_fix_for_review', description: 'Suggest a possible fix for human review only. Never commit, merge, push, or deploy.', parameters: { type: 'object', additionalProperties: false, properties: { issueType: { type: 'string' }, cptCodes: { type: 'array', items: { type: 'string' } }, summary: { type: 'string' } }, required: ['issueType', 'cptCodes', 'summary'] } }
 ];
 
 async function runReportPipeline(input) {
   input = sanitizeObject(input);
-  const description = sanitizeText(input.description || input.message || input.question || '', 4000);
+  const requestedType = normalizeIssueType(input.issueType || '');
+  const missingDescription = requestedType === 'missing_cpt_code'
+    ? ['Procedure Name: ' + sanitizeText(input.procedureName || '', 160), 'Specialty: ' + sanitizeText(input.specialty || '', 120), input.suggestedCpt ? 'Suggested CPT: ' + sanitizeText(input.suggestedCpt, 20) : '', input.notes ? 'Notes: ' + sanitizeText(input.notes, 2000) : ''].filter(Boolean).join('\n')
+    : '';
+  const description = sanitizeText(input.description || input.message || input.question || missingDescription, 4000);
   const pageContext = attachPageContext({ ...(input.pageContext || {}), description });
   const issueType = classifyIssueType({ description, reportedType: input.issueType || '' });
   const suggestedFix = suggestFixForReview({ issueType, cptCodes: input.cptCodes || pageContext.cptCodes || [], summary: description });
-  let report = buildBugReport({ title: input.title || description.slice(0, 90) || 'FreeCPTCodeFinder user report', summary: input.summary || description, description, issueType, severity: input.severity || 'needs_triage', expectedBehavior: input.expectedBehavior || '', actualBehavior: input.actualBehavior || '', reproductionSteps: input.reproductionSteps || [], cptCodes: input.cptCodes || pageContext.cptCodes, reporterName: input.reporterName || '', reporterEmail: input.reporterEmail || '', pageContext, suggestedFix });
+  let report = buildBugReport({ title: input.title || (issueType === 'missing_cpt_code' && input.procedureName ? '[MISSING CPT] ' + input.procedureName : description.slice(0, 90)) || 'FreeCPTCodeFinder user report', summary: input.summary || description, description, issueType, severity: input.severity || 'needs_triage', expectedBehavior: input.expectedBehavior || '', actualBehavior: input.actualBehavior || '', reproductionSteps: input.reproductionSteps || [], cptCodes: input.cptCodes || (input.suggestedCpt ? [input.suggestedCpt] : pageContext.cptCodes), reporterName: input.reporterName || '', reporterEmail: input.reporterEmail || '', pageContext, suggestedFix, procedureName: input.procedureName || '', specialty: input.specialty || '', suggestedCpt: input.suggestedCpt || '', notes: input.notes || '' });
 
   if (openai) {
     try {
@@ -379,6 +490,11 @@ async function runReportPipeline(input) {
           const structured = buildBugReport(args);
           report = { ...report, ...structured, id: report.id, createdAt: report.createdAt, ai: report.ai };
         }
+      }
+      if (issueType === 'missing_cpt_code') {
+        report.issueType = 'missing_cpt_code';
+        report.missingCpt = buildBugReport({ ...input, description, issueType: 'missing_cpt_code' }).missingCpt;
+        report.title = '[MISSING CPT] ' + (report.missingCpt.procedureName || report.title.replace(/^\[MISSING CPT\]\s*/i, ''));
       }
       report.issueLabel = issueLabel(report.issueType);
     } catch (err) {
@@ -418,7 +534,7 @@ app.get('/health', (_req, res) => {
 });
 
 app.get('/report-tester', (_req, res) => {
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Staging Report Tester</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}main{max-width:820px;margin:0 auto;padding:28px}label{display:block;font-weight:700;margin:14px 0 6px}textarea,input,select{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}textarea{min-height:120px}button{margin-top:16px;background:#2563eb;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:800;cursor:pointer}.warn{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:12px;color:#9a3412}.out{white-space:pre-wrap;background:#0f172a;color:#e2e8f0;border-radius:8px;padding:14px;margin-top:18px;overflow:auto}</style></head><body><main><h1>Staging Report Tester</h1><p class="warn"><strong>Do not submit PHI.</strong> Use test data or de-identified workflow details only.</p><form id="f"><label>Report Type</label><select name="issueType"><option value="wrvu_error">Wrong wRVU</option><option value="cpt_error">CPT Error</option><option value="modifier_bug">Modifier Bug</option><option value="missing_code">Missing CPT Code</option><option value="search_problem">Search Issue</option><option value="case_builder_issue">Case Builder Issue</option><option value="category_placement">Category Placement Issue</option></select><label>Report</label><textarea name="description" required>CPT 22585 WRVU appears incorrect.</textarea><label>Page URL</label><input name="pageUrl" value="https://freecptcodefinder.com/cpt/22585.html"><label>Search Query</label><input name="searchQuery" value="22585"><label>CPT Codes, comma-separated</label><input name="cptCodes" value="22585"><button type="submit">Submit Test Report</button></form><div id="out" class="out" hidden></div><script>document.getElementById("f").addEventListener("submit",async e=>{e.preventDefault();const fd=new FormData(e.currentTarget);const body={issueType:fd.get("issueType"),description:fd.get("description"),pageContext:{pageUrl:fd.get("pageUrl"),pageTitle:document.title,searchQuery:fd.get("searchQuery"),cptCodes:String(fd.get("cptCodes")||"").split(",").map(s=>s.trim()).filter(Boolean),activeCase:[]}};const out=document.getElementById("out");out.hidden=false;out.textContent="Submitting...";const res=await fetch("/reports",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});out.textContent=JSON.stringify(await res.json(),null,2);});</script></main></body></html>');
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Staging Report Tester</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}main{max-width:820px;margin:0 auto;padding:28px}label{display:block;font-weight:700;margin:14px 0 6px}textarea,input,select{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}textarea{min-height:120px}button{margin-top:16px;background:#2563eb;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:800;cursor:pointer}.warn{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:12px;color:#9a3412}.out{white-space:pre-wrap;background:#0f172a;color:#e2e8f0;border-radius:8px;padding:14px;margin-top:18px;overflow:auto}</style></head><body><main><h1>Staging Report Tester</h1><p class="warn"><strong>Do not submit PHI.</strong> Use test data or de-identified workflow details only.</p><form id="f"><label>Report Type</label><select name="issueType"><option value="wrvu_error">Wrong wRVU</option><option value="cpt_error">CPT Error</option><option value="modifier_bug">Modifier Bug</option><option value="missing_cpt_code">Missing CPT Code</option><option value="search_problem">Search Issue</option><option value="case_builder_issue">Case Builder Issue</option><option value="category_placement">Category Placement Issue</option></select><label>Report</label><textarea name="description" required>CPT 22585 WRVU appears incorrect.</textarea><label>Page URL</label><input name="pageUrl" value="https://freecptcodefinder.com/cpt/22585.html"><label>Search Query</label><input name="searchQuery" value="22585"><label>CPT Codes, comma-separated</label><input name="cptCodes" value="22585"><button type="submit">Submit Test Report</button></form><div id="out" class="out" hidden></div><script>document.getElementById("f").addEventListener("submit",async e=>{e.preventDefault();const fd=new FormData(e.currentTarget);const body={issueType:fd.get("issueType"),description:fd.get("description"),pageContext:{pageUrl:fd.get("pageUrl"),pageTitle:document.title,searchQuery:fd.get("searchQuery"),cptCodes:String(fd.get("cptCodes")||"").split(",").map(s=>s.trim()).filter(Boolean),activeCase:[]}};const out=document.getElementById("out");out.hidden=false;out.textContent="Submitting...";const res=await fetch("/reports",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});out.textContent=JSON.stringify(await res.json(),null,2);});</script></main></body></html>');
 });
 
 app.post('/assistant', async (req, res) => {
@@ -450,8 +566,13 @@ app.post('/assistant', async (req, res) => {
 });
 
 app.post('/reports', reportRateLimit, async (req, res) => {
+  const requestedType = normalizeIssueType(req.body?.issueType || '');
   const description = sanitizeText(req.body?.description || req.body?.message || '', 4000);
-  if (!description) return res.status(400).json({ error: 'description required' });
+  if (requestedType === 'missing_cpt_code') {
+    if (!sanitizeText(req.body?.procedureName || '', 160) || !sanitizeText(req.body?.specialty || '', 120)) {
+      return res.status(400).json({ error: 'procedureName and specialty required' });
+    }
+  } else if (!description) return res.status(400).json({ error: 'description required' });
   try {
     const report = await runReportPipeline(req.body);
     res.status(201).json({ ok: true, report });
@@ -459,6 +580,23 @@ app.post('/reports', reportRateLimit, async (req, res) => {
     console.error(err);
     res.status(500).json({ error: 'report_failed', detail: err.message });
   }
+});
+
+app.post('/search-analytics', reportRateLimit, (req, res) => {
+  const rawSearchTerm = sanitizeText(req.body?.searchTerm || req.body?.query || '', 160);
+  const searchTerm = normalizeSearchTerm(rawSearchTerm);
+  const resultCount = Number(req.body?.resultCount ?? 0);
+  if (!searchTerm || searchTerm.length < 2) return res.status(400).json({ error: 'searchTerm required' });
+  if (resultCount !== 0) return res.json({ ok: true, logged: false });
+  if (looksLikePhiSearch(rawSearchTerm)) return res.json({ ok: true, logged: false, reason: 'phi_like_search_rejected' });
+  saveUnsuccessfulSearch({
+    id: 'SEARCH-' + new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14) + '-' + crypto.randomBytes(2).toString('hex').toUpperCase(),
+    createdAt: new Date().toISOString(),
+    searchTerm,
+    resultCount: 0,
+    pagePath: pagePathOnly(req.body?.pagePath || req.body?.pageUrl || '')
+  });
+  res.status(201).json({ ok: true, logged: true });
 });
 
 app.get('/admin/reports', async (req, res) => {
@@ -473,9 +611,13 @@ app.get('/admin/reports', async (req, res) => {
   } catch (err) {
     dashboardErrors.push(err.message);
   }
-  const rows = reports.map(report => '<tr><td><code>' + escapeHtml(report.id) + '</code><br><small>' + escapeHtml(report.createdAt) + '</small></td><td>' + escapeHtml(report.issueLabel || issueLabel(report.issueType)) + '<br><small>' + escapeHtml(report.issueType) + ' / ' + escapeHtml(report.severity) + '</small></td><td><strong>' + escapeHtml(report.title) + '</strong><br>' + escapeHtml(report.summary || report.description) + '</td><td>' + escapeHtml((report.cptCodes || []).join(', ')) + '</td><td>' + (report.delivery.githubIssueUrl ? '<a href="' + escapeAttr(report.delivery.githubIssueUrl) + '">GitHub</a>' : 'Logged') + '<br><small>' + escapeHtml((report.delivery.errors || []).join(' | ')) + '</small></td><td>' + escapeHtml(report.suggestedFix?.summary || '') + '<br><small>No commit, merge, push, or deploy without human approval.</small></td></tr>').join('');
+  const typeFilter = normalizeIssueType(req.query.type || '');
+  const filteredReports = typeFilter && typeFilter !== 'other' ? reports.filter(report => normalizeIssueType(report.issueType) === typeFilter) : reports;
+  const rows = filteredReports.map(report => '<tr><td><code>' + escapeHtml(report.id) + '</code><br><small>' + escapeHtml(report.createdAt) + '</small></td><td>' + escapeHtml(report.issueLabel || issueLabel(report.issueType)) + '<br><small>' + escapeHtml(report.issueType) + ' / ' + escapeHtml(report.severity) + '</small></td><td><strong>' + escapeHtml(report.title) + '</strong><br>' + escapeHtml(report.summary || report.description) + '</td><td>' + escapeHtml(report.missingCpt?.procedureName || '') + '</td><td>' + escapeHtml(report.missingCpt?.specialty || '') + '</td><td>' + escapeHtml(report.missingCpt?.suggestedCpt || (report.cptCodes || []).join(', ')) + '</td><td>' + escapeHtml(report.missingCpt?.status || report.status || 'new') + '</td><td>' + (report.delivery.githubIssueUrl ? '<a href="' + escapeAttr(report.delivery.githubIssueUrl) + '">GitHub</a>' : 'Logged') + '<br><small>' + escapeHtml((report.delivery.errors || []).join(' | ')) + '</small></td><td>' + escapeHtml(report.suggestedFix?.summary || '') + '<br><small>No commit, merge, push, or deploy without human approval.</small></td></tr>').join('');
+  const searchRows = topUnsuccessfulSearches(20).map(row => '<tr><td>' + escapeHtml(row.searchTerm) + '</td><td>' + row.count + '</td><td>' + escapeHtml(row.lastSeenAt) + '</td></tr>').join('');
+  const filterBlock = '<div class="filters"><a href="/admin/reports?key=' + escapeAttr(req.query.key || '') + '">All</a><a href="/admin/reports?type=missing_cpt_code&key=' + escapeAttr(req.query.key || '') + '">Missing CPT Code</a><a href="/admin/reports?type=search_problem&key=' + escapeAttr(req.query.key || '') + '">Search Issue</a><span>Statuses: New, Reviewing, Added, Duplicate, Not Applicable</span></div>';
   const errorBlock = dashboardErrors.length ? '<div class="err">GitHub dashboard store error: ' + escapeHtml(dashboardErrors.join(' | ')) + '</div>' : '';
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}</style></head><body><header><h1>Report Dashboard</h1><div>' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>CPT</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="6">No reports logged yet.</td></tr>') + '</tbody></table></main></body></html>');
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 function escapeHtml(value) {
