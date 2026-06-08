@@ -1,5 +1,7 @@
 (function () {
-  const BACKEND_URL = "https://free-cpt-code-finder.onrender.com";
+  const BACKEND_URL = window.location.hostname === "free-cpt-code-finder-staging.onrender.com"
+    ? "https://free-cpt-code-finder-staging.onrender.com"
+    : "https://free-cpt-code-finder.onrender.com";
   const STYLE_ID = "fccf-report-widget-style";
   const WIDGET_ID = "fccf-report-widget";
 

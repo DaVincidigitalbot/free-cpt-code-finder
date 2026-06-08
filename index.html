@@ -1182,7 +1182,9 @@ const searchState={
  suppressTypeahead:false,
  zeroResultLogged:new Set()
 };
-const REPORT_BACKEND_URL='https://free-cpt-code-finder.onrender.com';
+const REPORT_BACKEND_URL=location.hostname==='free-cpt-code-finder-staging.onrender.com'
+ ? 'https://free-cpt-code-finder-staging.onrender.com'
+ : 'https://free-cpt-code-finder.onrender.com';
 const CLINICAL_SEARCH_PRIORITIES={
  'colostomy reversal':['44626','44625','44620','44227'],
  'hartmann reversal':['44626'],
