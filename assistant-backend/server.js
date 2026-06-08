@@ -152,6 +152,10 @@ function looksLikePhiSearch(value) {
   return false;
 }
 
+function looksLikePhiReport(fields) {
+  return fields.some(value => looksLikePhiSearch(value));
+}
+
 function pagePathOnly(value) {
   try {
     const parsed = new URL(String(value || ''), 'https://freecptcodefinder.com');
@@ -571,6 +575,15 @@ app.post('/reports', reportRateLimit, async (req, res) => {
   if (requestedType === 'missing_cpt_code') {
     if (!sanitizeText(req.body?.procedureName || '', 160) || !sanitizeText(req.body?.specialty || '', 120)) {
       return res.status(400).json({ error: 'procedureName and specialty required' });
+    }
+    if (looksLikePhiReport([
+      req.body?.procedureName,
+      req.body?.specialty,
+      req.body?.suggestedCpt,
+      req.body?.notes,
+      description
+    ])) {
+      return res.status(400).json({ error: 'phi_like_report_rejected' });
     }
   } else if (!description) return res.status(400).json({ error: 'description required' });
   try {
