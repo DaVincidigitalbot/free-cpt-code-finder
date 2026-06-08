@@ -1,5 +1,7 @@
 (function () {
-  const BACKEND_URL = "https://free-cpt-code-finder.onrender.com";
+  const BACKEND_URL = window.location.hostname === "free-cpt-code-finder-staging.onrender.com"
+    ? "https://free-cpt-code-finder-staging.onrender.com"
+    : "https://free-cpt-code-finder.onrender.com";
   const STYLE_ID = "fccf-report-widget-style";
   const WIDGET_ID = "fccf-report-widget";
 
@@ -8,12 +10,34 @@
 
   const issueTypes = [
     ["wrvu_error", "Wrong wRVU"],
-    ["cpt_error", "CPT error"],
-    ["modifier_bug", "Modifier bug"],
-    ["missing_code", "Missing CPT code"],
-    ["search_problem", "Search issue"],
-    ["case_builder_issue", "Case Builder issue"],
-    ["category_placement", "Category placement"],
+    ["cpt_error", "Incorrect CPT Description"],
+    ["modifier_bug", "Modifier Issue"],
+    ["search_problem", "Search Result Issue"],
+    ["missing_cpt_code", "Missing CPT Code"],
+    ["case_builder_issue", "Case Builder Issue"],
+    ["category_placement", "Category Placement"],
+  ];
+
+  const specialties = [
+    "General Surgery",
+    "Trauma Surgery",
+    "Surgical Critical Care",
+    "Acute Care Surgery",
+    "Colon & Rectal Surgery",
+    "Vascular Surgery",
+    "Orthopedic Surgery",
+    "Hand Surgery",
+    "Plastic Surgery",
+    "Neurosurgery",
+    "Cardiothoracic Surgery",
+    "Cardiac Electrophysiology",
+    "Urology",
+    "ENT",
+    "Gynecology",
+    "Ophthalmology",
+    "Interventional Radiology",
+    "Gastroenterology",
+    "Other",
   ];
 
   function injectStyles() {
@@ -36,6 +60,9 @@
       ".fccf-report-label{display:block;font-size:12px;font-weight:800;color:#0f1720;margin:12px 0 6px}",
       ".fccf-report-select,.fccf-report-input,.fccf-report-textarea{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#0f1720;padding:9px 10px;font:inherit}",
       ".fccf-report-textarea{min-height:116px;resize:vertical}",
+      ".fccf-report-missing-fields{display:none;border:1px solid #dbe4ee;background:#f8fafc;border-radius:8px;padding:10px 11px;margin-top:10px}",
+      ".fccf-report-missing-fields.open{display:block}",
+      ".fccf-report-help{font-size:12px;color:#64748b;margin-top:5px}",
       ".fccf-report-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px}",
       ".fccf-report-status{font-size:12px;color:#4a5563;min-height:18px}",
       ".fccf-report-submit{border:0;border-radius:8px;background:#23577b;color:#fff;padding:10px 13px;font-weight:800}",
@@ -91,6 +118,10 @@
     return issueTypes.map(([value, label]) => '<option value="' + value + '">' + label + "</option>").join("");
   }
 
+  function specialtyHtml() {
+    return '<option value="">Select specialty</option>' + specialties.map((label) => '<option value="' + label + '">' + label + "</option>").join("");
+  }
+
   function renderWidget() {
     if (document.getElementById(WIDGET_ID)) return;
     injectStyles();
@@ -103,7 +134,13 @@
       '<div class="fccf-report-head"><div><h2 class="fccf-report-title">Report an issue</h2><div class="fccf-report-sub">CPT errors, wrong wRVUs, modifiers, search, or Case Builder bugs.</div></div><button class="fccf-report-close" type="button" aria-label="Close">x</button></div>' +
       '<form class="fccf-report-body"><div class="fccf-report-warning"><strong>Do not submit PHI.</strong> Use de-identified workflow details only.</div>' +
       '<label class="fccf-report-label" for="fccf-report-type">Issue type</label><select class="fccf-report-select" id="fccf-report-type" name="issueType">' + optionHtml() + '</select>' +
-      '<label class="fccf-report-label" for="fccf-report-description">What is wrong?</label><textarea class="fccf-report-textarea" id="fccf-report-description" name="description" required placeholder="Example: CPT 22585 WRVU appears incorrect."></textarea>' +
+      '<div class="fccf-report-missing-fields" id="fccf-report-missing-fields">' +
+      '<label class="fccf-report-label" for="fccf-report-procedure">Procedure Name <span aria-hidden="true">*</span></label><input class="fccf-report-input" id="fccf-report-procedure" name="procedureName" type="text" placeholder="Example: Hartmann Reversal">' +
+      '<label class="fccf-report-label" for="fccf-report-specialty">Specialty <span aria-hidden="true">*</span></label><select class="fccf-report-select" id="fccf-report-specialty" name="specialty">' + specialtyHtml() + '</select>' +
+      '<label class="fccf-report-label" for="fccf-report-cpt">CPT Code, optional</label><input class="fccf-report-input" id="fccf-report-cpt" name="suggestedCpt" type="text" inputmode="numeric" placeholder="Leave blank if unknown">' +
+      '<label class="fccf-report-label" for="fccf-report-notes">Notes, optional</label><textarea class="fccf-report-textarea" id="fccf-report-notes" name="notes" placeholder="Example: Robotic colostomy reversal with colorectal anastomosis."></textarea>' +
+      '<div class="fccf-report-help">This creates a structured Missing CPT Code report for database review.</div></div>' +
+      '<div id="fccf-report-standard-fields"><label class="fccf-report-label" for="fccf-report-description">What is wrong?</label><textarea class="fccf-report-textarea" id="fccf-report-description" name="description" required placeholder="Example: CPT 22585 wRVU appears incorrect."></textarea></div>' +
       '<label class="fccf-report-label" for="fccf-report-email">Email, optional</label><input class="fccf-report-input" id="fccf-report-email" name="reporterEmail" type="email" autocomplete="email" placeholder="Only if you want follow-up">' +
       '<div class="fccf-report-actions"><div class="fccf-report-status" role="status" aria-live="polite"></div><button class="fccf-report-submit" type="submit">Submit report</button></div></form></section>';
     document.body.appendChild(root);
@@ -116,12 +153,27 @@
     const status = root.querySelector(".fccf-report-status");
     const submit = root.querySelector(".fccf-report-submit");
     const textarea = root.querySelector("textarea");
+    const typeSelect = root.querySelector("#fccf-report-type");
+    const standardFields = root.querySelector("#fccf-report-standard-fields");
+    const missingFields = root.querySelector("#fccf-report-missing-fields");
+    const procedureInput = root.querySelector("#fccf-report-procedure");
+    const specialtySelect = root.querySelector("#fccf-report-specialty");
+    const descriptionInput = root.querySelector("#fccf-report-description");
 
     function setOpen(open) {
       panel.classList.toggle("open", open);
       backdrop.classList.toggle("open", open);
       launch.setAttribute("aria-expanded", String(open));
-      if (open) setTimeout(() => textarea.focus(), 30);
+      if (open) setTimeout(() => (typeSelect.value === "missing_cpt_code" ? procedureInput : descriptionInput).focus(), 30);
+    }
+
+    function syncIssueTypeFields() {
+      const missing = typeSelect.value === "missing_cpt_code";
+      missingFields.classList.toggle("open", missing);
+      standardFields.style.display = missing ? "none" : "block";
+      descriptionInput.required = !missing;
+      procedureInput.required = missing;
+      specialtySelect.required = missing;
     }
 
     launch.addEventListener("click", () => setOpen(true));
@@ -130,12 +182,24 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && panel.classList.contains("open")) setOpen(false);
     });
+    typeSelect.addEventListener("change", syncIssueTypeFields);
+    syncIssueTypeFields();
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(form);
+      const issueType = String(data.get("issueType") || "");
       const description = String(data.get("description") || "").trim();
-      if (!description) {
+      const procedureName = String(data.get("procedureName") || "").trim();
+      const specialty = String(data.get("specialty") || "").trim();
+      const notes = String(data.get("notes") || "").trim();
+      const suggestedCpt = String(data.get("suggestedCpt") || "").trim();
+      if (issueType === "missing_cpt_code" && (!procedureName || !specialty)) {
+        status.className = "fccf-report-status fccf-report-error";
+        status.textContent = "Procedure name and specialty are required.";
+        return;
+      }
+      if (issueType !== "missing_cpt_code" && !description) {
         status.className = "fccf-report-status fccf-report-error";
         status.textContent = "Describe the issue first.";
         return;
@@ -145,10 +209,19 @@
       status.textContent = "Submitting...";
       try {
         const body = {
-          issueType: data.get("issueType"),
-          description,
+          issueType,
+          description: issueType === "missing_cpt_code" ? [
+            "Procedure Name: " + procedureName,
+            "Specialty: " + specialty,
+            suggestedCpt ? "Suggested CPT: " + suggestedCpt : "",
+            notes ? "Notes: " + notes : "",
+          ].filter(Boolean).join("\n") : description,
+          procedureName,
+          specialty,
+          suggestedCpt,
+          notes,
           reporterEmail: String(data.get("reporterEmail") || "").trim(),
-          pageContext: pageContext(description),
+          pageContext: pageContext(issueType === "missing_cpt_code" ? procedureName + " " + notes : description),
         };
         const response = await fetch(BACKEND_URL + "/reports", {
           method: "POST",
