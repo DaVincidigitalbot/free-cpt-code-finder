@@ -3,6 +3,7 @@
 <meta name="description" content="Free CPT code lookup for medical students, residents, APPs, surgeons, and coders. Search CPT codes, wRVUs, modifiers, global periods, billing guides, and build cases with a free wRVU case builder.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://freecptcodefinder.com/">
+<link rel="icon" type="image/png" href="/favicon.png">
 <meta property="og:title" content="FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers &amp; Case Builder">
 <meta property="og:description" content="Free CPT code lookup for medical students, residents, APPs, surgeons, and coders. Search CPT codes, wRVUs, modifiers, global periods, billing guides, and build cases with a free wRVU case builder.">
 <meta property="og:url" content="https://freecptcodefinder.com/">
@@ -11,6 +12,8 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"FreeCPTCodeFinder.com","alternateName":"Free CPT Code Finder","url":"https://freecptcodefinder.com/","description":"Free CPT code lookup for medical students, residents, APPs, surgeons, and coders. Search CPT codes, wRVUs, modifiers, global periods, billing guides, and build cases with a free wRVU case builder.","potentialAction":{"@type":"SearchAction","target":"https://freecptcodefinder.com/?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Organization","name":"FreeCPTCodeFinder.com","alternateName":"Free CPT Code Finder","url":"https://freecptcodefinder.com/","logo":"https://freecptcodefinder.com/og-image.png"},{"@type":"WebPage","name":"FreeCPTCodeFinder.com | CPT Code Lookup, wRVUs, Modifiers & Case Builder","url":"https://freecptcodefinder.com/","description":"Free CPT code lookup for medical students, residents, APPs, surgeons, and coders. Search CPT codes, wRVUs, modifiers, global periods, billing guides, and build cases with a free wRVU case builder.","isPartOf":{"@type":"WebSite","name":"FreeCPTCodeFinder.com","url":"https://freecptcodefinder.com/"}}]}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPFGH437ZS"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NPFGH437ZS');</script>
+<link rel="stylesheet" href="/styles/app-mode.css">
+<script defer src="/js/app_mode.js"></script>
 <style>
 :root{color-scheme:light;--paper:#F7F7F3;--ink:#0F1720;--ink2:#4A5563;--ink3:#7B8794;--line:#E5E7EB;--line2:#D5DAE1;--ox:#23577B;--ox2:#EAF2F8;--warn:#6B4F2A;--white:#FFFFFF;--steel:#1E3A5F;--moss:#2D5A3D}
 html[data-theme='dark']{color-scheme:dark;--paper:#0B1220;--ink:#E6EDF5;--ink2:#B8C2CF;--ink3:#8A97A8;--line:#223049;--line2:#30415D;--ox:#7EC8FF;--ox2:#102235;--warn:#E8C07D;--white:#111A2A;--steel:#9BC3E6;--moss:#63B883;--search-text:#0F1720;--search-placeholder:#5B6574}
@@ -266,6 +269,7 @@ a{color:inherit;text-decoration:none}
 <nav class="topnav" aria-label="Primary">
 <a href="/cpt-code-for/">CPT Code For</a>
 <a href="/codes/">Codes</a>
+<a href="/app-productivity.html">APP</a>
 <a href="/blog/" class="active">Blog</a>
 <a href="/sources.html">Sources</a>
 <a href="/about.html">About</a>
@@ -275,6 +279,7 @@ a{color:inherit;text-decoration:none}
 <a href="/legal.html">Legal</a>
 <a href="#" id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode"><span class="theme-icon">🌙</span><span id="themeToggleLabel">Dark mode</span></a>
 </nav>
+<div class="header-tools"><div class="app-mode-toggle" data-app-mode-toggle role="radiogroup" aria-label="Productivity View"><span class="app-mode-toggle__label">Productivity View</span><button type="button" data-app-mode-choice="physician" aria-pressed="true">Physician</button><button type="button" data-app-mode-choice="app" aria-pressed="false">APP</button></div></div>
 <div class="meta"><span>CMS 2026</span><span class="sep"></span><span>CF 32.3465</span><span class="sep"></span><span class="live">live</span></div>
 </div>
 </div>
@@ -396,6 +401,8 @@ a{color:inherit;text-decoration:none}
 <div class="tn" id="tn">0.00</div>
 <div class="ts" id="ts">$0.00 · build a case →</div>
 </div>
+<label class="app-case-toggle"><input type="checkbox" id="appCaseToggle"> <span><strong>Calculate APP Productivity</strong><br>Educational estimate only. Uses physician wRVUs as the source value.</span></label>
+<div class="app-case-summary" id="appCaseSummary"></div>
 <div class="lns" id="lns"><div class="lns-empty">Click any procedure or code to add it here. The system will auto-assign primary/secondary and apply modifiers.</div></div>
 <div class="tl">Suggested ICD-10</div>
 <div class="lns" id="dxs"><div class="lns-empty">Select a surgery to surface diagnosis codes.</div></div>
@@ -682,6 +689,30 @@ function addEM(cpt,desc,wrvu){
 function removeLine(i){log(`REMOVE ${caseLines[i].cpt}`);caseLines.splice(i,1);recalc('line removed')}
 function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
 
+function isEMCode(cpt){const n=Number(cpt);return (n>=99202&&n<=99205)||(n>=99211&&n<=99215)||(n>=99221&&n<=99223)||(n>=99231&&n<=99233)||(n>=99242&&n<=99245)||(n>=99252&&n<=99255)||n===99238||n===99239||n===99291||n===99292}
+function getProductivityMode(){return window.FreeCPTAppMode&&window.FreeCPTAppMode.isAppMode&&window.FreeCPTAppMode.isAppMode()?'app':'physician'}
+function appEstimateForLine(l){
+ const helper=window.FreeCPTAppMode&&window.FreeCPTAppMode.estimateFor;
+ if(helper)return helper(l.cpt,l.effWrvu||0);
+ const factor=isEMCode(l.cpt)?0.85:0.136;
+ return {value:Number(((Number(l.effWrvu)||0)*factor).toFixed(2)),factor,label:factor===0.85?'85% Medicare NPP equivalent':'13.6% assistant-at-surgery equivalent'};
+}
+function shouldShowAppProductivity(){
+ const checkbox=document.getElementById('appCaseToggle');
+ return getProductivityMode()==='app'||!!(checkbox&&checkbox.checked);
+}
+function renderAppCaseSummary(){
+ const el=document.getElementById('appCaseSummary');
+ if(!el)return;
+ const show=shouldShowAppProductivity()&&caseLines.length>0;
+ el.style.display=show?'block':'none';
+ if(!show){el.innerHTML='';return}
+ const total=caseLines.reduce((sum,l)=>sum+appEstimateForLine(l).value,0);
+ const hasEM=caseLines.some(l=>l.kind==='em');
+ const hasProc=caseLines.some(l=>l.kind==='proc');
+ const equivalence=hasProc&&hasEM?'13.6% surgical assistant equivalent; 85% Medicare NPP equivalent for E/M':(hasEM?'85% Medicare NPP equivalent':'13.6% assistant-at-surgery equivalent');
+ el.innerHTML='<div class="app-case-summary__label">APP Productivity Summary</div><div class="app-case-summary__value">'+total.toFixed(2)+'</div><div class="app-case-summary__note"><strong>Estimated APP Productivity</strong><br>'+equivalence+'<br>Estimated APP Productivity is not the same as compensation, reimbursement, or guaranteed employer wRVU credit. Actual attribution depends on payer rules, documentation, modifier acceptance, scope of practice, supervision requirements, and employer compensation policy.<br>Educational estimate only. Not legal or billing advice.</div>';
+}
 function isAddonCode(cpt){return ['22585','33225','93655','93657'].includes(String(cpt||''))}
 function isTechnicalCode(cpt){return ['93229','93296'].includes(String(cpt||''))}
 function isMajorSurgeryCode(cpt){
@@ -922,7 +953,8 @@ function recalc(why){
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
-    <div class="rw"><span class="rwl">wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
+    <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
+    <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
    </div>`}).join('')+renderAlifBuilderSuggestion();
  }
@@ -930,6 +962,7 @@ function recalc(why){
  const mppr=caseLines.filter(l=>l.kind==='proc').length>1&&setting==='facility';
  document.getElementById('ts').textContent=`$${tpay.toFixed(2)}${mppr?' · MPPR applied':''}`;
  document.getElementById('rm').textContent=`${caseLines.length} line${caseLines.length!==1?'s':''} · ${payer} · ${getModifierConflictState()}`;
+ renderAppCaseSummary();
  renderDxList();
  log(`TOTALS wRVU=${twrvu.toFixed(2)} pay=$${tpay.toFixed(2)} (${why})`);
 }
@@ -944,6 +977,8 @@ document.querySelectorAll('.seg').forEach(seg=>{
   recalc(seg.id.replace('-seg','')+' changed');
  });
 });
+document.getElementById('appCaseToggle')?.addEventListener('change',()=>recalc('APP productivity toggled'));
+window.addEventListener('fccf:app-mode-change',()=>recalc('APP productivity mode changed'));
 
 const RULES={
  PRIMARY:"CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%",
@@ -1730,10 +1765,8 @@ document.getElementById('themeToggle').addEventListener('click',e=>{
  applyTheme(next);
 });
 
-loadCptSearchIndex().catch(()=>{
- renderSpecs();
- renderGuidedCards();
-});
+renderSpecs();
+renderGuidedCards();
 </script><style>.site-footer{margin-top:36px;background:var(--ink);color:#D7DFEA}.site-footer-inner{max-width:1200px;margin:0 auto;padding:32px 40px}.site-footer-brand{font-size:14px;font-weight:700;color:var(--white)}.site-footer-copy{margin-top:10px;font-size:14px;line-height:1.7;color:#D7DFEA;max-width:980px}.site-footer-copy strong{color:var(--white)}.site-footer-nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.site-footer-nav a{color:#8ec5ff;text-decoration:none;font-size:14px}@media(max-width:1000px){.site-footer-inner{padding:24px 20px}}</style><footer class="site-footer">
   <div class="site-footer-inner">
     <div class="site-footer-brand">FreeCPTCodeFinder.com</div>
