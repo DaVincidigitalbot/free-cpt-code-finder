@@ -27,5 +27,6 @@ html[data-productivity-view='app'] .app-case-summary{display:block}
 .app-case-summary__note{font-size:11px;color:var(--ink2);line-height:1.45;margin-top:6px}
 .app-line-estimate{display:none;margin-top:4px;font-size:11px;color:var(--moss);font-family:var(--font-mono,'SFMono-Regular',Consolas,monospace)}
 html[data-productivity-view='app'] .app-line-estimate{display:block}
+@media (min-width:1001px){.hdr-right{max-width:min(360px,42%);min-width:0}.topnav{flex-wrap:wrap;justify-content:flex-end;gap:12px 16px}.header-tools{justify-content:flex-end}}
 @media (max-width:900px){.header-tools{justify-content:flex-start}}
 @media (max-width:700px){.app-mode-toggle{width:100%;flex-wrap:wrap}.app-mode-toggle__label{width:100%;padding:2px 4px}.app-mode-toggle button{flex:1}.app-productivity-panel{grid-template-columns:1fr}}
