@@ -12151,15 +12151,142 @@
         "amputation": {
           "options": [
             {
+              "cpt_code": "28820",
+              "description": "Amputation, toe; metatarsophalangeal joint",
+              "icd10": [
+                "S98.119A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Toe amputation",
+              "modifiers": [
+                "-T1",
+                "-T2",
+                "-T3",
+                "-T4",
+                "-T5",
+                "-T6",
+                "-T7",
+                "-T8",
+                "-T9"
+              ],
+              "work_rvu": 3.42
+            },
+            {
+              "cpt_code": "28825",
+              "description": "Amputation, toe; interphalangeal joint",
+              "icd10": [
+                "S98.119A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Partial toe amputation",
+              "modifiers": [
+                "-T1",
+                "-T2",
+                "-T3",
+                "-T4",
+                "-T5",
+                "-T6",
+                "-T7",
+                "-T8",
+                "-T9"
+              ],
+              "work_rvu": 3.32
+            },
+            {
+              "cpt_code": "28810",
+              "description": "Amputation, metatarsal, with toe, single",
+              "icd10": [
+                "S98.119A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Ray amputation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-T1",
+                "-T2",
+                "-T3",
+                "-T4",
+                "-T5",
+                "-T6",
+                "-T7",
+                "-T8",
+                "-T9"
+              ],
+              "work_rvu": 6.47
+            },
+            {
+              "cpt_code": "28805",
+              "description": "Amputation, foot; transmetatarsal",
+              "icd10": [
+                "S98.319A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Transmetatarsal amputation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-50"
+              ],
+              "work_rvu": 12.39
+            },
+            {
+              "cpt_code": "28800",
+              "description": "Amputation, foot; midtarsal",
+              "icd10": [
+                "S98.319A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Midfoot amputation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-50"
+              ],
+              "work_rvu": 8.57
+            },
+            {
+              "cpt_code": "27888",
+              "description": "Amputation, ankle, through malleoli of tibia and fibula (eg, Syme, Pirogoff type procedures)",
+              "icd10": [
+                "S98.019A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Syme amputation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-50"
+              ],
+              "work_rvu": 10.11
+            },
+            {
+              "cpt_code": "27889",
+              "description": "Ankle disarticulation",
+              "icd10": [
+                "S98.019A",
+                "E11.52",
+                "I70.261"
+              ],
+              "label": "Ankle disarticulation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-50"
+              ],
+              "work_rvu": 10.59
+            },
+            {
               "cpt_code": "27880",
               "description": "Amputation, leg, through tibia and fibula",
-              "icd10": [
-                "I70.261",
-                "I70.262",
-                "E11.52",
-                "S88.119A"
-              ],
-              "label": "Below knee amputation (BKA)",
+              "icd10": [],
+              "label": "BKA",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12171,12 +12298,8 @@
             {
               "cpt_code": "27881",
               "description": "Amputation, leg, through tibia and fibula; secondary closure or scar revision",
-              "icd10": [
-                "T87.89",
-                "Z89.511",
-                "Z89.512"
-              ],
-              "label": "BKA secondary closure / scar revision",
+              "icd10": [],
+              "label": "BKA secondary closure",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12189,13 +12312,8 @@
             {
               "cpt_code": "27882",
               "description": "Amputation, leg, through tibia and fibula; open, circular (guillotine)",
-              "icd10": [
-                "I70.261",
-                "I70.262",
-                "E11.52",
-                "S88.119A"
-              ],
-              "label": "Open circular / guillotine BKA",
+              "icd10": [],
+              "label": "Guillotine BKA",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12208,12 +12326,8 @@
             {
               "cpt_code": "27884",
               "description": "Revision of lower extremity amputation stump, leg; up to and including tibia and fibula",
-              "icd10": [
-                "T87.89",
-                "Z89.511",
-                "Z89.512"
-              ],
-              "label": "Revision / re-amputation BKA stump",
+              "icd10": [],
+              "label": "Revision BKA stump",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12224,15 +12338,28 @@
               "work_rvu": 8.54
             },
             {
+              "cpt_code": "27886",
+              "description": "Revision of lower extremity amputation stump, leg; re-amputation",
+              "icd10": [
+                "T87.89",
+                "Z89.511",
+                "Z89.512"
+              ],
+              "label": "BKA re-amputation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-58",
+                "-78",
+                "-79"
+              ],
+              "work_rvu": 9.77
+            },
+            {
               "cpt_code": "27590",
               "description": "Amputation, thigh, through femur, any level",
-              "icd10": [
-                "I70.261",
-                "I70.262",
-                "E11.52",
-                "S78.119A"
-              ],
-              "label": "Above knee amputation (AKA)",
+              "icd10": [],
+              "label": "AKA",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12244,13 +12371,8 @@
             {
               "cpt_code": "27591",
               "description": "Amputation, thigh, through femur, any level; immediate fitting technique including first cast",
-              "icd10": [
-                "I70.261",
-                "I70.262",
-                "E11.52",
-                "S78.119A"
-              ],
-              "label": "AKA immediate fitting technique",
+              "icd10": [],
+              "label": "AKA immediate fitting",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12262,12 +12384,8 @@
             {
               "cpt_code": "27592",
               "description": "Amputation, thigh, through femur, any level; secondary closure or scar revision",
-              "icd10": [
-                "T87.89",
-                "Z89.61",
-                "Z89.62"
-              ],
-              "label": "AKA secondary closure / scar revision",
+              "icd10": [],
+              "label": "AKA secondary closure",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12280,12 +12398,8 @@
             {
               "cpt_code": "27594",
               "description": "Amputation, thigh, through femur, any level; re-amputation",
-              "icd10": [
-                "T87.89",
-                "Z89.61",
-                "Z89.62"
-              ],
-              "label": "Revision / re-amputation AKA",
+              "icd10": [],
+              "label": "Revision AKA",
               "modifiers": [
                 "-LT",
                 "-RT",
@@ -12294,6 +12408,48 @@
                 "-79"
               ],
               "work_rvu": 7.11
+            },
+            {
+              "cpt_code": "27596",
+              "description": "Amputation, thigh, through femur, any level; re-amputation",
+              "icd10": [
+                "T87.89",
+                "Z89.61",
+                "Z89.62"
+              ],
+              "label": "AKA re-amputation",
+              "modifiers": [
+                "-LT",
+                "-RT",
+                "-58",
+                "-78",
+                "-79"
+              ],
+              "work_rvu": 11.01
+            },
+            {
+              "cpt_code": "27598",
+              "description": "Disarticulation at knee",
+              "icd10": [],
+              "label": "Knee disarticulation",
+              "modifiers": [],
+              "work_rvu": 10.94
+            },
+            {
+              "cpt_code": "27290",
+              "description": "Interpelviabdominal (hindquarter) amputation",
+              "icd10": [],
+              "label": "Hip/hindquarter amputation",
+              "modifiers": [],
+              "work_rvu": 23.94
+            },
+            {
+              "cpt_code": "27295",
+              "description": "Disarticulation of hip",
+              "icd10": [],
+              "label": "Hip disarticulation",
+              "modifiers": [],
+              "work_rvu": 19.17
             }
           ],
           "question": "Level of amputation or revision?"
@@ -17033,12 +17189,24 @@
         "hartmann_questions": {
           "options": [
             {
-              "cpt_code": "44620",
-              "description": "Closure of enterostomy, large or small intestine; without resection and anastomosis",
+              "cpt_code": "44227",
+              "description": "Laparoscopy, surgical, closure of enterostomy, large or small intestine, with resection and anastomosis",
               "icd10": [
                 "Z93.3",
                 "Z43.3"
               ],
+              "label": "Laparoscopic enterostomy closure",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 27.9
+            },
+            {
+              "cpt_code": "44620",
+              "description": "Closure of enterostomy, large or small intestine; without resection and anastomosis",
+              "icd10": [],
               "label": "Stoma closure without resection/anastomosis",
               "modifiers": [
                 "-22",
@@ -17050,10 +17218,7 @@
             {
               "cpt_code": "44625",
               "description": "Closure of enterostomy, large or small intestine; with resection and anastomosis",
-              "icd10": [
-                "Z93.3",
-                "Z43.3"
-              ],
+              "icd10": [],
               "label": "Stoma closure with resection/anastomosis",
               "modifiers": [
                 "-22",
@@ -17065,11 +17230,7 @@
             {
               "cpt_code": "44626",
               "description": "Closure of enterostomy, large or small intestine; with resection and colorectal anastomosis (eg, closure of Hartmann type procedure)",
-              "icd10": [
-                "Z93.3",
-                "Z43.3",
-                "K57.20"
-              ],
+              "icd10": [],
               "label": "Hartmann reversal / coloproctostomy",
               "modifiers": [
                 "-22",
@@ -17081,9 +17242,7 @@
             {
               "cpt_code": "44640",
               "description": "Closure of intestinal cutaneous fistula",
-              "icd10": [
-                "K63.2"
-              ],
+              "icd10": [],
               "label": "Intestinal cutaneous fistula closure",
               "modifiers": [
                 "-22",
@@ -17091,6 +17250,86 @@
                 "-59"
               ],
               "work_rvu": 23.6
+            },
+            {
+              "cpt_code": "44650",
+              "description": "Closure of enteroenteric or enterocolic fistula",
+              "icd10": [
+                "K63.2"
+              ],
+              "label": "Intestinal fistula closure",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 24.49
+            },
+            {
+              "cpt_code": "44660",
+              "description": "Closure of enterovesical fistula; without intestinal or bladder resection",
+              "icd10": [
+                "N32.1",
+                "K63.2"
+              ],
+              "label": "Enterovesical fistula closure",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 23.31
+            },
+            {
+              "cpt_code": "44661",
+              "description": "Closure of enterovesical fistula; with intestinal or bladder resection",
+              "icd10": [
+                "N32.1",
+                "K63.2"
+              ],
+              "label": "Enterovesical fistula closure with resection",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 26.67
+            },
+            {
+              "cpt_code": "45397",
+              "description": "Laparoscopy, surgical; proctectomy, combined abdominoperineal pull-through procedure, with creation of colonic reservoir",
+              "icd10": [],
+              "label": "Laparoscopic proctectomy with pouch/reservoir",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 35.59
+            },
+            {
+              "cpt_code": "49621",
+              "description": "Repair of parastomal hernia, reducible",
+              "icd10": [],
+              "label": "Parastomal hernia repair, reducible",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 13.36
+            },
+            {
+              "cpt_code": "49622",
+              "description": "Repair of parastomal hernia, incarcerated or strangulated",
+              "icd10": [],
+              "label": "Parastomal hernia repair, incarcerated/strangulated",
+              "modifiers": [
+                "-22",
+                "-51",
+                "-59"
+              ],
+              "work_rvu": 16.63
             }
           ],
           "question": "Colostomy reversal / enterostomy closure type?"
