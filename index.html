@@ -1188,6 +1188,8 @@ const searchState={
  cptSearchIndexLoading:null,
  suggestedMappingsLoaded:false,
  suggestedMappingsLoading:null,
+ suggestionRankingsLoaded:false,
+ suggestionRankingsLoading:null,
  suggestedCptResults:[],
  activeResultIndex:-1,
  suppressTypeahead:false,
@@ -1237,6 +1239,7 @@ const DEFAULT_SUGGESTED_CPT_MAPPINGS=[
  {terms:['colon resection','colectomy','sigmoid colectomy','robotic sigmoid colectomy','laparoscopic colectomy','low anterior resection','lar'],cpts:['44204','44140','44143','44145','44146','44147'],note:'Colon resection codes vary by approach, ostomy, and anastomosis level.'}
 ];
 let adminSuggestedMappings=[];
+let suggestionRankings=new Map();
 
 function normalizeSearchValue(value){
  return String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
@@ -1573,10 +1576,28 @@ async function loadSuggestedMappings(){
  return searchState.suggestedMappingsLoading;
 }
 
+async function loadSuggestionRankings(){
+ if(searchState.suggestionRankingsLoaded)return suggestionRankings;
+ if(searchState.suggestionRankingsLoading)return searchState.suggestionRankingsLoading;
+ searchState.suggestionRankingsLoading=(async()=>{
+  try{
+   const res=await fetch(REPORT_BACKEND_URL+'/suggestion-rankings');
+   if(res.ok){
+    const data=await res.json();
+    suggestionRankings=new Map((data.rankings||[]).map(row=>[normalizeSearchValue(row.searchTerm),row]));
+   }
+  }catch(err){}
+  searchState.suggestionRankingsLoaded=true;
+  return suggestionRankings;
+ })();
+ return searchState.suggestionRankingsLoading;
+}
+
 function findSuggestedCodesForQuery(query){
  const q=normalizeSearchValue(query);
  if(!q||q.length<2)return [];
- const rows=[...adminSuggestedMappings,...mappingRowsFromDefaults()];
+ const adminTerms=new Set(adminSuggestedMappings.map(row=>row.term));
+ const rows=[...adminSuggestedMappings.map(row=>({...row,source:'admin'})),...mappingRowsFromDefaults().filter(row=>!adminTerms.has(row.term)).map(row=>({...row,source:'default'}))];
  const scored=[];
  rows.forEach(row=>{
   if(!row.term||!row.cpts?.length)return;
@@ -1591,11 +1612,19 @@ function findSuggestedCodesForQuery(query){
   }
   if(score>=0)scored.push({score,row});
  });
+ const ranking=suggestionRankings.get(q);
  const codes=[];
- scored.sort((a,b)=>b.score-a.score).forEach(({row})=>{
-  row.cpts.forEach(code=>{if(!codes.includes(String(code)))codes.push(String(code))});
+ scored.sort((a,b)=>b.score-a.score).forEach(({score,row})=>{
+  row.cpts.forEach((code,index)=>{
+   const c=String(code);
+   if(codes.some(item=>item.code===c))return;
+   const adminWeight=row.source==='admin'?100000:0;
+   const base=score*1000+(row.cpts.length-index)*10;
+   const clickWeight=Number(ranking?.cptScores?.[c]||0);
+   codes.push({code:c,score:adminWeight+base+clickWeight});
+  });
  });
- return codes.slice(0,8);
+ return codes.sort((a,b)=>b.score-a.score).map(item=>item.code).slice(0,8);
 }
 
 function buildSuggestedCptResults(query,ranked){
@@ -1769,6 +1798,7 @@ async function filterSearchExperience(query){
  }
  await loadCptSearchIndex();
  await loadSuggestedMappings();
+ await loadSuggestionRankings();
  const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,12).map(entry=>entry.item);
  searchState.searchResults=ranked;
  searchState.suggestedCptResults=buildSuggestedCptResults(query,ranked);

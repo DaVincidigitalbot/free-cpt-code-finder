@@ -123,9 +123,50 @@ function suggestionAnalyticsSummary(limit = 20) {
     grouped.set(term, current);
   }
   return [...grouped.values()]
-    .map(row => ({ ...row, clickedCpts: [...row.clickedCpts.entries()].map(([code, count]) => code + ' (' + count + ')').join(', ') }))
+    .map(row => {
+      const clickedEntries = [...row.clickedCpts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+      const topClickedCpt = clickedEntries[0]?.[0] || '';
+      const ctr = row.shown ? Number(((row.clicks / row.shown) * 100).toFixed(1)) : 0;
+      return {
+        ...row,
+        topClickedCpt,
+        ctr,
+        clickedCpts: clickedEntries.map(([code, count]) => code + ' (' + count + ')').join(', ')
+      };
+    })
     .sort((a, b) => (b.clicks + b.shown) - (a.clicks + a.shown) || String(b.lastSeenAt).localeCompare(String(a.lastSeenAt)))
     .slice(0, limit);
+}
+
+function suggestionRankingData(limit = 200) {
+  const grouped = new Map();
+  const now = Date.now();
+  for (const entry of loadSuggestionAnalytics()) {
+    const term = normalizeSearchTerm(entry.searchTerm || '');
+    if (!term) continue;
+    const current = grouped.get(term) || { searchTerm: term, shown: 0, clicks: 0, cptScores: {}, topClickedCpt: '', ctr: 0 };
+    if (entry.eventType === 'clicked') {
+      current.clicks += 1;
+      const code = sanitizeText(entry.clickedCpt || '', 20);
+      if (/^\d{5}$/.test(code)) {
+        const ageDays = Math.max(0, (now - Date.parse(entry.createdAt || '')) / 86400000);
+        const recentWeight = ageDays <= 30 ? 2 : ageDays <= 90 ? 1 : 0;
+        const score = 3 + recentWeight;
+        current.cptScores[code] = (current.cptScores[code] || 0) + score;
+      }
+    } else {
+      current.shown += 1;
+    }
+    grouped.set(term, current);
+  }
+  return [...grouped.values()].map(row => {
+    const ranked = Object.entries(row.cptScores).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    return {
+      ...row,
+      topClickedCpt: ranked[0]?.[0] || '',
+      ctr: row.shown ? Number(((row.clicks / row.shown) * 100).toFixed(1)) : 0
+    };
+  }).sort((a, b) => b.clicks - a.clicks || b.shown - a.shown).slice(0, limit);
 }
 
 function topUnsuccessfulSearches(limit = 20) {
@@ -726,6 +767,10 @@ app.get('/suggested-cpt-mappings', async (_req, res) => {
   }
 });
 
+app.get('/suggestion-rankings', (_req, res) => {
+  res.json({ ok: true, rankings: suggestionRankingData() });
+});
+
 app.post('/suggested-cpt-mappings', reportRateLimit, async (req, res) => {
   const configuredKey = adminReportsKey;
   if (configuredKey && req.query.key !== configuredKey) return res.status(401).json({ error: 'unauthorized' });
@@ -783,7 +828,7 @@ app.get('/admin/reports', async (req, res) => {
   const filteredReports = typeFilter && typeFilter !== 'other' ? reports.filter(report => normalizeIssueType(report.issueType) === typeFilter) : reports;
   const rows = filteredReports.map(report => '<tr><td><code>' + escapeHtml(report.id) + '</code><br><small>' + escapeHtml(report.createdAt) + '</small></td><td>' + escapeHtml(report.issueLabel || issueLabel(report.issueType)) + '<br><small>' + escapeHtml(report.issueType) + ' / ' + escapeHtml(report.severity) + '</small></td><td><strong>' + escapeHtml(report.title) + '</strong><br>' + escapeHtml(report.summary || report.description) + '</td><td>' + escapeHtml(report.missingCpt?.procedureName || '') + '</td><td>' + escapeHtml(report.missingCpt?.specialty || '') + '</td><td>' + escapeHtml(report.missingCpt?.suggestedCpt || (report.cptCodes || []).join(', ')) + '</td><td>' + escapeHtml(report.missingCpt?.status || report.status || 'new') + '</td><td>' + (report.delivery.githubIssueUrl ? '<a href="' + escapeAttr(report.delivery.githubIssueUrl) + '">GitHub</a>' : 'Logged') + '<br><small>' + escapeHtml((report.delivery.errors || []).join(' | ')) + '</small></td><td>' + escapeHtml(report.suggestedFix?.summary || '') + '<br><small>No commit, merge, push, or deploy without human approval.</small></td></tr>').join('');
   const searchRows = topUnsuccessfulSearches(20).map(row => '<tr><td>' + escapeHtml(row.searchTerm) + '</td><td>' + row.count + '</td><td>' + escapeHtml(row.lastSeenAt) + '</td></tr>').join('');
-  const suggestedAnalyticsRows = suggestionAnalyticsSummary(20).map(row => '<tr><td>' + escapeHtml(row.searchTerm) + '</td><td>' + row.shown + '</td><td>' + row.clicks + '</td><td>' + escapeHtml(row.clickedCpts || '') + '</td><td>' + escapeHtml(row.lastSeenAt) + '</td></tr>').join('');
+  const suggestedAnalyticsRows = suggestionAnalyticsSummary(20).map(row => '<tr><td>' + escapeHtml(row.searchTerm) + '</td><td>' + row.shown + '</td><td>' + row.clicks + '</td><td>' + escapeHtml(row.topClickedCpt || '') + '</td><td>' + row.ctr.toFixed(1) + '%</td><td>' + escapeHtml(row.clickedCpts || '') + '</td><td>' + escapeHtml(row.lastSeenAt) + '</td></tr>').join('');
   let mappingRows = '';
   let mappingStoreError = '';
   try {
@@ -794,7 +839,7 @@ app.get('/admin/reports', async (req, res) => {
   const filterBlock = '<div class="filters"><a href="/admin/reports?key=' + escapeAttr(req.query.key || '') + '">All</a><a href="/admin/reports?type=missing_cpt_code&key=' + escapeAttr(req.query.key || '') + '">Missing CPT Code</a><a href="/admin/reports?type=search_problem&key=' + escapeAttr(req.query.key || '') + '">Search Issue</a><span>Statuses: New, Reviewing, Added, Duplicate, Not Applicable</span></div>';
   const errorBlock = dashboardErrors.length ? '<div class="err">GitHub dashboard store error: ' + escapeHtml(dashboardErrors.join(' | ')) + '</div>' : '';
   const mappingForm = '<h2>Suggested CPT Mapping Manager</h2>' + mappingStoreError + '<form method="post" action="/suggested-cpt-mappings?key=' + escapeAttr(req.query.key || '') + '" style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px;background:white;border:1px solid #e2e8f0;padding:14px;margin-bottom:14px"><label>Search Term<br><input name="term" placeholder="completion proctectomy" required></label><label>Mapped CPTs<br><input name="cpts" placeholder="44626, 44625" required></label><label>Status<br><select name="status"><option>Active</option><option>Inactive</option></select></label><label style="grid-column:1 / -2">Note<br><input name="note" placeholder="Internal review note"></label><button type="submit">Save Mapping</button></form>';
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}input,select,button{box-sizing:border-box;width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px;font:inherit}button{background:#0b1f3a;color:white;font-weight:800}@media(max-width:760px){main{padding:16px}form{grid-template-columns:1fr!important}label{grid-column:auto!important}}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table>' + mappingForm + '<table><thead><tr><th>Search Term</th><th>Mapped CPTs</th><th>Status</th><th>Note</th></tr></thead><tbody>' + (mappingRows || '<tr><td colspan="4">No admin mappings yet. Default frontend mappings still apply.</td></tr>') + '</tbody></table><h2>Suggestion Analytics</h2><table><thead><tr><th>Search Term</th><th>Shown</th><th>Clicks</th><th>Clicked CPTs</th><th>Last Seen</th></tr></thead><tbody>' + (suggestedAnalyticsRows || '<tr><td colspan="5">No suggestion analytics logged yet.</td></tr>') + '</tbody></table></main></body></html>');
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}input,select,button{box-sizing:border-box;width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px;font:inherit}button{background:#0b1f3a;color:white;font-weight:800}@media(max-width:760px){main{padding:16px}form{grid-template-columns:1fr!important}label{grid-column:auto!important}}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table>' + mappingForm + '<table><thead><tr><th>Search Term</th><th>Mapped CPTs</th><th>Status</th><th>Note</th></tr></thead><tbody>' + (mappingRows || '<tr><td colspan="4">No admin mappings yet. Default frontend mappings still apply.</td></tr>') + '</tbody></table><h2>Suggested CPT Analytics</h2><table><thead><tr><th>Search Term</th><th>Times Shown</th><th>Times Clicked</th><th>Top Clicked CPT</th><th>CTR %</th><th>Clicked CPTs</th><th>Last Seen</th></tr></thead><tbody>' + (suggestedAnalyticsRows || '<tr><td colspan="7">No suggestion analytics logged yet.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 function escapeHtml(value) {
