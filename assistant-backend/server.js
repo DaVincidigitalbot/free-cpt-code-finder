@@ -14,6 +14,8 @@ const cptDbPath = path.join(projectRoot, 'cpt_database.json');
 const dataDir = path.join(__dirname, 'data');
 const reportLogPath = path.join(dataDir, 'bug_reports.json');
 const unsuccessfulSearchLogPath = path.join(dataDir, 'unsuccessful_searches.json');
+const suggestionAnalyticsLogPath = path.join(dataDir, 'suggestion_analytics.json');
+const mappingStoreTitle = '[FREECPT SUGGESTED CPT MAPPINGS]';
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 const app = express();
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'https://freecptcodefinder.com,https://www.freecptcodefinder.com').split(',').map(s => s.trim()).filter(Boolean);
@@ -34,6 +36,7 @@ const reportRateLimit = rateLimit({
 
 app.use(cors({ origin(origin, callback) { if (!origin || allowedOrigins.includes(origin)) return callback(null, true); return callback(null, false); } }));
 app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: false, limit: '100kb' }));
 app.use('/staging-frontend', express.static(projectRoot));
 app.use('/styles', express.static(path.join(projectRoot, 'styles')));
 app.use('/js', express.static(path.join(projectRoot, 'js')));
@@ -52,6 +55,7 @@ function ensureDataDir() {
   fs.mkdirSync(dataDir, { recursive: true });
   if (!fs.existsSync(reportLogPath)) fs.writeFileSync(reportLogPath, '[]\n');
   if (!fs.existsSync(unsuccessfulSearchLogPath)) fs.writeFileSync(unsuccessfulSearchLogPath, '[]\n');
+  if (!fs.existsSync(suggestionAnalyticsLogPath)) fs.writeFileSync(suggestionAnalyticsLogPath, '[]\n');
 }
 
 function loadReports() {
@@ -84,6 +88,44 @@ function saveUnsuccessfulSearch(entry) {
   const searches = loadUnsuccessfulSearches();
   searches.unshift(entry);
   fs.writeFileSync(unsuccessfulSearchLogPath, JSON.stringify(searches.slice(0, 2000), null, 2) + '\n');
+}
+
+function loadSuggestionAnalytics() {
+  ensureDataDir();
+  try {
+    const parsed = JSON.parse(fs.readFileSync(suggestionAnalyticsLogPath, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveSuggestionAnalytics(entry) {
+  const analytics = loadSuggestionAnalytics();
+  analytics.unshift(entry);
+  fs.writeFileSync(suggestionAnalyticsLogPath, JSON.stringify(analytics.slice(0, 3000), null, 2) + '\n');
+}
+
+function suggestionAnalyticsSummary(limit = 20) {
+  const grouped = new Map();
+  for (const entry of loadSuggestionAnalytics()) {
+    const term = normalizeSearchTerm(entry.searchTerm || '');
+    if (!term) continue;
+    const current = grouped.get(term) || { searchTerm: term, shown: 0, clicks: 0, clickedCpts: new Map(), lastSeenAt: entry.createdAt || '' };
+    if (entry.eventType === 'clicked') {
+      current.clicks += 1;
+      const code = sanitizeText(entry.clickedCpt || '', 20);
+      if (code) current.clickedCpts.set(code, (current.clickedCpts.get(code) || 0) + 1);
+    } else {
+      current.shown += 1;
+    }
+    if (String(entry.createdAt || '') > String(current.lastSeenAt || '')) current.lastSeenAt = entry.createdAt;
+    grouped.set(term, current);
+  }
+  return [...grouped.values()]
+    .map(row => ({ ...row, clickedCpts: [...row.clickedCpts.entries()].map(([code, count]) => code + ' (' + count + ')').join(', ') }))
+    .sort((a, b) => (b.clicks + b.shown) - (a.clicks + a.shown) || String(b.lastSeenAt).localeCompare(String(a.lastSeenAt)))
+    .slice(0, limit);
 }
 
 function topUnsuccessfulSearches(limit = 20) {
@@ -379,6 +421,69 @@ async function githubFetch(pathname, options = {}) {
   return response;
 }
 
+function normalizeMappingTerm(value) {
+  return normalizeSearchTerm(value).slice(0, 120);
+}
+
+function normalizeMappingCodes(value) {
+  const raw = Array.isArray(value) ? value : String(value || '').split(/[\s,]+/);
+  return [...new Set(raw.map(code => sanitizeText(code, 20).replace(/[^0-9A-Za-z]/g, '')).filter(code => /^\d{5}$/.test(code)))].slice(0, 12);
+}
+
+function normalizeSuggestedMappings(value) {
+  const rows = Array.isArray(value) ? value : [];
+  return rows.map(row => ({
+    term: normalizeMappingTerm(row.term || row.searchTerm || ''),
+    cpts: normalizeMappingCodes(row.cpts || row.codes || row.mappedCpts || ''),
+    status: sanitizeText(row.status || 'Active', 30) || 'Active',
+    note: sanitizeText(row.note || '', 200)
+  })).filter(row => row.term && row.cpts.length && /^active$/i.test(row.status));
+}
+
+async function getSuggestedMappingIssue() {
+  if (!githubToken) return null;
+  const response = await githubFetch('/issues?state=open&labels=search-mapping&per_page=20');
+  const issues = await response.json();
+  if (!response.ok) throw new Error(issues.message || 'GitHub mapping issue list failed (' + response.status + ')');
+  return issues.find(issue => issue.title === mappingStoreTitle) || null;
+}
+
+async function loadSuggestedMappings() {
+  if (!githubToken) return [];
+  const issue = await getSuggestedMappingIssue();
+  if (!issue) return [];
+  const match = String(issue.body || '').match(/FREECPT_SUGGESTED_MAPPINGS_JSON_START\n([\s\S]*?)\nFREECPT_SUGGESTED_MAPPINGS_JSON_END/);
+  if (!match) return [];
+  try {
+    return normalizeSuggestedMappings(JSON.parse(match[1]));
+  } catch {
+    return [];
+  }
+}
+
+async function saveSuggestedMappings(mappings) {
+  if (!githubToken) throw new Error('GITHUB_TOKEN is not set');
+  await ensureGithubLabels(['search-mapping']);
+  const normalized = normalizeSuggestedMappings(mappings);
+  const body = [
+    '<!-- FREECPT_SUGGESTED_MAPPINGS_JSON_START',
+    JSON.stringify(normalized, null, 2),
+    'FREECPT_SUGGESTED_MAPPINGS_JSON_END -->',
+    '',
+    'Durable Suggested CPT Mapping Manager store.',
+    '',
+    'Edit via admin dashboard; public endpoint exposes active term-to-CPT mappings only.'
+  ].join('\n');
+  const existing = await getSuggestedMappingIssue();
+  const payload = JSON.stringify({ title: mappingStoreTitle, body, labels: ['search-mapping'] });
+  const response = existing
+    ? await githubFetch('/issues/' + existing.number, { method: 'PATCH', body: payload })
+    : await githubFetch('/issues', { method: 'POST', body: payload });
+  const json = await response.json();
+  if (!response.ok) throw new Error(json.message || 'GitHub mapping store update failed (' + response.status + ')');
+  return { mappings: normalized, url: json.html_url, number: json.number };
+}
+
 async function ensureGithubLabels(labels) {
   for (const name of labels) {
     const safeName = sanitizeText(name, 50);
@@ -612,6 +717,56 @@ app.post('/search-analytics', reportRateLimit, (req, res) => {
   res.status(201).json({ ok: true, logged: true });
 });
 
+app.get('/suggested-cpt-mappings', async (_req, res) => {
+  try {
+    const mappings = await loadSuggestedMappings();
+    res.json({ ok: true, mappings });
+  } catch (err) {
+    res.status(503).json({ ok: false, mappings: [], error: 'mapping_store_unavailable' });
+  }
+});
+
+app.post('/suggested-cpt-mappings', reportRateLimit, async (req, res) => {
+  const configuredKey = adminReportsKey;
+  if (configuredKey && req.query.key !== configuredKey) return res.status(401).json({ error: 'unauthorized' });
+  try {
+    const term = normalizeMappingTerm(req.body?.term || req.body?.searchTerm || '');
+    const cpts = normalizeMappingCodes(req.body?.cpts || req.body?.codes || req.body?.mappedCpts || '');
+    const status = sanitizeText(req.body?.status || 'Active', 30) || 'Active';
+    const note = sanitizeText(req.body?.note || '', 200);
+    if (!term || !cpts.length) return res.status(400).json({ error: 'term and cpts required' });
+    if (looksLikePhiSearch(term)) return res.status(400).json({ error: 'phi_like_mapping_rejected' });
+    const existing = await loadSuggestedMappings();
+    const next = existing.filter(row => row.term !== term);
+    if (/^active$/i.test(status)) next.unshift({ term, cpts, status: 'Active', note });
+    const saved = await saveSuggestedMappings(next);
+    if (String(req.headers.accept || '').includes('text/html')) {
+      return res.redirect('/admin/reports?key=' + encodeURIComponent(req.query.key || ''));
+    }
+    res.status(201).json({ ok: true, ...saved });
+  } catch (err) {
+    res.status(500).json({ error: 'mapping_update_failed', detail: err.message });
+  }
+});
+
+app.post('/suggestion-analytics', reportRateLimit, (req, res) => {
+  const rawSearchTerm = sanitizeText(req.body?.searchTerm || '', 160);
+  const searchTerm = normalizeSearchTerm(rawSearchTerm);
+  const eventType = sanitizeText(req.body?.eventType || req.body?.event || 'shown', 20).toLowerCase() === 'clicked' ? 'clicked' : 'shown';
+  const clickedCpt = sanitizeText(req.body?.clickedCpt || '', 20).replace(/[^0-9A-Za-z]/g, '');
+  if (!searchTerm || searchTerm.length < 2) return res.status(400).json({ error: 'searchTerm required' });
+  if (looksLikePhiSearch(rawSearchTerm)) return res.json({ ok: true, logged: false, reason: 'phi_like_suggestion_rejected' });
+  saveSuggestionAnalytics({
+    id: 'SUGGEST-' + new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14) + '-' + crypto.randomBytes(2).toString('hex').toUpperCase(),
+    createdAt: new Date().toISOString(),
+    searchTerm,
+    eventType,
+    clickedCpt: /^\d{5}$/.test(clickedCpt) ? clickedCpt : '',
+    pagePath: pagePathOnly(req.body?.pagePath || req.body?.pageUrl || '')
+  });
+  res.status(201).json({ ok: true, logged: true });
+});
+
 app.get('/admin/reports', async (req, res) => {
   const configuredKey = adminReportsKey;
   if (configuredKey && req.query.key !== configuredKey) return res.status(401).send('Unauthorized');
@@ -628,9 +783,18 @@ app.get('/admin/reports', async (req, res) => {
   const filteredReports = typeFilter && typeFilter !== 'other' ? reports.filter(report => normalizeIssueType(report.issueType) === typeFilter) : reports;
   const rows = filteredReports.map(report => '<tr><td><code>' + escapeHtml(report.id) + '</code><br><small>' + escapeHtml(report.createdAt) + '</small></td><td>' + escapeHtml(report.issueLabel || issueLabel(report.issueType)) + '<br><small>' + escapeHtml(report.issueType) + ' / ' + escapeHtml(report.severity) + '</small></td><td><strong>' + escapeHtml(report.title) + '</strong><br>' + escapeHtml(report.summary || report.description) + '</td><td>' + escapeHtml(report.missingCpt?.procedureName || '') + '</td><td>' + escapeHtml(report.missingCpt?.specialty || '') + '</td><td>' + escapeHtml(report.missingCpt?.suggestedCpt || (report.cptCodes || []).join(', ')) + '</td><td>' + escapeHtml(report.missingCpt?.status || report.status || 'new') + '</td><td>' + (report.delivery.githubIssueUrl ? '<a href="' + escapeAttr(report.delivery.githubIssueUrl) + '">GitHub</a>' : 'Logged') + '<br><small>' + escapeHtml((report.delivery.errors || []).join(' | ')) + '</small></td><td>' + escapeHtml(report.suggestedFix?.summary || '') + '<br><small>No commit, merge, push, or deploy without human approval.</small></td></tr>').join('');
   const searchRows = topUnsuccessfulSearches(20).map(row => '<tr><td>' + escapeHtml(row.searchTerm) + '</td><td>' + row.count + '</td><td>' + escapeHtml(row.lastSeenAt) + '</td></tr>').join('');
+  const suggestedAnalyticsRows = suggestionAnalyticsSummary(20).map(row => '<tr><td>' + escapeHtml(row.searchTerm) + '</td><td>' + row.shown + '</td><td>' + row.clicks + '</td><td>' + escapeHtml(row.clickedCpts || '') + '</td><td>' + escapeHtml(row.lastSeenAt) + '</td></tr>').join('');
+  let mappingRows = '';
+  let mappingStoreError = '';
+  try {
+    mappingRows = (await loadSuggestedMappings()).map(row => '<tr><td>' + escapeHtml(row.term) + '</td><td><code>' + escapeHtml(row.cpts.join(', ')) + '</code></td><td>' + escapeHtml(row.status) + '</td><td>' + escapeHtml(row.note || '') + '</td></tr>').join('');
+  } catch (err) {
+    mappingStoreError = '<div class="err">Suggested CPT mapping store error: ' + escapeHtml(err.message) + '</div>';
+  }
   const filterBlock = '<div class="filters"><a href="/admin/reports?key=' + escapeAttr(req.query.key || '') + '">All</a><a href="/admin/reports?type=missing_cpt_code&key=' + escapeAttr(req.query.key || '') + '">Missing CPT Code</a><a href="/admin/reports?type=search_problem&key=' + escapeAttr(req.query.key || '') + '">Search Issue</a><span>Statuses: New, Reviewing, Added, Duplicate, Not Applicable</span></div>';
   const errorBlock = dashboardErrors.length ? '<div class="err">GitHub dashboard store error: ' + escapeHtml(dashboardErrors.join(' | ')) + '</div>' : '';
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table></main></body></html>');
+  const mappingForm = '<h2>Suggested CPT Mapping Manager</h2>' + mappingStoreError + '<form method="post" action="/suggested-cpt-mappings?key=' + escapeAttr(req.query.key || '') + '" style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px;background:white;border:1px solid #e2e8f0;padding:14px;margin-bottom:14px"><label>Search Term<br><input name="term" placeholder="completion proctectomy" required></label><label>Mapped CPTs<br><input name="cpts" placeholder="44626, 44625" required></label><label>Status<br><select name="status"><option>Active</option><option>Inactive</option></select></label><label style="grid-column:1 / -2">Note<br><input name="note" placeholder="Internal review note"></label><button type="submit">Save Mapping</button></form>';
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}input,select,button{box-sizing:border-box;width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px;font:inherit}button{background:#0b1f3a;color:white;font-weight:800}@media(max-width:760px){main{padding:16px}form{grid-template-columns:1fr!important}label{grid-column:auto!important}}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table>' + mappingForm + '<table><thead><tr><th>Search Term</th><th>Mapped CPTs</th><th>Status</th><th>Note</th></tr></thead><tbody>' + (mappingRows || '<tr><td colspan="4">No admin mappings yet. Default frontend mappings still apply.</td></tr>') + '</tbody></table><h2>Suggestion Analytics</h2><table><thead><tr><th>Search Term</th><th>Shown</th><th>Clicks</th><th>Clicked CPTs</th><th>Last Seen</th></tr></thead><tbody>' + (suggestedAnalyticsRows || '<tr><td colspan="5">No suggestion analytics logged yet.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 function escapeHtml(value) {
