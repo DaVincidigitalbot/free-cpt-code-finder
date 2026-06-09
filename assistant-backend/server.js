@@ -126,7 +126,7 @@ function suggestionAnalyticsSummary(limit = 20) {
     .map(row => {
       const clickedEntries = [...row.clickedCpts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
       const topClickedCpt = clickedEntries[0]?.[0] || '';
-      const ctr = row.shown ? Number(((row.clicks / row.shown) * 100).toFixed(1)) : 0;
+      const ctr = row.shown ? Math.min(100, Number(((row.clicks / row.shown) * 100).toFixed(1))) : 0;
       return {
         ...row,
         topClickedCpt,
@@ -165,7 +165,7 @@ function suggestionRankingData(limit = 200) {
     return {
       ...row,
       topClickedCpt: ranked[0]?.[0] || '',
-      ctr: row.shown ? Number(((row.clicks / row.shown) * 100).toFixed(1)) : 0
+      ctr: row.shown ? Math.min(100, Number(((row.clicks / row.shown) * 100).toFixed(1))) : 0
     };
   }).sort((a, b) => b.clicks - a.clicks || b.shown - a.shown).slice(0, limit);
 }
