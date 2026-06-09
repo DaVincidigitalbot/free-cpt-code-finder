@@ -83,6 +83,20 @@ a{color:inherit;text-decoration:none}
 .suggested-cpt-item:hover,.suggested-cpt-item:focus{border-color:var(--ox);box-shadow:0 0 0 2px rgba(35,87,123,.12);outline:0}
 .suggested-cpt-desc{font-size:12px;font-weight:650;line-height:1.3;overflow-wrap:anywhere}
 .suggested-cpt-meta{font-size:11px;color:var(--ink2);margin-top:3px;display:flex;gap:8px;flex-wrap:wrap}
+.procedure-intel-card{border-top:1px solid var(--line);background:#fff;padding:14px}
+.procedure-intel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.procedure-intel-kicker{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ox)}
+.procedure-intel-title{font-size:13px;font-weight:800;color:var(--ink);margin-top:3px}
+.procedure-intel-note{font-size:11px;color:var(--ink2);line-height:1.35;max-width:320px}
+.procedure-intel-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px}
+.procedure-intel-section{border:1px solid var(--line2);border-radius:8px;background:#f8fafc;padding:10px;min-width:0}
+.procedure-intel-section h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.procedure-intel-list{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:12px;color:var(--ink);line-height:1.35}
+.procedure-intel-list li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:6px}
+.procedure-intel-list span:first-child{color:var(--ox);font-weight:800}
+.procedure-intel-cpt{display:block;border:1px solid var(--line2);border-radius:8px;background:var(--white);padding:9px;text-decoration:none;color:var(--ink);margin-bottom:6px}
+.procedure-intel-cpt:hover,.procedure-intel-cpt:focus{border-color:var(--ox);box-shadow:0 0 0 2px rgba(35,87,123,.12);outline:0}
+@media(max-width:640px){.procedure-intel-head{display:block}.procedure-intel-note{margin-top:6px;max-width:none}.procedure-intel-grid{grid-template-columns:1fr}}
 .alif-example-card{margin:8px 10px 10px;padding:14px 16px;border:1px solid var(--line2);border-radius:10px;background:var(--bg2);color:var(--ink);font-size:13px;line-height:1.45}
 .alif-example-title{font-weight:700;margin-bottom:10px}
 .alif-example-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:10px}
@@ -1188,9 +1202,12 @@ const searchState={
  cptSearchIndexLoading:null,
  suggestedMappingsLoaded:false,
  suggestedMappingsLoading:null,
+ procedureIntelligenceLoaded:false,
+ procedureIntelligenceLoading:null,
  suggestionRankingsLoaded:false,
  suggestionRankingsLoading:null,
  suggestedCptResults:[],
+ procedureIntelligenceGroup:null,
  activeResultIndex:-1,
  suppressTypeahead:false,
  zeroResultLogged:new Set(),
@@ -1239,10 +1256,27 @@ const DEFAULT_SUGGESTED_CPT_MAPPINGS=[
  {terms:['colon resection','colectomy','sigmoid colectomy','robotic sigmoid colectomy','laparoscopic colectomy','low anterior resection','lar'],cpts:['44204','44140','44143','44145','44146','44147'],note:'Colon resection codes vary by approach, ostomy, and anastomosis level.'}
 ];
 let adminSuggestedMappings=[];
+const DEFAULT_PROCEDURE_INTELLIGENCE=[
+ {id:'hartmann-reversal',title:'Hartmann reversal / colostomy reversal',terms:['hartmann reversal','hartmanns reversal','reversal of hartmann procedure','colostomy reversal','colostomy takedown','end colostomy takedown','colostomy closure','stoma reversal','ostomy reversal','coloproctostomy','restore bowel continuity'],considerations:['Was bowel resection performed?','Was a colorectal anastomosis created?','Was a diverting loop ileostomy created?','Was a parastomal hernia repaired?','Was mesh implanted?','Were additional procedures performed by another service?'],cpts:['44626','44625','44620'],note:'Educational checklist only. CPT selection depends on operative documentation.'},
+ {id:'ileostomy-reversal',title:'Ileostomy reversal / enterostomy closure',terms:['ileostomy reversal','ileostomy takedown','loop ileostomy closure','stoma closure','ostomy closure','enterostomy closure'],considerations:['Was bowel resection performed?','Was an anastomosis created?','Was the closure limited to the stoma site?','Was another abdominal procedure performed at the same operation?','Was the approach open, laparoscopic, or robotic?'],cpts:['44620','44625','44626'],note:'Educational checklist only; official closure terminology depends on operative details.'},
+ {id:'ventral-hernia-repair',title:'Ventral / incisional hernia repair',terms:['ventral hernia repair','incisional hernia repair','abdominal wall hernia repair','robotic ventral hernia repair','complex abdominal wall reconstruction'],considerations:['Is the hernia initial or recurrent?','Is it reducible or incarcerated/strangulated?','What is the total defect size?','Was mesh implanted?','Was myofascial release or component separation performed?','Was repair open, laparoscopic, or robotic?'],cpts:['49591','49593','49595','49613','49615','49617','15734'],note:'Educational variables only; hernia code selection is driven by documentation.'},
+ {id:'inguinal-hernia-repair',title:'Inguinal hernia repair',terms:['inguinal hernia repair','open inguinal hernia repair','laparoscopic inguinal hernia repair','robotic inguinal hernia repair','recurrent inguinal hernia'],considerations:['Is the hernia initial or recurrent?','Is it reducible, incarcerated, or strangulated?','Is repair unilateral or bilateral?','Was mesh implanted?','Was the approach open, laparoscopic, or robotic?','Was another groin procedure performed?'],cpts:['49505','49507','49520','49650','49651'],note:'Educational checklist only; confirm age, recurrence, approach, and laterality.'},
+ {id:'robotic-colectomy',title:'Robotic colectomy / colon resection',terms:['robotic colectomy','robotic sigmoid colectomy','colon resection','sigmoid colectomy','low anterior resection','laparoscopic colectomy','robotic colon resection'],considerations:['Which segment of colon was resected?','Was an anastomosis created?','Was a colostomy or ileostomy created?','Was splenic flexure mobilization documented separately?','Was the operation converted to open?','Was another organ resected?'],cpts:['44204','44205','44207','44208','44140','44143','44145','44146'],note:'Educational checklist only; robotic work usually follows laparoscopic CPT families.'},
+ {id:'thyroidectomy',title:'Thyroidectomy',terms:['thyroidectomy','thyroid removal','total thyroidectomy','thyroid lobectomy','hemithyroidectomy'],considerations:['Was the procedure total thyroidectomy or lobectomy?','Was completion thyroidectomy performed?','Was central neck dissection performed?','Was modified radical neck dissection performed?','Was substernal thyroid work documented?','Was this reoperative neck surgery?'],cpts:['60220','60240','60252','60254'],note:'Educational checklist only; extent of thyroid and nodal work drives CPT review.'},
+ {id:'parathyroidectomy',title:'Parathyroidectomy',terms:['parathyroidectomy','parathyroid removal','parathyroid exploration','reoperative parathyroidectomy'],considerations:['Was this initial exploration or re-exploration?','Was mediastinal parathyroid tissue addressed?','Was thymectomy or another neck procedure performed?','Was intraoperative localization or monitoring documented?','Were multiple glands removed?'],cpts:['60500','60502','60505'],note:'Educational checklist only; confirm initial versus reoperative work.'},
+ {id:'rib-fixation',title:'Rib fixation / rib fracture plating',terms:['rib fixation','rib fracture fixation','rib plating','surgical stabilization of rib fractures','ssrf'],considerations:['How many ribs were treated?','Was fixation open or thoracoscopic assisted?','Were flail chest segments documented?','Was tube thoracostomy or thoracoscopy also performed?','Were both sides treated?'],cpts:['21811','21812'],note:'Educational checklist only; number of ribs and approach affect CPT review.'},
+ {id:'above-knee-amputation',title:'Above-knee amputation',terms:['aka','above knee amputation','above-knee amputation','transfemoral amputation','aka revision','revision aka'],considerations:['Was this a primary amputation or revision?','Was immediate fitting technique performed?','Was secondary closure or scar revision performed?','Was re-amputation performed at a higher level?','Was another vascular or wound procedure performed?'],cpts:['27590','27591','27592','27594'],note:'Educational checklist only; level and revision status matter.'},
+ {id:'below-knee-amputation',title:'Below-knee amputation',terms:['bka','below knee amputation','below-knee amputation','transtibial amputation','bka revision','revision bka'],considerations:['Was this a primary amputation or revision?','Was immediate fitting technique performed?','Was secondary closure or scar revision performed?','Was re-amputation performed?','Was another vascular or wound procedure performed?'],cpts:['27880','27881','27882','27884'],note:'Educational checklist only; level and revision status matter.'}
+];
+let adminProcedureIntelligence=[];
 let suggestionRankings=new Map();
 
 function normalizeSearchValue(value){
  return String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+}
+
+function escapeHtml(value){
+ return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 }
 
 function normalizeCptDatabaseRows(data){
@@ -1576,6 +1610,35 @@ async function loadSuggestedMappings(){
  return searchState.suggestedMappingsLoading;
 }
 
+function normalizeProcedureIntelligenceRows(rows){
+ return (Array.isArray(rows)?rows:[]).map(row=>({
+  id:String(row.id||row.slug||normalizeSearchValue(row.title||'').replace(/\s+/g,'-')).replace(/[^a-z0-9-]/gi,'').toLowerCase(),
+  title:String(row.title||'').trim(),
+  terms:(Array.isArray(row.terms)?row.terms:String(row.terms||'').split(/[,\n]+/)).map(normalizeSearchValue).filter(Boolean),
+  considerations:(Array.isArray(row.considerations)?row.considerations:String(row.considerations||'').split(/\n+/)).map(item=>String(item||'').trim()).filter(Boolean),
+  cpts:(Array.isArray(row.cpts)?row.cpts:String(row.cpts||'').split(/[,\s]+/)).map(code=>String(code||'').replace(/[^0-9]/g,'')).filter(code=>/^\d{5}$/.test(code)),
+  note:String(row.note||'').trim(),
+  status:String(row.status||'Active')
+ })).filter(row=>row.id&&row.title&&row.terms.length&&row.considerations.length&&/^active$/i.test(row.status));
+}
+
+async function loadProcedureIntelligence(){
+ if(searchState.procedureIntelligenceLoaded)return adminProcedureIntelligence;
+ if(searchState.procedureIntelligenceLoading)return searchState.procedureIntelligenceLoading;
+ searchState.procedureIntelligenceLoading=(async()=>{
+  try{
+   const res=await fetch(REPORT_BACKEND_URL+'/procedure-intelligence');
+   if(res.ok){
+    const data=await res.json();
+    adminProcedureIntelligence=normalizeProcedureIntelligenceRows(data.groups||[]);
+   }
+  }catch(err){}
+  searchState.procedureIntelligenceLoaded=true;
+  return adminProcedureIntelligence;
+ })();
+ return searchState.procedureIntelligenceLoading;
+}
+
 async function loadSuggestionRankings(){
  if(searchState.suggestionRankingsLoaded)return suggestionRankings;
  if(searchState.suggestionRankingsLoading)return searchState.suggestionRankingsLoading;
@@ -1670,6 +1733,42 @@ function renderSuggestedCptCard(){
  return '<div class="suggested-cpt-card"><div class="suggested-cpt-kicker">Suggested CPT Codes</div><div class="suggested-cpt-title">Did you mean one of these?</div><div class="suggested-cpt-list">'+suggestions.map((item,index)=>'<button type="button" class="suggested-cpt-item" onclick="selectSuggestedCptResult('+index+')"><div class="autocomplete-code">'+item.code+'</div><div><div class="suggested-cpt-desc">'+item.description+'</div><div class="suggested-cpt-meta"><span>'+item.specialty+'</span>'+appSuggestionMeta(item)+'</div></div><div class="autocomplete-action">add</div></button>').join('')+'</div></div>';
 }
 
+function findProcedureIntelligenceForQuery(query){
+ const q=normalizeSearchValue(query);
+ if(!q||q.length<2)return null;
+ const adminIds=new Set(adminProcedureIntelligence.map(row=>row.id));
+ const rows=[...adminProcedureIntelligence.map(row=>({...row,source:'admin'})),...normalizeProcedureIntelligenceRows(DEFAULT_PROCEDURE_INTELLIGENCE).filter(row=>!adminIds.has(row.id)).map(row=>({...row,source:'default'}))];
+ const qWords=q.split(' ').filter(word=>word.length>2);
+ const scored=rows.map(row=>{
+  let best=-1;
+  row.terms.forEach(term=>{
+   let score=-1;
+   if(q===term)score=100;
+   else if(term.length>3&&q.includes(term))score=88;
+   else if(q.length>3&&term.includes(q))score=82;
+   else if(qWords.length&&qWords.every(word=>term.includes(word)))score=70;
+   if(score>best)best=score;
+  });
+  if(row.source==='admin'&&best>=0)best+=2;
+  return {row,score:best};
+ }).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.row.title.length-b.row.title.length);
+ return scored[0]?.row||null;
+}
+
+function procedureIntelCptLink(code){
+ const item=getCptSearchEntry(code);
+ if(!item)return '';
+ return '<a class="procedure-intel-cpt" href="codes/'+item.code+'.html"><div class="autocomplete-code">'+item.code+'</div><div class="suggested-cpt-desc">'+item.description+'</div><div class="suggested-cpt-meta"><span>'+item.specialty+'</span>'+appSuggestionMeta(item)+'</div></a>';
+}
+
+function renderProcedureIntelligenceCard(){
+ const group=searchState.procedureIntelligenceGroup;
+ if(!group)return '';
+ const cptLinks=(group.cpts||[]).map(procedureIntelCptLink).filter(Boolean).join('');
+ const note=group.note||'Educational checklist only. CPT selection depends on operative documentation, payer rules, and clinician/coder review.';
+ return '<div class="procedure-intel-card"><div class="procedure-intel-head"><div><div class="procedure-intel-kicker">Common Coding Considerations</div><div class="procedure-intel-title">'+escapeHtml(group.title)+'</div></div><div class="procedure-intel-note">Educational content only. This does not automatically assign CPT codes.</div></div><div class="procedure-intel-grid"><div class="procedure-intel-section"><h4>Review Variables</h4><ul class="procedure-intel-list">'+group.considerations.map(item=>'<li><span>✓</span><span>'+escapeHtml(item)+'</span></li>').join('')+'</ul></div><div class="procedure-intel-section"><h4>Potential CPT Pages</h4>'+(cptLinks||'<div class="autocomplete-empty" style="padding:0">No linked CPT pages configured.</div>')+'<div class="suggested-cpt-meta">'+escapeHtml(note)+'</div></div></div></div>';
+}
+
 function scoreSearchResult(item,query){
  const raw=String(query||'').trim();
  const q=normalizeSearchValue(raw);
@@ -1755,10 +1854,11 @@ function appendEnterostomyClosureHelper(){
 function renderAutocompleteResults(){
  const box=document.getElementById('autocompleteResults');
  const results=searchState.searchResults;
+ const procedureCard=renderProcedureIntelligenceCard();
  const suggestionCard=renderSuggestedCptCard();
  if(!searchState.searchQuery||!results.length){
   if(searchState.searchQuery&&searchState.searchQuery.length>=2){
-   box.innerHTML=suggestionCard||'<div class="autocomplete-empty">No CPT matches. Try procedure name, CPT code, or specialty.</div>';
+   box.innerHTML=procedureCard+suggestionCard||'<div class="autocomplete-empty">No CPT matches. Try procedure name, CPT code, or specialty.</div>';
    box.classList.add('show');
    return;
   }
@@ -1766,7 +1866,7 @@ function renderAutocompleteResults(){
   box.classList.remove('show');
   return;
  }
- box.innerHTML=suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
+ box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
  box.classList.add('show');
 }
 
@@ -1794,15 +1894,18 @@ async function filterSearchExperience(query){
  if(searchState.searchQuery.trim().length<2){
   searchState.searchResults=[];
   searchState.suggestedCptResults=[];
+  searchState.procedureIntelligenceGroup=null;
   renderAutocompleteResults();
   return;
  }
  await loadCptSearchIndex();
  await loadSuggestedMappings();
+ await loadProcedureIntelligence();
  await loadSuggestionRankings();
  const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,12).map(entry=>entry.item);
  searchState.searchResults=ranked;
  searchState.suggestedCptResults=buildSuggestedCptResults(query,ranked);
+ searchState.procedureIntelligenceGroup=findProcedureIntelligenceForQuery(query);
  logZeroResultSearch(query,ranked.length);
  renderAutocompleteResults();
  appendEnterostomyClosureHelper();

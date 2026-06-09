@@ -16,6 +16,7 @@ const reportLogPath = path.join(dataDir, 'bug_reports.json');
 const unsuccessfulSearchLogPath = path.join(dataDir, 'unsuccessful_searches.json');
 const suggestionAnalyticsLogPath = path.join(dataDir, 'suggestion_analytics.json');
 const mappingStoreTitle = '[FREECPT SUGGESTED CPT MAPPINGS]';
+const procedureIntelligenceStoreTitle = '[FREECPT PROCEDURE INTELLIGENCE]';
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 const app = express();
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'https://freecptcodefinder.com,https://www.freecptcodefinder.com').split(',').map(s => s.trim()).filter(Boolean);
@@ -41,6 +42,7 @@ app.use('/staging-frontend', express.static(projectRoot));
 app.use('/styles', express.static(path.join(projectRoot, 'styles')));
 app.use('/js', express.static(path.join(projectRoot, 'js')));
 app.use('/assets', express.static(path.join(projectRoot, 'assets')));
+app.get('/favicon.png', (_req, res) => res.sendFile(path.join(projectRoot, 'favicon.png')));
 app.get('/cpt_database.json', (_req, res) => res.sendFile(cptDbPath));
 
 let cptDb = [];
@@ -526,6 +528,73 @@ async function saveSuggestedMappings(mappings) {
   return { mappings: normalized, url: json.html_url, number: json.number };
 }
 
+function normalizeProcedureTerms(value) {
+  const raw = Array.isArray(value) ? value : String(value || '').split(/[,\n]+/);
+  return [...new Set(raw.map(term => normalizeSearchTerm(term)).filter(term => term.length >= 2))].slice(0, 30);
+}
+
+function normalizeProcedureConsiderations(value) {
+  const raw = Array.isArray(value) ? value : String(value || '').split(/\n+/);
+  return raw.map(item => sanitizeText(item, 220)).filter(Boolean).slice(0, 12);
+}
+
+function normalizeProcedureIntelligence(value) {
+  const rows = Array.isArray(value) ? value : [];
+  return rows.map(row => ({
+    id: sanitizeText(row.id || row.slug || normalizeSearchTerm(row.title || '').replace(/\s+/g, '-'), 80).replace(/[^a-z0-9-]/gi, '').toLowerCase(),
+    title: sanitizeText(row.title || '', 120),
+    terms: normalizeProcedureTerms(row.terms || row.searchTerms || ''),
+    considerations: normalizeProcedureConsiderations(row.considerations || ''),
+    cpts: normalizeMappingCodes(row.cpts || row.codes || ''),
+    note: sanitizeText(row.note || '', 240),
+    status: sanitizeText(row.status || 'Active', 30) || 'Active'
+  })).filter(row => row.id && row.title && row.terms.length && row.considerations.length && /^active$/i.test(row.status));
+}
+
+async function getProcedureIntelligenceIssue() {
+  if (!githubToken) return null;
+  const response = await githubFetch('/issues?state=open&labels=procedure-intelligence&per_page=20');
+  const issues = await response.json();
+  if (!response.ok) throw new Error(issues.message || 'GitHub procedure intelligence issue list failed (' + response.status + ')');
+  return issues.find(issue => issue.title === procedureIntelligenceStoreTitle) || null;
+}
+
+async function loadProcedureIntelligence() {
+  if (!githubToken) return [];
+  const issue = await getProcedureIntelligenceIssue();
+  if (!issue) return [];
+  const match = String(issue.body || '').match(/FREECPT_PROCEDURE_INTELLIGENCE_JSON_START\n([\s\S]*?)\nFREECPT_PROCEDURE_INTELLIGENCE_JSON_END/);
+  if (!match) return [];
+  try {
+    return normalizeProcedureIntelligence(JSON.parse(match[1]));
+  } catch {
+    return [];
+  }
+}
+
+async function saveProcedureIntelligence(groups) {
+  if (!githubToken) throw new Error('GITHUB_TOKEN is not set');
+  await ensureGithubLabels(['procedure-intelligence']);
+  const normalized = normalizeProcedureIntelligence(groups);
+  const body = [
+    '<!-- FREECPT_PROCEDURE_INTELLIGENCE_JSON_START',
+    JSON.stringify(normalized, null, 2),
+    'FREECPT_PROCEDURE_INTELLIGENCE_JSON_END -->',
+    '',
+    'Durable Procedure Intelligence store.',
+    '',
+    'Educational considerations only. Do not use this store for automatic CPT assignment.'
+  ].join('\n');
+  const existing = await getProcedureIntelligenceIssue();
+  const payload = JSON.stringify({ title: procedureIntelligenceStoreTitle, body, labels: ['procedure-intelligence'] });
+  const response = existing
+    ? await githubFetch('/issues/' + existing.number, { method: 'PATCH', body: payload })
+    : await githubFetch('/issues', { method: 'POST', body: payload });
+  const json = await response.json();
+  if (!response.ok) throw new Error(json.message || 'GitHub procedure intelligence store update failed (' + response.status + ')');
+  return { groups: normalized, url: json.html_url, number: json.number };
+}
+
 async function ensureGithubLabels(labels) {
   for (const name of labels) {
     const safeName = sanitizeText(name, 50);
@@ -772,6 +841,15 @@ app.get('/suggestion-rankings', (_req, res) => {
   res.json({ ok: true, rankings: suggestionRankingData() });
 });
 
+app.get('/procedure-intelligence', async (_req, res) => {
+  try {
+    const groups = await loadProcedureIntelligence();
+    res.json({ ok: true, groups });
+  } catch (err) {
+    res.status(503).json({ ok: false, groups: [], error: 'procedure_intelligence_store_unavailable' });
+  }
+});
+
 app.post('/suggested-cpt-mappings', reportRateLimit, async (req, res) => {
   const configuredKey = adminReportsKey;
   if (configuredKey && req.query.key !== configuredKey) return res.status(401).json({ error: 'unauthorized' });
@@ -792,6 +870,32 @@ app.post('/suggested-cpt-mappings', reportRateLimit, async (req, res) => {
     res.status(201).json({ ok: true, ...saved });
   } catch (err) {
     res.status(500).json({ error: 'mapping_update_failed', detail: err.message });
+  }
+});
+
+app.post('/procedure-intelligence', reportRateLimit, async (req, res) => {
+  const configuredKey = adminReportsKey;
+  if (configuredKey && req.query.key !== configuredKey) return res.status(401).json({ error: 'unauthorized' });
+  try {
+    const id = sanitizeText(req.body?.id || req.body?.slug || normalizeSearchTerm(req.body?.title || '').replace(/\s+/g, '-'), 80).replace(/[^a-z0-9-]/gi, '').toLowerCase();
+    const title = sanitizeText(req.body?.title || '', 120);
+    const terms = normalizeProcedureTerms(req.body?.terms || req.body?.searchTerms || '');
+    const considerations = normalizeProcedureConsiderations(req.body?.considerations || '');
+    const cpts = normalizeMappingCodes(req.body?.cpts || req.body?.codes || '');
+    const note = sanitizeText(req.body?.note || '', 240);
+    const status = sanitizeText(req.body?.status || 'Active', 30) || 'Active';
+    if (!id || !title || !terms.length || !considerations.length) return res.status(400).json({ error: 'id, title, terms, and considerations required' });
+    if (looksLikePhiReport([title, terms.join(' '), considerations.join(' '), note])) return res.status(400).json({ error: 'phi_like_procedure_intelligence_rejected' });
+    const existing = await loadProcedureIntelligence();
+    const next = existing.filter(row => row.id !== id);
+    if (/^active$/i.test(status)) next.unshift({ id, title, terms, considerations, cpts, note, status: 'Active' });
+    const saved = await saveProcedureIntelligence(next);
+    if (String(req.headers.accept || '').includes('text/html')) {
+      return res.redirect('/admin/reports?key=' + encodeURIComponent(req.query.key || ''));
+    }
+    res.status(201).json({ ok: true, ...saved });
+  } catch (err) {
+    res.status(500).json({ error: 'procedure_intelligence_update_failed', detail: err.message });
   }
 });
 
@@ -837,10 +941,18 @@ app.get('/admin/reports', async (req, res) => {
   } catch (err) {
     mappingStoreError = '<div class="err">Suggested CPT mapping store error: ' + escapeHtml(err.message) + '</div>';
   }
+  let procedureRows = '';
+  let procedureStoreError = '';
+  try {
+    procedureRows = (await loadProcedureIntelligence()).map(row => '<tr><td><strong>' + escapeHtml(row.title) + '</strong><br><small><code>' + escapeHtml(row.id) + '</code></small></td><td>' + escapeHtml(row.terms.join(', ')) + '</td><td>' + escapeHtml(row.considerations.join(' | ')) + '</td><td><code>' + escapeHtml(row.cpts.join(', ')) + '</code></td><td>' + escapeHtml(row.status) + '</td><td>' + escapeHtml(row.note || '') + '</td></tr>').join('');
+  } catch (err) {
+    procedureStoreError = '<div class="err">Procedure Intelligence store error: ' + escapeHtml(err.message) + '</div>';
+  }
   const filterBlock = '<div class="filters"><a href="/admin/reports?key=' + escapeAttr(req.query.key || '') + '">All</a><a href="/admin/reports?type=missing_cpt_code&key=' + escapeAttr(req.query.key || '') + '">Missing CPT Code</a><a href="/admin/reports?type=search_problem&key=' + escapeAttr(req.query.key || '') + '">Search Issue</a><span>Statuses: New, Reviewing, Added, Duplicate, Not Applicable</span></div>';
   const errorBlock = dashboardErrors.length ? '<div class="err">GitHub dashboard store error: ' + escapeHtml(dashboardErrors.join(' | ')) + '</div>' : '';
   const mappingForm = '<h2>Suggested CPT Mapping Manager</h2>' + mappingStoreError + '<form method="post" action="/suggested-cpt-mappings?key=' + escapeAttr(req.query.key || '') + '" style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px;background:white;border:1px solid #e2e8f0;padding:14px;margin-bottom:14px"><label>Search Term<br><input name="term" placeholder="completion proctectomy" required></label><label>Mapped CPTs<br><input name="cpts" placeholder="44626, 44625" required></label><label>Status<br><select name="status"><option>Active</option><option>Inactive</option></select></label><label style="grid-column:1 / -2">Note<br><input name="note" placeholder="Internal review note"></label><button type="submit">Save Mapping</button></form>';
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}input,select,button{box-sizing:border-box;width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px;font:inherit}button{background:#0b1f3a;color:white;font-weight:800}@media(max-width:760px){main{padding:16px}form{grid-template-columns:1fr!important}label{grid-column:auto!important}}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table>' + mappingForm + '<table><thead><tr><th>Search Term</th><th>Mapped CPTs</th><th>Status</th><th>Note</th></tr></thead><tbody>' + (mappingRows || '<tr><td colspan="4">No admin mappings yet. Default frontend mappings still apply.</td></tr>') + '</tbody></table><h2>Suggested CPT Analytics</h2><table><thead><tr><th>Search Term</th><th>Times Shown</th><th>Times Clicked</th><th>CTR %</th><th>Top Clicked CPT</th><th>Current Suggested Ranking</th><th>Clicked CPTs</th><th>Last Seen</th></tr></thead><tbody>' + (suggestedAnalyticsRows || '<tr><td colspan="8">No suggestion analytics logged yet.</td></tr>') + '</tbody></table></main></body></html>');
+  const procedureForm = '<h2>Procedure Intelligence Manager</h2>' + procedureStoreError + '<form method="post" action="/procedure-intelligence?key=' + escapeAttr(req.query.key || '') + '" style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:10px;background:white;border:1px solid #e2e8f0;padding:14px;margin-bottom:14px"><label>ID / Slug<br><input name="id" placeholder="hartmann-reversal" required></label><label>Procedure Title<br><input name="title" placeholder="Hartmann reversal" required></label><label>Status<br><select name="status"><option>Active</option><option>Inactive</option></select></label><label style="grid-column:1 / -1">Search Terms<br><textarea name="terms" rows="3" placeholder="hartmann reversal, colostomy reversal, stoma reversal" required></textarea></label><label style="grid-column:1 / -1">Common Coding Considerations<br><textarea name="considerations" rows="5" placeholder="Was bowel resection performed?\nWas a colorectal anastomosis created?" required></textarea></label><label>Potential CPTs<br><input name="cpts" placeholder="44626, 44625, 44620"></label><label style="grid-column:2 / -1">Note<br><input name="note" placeholder="Educational checklist only"></label><button type="submit">Save Procedure Intelligence</button></form>';
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreeCPTCodeFinder Report Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;margin-bottom:14px}.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.filters a{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:#0b1f3a;text-decoration:none;font-weight:800}.filters span{color:#64748b;font-size:13px}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin-bottom:24px}th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}small{color:#64748b}h2{margin-top:28px}input,select,button,textarea{box-sizing:border-box;width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px;font:inherit}textarea{resize:vertical}button{background:#0b1f3a;color:white;font-weight:800}@media(max-width:760px){main{padding:16px}form{grid-template-columns:1fr!important}label{grid-column:auto!important}}</style></head><body><header><h1>Report Dashboard</h1><div>' + filteredReports.length + ' shown / ' + reports.length + ' logged reports | store: ' + (githubIssuesDurableStore ? 'GitHub Issues' : 'runtime JSON') + '</div></header><main>' + errorBlock + filterBlock + '<table><thead><tr><th>ID</th><th>Type</th><th>Report</th><th>Procedure</th><th>Specialty</th><th>Suggested CPT</th><th>Status</th><th>Delivery</th><th>Review-only Suggestion</th></tr></thead><tbody>' + (rows || '<tr><td colspan="9">No reports logged yet.</td></tr>') + '</tbody></table><h2>Top Unsuccessful Searches</h2><table><thead><tr><th>Search Term</th><th>Count</th><th>Last Seen</th></tr></thead><tbody>' + (searchRows || '<tr><td colspan="3">No zero-result searches logged yet.</td></tr>') + '</tbody></table>' + mappingForm + '<table><thead><tr><th>Search Term</th><th>Mapped CPTs</th><th>Status</th><th>Note</th></tr></thead><tbody>' + (mappingRows || '<tr><td colspan="4">No admin mappings yet. Default frontend mappings still apply.</td></tr>') + '</tbody></table><h2>Suggested CPT Analytics</h2><table><thead><tr><th>Search Term</th><th>Times Shown</th><th>Times Clicked</th><th>CTR %</th><th>Top Clicked CPT</th><th>Current Suggested Ranking</th><th>Clicked CPTs</th><th>Last Seen</th></tr></thead><tbody>' + (suggestedAnalyticsRows || '<tr><td colspan="8">No suggestion analytics logged yet.</td></tr>') + '</tbody></table>' + procedureForm + '<table><thead><tr><th>Procedure</th><th>Search Terms</th><th>Considerations</th><th>Potential CPTs</th><th>Status</th><th>Note</th></tr></thead><tbody>' + (procedureRows || '<tr><td colspan="6">No admin procedure intelligence overrides yet. Default frontend groups still apply.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 function escapeHtml(value) {
