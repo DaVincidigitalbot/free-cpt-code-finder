@@ -22,7 +22,7 @@
 
 ## RVU / BUSINESS OF SURGERY
 - [ ] How Much is Each CPT Code Worth in WRVUs → /blog/rvu/cpt-code-wrvu-values.html
-- [ ] How Surgeons Get Paid: RVU vs Salary Models → /blog/rvu/how-surgeons-get-paid-rvu-salary.html
+- [x] How Surgeons Get Paid: RVU vs Salary Models → /blog/rvu/how-surgeons-get-paid-rvu-salary.html (published 2026-06-09)
 - [ ] How to Increase Your Surgical RVUs Legally → /blog/rvu/increase-surgical-rvus.html
 - [x] RVU Optimization for Surgical Practices → /blog/rvu/rvu-optimization-surgical-practice.html (published)
 - [x] 2026 Surgical RVU Benchmarks → /blog/rvu/surgical-rvu-benchmarks-2026.html (published)
