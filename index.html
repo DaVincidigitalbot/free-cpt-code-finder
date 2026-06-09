@@ -75,6 +75,14 @@ a{color:inherit;text-decoration:none}
 .autocomplete-meta{margin-top:3px;font-size:11px;color:var(--ink2);font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;display:flex;gap:8px;flex-wrap:wrap}
 .autocomplete-code{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:12px;font-weight:600;color:var(--ox);white-space:nowrap}
 .autocomplete-action{font-size:11px;color:var(--ink3);white-space:nowrap;padding-top:1px}
+.suggested-cpt-card{border-top:1px solid var(--line);background:#f8fafc;padding:12px 14px}
+.suggested-cpt-kicker{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ox);margin-bottom:4px}
+.suggested-cpt-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.suggested-cpt-list{display:grid;gap:6px}
+.suggested-cpt-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start;border:1px solid var(--line2);border-radius:8px;background:var(--white);padding:10px;cursor:pointer;text-align:left;width:100%;color:var(--ink)}
+.suggested-cpt-item:hover,.suggested-cpt-item:focus{border-color:var(--ox);box-shadow:0 0 0 2px rgba(35,87,123,.12);outline:0}
+.suggested-cpt-desc{font-size:12px;font-weight:650;line-height:1.3;overflow-wrap:anywhere}
+.suggested-cpt-meta{font-size:11px;color:var(--ink2);margin-top:3px;display:flex;gap:8px;flex-wrap:wrap}
 .alif-example-card{margin:8px 10px 10px;padding:14px 16px;border:1px solid var(--line2);border-radius:10px;background:var(--bg2);color:var(--ink);font-size:13px;line-height:1.45}
 .alif-example-title{font-weight:700;margin-bottom:10px}
 .alif-example-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:10px}
@@ -1178,9 +1186,15 @@ const searchState={
  cptSearchIndex:[],
  cptSearchIndexLoaded:false,
  cptSearchIndexLoading:null,
+ suggestedMappingsLoaded:false,
+ suggestedMappingsLoading:null,
+ suggestionRankingsLoaded:false,
+ suggestionRankingsLoading:null,
+ suggestedCptResults:[],
  activeResultIndex:-1,
  suppressTypeahead:false,
- zeroResultLogged:new Set()
+ zeroResultLogged:new Set(),
+ suggestionShownLogged:new Set()
 };
 const REPORT_BACKEND_URL=location.hostname==='free-cpt-code-finder-staging.onrender.com'
  ? 'https://free-cpt-code-finder-staging.onrender.com'
@@ -1209,6 +1223,23 @@ const CLINICAL_SEARCH_PRIORITIES={
  'ostomy closure':['44620','44625','44626'],
  'enterostomy closure':['44620','44625','44626']
 };
+const DEFAULT_SUGGESTED_CPT_MAPPINGS=[
+ {terms:['colostomy reversal','robotic colostomy reversal','laparoscopic colostomy reversal','open colostomy reversal','colostomy takedown','end colostomy takedown','colostomy closure','closure of colostomy','stoma reversal','ostomy reversal','restore bowel continuity'],cpts:['44626','44625','44620'],note:'CPT terminology usually describes this as closure of enterostomy.'},
+ {terms:['hartmann reversal','hartmanns reversal','reversal of hartmann procedure','colorectal anastomosis after hartmann'],cpts:['44626','44625','44620'],note:'Hartmann reversal with colorectal anastomosis most often points to 44626.'},
+ {terms:['ileostomy reversal','ileostomy takedown','loop ileostomy closure','stoma closure','ostomy closure','enterostomy closure'],cpts:['44620','44625','44626'],note:'Closure language depends on whether resection/anastomosis is performed.'},
+ {terms:['bka','below knee amputation','below-knee amputation','transtibial amputation','revision bka','bka revision'],cpts:['27880','27881','27882','27884'],note:'Below-knee/transtibial amputation family.'},
+ {terms:['aka','above knee amputation','above-knee amputation','transfemoral amputation','revision aka','aka revision'],cpts:['27590','27591','27592','27594'],note:'Above-knee/transfemoral amputation family.'},
+ {terms:['toe amputation','toe disarticulation','ray amputation','partial ray amputation','transmetatarsal amputation','tma','forefoot amputation','syme amputation'],cpts:['28820','28825','28810','28805','27888'],note:'Foot/toe amputation family; confirm exact level and closure.'},
+ {terms:['gallbladder surgery','gallbladder removal','lap chole','laparoscopic cholecystectomy','cholecystectomy'],cpts:['47562','47563','47564','47600','47605'],note:'Cholecystectomy codes vary by approach and cholangiography/common duct work.'},
+ {terms:['appendectomy','appendix removal','lap appendectomy','laparoscopic appendectomy','ruptured appendix'],cpts:['44970','44950','44960'],note:'Appendectomy family; perforation/abscess and approach matter.'},
+ {terms:['thyroid removal','thyroidectomy','total thyroidectomy','thyroid lobectomy','hemithyroidectomy'],cpts:['60240','60220','60252','60254'],note:'Thyroid codes vary by extent and neck dissection.'},
+ {terms:['parathyroidectomy','parathyroid removal','parathyroid exploration'],cpts:['60500','60502','60505'],note:'Parathyroid codes vary by initial versus re-exploration and mediastinal work.'},
+ {terms:['feeding tube','g tube','g-tube','gastrostomy tube','peg tube','peg placement'],cpts:['43246','49440','43830'],note:'Feeding tube codes vary by endoscopic, percutaneous, or open placement.'},
+ {terms:['port placement','port a cath','port-a-cath','mediport','chemo port','central venous port'],cpts:['36561','36571','36558'],note:'Port codes vary by tunneled/non-tunneled, central/peripheral, and age.'},
+ {terms:['colon resection','colectomy','sigmoid colectomy','robotic sigmoid colectomy','laparoscopic colectomy','low anterior resection','lar'],cpts:['44204','44140','44143','44145','44146','44147'],note:'Colon resection codes vary by approach, ostomy, and anastomosis level.'}
+];
+let adminSuggestedMappings=[];
+let suggestionRankings=new Map();
 
 function normalizeSearchValue(value){
  return String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
@@ -1524,6 +1555,121 @@ async function loadCptSearchIndex(){
  return searchState.cptSearchIndexLoading;
 }
 
+function mappingRowsFromDefaults(){
+ return DEFAULT_SUGGESTED_CPT_MAPPINGS.flatMap(row=>row.terms.map(term=>({term:normalizeSearchValue(term),cpts:row.cpts,note:row.note||''})));
+}
+
+async function loadSuggestedMappings(){
+ if(searchState.suggestedMappingsLoaded)return adminSuggestedMappings;
+ if(searchState.suggestedMappingsLoading)return searchState.suggestedMappingsLoading;
+ searchState.suggestedMappingsLoading=(async()=>{
+  try{
+   const res=await fetch(REPORT_BACKEND_URL+'/suggested-cpt-mappings');
+   if(res.ok){
+    const data=await res.json();
+    adminSuggestedMappings=(data.mappings||[]).map(row=>({term:normalizeSearchValue(row.term),cpts:Array.isArray(row.cpts)?row.cpts:[],note:row.note||''})).filter(row=>row.term&&row.cpts.length);
+   }
+  }catch(err){}
+  searchState.suggestedMappingsLoaded=true;
+  return adminSuggestedMappings;
+ })();
+ return searchState.suggestedMappingsLoading;
+}
+
+async function loadSuggestionRankings(){
+ if(searchState.suggestionRankingsLoaded)return suggestionRankings;
+ if(searchState.suggestionRankingsLoading)return searchState.suggestionRankingsLoading;
+ searchState.suggestionRankingsLoading=(async()=>{
+  try{
+   const res=await fetch(REPORT_BACKEND_URL+'/suggestion-rankings');
+   if(res.ok){
+    const data=await res.json();
+    suggestionRankings=new Map((data.rankings||[]).map(row=>[normalizeSearchValue(row.searchTerm),row]));
+   }
+  }catch(err){}
+  searchState.suggestionRankingsLoaded=true;
+  return suggestionRankings;
+ })();
+ return searchState.suggestionRankingsLoading;
+}
+
+function findSuggestedCodesForQuery(query){
+ const q=normalizeSearchValue(query);
+ if(!q||q.length<2)return [];
+ const adminTerms=new Set(adminSuggestedMappings.map(row=>row.term));
+ const rows=[...adminSuggestedMappings.map(row=>({...row,source:'admin'})),...mappingRowsFromDefaults().filter(row=>!adminTerms.has(row.term)).map(row=>({...row,source:'default'}))];
+ const scored=[];
+ rows.forEach(row=>{
+  if(!row.term||!row.cpts?.length)return;
+  let score=-1;
+  if(q===row.term)score=100;
+  else if((row.term.length>3&&q.includes(row.term))||row.term.includes(q))score=82;
+  else {
+   const qWords=q.split(' ').filter(Boolean);
+   const tWords=row.term.split(' ').filter(Boolean);
+   if(qWords.length&&qWords.every(word=>word.length>2&&row.term.includes(word)))score=70;
+   else if(tWords.length&&tWords.every(word=>word.length>3&&q.includes(word)))score=66;
+  }
+  if(score>=0)scored.push({score,row});
+ });
+ const ranking=suggestionRankings.get(q);
+ const codes=[];
+ scored.sort((a,b)=>b.score-a.score).forEach(({score,row})=>{
+  row.cpts.forEach((code,index)=>{
+   const c=String(code);
+   if(codes.some(item=>item.code===c))return;
+   const adminWeight=row.source==='admin'?1000000:0;
+   const adminOrderWeight=row.source==='admin'?(row.cpts.length-index)*10000:0;
+   const base=score*1000+(row.cpts.length-index)*10;
+   const clickWeight=Number(ranking?.cptScores?.[c]||0);
+   codes.push({code:c,score:adminWeight+adminOrderWeight+base+clickWeight});
+  });
+ });
+ return codes.sort((a,b)=>b.score-a.score).map(item=>item.code).slice(0,8);
+}
+
+function buildSuggestedCptResults(query,ranked){
+ const q=normalizeSearchValue(query);
+ const topScore=ranked&&ranked.length?scoreSearchResult(ranked[0],query):-1;
+ const lowConfidence=!ranked.length||topScore<55;
+ const mappedCodes=findSuggestedCodesForQuery(query);
+ const categoryCodes=[];
+ if(lowConfidence&&/\btoe\b.*\bamputation\b|\bamputation\b.*\btoe\b|ray amputation|transmetatarsal|\btma\b|syme/.test(q))categoryCodes.push('28820','28825','28810','28805','27888');
+ if(lowConfidence&&/gallbladder|chole/.test(q))categoryCodes.push('47562','47563','47564','47600','47605');
+ if(lowConfidence&&/appendix|appendectomy/.test(q))categoryCodes.push('44970','44950','44960');
+ const codes=[...mappedCodes,...categoryCodes].filter((code,index,arr)=>arr.indexOf(code)===index);
+ return codes.map(code=>getCptSearchEntry(code)).filter(Boolean).slice(0,8);
+}
+
+function appSuggestionMeta(item){
+ const physician='<span>Physician wRVU '+Number(item.wrvu||0).toFixed(2)+'</span>';
+ if(window.FreeCPTAppMode&&window.FreeCPTAppMode.isAppMode&&window.FreeCPTAppMode.isAppMode()){
+  const est=window.FreeCPTAppMode.estimateFor(item.code,item.wrvu||0);
+  return physician+'<span>Estimated APP Productivity '+est.value.toFixed(2)+'</span>';
+ }
+ return physician;
+}
+
+function logSuggestionAnalytics(eventType,item){
+ const normalized=normalizeSearchValue(searchState.searchQuery);
+ if(!normalized||normalized.length<2)return;
+ const key=eventType+':'+normalized+':'+(item?.code||'');
+ if(eventType==='shown'&&searchState.suggestionShownLogged.has(key))return;
+ if(eventType==='shown')searchState.suggestionShownLogged.add(key);
+ fetch(REPORT_BACKEND_URL+'/suggestion-analytics',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({searchTerm:searchState.searchQuery,eventType,clickedCpt:item?.code||'',pagePath:location.pathname})
+ }).catch(()=>{});
+}
+
+function renderSuggestedCptCard(){
+ const suggestions=searchState.suggestedCptResults||[];
+ if(!suggestions.length)return '';
+ logSuggestionAnalytics('shown');
+ return '<div class="suggested-cpt-card"><div class="suggested-cpt-kicker">Suggested CPT Codes</div><div class="suggested-cpt-title">Did you mean one of these?</div><div class="suggested-cpt-list">'+suggestions.map((item,index)=>'<button type="button" class="suggested-cpt-item" onclick="selectSuggestedCptResult('+index+')"><div class="autocomplete-code">'+item.code+'</div><div><div class="suggested-cpt-desc">'+item.description+'</div><div class="suggested-cpt-meta"><span>'+item.specialty+'</span>'+appSuggestionMeta(item)+'</div></div><div class="autocomplete-action">add</div></button>').join('')+'</div></div>';
+}
+
 function scoreSearchResult(item,query){
  const raw=String(query||'').trim();
  const q=normalizeSearchValue(raw);
@@ -1609,9 +1755,10 @@ function appendEnterostomyClosureHelper(){
 function renderAutocompleteResults(){
  const box=document.getElementById('autocompleteResults');
  const results=searchState.searchResults;
+ const suggestionCard=renderSuggestedCptCard();
  if(!searchState.searchQuery||!results.length){
   if(searchState.searchQuery&&searchState.searchQuery.length>=2){
-   box.innerHTML='<div class="autocomplete-empty">No CPT matches. Try procedure name, CPT code, or specialty.</div>';
+   box.innerHTML=suggestionCard||'<div class="autocomplete-empty">No CPT matches. Try procedure name, CPT code, or specialty.</div>';
    box.classList.add('show');
    return;
   }
@@ -1619,7 +1766,7 @@ function renderAutocompleteResults(){
   box.classList.remove('show');
   return;
  }
- box.innerHTML=`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
+ box.innerHTML=suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
  box.classList.add('show');
 }
 
@@ -1646,12 +1793,16 @@ async function filterSearchExperience(query){
  filterSpecialtyCards();
  if(searchState.searchQuery.trim().length<2){
   searchState.searchResults=[];
+  searchState.suggestedCptResults=[];
   renderAutocompleteResults();
   return;
  }
  await loadCptSearchIndex();
+ await loadSuggestedMappings();
+ await loadSuggestionRankings();
  const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,12).map(entry=>entry.item);
  searchState.searchResults=ranked;
+ searchState.suggestedCptResults=buildSuggestedCptResults(query,ranked);
  logZeroResultSearch(query,ranked.length);
  renderAutocompleteResults();
  appendEnterostomyClosureHelper();
@@ -1779,6 +1930,18 @@ function selectAutocompleteResult(index){
  renderAutocompleteResults();
 }
 
+function selectSuggestedCptResult(index){
+ const item=searchState.suggestedCptResults[index];
+ if(!item)return;
+ logSuggestionAnalytics('clicked',item);
+ addAutocompleteResultToCase(item);
+ document.getElementById('q').value=`${item.code} ${item.description}`.trim();
+ searchState.searchResults=[];
+ searchState.suggestedCptResults=[];
+ searchState.activeResultIndex=-1;
+ renderAutocompleteResults();
+}
+
 document.getElementById('q').addEventListener('input',e=>{
  searchState.suppressTypeahead=false;
  filterSearchExperience(e.target.value);
@@ -1787,6 +1950,8 @@ document.getElementById('q').addEventListener('input',e=>{
 document.getElementById('q').addEventListener('focus',()=>{
  if(!searchState.cptSearchIndexLoaded)loadCptSearchIndex();
 });
+
+window.addEventListener('fccf:app-mode-change',()=>renderAutocompleteResults());
 
 document.getElementById('q').addEventListener('keydown',e=>{
  const input=e.currentTarget;
