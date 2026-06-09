@@ -17,7 +17,7 @@ SITEMAP = ROOT / 'sitemap.xml'
 
 SITE_NAME = 'Free CPT Code Finder'
 AUTHOR = 'Graydon Stallard, DO, FACOS, FACS'
-MONTH_YEAR = 'May 2026'
+MONTH_YEAR = 'June 2026'
 
 
 @dataclass(frozen=True)
@@ -84,6 +84,7 @@ def build_article(topic: Topic) -> str:
     page = page.replace('../js/site-chrome.js', f'{prefix}js/site-chrome.js')
     page = page.replace('<title>Free CPT Code Finder</title>', f'<title>{html.escape(topic.title)} | {SITE_NAME}</title>')
     page = page.replace('<meta name="robots" content="noindex, nofollow">', '<meta name="robots" content="index, follow">')
+    page = page.replace('<meta name="robots" content="noindex, follow">', '<meta name="robots" content="index, follow">')
     page = page.replace('<meta property="og:title" content="Free CPT Code Finder">', f'<meta property="og:title" content="{html.escape(topic.title)} | {SITE_NAME}">')
     return page
 
@@ -221,6 +222,66 @@ TOPICS = {
 
                 <h2>Why this matters for payment</h2>
                 <p>Specific complication coding supports medical necessity for imaging, antibiotics, drainage, return to OR, or unrelated E/M work. Bad diagnosis selection makes clean reimbursement much harder than it needs to be.</p>
+        '''
+    ),
+    'increase-surgical-rvus': Topic(
+        slug='increase-surgical-rvus',
+        section='rvu',
+        category_label='RVU',
+        category_class='cat-rvu',
+        title='How to Increase Your Surgical RVUs Legally',
+        description='A practical surgeon-focused guide to increasing surgical wRVUs through accurate coding, better documentation, and cleaner capture of work already performed.',
+        keywords='increase surgical RVUs, improve surgeon wRVUs, surgical productivity, RVU documentation, modifier 22, critical care RVU, surgeon compensation',
+        breadcrumb='Increase Surgical RVUs',
+        summary='The cleanest way to increase surgical RVUs is not gaming the system. It is capturing the work you already do with accurate CPT selection, complete operative notes, appropriate modifiers, and disciplined E/M documentation.',
+        read_time='7 min read',
+        related=[
+            ('/blog/rvu/understanding-work-rvus.html', 'Understanding Work RVUs'),
+            ('/blog/rvu/how-surgeons-get-paid-rvu-salary.html', 'How Surgeons Get Paid'),
+            ('/blog/modifiers/modifier-22-explained.html', 'Modifier 22 Explained'),
+        ],
+        content='''
+                <h2>Start with the obvious truth</h2>
+                <p>Most surgeons do not need tricks to increase RVUs. They need cleaner capture of work they are already doing. Missed procedures, weak documentation, uncaptured E/M work, and sloppy modifier support leak productivity all year long.</p>
+
+                <h2>Code the definitive procedure</h2>
+                <p>A common mistake is coding the case by the narrative label instead of the definitive work. "Exploratory laparotomy" may describe the operation, but if bowel resection, ostomy creation, splenectomy, repair, or other definitive work was performed, the note and coding should reflect that actual work.</p>
+
+                <h2>Document complexity when it is real</h2>
+                <p>Modifier 22 does not work because the case felt hard. It works when the note explains substantially greater work in concrete terms: altered anatomy, dense adhesions, reoperative field, infection, bleeding, obesity, radiation change, extra time, or technical difficulty beyond the usual service.</p>
+
+                <h2>Do not miss critical care</h2>
+                <p>Surgeons who manage shock, sepsis, respiratory failure, hemorrhage, or ICU-level decision making often under-document critical care. If critical care time is medically necessary, separately documented, and not bundled into the procedure, it should not disappear from the productivity report.</p>
+
+                <h2>Capture legitimate E/M work</h2>
+                <ul>
+                    <li>Decision for major surgery may require modifier 57 support.</li>
+                    <li>Unrelated postoperative E/M may require modifier 24 support.</li>
+                    <li>Same-day office procedures may require separate documentation if an E/M service is truly significant and separately identifiable.</li>
+                </ul>
+
+                <h2>Respect add-on codes and MPPR rules</h2>
+                <p>Add-on codes and multiple procedure payment reduction rules matter. A poorly ordered claim or missed add-on code can distort the value of a case. Build a habit of reviewing complex multi-procedure cases before they leave the chart.</p>
+
+                <h2>Fix the operative note</h2>
+                <p>Your coder cannot code what your note does not support. A strong operative note should clearly list procedures performed, anatomy addressed, approach, findings, complexity, implants, reconstruction, closure, complications, and why additional work was medically necessary.</p>
+
+                <h2>Use CPT-level RVU data carefully</h2>
+                <p>RVU data is useful for understanding case mix, but it is not a substitute for correct coding. Compare your common cases against CPT-level wRVU values, but remember that payer rules, global periods, modifiers, and bundling edits still control final reporting.</p>
+
+                <blockquote><p><strong>Rule:</strong> increase RVUs by improving accuracy, not by stretching codes past what the documentation supports.</p></blockquote>
+
+                <h2>Practical weekly audit</h2>
+                <ul>
+                    <li>Review five recent operations with more than one procedure.</li>
+                    <li>Check whether the definitive procedure was coded instead of a generic exploration.</li>
+                    <li>Look for missed add-on codes.</li>
+                    <li>Check whether difficult cases actually document why they were difficult.</li>
+                    <li>Compare critical care notes against documented time and medical necessity.</li>
+                </ul>
+
+                <h2>Bottom line</h2>
+                <p>The best RVU strategy is boring and defensible: accurate CPT selection, complete notes, appropriate modifiers, and routine review of high-value cases. That is where most of the money leaks.</p>
         '''
     ),
     'rvu-90-day-global-surprises': Topic(

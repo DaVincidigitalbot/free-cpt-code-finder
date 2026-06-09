@@ -1,18 +1,38 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="/home/setup/Desktop/FreeCPTCodeFinder"
+SOURCE_REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WORKTREE="${FREECPT_DAILY_BLOG_WORKTREE:-/home/setup/Desktop/FreeCPTCodeFinder-daily-blog-worktree}"
+BRANCH="automation/daily-blog"
 LOG_DIR="/home/setup/.openclaw/workspace/logs/freecpt"
 TODAY="$(date +%F)"
 LOG_FILE="$LOG_DIR/daily-blog-$TODAY.log"
 
 mkdir -p "$LOG_DIR"
-cd "$REPO"
 exec >> "$LOG_FILE" 2>&1
 
 echo "== FreeCPTCodeFinder daily blog publish =="
 echo "date: $TODAY"
-echo "repo: $REPO"
+echo "source_repo: $SOURCE_REPO"
+echo "worktree: $WORKTREE"
+
+if [[ ! -d "$WORKTREE/.git" && ! -f "$WORKTREE/.git" ]]; then
+  git -C "$SOURCE_REPO" fetch origin main
+  git -C "$SOURCE_REPO" worktree add -B "$BRANCH" "$WORKTREE" origin/main
+else
+  git -C "$WORKTREE" fetch origin main
+  git -C "$WORKTREE" switch "$BRANCH"
+  git -C "$WORKTREE" merge --ff-only origin/main
+fi
+
+REPO="$WORKTREE"
+cd "$REPO"
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "Daily blog worktree is dirty; refusing to publish from an unsafe state."
+  git status --short
+  exit 5
+fi
 
 if [[ "$TODAY" == "2026-05-29" ]]; then
   echo "Scheduled override: publish better surgeon attestation documentation guide"
@@ -29,6 +49,7 @@ TOPICS=(
   "icd10-postop-complications-guide"
   "modifier-24-postop-em"
   "rvu-90-day-global-surprises"
+  "increase-surgical-rvus"
 )
 
 published=""
@@ -56,7 +77,7 @@ PY
 done
 
 if [[ -z "$published" ]]; then
-  echo "No unpublished generator topics remain. Add topics to scripts/generate_daily_blog.py."
+  echo "No unpublished generator topics remain. Add topics to scripts/generate_daily_blog.py before reporting success."
   exit 2
 fi
 
@@ -100,7 +121,7 @@ fi
 
 git add "$published" blog/index.html sitemap.xml feed.xml robots.txt index.html scripts/seo_enhance_site.py
 git commit -m "Publish daily FreeCPTCodeFinder blog: $(basename "$published" .html)"
-git push origin main
+git push origin HEAD:main
 
 url="https://freecptcodefinder.com/${published}"
 echo "published: $published"
