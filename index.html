@@ -1618,10 +1618,11 @@ function findSuggestedCodesForQuery(query){
   row.cpts.forEach((code,index)=>{
    const c=String(code);
    if(codes.some(item=>item.code===c))return;
-   const adminWeight=row.source==='admin'?100000:0;
+   const adminWeight=row.source==='admin'?1000000:0;
+   const adminOrderWeight=row.source==='admin'?(row.cpts.length-index)*10000:0;
    const base=score*1000+(row.cpts.length-index)*10;
    const clickWeight=Number(ranking?.cptScores?.[c]||0);
-   codes.push({code:c,score:adminWeight+base+clickWeight});
+   codes.push({code:c,score:adminWeight+adminOrderWeight+base+clickWeight});
   });
  });
  return codes.sort((a,b)=>b.score-a.score).map(item=>item.code).slice(0,8);
