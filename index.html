@@ -457,6 +457,11 @@ const MEDICARE_CONVERSION_FACTOR=33.4009;
 const CF=MEDICARE_CONVERSION_FACTOR;
 const CPT_PAYMENT_INDEX=new Map();
 
+function formatCurrency(value){
+ const amount=Number(value||0);
+ return amount.toLocaleString(undefined,{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
+}
+
 function setPaymentIndex(rows){
  CPT_PAYMENT_INDEX.clear();
  rows.forEach(entry=>{
@@ -1020,18 +1025,18 @@ function recalc(why){
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
-    <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
+    <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>${formatCurrency(l.pay)}</span></div>
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
    </div>`}).join('')+renderAlifBuilderSuggestion();
  }
  document.getElementById('tn').textContent=twrvu.toFixed(2);
  const mppr=caseLines.some(l=>l.kind==='proc'&&/^Secondary/.test(String(l.rank||''))&&!lineIsAddon(l))&&setting==='facility';
- document.getElementById('ts').textContent=`$${tpay.toFixed(2)}${mppr?' · MPPR applied':''}`;
+ document.getElementById('ts').textContent=`${formatCurrency(tpay)}${mppr?' · MPPR applied':''}`;
  document.getElementById('rm').textContent=`${caseLines.length} line${caseLines.length!==1?'s':''} · ${payer} · ${getModifierConflictState()}`;
  renderAppCaseSummary();
  renderDxList();
- log(`TOTALS wRVU=${twrvu.toFixed(2)} pay=$${tpay.toFixed(2)} (${why})`);
+ log(`TOTALS wRVU=${twrvu.toFixed(2)} pay=${formatCurrency(tpay)} (${why})`);
 }
 
 // ===== SEGMENTED CONTROLS =====
@@ -1084,7 +1089,7 @@ function openAuditReport(){
    <td class="cpt-cell">${l.cpt}${l.mods.length?'<span class="mod-tag">-'+l.mods.join('-')+'</span>':''}</td>
    <td class="desc-cell">${l.desc}</td>
    <td class="num mono">${l.effWrvu.toFixed(2)}</td>
-   <td class="num mono">$${l.pay.toFixed(2)}</td>
+   <td class="num mono">${formatCurrency(l.pay)}</td>
   </tr>
   <tr class="rationale-row"><td></td><td colspan="5">
    <div class="rank-reason"><strong>Ranking basis:</strong> ${l.rankReason}</div>
@@ -1155,7 +1160,7 @@ table{width:100%;border-collapse:collapse;font-size:10pt}
 <div><div class="lbl">Payer</div><div class="val">${payer}</div></div>
 <div><div class="lbl">Setting</div><div class="val">${setting==='nonfac'?'Non-facility':'Facility'}</div></div>
 <div><div class="lbl">Total wRVU</div><div class="val">${totalWrvu.toFixed(2)}</div></div>
-<div><div class="lbl">Est. payment</div><div class="val money">$${totalPay.toFixed(2)}</div></div>
+<div><div class="lbl">Est. payment</div><div class="val money">${formatCurrency(totalPay)}</div></div>
 </div>
 
 <h2>Line items with coding rationale</h2>
@@ -1925,7 +1930,7 @@ function renderAutocompleteResults(){
   box.classList.remove('show');
   return;
  }
- box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
+ box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>${formatCurrency(item.estimatedPayment)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
  box.classList.add('show');
 }
 

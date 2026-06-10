@@ -236,7 +236,7 @@ def modifier_entry(entry: dict) -> dict:
 
 def page_html(entry: dict, related: list[dict]) -> str:
     title = f"CPT {entry['code']}: {entry['description']}"
-    payment = f"{entry['estimated_medicare_payment']:.2f}"
+    payment = f"${entry['estimated_medicare_payment']:,.2f}"
     related_links = "\n".join(
         f'<a href="/codes/{r["code"]}.html" class="site-card related-inline"><strong class="inline-code-link">CPT {r["code"]}</strong> - {escape(r["description"])}</a>'
         for r in related if r["code"] != entry["code"]
