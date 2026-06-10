@@ -32518,6 +32518,274 @@
         }
       ],
       "specialty": "Orthopedic Traumatology"
+    },
+    {
+      "name": "Gastric Surgery",
+      "specialty": "general_surgery",
+      "questions": [
+        {
+          "question": "Gastric surgery pathway?",
+          "options": [
+            {
+              "label": "Open gastrectomy/resection",
+              "next": "gastric_open_resection"
+            },
+            {
+              "label": "Laparoscopic/robotic gastric procedure",
+              "next": "gastric_laparoscopic"
+            },
+            {
+              "label": "Reconstruction/revision/closure",
+              "next": "gastric_reconstruction"
+            }
+          ]
+        }
+      ],
+      "branches": {
+        "gastric_open_resection": {
+          "question": "Which open gastric resection?",
+          "options": [
+            {
+              "label": "Distal gastrectomy + Billroth I",
+              "cpt_code": "43631",
+              "description": "Gastrectomy, partial, distal; with gastroduodenostomy",
+              "work_rvu": 23.9,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Distal gastrectomy + gastrojejunostomy",
+              "cpt_code": "43632",
+              "description": "Gastrectomy, partial, distal; with gastrojejunostomy",
+              "work_rvu": 34.26,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Distal gastrectomy + Roux-en-Y",
+              "cpt_code": "43633",
+              "description": "Gastrectomy, partial, distal; with Roux-en-Y reconstruction",
+              "work_rvu": 32.31,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Distal gastrectomy + pouch",
+              "cpt_code": "43634",
+              "description": "Gastrectomy, partial, distal; with formation of intestinal pouch",
+              "work_rvu": 35.72,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Total gastrectomy",
+              "cpt_code": "43620",
+              "description": "Gastrectomy, total; with esophagoenterostomy",
+              "work_rvu": 33.19,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Total gastrectomy + Roux-en-Y",
+              "cpt_code": "43621",
+              "description": "Gastrectomy, total; with Roux-en-Y reconstruction",
+              "work_rvu": 38.54,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Total gastrectomy + pouch",
+              "cpt_code": "43622",
+              "description": "Gastrectomy, total; with formation of intestinal pouch",
+              "work_rvu": 39.03,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            }
+          ]
+        },
+        "gastric_laparoscopic": {
+          "question": "Which laparoscopic or robotic gastric procedure?",
+          "options": [
+            {
+              "label": "Lap/robotic Roux-en-Y gastric bypass",
+              "cpt_code": "43644",
+              "description": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y gastric bypass",
+              "work_rvu": 28.67,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Lap/robotic bypass with small bowel reconstruction",
+              "cpt_code": "43645",
+              "description": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y with small intestine reconstruction",
+              "work_rvu": 30.74,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Lap/robotic sleeve gastrectomy",
+              "cpt_code": "43775",
+              "description": "Laparoscopic longitudinal gastrectomy / sleeve gastrectomy",
+              "work_rvu": 19.87,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Lap/robotic gastrostomy",
+              "cpt_code": "43653",
+              "description": "Laparoscopic gastrostomy",
+              "work_rvu": 8.27,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Unlisted lap/robotic stomach procedure",
+              "cpt_code": "43659",
+              "description": "Unlisted laparoscopy procedure, stomach",
+              "work_rvu": 0.0,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            }
+          ]
+        },
+        "gastric_reconstruction": {
+          "question": "Which gastric reconstruction or revision?",
+          "options": [
+            {
+              "label": "Gastroduodenostomy",
+              "cpt_code": "43810",
+              "description": "Gastroduodenostomy",
+              "work_rvu": 16.46,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Gastrojejunostomy",
+              "cpt_code": "43820",
+              "description": "Gastrojejunostomy without vagotomy",
+              "work_rvu": 21.97,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Gastrojejunostomy + vagotomy",
+              "cpt_code": "43825",
+              "description": "Gastrojejunostomy with vagotomy",
+              "work_rvu": 21.22,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Revision GJ anastomosis",
+              "cpt_code": "43860",
+              "description": "Revision of gastrojejunal anastomosis without vagotomy",
+              "work_rvu": 27.19,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Revision GJ + vagotomy",
+              "cpt_code": "43865",
+              "description": "Revision of gastrojejunal anastomosis with vagotomy",
+              "work_rvu": 28.32,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Closure of gastrostomy",
+              "cpt_code": "43870",
+              "description": "Closure of gastrostomy, surgical",
+              "work_rvu": 11.15,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            },
+            {
+              "label": "Closure gastrocolic fistula",
+              "cpt_code": "43880",
+              "description": "Closure of gastrocolic fistula",
+              "work_rvu": 26.5,
+              "modifiers": [],
+              "icd10": [
+                "C16.9",
+                "K31.89",
+                "K91.89"
+              ]
+            }
+          ]
+        }
+      }
     }
   ]
 }
