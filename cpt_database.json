@@ -72287,16 +72287,28 @@
     ],
     "mp_rvu": 5.4,
     "never_primary_with": [],
-    "pe_rvu": 10,
+    "pe_rvu": 10.0,
     "specialty": "bowel_resection",
     "subcategory": "bowel_resection",
     "total_rvu": 37.43,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 22.03,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1250.2
+    "estimated_medicare_payment": 1250.2,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44140",
+      "colectomy, partial; with anastomosis",
+      "colon"
+    ]
   },
   "44141": {
     "addon_code": false,
@@ -72320,12 +72332,24 @@
     "specialty": "bowel_resection",
     "subcategory": "surgical",
     "total_rvu": 50.63,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.16,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1691.09
+    "estimated_medicare_payment": 1691.09,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44141",
+      "colectomy, partial with skin level cecostomy or colostomy",
+      "colon"
+    ]
   },
   "44143": {
     "addon_code": false,
@@ -72351,14 +72375,26 @@
     "never_primary_with": [],
     "pe_rvu": 12.13,
     "specialty": "bowel_resection",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 45.83,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 27.1,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1530.76
+    "estimated_medicare_payment": 1530.76,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44143",
+      "colectomy, partial; with end colostomy and closure of distal segment (hartmann type procedure)",
+      "colon"
+    ]
   },
   "44144": {
     "addon_code": false,
@@ -72367,24 +72403,42 @@
     "category": "Surgery",
     "code": "44144",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, partial, with resection and colostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.02,
     "never_primary_with": [],
     "pe_rvu": 12.76,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 48.94,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.16,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1634.64
+    "estimated_medicare_payment": 1634.64,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44144",
+      "colectomy, partial, with resection and colostomy",
+      "colon"
+    ]
   },
   "44145": {
     "addon_code": false,
@@ -72393,24 +72447,42 @@
     "category": "Surgery",
     "code": "44145",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, partial, with creation of ileostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.17,
     "never_primary_with": [],
     "pe_rvu": 11.33,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 45.37,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 27.87,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1515.4
+    "estimated_medicare_payment": 1515.4,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44145",
+      "colectomy, partial, with creation of ileostomy",
+      "colon"
+    ]
   },
   "44146": {
     "addon_code": false,
@@ -72419,24 +72491,42 @@
     "category": "Surgery",
     "code": "44146",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, partial, with coloproctostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.9,
     "never_primary_with": [],
     "pe_rvu": 15.82,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 58.14,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 34.42,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1941.93
+    "estimated_medicare_payment": 1941.93,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44146",
+      "colectomy, partial, with coloproctostomy",
+      "colon"
+    ]
   },
   "44147": {
     "addon_code": false,
@@ -72445,24 +72535,42 @@
     "category": "Surgery",
     "code": "44147",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, partial, with low colorectal anastomosis",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.35,
     "never_primary_with": [],
     "pe_rvu": 12.46,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 52.66,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 32.85,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1758.89
+    "estimated_medicare_payment": 1758.89,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44147",
+      "colectomy, partial, with low colorectal anastomosis",
+      "colon"
+    ]
   },
   "44150": {
     "addon_code": false,
@@ -72470,25 +72578,43 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "44150",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": false,
+    "code_family": "colon",
+    "cosurgeon_eligible": true,
     "description": "Colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy",
     "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.79,
     "never_primary_with": [],
     "pe_rvu": 15.59,
     "specialty": "general_surgery",
     "subcategory": "surgical",
     "total_rvu": 51.81,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.43,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1730.5
+    "estimated_medicare_payment": 1730.5,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44150",
+      "colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy",
+      "colon"
+    ]
   },
   "44151": {
     "addon_code": false,
@@ -72497,24 +72623,43 @@
     "category": "Surgery",
     "code": "44151",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, total, with continent ileostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 9.13,
     "never_primary_with": [],
     "pe_rvu": 17.03,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 60.21,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 34.05,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2011.07
+    "estimated_medicare_payment": 2011.07,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44151",
+      "colectomy, total, with continent ileostomy",
+      "colon",
+      "ostomy"
+    ]
   },
   "44155": {
     "addon_code": false,
@@ -72540,14 +72685,27 @@
     "never_primary_with": [],
     "pe_rvu": 16.46,
     "specialty": "bowel_resection",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 57.49,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 33.56,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1920.22
+    "estimated_medicare_payment": 1920.22,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44155",
+      "colectomy, total, abdominal, with proctectomy; with ileostomy",
+      "colon",
+      "ostomy"
+    ]
   },
   "44156": {
     "addon_code": false,
@@ -72556,24 +72714,43 @@
     "category": "Surgery",
     "code": "44156",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, total, with continent ileostomy + proctectomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 9.79,
     "never_primary_with": [],
     "pe_rvu": 18.03,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 64.3,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 36.48,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2147.68
+    "estimated_medicare_payment": 2147.68,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44156",
+      "colectomy, total, with continent ileostomy + proctectomy",
+      "colon",
+      "ostomy"
+    ]
   },
   "44157": {
     "addon_code": false,
@@ -72582,24 +72759,42 @@
     "category": "Surgery",
     "code": "44157",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, total, with ileal pouch anal anastomosis",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 9.32,
     "never_primary_with": [],
     "pe_rvu": 17.01,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 61.14,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 34.81,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2042.13
+    "estimated_medicare_payment": 2042.13,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44157",
+      "colectomy, total, with ileal pouch anal anastomosis",
+      "colon"
+    ]
   },
   "44158": {
     "addon_code": false,
@@ -72608,24 +72803,42 @@
     "category": "Surgery",
     "code": "44158",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, total, with IPAA without proctectomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 9.58,
     "never_primary_with": [],
     "pe_rvu": 17.25,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 62.61,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 35.78,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2091.23
+    "estimated_medicare_payment": 2091.23,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44158",
+      "colectomy, total, with ipaa without proctectomy",
+      "colon"
+    ]
   },
   "44160": {
     "addon_code": false,
@@ -72634,24 +72847,42 @@
     "category": "Surgery",
     "code": "44160",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Colectomy, partial, with removal of terminal ileum",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.9,
     "never_primary_with": [],
     "pe_rvu": 9.38,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 34.65,
-    "typical_modifiers": [],
-    "work_rvu": 20.72,
-    "wrvu_source": "User-mandated CMS physician work RVU correction 2026-05-28",
+    "typical_modifiers": [
+      "-51"
+    ],
+    "work_rvu": 20.37,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/medicare/physician-fee-schedule/search/overview",
-    "estimated_medicare_payment": 1157.34
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "estimated_medicare_payment": 1157.34,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44160",
+      "colectomy, partial, with removal of terminal ileum",
+      "colon"
+    ]
   },
   "44180": {
     "addon_code": false,
@@ -72693,24 +72924,42 @@
     "category": "Surgery",
     "code": "44186",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopic jejunostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 2.59,
     "never_primary_with": [],
-    "pe_rvu": 6,
+    "pe_rvu": 6.0,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "ostomy",
     "total_rvu": 18.71,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 10.12,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 624.93
+    "estimated_medicare_payment": 624.93,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44186",
+      "laparoscopic jejunostomy",
+      "ostomy"
+    ]
   },
   "44187": {
     "addon_code": false,
@@ -72745,24 +72994,42 @@
     "category": "Surgery",
     "code": "44188",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopic colostomy or skin level cecostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.21,
     "never_primary_with": [],
     "pe_rvu": 11.04,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "ostomy",
     "total_rvu": 34.12,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.87,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1139.64
+    "estimated_medicare_payment": 1139.64,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44188",
+      "laparoscopic colostomy or skin level cecostomy",
+      "ostomy"
+    ]
   },
   "44202": {
     "addon_code": false,
@@ -72837,24 +73104,42 @@
     "category": "Surgery",
     "code": "44204",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopic colectomy, partial",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.75,
     "never_primary_with": [],
     "pe_rvu": 10.8,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 42.31,
-    "typical_modifiers": [],
-    "work_rvu": 19.26,
-    "wrvu_source": "User-mandated CMS physician work RVU correction 2026-05-28",
+    "typical_modifiers": [
+      "-51"
+    ],
+    "work_rvu": 25.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/medicare/physician-fee-schedule/search/overview",
-    "estimated_medicare_payment": 1413.19
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "estimated_medicare_payment": 1413.19,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44204",
+      "colon",
+      "laparoscopic colectomy, partial"
+    ]
   },
   "44205": {
     "addon_code": false,
@@ -72880,14 +73165,26 @@
     "never_primary_with": [],
     "pe_rvu": 9.55,
     "specialty": "bowel_resection",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 36.71,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 22.38,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1226.15
+    "estimated_medicare_payment": 1226.15,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44205",
+      "colon",
+      "laparoscopy, surgical; colectomy, partial, with anastomosis"
+    ]
   },
   "44206": {
     "addon_code": false,
@@ -72895,25 +73192,44 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "44206",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": false,
+    "code_family": "colon",
+    "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
     "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.56,
     "never_primary_with": [],
     "pe_rvu": 12.31,
     "specialty": "general_surgery",
     "subcategory": "surgical",
     "total_rvu": 47.92,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.05,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1600.57
+    "estimated_medicare_payment": 1600.57,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44206",
+      "colon",
+      "laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
+      "ostomy"
+    ]
   },
   "44207": {
     "addon_code": false,
@@ -72922,24 +73238,43 @@
     "category": "Surgery",
     "code": "44207",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopic colectomy, partial, with colorectal anastomosis",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.36,
     "never_primary_with": [],
     "pe_rvu": 11.9,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 49.38,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 31.12,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1649.34
+    "estimated_medicare_payment": 1649.34,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44207",
+      "colon",
+      "laparoscopic colectomy, partial, with colorectal anastomosis",
+      "ostomy"
+    ]
   },
   "44208": {
     "addon_code": false,
@@ -72948,24 +73283,43 @@
     "category": "Surgery",
     "code": "44208",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopic colectomy, partial, with IPAA",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.71,
     "never_primary_with": [],
     "pe_rvu": 14.1,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 53.95,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 33.14,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1801.98
+    "estimated_medicare_payment": 1801.98,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44208",
+      "colon",
+      "laparoscopic colectomy, partial, with ipaa",
+      "ostomy"
+    ]
   },
   "44210": {
     "addon_code": false,
@@ -72973,25 +73327,43 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "44210",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": false,
+    "code_family": "colon",
+    "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy",
     "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.53,
     "never_primary_with": [],
     "pe_rvu": 13.86,
     "specialty": "general_surgery",
     "subcategory": "surgical",
     "total_rvu": 48.73,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.34,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1627.63
+    "estimated_medicare_payment": 1627.63,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44210",
+      "colon",
+      "laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy"
+    ]
   },
   "44211": {
     "addon_code": false,
@@ -73000,24 +73372,42 @@
     "category": "Surgery",
     "code": "44211",
     "code_family": "bowel_resection",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopic colectomy, total, with IPAA",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.19,
     "never_primary_with": [],
     "pe_rvu": 16.36,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "colon",
     "total_rvu": 57.7,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 36.15,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1927.23
+    "estimated_medicare_payment": 1927.23,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44211",
+      "colon",
+      "laparoscopic colectomy, total, with ipaa"
+    ]
   },
   "44212": {
     "addon_code": false,
@@ -73025,7 +73415,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "44212",
-    "code_family": "unclassified",
+    "code_family": "colon",
     "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis",
     "estimated": false,
@@ -73043,14 +73433,26 @@
     "never_primary_with": [],
     "pe_rvu": 16.01,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 55.75,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 33.72,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1862.1
+    "estimated_medicare_payment": 1862.1,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44212",
+      "colon",
+      "laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis"
+    ]
   },
   "44310": {
     "addon_code": false,
@@ -73058,7 +73460,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "44310",
-    "code_family": "unclassified",
+    "code_family": "ostomy",
     "cosurgeon_eligible": true,
     "description": "Ileostomy or jejunostomy, non-tube",
     "estimated": false,
@@ -73075,14 +73477,26 @@
     "never_primary_with": [],
     "pe_rvu": 7.97,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "ostomy",
     "total_rvu": 28.97,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.15,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 967.62
+    "estimated_medicare_payment": 967.62,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44310",
+      "ileostomy or jejunostomy, non-tube",
+      "ostomy"
+    ]
   },
   "44320": {
     "addon_code": false,
@@ -73109,12 +73523,24 @@
     "specialty": "bowel_resection",
     "subcategory": "stoma",
     "total_rvu": 33.59,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 19.41,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1121.94
+    "estimated_medicare_payment": 1121.94,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "44320",
+      "colostomy or skin level cecostomy",
+      "ostomy"
+    ]
   },
   "44360": {
     "addon_code": false,
@@ -73444,7 +73870,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45110",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Proctectomy; complete, combined abdominoperineal, with colostomy",
     "estimated": false,
@@ -73461,14 +73887,26 @@
     "never_primary_with": [],
     "pe_rvu": 14.55,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 50.07,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.99,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1672.38
+    "estimated_medicare_payment": 1672.38,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45110",
+      "proctectomy; complete, combined abdominoperineal, with colostomy",
+      "rectum"
+    ]
   },
   "45111": {
     "addon_code": false,
@@ -73477,24 +73915,42 @@
     "category": "Surgery",
     "code": "45111",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Proctectomy, partial",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.63,
     "never_primary_with": [],
     "pe_rvu": 9.07,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 30.26,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.56,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1010.71
+    "estimated_medicare_payment": 1010.71,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45111",
+      "proctectomy, partial",
+      "rectum"
+    ]
   },
   "45112": {
     "addon_code": false,
@@ -73503,24 +73959,42 @@
     "category": "Surgery",
     "code": "45112",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Proctectomy, combined abdominoperineal",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.66,
     "never_primary_with": [],
     "pe_rvu": 12.11,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 49.12,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 32.35,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1640.65
+    "estimated_medicare_payment": 1640.65,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45112",
+      "proctectomy, combined abdominoperineal",
+      "rectum"
+    ]
   },
   "45113": {
     "addon_code": false,
@@ -73528,7 +74002,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45113",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, includes loop ileostomy",
     "estimated": false,
@@ -73545,14 +74019,26 @@
     "never_primary_with": [],
     "pe_rvu": 13.71,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 50.76,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 32.39,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1695.43
+    "estimated_medicare_payment": 1695.43,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45113",
+      "proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, includes loop ileostomy",
+      "rectum"
+    ]
   },
   "45114": {
     "addon_code": false,
@@ -73561,24 +74047,42 @@
     "category": "Surgery",
     "code": "45114",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Proctectomy, partial, with anterior resection",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 8.03,
     "never_primary_with": [],
     "pe_rvu": 12.5,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 50.55,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 30.02,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1688.42
+    "estimated_medicare_payment": 1688.42,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45114",
+      "proctectomy, partial, with anterior resection",
+      "rectum"
+    ]
   },
   "45116": {
     "addon_code": false,
@@ -73587,24 +74091,42 @@
     "category": "Surgery",
     "code": "45116",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Proctectomy, partial, transperineal approach",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.89,
     "never_primary_with": [],
     "pe_rvu": 11.2,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 42.12,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 27.03,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1406.85
+    "estimated_medicare_payment": 1406.85,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45116",
+      "proctectomy, partial, transperineal approach",
+      "rectum"
+    ]
   },
   "45119": {
     "addon_code": false,
@@ -73612,7 +74134,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45119",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, J-pouch), with diverting enterostomy",
     "estimated": false,
@@ -73629,14 +74151,26 @@
     "never_primary_with": [],
     "pe_rvu": 13.77,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 51.12,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 32.64,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1707.45
+    "estimated_medicare_payment": 1707.45,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45119",
+      "proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, j-pouch), with diverting enterostomy",
+      "rectum"
+    ]
   },
   "45120": {
     "addon_code": false,
@@ -73644,7 +74178,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45120",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis",
     "estimated": false,
@@ -73661,14 +74195,26 @@
     "never_primary_with": [],
     "pe_rvu": 12.24,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 44.85,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 25.74,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1498.03
+    "estimated_medicare_payment": 1498.03,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45120",
+      "proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis",
+      "rectum"
+    ]
   },
   "45121": {
     "addon_code": false,
@@ -73676,7 +74222,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45121",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy",
     "estimated": false,
@@ -73693,14 +74239,26 @@
     "never_primary_with": [],
     "pe_rvu": 12.87,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 48.81,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 28.35,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1630.3
+    "estimated_medicare_payment": 1630.3,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45121",
+      "proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy",
+      "rectum"
+    ]
   },
   "45123": {
     "addon_code": false,
@@ -73709,24 +74267,42 @@
     "category": "Surgery",
     "code": "45123",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Proctectomy, partial, for congenital megacolon",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.28,
     "never_primary_with": [],
     "pe_rvu": 9.25,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 30.92,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.39,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1032.76
+    "estimated_medicare_payment": 1032.76,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45123",
+      "proctectomy, partial, for congenital megacolon",
+      "rectum"
+    ]
   },
   "45126": {
     "addon_code": false,
@@ -73760,7 +74336,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45130",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Excision of rectal procidentia, with anastomosis; perineal approach",
     "estimated": false,
@@ -73777,14 +74353,26 @@
     "never_primary_with": [],
     "pe_rvu": 8.8,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 30.08,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.04,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1004.7
+    "estimated_medicare_payment": 1004.7,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45130",
+      "excision of rectal procidentia, with anastomosis; perineal approach",
+      "rectum"
+    ]
   },
   "45135": {
     "addon_code": false,
@@ -73793,24 +74381,42 @@
     "category": "Surgery",
     "code": "45135",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of rectal procidentia with sigmoidectomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.13,
     "never_primary_with": [],
     "pe_rvu": 10.88,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 35.81,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.8,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1196.09
+    "estimated_medicare_payment": 1196.09,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45135",
+      "excision of rectal procidentia with sigmoidectomy",
+      "rectum"
+    ]
   },
   "45160": {
     "addon_code": false,
@@ -73819,24 +74425,42 @@
     "category": "Surgery",
     "code": "45160",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of rectal tumor, transanal",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.25,
     "never_primary_with": [],
     "pe_rvu": 9.06,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 29.23,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 15.92,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 976.31
+    "estimated_medicare_payment": 976.31,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45160",
+      "excision of rectal tumor, transanal",
+      "rectum"
+    ]
   },
   "45171": {
     "addon_code": false,
@@ -73845,24 +74469,42 @@
     "category": "Surgery",
     "code": "45171",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of rectal tumor, not incl muscularis, transanal",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 1.56,
     "never_primary_with": [],
     "pe_rvu": 8.83,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 18.32,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 7.93,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 611.9
+    "estimated_medicare_payment": 611.9,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45171",
+      "excision of rectal tumor, not incl muscularis, transanal",
+      "rectum"
+    ]
   },
   "45172": {
     "addon_code": false,
@@ -73871,24 +74513,42 @@
     "category": "Surgery",
     "code": "45172",
     "code_family": "general_surgery",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of rectal tumor, incl muscularis, transanal",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 2.16,
     "never_primary_with": [],
     "pe_rvu": 9.81,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "rectum",
     "total_rvu": 23.8,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 11.83,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 794.94
+    "estimated_medicare_payment": 794.94,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45172",
+      "excision of rectal tumor, incl muscularis, transanal",
+      "rectum"
+    ]
   },
   "45330": {
     "addon_code": false,
@@ -73948,8 +74608,8 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45378",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
+    "code_family": "colon",
+    "cosurgeon_eligible": false,
     "description": "Colonoscopy, flexible; diagnostic, including collection of specimen(s) by brushing or washing",
     "estimated": false,
     "global_period_days": 0,
@@ -73965,14 +74625,26 @@
     "never_primary_with": [],
     "pe_rvu": 7.73,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 11.32,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 3.18,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 378.1
+    "estimated_medicare_payment": 378.1,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45378",
+      "colon",
+      "colonoscopy, flexible; diagnostic, including collection of specimen(s) by brushing or washing"
+    ]
   },
   "45380": {
     "addon_code": false,
@@ -73980,8 +74652,8 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45380",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
+    "code_family": "colon",
+    "cosurgeon_eligible": false,
     "description": "Colonoscopy, flexible; with biopsy, single or multiple",
     "estimated": false,
     "global_period_days": 0,
@@ -73997,20 +74669,32 @@
     "never_primary_with": [],
     "pe_rvu": 10.48,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 14.37,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 3.47,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 479.97
+    "estimated_medicare_payment": 479.97,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45380",
+      "colon",
+      "colonoscopy, flexible; with biopsy, single or multiple"
+    ]
   },
   "45381": {
     "addon_code": false,
     "assistant_allowed": true,
     "bilateral_eligible": false,
-    "category": "Medicine",
+    "category": "Surgery",
     "code": "45381",
     "code_family": "gastroenterology",
     "cosurgeon_eligible": false,
@@ -74018,25 +74702,43 @@
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.42,
     "never_primary_with": [],
     "pe_rvu": 10.79,
     "specialty": "gastroenterology",
     "subcategory": "gastroenterology",
     "total_rvu": 14.68,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 3.47,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 490.33
+    "estimated_medicare_payment": 490.33,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45381",
+      "colon",
+      "colonoscopy with submucosal injection"
+    ]
   },
   "45384": {
     "addon_code": false,
     "assistant_allowed": true,
     "bilateral_eligible": false,
-    "category": "Medicine",
+    "category": "Surgery",
     "code": "45384",
     "code_family": "gastroenterology",
     "cosurgeon_eligible": false,
@@ -74044,19 +74746,37 @@
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.61,
     "never_primary_with": [],
     "pe_rvu": 11.57,
     "specialty": "gastroenterology",
     "subcategory": "gastroenterology",
     "total_rvu": 16.15,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 3.97,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 539.42
+    "estimated_medicare_payment": 539.42,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45384",
+      "colon",
+      "colonoscopy with removal of lesion by hot biopsy/cautery"
+    ]
   },
   "45385": {
     "addon_code": false,
@@ -74064,8 +74784,8 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45385",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
+    "code_family": "colon",
+    "cosurgeon_eligible": false,
     "description": "Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique",
     "estimated": false,
     "global_period_days": 0,
@@ -74079,16 +74799,28 @@
     ],
     "mp_rvu": 0.51,
     "never_primary_with": [],
-    "pe_rvu": 10,
+    "pe_rvu": 10.0,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 14.97,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.46,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 500.01
+    "estimated_medicare_payment": 500.01,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45385",
+      "colon",
+      "colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"
+    ]
   },
   "45388": {
     "addon_code": false,
@@ -74102,19 +74834,37 @@
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.6,
     "never_primary_with": [],
     "pe_rvu": 74.26,
     "specialty": "gastroenterology",
     "subcategory": "digestive",
     "total_rvu": 79.62,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.76,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2659.38
+    "estimated_medicare_payment": 2659.38,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45388",
+      "colon",
+      "colonoscopy with ablation of lesion"
+    ]
   },
   "45389": {
     "addon_code": false,
@@ -74122,8 +74872,8 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45389",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
+    "code_family": "colon",
+    "cosurgeon_eligible": false,
     "description": "Colonoscopy, flexible; with endoscopic stent placement",
     "estimated": false,
     "global_period_days": 0,
@@ -74139,20 +74889,32 @@
     "never_primary_with": [],
     "pe_rvu": 1.89,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "colon",
     "total_rvu": 7.58,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 5.11,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 253.18
+    "estimated_medicare_payment": 253.18,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45389",
+      "colon",
+      "colonoscopy, flexible; with endoscopic stent placement"
+    ]
   },
   "45390": {
     "addon_code": false,
     "assistant_allowed": true,
     "bilateral_eligible": false,
-    "category": "Medicine",
+    "category": "Surgery",
     "code": "45390",
     "code_family": "gastroenterology",
     "cosurgeon_eligible": false,
@@ -74160,25 +74922,43 @@
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.65,
     "never_primary_with": [],
     "pe_rvu": 2.15,
     "specialty": "gastroenterology",
     "subcategory": "gastroenterology",
     "total_rvu": 8.69,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 5.89,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 290.25
+    "estimated_medicare_payment": 290.25,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45390",
+      "colon",
+      "colonoscopy with removal of foreign body"
+    ]
   },
   "45391": {
     "addon_code": false,
     "assistant_allowed": true,
     "bilateral_eligible": false,
-    "category": "Medicine",
+    "category": "Surgery",
     "code": "45391",
     "code_family": "gastroenterology",
     "cosurgeon_eligible": false,
@@ -74186,19 +74966,37 @@
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.49,
     "never_primary_with": [],
     "pe_rvu": 1.76,
     "specialty": "gastroenterology",
     "subcategory": "gastroenterology",
     "total_rvu": 6.77,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.52,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 226.12
+    "estimated_medicare_payment": 226.12,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45391",
+      "colon",
+      "colonoscopy with endoscopic ultrasound"
+    ]
   },
   "45395": {
     "addon_code": false,
@@ -74206,7 +75004,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45395",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; proctectomy, complete, combined abdominoperineal",
     "estimated": false,
@@ -74219,24 +75017,36 @@
       "12004",
       "12005"
     ],
-    "mp_rvu": 6,
+    "mp_rvu": 6.0,
     "never_primary_with": [],
     "pe_rvu": 15.69,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 53.87,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 32.18,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1799.31
+    "estimated_medicare_payment": 1799.31,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45395",
+      "laparoscopy, surgical; proctectomy, complete, combined abdominoperineal",
+      "rectum"
+    ]
   },
   "45398": {
     "addon_code": false,
     "assistant_allowed": true,
     "bilateral_eligible": false,
-    "category": "Medicine",
+    "category": "Surgery",
     "code": "45398",
     "code_family": "gastroenterology",
     "cosurgeon_eligible": false,
@@ -74244,19 +75054,37 @@
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.6,
     "never_primary_with": [],
     "pe_rvu": 22.32,
     "specialty": "gastroenterology",
     "subcategory": "gastroenterology",
     "total_rvu": 27.02,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.1,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 902.49
+    "estimated_medicare_payment": 902.49,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "45398",
+      "colon",
+      "colonoscopy with band ligation"
+    ]
   },
   "45540": {
     "addon_code": false,
@@ -74264,7 +75092,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "45540",
-    "code_family": "unclassified",
+    "code_family": "rectum",
     "cosurgeon_eligible": true,
     "description": "Proctopexy (eg, for prolapse); abdominal approach",
     "estimated": false,
@@ -74281,14 +75109,26 @@
     "never_primary_with": [],
     "pe_rvu": 8.32,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "rectum",
     "total_rvu": 29.17,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.67,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 974.3
+    "estimated_medicare_payment": 974.3,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "45540",
+      "proctopexy (eg, for prolapse); abdominal approach",
+      "rectum"
+    ]
   },
   "46020": {
     "addon_code": false,
@@ -74890,9 +75730,9 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47000",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
-    "description": "CPT 47000",
+    "code_family": "hepatobiliary",
+    "cosurgeon_eligible": false,
+    "description": "Needle biopsy of liver perq",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 1,
@@ -74907,14 +75747,26 @@
     "never_primary_with": [],
     "pe_rvu": 6.84,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 8.62,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 1.61,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 287.92
+    "estimated_medicare_payment": 287.92,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47000",
+      "hepatobiliary",
+      "needle biopsy of liver perq"
+    ]
   },
   "47001": {
     "addon_code": false,
@@ -74949,24 +75801,42 @@
     "category": "Surgery",
     "code": "47010",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Hepatotomy for open drainage of abscess or cyst 1 or 2 stages",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.86,
     "never_primary_with": [],
     "pe_rvu": 10.44,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 34.22,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.92,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1142.98
+    "estimated_medicare_payment": 1142.98,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47010",
+      "hepatobiliary",
+      "hepatotomy for open drainage of abscess or cyst 1 or 2 stages"
+    ]
   },
   "47015": {
     "addon_code": false,
@@ -74975,24 +75845,42 @@
     "category": "Surgery",
     "code": "47015",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparotomy with aspiration and/or injection of hepatic parasitic cyst or abscess",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.82,
     "never_primary_with": [],
     "pe_rvu": 10.2,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 33.06,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.04,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1104.23
+    "estimated_medicare_payment": 1104.23,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47015",
+      "hepatobiliary",
+      "laparotomy with aspiration and/or injection of hepatic parasitic cyst or abscess"
+    ]
   },
   "47100": {
     "addon_code": false,
@@ -75017,14 +75905,26 @@
     "never_primary_with": [],
     "pe_rvu": 8.62,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 24.39,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 12.59,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 814.65
+    "estimated_medicare_payment": 814.65,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47100",
+      "biopsy of liver, wedge",
+      "hepatobiliary"
+    ]
   },
   "47120": {
     "addon_code": false,
@@ -75049,14 +75949,26 @@
     "never_primary_with": [],
     "pe_rvu": 17.31,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 64.87,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 38.03,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2166.72
+    "estimated_medicare_payment": 2166.72,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47120",
+      "hepatectomy, resection of liver; partial lobectomy",
+      "hepatobiliary"
+    ]
   },
   "47122": {
     "addon_code": false,
@@ -75065,29 +75977,47 @@
     "category": "Surgery",
     "code": "47122",
     "code_family": "liver",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Hepatectomy, trisegmentectomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 14.84,
     "never_primary_with": [],
     "pe_rvu": 21.4,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "hepatobiliary",
     "total_rvu": 94.23,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 57.99,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 3147.37
+    "estimated_medicare_payment": 3147.37,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47122",
+      "hepatectomy, trisegmentectomy",
+      "hepatobiliary"
+    ]
   },
   "47125": {
     "addon_code": false,
     "assistant_allowed": true,
-    "bilateral_eligible": true,
+    "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47125",
     "code_family": "liver",
@@ -75107,19 +76037,31 @@
     "never_primary_with": [],
     "pe_rvu": 19.64,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 84.62,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 51.71,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2826.38
+    "estimated_medicare_payment": 2826.38,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47125",
+      "hepatectomy, resection of liver; total left lobectomy",
+      "hepatobiliary"
+    ]
   },
   "47130": {
     "addon_code": false,
     "assistant_allowed": true,
-    "bilateral_eligible": true,
+    "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47130",
     "code_family": "liver",
@@ -75139,14 +76081,26 @@
     "never_primary_with": [],
     "pe_rvu": 20.56,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 90.51,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 55.76,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 3023.12
+    "estimated_medicare_payment": 3023.12,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47130",
+      "hepatectomy, resection of liver; total right lobectomy",
+      "hepatobiliary"
+    ]
   },
   "47133": {
     "addon_code": false,
@@ -75225,24 +76179,42 @@
     "category": "Surgery",
     "code": "47140",
     "code_family": "liver",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Donor hepatectomy, from cadaver",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 15.52,
     "never_primary_with": [],
     "pe_rvu": 26.71,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "hepatobiliary",
     "total_rvu": 100.15,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 57.92,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 3345.1
+    "estimated_medicare_payment": 3345.1,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "2",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47140",
+      "donor hepatectomy, from cadaver",
+      "hepatobiliary"
+    ]
   },
   "47141": {
     "addon_code": false,
@@ -75251,24 +76223,42 @@
     "category": "Surgery",
     "code": "47141",
     "code_family": "liver",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Donor hepatectomy, from living donor, segment",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 18.67,
     "never_primary_with": [],
     "pe_rvu": 30.94,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "hepatobiliary",
     "total_rvu": 119.32,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 69.71,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 3985.4
+    "estimated_medicare_payment": 3985.4,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "2",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47141",
+      "donor hepatectomy, from living donor, segment",
+      "hepatobiliary"
+    ]
   },
   "47142": {
     "addon_code": false,
@@ -75277,24 +76267,42 @@
     "category": "Surgery",
     "code": "47142",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Donor hepatectomy from living donor total right lobe with recipient hepatectomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 20.74,
     "never_primary_with": [],
     "pe_rvu": 32.81,
     "specialty": "gastroenterology",
-    "subcategory": null,
-    "total_rvu": 131,
-    "typical_modifiers": [],
+    "subcategory": "hepatobiliary",
+    "total_rvu": 131.0,
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 77.45,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 4375.52
+    "estimated_medicare_payment": 4375.52,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47142",
+      "donor hepatectomy from living donor total right lobe with recipient hepatectomy",
+      "hepatobiliary"
+    ]
   },
   "47300": {
     "addon_code": false,
@@ -75303,24 +76311,42 @@
     "category": "Surgery",
     "code": "47300",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Marsupialization of cyst or abscess of liver",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.51,
     "never_primary_with": [],
     "pe_rvu": 9.92,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 32.12,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.69,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1072.84
+    "estimated_medicare_payment": 1072.84,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47300",
+      "hepatobiliary",
+      "marsupialization of cyst or abscess of liver"
+    ]
   },
   "47350": {
     "addon_code": false,
@@ -75346,14 +76372,26 @@
     "never_primary_with": [],
     "pe_rvu": 11.22,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 38.49,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.93,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1285.6
+    "estimated_medicare_payment": 1285.6,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47350",
+      "hepatobiliary",
+      "management of liver hemorrhage; simple repair of liver wound or injury"
+    ]
   },
   "47360": {
     "addon_code": false,
@@ -75379,14 +76417,26 @@
     "never_primary_with": [],
     "pe_rvu": 13.55,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 52.24,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 30.53,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1744.86
+    "estimated_medicare_payment": 1744.86,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47360",
+      "hepatobiliary",
+      "management of liver hemorrhage; complex repair of liver wound or injury, with or without hepatic artery ligation"
+    ]
   },
   "47361": {
     "addon_code": false,
@@ -75395,24 +76445,42 @@
     "category": "Surgery",
     "code": "47361",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Management of liver hemorrhage exploration of hepatic wound extensive debridement coagulation and/or suture with or without packing of liver",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 13.01,
     "never_primary_with": [],
     "pe_rvu": 18.62,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 82.92,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 51.29,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2769.6
+    "estimated_medicare_payment": 2769.6,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47361",
+      "hepatobiliary",
+      "management of liver hemorrhage exploration of hepatic wound extensive debridement coagulation and/or suture with or without packing of liver"
+    ]
   },
   "47362": {
     "addon_code": false,
@@ -75437,14 +76505,26 @@
     "never_primary_with": [],
     "pe_rvu": 11.54,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 40.06,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 22.95,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1338.04
+    "estimated_medicare_payment": 1338.04,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47362",
+      "hepatobiliary",
+      "management of liver hemorrhage; re-exploration of hepatic wound for removal of packing"
+    ]
   },
   "47370": {
     "addon_code": false,
@@ -75469,14 +76549,26 @@
     "never_primary_with": [],
     "pe_rvu": 9.66,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 35.1,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 20.28,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1172.37
+    "estimated_medicare_payment": 1172.37,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47370",
+      "hepatobiliary",
+      "laparoscopy, surgical, ablation of 1 or more liver tumor(s); radiofrequency"
+    ]
   },
   "47371": {
     "addon_code": false,
@@ -75485,24 +76577,42 @@
     "category": "Surgery",
     "code": "47371",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopy surgical ablation of 1 or more liver tumors cryosurgery",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.42,
     "never_primary_with": [],
     "pe_rvu": 9.7,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 35.4,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 20.28,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1182.39
+    "estimated_medicare_payment": 1182.39,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47371",
+      "hepatobiliary",
+      "laparoscopy surgical ablation of 1 or more liver tumors cryosurgery"
+    ]
   },
   "47379": {
     "addon_code": false,
@@ -75536,24 +76646,42 @@
     "category": "Surgery",
     "code": "47380",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Ablation open of 1 or more liver tumors radiofrequency",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.86,
     "never_primary_with": [],
     "pe_rvu": 10.44,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 40.25,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 23.95,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1344.39
+    "estimated_medicare_payment": 1344.39,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47380",
+      "ablation open of 1 or more liver tumors radiofrequency",
+      "hepatobiliary"
+    ]
   },
   "47381": {
     "addon_code": false,
@@ -75562,24 +76690,42 @@
     "category": "Surgery",
     "code": "47381",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Ablation open of 1 or more liver tumors cryosurgery",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.48,
     "never_primary_with": [],
     "pe_rvu": 10.66,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 41.4,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 24.26,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1382.8
+    "estimated_medicare_payment": 1382.8,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47381",
+      "ablation open of 1 or more liver tumors cryosurgery",
+      "hepatobiliary"
+    ]
   },
   "47382": {
     "addon_code": false,
@@ -75588,7 +76734,7 @@
     "category": "Surgery",
     "code": "47382",
     "code_family": "liver",
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "description": "Ablation, 1 or more liver tumor(s), percutaneous, radiofrequency",
     "estimated": false,
     "global_period_days": 10,
@@ -75604,14 +76750,26 @@
     "never_primary_with": [],
     "pe_rvu": 86.46,
     "specialty": "liver",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 102.7,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 14.6,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 3430.27
+    "estimated_medicare_payment": 3430.27,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47382",
+      "ablation, 1 or more liver tumor(s), percutaneous, radiofrequency",
+      "hepatobiliary"
+    ]
   },
   "47383": {
     "addon_code": false,
@@ -75671,24 +76829,42 @@
     "category": "Surgery",
     "code": "47400",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Hepaticotomy or hepaticostomy with exploration drainage or removal of calculus",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 9.49,
     "never_primary_with": [],
     "pe_rvu": 14.74,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 59.68,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 35.45,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1993.37
+    "estimated_medicare_payment": 1993.37,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47400",
+      "hepaticotomy or hepaticostomy with exploration drainage or removal of calculus",
+      "hepatobiliary"
+    ]
   },
   "47420": {
     "addon_code": false,
@@ -75697,24 +76873,42 @@
     "category": "Surgery",
     "code": "47420",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Choledochotomy or choledochostomy with exploration drainage or removal of calculus with or without cholecystotomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.38,
     "never_primary_with": [],
     "pe_rvu": 10.23,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 37.09,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.48,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1238.84
+    "estimated_medicare_payment": 1238.84,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47420",
+      "choledochotomy or choledochostomy with exploration drainage or removal of calculus with or without cholecystotomy",
+      "hepatobiliary"
+    ]
   },
   "47425": {
     "addon_code": false,
@@ -75723,24 +76917,42 @@
     "category": "Surgery",
     "code": "47425",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Choledochotomy or choledochostomy with exploration drainage or removal of calculus with transduodenal sphincterotomy or sphincteroplasty",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.82,
     "never_primary_with": [],
     "pe_rvu": 10.89,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 38.46,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.75,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1284.6
+    "estimated_medicare_payment": 1284.6,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47425",
+      "choledochotomy or choledochostomy with exploration drainage or removal of calculus with transduodenal sphincterotomy or sphincteroplasty",
+      "hepatobiliary"
+    ]
   },
   "47460": {
     "addon_code": false,
@@ -75749,24 +76961,42 @@
     "category": "Surgery",
     "code": "47460",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Transduodenal sphincterotomy or sphincteroplasty with or without transduodenal extraction of calculus",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.34,
     "never_primary_with": [],
     "pe_rvu": 10.46,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 35.81,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 20.01,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1196.09
+    "estimated_medicare_payment": 1196.09,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47460",
+      "hepatobiliary",
+      "transduodenal sphincterotomy or sphincteroplasty with or without transduodenal extraction of calculus"
+    ]
   },
   "47480": {
     "addon_code": false,
@@ -75775,24 +77005,42 @@
     "category": "Surgery",
     "code": "47480",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Cholecystotomy or cholecystostomy open with exploration drainage or removal of calculus",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.18,
     "never_primary_with": [],
     "pe_rvu": 8.98,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 25.08,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 12.92,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 837.69
+    "estimated_medicare_payment": 837.69,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47480",
+      "cholecystotomy or cholecystostomy open with exploration drainage or removal of calculus",
+      "hepatobiliary"
+    ]
   },
   "47490": {
     "addon_code": false,
@@ -75800,9 +77048,9 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47490",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
-    "description": "CPT 47490",
+    "code_family": "hepatobiliary",
+    "cosurgeon_eligible": false,
+    "description": "Incision of gallbladder",
     "estimated": false,
     "global_period_days": 10,
     "hierarchy_tier": 1,
@@ -75817,14 +77065,26 @@
     "never_primary_with": [],
     "pe_rvu": 3.8,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 8.93,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.64,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 298.27
+    "estimated_medicare_payment": 298.27,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47490",
+      "hepatobiliary",
+      "incision of gallbladder"
+    ]
   },
   "47500": {
     "addon_code": false,
@@ -75964,9 +77224,9 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47538",
-    "code_family": "unclassified",
-    "cosurgeon_eligible": true,
-    "description": "CPT 47538",
+    "code_family": "hepatobiliary",
+    "cosurgeon_eligible": false,
+    "description": "Perq plmt bile duct stent",
     "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 1,
@@ -75981,14 +77241,26 @@
     "never_primary_with": [],
     "pe_rvu": 99.51,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 104.64,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.63,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 3495.07
+    "estimated_medicare_payment": 3495.07,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47538",
+      "hepatobiliary",
+      "perq plmt bile duct stent"
+    ]
   },
   "47544": {
     "addon_code": false,
@@ -76023,16 +77295,16 @@
     "estimated_medicare_payment": 792.6
   },
   "47550": {
-    "addon_code": false,
+    "addon_code": true,
     "assistant_allowed": true,
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47550",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
-    "description": "CPT 47550",
+    "description": "Bile duct endoscopy add-on",
     "estimated": false,
-    "global_period_days": 90,
+    "global_period_days": 0,
     "hierarchy_tier": 1,
     "inclusive_of": [
       "12001",
@@ -76053,7 +77325,17 @@
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 144.96
+    "estimated_medicare_payment": 144.96,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "0",
+    "search_terms": [
+      "47550",
+      "bile duct endoscopy add-on",
+      "hepatobiliary"
+    ]
   },
   "47552": {
     "addon_code": false,
@@ -76062,24 +77344,42 @@
     "category": "Surgery",
     "code": "47552",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Biliary endoscopy percutaneous via T-tube or other tract diagnostic with or without collection of specimens",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.78,
     "never_primary_with": [],
     "pe_rvu": 0.97,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 7.63,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 5.88,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 254.85
+    "estimated_medicare_payment": 254.85,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47552",
+      "biliary endoscopy percutaneous via t-tube or other tract diagnostic with or without collection of specimens",
+      "hepatobiliary"
+    ]
   },
   "47553": {
     "addon_code": false,
@@ -76090,22 +77390,40 @@
     "code_family": "hepatobiliary",
     "cosurgeon_eligible": false,
     "description": "Biliary endoscopy percutaneous via T-tube or other tract with biopsy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.81,
     "never_primary_with": [],
     "pe_rvu": 0.57,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 7.56,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 6.18,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 252.51
+    "estimated_medicare_payment": 252.51,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "47553",
+      "biliary endoscopy percutaneous via t-tube or other tract with biopsy",
+      "hepatobiliary"
+    ]
   },
   "47554": {
     "addon_code": false,
@@ -76114,24 +77432,42 @@
     "category": "Surgery",
     "code": "47554",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Biliary endoscopy percutaneous via T-tube or other tract with removal of calculus",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 1.25,
     "never_primary_with": [],
     "pe_rvu": 1.8,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 11.87,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 8.82,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 396.47
+    "estimated_medicare_payment": 396.47,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "47554",
+      "biliary endoscopy percutaneous via t-tube or other tract with removal of calculus",
+      "hepatobiliary"
+    ]
   },
   "47555": {
     "addon_code": false,
@@ -76142,22 +77478,40 @@
     "code_family": "hepatobiliary",
     "cosurgeon_eligible": false,
     "description": "Biliary endoscopy percutaneous via T-tube or other tract with dilation of biliary duct stricture",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.96,
     "never_primary_with": [],
     "pe_rvu": 0.68,
     "specialty": "gastroenterology",
-    "subcategory": null,
-    "total_rvu": 9,
-    "typical_modifiers": [],
+    "subcategory": "hepatobiliary",
+    "total_rvu": 9.0,
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 7.36,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 300.61
+    "estimated_medicare_payment": 300.61,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "47555",
+      "biliary endoscopy percutaneous via t-tube or other tract with dilation of biliary duct stricture",
+      "hepatobiliary"
+    ]
   },
   "47556": {
     "addon_code": false,
@@ -76168,22 +77522,40 @@
     "code_family": "hepatobiliary",
     "cosurgeon_eligible": false,
     "description": "Biliary endoscopy percutaneous via T-tube or other tract with stent placement",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 0,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 1.09,
     "never_primary_with": [],
     "pe_rvu": 0.77,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 10.2,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 8.34,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 340.69
+    "estimated_medicare_payment": 340.69,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "3",
+    "search_terms": [
+      "47556",
+      "biliary endoscopy percutaneous via t-tube or other tract with stent placement",
+      "hepatobiliary"
+    ]
   },
   "47560": {
     "addon_code": false,
@@ -76229,7 +77601,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47562",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; cholecystectomy",
     "estimated": false,
@@ -76250,12 +77622,24 @@
     "specialty": "general_surgery",
     "subcategory": "hepatobiliary",
     "total_rvu": 18.92,
-    "typical_modifiers": [],
-    "work_rvu": 11.47,
-    "wrvu_source": "User-mandated CMS physician work RVU correction 2026-05-28",
+    "typical_modifiers": [
+      "-51"
+    ],
+    "work_rvu": 10.21,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/medicare/physician-fee-schedule/search/overview",
-    "estimated_medicare_payment": 631.95
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "estimated_medicare_payment": 631.95,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47562",
+      "hepatobiliary",
+      "laparoscopy, surgical; cholecystectomy"
+    ]
   },
   "47563": {
     "addon_code": false,
@@ -76263,7 +77647,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47563",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; cholecystectomy with cholangiography",
     "estimated": false,
@@ -76284,12 +77668,24 @@
     "specialty": "general_surgery",
     "subcategory": "hepatobiliary",
     "total_rvu": 20.49,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 11.18,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 684.38
+    "estimated_medicare_payment": 684.38,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47563",
+      "hepatobiliary",
+      "laparoscopy, surgical; cholecystectomy with cholangiography"
+    ]
   },
   "47564": {
     "addon_code": false,
@@ -76297,7 +77693,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47564",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Laparoscopy, surgical; cholecystectomy with exploration of common duct",
     "estimated": false,
@@ -76316,14 +77712,26 @@
     "never_primary_with": [],
     "pe_rvu": 9.63,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 31.78,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.55,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1061.48
+    "estimated_medicare_payment": 1061.48,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47564",
+      "hepatobiliary",
+      "laparoscopy, surgical; cholecystectomy with exploration of common duct"
+    ]
   },
   "47570": {
     "addon_code": false,
@@ -76332,24 +77740,42 @@
     "category": "Surgery",
     "code": "47570",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Laparoscopy surgical cholecystoenterostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.27,
     "never_primary_with": [],
     "pe_rvu": 6.52,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 22.04,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 12.25,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 736.16
+    "estimated_medicare_payment": 736.16,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47570",
+      "hepatobiliary",
+      "laparoscopy surgical cholecystoenterostomy"
+    ]
   },
   "47579": {
     "addon_code": false,
@@ -76382,7 +77808,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47600",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Cholecystectomy",
     "estimated": false,
@@ -76399,14 +77825,26 @@
     "never_primary_with": [],
     "pe_rvu": 8.86,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 30.25,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.04,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1010.38
+    "estimated_medicare_payment": 1010.38,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47600",
+      "cholecystectomy",
+      "hepatobiliary"
+    ]
   },
   "47605": {
     "addon_code": false,
@@ -76414,7 +77852,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47605",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Cholecystectomy; with cholangiography",
     "estimated": false,
@@ -76431,14 +77869,26 @@
     "never_primary_with": [],
     "pe_rvu": 9.1,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 31.78,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.02,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1061.48
+    "estimated_medicare_payment": 1061.48,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47605",
+      "cholecystectomy; with cholangiography",
+      "hepatobiliary"
+    ]
   },
   "47610": {
     "addon_code": false,
@@ -76446,7 +77896,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47610",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Cholecystectomy with exploration of common duct",
     "estimated": false,
@@ -76463,14 +77913,26 @@
     "never_primary_with": [],
     "pe_rvu": 9.44,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 35.14,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 20.4,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1173.71
+    "estimated_medicare_payment": 1173.71,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47610",
+      "cholecystectomy with exploration of common duct",
+      "hepatobiliary"
+    ]
   },
   "47612": {
     "addon_code": false,
@@ -76479,24 +77941,42 @@
     "category": "Surgery",
     "code": "47612",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Cholecystectomy with exploration of common duct with choledochoenterostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.53,
     "never_primary_with": [],
     "pe_rvu": 9.46,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 35.67,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 20.68,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1191.41
+    "estimated_medicare_payment": 1191.41,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47612",
+      "cholecystectomy with exploration of common duct with choledochoenterostomy",
+      "hepatobiliary"
+    ]
   },
   "47620": {
     "addon_code": false,
@@ -76505,24 +77985,42 @@
     "category": "Surgery",
     "code": "47620",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Cholecystectomy with exploration of common duct with transduodenal sphincterotomy or sphincteroplasty with or without cholangiography",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.02,
     "never_primary_with": [],
     "pe_rvu": 9.9,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 38.41,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 22.49,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1282.93
+    "estimated_medicare_payment": 1282.93,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47620",
+      "cholecystectomy with exploration of common duct with transduodenal sphincterotomy or sphincteroplasty with or without cholangiography",
+      "hepatobiliary"
+    ]
   },
   "47700": {
     "addon_code": false,
@@ -76531,50 +78029,86 @@
     "category": "Surgery",
     "code": "47700",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Exploration for congenital atresia of bile ducts without repair with or without liver biopsy with or without cholangiography",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.3,
     "never_primary_with": [],
     "pe_rvu": 9.8,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 30.19,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 16.09,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1008.37
+    "estimated_medicare_payment": 1008.37,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47700",
+      "exploration for congenital atresia of bile ducts without repair with or without liver biopsy with or without cholangiography",
+      "hepatobiliary"
+    ]
   },
   "47701": {
     "addon_code": false,
-    "assistant_allowed": true,
+    "assistant_allowed": false,
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47701",
     "code_family": "hepatobiliary",
     "cosurgeon_eligible": false,
     "description": "Portoenterostomy (eg Kasai procedure)",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.48,
     "never_primary_with": [],
     "pe_rvu": 13.02,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 48.51,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 28.01,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1620.28
+    "estimated_medicare_payment": 1620.28,
+    "assistant_surgeon_indicator": "0",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47701",
+      "hepatobiliary",
+      "portoenterostomy (eg kasai procedure)"
+    ]
   },
   "47711": {
     "addon_code": false,
@@ -76583,24 +78117,42 @@
     "category": "Surgery",
     "code": "47711",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of bile duct tumor with repair of bile duct with or without liver biopsy or cholangiography",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.33,
     "never_primary_with": [],
     "pe_rvu": 11.75,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 43.33,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 25.25,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1447.26
+    "estimated_medicare_payment": 1447.26,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47711",
+      "excision of bile duct tumor with repair of bile duct with or without liver biopsy or cholangiography",
+      "hepatobiliary"
+    ]
   },
   "47712": {
     "addon_code": false,
@@ -76609,24 +78161,42 @@
     "category": "Surgery",
     "code": "47712",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of bile duct tumor with repair by reanastomosis and/or transduodenal sphincteroplasty",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 8.8,
     "never_primary_with": [],
     "pe_rvu": 13.8,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 55.48,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 32.88,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1853.08
+    "estimated_medicare_payment": 1853.08,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47712",
+      "excision of bile duct tumor with repair by reanastomosis and/or transduodenal sphincteroplasty",
+      "hepatobiliary"
+    ]
   },
   "47715": {
     "addon_code": false,
@@ -76635,24 +78205,42 @@
     "category": "Surgery",
     "code": "47715",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of choledochal cyst",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.61,
     "never_primary_with": [],
     "pe_rvu": 10.92,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 37.54,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.01,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1253.87
+    "estimated_medicare_payment": 1253.87,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47715",
+      "excision of choledochal cyst",
+      "hepatobiliary"
+    ]
   },
   "47720": {
     "addon_code": false,
@@ -76661,24 +78249,42 @@
     "category": "Surgery",
     "code": "47720",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Cholecystoenterostomy direct",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.78,
     "never_primary_with": [],
     "pe_rvu": 10.16,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 32.82,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.88,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1096.22
+    "estimated_medicare_payment": 1096.22,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47720",
+      "cholecystoenterostomy direct",
+      "hepatobiliary"
+    ]
   },
   "47721": {
     "addon_code": false,
@@ -76713,24 +78319,42 @@
     "category": "Surgery",
     "code": "47740",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Cholecystenterostomy Roux-en-Y",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.53,
     "never_primary_with": [],
     "pe_rvu": 10.85,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 37.08,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 20.7,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1238.51
+    "estimated_medicare_payment": 1238.51,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47740",
+      "cholecystenterostomy roux-en-y",
+      "hepatobiliary"
+    ]
   },
   "47741": {
     "addon_code": false,
@@ -76739,24 +78363,42 @@
     "category": "Surgery",
     "code": "47741",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Cholecystenterostomy Roux-en-Y with gastroenterostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.31,
     "never_primary_with": [],
     "pe_rvu": 11.55,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 41.46,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 23.6,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1384.8
+    "estimated_medicare_payment": 1384.8,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47741",
+      "cholecystenterostomy roux-en-y with gastroenterostomy",
+      "hepatobiliary"
+    ]
   },
   "47760": {
     "addon_code": false,
@@ -76764,7 +78406,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "47760",
-    "code_family": "unclassified",
+    "code_family": "hepatobiliary",
     "cosurgeon_eligible": true,
     "description": "Anastomosis, of extrahepatic biliary ducts and gastrointestinal tract",
     "estimated": false,
@@ -76781,14 +78423,26 @@
     "never_primary_with": [],
     "pe_rvu": 15.43,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 62.21,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 37.36,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2077.87
+    "estimated_medicare_payment": 2077.87,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47760",
+      "anastomosis, of extrahepatic biliary ducts and gastrointestinal tract",
+      "hepatobiliary"
+    ]
   },
   "47765": {
     "addon_code": false,
@@ -76797,24 +78451,42 @@
     "category": "Surgery",
     "code": "47765",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Anastomosis of intrahepatic ducts and gastrointestinal tract",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 13.64,
     "never_primary_with": [],
     "pe_rvu": 19.1,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 83.63,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 50.89,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2793.32
+    "estimated_medicare_payment": 2793.32,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47765",
+      "anastomosis of intrahepatic ducts and gastrointestinal tract",
+      "hepatobiliary"
+    ]
   },
   "47780": {
     "addon_code": false,
@@ -76823,24 +78495,42 @@
     "category": "Surgery",
     "code": "47780",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Anastomosis Roux-en-Y of extrahepatic biliary ducts and gastrointestinal tract",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 10.55,
     "never_primary_with": [],
     "pe_rvu": 16.56,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 68.37,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 41.26,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2283.62
+    "estimated_medicare_payment": 2283.62,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47780",
+      "anastomosis roux-en-y of extrahepatic biliary ducts and gastrointestinal tract",
+      "hepatobiliary"
+    ]
   },
   "47785": {
     "addon_code": false,
@@ -76849,24 +78539,42 @@
     "category": "Surgery",
     "code": "47785",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Anastomosis Roux-en-Y of intrahepatic biliary ducts and gastrointestinal tract",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 14.03,
     "never_primary_with": [],
     "pe_rvu": 20.17,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 88.99,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 54.79,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2972.35
+    "estimated_medicare_payment": 2972.35,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47785",
+      "anastomosis roux-en-y of intrahepatic biliary ducts and gastrointestinal tract",
+      "hepatobiliary"
+    ]
   },
   "47800": {
     "addon_code": false,
@@ -76875,24 +78583,42 @@
     "category": "Surgery",
     "code": "47800",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Reconstruction repair of extrahepatic biliary duct without stent or T-tube",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 6.37,
     "never_primary_with": [],
     "pe_rvu": 11.93,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 43.82,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 25.52,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1463.63
+    "estimated_medicare_payment": 1463.63,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47800",
+      "hepatobiliary",
+      "reconstruction repair of extrahepatic biliary duct without stent or t-tube"
+    ]
   },
   "47801": {
     "addon_code": false,
@@ -76901,24 +78627,42 @@
     "category": "Surgery",
     "code": "47801",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Placement of choledochal stent",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.19,
     "never_primary_with": [],
     "pe_rvu": 9.72,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 31.07,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.16,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1037.77
+    "estimated_medicare_payment": 1037.77,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47801",
+      "hepatobiliary",
+      "placement of choledochal stent"
+    ]
   },
   "47802": {
     "addon_code": false,
@@ -76946,24 +78690,42 @@
     "category": "Surgery",
     "code": "47900",
     "code_family": "hepatobiliary",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Suture of extrahepatic biliary duct for pre-existing injury",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.85,
     "never_primary_with": [],
     "pe_rvu": 11.13,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "hepatobiliary",
     "total_rvu": 38.86,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.88,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1297.96
+    "estimated_medicare_payment": 1297.96,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "47900",
+      "hepatobiliary",
+      "suture of extrahepatic biliary duct for pre-existing injury"
+    ]
   },
   "47999": {
     "addon_code": false,
@@ -77029,24 +78791,42 @@
     "category": "Surgery",
     "code": "48001",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Placement of drains peripancreatic for acute pancreatitis with cholecystostomy gastrostomy and jejunostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 10.37,
     "never_primary_with": [],
     "pe_rvu": 14.66,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 63.73,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 38.7,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2128.64
+    "estimated_medicare_payment": 2128.64,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48001",
+      "pancreas",
+      "placement of drains peripancreatic for acute pancreatitis with cholecystostomy gastrostomy and jejunostomy"
+    ]
   },
   "48020": {
     "addon_code": false,
@@ -77055,24 +78835,42 @@
     "category": "Surgery",
     "code": "48020",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Removal of pancreatic calculus",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.96,
     "never_primary_with": [],
     "pe_rvu": 9.78,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 33.35,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.61,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1113.92
+    "estimated_medicare_payment": 1113.92,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48020",
+      "pancreas",
+      "removal of pancreatic calculus"
+    ]
   },
   "48100": {
     "addon_code": false,
@@ -77081,24 +78879,42 @@
     "category": "Surgery",
     "code": "48100",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Biopsy of pancreas, open",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 3.56,
     "never_primary_with": [],
     "pe_rvu": 7.61,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 25.27,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 14.1,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 844.04
+    "estimated_medicare_payment": 844.04,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48100",
+      "biopsy of pancreas, open",
+      "pancreas"
+    ]
   },
   "48102": {
     "addon_code": false,
@@ -77109,22 +78925,40 @@
     "code_family": "pancreas",
     "cosurgeon_eligible": false,
     "description": "Needle biopsy of pancreas, percutaneous",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 10,
     "hierarchy_tier": 3,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 0.49,
     "never_primary_with": [],
     "pe_rvu": 9.68,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 14.75,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 4.58,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 492.66
+    "estimated_medicare_payment": 492.66,
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48102",
+      "needle biopsy of pancreas, percutaneous",
+      "pancreas"
+    ]
   },
   "48105": {
     "addon_code": false,
@@ -77133,24 +78967,42 @@
     "category": "Surgery",
     "code": "48105",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Resection of peripancreatic tumor",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 10.41,
     "never_primary_with": [],
     "pe_rvu": 18.08,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 76.52,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 48.03,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2555.84
+    "estimated_medicare_payment": 2555.84,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48105",
+      "pancreas",
+      "resection of peripancreatic tumor"
+    ]
   },
   "48120": {
     "addon_code": false,
@@ -77159,24 +79011,42 @@
     "category": "Surgery",
     "code": "48120",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of pancreatic lesion",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.8,
     "never_primary_with": [],
     "pe_rvu": 8.6,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 31.35,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.95,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1047.12
+    "estimated_medicare_payment": 1047.12,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48120",
+      "excision of pancreatic lesion",
+      "pancreas"
+    ]
   },
   "48140": {
     "addon_code": false,
@@ -77202,14 +79072,26 @@
     "never_primary_with": [],
     "pe_rvu": 11.51,
     "specialty": "pancreas",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 43.61,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 25.66,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1456.61
+    "estimated_medicare_payment": 1456.61,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48140",
+      "pancreas",
+      "pancreatectomy, distal subtotal"
+    ]
   },
   "48145": {
     "addon_code": false,
@@ -77218,24 +79100,42 @@
     "category": "Surgery",
     "code": "48145",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Distal pancreatectomy with splenectomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.14,
     "never_primary_with": [],
     "pe_rvu": 11.75,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 45.6,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 26.71,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1523.08
+    "estimated_medicare_payment": 1523.08,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48145",
+      "distal pancreatectomy with splenectomy",
+      "pancreas"
+    ]
   },
   "48146": {
     "addon_code": false,
@@ -77244,24 +79144,42 @@
     "category": "Surgery",
     "code": "48146",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Pancreatectomy, distal, with near-total",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.98,
     "never_primary_with": [],
     "pe_rvu": 15.11,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 52.93,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 29.84,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1767.91
+    "estimated_medicare_payment": 1767.91,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48146",
+      "pancreas",
+      "pancreatectomy, distal, with near-total"
+    ]
   },
   "48148": {
     "addon_code": false,
@@ -77270,24 +79188,42 @@
     "category": "Surgery",
     "code": "48148",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Excision of ampulla of Vater",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.3,
     "never_primary_with": [],
     "pe_rvu": 10.09,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 35.27,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 19.88,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1178.05
+    "estimated_medicare_payment": 1178.05,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48148",
+      "excision of ampulla of vater",
+      "pancreas"
+    ]
   },
   "48150": {
     "addon_code": false,
@@ -77313,14 +79249,26 @@
     "never_primary_with": [],
     "pe_rvu": 21.52,
     "specialty": "pancreas",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 85.96,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 51.52,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2871.14
+    "estimated_medicare_payment": 2871.14,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48150",
+      "pancreas",
+      "pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (whipple-type procedure)"
+    ]
   },
   "48152": {
     "addon_code": false,
@@ -77329,24 +79277,42 @@
     "category": "Surgery",
     "code": "48152",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Whipple with pancreatojejunostomy",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 12.7,
     "never_primary_with": [],
     "pe_rvu": 19.9,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 80.03,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 47.43,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2673.07
+    "estimated_medicare_payment": 2673.07,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48152",
+      "pancreas",
+      "whipple with pancreatojejunostomy"
+    ]
   },
   "48153": {
     "addon_code": false,
@@ -77372,14 +79338,26 @@
     "never_primary_with": [],
     "pe_rvu": 20.9,
     "specialty": "pancreas",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 85.71,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 51.47,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2862.79
+    "estimated_medicare_payment": 2862.79,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48153",
+      "pancreas",
+      "pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, whipple-type procedure)"
+    ]
   },
   "48154": {
     "addon_code": false,
@@ -77388,24 +79366,42 @@
     "category": "Surgery",
     "code": "48154",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Total pancreatectomy with transplantation of pancreatic islets",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 12.76,
     "never_primary_with": [],
     "pe_rvu": 19.95,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 80.37,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 47.66,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 2684.43
+    "estimated_medicare_payment": 2684.43,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48154",
+      "pancreas",
+      "total pancreatectomy with transplantation of pancreatic islets"
+    ]
   },
   "48155": {
     "addon_code": false,
@@ -77414,24 +79410,42 @@
     "category": "Surgery",
     "code": "48155",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Pancreatectomy, lateral, internal drainage (Puestow)",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.29,
     "never_primary_with": [],
     "pe_rvu": 15.24,
     "specialty": "general_surgery",
-    "subcategory": "general",
+    "subcategory": "pancreas",
     "total_rvu": 51.24,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 28.71,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1711.46
+    "estimated_medicare_payment": 1711.46,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48155",
+      "pancreas",
+      "pancreatectomy, lateral, internal drainage (puestow)"
+    ]
   },
   "48160": {
     "addon_code": false,
@@ -77491,24 +79505,42 @@
     "category": "Surgery",
     "code": "48500",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Marsupialization of pancreatic cyst",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.74,
     "never_primary_with": [],
     "pe_rvu": 10.24,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 32.69,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.71,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1091.88
+    "estimated_medicare_payment": 1091.88,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48500",
+      "marsupialization of pancreatic cyst",
+      "pancreas"
+    ]
   },
   "48510": {
     "addon_code": false,
@@ -77516,7 +79548,7 @@
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "48510",
-    "code_family": "unclassified",
+    "code_family": "pancreas",
     "cosurgeon_eligible": true,
     "description": "External drainage, pseudocyst of pancreas; open",
     "estimated": false,
@@ -77533,14 +79565,26 @@
     "never_primary_with": [],
     "pe_rvu": 10.01,
     "specialty": "general_surgery",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 31.25,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 16.76,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1043.78
+    "estimated_medicare_payment": 1043.78,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48510",
+      "external drainage, pseudocyst of pancreas; open",
+      "pancreas"
+    ]
   },
   "48520": {
     "addon_code": false,
@@ -77549,24 +79593,42 @@
     "category": "Surgery",
     "code": "48520",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract direct",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 4.74,
     "never_primary_with": [],
     "pe_rvu": 8.53,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 30.97,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 17.7,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1034.43
+    "estimated_medicare_payment": 1034.43,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48520",
+      "internal anastomosis of pancreatic cyst to gastrointestinal tract direct",
+      "pancreas"
+    ]
   },
   "48540": {
     "addon_code": false,
@@ -77575,24 +79637,42 @@
     "category": "Surgery",
     "code": "48540",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Internal anastomosis of pancreatic cyst to gastrointestinal tract Roux-en-Y",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.72,
     "never_primary_with": [],
     "pe_rvu": 9.43,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 36.54,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.39,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1220.47
+    "estimated_medicare_payment": 1220.47,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48540",
+      "internal anastomosis of pancreatic cyst to gastrointestinal tract roux-en-y",
+      "pancreas"
+    ]
   },
   "48545": {
     "addon_code": false,
@@ -77601,24 +79681,42 @@
     "category": "Surgery",
     "code": "48545",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Pancreatorrhaphy for injury",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.78,
     "never_primary_with": [],
     "pe_rvu": 10.38,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 37.83,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 21.67,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1263.56
+    "estimated_medicare_payment": 1263.56,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48545",
+      "pancreas",
+      "pancreatorrhaphy for injury"
+    ]
   },
   "48547": {
     "addon_code": false,
@@ -77653,24 +79751,42 @@
     "category": "Surgery",
     "code": "48548",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Pancreaticojejunostomy side to side anastomosis",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 7.33,
     "never_primary_with": [],
     "pe_rvu": 11.9,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 46.62,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 27.39,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1557.15
+    "estimated_medicare_payment": 1557.15,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48548",
+      "pancreas",
+      "pancreaticojejunostomy side to side anastomosis"
+    ]
   },
   "48556": {
     "addon_code": false,
@@ -77679,24 +79795,42 @@
     "category": "Surgery",
     "code": "48556",
     "code_family": "pancreas",
-    "cosurgeon_eligible": false,
+    "cosurgeon_eligible": true,
     "description": "Removal of pancreatic transplant",
-    "estimated": true,
+    "estimated": false,
     "global_period_days": 90,
     "hierarchy_tier": 2,
-    "inclusive_of": [],
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
     "mp_rvu": 5.06,
     "never_primary_with": [],
     "pe_rvu": 13.27,
     "specialty": "gastroenterology",
-    "subcategory": null,
+    "subcategory": "pancreas",
     "total_rvu": 37.31,
-    "typical_modifiers": [],
+    "typical_modifiers": [
+      "-51"
+    ],
     "work_rvu": 18.98,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
     "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
-    "estimated_medicare_payment": 1246.19
+    "estimated_medicare_payment": 1246.19,
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "2",
+    "team_surgeon_indicator": "2",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "search_terms": [
+      "48556",
+      "pancreas",
+      "removal of pancreatic transplant"
+    ]
   },
   "48999": {
     "addon_code": false,
@@ -119503,15 +121637,23 @@
     "work_rvu": 27.9,
     "estimated_medicare_payment": 1519.41,
     "search_terms": [
-      "laparoscopic stoma reversal",
-      "laparoscopic enterostomy closure",
+      "44227",
       "lap ostomy takedown",
       "laparoscopic colostomy reversal",
-      "laparoscopic ileostomy closure"
+      "laparoscopic enterostomy closure",
+      "laparoscopic ileostomy closure",
+      "laparoscopic stoma reversal",
+      "laparoscopy, surgical, closure of enterostomy, large or small intestine, with resection and anastomosis",
+      "ostomy"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44300": {
     "addon_code": false,
@@ -119557,12 +121699,12 @@
   },
   "44312": {
     "addon_code": false,
-    "assistant_allowed": true,
+    "assistant_allowed": false,
     "bilateral_eligible": false,
     "category": "Surgery",
     "code": "44312",
     "code_family": "ileostomy_revision",
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "description": "Revision of ileostomy; simple",
     "estimated": false,
     "global_period_days": 90,
@@ -119588,14 +121730,22 @@
     "work_rvu": 9.19,
     "estimated_medicare_payment": 568.15,
     "search_terms": [
+      "44312",
       "ileostomy revision",
+      "ileostomy scar revision",
+      "ostomy",
       "ostomy revision",
-      "stoma revision",
-      "ileostomy scar revision"
+      "revision of ileostomy; simple",
+      "stoma revision"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "0",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44314": {
     "addon_code": false,
@@ -119631,14 +121781,22 @@
     "work_rvu": 16.32,
     "estimated_medicare_payment": 935.56,
     "search_terms": [
+      "44314",
       "complicated ileostomy revision",
+      "ostomy",
       "ostomy relocation",
+      "revision of ileostomy; complicated",
       "stoma relocation",
       "stoma revision"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44316": {
     "addon_code": false,
@@ -119715,13 +121873,21 @@
     "work_rvu": 12.99,
     "estimated_medicare_payment": 983.32,
     "search_terms": [
+      "44322",
       "colostomy creation with biopsies",
-      "skin level cecostomy with biopsies",
-      "colostomy with biopsy"
+      "colostomy or skin level cecostomy; with multiple biopsies",
+      "colostomy with biopsy",
+      "ostomy",
+      "skin level cecostomy with biopsies"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44340": {
     "addon_code": false,
@@ -119756,14 +121922,22 @@
     "work_rvu": 9.05,
     "estimated_medicare_payment": 607.23,
     "search_terms": [
+      "44340",
       "colostomy revision",
+      "colostomy scar revision",
+      "ostomy",
       "ostomy revision",
-      "stoma revision",
-      "colostomy scar revision"
+      "revision of colostomy; simple",
+      "stoma revision"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44345": {
     "addon_code": false,
@@ -119799,14 +121973,22 @@
     "work_rvu": 16.79,
     "estimated_medicare_payment": 986.66,
     "search_terms": [
+      "44345",
+      "colostomy revision",
       "complicated colostomy revision",
+      "ostomy",
       "ostomy relocation",
-      "stoma relocation",
-      "colostomy revision"
+      "revision of colostomy; complicated",
+      "stoma relocation"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44346": {
     "addon_code": false,
@@ -119842,14 +122024,22 @@
     "work_rvu": 19.14,
     "estimated_medicare_payment": 1100.23,
     "search_terms": [
-      "paracolostomy hernia repair",
+      "44346",
       "colostomy revision with hernia",
+      "ostomy",
+      "ostomy relocation",
+      "paracolostomy hernia repair",
       "parastomal hernia colostomy revision",
-      "ostomy relocation"
+      "revision of colostomy; with repair of paracolostomy hernia"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "44650": {
     "addon_code": false,
@@ -120314,14 +122504,22 @@
     "work_rvu": 35.59,
     "estimated_medicare_payment": 1941.93,
     "search_terms": [
-      "laparoscopic proctectomy with pouch",
+      "45397",
+      "coloanal anastomosis pouch",
       "colonic reservoir",
+      "laparoscopic proctectomy with pouch",
+      "laparoscopy, surgical; proctectomy, combined abdominoperineal pull-through procedure, with creation of colonic reservoir",
       "low anterior resection related",
-      "coloanal anastomosis pouch"
+      "rectum"
     ],
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "bilateral_indicator": "0",
+    "multiple_procedure_indicator": "2"
   },
   "49621": {
     "addon_code": false,
@@ -122786,6 +124984,7 @@
     "never_primary_with": [],
     "pe_rvu": 0.54,
     "search_terms": [
+      "44139",
       "colon",
       "mobilization of colon"
     ],
@@ -122830,6 +125029,7 @@
     "never_primary_with": [],
     "pe_rvu": 7.53,
     "search_terms": [
+      "44388",
       "colon",
       "colonoscopy thru stoma spx",
       "ostomy"
@@ -122876,6 +125076,7 @@
     "never_primary_with": [],
     "pe_rvu": 10.36,
     "search_terms": [
+      "44389",
       "colon",
       "colonoscopy with biopsy"
     ],
@@ -122920,6 +125121,7 @@
     "never_primary_with": [],
     "pe_rvu": 9.39,
     "search_terms": [
+      "44390",
       "colon",
       "colonoscopy for foreign body"
     ],
@@ -122964,6 +125166,7 @@
     "never_primary_with": [],
     "pe_rvu": 16.52,
     "search_terms": [
+      "44391",
       "colon",
       "colonoscopy for bleeding"
     ],
@@ -123008,6 +125211,7 @@
     "never_primary_with": [],
     "pe_rvu": 8.91,
     "search_terms": [
+      "44392",
       "colon",
       "colonoscopy & polypectomy"
     ],
@@ -123052,6 +125256,7 @@
     "never_primary_with": [],
     "pe_rvu": 10.04,
     "search_terms": [
+      "44394",
       "colon",
       "colonoscopy w/snare"
     ],
@@ -123096,6 +125301,7 @@
     "never_primary_with": [],
     "pe_rvu": 72.58,
     "search_terms": [
+      "44401",
       "colon",
       "colonoscopy with ablation"
     ],
@@ -123140,6 +125346,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.78,
     "search_terms": [
+      "44402",
       "colon",
       "colonoscopy w/stent plcmt"
     ],
@@ -123184,6 +125391,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.01,
     "search_terms": [
+      "44403",
       "colon",
       "colonoscopy w/resection"
     ],
@@ -123228,6 +125436,7 @@
     "never_primary_with": [],
     "pe_rvu": 10.61,
     "search_terms": [
+      "44404",
       "colon",
       "colonoscopy w/injection"
     ],
@@ -123272,6 +125481,7 @@
     "never_primary_with": [],
     "pe_rvu": 14.89,
     "search_terms": [
+      "44405",
       "colon",
       "colonoscopy w/dilation"
     ],
@@ -123316,6 +125526,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.61,
     "search_terms": [
+      "44406",
       "colon",
       "colonoscopy w/ultrasound"
     ],
@@ -123360,6 +125571,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.85,
     "search_terms": [
+      "44407",
       "colon",
       "colonoscopy w/ndl aspir/bx"
     ],
@@ -123404,6 +125616,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.62,
     "search_terms": [
+      "44408",
       "colon",
       "colonoscopy w/decompression"
     ],
@@ -123448,6 +125661,7 @@
     "never_primary_with": [],
     "pe_rvu": 0.73,
     "search_terms": [
+      "44701",
       "colon",
       "intraop colon lavage add-on"
     ],
@@ -123492,6 +125706,7 @@
     "never_primary_with": [],
     "pe_rvu": 8.5,
     "search_terms": [
+      "45005",
       "drainage of rectal abscess",
       "rectum"
     ],
@@ -123537,6 +125752,7 @@
     "never_primary_with": [],
     "pe_rvu": 6.54,
     "search_terms": [
+      "45020",
       "drainage of rectal abscess",
       "rectum"
     ],
@@ -123582,6 +125798,7 @@
     "never_primary_with": [],
     "pe_rvu": 4.33,
     "search_terms": [
+      "45100",
       "biopsy of rectum",
       "rectum"
     ],
@@ -123627,6 +125844,7 @@
     "never_primary_with": [],
     "pe_rvu": 4.84,
     "search_terms": [
+      "45108",
       "anorectal myomectomy",
       "rectum"
     ],
@@ -123672,6 +125890,7 @@
     "never_primary_with": [],
     "pe_rvu": 14.58,
     "search_terms": [
+      "45136",
       "excise ileoanal reservior",
       "rectum"
     ],
@@ -123717,6 +125936,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.31,
     "search_terms": [
+      "45150",
       "excision of rectal stricture",
       "rectum"
     ],
@@ -123762,6 +125982,7 @@
     "never_primary_with": [],
     "pe_rvu": 8.52,
     "search_terms": [
+      "45190",
       "destruction rectal tumor",
       "rectum"
     ],
@@ -123807,6 +126028,7 @@
     "never_primary_with": [],
     "pe_rvu": 3.54,
     "search_terms": [
+      "45300",
       "proctosigmoidoscopy dx",
       "rectum"
     ],
@@ -123852,6 +126074,7 @@
     "never_primary_with": [],
     "pe_rvu": 29.1,
     "search_terms": [
+      "45303",
       "proctosigmoidoscopy dilate",
       "rectum"
     ],
@@ -123896,6 +126119,7 @@
     "never_primary_with": [],
     "pe_rvu": 4.62,
     "search_terms": [
+      "45305",
       "proctosigmoidoscopy w/bx",
       "rectum"
     ],
@@ -123940,6 +126164,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.1,
     "search_terms": [
+      "45307",
       "proctosigmoidoscopy fb",
       "rectum"
     ],
@@ -123984,6 +126209,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.18,
     "search_terms": [
+      "45308",
       "proctosigmoidoscopy removal",
       "rectum"
     ],
@@ -124028,6 +126254,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.27,
     "search_terms": [
+      "45309",
       "proctosigmoidoscopy removal",
       "rectum"
     ],
@@ -124072,6 +126299,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.43,
     "search_terms": [
+      "45315",
       "proctosigmoidoscopy removal",
       "rectum"
     ],
@@ -124116,6 +126344,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.04,
     "search_terms": [
+      "45317",
       "proctosigmoidoscopy bleed",
       "rectum"
     ],
@@ -124160,6 +126389,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.29,
     "search_terms": [
+      "45320",
       "proctosigmoidoscopy ablate",
       "rectum"
     ],
@@ -124204,6 +126434,7 @@
     "never_primary_with": [],
     "pe_rvu": 0.9,
     "search_terms": [
+      "45321",
       "proctosigmoidoscopy volvul",
       "rectum"
     ],
@@ -124248,6 +126479,7 @@
     "never_primary_with": [],
     "pe_rvu": 0.96,
     "search_terms": [
+      "45327",
       "proctosigmoidoscopy w/stent",
       "rectum"
     ],
@@ -124292,6 +126524,7 @@
     "never_primary_with": [],
     "pe_rvu": 9.69,
     "search_terms": [
+      "45379",
       "colon",
       "colonoscopy w/fb removal"
     ],
@@ -124336,6 +126569,7 @@
     "never_primary_with": [],
     "pe_rvu": 16.82,
     "search_terms": [
+      "45382",
       "colon",
       "colonoscopy w/control bleed"
     ],
@@ -124380,6 +126614,7 @@
     "never_primary_with": [],
     "pe_rvu": 15.95,
     "search_terms": [
+      "45386",
       "colon",
       "colonoscopy w/balloon dilat"
     ],
@@ -124424,6 +126659,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.99,
     "search_terms": [
+      "45392",
       "colon",
       "colonoscopy w/endoscopic fnb"
     ],
@@ -124468,6 +126704,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.42,
     "search_terms": [
+      "45393",
       "colon",
       "colonoscopy w/decompression"
     ],
@@ -124512,6 +126749,7 @@
     "never_primary_with": [],
     "pe_rvu": 10.84,
     "search_terms": [
+      "45402",
       "lap proctopexy w/sig resect",
       "rectum"
     ],
@@ -124557,6 +126795,7 @@
     "never_primary_with": [],
     "pe_rvu": 7.52,
     "search_terms": [
+      "45500",
       "rectum",
       "repair of rectum"
     ],
@@ -124602,6 +126841,7 @@
     "never_primary_with": [],
     "pe_rvu": 8.18,
     "search_terms": [
+      "45505",
       "rectum",
       "repair of rectum"
     ],
@@ -124647,6 +126887,7 @@
     "never_primary_with": [],
     "pe_rvu": 4.44,
     "search_terms": [
+      "45520",
       "rectum",
       "treatment of rectal prolapse"
     ],
@@ -124692,6 +126933,7 @@
     "never_primary_with": [],
     "pe_rvu": 9.26,
     "search_terms": [
+      "45541",
       "correct rectal prolapse",
       "rectum"
     ],
@@ -124737,6 +126979,7 @@
     "never_primary_with": [],
     "pe_rvu": 11.73,
     "search_terms": [
+      "45550",
       "rectum",
       "repair rectum/remove sigmoid"
     ],
@@ -124782,6 +127025,7 @@
     "never_primary_with": [],
     "pe_rvu": 5.84,
     "search_terms": [
+      "45560",
       "rectum",
       "repair of rectocele"
     ],
@@ -124827,6 +127071,7 @@
     "never_primary_with": [],
     "pe_rvu": 11.41,
     "search_terms": [
+      "45562",
       "exploration/repair of rectum",
       "rectum"
     ],
@@ -124872,6 +127117,7 @@
     "never_primary_with": [],
     "pe_rvu": 14.42,
     "search_terms": [
+      "45563",
       "exploration/repair of rectum",
       "rectum"
     ],
@@ -124917,6 +127163,7 @@
     "never_primary_with": [],
     "pe_rvu": 11.12,
     "search_terms": [
+      "45800",
       "rectum",
       "repair rect/bladder fistula"
     ],
@@ -124962,6 +127209,7 @@
     "never_primary_with": [],
     "pe_rvu": 12.89,
     "search_terms": [
+      "45805",
       "rectum",
       "repair fistula w/colostomy"
     ],
@@ -125007,6 +127255,7 @@
     "never_primary_with": [],
     "pe_rvu": 11.13,
     "search_terms": [
+      "45820",
       "rectum",
       "repair rectourethral fistula"
     ],
@@ -125052,6 +127301,7 @@
     "never_primary_with": [],
     "pe_rvu": 13.9,
     "search_terms": [
+      "45825",
       "rectum",
       "repair fistula w/colostomy"
     ],
@@ -125097,6 +127347,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.62,
     "search_terms": [
+      "45900",
       "rectum",
       "reduction of rectal prolapse"
     ],
@@ -125142,6 +127393,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.35,
     "search_terms": [
+      "45905",
       "dilation of anal sphincter",
       "rectum"
     ],
@@ -125187,6 +127439,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.37,
     "search_terms": [
+      "45910",
       "dilation of rectal narrowing",
       "rectum"
     ],
@@ -125232,6 +127485,7 @@
     "never_primary_with": [],
     "pe_rvu": 8.35,
     "search_terms": [
+      "45915",
       "rectum",
       "remove rectal obstruction"
     ],
@@ -125277,6 +127531,7 @@
     "never_primary_with": [],
     "pe_rvu": 0.87,
     "search_terms": [
+      "45990",
       "rectum",
       "surg dx exam anorectal"
     ],
@@ -125322,6 +127577,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.42,
     "search_terms": [
+      "47146",
       "hepatobiliary",
       "prep donor liver/venous"
     ],
@@ -125366,6 +127622,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.67,
     "search_terms": [
+      "47147",
       "hepatobiliary",
       "prep donor liver/arterial"
     ],
@@ -125410,6 +127667,7 @@
     "never_primary_with": [],
     "pe_rvu": 2.17,
     "search_terms": [
+      "47384",
       "abltj ire liver 1+ tum perq",
       "hepatobiliary"
     ],
@@ -125454,6 +127712,7 @@
     "never_primary_with": [],
     "pe_rvu": 27.44,
     "search_terms": [
+      "47533",
       "hepatobiliary",
       "plmt biliary drainage cath"
     ],
@@ -125498,6 +127757,7 @@
     "never_primary_with": [],
     "pe_rvu": 28.24,
     "search_terms": [
+      "47534",
       "hepatobiliary",
       "plmt biliary drainage cath"
     ],
@@ -125542,6 +127802,7 @@
     "never_primary_with": [],
     "pe_rvu": 15.28,
     "search_terms": [
+      "47536",
       "exchange biliary drg cath",
       "hepatobiliary"
     ],
@@ -125586,6 +127847,7 @@
     "never_primary_with": [],
     "pe_rvu": 11.86,
     "search_terms": [
+      "47537",
       "hepatobiliary",
       "removal biliary drg cath"
     ],
@@ -125630,6 +127892,7 @@
     "never_primary_with": [],
     "pe_rvu": 109.41,
     "search_terms": [
+      "47539",
       "hepatobiliary",
       "perq plmt bile duct stent"
     ],
@@ -125674,6 +127937,7 @@
     "never_primary_with": [],
     "pe_rvu": 108.7,
     "search_terms": [
+      "47540",
       "hepatobiliary",
       "perq plmt bile duct stent"
     ],
@@ -125718,6 +127982,7 @@
     "never_primary_with": [],
     "pe_rvu": 11.14,
     "search_terms": [
+      "47542",
       "dilate biliary duct/ampulla",
       "hepatobiliary"
     ],
@@ -125760,6 +128025,7 @@
     "never_primary_with": [],
     "pe_rvu": 7.93,
     "search_terms": [
+      "47543",
       "endoluminal bx biliary tree",
       "hepatobiliary"
     ],
@@ -125802,6 +128068,7 @@
     "never_primary_with": [],
     "pe_rvu": 1.02,
     "search_terms": [
+      "48552",
       "pancreas",
       "prep donor pancreas/venous"
     ],

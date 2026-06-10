@@ -12120,7 +12120,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": "bowel_resection",
-    "category": "colorectal",
+    "category": "bowel_resection",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12146,7 +12146,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "bowel_resection"
+    "code_family": "bowel_resection",
+    "team_surgeon_eligible": false,
+    "work_rvu": 22.03,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44143": {
     "mod51_exempt": false,
@@ -12158,8 +12162,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12185,7 +12189,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "bowel_resection"
+    "code_family": "bowel_resection",
+    "team_surgeon_eligible": false,
+    "work_rvu": 27.1,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44155": {
     "mod51_exempt": false,
@@ -12197,8 +12205,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12224,7 +12232,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "bowel_resection"
+    "code_family": "bowel_resection",
+    "team_surgeon_eligible": false,
+    "work_rvu": 33.56,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44180": {
     "mod51_exempt": false,
@@ -12351,8 +12363,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "49320",
       "12001",
@@ -12378,7 +12390,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "bowel_resection"
+    "code_family": "bowel_resection",
+    "team_surgeon_eligible": false,
+    "work_rvu": 22.38,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44212": {
     "mod51_exempt": false,
@@ -12390,8 +12406,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "49320",
       "12001",
@@ -12416,7 +12432,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "colon",
+    "work_rvu": 33.72,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44310": {
     "mod51_exempt": false,
@@ -12428,8 +12449,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal_surgery",
+    "distinct_procedure_class": "ostomy",
+    "category": "ostomy",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12453,7 +12474,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "ostomy",
+    "work_rvu": 17.15,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44320": {
     "mod51_exempt": false,
@@ -12466,7 +12492,7 @@
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
     "distinct_procedure_class": "stoma",
-    "category": "colorectal",
+    "category": "stoma",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12491,7 +12517,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "bowel_resection"
+    "code_family": "bowel_resection",
+    "team_surgeon_eligible": false,
+    "work_rvu": 19.41,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44604": {
     "mod51_exempt": false,
@@ -12728,8 +12758,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal_surgery",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12753,7 +12783,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 29.99,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45113": {
     "mod51_exempt": false,
@@ -12765,8 +12800,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal_surgery",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12790,7 +12825,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 32.39,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45119": {
     "mod51_exempt": false,
@@ -12802,8 +12842,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12827,7 +12867,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 32.64,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45120": {
     "mod51_exempt": false,
@@ -12839,8 +12884,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12864,7 +12909,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 25.74,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45121": {
     "mod51_exempt": false,
@@ -12876,8 +12926,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12901,7 +12951,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 28.35,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45130": {
     "mod51_exempt": false,
@@ -12913,8 +12968,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "excision",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12938,7 +12993,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 18.04,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45378": {
     "mod51_exempt": false,
@@ -12946,12 +13006,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "12001",
       "12002",
@@ -12975,7 +13035,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "colon",
+    "work_rvu": 3.18,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45380": {
     "mod51_exempt": false,
@@ -12983,12 +13048,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "excision",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13012,7 +13077,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "colon",
+    "work_rvu": 3.47,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45385": {
     "mod51_exempt": false,
@@ -13020,12 +13090,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13049,7 +13119,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "colon",
+    "work_rvu": 4.46,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45389": {
     "mod51_exempt": false,
@@ -13057,12 +13132,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "endoscopy",
+    "distinct_procedure_class": "colon",
+    "category": "colon",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13086,7 +13161,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "colon",
+    "work_rvu": 5.11,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45395": {
     "mod51_exempt": false,
@@ -13098,8 +13178,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13123,7 +13203,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 32.18,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45540": {
     "mod51_exempt": false,
@@ -13135,8 +13220,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "colorectal_surgery",
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13160,7 +13245,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "rectum",
+    "work_rvu": 17.67,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "46020": {
     "mod51_exempt": false,
@@ -13464,12 +13554,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "excision",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13493,7 +13583,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 1.61,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47100": {
     "mod51_exempt": false,
@@ -13505,8 +13600,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "excision",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13531,7 +13626,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 12.59,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47120": {
     "mod51_exempt": false,
@@ -13543,8 +13642,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13569,20 +13668,24 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 38.03,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47125": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13607,20 +13710,24 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 51.71,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47130": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": true,
-    "laterality_applicable": true,
-    "bilateral_method": "modifier_50",
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13645,7 +13752,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 55.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47350": {
     "mod51_exempt": false,
@@ -13657,8 +13768,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13684,7 +13795,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 21.93,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47360": {
     "mod51_exempt": false,
@@ -13696,8 +13811,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13723,7 +13838,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 30.53,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47362": {
     "mod51_exempt": false,
@@ -13735,8 +13854,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13761,7 +13880,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 22.95,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47370": {
     "mod51_exempt": false,
@@ -13773,8 +13896,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13799,7 +13922,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 20.28,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47382": {
     "mod51_exempt": false,
@@ -13807,12 +13934,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 10,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13837,7 +13964,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "code_family": "liver"
+    "code_family": "liver",
+    "team_surgeon_eligible": false,
+    "work_rvu": 14.6,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47490": {
     "mod51_exempt": false,
@@ -13845,12 +13976,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 10,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "vascular_access",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -13874,7 +14005,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 4.64,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47500": {
     "mod51_exempt": false,
@@ -13993,12 +14129,12 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": 0,
     "assistant_allowed": true,
-    "cosurgeon_eligible": true,
+    "cosurgeon_eligible": false,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "vascular_intervention",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14022,7 +14158,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 4.63,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47544": {
     "mod51_exempt": false,
@@ -14062,12 +14203,12 @@
     "hierarchy_tier": 1
   },
   "47550": {
-    "mod51_exempt": false,
-    "addon_code": false,
+    "mod51_exempt": true,
+    "addon_code": true,
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 90,
+    "global_period": "ZZZ",
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
@@ -14096,8 +14237,13 @@
       "medicare": "Major surgery - 90-day global period applies",
       "commercial": "Plastic surgery codes - verify coverage"
     },
-    "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "x_modifier_eligible": false,
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 2.94,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47562": {
     "mod51_exempt": false,
@@ -14137,9 +14283,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 1,
-    "work_rvu": 11.47,
-    "wrvu_source": "User-mandated CMS physician work RVU correction 2026-05-28",
-    "wrvu_source_url": "https://www.cms.gov/medicare/physician-fee-schedule/search/overview"
+    "work_rvu": 10.21,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary"
   },
   "47563": {
     "mod51_exempt": false,
@@ -14178,7 +14326,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 11.18,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47564": {
     "mod51_exempt": false,
@@ -14190,8 +14343,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14217,7 +14370,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 17.55,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47600": {
     "mod51_exempt": false,
@@ -14229,8 +14387,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "general_surgery",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14254,7 +14412,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 17.04,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47605": {
     "mod51_exempt": false,
@@ -14266,8 +14429,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "general_surgery",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14291,7 +14454,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 18.02,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47610": {
     "mod51_exempt": false,
@@ -14303,8 +14471,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepato-pancreato-biliary_surgery",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14328,7 +14496,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 20.4,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47760": {
     "mod51_exempt": false,
@@ -14340,8 +14513,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "hepatic",
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14365,7 +14538,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 1
+    "hierarchy_tier": 1,
+    "team_surgeon_eligible": false,
+    "code_family": "hepatobiliary",
+    "work_rvu": 37.36,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47999": {
     "mod51_exempt": false,
@@ -14414,8 +14592,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "pancreatic",
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14441,7 +14619,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "pancreas"
+    "code_family": "pancreas",
+    "team_surgeon_eligible": false,
+    "work_rvu": 25.66,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "48150": {
     "mod51_exempt": false,
@@ -14453,8 +14635,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "pancreatic",
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14480,7 +14662,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "pancreas"
+    "code_family": "pancreas",
+    "team_surgeon_eligible": false,
+    "work_rvu": 51.52,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "48153": {
     "mod51_exempt": false,
@@ -14492,8 +14678,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "pancreatic",
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14519,7 +14705,11 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "pancreas"
+    "code_family": "pancreas",
+    "team_surgeon_eligible": false,
+    "work_rvu": 51.47,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "48510": {
     "mod51_exempt": false,
@@ -14531,8 +14721,8 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "drainage",
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
     "inclusive_of": [
       "12001",
       "12002",
@@ -14556,7 +14746,12 @@
       "commercial": "Plastic surgery codes - verify coverage"
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "team_surgeon_eligible": false,
+    "code_family": "pancreas",
+    "work_rvu": 16.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "48999": {
     "mod51_exempt": false,
@@ -20992,7 +21187,19 @@
     "never_primary_with": [],
     "distinct_procedure_class": "surgical",
     "code_family": "bowel_resection",
-    "global_period_days": 90
+    "global_period_days": 90,
+    "bilateral_method": null,
+    "global_period": 90,
+    "team_surgeon_eligible": false,
+    "category": "surgical",
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "work_rvu": 29.16,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "49002": {
     "description": "Reopening of recent laparotomy",
@@ -27610,7 +27817,7 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 0,
+    "global_period": "ZZZ",
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "team_surgeon_eligible": false,
@@ -27630,9 +27837,12 @@
       "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
       "commercial": "Verify payer-specific bundling, endoscopy base-code, and assistant surgeon policy."
     },
-    "x_modifier_eligible": true,
+    "x_modifier_eligible": false,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 2.17,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44388": {
     "mod51_exempt": false,
@@ -27662,7 +27872,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 2.65,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44389": {
     "mod51_exempt": false,
@@ -27692,7 +27905,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 2.94,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44390": {
     "mod51_exempt": false,
@@ -27722,7 +27938,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 3.65,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44391": {
     "mod51_exempt": false,
@@ -27752,7 +27971,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.02,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44392": {
     "mod51_exempt": false,
@@ -27782,7 +28004,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 3.44,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44394": {
     "mod51_exempt": false,
@@ -27812,7 +28037,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 3.93,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44401": {
     "mod51_exempt": false,
@@ -27842,7 +28070,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.23,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44402": {
     "mod51_exempt": false,
@@ -27872,7 +28103,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.58,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44403": {
     "mod51_exempt": false,
@@ -27902,7 +28136,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 5.36,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44404": {
     "mod51_exempt": false,
@@ -27932,7 +28169,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 2.94,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44405": {
     "mod51_exempt": false,
@@ -27962,7 +28202,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 3.15,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44406": {
     "mod51_exempt": false,
@@ -27992,7 +28235,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44407": {
     "mod51_exempt": false,
@@ -28022,7 +28268,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.84,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44408": {
     "mod51_exempt": false,
@@ -28052,7 +28301,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.04,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44701": {
     "mod51_exempt": true,
@@ -28060,7 +28312,7 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 0,
+    "global_period": "ZZZ",
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "team_surgeon_eligible": false,
@@ -28080,9 +28332,12 @@
       "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
       "commercial": "Verify payer-specific bundling, endoscopy base-code, and assistant surgeon policy."
     },
-    "x_modifier_eligible": true,
+    "x_modifier_eligible": false,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 3.02,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45005": {
     "mod51_exempt": false,
@@ -28112,7 +28367,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.97,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45020": {
     "mod51_exempt": false,
@@ -28142,7 +28400,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 8.35,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45100": {
     "mod51_exempt": false,
@@ -28172,7 +28433,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 3.94,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45108": {
     "mod51_exempt": false,
@@ -28202,7 +28466,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 4.99,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45136": {
     "mod51_exempt": false,
@@ -28232,7 +28499,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 30.05,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45150": {
     "mod51_exempt": false,
@@ -28262,7 +28532,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 5.7,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45190": {
     "mod51_exempt": false,
@@ -28292,7 +28565,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 10.16,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45300": {
     "mod51_exempt": false,
@@ -28322,7 +28598,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 0.78,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45303": {
     "mod51_exempt": false,
@@ -28352,7 +28631,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.37,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45305": {
     "mod51_exempt": false,
@@ -28382,7 +28664,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.12,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45307": {
     "mod51_exempt": false,
@@ -28412,7 +28697,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.56,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45308": {
     "mod51_exempt": false,
@@ -28442,7 +28730,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.27,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45309": {
     "mod51_exempt": false,
@@ -28472,7 +28763,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.37,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45315": {
     "mod51_exempt": false,
@@ -28502,7 +28796,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.66,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45317": {
     "mod51_exempt": false,
@@ -28532,7 +28829,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.85,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45320": {
     "mod51_exempt": false,
@@ -28562,7 +28862,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.64,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45321": {
     "mod51_exempt": false,
@@ -28592,7 +28895,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.61,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45327": {
     "mod51_exempt": false,
@@ -28622,7 +28928,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.85,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45379": {
     "mod51_exempt": false,
@@ -28652,7 +28961,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.17,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45382": {
     "mod51_exempt": false,
@@ -28682,7 +28994,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.54,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45386": {
     "mod51_exempt": false,
@@ -28712,7 +29027,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 3.68,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45392": {
     "mod51_exempt": false,
@@ -28742,7 +29060,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 5.36,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45393": {
     "mod51_exempt": false,
@@ -28772,7 +29093,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "colon"
+    "code_family": "colon",
+    "work_rvu": 4.56,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45402": {
     "mod51_exempt": false,
@@ -28802,7 +29126,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 25.85,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45500": {
     "mod51_exempt": false,
@@ -28832,7 +29159,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 7.54,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45505": {
     "mod51_exempt": false,
@@ -28862,7 +29192,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 8.15,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45520": {
     "mod51_exempt": false,
@@ -28892,7 +29225,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 0.54,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45541": {
     "mod51_exempt": false,
@@ -28922,7 +29258,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 14.48,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45550": {
     "mod51_exempt": false,
@@ -28952,7 +29291,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 24.18,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45560": {
     "mod51_exempt": false,
@@ -28982,7 +29324,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 11.21,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45562": {
     "mod51_exempt": false,
@@ -29012,7 +29357,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 17.53,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45563": {
     "mod51_exempt": false,
@@ -29042,7 +29390,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 25.72,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45800": {
     "mod51_exempt": false,
@@ -29072,7 +29423,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 19.8,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45805": {
     "mod51_exempt": false,
@@ -29102,7 +29456,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 22.74,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45820": {
     "mod51_exempt": false,
@@ -29132,7 +29489,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 19.86,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45825": {
     "mod51_exempt": false,
@@ -29162,7 +29522,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 23.57,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45900": {
     "mod51_exempt": false,
@@ -29192,7 +29555,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 2.92,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45905": {
     "mod51_exempt": false,
@@ -29222,7 +29588,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 2.29,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45910": {
     "mod51_exempt": false,
@@ -29252,7 +29621,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 2.78,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45915": {
     "mod51_exempt": false,
@@ -29282,7 +29654,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 3.11,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "45990": {
     "mod51_exempt": false,
@@ -29312,7 +29687,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "rectum"
+    "code_family": "rectum",
+    "work_rvu": 1.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47146": {
     "mod51_exempt": false,
@@ -29342,7 +29720,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 5.85,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47147": {
     "mod51_exempt": false,
@@ -29372,7 +29753,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 6.83,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47384": {
     "mod51_exempt": false,
@@ -29402,7 +29786,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 9.41,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47533": {
     "mod51_exempt": false,
@@ -29432,7 +29819,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 5.25,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47534": {
     "mod51_exempt": false,
@@ -29462,7 +29852,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 7.41,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47536": {
     "mod51_exempt": false,
@@ -29492,7 +29885,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 2.54,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47537": {
     "mod51_exempt": false,
@@ -29522,7 +29918,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 1.79,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47539": {
     "mod51_exempt": false,
@@ -29552,7 +29951,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 8.53,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47540": {
     "mod51_exempt": false,
@@ -29582,7 +29984,10 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 8.8,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47542": {
     "mod51_exempt": true,
@@ -29590,7 +29995,7 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 0,
+    "global_period": "ZZZ",
     "assistant_allowed": true,
     "cosurgeon_eligible": false,
     "team_surgeon_eligible": false,
@@ -29610,9 +30015,12 @@
       "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
       "commercial": "Verify payer-specific bundling, endoscopy base-code, and assistant surgeon policy."
     },
-    "x_modifier_eligible": true,
+    "x_modifier_eligible": false,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 2.78,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "47543": {
     "mod51_exempt": true,
@@ -29620,7 +30028,7 @@
     "bilateral_eligible": false,
     "laterality_applicable": false,
     "bilateral_method": null,
-    "global_period": 0,
+    "global_period": "ZZZ",
     "assistant_allowed": true,
     "cosurgeon_eligible": false,
     "team_surgeon_eligible": false,
@@ -29640,9 +30048,12 @@
       "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
       "commercial": "Verify payer-specific bundling, endoscopy base-code, and assistant surgeon policy."
     },
-    "x_modifier_eligible": true,
+    "x_modifier_eligible": false,
     "hierarchy_tier": 2,
-    "code_family": "hepatobiliary"
+    "code_family": "hepatobiliary",
+    "work_rvu": 2.93,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "48552": {
     "mod51_exempt": false,
@@ -29672,6 +30083,3113 @@
     },
     "x_modifier_eligible": true,
     "hierarchy_tier": 2,
-    "code_family": "pancreas"
+    "code_family": "pancreas",
+    "work_rvu": 4.19,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44144": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 29.16,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44145": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 27.87,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44146": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 34.42,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44147": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 32.85,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44150": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "surgical",
+    "category": "surgical",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "colon",
+    "work_rvu": 29.43,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44151": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 34.05,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44156": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 36.48,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44157": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 34.81,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44158": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 35.78,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44160": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 20.37,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44186": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy",
+    "category": "ostomy",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "bowel_resection",
+    "work_rvu": 10.12,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44188": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy",
+    "category": "ostomy",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "bowel_resection",
+    "work_rvu": 18.87,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44204": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 25.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44206": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "surgical",
+    "category": "surgical",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "colon",
+    "work_rvu": 29.05,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44207": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 31.12,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44208": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 33.14,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44210": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "surgical",
+    "category": "surgical",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "colon",
+    "work_rvu": 29.34,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44211": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colon",
+    "category": "colon",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "bowel_resection",
+    "work_rvu": 36.15,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44227": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colostomy_reversal_colorectal_reconstruction",
+    "category": "colostomy_reversal_colorectal_reconstruction",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "code_family": "laparoscopic_enterostomy_closure",
+    "work_rvu": 27.9,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44312": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy_creation_revision",
+    "category": "ostomy_creation_revision",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "ileostomy_revision",
+    "work_rvu": 9.19,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44314": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy_creation_revision",
+    "category": "ostomy_creation_revision",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "ileostomy_revision",
+    "work_rvu": 16.32,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44322": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy_creation_revision",
+    "category": "ostomy_creation_revision",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "colostomy_creation",
+    "work_rvu": 12.99,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44340": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy_creation_revision",
+    "category": "ostomy_creation_revision",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "colostomy_revision",
+    "work_rvu": 9.05,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44345": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy_creation_revision",
+    "category": "ostomy_creation_revision",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "colostomy_revision",
+    "work_rvu": 16.79,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "44346": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "ostomy_creation_revision",
+    "category": "ostomy_creation_revision",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "colostomy_revision",
+    "work_rvu": 19.14,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45111": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "general_surgery",
+    "work_rvu": 17.56,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45112": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "general_surgery",
+    "work_rvu": 32.35,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45114": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "general_surgery",
+    "work_rvu": 30.02,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45116": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "general_surgery",
+    "work_rvu": 27.03,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45123": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "general_surgery",
+    "work_rvu": 18.39,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45135": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "general_surgery",
+    "work_rvu": 21.8,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45160": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "general_surgery",
+    "work_rvu": 15.92,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45171": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "general_surgery",
+    "work_rvu": 7.93,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45172": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rectum",
+    "category": "rectum",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "general_surgery",
+    "work_rvu": 11.83,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45381": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastroenterology",
+    "category": "gastroenterology",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "gastroenterology",
+    "work_rvu": 3.47,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45384": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastroenterology",
+    "category": "gastroenterology",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "gastroenterology",
+    "work_rvu": 3.97,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45388": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "digestive",
+    "category": "digestive",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "gastroenterology",
+    "work_rvu": 4.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45390": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastroenterology",
+    "category": "gastroenterology",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "gastroenterology",
+    "work_rvu": 5.89,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45391": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastroenterology",
+    "category": "gastroenterology",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "gastroenterology",
+    "work_rvu": 4.52,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45397": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "colostomy_reversal_colorectal_reconstruction",
+    "category": "colostomy_reversal_colorectal_reconstruction",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "code_family": "low_anterior_resection_related",
+    "work_rvu": 35.59,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "45398": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastroenterology",
+    "category": "gastroenterology",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "gastroenterology",
+    "work_rvu": 4.1,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47010": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 18.92,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47015": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 18.04,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47122": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "liver",
+    "work_rvu": 57.99,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47140": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "liver",
+    "work_rvu": 57.92,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47141": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "liver",
+    "work_rvu": 69.71,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47142": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 77.45,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47300": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 17.69,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47361": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 51.29,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47371": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 20.28,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47380": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 23.95,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47381": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 24.26,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47400": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 35.45,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47420": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 21.48,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47425": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 21.75,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47460": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 20.01,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47480": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 12.92,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47552": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 5.88,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47553": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 6.18,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47554": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 8.82,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47555": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 7.36,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47556": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 8.34,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47570": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 12.25,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47612": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 20.68,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47620": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 22.49,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47700": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 16.09,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47701": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 28.01,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47711": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 25.25,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47712": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 32.88,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47715": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 21.01,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47720": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 17.88,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47740": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 20.7,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47741": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 23.6,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47765": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 50.89,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47780": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 41.26,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47785": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 54.79,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47800": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 25.52,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47801": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 17.16,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "47900": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "hepatobiliary",
+    "category": "hepatobiliary",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "hepatobiliary",
+    "work_rvu": 21.88,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48001": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 38.7,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48020": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 18.61,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48100": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 14.1,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48102": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 10,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 3,
+    "code_family": "pancreas",
+    "work_rvu": 4.58,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48105": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 48.03,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48120": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 17.95,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48145": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 26.71,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48146": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 29.84,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48148": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 19.88,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48152": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 47.43,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48154": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 47.66,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48155": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 28.71,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48500": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 17.71,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48520": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 17.7,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48540": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 21.39,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48545": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 21.67,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48548": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 27.39,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "48556": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "pancreas",
+    "category": "pancreas",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific bundling and modifier policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "code_family": "pancreas",
+    "work_rvu": 18.98,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   }
 }
