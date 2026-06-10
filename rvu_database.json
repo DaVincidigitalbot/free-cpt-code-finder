@@ -2727,7 +2727,7 @@
       "practice_expense_rvu": 4.9,
       "malpractice_rvu": 0.17,
       "global_period_days": 0
-  },
+    },
     "20225": {
       "description": "Bone biopsy, trocar or needle; deep",
       "global_period": 0,
@@ -2741,7 +2741,7 @@
       "practice_expense_rvu": 8.27,
       "malpractice_rvu": 0.26,
       "global_period_days": 0
-  },
+    },
     "20240": {
       "description": "Bone biopsy, excisional; superficial",
       "global_period": 0,
@@ -2755,7 +2755,7 @@
       "practice_expense_rvu": 0.95,
       "malpractice_rvu": 0.3,
       "global_period_days": 0
-  },
+    },
     "20245": {
       "description": "Bone biopsy, excisional; deep",
       "global_period": 0,
@@ -2769,7 +2769,7 @@
       "practice_expense_rvu": 2.18,
       "malpractice_rvu": 1.05,
       "global_period_days": 0
-  },
+    },
     "20250": {
       "description": "Open bone biopsy; superficial",
       "global_period": 10,
@@ -2783,7 +2783,7 @@
       "practice_expense_rvu": 5.08,
       "malpractice_rvu": 1.46,
       "global_period_days": 10
-  },
+    },
     "20251": {
       "description": "Open bone biopsy; deep",
       "global_period": 10,
@@ -2797,7 +2797,7 @@
       "practice_expense_rvu": 5.37,
       "malpractice_rvu": 1.66,
       "global_period_days": 10
-  },
+    },
     "20500": {
       "description": "Injection of sinus tract diagnostic",
       "global_period": 10,
@@ -16836,92 +16836,92 @@
       "work_rvu": 18.85
     },
     "43520": {
-      "description": "Pyloromyotomy, cutting of pyloric muscle (Fredet-Ramstedt type operation)",
-      "global_period": 90,
+      "description": "Pyloromyotomy, cutting of pyloric muscle",
       "mp_rvu": 2.94,
       "pe_rvu": 6.44,
       "total_rvu": 20.39,
       "work_rvu": 11.01,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "43644": {
-      "description": "Laparoscopic gastric bypass (Roux-en-Y)",
-      "global_period": 90,
+      "description": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y gastric bypass",
       "mp_rvu": 7.64,
       "pe_rvu": 12.14,
       "total_rvu": 48.45,
-      "work_rvu": 21.59,
-      "wrvu_source": "User-mandated CMS physician work RVU correction 2026-05-28",
+      "work_rvu": 28.67,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/medicare/physician-fee-schedule/search/overview"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "43645": {
-      "description": "Laparoscopic gastric bypass, complex revision",
-      "global_period": 90,
+      "description": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y with small intestine reconstruction",
       "mp_rvu": 8.11,
       "pe_rvu": 12.59,
       "total_rvu": 51.44,
       "work_rvu": 30.74,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "43659": {
       "description": "Unlisted laparoscopy procedure, stomach",
-      "global_period": "YYY",
-      "mp_rvu": 0,
-      "pe_rvu": 0,
-      "total_rvu": 0,
-      "work_rvu": 0,
+      "mp_rvu": 0.0,
+      "pe_rvu": 0.0,
+      "total_rvu": 0.0,
+      "work_rvu": 0.0,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "YYY"
     },
     "43770": {
-      "description": "Laparoscopic gastric band placement",
-      "global_period": 90,
+      "description": "Laparoscopic placement of adjustable gastric restrictive device",
       "mp_rvu": 4.7,
       "pe_rvu": 9.75,
-      "total_rvu": 32,
+      "total_rvu": 32.0,
       "work_rvu": 17.55,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "43775": {
-      "description": "Laparoscopic sleeve gastrectomy",
-      "global_period": 90,
+      "description": "Laparoscopic longitudinal gastrectomy / sleeve gastrectomy",
       "mp_rvu": 5.26,
       "pe_rvu": 4.81,
       "total_rvu": 29.94,
       "work_rvu": 19.87,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "43830": {
-      "description": "Gastrostomy, open; without construction of gastric tube (separate procedure)",
-      "global_period": 90,
+      "description": "Gastrostomy, open; without construction of gastric tube",
       "mp_rvu": 2.68,
       "pe_rvu": 6.98,
       "total_rvu": 20.24,
       "work_rvu": 10.58,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "43840": {
       "description": "Gastrorrhaphy, suture of perforated duodenal or gastric ulcer, wound, or injury",
-      "global_period": 90,
       "mp_rvu": 5.73,
       "pe_rvu": 10.11,
       "total_rvu": 38.1,
       "work_rvu": 22.26,
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
     },
     "44005": {
       "description": "Enterolysis (freeing of intestinal adhesion)",
@@ -40050,10 +40050,560 @@
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+    },
+    "43500": {
+      "description": "Gastrotomy, with exploration or foreign body removal",
+      "mp_rvu": 3.25,
+      "pe_rvu": 6.79,
+      "total_rvu": 22.51,
+      "work_rvu": 12.47,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43501": {
+      "description": "Gastrotomy with suture repair of bleeding ulcer",
+      "mp_rvu": 5.83,
+      "pe_rvu": 10.11,
+      "total_rvu": 37.98,
+      "work_rvu": 22.04,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43502": {
+      "description": "Gastrotomy with suture repair of bleeding ulcer requiring extensive work",
+      "mp_rvu": 6.69,
+      "pe_rvu": 10.87,
+      "total_rvu": 42.61,
+      "work_rvu": 25.05,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43510": {
+      "description": "Gastrotomy with exploration, drainage, or removal of foreign body",
+      "mp_rvu": 3.93,
+      "pe_rvu": 8.37,
+      "total_rvu": 27.06,
+      "work_rvu": 14.76,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43605": {
+      "description": "Biopsy of stomach by laparotomy",
+      "mp_rvu": 3.58,
+      "pe_rvu": 7.01,
+      "total_rvu": 23.97,
+      "work_rvu": 13.38,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43610": {
+      "description": "Excision of local lesion of stomach",
+      "mp_rvu": 4.07,
+      "pe_rvu": 7.54,
+      "total_rvu": 27.54,
+      "work_rvu": 15.93,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43611": {
+      "description": "Excision of local lesion of stomach with extensive repair",
+      "mp_rvu": 4.96,
+      "pe_rvu": 9.57,
+      "total_rvu": 34.4,
+      "work_rvu": 19.87,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43620": {
+      "description": "Gastrectomy, total; with esophagoenterostomy",
+      "mp_rvu": 8.89,
+      "pe_rvu": 12.84,
+      "total_rvu": 54.92,
+      "work_rvu": 33.19,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43621": {
+      "description": "Gastrectomy, total; with Roux-en-Y reconstruction",
+      "mp_rvu": 9.78,
+      "pe_rvu": 14.3,
+      "total_rvu": 62.62,
+      "work_rvu": 38.54,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43622": {
+      "description": "Gastrectomy, total; with formation of intestinal pouch",
+      "mp_rvu": 10.46,
+      "pe_rvu": 14.26,
+      "total_rvu": 63.75,
+      "work_rvu": 39.03,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43631": {
+      "description": "Gastrectomy, partial, distal; with gastroduodenostomy",
+      "mp_rvu": 6.14,
+      "pe_rvu": 10.55,
+      "total_rvu": 40.59,
+      "work_rvu": 23.9,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43632": {
+      "description": "Gastrectomy, partial, distal; with gastrojejunostomy",
+      "mp_rvu": 8.72,
+      "pe_rvu": 13.17,
+      "total_rvu": 56.15,
+      "work_rvu": 34.26,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43633": {
+      "description": "Gastrectomy, partial, distal; with Roux-en-Y reconstruction",
+      "mp_rvu": 8.21,
+      "pe_rvu": 12.65,
+      "total_rvu": 53.17,
+      "work_rvu": 32.31,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43634": {
+      "description": "Gastrectomy, partial, distal; with formation of intestinal pouch",
+      "mp_rvu": 9.57,
+      "pe_rvu": 13.45,
+      "total_rvu": 58.74,
+      "work_rvu": 35.72,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43635": {
+      "description": "Vagotomy when performed with partial distal gastrectomy",
+      "mp_rvu": 0.53,
+      "pe_rvu": 0.48,
+      "total_rvu": 3.02,
+      "work_rvu": 2.01,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "ZZZ"
+    },
+    "43640": {
+      "description": "Vagotomy with pyloroplasty or gastroenterostomy",
+      "mp_rvu": 5.09,
+      "pe_rvu": 9.42,
+      "total_rvu": 33.58,
+      "work_rvu": 19.07,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43641": {
+      "description": "Vagotomy with pyloroplasty or gastroenterostomy and additional reconstruction",
+      "mp_rvu": 5.15,
+      "pe_rvu": 9.48,
+      "total_rvu": 33.94,
+      "work_rvu": 19.31,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43647": {
+      "description": "Laparoscopic implantation of gastric neurostimulator electrodes",
+      "mp_rvu": 0.0,
+      "pe_rvu": 0.0,
+      "total_rvu": 0.0,
+      "work_rvu": 0.0,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "YYY"
+    },
+    "43648": {
+      "description": "Laparoscopic revision or removal of gastric neurostimulator electrodes",
+      "mp_rvu": 0.0,
+      "pe_rvu": 0.0,
+      "total_rvu": 0.0,
+      "work_rvu": 0.0,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "YYY"
+    },
+    "43651": {
+      "description": "Laparoscopic vagotomy",
+      "mp_rvu": 2.63,
+      "pe_rvu": 6.47,
+      "total_rvu": 18.98,
+      "work_rvu": 9.88,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43652": {
+      "description": "Laparoscopic vagotomy with pyloroplasty or gastroenterostomy",
+      "mp_rvu": 3.16,
+      "pe_rvu": 6.94,
+      "total_rvu": 21.93,
+      "work_rvu": 11.83,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43653": {
+      "description": "Laparoscopic gastrostomy",
+      "mp_rvu": 2.16,
+      "pe_rvu": 6.49,
+      "total_rvu": 16.92,
+      "work_rvu": 8.27,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43752": {
+      "description": "Naso- or orogastric tube placement requiring physician skill and fluoroscopic guidance",
+      "mp_rvu": 0.09,
+      "pe_rvu": 0.15,
+      "total_rvu": 1.03,
+      "work_rvu": 0.79,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "000"
+    },
+    "43771": {
+      "description": "Laparoscopic revision of adjustable gastric restrictive device component",
+      "mp_rvu": 5.42,
+      "pe_rvu": 10.42,
+      "total_rvu": 36.11,
+      "work_rvu": 20.27,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43772": {
+      "description": "Laparoscopic removal of adjustable gastric restrictive device component",
+      "mp_rvu": 3.97,
+      "pe_rvu": 7.51,
+      "total_rvu": 26.79,
+      "work_rvu": 15.31,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43773": {
+      "description": "Laparoscopic removal and replacement of adjustable gastric restrictive device component",
+      "mp_rvu": 5.42,
+      "pe_rvu": 10.42,
+      "total_rvu": 36.11,
+      "work_rvu": 20.27,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43774": {
+      "description": "Laparoscopic removal of adjustable gastric restrictive device and subcutaneous port components",
+      "mp_rvu": 4.07,
+      "pe_rvu": 7.73,
+      "total_rvu": 27.17,
+      "work_rvu": 15.37,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43800": {
+      "description": "Pyloroplasty",
+      "mp_rvu": 3.74,
+      "pe_rvu": 7.3,
+      "total_rvu": 26.08,
+      "work_rvu": 15.04,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43810": {
+      "description": "Gastroduodenostomy",
+      "mp_rvu": 4.4,
+      "pe_rvu": 7.76,
+      "total_rvu": 28.62,
+      "work_rvu": 16.46,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43820": {
+      "description": "Gastrojejunostomy without vagotomy",
+      "mp_rvu": 5.54,
+      "pe_rvu": 10.11,
+      "total_rvu": 37.62,
+      "work_rvu": 21.97,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43825": {
+      "description": "Gastrojejunostomy with vagotomy",
+      "mp_rvu": 5.68,
+      "pe_rvu": 9.94,
+      "total_rvu": 36.84,
+      "work_rvu": 21.22,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43831": {
+      "description": "Gastrostomy, open, neonatal",
+      "mp_rvu": 2.2,
+      "pe_rvu": 7.45,
+      "total_rvu": 17.93,
+      "work_rvu": 8.28,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43832": {
+      "description": "Gastrostomy, open; with construction of gastric tube",
+      "mp_rvu": 4.38,
+      "pe_rvu": 8.23,
+      "total_rvu": 29.52,
+      "work_rvu": 16.91,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43842": {
+      "description": "Gastric restrictive procedure; vertical-banded gastroplasty",
+      "mp_rvu": 2.19,
+      "pe_rvu": 7.8,
+      "total_rvu": 30.49,
+      "work_rvu": 20.5,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43843": {
+      "description": "Gastric restrictive procedure other than vertical-banded gastroplasty",
+      "mp_rvu": 5.53,
+      "pe_rvu": 9.91,
+      "total_rvu": 36.12,
+      "work_rvu": 20.68,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43845": {
+      "description": "Gastroplasty with duodenal switch",
+      "mp_rvu": 8.57,
+      "pe_rvu": 13.66,
+      "total_rvu": 54.7,
+      "work_rvu": 32.47,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43846": {
+      "description": "Gastric restrictive procedure with short-limb Roux-en-Y gastroenterostomy",
+      "mp_rvu": 7.16,
+      "pe_rvu": 12.45,
+      "total_rvu": 46.33,
+      "work_rvu": 26.72,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43847": {
+      "description": "Gastric restrictive procedure with small intestine reconstruction",
+      "mp_rvu": 7.9,
+      "pe_rvu": 13.12,
+      "total_rvu": 50.54,
+      "work_rvu": 29.52,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43848": {
+      "description": "Revision, open, of gastric restrictive procedure",
+      "mp_rvu": 8.32,
+      "pe_rvu": 13.4,
+      "total_rvu": 53.65,
+      "work_rvu": 31.93,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43860": {
+      "description": "Revision of gastrojejunal anastomosis without vagotomy",
+      "mp_rvu": 6.91,
+      "pe_rvu": 11.29,
+      "total_rvu": 45.39,
+      "work_rvu": 27.19,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43865": {
+      "description": "Revision of gastrojejunal anastomosis with vagotomy",
+      "mp_rvu": 7.57,
+      "pe_rvu": 11.66,
+      "total_rvu": 47.55,
+      "work_rvu": 28.32,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43870": {
+      "description": "Closure of gastrostomy, surgical",
+      "mp_rvu": 2.72,
+      "pe_rvu": 6.3,
+      "total_rvu": 20.17,
+      "work_rvu": 11.15,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43880": {
+      "description": "Closure of gastrocolic fistula",
+      "mp_rvu": 7.09,
+      "pe_rvu": 11.22,
+      "total_rvu": 44.81,
+      "work_rvu": 26.5,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43881": {
+      "description": "Open implantation or replacement of gastric neurostimulator electrodes",
+      "mp_rvu": 0.0,
+      "pe_rvu": 0.0,
+      "total_rvu": 0.0,
+      "work_rvu": 0.0,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "YYY"
+    },
+    "43882": {
+      "description": "Open revision or removal of gastric neurostimulator electrodes",
+      "mp_rvu": 0.0,
+      "pe_rvu": 0.0,
+      "total_rvu": 0.0,
+      "work_rvu": 0.0,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "YYY"
+    },
+    "43886": {
+      "description": "Open revision of subcutaneous port component of gastric restrictive procedure",
+      "mp_rvu": 1.21,
+      "pe_rvu": 5.43,
+      "total_rvu": 11.16,
+      "work_rvu": 4.52,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43887": {
+      "description": "Open removal of subcutaneous port component of gastric restrictive procedure",
+      "mp_rvu": 1.13,
+      "pe_rvu": 4.7,
+      "total_rvu": 10.04,
+      "work_rvu": 4.21,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43888": {
+      "description": "Open removal and replacement of subcutaneous port component of gastric restrictive procedure",
+      "mp_rvu": 1.67,
+      "pe_rvu": 5.86,
+      "total_rvu": 13.81,
+      "work_rvu": 6.28,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43889": {
+      "description": "Gastric restrictive procedure, transoral, endoscopic",
+      "mp_rvu": 1.99,
+      "pe_rvu": 7.0,
+      "total_rvu": 21.55,
+      "work_rvu": 12.56,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "090"
+    },
+    "43999": {
+      "description": "Unlisted procedure, stomach",
+      "mp_rvu": 0.0,
+      "pe_rvu": 0.0,
+      "total_rvu": 0.0,
+      "work_rvu": 0.0,
+      "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+      "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "global_period": "YYY"
     }
   },
   "conversion_factor": 33.4009,
-  "source": "CMS Physician Fee Schedule Relative Value File RVU26C July 2026 non-QPP",
+  "source": "CMS PFS RVU26C July 2026 non-QPP",
   "source_file": "PPRRVU2026_Jul_nonQPP.csv",
   "source_sha256": "01169553aa9804d778837cd2727e6d27c4bbd95008a35d66ac1d0fb28ccdcbcf",
   "source_url": "https://www.cms.gov/files/zip/rvu26c.zip",

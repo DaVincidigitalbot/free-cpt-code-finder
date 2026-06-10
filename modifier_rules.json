@@ -11689,8 +11689,9 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "pediatric_surgery",
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
     "inclusive_of": [
       "12001",
       "12002",
@@ -11700,58 +11701,66 @@
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
-      "ent": {
+      "general": {
         "always_with": [],
         "never_with": []
       },
-      "general": {
+      "gastroenterology": {
         "always_with": [],
         "never_with": []
       }
     },
     "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "work_rvu": 11.01,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "43659": {
     "mod51_exempt": false,
     "addon_code": false,
-    "bilateral_eligible": false,
+    "bilateral_eligible": true,
     "laterality_applicable": false,
     "bilateral_method": null,
     "global_period": 90,
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "laparoscopic",
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
     "inclusive_of": [
       "12001",
       "12002",
       "12003",
       "12004",
-      "12005"
+      "12005",
+      "49320"
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
-      "ent": {
+      "general": {
         "always_with": [],
         "never_with": []
       },
-      "general": {
+      "gastroenterology": {
         "always_with": [],
         "never_with": []
       }
     },
     "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "work_rvu": 0.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "43830": {
     "mod51_exempt": false,
@@ -11763,8 +11772,9 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "pediatric_surgery",
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
     "inclusive_of": [
       "12001",
       "12002",
@@ -11774,21 +11784,24 @@
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
-      "ent": {
+      "general": {
         "always_with": [],
         "never_with": []
       },
-      "general": {
+      "gastroenterology": {
         "always_with": [],
         "never_with": []
       }
     },
     "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "work_rvu": 10.58,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "43840": {
     "mod51_exempt": false,
@@ -11800,8 +11813,9 @@
     "assistant_allowed": true,
     "cosurgeon_eligible": true,
     "inherently_bilateral": false,
-    "distinct_procedure_class": null,
-    "category": "emergency_surgery_trauma",
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
     "inclusive_of": [
       "12001",
       "12002",
@@ -11811,21 +11825,24 @@
     ],
     "never_primary_with": [],
     "specialty_bundle_rules": {
-      "ent": {
+      "general": {
         "always_with": [],
         "never_with": []
       },
-      "general": {
+      "gastroenterology": {
         "always_with": [],
         "never_with": []
       }
     },
     "payer_notes": {
-      "medicare": "Major surgery - 90-day global period applies",
-      "commercial": "Plastic surgery codes - verify coverage"
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
     },
     "x_modifier_eligible": true,
-    "hierarchy_tier": 2
+    "hierarchy_tier": 2,
+    "work_rvu": 22.26,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   },
   "44005": {
     "mod51_exempt": false,
@@ -25359,5 +25376,2232 @@
     "x_modifier_eligible": false,
     "hierarchy_tier": 3,
     "code_family": "ep_ablation"
+  },
+  "43500": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 12.47,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43501": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 22.04,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43502": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 25.05,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43510": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 14.76,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43605": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 13.38,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43610": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 15.93,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43611": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 19.87,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43620": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 33.19,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43621": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 38.54,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43622": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 39.03,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43631": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 23.9,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43632": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 34.26,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43633": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 32.31,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43634": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 35.72,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43635": {
+    "mod51_exempt": true,
+    "addon_code": true,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 2.01,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43640": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 19.07,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43641": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 19.31,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43644": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 28.67,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43645": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 30.74,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43647": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 0.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43648": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 0.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43651": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 9.88,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43652": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 11.83,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43653": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 8.27,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43752": {
+    "mod51_exempt": true,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 0.79,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43770": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 17.55,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43771": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 20.27,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43772": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 15.31,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43773": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 20.27,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43774": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 15.37,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43775": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005",
+      "49320"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 19.87,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43800": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 15.04,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43810": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 16.46,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43820": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 21.97,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43825": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 21.22,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43831": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 8.28,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43832": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 16.91,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43842": {
+    "mod51_exempt": true,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": false,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 20.5,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43843": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 20.68,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43845": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 32.47,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43846": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 26.72,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43847": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 29.52,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43848": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 31.93,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43860": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 27.19,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43865": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 28.32,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43870": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 11.15,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43880": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "work_rvu": 26.5,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43881": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 0.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43882": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 0.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43886": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 4.52,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43887": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 4.21,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43888": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 6.28,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43889": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 12.56,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
+  },
+  "43999": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "gastric_surgery",
+    "category": "gastric_surgery",
+    "code_family": "gastric_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "specialty_bundle_rules": {
+      "general": {
+        "always_with": [],
+        "never_with": []
+      },
+      "gastroenterology": {
+        "always_with": [],
+        "never_with": []
+      }
+    },
+    "payer_notes": {
+      "medicare": "Medicare uses MPPR for secondary non-exempt gastric procedures; confirm NCCI edits.",
+      "commercial": "Commercial payers may require modifier 51 on secondary non-exempt procedures."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 2,
+    "work_rvu": 0.0,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
   }
 }
