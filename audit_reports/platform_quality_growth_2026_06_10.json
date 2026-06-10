@@ -1,0 +1,172 @@
+{
+  "generated_at": "2026-06-10",
+  "observed_data": {
+    "analytics_status": "GA4 tag is present, but no live GA4/Search Console export is checked into the repo for this run.",
+    "product_signal_sources": [
+      "Static CPT database and generated pages",
+      "General Surgery CMS coverage dashboard",
+      "Report widget QA artifacts",
+      "Existing blog/coding-center inventory"
+    ]
+  },
+  "estimated_highest_traffic_cpt_pages": [
+    {
+      "code": "99214",
+      "reason": "Very high national search demand for outpatient E/M and RVU lookup."
+    },
+    {
+      "code": "99213",
+      "reason": "Common outpatient E/M lookup; useful for physician productivity content."
+    },
+    {
+      "code": "44970",
+      "reason": "High-intent appendectomy search and strong new General Surgery coverage."
+    },
+    {
+      "code": "47562",
+      "reason": "Common lap chole search with prior payment/RVU validation."
+    },
+    {
+      "code": "44140",
+      "reason": "Colon resection anchor code; strong Case Builder use case."
+    },
+    {
+      "code": "44204",
+      "reason": "Laparoscopic colectomy anchor code; recently corrected and validated."
+    },
+    {
+      "code": "49020",
+      "reason": "High-value ACS abscess drainage code with new Phase C page."
+    },
+    {
+      "code": "49002",
+      "reason": "Open abdomen/reopening laparotomy query intent."
+    },
+    {
+      "code": "43775",
+      "reason": "Sleeve gastrectomy has strong bariatric search demand."
+    },
+    {
+      "code": "49591",
+      "reason": "Ventral hernia repair search demand and coding complexity."
+    }
+  ],
+  "estimated_highest_traffic_specialties": [
+    "E/M",
+    "General Surgery",
+    "Orthopedic Hand Surgery",
+    "Cardiac Electrophysiology",
+    "Critical Care / ACS"
+  ],
+  "estimated_most_searched_cpt_codes": [
+    "99214",
+    "99213",
+    "44970",
+    "47562",
+    "43775",
+    "49591",
+    "44140",
+    "44204",
+    "49020",
+    "10060"
+  ],
+  "estimated_most_searched_procedures": [
+    "appendectomy",
+    "laparoscopic cholecystectomy",
+    "ventral hernia repair",
+    "colon resection",
+    "abscess drainage",
+    "open abdomen",
+    "sleeve gastrectomy",
+    "critical care billing"
+  ],
+  "estimated_most_used_case_builder_combinations": [
+    "44140 + 44139",
+    "47562 + 47550",
+    "44204 alone",
+    "49020 alone",
+    "44970 alone",
+    "11042 + 11045"
+  ],
+  "high_volume_searches_not_fully_targeted": [
+    "open abdomen CPT code",
+    "damage control laparotomy CPT",
+    "intra-abdominal abscess drainage CPT",
+    "foreign body removal CPT",
+    "modifier 22 surgery documentation",
+    "modifier 57 decision for surgery"
+  ],
+  "new_content_hubs": [
+    "Appendectomy",
+    "Open abdomen",
+    "Intra-abdominal abscess drainage",
+    "Foreign body removal",
+    "Emergency general surgery",
+    "Damage control surgery",
+    "Modifier 22",
+    "Modifier 57",
+    "Trauma surgery coding"
+  ],
+  "prioritized_roadmap": [
+    {
+      "rank": 1,
+      "item": "Appendectomy + lap chole + abscess/open abdomen hub cluster",
+      "traffic_impact": "High",
+      "why": "High-volume procedure-name searches plus strong completed CPT coverage."
+    },
+    {
+      "rank": 2,
+      "item": "Modifier 22 and Modifier 57 surgical guides",
+      "traffic_impact": "High",
+      "why": "Broad evergreen search intent; directly improves surgeon documentation behavior."
+    },
+    {
+      "rank": 3,
+      "item": "Emergency general surgery and damage-control surgery hubs",
+      "traffic_impact": "Medium-high",
+      "why": "Lower volume than appy/chole but strong topical authority and professional relevance."
+    },
+    {
+      "rank": 4,
+      "item": "Internal links from CPT pages to hubs and coding centers",
+      "traffic_impact": "Medium-high",
+      "why": "Moves users from single-code lookup into multi-page sessions."
+    },
+    {
+      "rank": 5,
+      "item": "Analytics export pipeline for GA4/Search Console + search/case events",
+      "traffic_impact": "Medium",
+      "why": "Not directly indexable, but stops us from guessing priorities."
+    },
+    {
+      "rank": 6,
+      "item": "Future CPT audits: Breast, Soft Tissue, Endocrine",
+      "traffic_impact": "Medium",
+      "why": "Coverage gains matter, but content/hub acquisition is likely the larger near-term traffic lever after 88.4% General Surgery coverage."
+    }
+  ],
+  "future_audit_preparation": {
+    "Breast Surgery": {
+      "current_site_count": 9,
+      "estimated_cms_count": 34,
+      "estimated_missing": 25,
+      "coverage_gain_points": 3.6,
+      "effort": "Medium"
+    },
+    "Soft Tissue Surgery": {
+      "current_site_count": 79,
+      "estimated_cms_count": 116,
+      "estimated_missing": 37,
+      "coverage_gain_points": 5.3,
+      "effort": "Medium-high"
+    },
+    "Endocrine Surgery": {
+      "current_site_count": 19,
+      "estimated_cms_count": 24,
+      "estimated_missing": 5,
+      "coverage_gain_points": 0.7,
+      "effort": "Low-medium"
+    }
+  },
+  "strategic_recommendation": "Near-term growth is more likely to come from content hubs, internal linking, and analytics-driven user acquisition than from additional CPT coverage alone. Coverage is now strong enough in core General Surgery to support SEO authority; the bottleneck is targeted content and telemetry."
+}
