@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>SHOT:case_43632_43870_mppr.png</title><style>body{font-family:Arial,sans-serif;margin:20px} iframe{width:1440px;height:1050px;border:1px solid #ccc}</style></head><body data-done="1"><h1>Payment Engine Test Harness</h1><pre id="out">[
+  {
+    "label": "43632",
+    "total": "$1875.46",
+    "wrvu": "34.26",
+    "lines": [
+      {
+        "cpt": "43632",
+        "basePayment": 1875.46,
+        "totalRvu": 56.15,
+        "pay": 1875.46,
+        "effWrvu": 34.26
+      }
+    ]
+  },
+  {
+    "label": "43633",
+    "total": "$1775.93",
+    "wrvu": "32.31",
+    "lines": [
+      {
+        "cpt": "43633",
+        "basePayment": 1775.93,
+        "totalRvu": 53.17,
+        "pay": 1775.93,
+        "effWrvu": 32.31
+      }
+    ]
+  },
+  {
+    "label": "43621",
+    "total": "$2091.56",
+    "wrvu": "38.54",
+    "lines": [
+      {
+        "cpt": "43621",
+        "basePayment": 2091.56,
+        "totalRvu": 62.62,
+        "pay": 2091.56,
+        "effWrvu": 38.54
+      }
+    ]
+  },
+  {
+    "label": "43870",
+    "total": "$673.70",
+    "wrvu": "11.15",
+    "lines": [
+      {
+        "cpt": "43870",
+        "basePayment": 673.7,
+        "totalRvu": 20.17,
+        "pay": 673.7,
+        "effWrvu": 11.15
+      }
+    ]
+  },
+  {
+    "label": "44140",
+    "total": "$1250.20",
+    "wrvu": "22.03",
+    "lines": [
+      {
+        "cpt": "44140",
+        "basePayment": 1250.2,
+        "totalRvu": 37.43,
+        "pay": 1250.2,
+        "effWrvu": 22.03
+      }
+    ]
+  },
+  {
+    "label": "43632+43870",
+    "total": "$2212.31 · MPPR applied",
+    "wrvu": "45.41",
+    "lines": [
+      {
+        "cpt": "43632",
+        "basePayment": 1875.46,
+        "totalRvu": 56.15,
+        "pay": 1875.46,
+        "effWrvu": 34.26
+      },
+      {
+        "cpt": "43870",
+        "basePayment": 673.7,
+        "totalRvu": 20.17,
+        "pay": 336.85,
+        "effWrvu": 11.15
+      }
+    ]
+  }
+]</pre><iframe id="site" src="/"></iframe><script>
+const codes=['43632', '43633', '43621', '43870', '44140'];
+const iframe=document.getElementById('site');
+function wait(ms){return new Promise(r=>setTimeout(r,ms));}
+async function waitReady(){
+ await new Promise(resolve=>iframe.onload=resolve);
+ const w=iframe.contentWindow;
+ for(let i=0;i<80;i++){
+  if(w.loadCptSearchIndex&&w.addCptDirectly&&w.document.getElementById('ts')){await w.loadCptSearchIndex(); return w;}
+  await wait(100);
+ }
+ throw new Error('site not ready');
+}
+async function addCode(code){const w=iframe.contentWindow; w.addCptDirectly(code); await wait(300);}
+function clearCase(){iframe.contentWindow.clearCase();}
+function readTotals(label){
+ const w=iframe.contentWindow;
+ return {label,total:w.document.getElementById('ts').textContent,wrvu:w.document.getElementById('tn').textContent,lines:w.eval('caseLines.map(l=>({cpt:l.cpt,basePayment:l.basePayment,totalRvu:l.totalRvu,pay:l.pay,effWrvu:l.effWrvu}))')};
+}
+async function shot(name){document.title='SHOT:'+name; await wait(300);}
+(async()=>{
+ const w=await waitReady();
+ const results=[];
+ await addCode('43632'); await shot('case_43632.png'); results.push(readTotals('43632')); clearCase();await addCode('43633'); await shot('case_43633.png'); results.push(readTotals('43633')); clearCase();await addCode('43621'); await shot('case_43621.png'); results.push(readTotals('43621')); clearCase();await addCode('43870'); await shot('case_43870.png'); results.push(readTotals('43870')); clearCase();await addCode('44140'); await shot('case_44140.png'); results.push(readTotals('44140')); clearCase();
+ await addCode('43632'); await addCode('43870'); await shot('case_43632_43870_mppr.png'); results.push(readTotals('43632+43870'));
+ document.getElementById('out').textContent=JSON.stringify(results,null,2);
+ window.TEST_RESULTS=results; document.body.dataset.done='1';
+})().catch(e=>{document.getElementById('out').textContent=e.stack; document.body.dataset.done='error';});
+</script></body></html>

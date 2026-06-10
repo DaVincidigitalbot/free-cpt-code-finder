@@ -1,0 +1,163 @@
+{
+  "date": "2026-06-10",
+  "single_source_of_truth": "cpt_database.json estimated_medicare_payment, computed as total_rvu * CMS conversion factor 33.4009 when total_rvu is present",
+  "current_formula_audit_before_fix": [
+    {
+      "component": "CPT code pages",
+      "formula": "estimated_medicare_payment from static page/database, generally total_rvu * 33.4009",
+      "files": [
+        "codes/*.html",
+        "cpt_database.json",
+        "rvu_database.json"
+      ]
+    },
+    {
+      "component": "Search/autocomplete",
+      "formula": "entry.estimated_medicare_payment from cpt_database.json",
+      "files": [
+        "index.html loadCptSearchIndex()",
+        "cpt_database.json"
+      ]
+    },
+    {
+      "component": "Case Builder before fix",
+      "formula": "line.effWrvu * hardcoded CF 32.3465; secondary facility lines * 0.5",
+      "files": [
+        "index.html recalc()",
+        "index.html const CF=32.3465"
+      ]
+    },
+    {
+      "component": "RVU/case productivity display",
+      "formula": "sum effective physician work RVUs; this should remain productivity/work, not reimbursement",
+      "files": [
+        "index.html recalc()"
+      ]
+    }
+  ],
+  "implemented_formula_after_fix": [
+    {
+      "component": "Base CPT Medicare estimate",
+      "formula": "estimated_medicare_payment = total_rvu * 33.4009",
+      "source": "cpt_database.json"
+    },
+    {
+      "component": "Search",
+      "formula": "display estimated_medicare_payment from cpt_database.json"
+    },
+    {
+      "component": "Case Builder single line",
+      "formula": "line.pay = line.basePayment from cpt_database.json"
+    },
+    {
+      "component": "Case Builder facility multi-procedure",
+      "formula": "primary line basePayment at 100%; secondary non-add-on lines basePayment * 0.5; add-on lines 100%; bilateral uses basePayment * 1.5 before rank/MPPR logic"
+    },
+    {
+      "component": "wRVU total",
+      "formula": "sum effective work RVUs; separate from reimbursement estimate"
+    }
+  ],
+  "hardcoded_conversion_factors_after_fix": [
+    {
+      "file": "index.html",
+      "constant": "MEDICARE_CONVERSION_FACTOR",
+      "value": 33.4009,
+      "usage": "fallback only when cpt_database estimated_medicare_payment is absent; also labels CMS CF in exports"
+    }
+  ],
+  "browser_harness_results": [
+    {
+      "label": "43632",
+      "total": "$1875.46",
+      "wrvu": "34.26",
+      "lines": [
+        {
+          "cpt": "43632",
+          "basePayment": 1875.46,
+          "totalRvu": 56.15,
+          "pay": 1875.46,
+          "effWrvu": 34.26
+        }
+      ]
+    },
+    {
+      "label": "43633",
+      "total": "$1775.93",
+      "wrvu": "32.31",
+      "lines": [
+        {
+          "cpt": "43633",
+          "basePayment": 1775.93,
+          "totalRvu": 53.17,
+          "pay": 1775.93,
+          "effWrvu": 32.31
+        }
+      ]
+    },
+    {
+      "label": "43621",
+      "total": "$2091.56",
+      "wrvu": "38.54",
+      "lines": [
+        {
+          "cpt": "43621",
+          "basePayment": 2091.56,
+          "totalRvu": 62.62,
+          "pay": 2091.56,
+          "effWrvu": 38.54
+        }
+      ]
+    },
+    {
+      "label": "43870",
+      "total": "$673.70",
+      "wrvu": "11.15",
+      "lines": [
+        {
+          "cpt": "43870",
+          "basePayment": 673.7,
+          "totalRvu": 20.17,
+          "pay": 673.7,
+          "effWrvu": 11.15
+        }
+      ]
+    },
+    {
+      "label": "44140",
+      "total": "$1250.20",
+      "wrvu": "22.03",
+      "lines": [
+        {
+          "cpt": "44140",
+          "basePayment": 1250.2,
+          "totalRvu": 37.43,
+          "pay": 1250.2,
+          "effWrvu": 22.03
+        }
+      ]
+    },
+    {
+      "label": "43632+43870",
+      "total": "$2212.31 \u00b7 MPPR applied",
+      "wrvu": "45.41",
+      "lines": [
+        {
+          "cpt": "43632",
+          "basePayment": 1875.46,
+          "totalRvu": 56.15,
+          "pay": 1875.46,
+          "effWrvu": 34.26
+        },
+        {
+          "cpt": "43870",
+          "basePayment": 673.7,
+          "totalRvu": 20.17,
+          "pay": 336.85,
+          "effWrvu": 11.15
+        }
+      ]
+    }
+  ],
+  "screenshots": "qa_artifacts/payment_engine_2026_06_10/"
+}

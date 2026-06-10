@@ -431,7 +431,47 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <script>
-const CF=32.3465;
+const MEDICARE_CONVERSION_FACTOR=33.4009;
+const CF=MEDICARE_CONVERSION_FACTOR;
+const CPT_PAYMENT_INDEX=new Map();
+
+function setPaymentIndex(rows){
+ CPT_PAYMENT_INDEX.clear();
+ rows.forEach(entry=>{
+  const code=String(entry.code||'');
+  if(!code)return;
+  const totalRvu=Number(entry.total_rvu||0);
+  const workRvu=Number(entry.work_rvu||0);
+  const payment=Number(entry.estimated_medicare_payment||0);
+  CPT_PAYMENT_INDEX.set(code,{
+   totalRvu,
+   workRvu,
+   estimatedPayment:payment||Number((totalRvu*MEDICARE_CONVERSION_FACTOR).toFixed(2)),
+   source:'cpt_database.json'
+  });
+ });
+}
+
+function paymentSnapshotForCode(code, fallbackWrvu=0, meta={}){
+ const indexed=CPT_PAYMENT_INDEX.get(String(code||''));
+ const totalRvu=Number(meta.totalRvu||meta.total_rvu||indexed?.totalRvu||0);
+ const workRvu=Number(meta.workRvu||meta.work_rvu||indexed?.workRvu||fallbackWrvu||0);
+ const explicitPayment=Number(meta.estimatedPayment||meta.estimated_medicare_payment||indexed?.estimatedPayment||0);
+ return {
+  totalRvu,
+  workRvu,
+  basePayment:explicitPayment||Number(((totalRvu||workRvu)*MEDICARE_CONVERSION_FACTOR).toFixed(2)),
+  source:indexed?.source||'fallback'
+ };
+}
+
+function adjustedPaymentForLine(line){
+ const base=Number(line.basePayment||0);
+ const wrvuBase=Number(line.baseWrvu||0);
+ if(!base)return Number(((line.effWrvu||0)*MEDICARE_CONVERSION_FACTOR).toFixed(2));
+ const modifierFactor=wrvuBase?Number(line.effWrvu||0)/wrvuBase:1;
+ return base*modifierFactor;
+}
 
 const ROBOTIC_ALLOWED=[
  '47562','47563','47564','44970','49650','49623','43280','43644','44202','38120','49320',
@@ -658,7 +698,8 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const lateralToken=String(laterality||'').toUpperCase();
  const normalizedDesc=String(desc||'');
  const inferredMidline=/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(normalizedDesc);
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt)};
+ const payment=paymentSnapshotForCode(cpt,wrvu,meta);
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
  if(existing.length>0&&isAddonCode(cpt)){
@@ -680,7 +721,8 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  recalc('procedure added');
 }
 function addEM(cpt,desc,wrvu){
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,kind:'em',mods:[],userMod:''};
+ const payment=paymentSnapshotForCode(cpt,wrvu,{});
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,kind:'em',mods:[],userMod:'',basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source};
  caseLines.push(line);
  log(`ADD E/M ${cpt} "${desc}" wRVU=${wrvu}`);
  recalc('E/M added');
@@ -936,9 +978,9 @@ function recalc(why){
  let twrvu=0,rank=0;
  caseLines.forEach(l=>{
   twrvu+=l.effWrvu;
-  const base=l.effWrvu*CF;
+  const base=adjustedPaymentForLine(l);
   if(l.kind==='em'){l.pay=base}
-  else{l.pay=(rank===0||setting==='nonfac')?base:base*0.5;rank++}
+  else{l.pay=(rank===0||setting==='nonfac'||isAddonCode(l.cpt))?base:base*0.5;rank++}
  });
  const tpay=caseLines.reduce((s,l)=>s+l.pay,0);
  const lns=document.getElementById('lns');
@@ -1150,11 +1192,15 @@ function exportAuditJSON(){
    rankReason:l.rankReason,
    modifiers:l.mods,
    baseWrvu:l.baseWrvu,
+   totalRvu:l.totalRvu,
+   baseMedicarePayment:+Number(l.basePayment||0).toFixed(2),
+   paymentSource:l.paymentSource,
    effectiveWrvu:+l.effWrvu.toFixed(2),
    payment:+l.pay.toFixed(2),
    rationale:l.rationale
   })),
   activityLog:audit.slice().reverse(),
+  paymentFormula:'Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.',
   disclaimer:'Automated coding support. Requires coder review prior to claim submission. CPT © AMA.'
  };
  const b=new Blob([JSON.stringify(report,null,2)],{type:'application/json'});
@@ -1192,6 +1238,7 @@ function normalizeCptDatabaseRows(data){
 
 function hydrateSpecsFromDatabase(rows){
  const byCode=new Map(rows.map(entry=>[String(entry.code||''),entry]).filter(([code])=>code));
+ setPaymentIndex(rows);
  Object.entries(SPECS).forEach(([specialty,procs])=>{
   SPECS[specialty]=procs.map(row=>{
    const code=String(row[0]||'');
@@ -1208,7 +1255,8 @@ function hydrateSpecsFromDatabase(rows){
 
 function addGuidedCodes(lines){
  lines.forEach(line=>{
-  addProc(line.code,line.desc,line.wrvu||0,line.laterality||'',line.bi||0,line.approach,line.dx||[]);
+  const payment=paymentSnapshotForCode(line.code,line.wrvu||0,line);
+  addProc(line.code,line.desc,line.wrvu||0,line.laterality||'',line.bi||0,line.approach,line.dx||[],{estimatedPayment:payment.basePayment,totalRvu:payment.totalRvu});
  });
 }
 
@@ -1390,6 +1438,8 @@ function buildSearchIndexFromSpecs(){
    code,
    description,
    wrvu:Number(p[2]||0),
+   totalRvu:0,
+   estimatedPayment:0,
    bi:(p[3]===0||p[3]===1||p[3]===2)?p[3]:0,
    specialty,
    si,
@@ -1430,15 +1480,18 @@ async function loadCptSearchIndex(){
   renderSpecs();
   renderGuidedCards();
   const paymentByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.estimated_medicare_payment||0)]));
+  const totalRvuByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.total_rvu||0)]));
   const specIndex=dedupeSearchIndexByCode(buildSearchIndexFromSpecs().map(item=>({
    ...item,
-   estimatedPayment:paymentByCode.get(item.code)||0
+   estimatedPayment:paymentByCode.get(item.code)||0,
+   totalRvu:totalRvuByCode.get(item.code)||0
   })));
   const seen=new Set(specIndex.map(item=>item.code));
 	  const externalIndex=external.slice(0,4000).map(entry=>({
    code:String(entry.code||''),
    description:String(entry.description||''),
-	   wrvu:Number(entry.work_rvu||0),
+   wrvu:Number(entry.work_rvu||0),
+   totalRvu:Number(entry.total_rvu||0),
    estimatedPayment:Number(entry.estimated_medicare_payment||0),
 	   bi:0,
 	   specialty:entry.specialty||'Database',
@@ -1658,14 +1711,14 @@ function addAutocompleteResultToCase(item){
   }
   if(promptUnilateralBilateralCase({cpt,desc,wrvu:w,bi,approach:undefined,dx:undefined}))return;
 	  if((bi===1||bi===2)&&bi!==2){
-	   addProc(cpt,desc,w,'',1,undefined,undefined,{technicalComponent:isTechnicalCode(cpt)});
+	   addProc(cpt,desc,w,'',1,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu});
 	  }else{
-	   addProc(cpt,desc,w,'',bi||0,undefined,undefined,{technicalComponent:isTechnicalCode(cpt)});
+	   addProc(cpt,desc,w,'',bi||0,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu});
 	  }
   return;
  }
  if(promptUnilateralBilateralCase({cpt:item.code,desc:item.description,wrvu:item.wrvu||0,bi:item.bi||0,approach:item.approach,dx:item.dx||[]}))return;
-	 addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,{technicalComponent:item.technicalComponent});
+	 addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,{technicalComponent:item.technicalComponent,estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu});
 }
 
 function selectAutocompleteResult(index){
