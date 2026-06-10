@@ -1,0 +1,1200 @@
+{
+  "phase": "Phase C - Acute Care Surgery",
+  "date": "2026-06-10",
+  "cms_source": "CMS PFS RVU26C July 2026 non-QPP / PPRRVU2026_Jul_nonQPP.csv blank-modifier global rows",
+  "missing_before_count": 46,
+  "codes_added_count": 46,
+  "codes_added": [
+    "20100",
+    "20101",
+    "21627",
+    "22015",
+    "30300",
+    "30310",
+    "30320",
+    "31511",
+    "32151",
+    "33300",
+    "33305",
+    "37197",
+    "40804",
+    "40805",
+    "41805",
+    "41806",
+    "42700",
+    "42809",
+    "42900",
+    "44900",
+    "45000",
+    "49014",
+    "49020",
+    "49040",
+    "49402",
+    "50500",
+    "51080",
+    "51865",
+    "53040",
+    "53060",
+    "55100",
+    "56405",
+    "57415",
+    "58820",
+    "58822",
+    "61522",
+    "61570",
+    "61571",
+    "65273",
+    "65286",
+    "65290",
+    "67930",
+    "67935",
+    "67938",
+    "69020",
+    "75989"
+  ],
+  "missing_after_count": 0,
+  "acute_care_coverage_after": {
+    "category": "Acute Care Surgery",
+    "cms_cpt_count": 105,
+    "site_cpt_count": 105,
+    "missing_cpt_count": 0,
+    "coverage_percentage": 100.0,
+    "missing_cpt_codes": []
+  },
+  "overall_coverage_after": {
+    "cms_cpt_count": 696,
+    "site_cpt_count": 615,
+    "missing_cpt_count": 81,
+    "coverage_percentage": 88.4,
+    "missing_cpt_codes": [
+      "11004",
+      "11005",
+      "11006",
+      "11900",
+      "11901",
+      "15786",
+      "15787",
+      "15832",
+      "15833",
+      "15834",
+      "15835",
+      "15836",
+      "15837",
+      "15845",
+      "19000",
+      "19081",
+      "19082",
+      "19084",
+      "19085",
+      "19086",
+      "19100",
+      "19112",
+      "19120",
+      "19126",
+      "19281",
+      "19282",
+      "19283",
+      "19284",
+      "19285",
+      "19286",
+      "19287",
+      "19288",
+      "19296",
+      "19297",
+      "19298",
+      "19300",
+      "19328",
+      "19330",
+      "19396",
+      "20982",
+      "20983",
+      "21029",
+      "21030",
+      "21034",
+      "21040",
+      "21044",
+      "21813",
+      "21920",
+      "21925",
+      "27040",
+      "27041",
+      "27062",
+      "27067",
+      "27075",
+      "27323",
+      "27324",
+      "32852",
+      "32854",
+      "33530",
+      "35500",
+      "35685",
+      "35686",
+      "35700",
+      "38200",
+      "43360",
+      "43361",
+      "43753",
+      "43754",
+      "43755",
+      "43756",
+      "43757",
+      "43761",
+      "43762",
+      "43763",
+      "44500",
+      "49623",
+      "50845",
+      "64755",
+      "78261",
+      "78264",
+      "91020"
+    ]
+  },
+  "validation_summary": {
+    "total_cpt_count": 3916,
+    "total_page_count": 3918,
+    "total_sitemap_code_count": 3918,
+    "total_rvu_rows": 3916,
+    "total_modifier_rule_rows": 3922,
+    "hard_error_count": 0,
+    "warning_count": 0,
+    "hard_error_types": {},
+    "warning_types": {}
+  },
+  "code_validation": [
+    {
+      "code": "20100",
+      "cms_description": "Expl pentrg wound neck",
+      "site_description": "Expl pentrg wound neck",
+      "work_rvu": 10.12,
+      "total_rvu": 16.34,
+      "estimated_medicare_payment": "$545.77",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "20101",
+      "cms_description": "Expl pentrg wound chest",
+      "site_description": "Expl pentrg wound chest",
+      "work_rvu": 3.15,
+      "total_rvu": 18.75,
+      "estimated_medicare_payment": "$626.27",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "21627",
+      "cms_description": "Sternal debridement",
+      "site_description": "Sternal debridement",
+      "work_rvu": 7.12,
+      "total_rvu": 16.63,
+      "estimated_medicare_payment": "$555.46",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "22015",
+      "cms_description": "I&d abscess p-spine l/s/ls",
+      "site_description": "I&d abscess p-spine l/s/ls",
+      "work_rvu": 12.32,
+      "total_rvu": 27.6,
+      "estimated_medicare_payment": "$921.86",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "30300",
+      "cms_description": "Remove nasal foreign body",
+      "site_description": "Remove nasal foreign body",
+      "work_rvu": 1.06,
+      "total_rvu": 6.37,
+      "estimated_medicare_payment": "$212.76",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "30310",
+      "cms_description": "Remove nasal foreign body",
+      "site_description": "Remove nasal foreign body",
+      "work_rvu": 1.96,
+      "total_rvu": 5.7,
+      "estimated_medicare_payment": "$190.39",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "30320",
+      "cms_description": "Remove nasal foreign body",
+      "site_description": "Remove nasal foreign body",
+      "work_rvu": 4.52,
+      "total_rvu": 13.57,
+      "estimated_medicare_payment": "$453.25",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "31511",
+      "cms_description": "Remove foreign body larynx",
+      "site_description": "Remove foreign body larynx",
+      "work_rvu": 2.11,
+      "total_rvu": 6.31,
+      "estimated_medicare_payment": "$210.76",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "32151",
+      "cms_description": "Remove lung foreign body",
+      "site_description": "Remove lung foreign body",
+      "work_rvu": 16.52,
+      "total_rvu": 29.0,
+      "estimated_medicare_payment": "$968.63",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "33300",
+      "cms_description": "Repair of heart wound",
+      "site_description": "Repair of heart wound",
+      "work_rvu": 43.85,
+      "total_rvu": 67.93,
+      "estimated_medicare_payment": "$2,268.92",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "33305",
+      "cms_description": "Repair of heart wound",
+      "site_description": "Repair of heart wound",
+      "work_rvu": 75.01,
+      "total_rvu": 112.8,
+      "estimated_medicare_payment": "$3,767.62",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "37197",
+      "cms_description": "Remove intrvas foreign body",
+      "site_description": "Remove intrvas foreign body",
+      "work_rvu": 5.89,
+      "total_rvu": 44.28,
+      "estimated_medicare_payment": "$1,478.99",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "40804",
+      "cms_description": "Removal foreign body mouth",
+      "site_description": "Removal foreign body mouth",
+      "work_rvu": 1.27,
+      "total_rvu": 6.26,
+      "estimated_medicare_payment": "$209.09",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "40805",
+      "cms_description": "Removal foreign body mouth",
+      "site_description": "Removal foreign body mouth",
+      "work_rvu": 2.72,
+      "total_rvu": 8.73,
+      "estimated_medicare_payment": "$291.59",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "41805",
+      "cms_description": "Removal foreign body gum",
+      "site_description": "Removal foreign body gum",
+      "work_rvu": 1.31,
+      "total_rvu": 9.55,
+      "estimated_medicare_payment": "$318.98",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "41806",
+      "cms_description": "Removal foreign body jawbone",
+      "site_description": "Removal foreign body jawbone",
+      "work_rvu": 2.72,
+      "total_rvu": 12.76,
+      "estimated_medicare_payment": "$426.20",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "42700",
+      "cms_description": "I&d abscess peritonsillar",
+      "site_description": "I&d abscess peritonsillar",
+      "work_rvu": 1.63,
+      "total_rvu": 5.96,
+      "estimated_medicare_payment": "$199.07",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "42809",
+      "cms_description": "Remove pharynx foreign body",
+      "site_description": "Remove pharynx foreign body",
+      "work_rvu": 1.81,
+      "total_rvu": 6.42,
+      "estimated_medicare_payment": "$214.43",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "42900",
+      "cms_description": "Repair throat wound",
+      "site_description": "Repair throat wound",
+      "work_rvu": 5.16,
+      "total_rvu": 8.65,
+      "estimated_medicare_payment": "$288.92",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "44900",
+      "cms_description": "I&d appendix abscess open",
+      "site_description": "I&d appendix abscess open",
+      "work_rvu": 12.26,
+      "total_rvu": 22.27,
+      "estimated_medicare_payment": "$743.84",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "45000",
+      "cms_description": "Drainage of pelvic abscess",
+      "site_description": "Drainage of pelvic abscess",
+      "work_rvu": 6.14,
+      "total_rvu": 12.36,
+      "estimated_medicare_payment": "$412.84",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49014",
+      "cms_description": "Reexploration pelvic wound",
+      "site_description": "Reexploration pelvic wound",
+      "work_rvu": 6.56,
+      "total_rvu": 10.36,
+      "estimated_medicare_payment": "$346.03",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49020",
+      "cms_description": "Drainage abdom abscess open",
+      "site_description": "Drainage abdom abscess open",
+      "work_rvu": 26.0,
+      "total_rvu": 44.55,
+      "estimated_medicare_payment": "$1,488.01",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49040",
+      "cms_description": "Drain open abdom abscess",
+      "site_description": "Drain open abdom abscess",
+      "work_rvu": 16.11,
+      "total_rvu": 28.71,
+      "estimated_medicare_payment": "$958.94",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49402",
+      "cms_description": "Remove foreign body adbomen",
+      "site_description": "Remove foreign body adbomen",
+      "work_rvu": 13.74,
+      "total_rvu": 23.94,
+      "estimated_medicare_payment": "$799.62",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "50500",
+      "cms_description": "Repair of kidney wound",
+      "site_description": "Repair of kidney wound",
+      "work_rvu": 20.69,
+      "total_rvu": 36.24,
+      "estimated_medicare_payment": "$1,210.45",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "51080",
+      "cms_description": "Drainage of bladder abscess",
+      "site_description": "Drainage of bladder abscess",
+      "work_rvu": 6.54,
+      "total_rvu": 11.34,
+      "estimated_medicare_payment": "$378.77",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "51865",
+      "cms_description": "Repair of bladder wound",
+      "site_description": "Repair of bladder wound",
+      "work_rvu": 15.41,
+      "total_rvu": 24.25,
+      "estimated_medicare_payment": "$809.97",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "53040",
+      "cms_description": "Drainage of urethra abscess",
+      "site_description": "Drainage of urethra abscess",
+      "work_rvu": 6.39,
+      "total_rvu": 10.85,
+      "estimated_medicare_payment": "$362.40",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "53060",
+      "cms_description": "Drainage of urethra abscess",
+      "site_description": "Drainage of urethra abscess",
+      "work_rvu": 2.61,
+      "total_rvu": 5.71,
+      "estimated_medicare_payment": "$190.72",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "55100",
+      "cms_description": "Drainage of scrotum abscess",
+      "site_description": "Drainage of scrotum abscess",
+      "work_rvu": 2.39,
+      "total_rvu": 7.43,
+      "estimated_medicare_payment": "$248.17",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "56405",
+      "cms_description": "I&d vulva/perineal abscess",
+      "site_description": "I&d vulva/perineal abscess",
+      "work_rvu": 1.45,
+      "total_rvu": 4.37,
+      "estimated_medicare_payment": "$145.96",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "57415",
+      "cms_description": "Remove vaginal foreign body",
+      "site_description": "Remove vaginal foreign body",
+      "work_rvu": 2.43,
+      "total_rvu": 4.68,
+      "estimated_medicare_payment": "$156.32",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "58820",
+      "cms_description": "Drain ovary abscess open",
+      "site_description": "Drain ovary abscess open",
+      "work_rvu": 4.58,
+      "total_rvu": 9.09,
+      "estimated_medicare_payment": "$303.61",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "58822",
+      "cms_description": "Drain ovary abscess percut",
+      "site_description": "Drain ovary abscess percut",
+      "work_rvu": 11.51,
+      "total_rvu": 18.94,
+      "estimated_medicare_payment": "$632.61",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "61522",
+      "cms_description": "Removal of brain abscess",
+      "site_description": "Removal of brain abscess",
+      "work_rvu": 30.75,
+      "total_rvu": 63.55,
+      "estimated_medicare_payment": "$2,122.63",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "61570",
+      "cms_description": "Remove foreign body brain",
+      "site_description": "Remove foreign body brain",
+      "work_rvu": 25.85,
+      "total_rvu": 54.88,
+      "estimated_medicare_payment": "$1,833.04",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "61571",
+      "cms_description": "Incise skull for brain wound",
+      "site_description": "Incise skull for brain wound",
+      "work_rvu": 27.71,
+      "total_rvu": 58.19,
+      "estimated_medicare_payment": "$1,943.60",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "65273",
+      "cms_description": "Repair of eye wound",
+      "site_description": "Repair of eye wound",
+      "work_rvu": 5.03,
+      "total_rvu": 9.61,
+      "estimated_medicare_payment": "$320.98",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "65286",
+      "cms_description": "Repair of eye wound",
+      "site_description": "Repair of eye wound",
+      "work_rvu": 6.46,
+      "total_rvu": 20.92,
+      "estimated_medicare_payment": "$698.75",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "65290",
+      "cms_description": "Repair of eye socket wound",
+      "site_description": "Repair of eye socket wound",
+      "work_rvu": 6.37,
+      "total_rvu": 12.43,
+      "estimated_medicare_payment": "$415.17",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "67930",
+      "cms_description": "Repair eyelid wound",
+      "site_description": "Repair eyelid wound",
+      "work_rvu": 3.56,
+      "total_rvu": 11.19,
+      "estimated_medicare_payment": "$373.76",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "67935",
+      "cms_description": "Repair eyelid wound",
+      "site_description": "Repair eyelid wound",
+      "work_rvu": 6.2,
+      "total_rvu": 18.15,
+      "estimated_medicare_payment": "$606.23",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "67938",
+      "cms_description": "Remove eyelid foreign body",
+      "site_description": "Remove eyelid foreign body",
+      "work_rvu": 1.35,
+      "total_rvu": 7.55,
+      "estimated_medicare_payment": "$252.18",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "69020",
+      "cms_description": "Drg xtrnl aud canal abscess",
+      "site_description": "Drg xtrnl aud canal abscess",
+      "work_rvu": 1.49,
+      "total_rvu": 6.97,
+      "estimated_medicare_payment": "$232.80",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    },
+    {
+      "code": "75989",
+      "cms_description": "Abscess drainage under x-ray",
+      "site_description": "Abscess drainage under x-ray",
+      "work_rvu": 1.16,
+      "total_rvu": 3.37,
+      "estimated_medicare_payment": "$112.56",
+      "checks": {
+        "cpt_database_record": true,
+        "rvu_record": true,
+        "modifier_metadata": true,
+        "cpt_page": true,
+        "search_index_entry": true,
+        "sitemap_entry": true,
+        "payment_estimate": true,
+        "cms_rvu_match": true
+      },
+      "pass": true
+    }
+  ],
+  "representative_browser_validation": [
+    {
+      "code": "20100",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$545.77",
+        "wrvu": "10.12",
+        "lines": [
+          {
+            "cpt": "20100",
+            "wrvu": 10.12,
+            "totalRvu": 16.34,
+            "payment": 545.77,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    },
+    {
+      "code": "32151",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$968.63",
+        "wrvu": "16.52",
+        "lines": [
+          {
+            "cpt": "32151",
+            "wrvu": 16.52,
+            "totalRvu": 29,
+            "payment": 968.63,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    },
+    {
+      "code": "44900",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$743.84",
+        "wrvu": "12.26",
+        "lines": [
+          {
+            "cpt": "44900",
+            "wrvu": 12.26,
+            "totalRvu": 22.27,
+            "payment": 743.84,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    },
+    {
+      "code": "49014",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$346.03",
+        "wrvu": "6.56",
+        "lines": [
+          {
+            "cpt": "49014",
+            "wrvu": 6.56,
+            "totalRvu": 10.36,
+            "payment": 346.03,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    },
+    {
+      "code": "49020",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$1,488.01",
+        "wrvu": "26.00",
+        "lines": [
+          {
+            "cpt": "49020",
+            "wrvu": 26,
+            "totalRvu": 44.55,
+            "payment": 1488.01,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    },
+    {
+      "code": "49402",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$799.62",
+        "wrvu": "13.74",
+        "lines": [
+          {
+            "cpt": "49402",
+            "wrvu": 13.74,
+            "totalRvu": 23.94,
+            "payment": 799.62,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    },
+    {
+      "code": "65290",
+      "pageStatus": 200,
+      "pageHasCode": true,
+      "pageHasCurrency": true,
+      "searchFound": true,
+      "caseAccepted": true,
+      "caseData": {
+        "total": "$415.17",
+        "wrvu": "6.37",
+        "lines": [
+          {
+            "cpt": "65290",
+            "wrvu": 6.37,
+            "totalRvu": 12.43,
+            "payment": 415.17,
+            "rank": "Primary",
+            "mods": []
+          }
+        ]
+      }
+    }
+  ],
+  "staging_notes": [
+    "Local screenshot run reports CORS errors for production backend suggestion endpoints on localhost; CPT pages, search index, and Case Builder checks passed.",
+    "For CPT 75989, validation uses the CMS blank-modifier global row; CMS also publishes component rows."
+  ]
+}

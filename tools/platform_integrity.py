@@ -124,15 +124,20 @@ def update_sitemap(db):
         path.write_text(text.replace("</urlset>", "\n".join(adds)+"\n</urlset>"))
     return len(adds)
 
-def repair(phase_b=False):
+def repair(phase=None):
     db = load_json(ROOT/"cpt_database.json"); rvu = load_json(ROOT/"rvu_database.json"); mods = load_json(ROOT/"modifier_rules.json"); cms = parse_cms()
-    added_b = []
-    if phase_b:
+    added = []
+    if phase:
         for code,row in sorted(cms.items()):
             cats = cms_categories(code,row)
-            target = "Esophagus" if "Esophagus" in cats else ("Small bowel" if "Small bowel" in cats else None)
+            if phase == "phase-b":
+                target = "Esophagus" if "Esophagus" in cats else ("Small bowel" if "Small bowel" in cats else None)
+            elif phase == "phase-c":
+                target = "Acute Care Surgery" if "Acute Care Surgery" in cats else None
+            else:
+                target = None
             if target and code not in db:
-                db[code] = cpt_from_cms(code,row,target); added_b.append(code)
+                db[code] = cpt_from_cms(code,row,target); added.append(code)
     rvu_added=mod_added=pages_added=currency_fixed=0
     for code,e in sorted(db.items()):
         if "estimated_medicare_payment" not in e or e.get("estimated_medicare_payment") in [None,""]:
@@ -146,7 +151,7 @@ def repair(phase_b=False):
     index_added = update_codes_index(db); sitemap_added = update_sitemap(db)
     for p in list((ROOT/"specialties").glob("*.html")) + list((ROOT/"cpt-code-for").glob("*.html")) + [ROOT/"codes"/"index.html"]:
         if p.exists(): normalize_currency_file(p, db)
-    return {"phase_b_codes_added": added_b, "rvu_rows_added": rvu_added, "modifier_rows_added": mod_added, "cpt_pages_added": pages_added, "cpt_pages_currency_fixed": currency_fixed, "codes_index_entries_added": index_added, "sitemap_entries_added": sitemap_added}
+    return {"phase": phase or "repair", "codes_added": added, "rvu_rows_added": rvu_added, "modifier_rows_added": mod_added, "cpt_pages_added": pages_added, "cpt_pages_currency_fixed": currency_fixed, "codes_index_entries_added": index_added, "sitemap_entries_added": sitemap_added}
 
 def validate(scope="all"):
     db = load_json(ROOT/"cpt_database.json"); rvu = load_json(ROOT/"rvu_database.json")["codes"]; mods = load_json(ROOT/"modifier_rules.json")
@@ -198,9 +203,10 @@ def write_coverage():
     return data
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("command",choices=["repair","phase-b","validate","coverage"]); ap.add_argument("--scope",default="all",choices=["all","general-surgery"]); args=ap.parse_args()
-    if args.command=="repair": result=repair(False)
-    elif args.command=="phase-b": result=repair(True)
+    ap=argparse.ArgumentParser(); ap.add_argument("command",choices=["repair","phase-b","phase-c","validate","coverage"]); ap.add_argument("--scope",default="all",choices=["all","general-surgery"]); args=ap.parse_args()
+    if args.command=="repair": result=repair(None)
+    elif args.command=="phase-b": result=repair("phase-b")
+    elif args.command=="phase-c": result=repair("phase-c")
     elif args.command=="coverage": result=write_coverage()
     else:
         result=validate(args.scope); out=ROOT/"qa_artifacts"/"platform_validation_2026_06_10"; out.mkdir(parents=True,exist_ok=True); (out/f"platform_validation_{args.scope}.json").write_text(json.dumps(result,indent=2)+"\n"); print(json.dumps(result,indent=2)); return 1 if result["hard_error_count"] else 0

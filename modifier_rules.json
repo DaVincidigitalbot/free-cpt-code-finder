@@ -9235,6 +9235,52 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "20100": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "20101": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "20103": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -11640,6 +11686,29 @@
     },
     "x_modifier_eligible": true
   },
+  "21627": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "21811": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -11829,6 +11898,29 @@
     "code_family": "general_surgery",
     "cosurgeon_eligible": false,
     "distinct_procedure_class": "general",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "22015": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
     "global_period": 90,
     "hierarchy_tier": 2,
     "inclusive_of": [],
@@ -37069,6 +37161,75 @@
     },
     "x_modifier_eligible": true
   },
+  "30300": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "30310": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "30320": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "30465": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -38269,6 +38430,29 @@
         "never_with": []
       }
     },
+    "x_modifier_eligible": true
+  },
+  "31511": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 0,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
   "31515": {
@@ -40221,6 +40405,29 @@
         "never_with": []
       }
     },
+    "x_modifier_eligible": true
+  },
+  "32151": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
   "32160": {
@@ -43067,6 +43274,52 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "33300": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "33305": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "33340": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -45733,6 +45986,29 @@
     },
     "x_modifier_eligible": true
   },
+  "37197": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 0,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "37211": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -47162,6 +47438,52 @@
     },
     "x_modifier_eligible": true
   },
+  "40804": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "40805": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "41120": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -47271,6 +47593,52 @@
         "never_with": []
       }
     },
+    "x_modifier_eligible": true
+  },
+  "41805": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "41806": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
   "41899": {
@@ -47637,6 +48005,52 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "42700": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "42809": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "42820": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -47944,6 +48358,29 @@
         "never_with": []
       }
     },
+    "x_modifier_eligible": true
+  },
+  "42900": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
   "42953": {
@@ -56534,6 +56971,29 @@
     },
     "x_modifier_eligible": true
   },
+  "44900": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "44950": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -56691,6 +57151,29 @@
         "never_with": []
       }
     },
+    "x_modifier_eligible": true
+  },
+  "45000": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
   "45005": {
@@ -63696,6 +64179,75 @@
     },
     "x_modifier_eligible": true
   },
+  "49014": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 0,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "49020": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "49040": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "49060": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -63946,6 +64498,29 @@
         ]
       }
     }
+  },
+  "49402": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
   },
   "49405": {
     "addon_code": false,
@@ -66156,6 +66731,29 @@
     },
     "x_modifier_eligible": true
   },
+  "50500": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "50543": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -66308,6 +66906,29 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "51080": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "51102": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -66348,6 +66969,29 @@
     "laterality_applicable": false,
     "mod51_exempt": false,
     "never_primary_with": []
+  },
+  "51865": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
   },
   "52000": {
     "addon_code": false,
@@ -67614,6 +68258,52 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "53040": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "53060": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "54150": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -67878,6 +68568,29 @@
     "cosurgeon_eligible": false,
     "distinct_procedure_class": "urinary_system",
     "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "55100": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
     "hierarchy_tier": 2,
     "inclusive_of": [],
     "inherently_bilateral": false,
@@ -68522,6 +69235,29 @@
     "cosurgeon_eligible": false,
     "distinct_procedure_class": "urology",
     "global_period": 0,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "56405": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
     "hierarchy_tier": 2,
     "inclusive_of": [],
     "inherently_bilateral": false,
@@ -70050,6 +70786,29 @@
         "never_with": []
       }
     },
+    "x_modifier_eligible": true
+  },
+  "57415": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
   "57420": {
@@ -71902,6 +72661,52 @@
     },
     "x_modifier_eligible": true
   },
+  "58820": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "58822": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "58940": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -73669,6 +74474,75 @@
     "distinct_procedure_class": "nervous_system",
     "global_period": 90,
     "hierarchy_tier": 1,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "61522": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "61570": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "61571": {
+    "addon_code": false,
+    "assistant_allowed": true,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
     "inclusive_of": [],
     "inherently_bilateral": false,
     "laterality_applicable": false,
@@ -78353,6 +79227,29 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "65273": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
   "65275": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -78408,6 +79305,52 @@
     "code_family": "ophthalmology",
     "cosurgeon_eligible": false,
     "distinct_procedure_class": "eye",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "65286": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "65290": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": true,
+    "distinct_procedure_class": "acute_care_surgery",
     "global_period": 90,
     "hierarchy_tier": 2,
     "inclusive_of": [],
@@ -79835,6 +80778,98 @@
     "cosurgeon_eligible": false,
     "distinct_procedure_class": "eye",
     "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "67930": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "67935": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 90,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "67938": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": true,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "69020": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": true,
+    "bilateral_method": "modifier_50",
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
+    "global_period": 10,
     "hierarchy_tier": 2,
     "inclusive_of": [],
     "inherently_bilateral": false,
@@ -84280,6 +85315,29 @@
     "code_family": "esophagus",
     "cosurgeon_eligible": false,
     "distinct_procedure_class": "esophagus",
+    "global_period": "XXX",
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": true,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy.",
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true
+  },
+  "75989": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "acute_care_surgery",
+    "code_family": "acute_care_surgery",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "acute_care_surgery",
     "global_period": "XXX",
     "hierarchy_tier": 2,
     "inclusive_of": [],
