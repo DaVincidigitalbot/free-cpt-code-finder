@@ -469,6 +469,7 @@ function setPaymentIndex(rows){
    totalRvu,
    workRvu,
    estimatedPayment:payment||Number((totalRvu*MEDICARE_CONVERSION_FACTOR).toFixed(2)),
+   addonCode:!!entry.addon_code,
    source:'cpt_database.json'
   });
  });
@@ -483,6 +484,7 @@ function paymentSnapshotForCode(code, fallbackWrvu=0, meta={}){
   totalRvu,
   workRvu,
   basePayment:explicitPayment||Number(((totalRvu||workRvu)*MEDICARE_CONVERSION_FACTOR).toFixed(2)),
+  addonCode:!!(meta.addonCode||meta.addon_code||indexed?.addonCode),
   source:indexed?.source||'fallback'
  };
 }
@@ -721,10 +723,10 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const normalizedDesc=String(desc||'');
  const inferredMidline=/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(normalizedDesc);
  const payment=paymentSnapshotForCode(cpt,wrvu,meta);
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source};
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source,addonCode:payment.addonCode};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
- if(existing.length>0&&isAddonCode(cpt)){
+ if(existing.length>0&&(payment.addonCode||isAddonCode(cpt))){
   caseLines.push(line);
   log(`ADD ${cpt} "${desc}" [ADD-ON REPEAT #${existing.length+1}] — no distinct-service modifier prompt`);
   recalc('repeat add-on code added');
@@ -778,6 +780,7 @@ function renderAppCaseSummary(){
  el.innerHTML='<div class="app-case-summary__label">APP Productivity Summary</div><div class="app-case-summary__value">'+total.toFixed(2)+'</div><div class="app-case-summary__note"><strong>Estimated APP Productivity</strong><br>'+equivalence+'<br>Estimated APP Productivity is not the same as compensation, reimbursement, or guaranteed employer wRVU credit. Actual attribution depends on payer rules, documentation, modifier acceptance, scope of practice, supervision requirements, and employer compensation policy.<br>Educational estimate only. Not legal or billing advice.</div>';
 }
 function isAddonCode(cpt){return ['22585','33225','93655','93657'].includes(String(cpt||''))}
+function lineIsAddon(line){return !!(line&&line.addonCode)||isAddonCode(line&&line.cpt)}
 function isTechnicalCode(cpt){return ['93229','93296'].includes(String(cpt||''))}
 function isMajorSurgeryCode(cpt){
  const code=String(cpt||'');
@@ -882,13 +885,13 @@ function computeMods(){
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
    l.conflicts.push('Conditional NCCI pair remains conflicted because both procedures are on the same side. Laterality alone does not establish distinctness.');
   }
-  if(isAddonCode(l.cpt)&&pIdx===0){
+  if(lineIsAddon(l)&&pIdx===0){
    l.conflicts.push('Add-on code cannot be ranked as primary. Parent/base code required.');
   }
   if(pIdx===0){
-   l.rank=isAddonCode(l.cpt)?'Add-on':'Primary';l.rankReason=`Highest wRVU (${l.effWrvu.toFixed(2)}). Billed 100%.`;
-   l.rationale.unshift({mod:'Rank',reason:isAddonCode(l.cpt)?'Add-on code detected. Primary ranking blocked until parent code is present.':'Primary procedure — no MPPR reduction.',cite:RULES.PRIMARY});
-  }else if(isAddonCode(l.cpt)){
+   l.rank=lineIsAddon(l)?'Add-on':'Primary';l.rankReason=`Highest wRVU (${l.effWrvu.toFixed(2)}). Billed 100%.`;
+   l.rationale.unshift({mod:'Rank',reason:lineIsAddon(l)?'Add-on code detected. Primary ranking blocked until parent code is present.':'Primary procedure — no MPPR reduction.',cite:RULES.PRIMARY});
+  }else if(lineIsAddon(l)){
    l.rank='Add-on';
    l.rankReason=`Add-on code reported with primary ${procs[0].cpt}; physician work RVU counted at 100%.`;
    l.effWrvu=l.baseWrvu;
@@ -908,7 +911,7 @@ function computeMods(){
     if(l.userMod==='59'&&!edit){l.conflicts.push('Modifier -59 blocked because no NCCI conditional edit exists for this code pair.');}
     else if(l.userMod==='59'&&(l.laterality==='RT'||l.laterality==='LT')){l.conflicts.push('Modifier -59 blocked because RT/LT laterality already resolves distinctness.');}
     else if(edit&&!edit.modAllowed){l.conflicts.push('Fully bundled pair is non-payable. Modifier cannot rescue payment.');}
-    else if(isAddonCode(l.cpt)){l.conflicts.push('Distinct service modifier blocked on add-on code without explicit CPT support.');}
+    else if(lineIsAddon(l)){l.conflicts.push('Distinct service modifier blocked on add-on code without explicit CPT support.');}
     else{
      l.mods.push(l.userMod);
      const opt=MOD_OPTS.find(o=>o.v===l.userMod);
@@ -1002,7 +1005,7 @@ function recalc(why){
   twrvu+=l.effWrvu;
   const base=adjustedPaymentForLine(l);
   if(l.kind==='em'){l.pay=base}
-  else{l.pay=(rank===0||setting==='nonfac'||isAddonCode(l.cpt))?base:base*0.5;rank++}
+  else{l.pay=(rank===0||setting==='nonfac'||lineIsAddon(l))?base:base*0.5;rank++}
  });
  const tpay=caseLines.reduce((s,l)=>s+l.pay,0);
  const lns=document.getElementById('lns');
@@ -1013,7 +1016,7 @@ function recalc(why){
    let label;
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
-   const canEditModifier=l.kind==='em'||(l.kind==='proc'&&rk>1&&!isAddonCode(l.cpt));
+   const canEditModifier=l.kind==='em'||(l.kind==='proc'&&rk>1&&!lineIsAddon(l));
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
@@ -1023,7 +1026,7 @@ function recalc(why){
    </div>`}).join('')+renderAlifBuilderSuggestion();
  }
  document.getElementById('tn').textContent=twrvu.toFixed(2);
- const mppr=caseLines.filter(l=>l.kind==='proc').length>1&&setting==='facility';
+ const mppr=caseLines.some(l=>l.kind==='proc'&&/^Secondary/.test(String(l.rank||''))&&!lineIsAddon(l))&&setting==='facility';
  document.getElementById('ts').textContent=`$${tpay.toFixed(2)}${mppr?' · MPPR applied':''}`;
  document.getElementById('rm').textContent=`${caseLines.length} line${caseLines.length!==1?'s':''} · ${payer} · ${getModifierConflictState()}`;
  renderAppCaseSummary();
@@ -1610,10 +1613,12 @@ async function loadCptSearchIndex(){
   renderGuidedCards();
   const paymentByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.estimated_medicare_payment||0)]));
   const totalRvuByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.total_rvu||0)]));
+  const addonByCode=new Map(external.map(entry=>[String(entry.code||''),!!entry.addon_code]));
   const specIndex=dedupeSearchIndexByCode(buildSearchIndexFromSpecs().map(item=>({
    ...item,
    estimatedPayment:paymentByCode.get(item.code)||0,
-   totalRvu:totalRvuByCode.get(item.code)||0
+   totalRvu:totalRvuByCode.get(item.code)||0,
+   addonCode:addonByCode.get(item.code)||false
   })));
   const seen=new Set(specIndex.map(item=>item.code));
 	  const externalIndex=external.slice(0,4000).map(entry=>({
@@ -1622,6 +1627,7 @@ async function loadCptSearchIndex(){
 	   wrvu:Number(entry.work_rvu||0),
    estimatedPayment:Number(entry.estimated_medicare_payment||0),
    totalRvu:Number(entry.total_rvu||0),
+   addonCode:!!entry.addon_code,
 	   bi:0,
 	   specialty:entry.specialty||'Database',
 	   si:null,
@@ -2066,14 +2072,14 @@ function addAutocompleteResultToCase(item){
   }
   if(promptUnilateralBilateralCase({cpt,desc,wrvu:w,bi,approach:undefined,dx:undefined}))return;
 	  if((bi===1||bi===2)&&bi!==2){
-	   addProc(cpt,desc,w,'',1,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu});
+	   addProc(cpt,desc,w,'',1,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode});
 	  }else{
-	   addProc(cpt,desc,w,'',bi||0,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu});
+	   addProc(cpt,desc,w,'',bi||0,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode});
 	  }
   return;
  }
  if(promptUnilateralBilateralCase({cpt:item.code,desc:item.description,wrvu:item.wrvu||0,bi:item.bi||0,approach:item.approach,dx:item.dx||[]}))return;
-	 addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,{technicalComponent:item.technicalComponent,estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu});
+	 addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,{technicalComponent:item.technicalComponent,estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode});
 }
 
 function selectAutocompleteResult(index){

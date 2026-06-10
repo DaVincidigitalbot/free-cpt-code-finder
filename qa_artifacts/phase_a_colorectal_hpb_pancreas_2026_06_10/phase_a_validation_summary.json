@@ -1,0 +1,56 @@
+{
+  "static_validation": {
+    "added_codes_checked": 69,
+    "cpt_database": "passed",
+    "rvu_database": "passed",
+    "modifier_rules": "passed",
+    "cpt_decision_tree": "passed",
+    "codes_index": "passed",
+    "sitemap": "passed",
+    "payment_formula": "estimated_medicare_payment = total_rvu * 33.4009"
+  },
+  "runtime_validation": {
+    "representative_codes": {
+      "44388": {
+        "payment": "$353.72",
+        "wrvu": "2.65"
+      },
+      "45379": {
+        "payment": "$479.30",
+        "wrvu": "4.17"
+      },
+      "45005": {
+        "payment": "$366.74",
+        "wrvu": "1.97"
+      },
+      "47533": {
+        "payment": "$1110.91",
+        "wrvu": "5.25"
+      },
+      "48552": {
+        "payment": "$211.43",
+        "wrvu": "4.19"
+      },
+      "44139": {
+        "payment": "$106.88",
+        "wrvu": "2.17"
+      }
+    },
+    "addon_case": {
+      "codes": [
+        "44140",
+        "44139"
+      ],
+      "payment": "$1357.08",
+      "note": "44139 retained full add-on payment and did not display MPPR label."
+    },
+    "mppr_case": {
+      "codes": [
+        "47533",
+        "45379"
+      ],
+      "payment": "$1350.56 \u00b7 MPPR applied",
+      "note": "True secondary procedure was reduced after shared base payment."
+    }
+  }
+}
