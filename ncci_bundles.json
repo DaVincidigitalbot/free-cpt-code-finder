@@ -185,14 +185,6 @@
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
-    "49655": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
     "31254": {
       "column2_codes": [
         "31231"
@@ -438,22 +430,6 @@
       "description": "Breast reduction may bundle with tissue transfer",
       "modifier59_allowed": true,
       "reason": "Separate if performed for different indication"
-    },
-    "49560": {
-      "column2_codes": [
-        "15734"
-      ],
-      "description": "Ventral hernia repair with component separation",
-      "modifier59_allowed": false,
-      "reason": "Component separation (15734) is distinct reconstructive procedure - never bundled"
-    },
-    "49561": {
-      "column2_codes": [
-        "15734"
-      ],
-      "description": "Ventral hernia repair with component separation",
-      "modifier59_allowed": false,
-      "reason": "Component separation (15734) is distinct reconstructive procedure - never bundled"
     },
     "60240": {
       "column2_codes": [
@@ -1027,18 +1003,6 @@
       "column2": "15734",
       "bundle_type": "conditional",
       "explanation": "Breast reduction with tissue transfer - depends on indication"
-    },
-    {
-      "column1": "49560",
-      "column2": "15734",
-      "bundle_type": "never_bundle",
-      "explanation": "Component separation never bundles - distinct reconstructive"
-    },
-    {
-      "column1": "49561",
-      "column2": "15734",
-      "bundle_type": "never_bundle",
-      "explanation": "Component separation never bundles - distinct reconstructive"
     },
     {
       "column1": "60260",
