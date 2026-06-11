@@ -25154,43 +25154,6 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
-  "27193": {
-    "addon_code": false,
-    "assistant_allowed": true,
-    "bilateral_eligible": false,
-    "bilateral_method": null,
-    "category": "fracture",
-    "cosurgeon_eligible": false,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 2,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": false,
-    "mod51_exempt": false,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "x_modifier_eligible": true
-  },
   "27194": {
     "addon_code": false,
     "assistant_allowed": false,
@@ -40343,43 +40306,6 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
-  "32405": {
-    "addon_code": false,
-    "assistant_allowed": true,
-    "bilateral_eligible": true,
-    "bilateral_method": "modifier_50",
-    "category": "excision",
-    "cosurgeon_eligible": true,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 1,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": true,
-    "mod51_exempt": false,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "x_modifier_eligible": true
-  },
   "32440": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -45499,43 +45425,6 @@
     },
     "x_modifier_eligible": true
   },
-  "37228": {
-    "addon_code": false,
-    "assistant_allowed": true,
-    "bilateral_eligible": true,
-    "bilateral_method": "rt_lt",
-    "category": "vascular_intervention",
-    "cosurgeon_eligible": true,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 2,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": true,
-    "mod51_exempt": false,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "x_modifier_eligible": true
-  },
   "37229": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -45557,43 +45446,6 @@
       "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply."
     },
     "team_surgeon_eligible": false,
-    "x_modifier_eligible": true
-  },
-  "37230": {
-    "addon_code": false,
-    "assistant_allowed": true,
-    "bilateral_eligible": true,
-    "bilateral_method": "rt_lt",
-    "category": "vascular_intervention",
-    "cosurgeon_eligible": true,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 2,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": true,
-    "mod51_exempt": false,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
     "x_modifier_eligible": true
   },
   "37236": {
@@ -59084,43 +58936,6 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
-  "47500": {
-    "addon_code": false,
-    "assistant_allowed": true,
-    "bilateral_eligible": false,
-    "bilateral_method": null,
-    "category": "hepatic",
-    "cosurgeon_eligible": true,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 1,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": false,
-    "mod51_exempt": false,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "x_modifier_eligible": true
-  },
   "47505": {
     "addon_code": false,
     "assistant_allowed": true,
@@ -59150,43 +58965,6 @@
     "bilateral_eligible": false,
     "bilateral_method": null,
     "category": "vascular_access",
-    "cosurgeon_eligible": true,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 1,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": false,
-    "mod51_exempt": false,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "x_modifier_eligible": true
-  },
-  "47511": {
-    "addon_code": false,
-    "assistant_allowed": true,
-    "bilateral_eligible": false,
-    "bilateral_method": null,
-    "category": "drainage",
     "cosurgeon_eligible": true,
     "distinct_procedure_class": null,
     "global_period": 90,
@@ -88887,43 +88665,6 @@
     },
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
-  },
-  "92921": {
-    "addon_code": true,
-    "assistant_allowed": false,
-    "bilateral_eligible": false,
-    "bilateral_method": null,
-    "category": "vascular_intervention",
-    "cosurgeon_eligible": false,
-    "distinct_procedure_class": null,
-    "global_period": 90,
-    "hierarchy_tier": 2,
-    "inclusive_of": [
-      "12001",
-      "12002",
-      "12003",
-      "12004",
-      "12005"
-    ],
-    "inherently_bilateral": false,
-    "laterality_applicable": false,
-    "mod51_exempt": true,
-    "never_primary_with": [],
-    "payer_notes": {
-      "commercial": "Plastic surgery codes - verify coverage",
-      "medicare": "Major surgery - 90-day global period applies"
-    },
-    "specialty_bundle_rules": {
-      "ent": {
-        "always_with": [],
-        "never_with": []
-      },
-      "general": {
-        "always_with": [],
-        "never_with": []
-      }
-    },
-    "x_modifier_eligible": false
   },
   "92924": {
     "addon_code": false,
