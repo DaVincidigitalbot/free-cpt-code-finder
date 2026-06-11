@@ -78,3 +78,49 @@ HTTP browser console validation captured no warnings or errors.
 ## Final Status
 
 Ready for review. No deployment, merge, or production change was performed.
+
+## Addendum: Modifier Caution State
+
+Added after additional review request on 2026-06-11.
+
+### New User-Facing State
+
+The Case Builder now supports three distinct user-facing modifier states:
+
+- Modifier allowed without warning when clearly routine/valid.
+- Modifier allowed with caution when documentation-dependent.
+- Modifier blocked when rules prohibit it.
+
+The new caution state is used when the existing rule set allows a distinct-service modifier but the modifier is documentation-dependent, for example an NCCI edit with `modAllowed: true` / modifier indicator 1.
+
+### Caution Message
+
+When an NCCI modifier-indicator-1 edit is present and the surgeon selects modifier 59 or an X-modifier, the Case Builder now shows a documentation-required panel:
+
+> Modifier may be allowed for this code pair only when documentation supports a distinct procedural service, separate site, separate encounter, separate lesion, separate organ/structure, or other payer-recognized distinction. Do not append modifier 59/XS automatically.
+
+The exact rendered framework includes:
+
+- What happened: the selected modifier may be allowed only when documentation supports a distinct procedural service.
+- Why it matters: modifier indicator 1 allows bypass only when clinically and payer-supported; it is not automatic.
+- Modifiers affected: modifier 59, XS, XE, XP, and XU.
+- What to document: separate site, encounter, lesion, organ/structure, practitioner, or payer-recognized distinction.
+
+### Validation
+
+Validation artifacts:
+
+- `qa_artifacts/modifier_caution_guidance_2026_06_11/three_state_validation.json`
+- `qa_artifacts/modifier_caution_guidance_2026_06_11/screenshots/01_allowed_without_warning_routine_rt.png`
+- `qa_artifacts/modifier_caution_guidance_2026_06_11/screenshots/02_allowed_with_caution_indicator_1.png`
+- `qa_artifacts/modifier_caution_guidance_2026_06_11/screenshots/03_blocked_indicator_0.png`
+
+| State | Test | Result |
+| --- | --- | --- |
+| Allowed without warning | 43280-RT | CLEAN, modifier RT applied, no caution/denial panel, total wRVU 17.65, payment $1,012.05 |
+| Allowed with caution | Runtime NCCI indicator 1 test: 15734 / 43280 with selected -59 | WARNING, modifier 59 applied, caution panel shown, total wRVU 40.08, payment $1,892.84 |
+| Blocked | Runtime NCCI indicator 0 test: 44207 / 44180 with selected -59 | BLOCKED, modifier removed, denial panel shown, total wRVU 46.01, payment $2,081.55 |
+
+### Guardrail Confirmation
+
+No changes were made to modifier logic, calculations, NCCI pair handling, RVU values, MPPR logic, or code selection. The new state is educational display only. Runtime NCCI test pairs were used only in browser validation and were not added to the repository.

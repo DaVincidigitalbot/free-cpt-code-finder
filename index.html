@@ -187,11 +187,13 @@ a{color:inherit;text-decoration:none}
 .rx{color:var(--ink3);cursor:pointer;font-size:16px;line-height:1;padding:0 4px}
 .rx:hover{color:var(--ox)}
 .modifier-denial{margin-top:8px;border:1px solid #F0D9B0;border-radius:6px;background:#FFFBF3;color:#4A2E00;font-size:12px;line-height:1.45;overflow:hidden}
+.modifier-denial.caution{border-color:#BFD7FF;background:#F4F8FF;color:#123A67}
 .modifier-denial summary{cursor:pointer;padding:8px 10px;font-weight:700;list-style:none}
 .modifier-denial summary::-webkit-details-marker{display:none}
 .modifier-denial-body{padding:0 10px 10px}
 .modifier-denial-grid{display:grid;gap:8px}
 .modifier-denial-item strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#92400e;margin-bottom:2px}
+.modifier-denial.caution .modifier-denial-item strong{color:#1D4E89}
 .modifier-denial-disclaimer{margin-top:8px;color:var(--ink2);font-size:11px}
 
 .mpick{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;align-items:center;justify-content:center;z-index:100;animation:fi .15s}
@@ -618,6 +620,16 @@ function modifierDenialEducation(type,ctx={}){
 }
 function addModifierDenial(line,type,ctx={}){const denial=modifierDenialEducation(type,{...ctx,line});line.modifierDenials=line.modifierDenials||[];line.modifierDenials.push(denial);line.conflicts.push(denial.what)}
 function renderModifierDenials(line){if(!line.modifierDenials||!line.modifierDenials.length)return '';return line.modifierDenials.map(d=>'<details class="modifier-denial"><summary>'+escText(d.title||'Why?')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy.</div></div></details>').join('')}
+function modifierCautionEducation(type,ctx={}){
+ const primary=ctx.primary||{};
+ const line=ctx.line||{};
+ const selected=ctx.selected?'-'+ctx.selected:'the selected modifier';
+ const edit=ctx.edit||{};
+ if(type==='ncci_modifier_allowed')return {title:'Documentation required',what:selected+' may be allowed for CPT '+line.cpt+' with CPT '+primary.cpt+' only when documentation supports a distinct procedural service.',why:'The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. '+(edit.note||''),affected:affectedDistinctModifiers()+' may be considered only when the documented distinction matches the modifier selected.',next:'Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically.'};
+ return {title:'Documentation required',what:'The selected modifier may be allowed, but documentation must support it.',why:'The rule set allows the modifier only when the clinical facts support a distinct service.',affected:selected,next:'Review the operative documentation and payer policy before final coding.'};
+}
+function addModifierCaution(line,type,ctx={}){const caution=modifierCautionEducation(type,{...ctx,line});line.modifierCautions=line.modifierCautions||[];line.modifierCautions.push(caution)}
+function renderModifierCautions(line){if(!line.modifierCautions||!line.modifierCautions.length)return '';return line.modifierCautions.map(d=>'<details class="modifier-denial caution"><summary>'+escText(d.title||'Documentation required')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it matters</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to document</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Modifier use depends on documentation and payer policy.</div></div></details>').join('')}
 
 const MOD_OPTS=[
  {v:'',code:'none',label:'No modifier',desc:'Separate procedure not claimed. Bundled or not distinct.'},
@@ -853,6 +865,7 @@ function computeMods(){
   l.warnings=[];
   l.conflicts=[];
   l.modifierDenials=[];
+  l.modifierCautions=[];
   l.engineState='CLEAN';
   if(l.kind==='em'){
    if(procs.length>0){
@@ -961,6 +974,7 @@ function computeMods(){
      l.mods.push(l.userMod);
      const opt=MOD_OPTS.find(o=>o.v===l.userMod);
      l.rationale.push({mod:l.userMod,reason:`Coder-affirmed: ${opt.label}. ${opt.desc} Documentation must support this selection.`,cite:RULES.MOD_59});
+     if(edit&&edit.modAllowed&&(l.userMod==='59'||String(l.userMod||'').startsWith('X')))addModifierCaution(l,'ncci_modifier_allowed',{primary:primaryProc,edit,selected:l.userMod});
      if(l.userMod==='59'||String(l.userMod||'').startsWith('X'))l.engineState='WARNING';
     }
    }else{
@@ -991,8 +1005,11 @@ function openMpick(lineId,opts={}){
  if(!isEM&&primary&&primary.cpt!==line.cpt){
  const edit=ncciCheck(primary.cpt,line.cpt);
   if(edit){
-   const denial=modifierDenialEducation(edit.modAllowed?'same_side_ncci':'ncci_no_modifier',{primary,line,edit,selected:'59'});
-   ncciEl.innerHTML='<strong>NCCI edit:</strong> '+escText(edit.note)+'<details class="modifier-denial" style="margin-top:8px"><summary>Learn more</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(denial.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(denial.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(denial.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(denial.next)+'</div></div></div></details>';
+   const panel=edit.modAllowed?modifierCautionEducation('ncci_modifier_allowed',{primary,line,edit,selected:'59'}):modifierDenialEducation('ncci_no_modifier',{primary,line,edit,selected:'59'});
+   const panelClass=edit.modAllowed?'modifier-denial caution':'modifier-denial';
+   const midLabel=edit.modAllowed?'Why it matters':'Why it happened';
+   const nextLabel=edit.modAllowed?'What to document':'What to consider next';
+   ncciEl.innerHTML='<strong>NCCI edit:</strong> '+escText(edit.note)+'<details class="'+panelClass+'" style="margin-top:8px"><summary>Learn more</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(panel.what)+'</div><div class="modifier-denial-item"><strong>'+midLabel+'</strong>'+escText(panel.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(panel.affected)+'</div><div class="modifier-denial-item"><strong>'+nextLabel+'</strong>'+escText(panel.next)+'</div></div></div></details>';
    ncciEl.classList.add('show')
   }
   else{ncciEl.classList.remove('show')}
@@ -1072,6 +1089,7 @@ function recalc(why){
     <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>${formatCurrency(l.pay)}</span></div>
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
+    ${renderModifierCautions(l)}
     ${renderModifierDenials(l)}
    </div>`}).join('')+renderAlifBuilderSuggestion();
  }
