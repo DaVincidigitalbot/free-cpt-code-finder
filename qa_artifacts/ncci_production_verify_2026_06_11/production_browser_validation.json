@@ -1,0 +1,148 @@
+{
+  "url": "https://freecptcodefinder.com/?cb=4cfea61f-prod",
+  "commit": "4cfea61fa94fa2f39e4ee1d217194f706fbbe4fb",
+  "loadStatus": {
+    "source": "ncci_bundles.json",
+    "loaded": true,
+    "count": 153,
+    "error": null
+  },
+  "results": [
+    {
+      "edit": {
+        "column1": "44207",
+        "column2": "44180",
+        "modifierIndicator": "0",
+        "modAllowed": false,
+        "note": "Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits CMS NCCI Column 1 CPT 44207 / Column 2 CPT 44180. CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0",
+        "rationale": "CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0",
+        "source": "ncci_bundles.json",
+        "matchedReverse": false
+      },
+      "load": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 153,
+        "error": null
+      },
+      "selected": "46.01",
+      "payable": "31.12",
+      "payment": "1649.34",
+      "lines": [
+        {
+          "cpt": "44207",
+          "payableExcluded": false,
+          "engineState": "CLEAN",
+          "denials": 0,
+          "cautions": 0,
+          "mods": [],
+          "userMod": ""
+        },
+        {
+          "cpt": "44180",
+          "payableExcluded": true,
+          "engineState": "BLOCKED",
+          "denials": 1,
+          "cautions": 0,
+          "mods": [],
+          "userMod": ""
+        }
+      ],
+      "text": "PRIMARY\n44207\n\u00d7\nLaparoscopic colectomy, partial, with colorectal anastomosis\nPhysician wRVU 31.12\n$1,649.34\nBUNDLED\n44180\nedit\n\u00d7\nLaparoscopy, surgical, enterolysis (freeing of intestinal adhesion)\nSelected wRVU 14.89 \u00b7 Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 44207 is supportable when documentation shows substantially increased work.\nCPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+      "pair": "44207/44180",
+      "screenshot": "qa_artifacts/ncci_production_verify_2026_06_11/screenshots/prod_44207_44180_indicator0.png"
+    },
+    {
+      "edit": {
+        "column1": "47562",
+        "column2": "49000",
+        "modifierIndicator": "0",
+        "modAllowed": false,
+        "note": "Laparoscopic cholecystectomy bundles with diagnostic laparoscopy CMS NCCI Column 1 CPT 47562 / Column 2 CPT 49000. Diagnostic laparoscopy inherently included in therapeutic procedure",
+        "rationale": "Diagnostic laparoscopy inherently included in therapeutic procedure",
+        "source": "ncci_bundles.json",
+        "matchedReverse": false
+      },
+      "load": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 153,
+        "error": null
+      },
+      "selected": "22.44",
+      "payable": "10.21",
+      "payment": "631.95",
+      "lines": [
+        {
+          "cpt": "47562",
+          "payableExcluded": false,
+          "engineState": "CLEAN",
+          "denials": 0,
+          "cautions": 0,
+          "mods": [],
+          "userMod": ""
+        },
+        {
+          "cpt": "49000",
+          "payableExcluded": true,
+          "engineState": "BLOCKED",
+          "denials": 1,
+          "cautions": 0,
+          "mods": [],
+          "userMod": ""
+        }
+      ],
+      "text": "PRIMARY\n47562\n\u00d7\nLaparoscopy, surgical; cholecystectomy\nPhysician wRVU 10.21\n$631.95\nBUNDLED\n49000\nedit\n\u00d7\nExploratory laparotomy, exploratory celiotomy with or without biopsy(s)\nSelected wRVU 12.23 \u00b7 Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 47562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 47562 is supportable when documentation shows substantially increased work.\nCPT 49000 is bundled into CPT 47562 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+      "pair": "47562/49000",
+      "screenshot": "qa_artifacts/ncci_production_verify_2026_06_11/screenshots/prod_47562_49000_indicator0.png"
+    },
+    {
+      "edit": {
+        "column1": "44140",
+        "column2": "49000",
+        "modifierIndicator": "1",
+        "modAllowed": true,
+        "note": "Colon resection may bundle with adhesiolysis and stoma creation CMS NCCI Column 1 CPT 44140 / Column 2 CPT 49000. May use -59 if performed at separate site or unrelated to primary procedure",
+        "rationale": "May use -59 if performed at separate site or unrelated to primary procedure",
+        "source": "ncci_bundles.json",
+        "matchedReverse": false
+      },
+      "load": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 153,
+        "error": null
+      },
+      "selected": "34.26",
+      "payable": "34.26",
+      "payment": "1614.61",
+      "lines": [
+        {
+          "cpt": "44140",
+          "payableExcluded": false,
+          "engineState": "CLEAN",
+          "denials": 0,
+          "cautions": 0,
+          "mods": [],
+          "userMod": ""
+        },
+        {
+          "cpt": "49000",
+          "payableExcluded": false,
+          "engineState": "WARNING",
+          "denials": 0,
+          "cautions": 1,
+          "mods": [
+            "59"
+          ],
+          "userMod": "59"
+        }
+      ],
+      "text": "PRIMARY\n44140\n\u00d7\nColectomy, partial; with anastomosis\nPhysician wRVU 22.03\n$1,250.20\nSEC 1\n49000\n-59\nedit\n\u00d7\nExploratory laparotomy, exploratory celiotomy with or without biopsy(s)\nPhysician wRVU 12.23\n$364.41\nDocumentation required",
+      "pair": "44140/49000",
+      "screenshot": "qa_artifacts/ncci_production_verify_2026_06_11/screenshots/prod_44140_49000_indicator1_caution.png"
+    }
+  ],
+  "console": [],
+  "materialConsole": []
+}
