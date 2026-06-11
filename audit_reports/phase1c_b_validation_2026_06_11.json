@@ -1,0 +1,185 @@
+{
+  "generated_at": "2026-06-11T15:29:58.300Z",
+  "branch": "audit/phase1c-b-cms-reversion-2026-06-11",
+  "commit_under_test": "final commit hash provided in delivery package",
+  "conversion_factor": 33.4009,
+  "results": [
+    {
+      "code": "43280",
+      "expected": {
+        "wrvu": 17.65,
+        "total": 30.3,
+        "payment": 1012.05
+      },
+      "spec": [
+        "43280",
+        "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty (eg, Nissen, Toupet procedures)",
+        17.65,
+        0,
+        30.3,
+        1012.05,
+        90,
+        false
+      ],
+      "checks": {
+        "cpt_work": true,
+        "rvu_work": true,
+        "modifier_work": true,
+        "tree_work": true,
+        "source_label_removed": true,
+        "cpt_total": true,
+        "rvu_total": true,
+        "payment_formula": true,
+        "homepage_specs_present": true,
+        "homepage_specs_work": true,
+        "homepage_specs_total": true,
+        "homepage_specs_payment": true,
+        "code_page_work": true,
+        "code_page_source_label_removed": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49505",
+      "expected": {
+        "wrvu": 7.76,
+        "total": 15.21,
+        "payment": 508.03
+      },
+      "spec": [
+        "49505",
+        "Repair initial inguinal hernia, age 5 years or older; reducible",
+        7.76,
+        1,
+        15.21,
+        508.03,
+        90,
+        false
+      ],
+      "checks": {
+        "cpt_work": true,
+        "rvu_work": true,
+        "modifier_work": true,
+        "tree_work": true,
+        "source_label_removed": true,
+        "cpt_total": true,
+        "rvu_total": true,
+        "payment_formula": true,
+        "homepage_specs_present": true,
+        "homepage_specs_work": true,
+        "homepage_specs_total": true,
+        "homepage_specs_payment": true,
+        "code_page_work": true,
+        "code_page_source_label_removed": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49520",
+      "expected": {
+        "wrvu": 9.74,
+        "total": 18.21,
+        "payment": 608.23
+      },
+      "spec": [
+        "49520",
+        "Repair recurrent inguinal hernia, any age; reducible",
+        9.74,
+        1,
+        18.21,
+        608.23,
+        90,
+        false
+      ],
+      "checks": {
+        "cpt_work": true,
+        "rvu_work": true,
+        "modifier_work": true,
+        "tree_work": true,
+        "source_label_removed": true,
+        "cpt_total": true,
+        "rvu_total": true,
+        "payment_formula": true,
+        "homepage_specs_present": true,
+        "homepage_specs_work": true,
+        "homepage_specs_total": true,
+        "homepage_specs_payment": true,
+        "code_page_work": true,
+        "code_page_source_label_removed": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49650",
+      "expected": {
+        "wrvu": 6.2,
+        "total": 12.7,
+        "payment": 424.19
+      },
+      "spec": [
+        "49650",
+        "Laparoscopy, surgical; repair of inguinal hernia, initial",
+        6.2,
+        1,
+        12.7,
+        424.19,
+        90,
+        false
+      ],
+      "checks": {
+        "cpt_work": true,
+        "rvu_work": true,
+        "modifier_work": true,
+        "tree_work": true,
+        "source_label_removed": true,
+        "cpt_total": true,
+        "rvu_total": true,
+        "payment_formula": true,
+        "homepage_specs_present": true,
+        "homepage_specs_work": true,
+        "homepage_specs_total": true,
+        "homepage_specs_payment": true,
+        "code_page_work": true,
+        "code_page_source_label_removed": true
+      },
+      "pass": true
+    },
+    {
+      "code": "49651",
+      "expected": {
+        "wrvu": 8.17,
+        "total": 16.47,
+        "payment": 550.11
+      },
+      "spec": [
+        "49651",
+        "Laparoscopy, surgical; repair recurrent inguinal hernia",
+        8.17,
+        1,
+        16.47,
+        550.11,
+        90,
+        false
+      ],
+      "checks": {
+        "cpt_work": true,
+        "rvu_work": true,
+        "modifier_work": true,
+        "tree_work": true,
+        "source_label_removed": true,
+        "cpt_total": true,
+        "rvu_total": true,
+        "payment_formula": true,
+        "homepage_specs_present": true,
+        "homepage_specs_work": true,
+        "homepage_specs_total": true,
+        "homepage_specs_payment": true,
+        "code_page_work": true,
+        "code_page_source_label_removed": true
+      },
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "scanner_note": "tools/data_integrity_phase1_scanner.py was also run. Its homepage SPECS parser reports false missing-record errors against object-style SPECS; this validation parses the actual SPECS object used by the app."
+}
