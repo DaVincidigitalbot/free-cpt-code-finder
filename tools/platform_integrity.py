@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import argparse, csv, html, json, re, sys
+import argparse, csv, html, importlib.util, json, re, sys
 from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
@@ -179,6 +179,16 @@ def validate(scope="all"):
                 if field not in rvu[code] or rvu[code].get(field) in [None,""]: errors.append({"type":"missing_rvu_field","code":code,"field":field})
         if num(e.get("total_rvu")) and round(num(e.get("estimated_medicare_payment")),2) != round(num(e.get("total_rvu")) * CF,2):
             errors.append({"type":"payment_formula_mismatch","code":code,"site":e.get("estimated_medicare_payment"),"expected":round(num(e.get("total_rvu"))*CF,2)})
+    try:
+        spec_path = ROOT / "tools" / "validate_homepage_specs.py"
+        spec = importlib.util.spec_from_file_location("validate_homepage_specs", spec_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        homepage_result = module.validate()
+        for error in homepage_result.get("hard_errors", []):
+            errors.append({"type": "homepage_specs_search_case_builder_drift", **error})
+    except Exception as exc:
+        errors.append({"type": "homepage_specs_validation_failed", "error": str(exc)})
     return {"scope":scope,"total_cpt_count":len(db),"total_page_count":len(list((ROOT/"codes").glob("*.html"))),"total_sitemap_code_count":sitemap.count("/codes/"),"total_rvu_rows":len(rvu),"total_modifier_rule_rows":len(mods),"hard_error_count":len(errors),"warning_count":len(warnings),"hard_error_types":dict(Counter(x["type"] for x in errors)),"warning_types":dict(Counter(x["type"] for x in warnings)),"hard_errors":errors,"warnings":warnings}
 
 def coverage():
