@@ -1,0 +1,95 @@
+{
+  "branch": "audit/data-integrity-phase1-2026-06-10",
+  "commit": "a3056028b2f4230003813c18e0115521a9b0d6ae",
+  "canonical_source": {
+    "source": "CMS PFS RVU26C July 2026 non-QPP",
+    "source_file": "PPRRVU2026_Jul_nonQPP.csv",
+    "source_sha256": "01169553aa9804d778837cd2727e6d27c4bbd95008a35d66ac1d0fb28ccdcbcf",
+    "source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "year": 2026,
+    "conversion_factor": 33.4009,
+    "value_type": "physician_work_rvu"
+  },
+  "browser_findings": [
+    {
+      "code": "44950",
+      "case_builder_accepted": true,
+      "search_found": true,
+      "canonical_description": "Appendectomy, open",
+      "canonical_work_rvu": 10.34,
+      "canonical_total_rvu": 18.13,
+      "canonical_payment_total_rvu_times_cf": 605.56,
+      "case_builder_displayed_wrvu": 10.34,
+      "case_builder_displayed_payment": 345.37,
+      "case_builder_payment_matches_canonical": false,
+      "issues": [
+        "Case Builder displayed payment differs from canonical total-RVU Medicare estimate."
+      ]
+    },
+    {
+      "code": "44960",
+      "case_builder_accepted": true,
+      "search_found": true,
+      "canonical_description": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis",
+      "canonical_work_rvu": 14.14,
+      "canonical_total_rvu": 24.7,
+      "canonical_payment_total_rvu_times_cf": 825.0,
+      "case_builder_displayed_wrvu": 14.14,
+      "case_builder_displayed_payment": 472.29,
+      "case_builder_payment_matches_canonical": false,
+      "issues": [
+        "Case Builder displayed payment differs from canonical total-RVU Medicare estimate."
+      ]
+    },
+    {
+      "code": "44970",
+      "case_builder_accepted": true,
+      "search_found": true,
+      "canonical_description": "Laparoscopy, surgical, appendectomy",
+      "canonical_work_rvu": 9.21,
+      "canonical_total_rvu": 17.31,
+      "canonical_payment_total_rvu_times_cf": 578.17,
+      "case_builder_displayed_wrvu": 9.21,
+      "case_builder_displayed_payment": 307.62,
+      "case_builder_payment_matches_canonical": false,
+      "issues": [
+        "Case Builder displayed payment differs from canonical total-RVU Medicare estimate."
+      ]
+    },
+    {
+      "code": "47562",
+      "case_builder_accepted": true,
+      "search_found": true,
+      "canonical_description": "Laparoscopy, surgical; cholecystectomy",
+      "canonical_work_rvu": 10.21,
+      "canonical_total_rvu": 18.92,
+      "canonical_payment_total_rvu_times_cf": 631.95,
+      "case_builder_displayed_wrvu": 11.47,
+      "case_builder_displayed_payment": 383.11,
+      "case_builder_payment_matches_canonical": false,
+      "issues": [
+        "Case Builder displayed wRVU differs from canonical work RVU.",
+        "Case Builder displayed payment differs from canonical total-RVU Medicare estimate."
+      ]
+    },
+    {
+      "code": "49505",
+      "case_builder_accepted": false,
+      "search_found": false,
+      "canonical_description": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "canonical_work_rvu": 7.09,
+      "canonical_total_rvu": 15.21,
+      "canonical_payment_total_rvu_times_cf": 508.03,
+      "case_builder_displayed_wrvu": 0.0,
+      "case_builder_displayed_payment": 0.0,
+      "case_builder_payment_matches_canonical": false,
+      "issues": [
+        "Case Builder did not accept/add code from homepage search flow.",
+        "Homepage search did not return code.",
+        "Case Builder displayed wRVU differs from canonical work RVU.",
+        "Case Builder displayed payment differs from canonical total-RVU Medicare estimate."
+      ]
+    }
+  ],
+  "note": "Browser validation is evidence-only. No fixes were applied."
+}

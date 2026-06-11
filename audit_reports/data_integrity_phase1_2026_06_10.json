@@ -1,0 +1,786 @@
+{
+  "branch": "audit/data-integrity-phase1-2026-06-10",
+  "canonical_source": {
+    "conversion_factor": 33.4009,
+    "source": "CMS PFS RVU26C July 2026 non-QPP",
+    "source_file": "PPRRVU2026_Jul_nonQPP.csv",
+    "source_sha256": "01169553aa9804d778837cd2727e6d27c4bbd95008a35d66ac1d0fb28ccdcbcf",
+    "source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "value_type": "physician_work_rvu",
+    "year": 2026
+  },
+  "commit": "a3056028b2f4230003813c18e0115521a9b0d6ae",
+  "findings": [
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "description",
+      "file": "codes/44970.html",
+      "note": "Canonical descriptor is not rendered on CPT page.",
+      "observed": "not found",
+      "severity": "error",
+      "surface": "cpt_page"
+    },
+    {
+      "code": "44950",
+      "expected": "present",
+      "field": "record",
+      "file": "index.html",
+      "note": "Code missing from homepage SPECS seed used by search and Case Builder.",
+      "observed": null,
+      "severity": "error",
+      "surface": "homepage_specs_search_case_builder_seed"
+    },
+    {
+      "code": "44960",
+      "expected": "present",
+      "field": "record",
+      "file": "index.html",
+      "note": "Code missing from homepage SPECS seed used by search and Case Builder.",
+      "observed": null,
+      "severity": "error",
+      "surface": "homepage_specs_search_case_builder_seed"
+    },
+    {
+      "code": "44970",
+      "expected": "present",
+      "field": "record",
+      "file": "index.html",
+      "note": "Code missing from homepage SPECS seed used by search and Case Builder.",
+      "observed": null,
+      "severity": "error",
+      "surface": "homepage_specs_search_case_builder_seed"
+    },
+    {
+      "code": "47562",
+      "expected": "present",
+      "field": "record",
+      "file": "index.html",
+      "note": "Code missing from homepage SPECS seed used by search and Case Builder.",
+      "observed": null,
+      "severity": "error",
+      "surface": "homepage_specs_search_case_builder_seed"
+    },
+    {
+      "code": "49505",
+      "expected": "present",
+      "field": "record",
+      "file": "index.html",
+      "note": "Code missing from homepage SPECS seed used by search and Case Builder.",
+      "observed": null,
+      "severity": "error",
+      "surface": "homepage_specs_search_case_builder_seed"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49507.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/43280.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49550.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49593.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49585.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49618.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/15734.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49651.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44960",
+      "expected": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis",
+      "field": "descriptor_context",
+      "file": "codes/44970.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49657.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49614.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "codes/index.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49520.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49652.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/43324.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49613.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49594.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49615.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49555.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49596.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49587.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44960",
+      "expected": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis",
+      "field": "descriptor_context",
+      "file": "codes/44979.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49521.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49591.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49653.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49500.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49525.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49656.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49592.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49654.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49616.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49650.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/43281.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49553.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49617.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49580.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "codes/49595.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44950",
+      "expected": "Appendectomy, open",
+      "field": "descriptor_context",
+      "file": "blog/index.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44960",
+      "expected": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis",
+      "field": "descriptor_context",
+      "file": "blog/index.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/index.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/index.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-57-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-51-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-51-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-59-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-59-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-59-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-76-77-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-25-vs-57-compared.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-25-vs-57-compared.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-25-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-22-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "blog/modifiers/modifier-22-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/rvu/surgical-rvu-benchmarks-2026.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/rvu/surgical-rvu-benchmarks-2026.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/rvu/highest-rvu-general-surgery-procedures.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "blog/rvu/highest-rvu-general-surgery-procedures.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/icd10/icd10-coding-gallbladder-disease.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/inpatient-vs-observation-coding.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/learn-cpt-coding-medical-student.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/learn-cpt-coding-medical-student.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "blog/guides/how-to-bill-multiple-procedures-surgery.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44950",
+      "expected": "Appendectomy, open",
+      "field": "descriptor_context",
+      "file": "blog/guides/cpt-code-appendectomy.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44960",
+      "expected": "Appendectomy; for ruptured appendix with abscess or generalized peritonitis",
+      "field": "descriptor_context",
+      "file": "blog/guides/most-common-cpt-codes-general-surgery.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/most-common-cpt-codes-general-surgery.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/most-common-cpt-codes-general-surgery.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "49505",
+      "expected": "Repair initial inguinal hernia, age 5 years or older; reducible",
+      "field": "descriptor_context",
+      "file": "blog/guides/most-common-cpt-codes-general-surgery.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "47562",
+      "expected": "Laparoscopy, surgical; cholecystectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/global-surgical-package-explained.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/trauma-laparotomy-cpt-guide.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    },
+    {
+      "code": "44970",
+      "expected": "Laparoscopy, surgical, appendectomy",
+      "field": "descriptor_context",
+      "file": "blog/guides/global-period-rules-money.html",
+      "note": "Guide/hub/widget mentions this code in billing context without rendering canonical descriptor nearby.",
+      "observed": "code appears without canonical descriptor",
+      "severity": "warning",
+      "surface": "guide_hub_widget_text"
+    }
+  ],
+  "generated_at": "2026-06-11T01:13:01.206913+00:00",
+  "summary": {
+    "by_surface": {
+      "cpt_page": 1,
+      "guide_hub_widget_text": 70,
+      "homepage_specs_search_case_builder_seed": 5
+    },
+    "codes_scanned": 5,
+    "errors": 6,
+    "warnings": 70
+  }
+}

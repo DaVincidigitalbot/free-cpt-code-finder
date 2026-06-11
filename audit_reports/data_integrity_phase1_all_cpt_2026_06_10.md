@@ -1,0 +1,529 @@
+# Phase 1 Data-Integrity Discrepancy Report
+
+Generated: 2026-06-11T01:13:57.946526+00:00
+Branch: audit/data-integrity-phase1-2026-06-10
+Commit: a3056028b2f4230003813c18e0115521a9b0d6ae
+
+## Canonical RVU Source
+- Source: CMS PFS RVU26C July 2026 non-QPP
+- Release year: 2026
+- Source file: PPRRVU2026_Jul_nonQPP.csv
+- SHA256: 01169553aa9804d778837cd2727e6d27c4bbd95008a35d66ac1d0fb28ccdcbcf
+- Conversion factor: 33.4009
+- Value type: physician_work_rvu
+
+## Summary
+- CPTs scanned: 3916
+- Errors: 4890
+- Warnings: 5846
+
+## Surface Counts
+- cpt_page: 722
+- cpt_vs_rvu_database: 1904
+- guide_hub_widget_text: 4074
+- homepage_specs_search_case_builder_seed: 3916
+- modifier_rules: 100
+- payment_formula: 20
+
+## Findings
+- [WARNING] 00100 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00120 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00140 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00142 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00160 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00170 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00190 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00300 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00320 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00400 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00500 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00520 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00540 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00560 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00600 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00620 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00630 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00700 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00790 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00800 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00840 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00860 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00880 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00902 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00910 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 00940 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01112 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01200 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01210 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01214 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01400 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01402 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01480 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01630 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01710 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01810 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 0184T | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01920 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01924 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01960 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01961 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01967 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01968 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01990 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 01999 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 10005 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 10006 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 10007 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 10009 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 10010 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 10011 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 10021 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [ERROR] 11000 | cpt_vs_rvu_database | description | cpt_database.json | observed='Debridement of extensive eczematous or infected skin; up to 10% of body surface' | expected='Dbrdmt ecz/infected skin<10%' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11000 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11001 | cpt_vs_rvu_database | description | cpt_database.json | observed='Debridement of extensive eczematous or infected skin; each additional 10% of the body surface' | expected='Dbrdmt ecz/infct skn ea addl' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11001 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 11010 | cpt_vs_rvu_database | description | cpt_database.json | observed='Debridement including removal of foreign material associated with open fracture(s) and/or dislocation(s); skin and subcutaneous tissues' | expected='Debride skin at fx site' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11010 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 11011 | cpt_vs_rvu_database | description | cpt_database.json | observed='Debridement including removal of foreign material associated with open fracture(s) and/or dislocation(s); skin, subcutaneous tissue, muscle fascia, and muscle' | expected='Debride skin musc at fx site' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11011 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11012 | cpt_vs_rvu_database | description | cpt_database.json | observed='Debridement including removal of foreign material associated with open fracture(s) and/or dislocation(s); skin, subcutaneous tissue, muscle fascia, muscle, and bone' | expected='Deb skin bone at fx site' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11012 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11042 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excisional debridement, Subcutaneous tissue; first 20 sq cm or less' | expected='Debridement, subcutaneous tissue; first 20 sq cm or less' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 11043 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excisional debridement, Muscle and/or fascia; first 20 sq cm or less' | expected='Debridement, muscle and/or fascia; first 20 sq cm or less' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 11044 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excisional debridement, Bone; first 20 sq cm or less' | expected='Debridement, bone; first 20 sq cm or less' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 11045 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excisional debridement, Subcutaneous tissue; each additional 20 sq cm or part thereof' | expected='Debridement, subcutaneous tissue; each additional 20 sq cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11045 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 11046 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excisional debridement, Muscle and/or fascia; each additional 20 sq cm or part thereof' | expected='Debridement, muscle and/or fascia; each additional 20 sq cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11046 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 11047 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excisional debridement, Bone; each additional 20 sq cm or part thereof' | expected='Debridement, bone; each additional 20 sq cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11047 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 11055 | cpt_vs_rvu_database | description | cpt_database.json | observed='Paring or curettement of benign hyperkeratotic skin lesion; single' | expected='Paring/cutg b9 hyprker les 1' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11055 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11056 | cpt_vs_rvu_database | description | cpt_database.json | observed='Paring or curettement of benign hyperkeratotic skin lesions; two to four' | expected='Parng/cutg b9 hyprkr les 2-4' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11056 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11057 | cpt_vs_rvu_database | description | cpt_database.json | observed='Paring or curettement of benign hyperkeratotic skin lesions; more than four' | expected='Parng/cutg b9 hyprkr les >4' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11057 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [WARNING] 11103 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 11105 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 11107 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 11201 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 11719 | cpt_vs_rvu_database | description | cpt_database.json | observed='Trimming of nondystrophic nails, any number' | expected='Trim nail(s) any number' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11719 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11730 | cpt_vs_rvu_database | description | cpt_database.json | observed='Avulsion of nail plate, partial or complete, simple; single' | expected='Avulsion nail plate simple 1' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11730 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11732 | cpt_vs_rvu_database | description | cpt_database.json | observed='Avulsion of nail plate, partial or complete, simple; each additional nail plate' | expected='Avlsn nail plate simple each' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11732 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 11740 | cpt_vs_rvu_database | description | cpt_database.json | observed='Evacuation of subungual hematoma' | expected='Evacuation subungual hmtma' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11740 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 11750 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision of nail and nail matrix, partial or complete, eg, ingrown or deformed nail) for permanent removal' | expected='Excision nail&nail matrix' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11750 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 11755 | cpt_vs_rvu_database | description | cpt_database.json | observed='Biopsy of nail unit eg, plate, bed, matrix, hyponychium, proximal and lateral nail folds separate procedure' | expected='Biopsy nail unit' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11755 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [WARNING] 11760 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 11762 | cpt_vs_rvu_database | description | cpt_database.json | observed='Reconstruction of nail bed with graft' | expected='Reconstruction of nail bed' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11762 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 11765 | cpt_vs_rvu_database | description | cpt_database.json | observed='Wedge excision of skin of nail fold eg, for ingrown toenail)' | expected='Wedge excision skn nail fold' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 11765 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 12020 | cpt_vs_rvu_database | description | cpt_database.json | observed='Treatment of superficial wound dehiscence; simple closure' | expected='Tx supfc wnd dehsn smpl clsr' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 12020 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 12021 | cpt_vs_rvu_database | description | cpt_database.json | observed='Treatment of superficial wound dehiscence; with packing' | expected='Tx supfc wnd dehsn w/packing' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 12021 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [WARNING] 13102 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 13122 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 13133 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 13153 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 14302 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 14350 | cpt_vs_rvu_database | description | cpt_database.json | observed='Filleted finger or toe flap, including preparation of recipient site' | expected='Filleted finger/toe flap' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 14350 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [WARNING] 15003 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15005 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15101 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15111 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15116 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15121 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15131 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15136 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15151 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15152 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15201 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15221 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15241 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15261 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15272 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15274 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15276 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 15278 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 15572 | cpt_vs_rvu_database | description | cpt_database.json | observed='Formation of direct or tubed pedicle, with or without transfer; scalp, arms, or legs' | expected='Skin pedicle flap arms/legs' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15572 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15574 | cpt_vs_rvu_database | description | cpt_database.json | observed='Formation of direct or tubed pedicle, with or without transfer; forehead, cheeks, chin, mouth, neck,' | expected='Pedcle fh/ch/ch/m/n/ax/g/h/f' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15574 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15610 | cpt_vs_rvu_database | description | cpt_database.json | observed='Delay of flap or sectioning of flap (division and inset); at scalp, arms or legs' | expected='Delay flap arms/legs' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15610 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15650 | cpt_vs_rvu_database | description | cpt_database.json | observed='Transfer, intermediate, of any pedicle flap eg, abdomen to wrist, walking tube), any location' | expected='Transfer skin pedicle flap' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15650 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15736 | cpt_vs_rvu_database | description | cpt_database.json | observed='Muscle, myocutaneous, or fasciocutaneous flap; upper extremity' | expected='Muscle-skin graft arm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15736 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15738 | cpt_vs_rvu_database | description | cpt_database.json | observed='Muscle, myocutaneous, or fasciocutaneous flap; lower extremity' | expected='Muscle-skin graft leg' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15738 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15740 | cpt_vs_rvu_database | description | cpt_database.json | observed='Flap; island pedicle' | expected='Island pedicle flap graft' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15740 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15750 | cpt_vs_rvu_database | description | cpt_database.json | observed='Flap; neurovascular pedicle' | expected='Neurovascular pedicle flap' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15750 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15758 | cpt_vs_rvu_database | description | cpt_database.json | observed='Free fascia flap (microvascular transfer)' | expected='Free fascial flap microvasc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15758 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 15770 | cpt_vs_rvu_database | description | cpt_database.json | observed='Graft, composite including dermis‐fat‐fascia, including primary closure of donor area' | expected='Derma-fat-fascia graft' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15770 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [WARNING] 15847 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='YYY' | Global period differs from canonical RVU row.
+- [ERROR] 15851 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal of sutures under anesthesia (other than local), other surgeon' | expected='Removal sutr/staple req anes' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15851 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 15852 | cpt_vs_rvu_database | description | cpt_database.json | observed='Dressing change (for other than burns) under anesthesia (other than local)' | expected='Dressing change not for burn' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15852 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 15860 | cpt_vs_rvu_database | description | cpt_database.json | observed='Intravenous injection of agent eg, fluorescein) to test blood flow in flap or graft' | expected='Iv njx tst vasc flo flap/grf' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 15860 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 16000 | cpt_vs_rvu_database | description | cpt_database.json | observed='Initial treatment, first degree burn, when no more than local treatment is required' | expected='Initial treatment of burn(s)' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 16000 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 16036 | cpt_vs_rvu_database | description | cpt_database.json | observed='Escharotomy, each additional incision List separately in addition to code for primary procedure' | expected='Escharotomy ea addl incision' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 16036 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 17003 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 17312 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 17314 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 17315 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 19304 | cpt_vs_rvu_database | total_rvu | cpt_database.json | observed=0 | expected=17.71 | CPT numeric RVU field differs from canonical RVU database.
+- [ERROR] 19304 | cpt_vs_rvu_database | pe_rvu | cpt_database.json | observed=0 | expected=8.16 | CPT numeric RVU field differs from canonical RVU database.
+- [ERROR] 19304 | cpt_vs_rvu_database | mp_rvu | cpt_database.json | observed=0 | expected=0.6 | CPT numeric RVU field differs from canonical RVU database.
+- [ERROR] 19304 | payment_formula | estimated_medicare_payment | cpt_database.json | observed=0.0 | expected=591.53 | CPT payment should equal total RVU times conversion factor.
+- [ERROR] 20103 | cpt_vs_rvu_database | description | cpt_database.json | observed='Exploration of penetrating extremity wound separate procedure' | expected='Expl pentrg wound extremity' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20103 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 20680 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal of implant; deep, eg, buried wire, pin, screw, metal band, nail, rod or plate) removal of' | expected='CPT 20680' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 20690 | cpt_vs_rvu_database | description | cpt_database.json | observed='Application of a uniplane (pins or wires in one plane), unilateral, external fixation system' | expected='CPT 20690' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 20694 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal, under anesthesia, of external fixation system' | expected='CPT 20694' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 20802 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, arm (includes surgical neck of humerus through elbow joint); complete amputation' | expected='Replantation arm complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20802 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20805 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, forearm (includes radius and ulna to radial carpal joint); complete amputation' | expected='Replant forearm complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20805 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20808 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, hand (includes hand through metacarpophalangeal joints); complete amputation' | expected='Replantation hand complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20808 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20816 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, digit, excluding thumb (includes metacarpophalangeal joint to insertion of flexor sublimis' | expected='Replantation digit complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20816 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20822 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, digit, excluding thumb (includes distal tip to sublimis tendon insertion); complete' | expected='Replantation digit complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20822 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20824 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, thumb (includes carpometacarpal joint to MP joint); complete amputation' | expected='Replantation thumb complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20824 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20827 | cpt_vs_rvu_database | description | cpt_database.json | observed='Replantation, thumb (includes distal tip to MP joint); complete amputation' | expected='Replantation thumb complete' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20827 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [WARNING] 20930 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 20931 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 20932 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 20933 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 20934 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 20936 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 20937 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 20938 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [ERROR] 20950 | cpt_vs_rvu_database | description | cpt_database.json | observed='Monitoring of interstitial fluid pressure (includes insertion of device eg, wick catheter technique, needle' | expected='Mntr intrstitial fluid press' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20950 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='000' | Global period differs from canonical RVU row.
+- [ERROR] 20955 | cpt_vs_rvu_database | description | cpt_database.json | observed='Bone graft with microvascular anastomosis; fibula' | expected='Fibula bone graft microvasc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20955 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20956 | cpt_vs_rvu_database | description | cpt_database.json | observed='Bone graft with microvascular anastomosis; metatarsal' | expected='Iliac bone graft microvasc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20956 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20962 | cpt_vs_rvu_database | description | cpt_database.json | observed='Bone graft with microvascular anastomosis; other bone graft' | expected='Other bone graft microvasc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20962 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20969 | cpt_vs_rvu_database | description | cpt_database.json | observed='Free osteocutaneous flap with microvascular anastomosis, other than iliac crest, rib, metatarsal, or great' | expected='Bone/skin graft microvasc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20969 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20970 | cpt_vs_rvu_database | description | cpt_database.json | observed='Free osteocutaneous flap with microvascular anastomosis; iliac crest' | expected='Bone/skin graft iliac crest' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20970 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20972 | cpt_vs_rvu_database | description | cpt_database.json | observed='Free osteocutaneous flap with microvascular anastomosis; metatarsal' | expected='Bone/skin graft metatarsal' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20972 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 20973 | cpt_vs_rvu_database | description | cpt_database.json | observed='Free osteocutaneous flap with microvascular anastomosis; great toe with web space' | expected='Bone/skin graft great toe' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 20973 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [WARNING] 21812 | modifier_rules | addon_code | modifier_rules.json | observed=True | expected=False | Modifier metadata differs from CPT database field.
+- [WARNING] 22328 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22552 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22614 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22840 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22841 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='XXX' | Global period differs from canonical RVU row.
+- [WARNING] 22842 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22843 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22844 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22845 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22846 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22847 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22848 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22853 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='0' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22854 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22858 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22859 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='ZZZ' | Global period differs from canonical RVU row.
+- [WARNING] 22899 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='YYY' | Global period differs from canonical RVU row.
+- [ERROR] 23030 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision and drainage, shoulder area; deep abscess or hematoma' | expected='I&d shoulder deep absc/hmtma' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23030 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 23031 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision and drainage, shoulder area; infected bursa' | expected='I&d shoulder infected bursa' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23031 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 23035 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision, bone cortex (eg, osteomyelitis or bone abscess), shoulder area' | expected='Incision bone cortex sho' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23035 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23040 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, glenohumeral joint, including exploration, drainage, or removal of foreign body' | expected='Arthrt gh jt expl/drg/rmv fb' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23040 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23044 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, acromioclavicular, sternoclavicular joint, including exploration, drainage, or removal of foreign body' | expected='Arthrt ac sc jt exp/rmvl fb' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23044 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23101 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, acromioclavicular joint or sternoclavicular joint, including biopsy and/or excision of torn cartilage' | expected='Arthrt acrmclv/strnclav jt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23101 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23105 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy; glenohumeral joint, with synovectomy, with or without biopsy' | expected='Arthrotomy glenohumeral jt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23105 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23106 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy; sternoclavicular joint, with synovectomy, with or without biopsy' | expected='Arthrotomy strnclav joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23106 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23107 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, glenohumeral joint, with joint exploration, with or without removal of loose or foreign body' | expected='Arthrt glenhumrl jt w/expl' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23107 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23120 | cpt_vs_rvu_database | description | cpt_database.json | observed='Claviculectomy; partial' | expected='Claviculectomy partial' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23120 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23125 | cpt_vs_rvu_database | description | cpt_database.json | observed='Claviculectomy; total' | expected='Claviculectomy total' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23125 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23130 | cpt_vs_rvu_database | description | cpt_database.json | observed='Acromioplasty or acromionectomy, partial, with or without coracoacromial ligament release' | expected='Acromp/acromionectomy prtl' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23130 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23330 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal of foreign body, shoulder; subcutaneous' | expected='Remove shoulder foreign body' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23330 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 23333 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal of foreign body, shoulder; deep' | expected='Remove shoulder fb deep' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23333 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23395 | cpt_vs_rvu_database | description | cpt_database.json | observed='Muscle transfer, any type, shoulder or upper arm; single' | expected='Muscle transfer shoulder/arm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23395 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23397 | cpt_vs_rvu_database | description | cpt_database.json | observed='Muscle transfer, any type, shoulder or upper arm; multiple' | expected='Muscle transfers' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23397 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23405 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenotomy, shoulder area; single tendon' | expected='Incision of tendon & muscle' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23405 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23406 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenotomy, shoulder area; multiple tendons' | expected='Incise tendon(s) & muscle(s)' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23406 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23410 | cpt_vs_rvu_database | description | cpt_database.json | observed='Repair of ruptured musculotendinous cuff (eg, rotator cuff) open; acute' | expected='Repair rotator cuff acute' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23410 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23412 | cpt_vs_rvu_database | description | cpt_database.json | observed='Repair of ruptured musculotendinous cuff (eg, rotator cuff) open; chronic' | expected='CPT 23412' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 23415 | cpt_vs_rvu_database | description | cpt_database.json | observed='Coracoacromial ligament release, with or without acromioplasty' | expected='Release of shoulder ligament' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23415 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23420 | cpt_vs_rvu_database | description | cpt_database.json | observed='Reconstruction of complete shoulder (rotator) cuff avulsion, chronic (includes acromioplasty)' | expected='Repair of shoulder' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23420 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23430 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenodesis of long tendon of biceps' | expected='CPT 23430' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 23440 | cpt_vs_rvu_database | description | cpt_database.json | observed='Resection or transplantation of long tendon of biceps' | expected='Remove/transplant tendon' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23440 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23450 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulorrhaphy, anterior; Putti-Platt procedure or Magnuson type operation' | expected='Repair shoulder capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23450 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23455 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulorrhaphy, anterior; with labral repair (eg, Bankart procedure)' | expected='Repair shoulder capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23455 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23460 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulorrhaphy, anterior, any type; with bone block' | expected='Repair shoulder capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23460 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23462 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulorrhaphy, anterior, any type; with coracoid process transfer' | expected='Repair shoulder capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23462 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23465 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulorrhaphy, glenohumeral joint, posterior, with or without bone block' | expected='Repair shoulder capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23465 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23466 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulorrhaphy, glenohumeral joint, any type multi-directional instability' | expected='Repair shoulder capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23466 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23480 | cpt_vs_rvu_database | description | cpt_database.json | observed='Osteotomy, clavicle, with or without internal fixation' | expected='Revision of collar bone' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23480 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23485 | cpt_vs_rvu_database | description | cpt_database.json | observed='Osteotomy, clavicle, with or without internal fixation; with bone graft for nonunion or malunion (includes obtaining graft and/or necessary fixation)' | expected='Revision of collar bone' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23485 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23515 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of clavicular fracture, with or without internal or external fixation' | expected='CPT 23515' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 23615 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of proximal humeral (surgical or anatomical neck) fracture, with or without internal or external fixation, with or without repair of tuberosity(s), when performed' | expected='CPT 23615' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 23660 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of acute shoulder dislocation' | expected='Optx acute shoulder dislc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23660 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23670 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of shoulder dislocation, with fracture of greater humeral tuberosity, includes internal fixation, when performed' | expected='Optx sho dislc fx' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23670 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23680 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of shoulder dislocation, with surgical or anatomical neck fracture, includes internal fixation, when performed' | expected='Optx sho dislc neck fx fixj' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23680 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 23930 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision deep, with opening of bone cortex; elbow or upper arm' | expected='I&d upr a/e dp absc/hmtma' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23930 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 23931 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision and drainage elbow bursa' | expected='I&d upr a/e bursa' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 23931 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 24000 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, elbow, for infection, with exploration, drainage or removal of foreign body' | expected='Arthrt elbw expl drg/rmvl fb' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24000 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24006 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy of the elbow, with capsular excision for capsular release (separate procedure)' | expected='Arthrt elbw capsl exc rls' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24006 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24065 | cpt_vs_rvu_database | description | cpt_database.json | observed='Biopsy, soft tissue of upper arm or elbow area; superficial' | expected='Biopsy arm/elbow soft tissue' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24065 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 24066 | cpt_vs_rvu_database | description | cpt_database.json | observed='Biopsy, soft tissue of upper arm or elbow area; deep' | expected='Biopsy arm/elbow soft tissue' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24066 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24075 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision subcutaneous soft tissue tumor; upper arm or elbow' | expected='Exc arm/elbow les sc < 3 cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24075 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24076 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision, tumor, upper arm or elbow area; deep, subfascial or intramuscular' | expected='Ex arm/elbow tum deep < 5 cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24076 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24077 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical resection of tumor; upper arm or elbow' | expected='Rad rescj tum tiss a/e <5cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24077 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24100 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, elbow; with synovial biopsy only' | expected='Arthrt elbw synovial bx only' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24100 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24101 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, elbow; with joint exploration, with or without biopsy, with or without removal of loose or foreign body' | expected='Arthrt elbw jt expl bx rmvl' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24101 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24102 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, elbow; with synovectomy' | expected='Arthrt elbow w/synovectomy' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24102 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24105 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision, olecranon bursa' | expected='Excision olecranon bursa' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24105 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24110 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor; humerus' | expected='Exc/curtg b1 cst/b9 tum hum' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24110 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24115 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor; humerus; with autograft includes graft harvest' | expected='Exc/crtg b1 cst/tum hum agrf' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24115 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24116 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor; humerus; with allograft' | expected='Exc/crtg b1 cst/tum hum algr' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24116 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24120 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor; radial head or neck or olecranon process' | expected='Exc/crtg b1 cst/b9 tum rds' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24120 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24125 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor; radial head or neck or olecranon process; with autograft includes graft harvest' | expected='Exc/crtg b1 cst/tum rds agrf' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24125 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24126 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor; radial head or neck or olecranon process; with allograft' | expected='Exc/crtg b1 cst/tum rds algr' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24126 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24130 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radial head excision' | expected='Excision radial head' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24130 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24134 | cpt_vs_rvu_database | description | cpt_database.json | observed='Sequetrestomy, shaft or distal humerus' | expected='Sequestrectomy shft/dstl hum' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24134 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24136 | cpt_vs_rvu_database | description | cpt_database.json | observed='Sequetrestomy, radial head or neck' | expected='Sequestrectomy radial h/n' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24136 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24138 | cpt_vs_rvu_database | description | cpt_database.json | observed='Sequetrestomy, olecranon process' | expected='Sequestrectomy olecrn proces' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24138 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24140 | cpt_vs_rvu_database | description | cpt_database.json | observed='Partial excision, humerus' | expected='Partial exc bone humerus' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24140 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24145 | cpt_vs_rvu_database | description | cpt_database.json | observed='Partial excision, radial head or neck' | expected='Prtl exc bone radial h/n' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24145 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24147 | cpt_vs_rvu_database | description | cpt_database.json | observed='Partial excision, olecranon process' | expected='Prtl exc bone olecrn process' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24147 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24149 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical resection of capsule, soft tissue and heterotopic bone, elbow, with contracture release' | expected='Radical resection of elbow' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24149 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24150 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical resection for tumor, shaft or distal humerus' | expected='Rad rescj tum dstl/shft hum' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24150 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24152 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical resection for tumor, radial head or neck' | expected='Rad resection tum radial h/n' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24152 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24155 | cpt_vs_rvu_database | description | cpt_database.json | observed='Resection of elbow joint arthrectomy' | expected='Resection of elbow joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24155 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24160 | cpt_vs_rvu_database | description | cpt_database.json | observed='Implant removal, elbow joint' | expected='Rmvl prosthhumrl&ulnar cmpnt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24160 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24164 | cpt_vs_rvu_database | description | cpt_database.json | observed='Implant removal, radial head' | expected='Removal prosth radial head' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24164 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24200 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal of foreign body, upper arm or elbow area; subcutaneous' | expected='Rmvl fb upper arm/elbw subq' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24200 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 24201 | cpt_vs_rvu_database | description | cpt_database.json | observed='Removal of foreign body, upper arm or elbow area; deep (subfascial or intramuscular)' | expected='Rmvl fb upper arm/elbw deep' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24201 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24300 | cpt_vs_rvu_database | description | cpt_database.json | observed='Manipulation; elbow; under anesthesia' | expected='Mnpj elbow under anes' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24300 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24301 | cpt_vs_rvu_database | description | cpt_database.json | observed='Muscle or tendon transfer, any type, upper arm or elbow, single (excluding 24320-24331)' | expected='Musc/tdn transfer upr a/e 1' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24301 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24305 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tendon lengthening, upper arm or elbow, each tendon' | expected='Tendon lngth upr a/e ea tdn' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24305 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24310 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenotomy, open, elbow to shoulder, each tendon' | expected='Tnot opn elbw to sho ea tdn' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24310 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24320 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenoplasty, with muscle transfer, with or without free graft, elbow to shoulder, single (Seddon- Brookes type procedure)' | expected='Tenoplasty elbow to sho 1' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24320 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24330 | cpt_vs_rvu_database | description | cpt_database.json | observed='Flexor‐plasty, elbow, eg, Steindler type advancement)' | expected='Flexor-plasty elbow' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24330 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24331 | cpt_vs_rvu_database | description | cpt_database.json | observed='Flexor‐plasty, elbow, eg, Steindler type advancement); with extensor advancement' | expected='Flexor-plasty elbw w/advmnt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24331 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24332 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenolysis, triceps' | expected='Tenolysis triceps' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24332 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24340 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tenodesis of biceps tendon at elbow (separate procedure)' | expected='Tenodesis biceps tdn at elbw' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24340 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24341 | cpt_vs_rvu_database | description | cpt_database.json | observed='Repair, tendon or muscle, upper arm or elbow, each tendon or muscle, primary or secondary (excludes rotator cuff)' | expected='Rpr tdn/musc upr a/e each' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24341 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24342 | cpt_vs_rvu_database | description | cpt_database.json | observed='Reinsertion of ruptured biceps or triceps tendon, distal, with or without tendon graft' | expected='Repair of ruptured tendon' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24342 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24343 | cpt_vs_rvu_database | description | cpt_database.json | observed='Repair lateral collateral ligament, elbow, with local tissue' | expected='Repr elbow lat ligmnt w/tiss' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24343 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24344 | cpt_vs_rvu_database | description | cpt_database.json | observed='Reconstruction lateral collateral ligament, elbow, with tendon graft (includes harvesting of graft)' | expected='Reconstruct elbow lat ligmnt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24344 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24345 | cpt_vs_rvu_database | description | cpt_database.json | observed='Repair medial collateral ligament, elbow, with local tissue' | expected='Repr elbw med ligmnt w/tissu' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24345 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24346 | cpt_vs_rvu_database | description | cpt_database.json | observed='Reconstruction medial collateral ligament, elbow, with tendon graft (includes harvesting of graft)' | expected='Reconstruct elbow med ligmnt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24346 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24357 | cpt_vs_rvu_database | description | cpt_database.json | observed="Tenotomy, elbow, lateral or medial (eg, epicondylitis, tennis elbow, golfer's elbow); percutaneous" | expected='Repair elbow perc' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24357 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24358 | cpt_vs_rvu_database | description | cpt_database.json | observed="Tenotomy, elbow, lateral or medial (eg, epicondylitis, tennis elbow, golfer's elbow); debridement, soft tissue and/or bone, open" | expected='Repair elbow w/deb open' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24358 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24359 | cpt_vs_rvu_database | description | cpt_database.json | observed="Tenotomy, elbow, lateral or medial (eg, epicondylitis, tennis elbow, golfer's elbow); debridement, soft tissue and/or bone open with repair or reattachment" | expected='Repair elbow deb/attch open' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24359 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24360 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthroplasty, elbow, with membrane or fascia' | expected='Reconstruct elbow joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24360 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24361 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthroplasty, elbow, with distal humeral prosthetic replacement' | expected='Reconstruct elbow joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24361 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24362 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthroplasty, elbow, with implant and fascia lata ligament reconstruction' | expected='Reconstruct elbow joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24362 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24363 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthroplasty, elbow, with distal humeral and proximal ulnar prosthetic replacement; total elbow' | expected='Replace elbow joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24363 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24365 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthroplasty, radial head' | expected='Reconstruct head of radius' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24365 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24366 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthroplasty, radial head, with implant' | expected='Reconstruct head of radius' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24366 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24495 | cpt_vs_rvu_database | description | cpt_database.json | observed='Decompression fasciotomy, forearm, with brachial artery exploration' | expected='Decompression fasct forearm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24495 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24516 | cpt_vs_rvu_database | description | cpt_database.json | observed='Treatment of humeral shaft fracture, with insertion of intramedullary implant, with or without cerclage and/or locking screws' | expected='CPT 24516' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 24586 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of periarticular fracture and/or dislocation of the elbow (fracture distal humerus and proximal ulna and/or proximal radius)' | expected='CPT 24586' | CPT descriptor differs from canonical RVU descriptor.
+- [ERROR] 24587 | cpt_vs_rvu_database | description | cpt_database.json | observed='Open treatment of periarticular fracture and/or dislocation of the elbow (fracture distal humerus and proximal ulna and/or proximal radius); with implant arthroplasty' | expected='Optx partclr fx&/dslc elbw w' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24587 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24640 | cpt_vs_rvu_database | description | cpt_database.json | observed='Closed treatment of radial head subluxation in child, nursemaid elbow, with manipulation' | expected='Cltx rdl head sublxtj nrsemd' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24640 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 24800 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrodesis, elbow joint; with or without local autograft or allograft' | expected='Arthrodesis elbw joint local' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24800 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24802 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrodesis, elbow joint; with autograft (includes obtaining graft other than locally obtained)' | expected='Arthrd elbow jt autog graft' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24802 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24900 | cpt_vs_rvu_database | description | cpt_database.json | observed='Amputation, arm through humerus; with primary closure' | expected='Amputation of upper arm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24900 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24920 | cpt_vs_rvu_database | description | cpt_database.json | observed='Amputation, arm through humerus; open, circular (guillotine)' | expected='Amputation of upper arm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24920 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24925 | cpt_vs_rvu_database | description | cpt_database.json | observed='Amputation, arm through humerus; secondary closure or scar revision' | expected='Amputation follow-up surgery' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24925 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24930 | cpt_vs_rvu_database | description | cpt_database.json | observed='Transhumeral re‐amputation' | expected='Amputation follow-up surgery' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24930 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24931 | cpt_vs_rvu_database | description | cpt_database.json | observed='Transhumeral amputation with implant' | expected='Amputate upper arm & implant' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24931 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24935 | cpt_vs_rvu_database | description | cpt_database.json | observed='Stump elongation, upper extremity' | expected='Revision of amputation' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24935 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24940 | cpt_vs_rvu_database | description | cpt_database.json | observed='Cineplasty, upper extremity, complete procedure' | expected='Revision of upper arm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24940 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 24999 | cpt_vs_rvu_database | description | cpt_database.json | observed='Unlisted procedure, upper extremity' | expected='Unlisted px humerus/elbow' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 24999 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='YYY' | Global period differs from canonical RVU row.
+- [ERROR] 25000 | cpt_vs_rvu_database | description | cpt_database.json | observed='Tendon sheath incision; at radial styloid eg, for deQuervains disease)' | expected='Incision of tendon sheath' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25000 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25001 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision, flexor tendon sheath, wrist' | expected='Incise flexor carpi radialis' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25001 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25024 | cpt_vs_rvu_database | description | cpt_database.json | observed='Decompression fasciotomy, forearm and/or wrist, flexor AND extensor compartment; without debridement of nonviable muscle and/or nerve' | expected='Decompress forearm 2 spaces' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25024 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25025 | cpt_vs_rvu_database | description | cpt_database.json | observed='Decompression fasciotomy, forearm and/or wrist, flexor AND extensor compartment; with debridement of nonviable muscle and/or nerve' | expected='Decompress forearm 2 spaces' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25025 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25028 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision and drainage, forearm and/or wrist; deep abscess or hematoma' | expected='I&d f/arm&/wrst dp absc/hmtm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25028 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25031 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision and drainage, forearm and/or wrist; bursa' | expected='I&d forearm&/wrist bursa' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25031 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25035 | cpt_vs_rvu_database | description | cpt_database.json | observed='Incision, deep, bone cortex, forearm and/or wrist (eg, osteomyelitis or bone abscess)' | expected='Inc dp bone crtx f/arm&/wrst' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25035 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25040 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, radiocarpal or midcarpal joint, with exploration, drainage, or removal of foreign body' | expected='Arthrt rdcrpl/midcarpl jt' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25040 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25065 | cpt_vs_rvu_database | description | cpt_database.json | observed='Biopsy, soft tissue of forearm and/or wrist; superficial' | expected='Biopsy forearm soft tissues' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25065 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='10' | expected='010' | Global period differs from canonical RVU row.
+- [ERROR] 25066 | cpt_vs_rvu_database | description | cpt_database.json | observed='Biopsy, soft tissue of forearm and/or wrist; deep' | expected='Biopsy forearm soft tissues' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25066 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25075 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision, tumor, forearm and/or wrist area; subcutaneous' | expected='Exc forearm les sc < 3 cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25075 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25076 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision, tumor, forearm and/or wrist area; deep, subfascial or intramuscular' | expected='Exc forearm tum deep < 3 cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25076 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25077 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical resection of tumor eg, malignant neoplasm), soft tissue of forearm and/or wrist area' | expected='Resect forearm/wrist tum<3cm' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25077 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25085 | cpt_vs_rvu_database | description | cpt_database.json | observed='Capsulotomy, wrist eg, for contracture)' | expected='Incision of wrist capsule' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25085 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25100 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, wrist joint, with biopsy' | expected='Biopsy of wrist joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25100 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25101 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, wrist joint; with joint exploration, with or without biopsy, with or without removal of loose' | expected='Explore/treat wrist joint' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25101 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25105 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, wrist joint, with synovectomy' | expected='Remove wrist joint lining' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25105 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25107 | cpt_vs_rvu_database | description | cpt_database.json | observed='Arthrotomy, distal radioulnar joint for repair of triangular cartilage complex' | expected='Remove wrist joint cartilage' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25107 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25109 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision of tendon, forearm and or wrist, flexor or extensor, each' | expected='Excise tendon forearm/wrist' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25109 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25110 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision, lesion of tendon sheath, forearm and/or wrist' | expected='Remove wrist tendon lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25110 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25111 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision of ganglion, wrist (dorsal or volar); primary' | expected='Remove wrist tendon lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25111 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25112 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision of ganglion, wrist (dorsal or volar); recurrent' | expected='Reremove wrist tendon lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25112 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25115 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical excision of bursa, synovia of wrist, or forearm tendon sheaths eg, tenosynovitis, fungus, Tbc, or other granulomas, rheumatoid arthritis); flexors' | expected='Remove wrist/forearm lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25115 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25116 | cpt_vs_rvu_database | description | cpt_database.json | observed='Radical excision of bursa, synovia of wrist, or forearm tendon sheaths eg, tenosynovitis, fungus, Tbc, or other granulomas, rheumatoid arthritis); extensors (with or without transposition of dorsal retinaculum)' | expected='Remove wrist/forearm lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25116 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25118 | cpt_vs_rvu_database | description | cpt_database.json | observed='Synovectomy, extensor tendon sheath, wrist, single compartment' | expected='Excise wrist tendon sheath' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25118 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25119 | cpt_vs_rvu_database | description | cpt_database.json | observed='Synovectomy, extensor tendon sheath, wrist, single compartment; with resection of distal ulna' | expected='Partial removal of ulna' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25119 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25120 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor of radius or ulna (excluding head or neck of radius and' | expected='Removal of forearm lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25120 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25125 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor of radius or ulna (excluding head or neck of radius and olecranon process); with auto graft (includes obtaining graft)' | expected='Remove/graft forearm lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25125 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25126 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor of radius or ulna (excluding head or neck of radius and olecranon process); with allograft' | expected='Remove/graft forearm lesion' | CPT descriptor differs from canonical RVU descriptor.
+- [WARNING] 25126 | cpt_vs_rvu_database | global_period | cpt_database.json | observed='90' | expected='090' | Global period differs from canonical RVU row.
+- [ERROR] 25130 | cpt_vs_rvu_database | description | cpt_database.json | observed='Excision or curettage of bone cyst or benign tumor of carpal bones' | expected='Removal of wrist lesion' | CPT descriptor differs from canonical RVU descriptor.
+- ... truncated in markdown; full JSON contains 10736 findings.
