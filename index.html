@@ -600,6 +600,49 @@ const NCCI={
  // "49593|15734": {modAllowed:true, note:"Component separation bundled with complex hernia repair; modifier 59 allowed when performed on separate anatomic site."},
  // "44970|44950": {modAllowed:false, note:"Appendectomy bundled; no modifier override permitted."},
 };
+const NCCI_LOAD_STATUS={source:'ncci_bundles.json',loaded:false,count:0,error:null};
+window.NCCI_LOAD_STATUS=NCCI_LOAD_STATUS;
+function ncciBundleNote(column1,column2,bundle){
+ return [bundle.description,'CMS NCCI Column 1 CPT '+column1+' / Column 2 CPT '+column2+'.',bundle.reason].filter(Boolean).join(' ');
+}
+function hydrateNcciFromBundles(data){
+ const bundles=(data&&data.bundles)||{};
+ let count=0;
+ Object.entries(bundles).forEach(([column1,bundle])=>{
+  (bundle.column2_codes||[]).forEach(column2=>{
+   const c1=String(column1),c2=String(column2);
+   NCCI[c1+'|'+c2]={
+    column1:c1,
+    column2:c2,
+    modifierIndicator:bundle.modifier_indicator!==undefined?String(bundle.modifier_indicator):(bundle.modifier59_allowed?'1':'0'),
+    modAllowed:!!bundle.modifier59_allowed,
+    note:ncciBundleNote(c1,c2,bundle),
+    rationale:bundle.reason||bundle.description||'CMS NCCI PTP edit',
+    source:data.source||NCCI_LOAD_STATUS.source
+   };
+   count++;
+  });
+ });
+ return count;
+}
+function loadNcciBundles(){
+ return fetch('ncci_bundles.json',{cache:'no-cache'})
+  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+  .then(data=>{
+   const count=hydrateNcciFromBundles(data);
+   NCCI_LOAD_STATUS.loaded=true;
+   NCCI_LOAD_STATUS.count=count;
+   NCCI_LOAD_STATUS.error=null;
+   return count;
+  })
+  .catch(err=>{
+   NCCI_LOAD_STATUS.loaded=false;
+   NCCI_LOAD_STATUS.error=err&&err.message?err.message:String(err);
+   console.warn('NCCI bundle load failed:',NCCI_LOAD_STATUS.error);
+   return 0;
+  });
+}
+window.NCCI_LOAD_PROMISE=loadNcciBundles();
 function normalizeNcciEdit(edit,column1,column2,matchedReverse=false){
  const modAllowed=edit.modAllowed!==undefined?!!edit.modAllowed:(edit.modifier59_allowed!==undefined?!!edit.modifier59_allowed:String(edit.modifierIndicator||edit.modifier_indicator||'0')==='1');
  return {...edit,modAllowed,column1:String(edit.column1||edit.column_1||column1),column2:String(edit.column2||edit.column_2||column2),modifierIndicator:String(edit.modifierIndicator||edit.modifier_indicator||(modAllowed?'1':'0')),matchedReverse};

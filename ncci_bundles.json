@@ -129,6 +129,14 @@
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
+    "44207": {
+      "column2_codes": [
+        "44180"
+      ],
+      "description": "Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits",
+      "modifier59_allowed": false,
+      "reason": "CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0"
+    },
     "44212": {
       "column2_codes": [
         "49320"
@@ -285,14 +293,6 @@
       "description": "Direct laryngoscopy included in therapeutic laryngeal procedures",
       "modifier59_allowed": false,
       "reason": "Diagnostic laryngoscopy inherently included in therapeutic procedures"
-    },
-    "32551": {
-      "column2_codes": [
-        "32100"
-      ],
-      "description": "Chest tube insertion bundled with thoracotomy",
-      "modifier59_allowed": false,
-      "reason": "Chest tube placement integral to thoracotomy"
     },
     "99291": {
       "column2_codes": [
