@@ -23,7 +23,7 @@ CMS = ROOT / "tmp" / "abos_sports_import" / "rvu26c" / "PPRRVU2026_Jul_nonQPP.cs
 FALLBACK_CMS = Path("/home/setup/Desktop/FreeCPTCodeFinder/tmp/abos_sports_import/rvu26c/PPRRVU2026_Jul_nonQPP.csv")
 CF = 33.4009
 TODAY = date.today().isoformat()
-MANUAL_REVIEW_FIELDS = {("38120", "assistant_surgeon"), ("38120", "co_surgeon")}
+MANUAL_REVIEW_FIELDS = set()
 FIELDS = [
     "assistant_surgeon",
     "co_surgeon",
@@ -241,7 +241,7 @@ def git_commit() -> str:
 
 
 def main() -> int:
-    out = ROOT / "qa_artifacts" / "phase1d_c_indicator_sync_2026_06_11"
+    out = ROOT / "qa_artifacts" / "phase1d_d_38120_final_exception_2026_06_11"
     out.mkdir(parents=True, exist_ok=True)
     cpt_path = ROOT / "cpt_database.json"
     modifier_path = ROOT / "modifier_rules.json"
@@ -336,7 +336,7 @@ def main() -> int:
             "index.html",
             "codes/*.html for affected matched CPT pages",
             "tools/sync_cms_indicators.py",
-            "qa_artifacts/phase1d_c_indicator_sync_2026_06_11/*",
+            "qa_artifacts/phase1d_d_38120_final_exception_2026_06_11/*",
         ],
         "root_causes_fixed": [
             "assistant/co-surgeon/bilateral/team CMS indicators defaulting to 0",
