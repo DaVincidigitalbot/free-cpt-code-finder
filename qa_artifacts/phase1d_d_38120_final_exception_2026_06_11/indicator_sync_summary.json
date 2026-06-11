@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-11T22:28:53.263289+00:00",
+  "branch_commit_before": "4e1152e177d96e88b30479a23e8bb706c34ef64d",
+  "cms_source": "/home/setup/Desktop/FreeCPTCodeFinder/tmp/abos_sports_import/rvu26c/PPRRVU2026_Jul_nonQPP.csv",
+  "cms_baseline": "CMS RVU26C / PPRRVU2026_Jul_nonQPP.csv",
+  "mode": "remediation local branch only; no deployment",
+  "updated_code_count": 1,
+  "regenerated_cpt_page_count": 1,
+  "total_mismatches_before": 2,
+  "total_mismatches_after": 0,
+  "mismatch_reduction": 2,
+  "remaining_mismatches": 0,
+  "before_counts_by_field": {
+    "assistant_surgeon": 1,
+    "co_surgeon": 1
+  },
+  "after_counts_by_field": {},
+  "top_before_patterns": [
+    {
+      "field": "assistant_surgeon",
+      "site_value": "0",
+      "cms_value": "2",
+      "count": 1
+    },
+    {
+      "field": "co_surgeon",
+      "site_value": "0",
+      "cms_value": "1",
+      "count": 1
+    }
+  ],
+  "top_after_patterns": [],
+  "manual_review_exceptions": [],
+  "files_changed_intended": [
+    "cpt_database.json",
+    "modifier_rules.json",
+    "index.html",
+    "codes/*.html for affected matched CPT pages",
+    "tools/sync_cms_indicators.py",
+    "qa_artifacts/phase1d_d_38120_final_exception_2026_06_11/*"
+  ],
+  "root_causes_fixed": [
+    "assistant/co-surgeon/bilateral/team CMS indicators defaulting to 0",
+    "multiple-procedure CMS indicator defaulting to 2",
+    "global period symbolic values being stored only as normalized numeric days"
+  ]
+}
