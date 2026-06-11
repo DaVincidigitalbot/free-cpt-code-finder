@@ -186,6 +186,13 @@ a{color:inherit;text-decoration:none}
 .mod-edit:hover{border-color:var(--ox);color:var(--ox);border-style:solid}
 .rx{color:var(--ink3);cursor:pointer;font-size:16px;line-height:1;padding:0 4px}
 .rx:hover{color:var(--ox)}
+.modifier-denial{margin-top:8px;border:1px solid #F0D9B0;border-radius:6px;background:#FFFBF3;color:#4A2E00;font-size:12px;line-height:1.45;overflow:hidden}
+.modifier-denial summary{cursor:pointer;padding:8px 10px;font-weight:700;list-style:none}
+.modifier-denial summary::-webkit-details-marker{display:none}
+.modifier-denial-body{padding:0 10px 10px}
+.modifier-denial-grid{display:grid;gap:8px}
+.modifier-denial-item strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#92400e;margin-bottom:2px}
+.modifier-denial-disclaimer{margin-top:8px;color:var(--ink2);font-size:11px}
 
 .mpick{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;align-items:center;justify-content:center;z-index:100;animation:fi .15s}
 .mpick.open{display:flex}
@@ -592,6 +599,25 @@ const NCCI={
  // "44970|44950": {modAllowed:false, note:"Appendectomy bundled; no modifier override permitted."},
 };
 function ncciCheck(cptA,cptB){return NCCI[`${cptA}|${cptB}`]||NCCI[`${cptB}|${cptA}`]||null}
+function escText(v){return String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function affectedDistinctModifiers(){return 'Modifier 59, XS, XE, XP, and XU'}
+function modifierDenialEducation(type,ctx={}){
+ const primary=ctx.primary||{};
+ const line=ctx.line||{};
+ const selected=ctx.selected?'-'+ctx.selected:'the selected modifier';
+ const pair=primary.cpt&&line.cpt?'CPT '+line.cpt+' with CPT '+primary.cpt:(line.cpt?'CPT '+line.cpt:'this line');
+ const edit=ctx.edit||{};
+ if(type==='ncci_no_modifier')return {title:'Why is the modifier blocked?',what:'CPT '+line.cpt+' is bundled into CPT '+primary.cpt+' under the active NCCI edit used by this Case Builder.',why:('The edit is treated as non-bypassable. When the NCCI modifier indicator is 0, a distinct-service modifier cannot be used to override the pair. '+(edit.note||'')).trim(),affected:affectedDistinctModifiers()+' are not permitted for this code pair.',next:'If documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on the primary procedure is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice.'};
+ if(type==='no_ncci_edit')return {title:'Why is the modifier blocked?',what:selected+' was requested for '+pair+', but the Case Builder does not have a conditional NCCI edit requiring a distinct-service override for this pair.',why:'Distinct-service modifiers are intended to bypass specific bundling edits only when the payer rule set allows it and documentation supports separate work. Without a recognized conditional edit, the modifier is not applied automatically.',affected:selected+' was not applied. Other distinct-service modifiers should not be substituted unless the underlying rule set supports them.',next:'Review whether the services are actually separate by diagnosis, site, session, or practitioner. If the issue is increased work on the primary operation rather than a separately reportable service, consider documentation review for modifier 22 instead of forcing a distinct-service modifier.'};
+ if(type==='laterality_resolves')return {title:'Why is modifier 59 blocked?',what:'Modifier -59 was requested, but '+line.laterality+' already identifies the side-specific service.',why:'RT/LT laterality is the more specific explanation for anatomic distinction when side is the reason the service is separate. Stacking -59 on top of RT/LT can create a weaker coding story.',affected:'Modifier 59 is not applied. Use RT or LT when laterality is the documented distinction.',next:'Confirm the op note clearly supports the side-specific service. If the services are separate for a reason other than laterality, review whether XS, XE, XP, or XU is better supported by documentation and payer policy.'};
+ if(type==='same_side_ncci')return {title:'Why does the NCCI conflict remain?',what:'The NCCI edit between CPT '+primary.cpt+' and CPT '+line.cpt+' remains unresolved because both procedures are marked on the same side.',why:'A laterality modifier only supports anatomic distinction when the procedures are on different sides or clearly separate structures. Same-side laterality does not by itself establish a distinct procedural service.',affected:affectedDistinctModifiers()+' require documentation of a distinct service; laterality alone is not enough here.',next:'Review whether the procedures involved a separate organ/structure, separate incision, separate encounter, or separate practitioner. If not, leave the bundled relationship intact.'};
+ if(type==='addon_distinct')return {title:'Why is the distinct-service modifier blocked?',what:selected+' was requested on add-on CPT '+line.cpt+'.',why:'Add-on codes are reported with their parent/base procedure and generally do not need modifier 59 or X-modifiers simply because they are listed as additional work.',affected:affectedDistinctModifiers()+' are not applied to this add-on line by the Case Builder.',next:'Confirm the parent/base code is present and that units/levels are documented correctly. Use payer-specific guidance if an unusual add-on reporting situation exists.'};
+ if(type==='invalid_bilateral')return {title:'Why is modifier 50 blocked?',what:'Modifier -50 was requested for CPT '+line.cpt+', but this line is not eligible for bilateral reporting in the current Case Builder rule set.',why:'Some procedures are unilateral, inherently bilateral, midline, or otherwise not paid with modifier 50. Applying -50 without CPT/CMS support can overstate the service.',affected:'Modifier 50 is not applied.',next:'Confirm whether the procedure was truly bilateral and whether the CPT code permits bilateral billing. Some payers require RT/LT split billing instead of -50.'};
+ if(type==='conflicting_laterality')return {title:'Why is the laterality modifier blocked?',what:'Modifier -50 conflicts with '+(line.laterality||'RT/LT')+' on CPT '+line.cpt+'.',why:'Modifier 50 means bilateral. RT and LT identify a single side. They should not be used together on the same line.',affected:'Modifier 50 is not applied with RT/LT on the same line.',next:'Use -50 only for a supported true bilateral service. Use RT or LT when billing a one-sided service.'};
+ return {title:'Why?',what:'The modifier was not applied.',why:'The Case Builder blocked the modifier because the current coding rule set does not support it in this context.',affected:selected,next:'Review the operative documentation and payer policy before choosing another coding path.'};
+}
+function addModifierDenial(line,type,ctx={}){const denial=modifierDenialEducation(type,{...ctx,line});line.modifierDenials=line.modifierDenials||[];line.modifierDenials.push(denial);line.conflicts.push(denial.what)}
+function renderModifierDenials(line){if(!line.modifierDenials||!line.modifierDenials.length)return '';return line.modifierDenials.map(d=>'<details class="modifier-denial"><summary>'+escText(d.title||'Why?')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy.</div></div></details>').join('')}
 
 const MOD_OPTS=[
  {v:'',code:'none',label:'No modifier',desc:'Separate procedure not claimed. Bundled or not distinct.'},
@@ -826,6 +852,7 @@ function computeMods(){
   l.mods=[];l.rationale=[];
   l.warnings=[];
   l.conflicts=[];
+  l.modifierDenials=[];
   l.engineState='CLEAN';
   if(l.kind==='em'){
    if(procs.length>0){
@@ -873,12 +900,12 @@ function computeMods(){
    l.laterality='';
   }
   if((l.laterality==='RT'||l.laterality==='LT')&&String(l.userMod||'').toUpperCase()==='50'){
-   l.conflicts.push('Blocked conflicting use of -50 with RT/LT on the same line.');
+   addModifierDenial(l,'conflicting_laterality');
   }
   if(l.laterality==='50'){
    const bilateralEligible=l.biIndicator===1||/\btrue bilateral same procedure\b/i.test(descText);
    if(!bilateralEligible||/\b(inherently bilateral)\b/i.test(descText)){
-    l.conflicts.push('Blocked invalid bilateral modifier. Code/case structure does not support defensible use of -50.');
+    addModifierDenial(l,'invalid_bilateral');
    }else{
     l.mods.push('50');
     l.effWrvu=Number((l.baseWrvu*1.5).toFixed(6));
@@ -901,7 +928,7 @@ function computeMods(){
   const primaryProc=procs[0];
   const pairEdit=pIdx>0?ncciCheck(primaryProc?.cpt,l.cpt):null;
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
-   l.conflicts.push('Conditional NCCI pair remains conflicted because both procedures are on the same side. Laterality alone does not establish distinctness.');
+   addModifierDenial(l,'same_side_ncci',{primary:primaryProc,edit:pairEdit});
   }
   if(lineIsAddon(l)&&pIdx===0){
    l.conflicts.push('Add-on code cannot be ranked as primary. Parent/base code required.');
@@ -926,10 +953,10 @@ function computeMods(){
    else l.rationale.push({mod:'Rank',reason:'Medicare MPPR applied automatically; -51 omitted.',cite:RULES.MPPR});
    if(l.userMod){
     const edit=pairEdit;
-    if(l.userMod==='59'&&!edit){l.conflicts.push('Modifier -59 blocked because no NCCI conditional edit exists for this code pair.');}
-    else if(l.userMod==='59'&&(l.laterality==='RT'||l.laterality==='LT')){l.conflicts.push('Modifier -59 blocked because RT/LT laterality already resolves distinctness.');}
-    else if(edit&&!edit.modAllowed){l.conflicts.push('Fully bundled pair is non-payable. Modifier cannot rescue payment.');}
-    else if(lineIsAddon(l)){l.conflicts.push('Distinct service modifier blocked on add-on code without explicit CPT support.');}
+    if(l.userMod==='59'&&!edit){addModifierDenial(l,'no_ncci_edit',{primary:primaryProc,selected:l.userMod});}
+    else if(l.userMod==='59'&&(l.laterality==='RT'||l.laterality==='LT')){addModifierDenial(l,'laterality_resolves',{primary:primaryProc,selected:l.userMod});}
+    else if(edit&&!edit.modAllowed){addModifierDenial(l,'ncci_no_modifier',{primary:primaryProc,edit,selected:l.userMod});}
+    else if(lineIsAddon(l)){addModifierDenial(l,'addon_distinct',{primary:primaryProc,selected:l.userMod});}
     else{
      l.mods.push(l.userMod);
      const opt=MOD_OPTS.find(o=>o.v===l.userMod);
@@ -962,8 +989,12 @@ function openMpick(lineId,opts={}){
  const primary=caseLines.filter(l=>l.kind==='proc')[0];
  const ncciEl=document.getElementById('mpick-ncci');
  if(!isEM&&primary&&primary.cpt!==line.cpt){
-  const edit=ncciCheck(primary.cpt,line.cpt);
-  if(edit){ncciEl.textContent=`NCCI edit: ${edit.note}`;ncciEl.classList.add('show')}
+ const edit=ncciCheck(primary.cpt,line.cpt);
+  if(edit){
+   const denial=modifierDenialEducation(edit.modAllowed?'same_side_ncci':'ncci_no_modifier',{primary,line,edit,selected:'59'});
+   ncciEl.innerHTML='<strong>NCCI edit:</strong> '+escText(edit.note)+'<details class="modifier-denial" style="margin-top:8px"><summary>Learn more</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(denial.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(denial.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(denial.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(denial.next)+'</div></div></div></details>';
+   ncciEl.classList.add('show')
+  }
   else{ncciEl.classList.remove('show')}
  }else ncciEl.classList.remove('show');
  const w=document.getElementById('mpick-warn');
@@ -1041,6 +1072,7 @@ function recalc(why){
     <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>${formatCurrency(l.pay)}</span></div>
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
+    ${renderModifierDenials(l)}
    </div>`}).join('')+renderAlifBuilderSuggestion();
  }
  document.getElementById('tn').textContent=twrvu.toFixed(2);
