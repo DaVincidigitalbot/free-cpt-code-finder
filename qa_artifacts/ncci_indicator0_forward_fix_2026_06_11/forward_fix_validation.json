@@ -1,0 +1,1383 @@
+{
+  "generatedAt": "2026-06-11T21:28:09.586Z",
+  "branch": "feature/modifier-denial-guidance",
+  "commitBeforeNewCommit": "0b09c4ac0059f6c2b78d391d30ae001217898e27",
+  "methodology": "Runtime NCCI object injection only; no NCCI/RVU/modifier/CPT data files edited.",
+  "indicator0": [
+    {
+      "name": "prior_44207_44180",
+      "c1": "44207",
+      "c2": "44180",
+      "specialty": "Colorectal",
+      "note": "CPT 44207 Column 1 / CPT 44180 Column 2; modifier indicator 0",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "31.12",
+        "ts": "$1,649.34 · selected 46.01 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 46.01,
+        "payableTotal": 31.12,
+        "payableDollars": 1649.34,
+        "lineText": "PRIMARY\n44207\n×\nLaparoscopic colectomy, partial, with colorectal anastomosis\nPhysician wRVU 31.12\n$1,649.34\nEstimated APP Productivity: 4.23 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n44180\nedit\n×\nLaparoscopy, surgical, enterolysis (freeing of intestinal adhesion)\nSelected wRVU 14.89 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 44207 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "44207",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 31.12,
+            "payableWrvu": 31.12,
+            "pay": 1649.34,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "44180",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 14.89,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "31.12",
+        "ts": "$1,649.34 · selected 46.01 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 46.01,
+        "payableTotal": 31.12,
+        "payableDollars": 1649.34,
+        "lineText": "PRIMARY\n44207\n×\nLaparoscopic colectomy, partial, with colorectal anastomosis\nPhysician wRVU 31.12\n$1,649.34\nEstimated APP Productivity: 4.23 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n44180\nedit\n×\nLaparoscopy, surgical, enterolysis (freeing of intestinal adhesion)\nSelected wRVU 14.89 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 44207 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "44207",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 31.12,
+            "payableWrvu": 31.12,
+            "pay": 1649.34,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "44180",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 14.89,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/prior_44207_44180_44207_44180.png"
+    },
+    {
+      "name": "pass_ent_31267_31231",
+      "c1": "31267",
+      "c2": "31231",
+      "specialty": "ENT",
+      "note": "Nasal/sinus endoscopy bundles diagnostic nasal endoscopy",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "4.56",
+        "ts": "$224.12 · selected 5.63 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 5.63,
+        "payableTotal": 4.56,
+        "payableDollars": 224.12,
+        "lineText": "PRIMARY\n31267\n×\nNasal/sinus endoscopy with maxillary antrostomy; with removal of tissue from maxillary sinus\nPhysician wRVU 4.56\n$224.12\nEstimated APP Productivity: 0.62 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n31231\nedit\n×\nNasal endoscopy, diagnostic\nSelected wRVU 1.07 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 31267 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 31267 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 31231 is bundled into CPT 31267 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "31267",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 4.56,
+            "payableWrvu": 4.56,
+            "pay": 224.12,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "31231",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 1.07,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 31231 is bundled into CPT 31267 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 31267 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "4.56",
+        "ts": "$224.12 · selected 5.63 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 5.63,
+        "payableTotal": 4.56,
+        "payableDollars": 224.12,
+        "lineText": "PRIMARY\n31267\n×\nNasal/sinus endoscopy with maxillary antrostomy; with removal of tissue from maxillary sinus\nPhysician wRVU 4.56\n$224.12\nEstimated APP Productivity: 0.62 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n31231\nedit\n×\nNasal endoscopy, diagnostic\nSelected wRVU 1.07 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 31267 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 31267 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 31231 is bundled into CPT 31267 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "31267",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 4.56,
+            "payableWrvu": 4.56,
+            "pay": 224.12,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "31231",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 1.07,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 31231 is bundled into CPT 31267 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 31267 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/pass_ent_31267_31231_31267_31231.png"
+    },
+    {
+      "name": "pass_ct_32100_32551",
+      "c1": "32100",
+      "c2": "32551",
+      "specialty": "Cardiothoracic/Trauma",
+      "note": "Thoracotomy includes chest tube insertion",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "13.41",
+        "ts": "$777.24 · selected 16.37 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 16.37,
+        "payableTotal": 13.41,
+        "payableDollars": 777.24,
+        "lineText": "PRIMARY\n32100\n×\nThoracotomy, with exploration\nPhysician wRVU 13.41\n$777.24\nEstimated APP Productivity: 1.82 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n32551\nedit\n×\nTube thoracostomy, includes connection to drainage system\nSelected wRVU 2.96 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 32100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 32100 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 32551 is bundled into CPT 32100 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "32100",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 13.41,
+            "payableWrvu": 13.41,
+            "pay": 777.24,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "32551",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 2.96,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 32551 is bundled into CPT 32100 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 32100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "13.41",
+        "ts": "$777.24 · selected 16.37 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 16.37,
+        "payableTotal": 13.41,
+        "payableDollars": 777.24,
+        "lineText": "PRIMARY\n32100\n×\nThoracotomy, with exploration\nPhysician wRVU 13.41\n$777.24\nEstimated APP Productivity: 1.82 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n32551\nedit\n×\nTube thoracostomy, includes connection to drainage system\nSelected wRVU 2.96 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 32100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 32100 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 32551 is bundled into CPT 32100 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "32100",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 13.41,
+            "payableWrvu": 13.41,
+            "pay": 777.24,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "32551",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 2.96,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 32551 is bundled into CPT 32100 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 32100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/pass_ct_32100_32551_32100_32551.png"
+    },
+    {
+      "name": "pass_colorectal_44141_49000",
+      "c1": "44141",
+      "c2": "49000",
+      "specialty": "Colorectal/General Surgery",
+      "note": "Colectomy includes exploratory laparotomy",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "29.16",
+        "ts": "$1,691.09 · selected 41.39 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 41.39,
+        "payableTotal": 29.16,
+        "payableDollars": 1691.09,
+        "lineText": "PRIMARY\n44141\n×\nColectomy, partial with skin level cecostomy or colostomy\nPhysician wRVU 29.16\n$1,691.09\nEstimated APP Productivity: 3.97 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n49000\nedit\n×\nExploratory laparotomy, exploratory celiotomy with or without biopsy(s)\nSelected wRVU 12.23 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 44141 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 44141 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 49000 is bundled into CPT 44141 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "44141",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 29.16,
+            "payableWrvu": 29.16,
+            "pay": 1691.09,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "49000",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 12.23,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 49000 is bundled into CPT 44141 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 44141 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "29.16",
+        "ts": "$1,691.09 · selected 41.39 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 41.39,
+        "payableTotal": 29.16,
+        "payableDollars": 1691.09,
+        "lineText": "PRIMARY\n44141\n×\nColectomy, partial with skin level cecostomy or colostomy\nPhysician wRVU 29.16\n$1,691.09\nEstimated APP Productivity: 3.97 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n49000\nedit\n×\nExploratory laparotomy, exploratory celiotomy with or without biopsy(s)\nSelected wRVU 12.23 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 44141 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 44141 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 49000 is bundled into CPT 44141 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "44141",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 29.16,
+            "payableWrvu": 29.16,
+            "pay": 1691.09,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "49000",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 12.23,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 49000 is bundled into CPT 44141 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 44141 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/pass_colorectal_44141_49000_44141_49000.png"
+    },
+    {
+      "name": "pass_cardio_92928_93458",
+      "c1": "92928",
+      "c2": "93458",
+      "specialty": "Cardiology",
+      "note": "PCI includes diagnostic catheterization",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "9.75",
+        "ts": "$463.94 · selected 15.21 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 15.21,
+        "payableTotal": 9.75,
+        "payableDollars": 463.94,
+        "lineText": "PRIMARY\n92928\n×\nPCI with coronary stent; single vessel\nPhysician wRVU 9.75\n$463.94\nEstimated APP Productivity: 1.33 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n93458\nedit\n×\nCoronary angiography with left heart cath\nSelected wRVU 5.46 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 92928 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 92928 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 93458 is bundled into CPT 92928 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "92928",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 9.75,
+            "payableWrvu": 9.75,
+            "pay": 463.94,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "93458",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 5.46,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 93458 is bundled into CPT 92928 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 92928 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "9.75",
+        "ts": "$463.94 · selected 15.21 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 15.21,
+        "payableTotal": 9.75,
+        "payableDollars": 463.94,
+        "lineText": "PRIMARY\n92928\n×\nPCI with coronary stent; single vessel\nPhysician wRVU 9.75\n$463.94\nEstimated APP Productivity: 1.33 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n93458\nedit\n×\nCoronary angiography with left heart cath\nSelected wRVU 5.46 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 92928 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 92928 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 93458 is bundled into CPT 92928 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "92928",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 9.75,
+            "payableWrvu": 9.75,
+            "pay": 463.94,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "93458",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 5.46,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 93458 is bundled into CPT 92928 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 92928 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/pass_cardio_92928_93458_92928_93458.png"
+    },
+    {
+      "name": "failfix_hpb_47562_49000",
+      "c1": "47562",
+      "c2": "49000",
+      "specialty": "HPB/General Surgery",
+      "note": "Laparoscopic cholecystectomy bundles diagnostic/exploratory laparoscopy; Column 2 has higher wRVU in app data",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "10.21",
+        "ts": "$631.95 · selected 22.44 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 22.44,
+        "payableTotal": 10.21,
+        "payableDollars": 631.95,
+        "lineText": "PRIMARY\n47562\n×\nLaparoscopy, surgical; cholecystectomy\nPhysician wRVU 10.21\n$631.95\nEstimated APP Productivity: 1.39 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n49000\nedit\n×\nExploratory laparotomy, exploratory celiotomy with or without biopsy(s)\nSelected wRVU 12.23 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 47562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 47562 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 49000 is bundled into CPT 47562 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "47562",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 10.21,
+            "payableWrvu": 10.21,
+            "pay": 631.95,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "49000",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 12.23,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 49000 is bundled into CPT 47562 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 47562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "10.21",
+        "ts": "$631.95 · selected 22.44 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 22.44,
+        "payableTotal": 10.21,
+        "payableDollars": 631.95,
+        "lineText": "PRIMARY\n47562\n×\nLaparoscopy, surgical; cholecystectomy\nPhysician wRVU 10.21\n$631.95\nEstimated APP Productivity: 1.39 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n49000\nedit\n×\nExploratory laparotomy, exploratory celiotomy with or without biopsy(s)\nSelected wRVU 12.23 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 47562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 47562 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 49000 is bundled into CPT 47562 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "47562",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 10.21,
+            "payableWrvu": 10.21,
+            "pay": 631.95,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "49000",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 12.23,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 49000 is bundled into CPT 47562 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 47562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/failfix_hpb_47562_49000_47562_49000.png"
+    },
+    {
+      "name": "failfix_endocrine_60240_60260",
+      "c1": "60240",
+      "c2": "60260",
+      "specialty": "Endocrine",
+      "note": "Thyroidectomy pair; Column 2 has higher wRVU in app data",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "14.66",
+        "ts": "$829.68 · selected 32.46 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 32.46,
+        "payableTotal": 14.66,
+        "payableDollars": 829.68,
+        "lineText": "PRIMARY\n60240\n×\nThyroidectomy, total or complete\nPhysician wRVU 14.66\n$829.68\nEstimated APP Productivity: 1.99 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n60260\nedit\n×\nCPT 60260\nSelected wRVU 17.80 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 60240 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 60240 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 60260 is bundled into CPT 60240 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "60240",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 14.66,
+            "payableWrvu": 14.66,
+            "pay": 829.68,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "60260",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 17.8,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 60260 is bundled into CPT 60240 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 60240 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "14.66",
+        "ts": "$829.68 · selected 32.46 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 32.46,
+        "payableTotal": 14.66,
+        "payableDollars": 829.68,
+        "lineText": "PRIMARY\n60240\n×\nThyroidectomy, total or complete\nPhysician wRVU 14.66\n$829.68\nEstimated APP Productivity: 1.99 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n60260\nedit\n×\nCPT 60260\nSelected wRVU 17.80 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 60240 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 60240 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 60260 is bundled into CPT 60240 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "60240",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 14.66,
+            "payableWrvu": 14.66,
+            "pay": 829.68,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "60260",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 17.8,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 60260 is bundled into CPT 60240 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 60240 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/failfix_endocrine_60240_60260_60240_60260.png"
+    },
+    {
+      "name": "failfix_cabg_addon_33533_33508",
+      "c1": "33533",
+      "c2": "33508",
+      "specialty": "Cardiac Surgery",
+      "note": "CABG with vein harvest add-on; Column 2 add-on edge case",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "32.91",
+        "ts": "$1,757.89 · selected 33.21 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 33.21,
+        "payableTotal": 32.91,
+        "payableDollars": 1757.89,
+        "lineText": "PRIMARY\n33533\n×\nCoronary artery bypass, using venous graft(s); single coronary venous graft\nPhysician wRVU 32.91\n$1,757.89\nEstimated APP Productivity: 4.48 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n33508\n×\nEndoscopic vein harvest for coronary artery bypass graft (add-on)\nSelected wRVU 0.30 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 33533 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 33533 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 33508 is bundled into CPT 33533 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "33533",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 32.91,
+            "payableWrvu": 32.91,
+            "pay": 1757.89,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "33508",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 0.3,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": true,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 33508 is bundled into CPT 33533 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 33533 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "32.91",
+        "ts": "$1,757.89 · selected 33.21 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 33.21,
+        "payableTotal": 32.91,
+        "payableDollars": 1757.89,
+        "lineText": "PRIMARY\n33533\n×\nCoronary artery bypass, using venous graft(s); single coronary venous graft\nPhysician wRVU 32.91\n$1,757.89\nEstimated APP Productivity: 4.48 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n33508\n×\nEndoscopic vein harvest for coronary artery bypass graft (add-on)\nSelected wRVU 0.30 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 33533 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 33533 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 33508 is bundled into CPT 33533 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "33533",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 32.91,
+            "payableWrvu": 32.91,
+            "pay": 1757.89,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "33508",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 0.3,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": true,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 33508 is bundled into CPT 33533 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 33533 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/failfix_cabg_addon_33533_33508_33533_33508.png"
+    },
+    {
+      "name": "extra_wound_12001_44140",
+      "c1": "12001",
+      "c2": "44140",
+      "specialty": "Wound/General Surgery",
+      "note": "Simple wound repair edit test",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "0.82",
+        "ts": "$113.90 · selected 22.85 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 22.85,
+        "payableTotal": 0.82,
+        "payableDollars": 113.9,
+        "lineText": "PRIMARY\n12001\n×\nSimple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.5 cm or less\nPhysician wRVU 0.82\n$113.90\nEstimated APP Productivity: 0.11 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n44140\nedit\n×\nColectomy, partial; with anastomosis\nSelected wRVU 22.03 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 12001 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 12001 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 44140 is bundled into CPT 12001 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "12001",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 0.82,
+            "payableWrvu": 0.82,
+            "pay": 113.9,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "44140",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 22.03,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 44140 is bundled into CPT 12001 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 12001 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "0.82",
+        "ts": "$113.90 · selected 22.85 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 22.85,
+        "payableTotal": 0.82,
+        "payableDollars": 113.9,
+        "lineText": "PRIMARY\n12001\n×\nSimple repair of superficial wounds of scalp, neck, axillae, external genitalia, trunk and/or extremities; 2.5 cm or less\nPhysician wRVU 0.82\n$113.90\nEstimated APP Productivity: 0.11 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n44140\nedit\n×\nColectomy, partial; with anastomosis\nSelected wRVU 22.03 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 12001 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 12001 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 44140 is bundled into CPT 12001 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "12001",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 0.82,
+            "payableWrvu": 0.82,
+            "pay": 113.9,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "44140",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 22.03,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 44140 is bundled into CPT 12001 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 12001 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/extra_wound_12001_44140_12001_44140.png"
+    },
+    {
+      "name": "extra_sinus_31287_31231",
+      "c1": "31287",
+      "c2": "31231",
+      "specialty": "ENT",
+      "note": "Sphenoidotomy bundles diagnostic nasal endoscopy",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "3.41",
+        "ts": "$170.34 · selected 4.48 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 4.48,
+        "payableTotal": 3.41,
+        "payableDollars": 170.34,
+        "lineText": "PRIMARY\n31287\n×\nNasal/sinus endoscopy with sphenoidotomy\nPhysician wRVU 3.41\n$170.34\nEstimated APP Productivity: 0.46 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n31231\nedit\n×\nNasal endoscopy, diagnostic\nSelected wRVU 1.07 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 31287 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 31287 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 31231 is bundled into CPT 31287 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "31287",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 3.41,
+            "payableWrvu": 3.41,
+            "pay": 170.34,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "31231",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 1.07,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 31231 is bundled into CPT 31287 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 31287 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "3.41",
+        "ts": "$170.34 · selected 4.48 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 4.48,
+        "payableTotal": 3.41,
+        "payableDollars": 170.34,
+        "lineText": "PRIMARY\n31287\n×\nNasal/sinus endoscopy with sphenoidotomy\nPhysician wRVU 3.41\n$170.34\nEstimated APP Productivity: 0.46 · 13.6% assistant-at-surgery equivalent\nBUNDLED\n31231\nedit\n×\nNasal endoscopy, diagnostic\nSelected wRVU 1.07 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 31287 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 31287 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 31231 is bundled into CPT 31287 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "31287",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 3.41,
+            "payableWrvu": 3.41,
+            "pay": 170.34,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "31231",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 1.07,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 31231 is bundled into CPT 31287 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 31287 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/extra_sinus_31287_31231_31287_31231.png"
+    },
+    {
+      "name": "extra_critical_99291_32551",
+      "c1": "99291",
+      "c2": "32551",
+      "specialty": "Critical Care/Trauma",
+      "note": "Critical care includes tube thoracostomy for test rule",
+      "indicator": 0,
+      "withoutModifier": {
+        "label": "withoutModifier",
+        "tn": "4.50",
+        "ts": "$308.96 · selected 7.46 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 7.46,
+        "payableTotal": 4.5,
+        "payableDollars": 308.96,
+        "lineText": "PRIMARY\n99291\n×\nCritical care, first 30-74 min\nPhysician wRVU 4.50\n$308.96\nEstimated APP Productivity: 3.82 · 85% Medicare NPP equivalent\nBUNDLED\n32551\nedit\n×\nTube thoracostomy, includes connection to drainage system\nSelected wRVU 2.96 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 99291 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 99291 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 32551 is bundled into CPT 99291 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "99291",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 4.5,
+            "payableWrvu": 4.5,
+            "pay": 308.96,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "32551",
+            "rank": "Bundled",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 2.96,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 32551 is bundled into CPT 99291 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 99291 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "withModifier": {
+        "label": "withModifier59",
+        "tn": "4.50",
+        "ts": "$308.96 · selected 7.46 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "selectedTotal": 7.46,
+        "payableTotal": 4.5,
+        "payableDollars": 308.96,
+        "lineText": "PRIMARY\n99291\n×\nCritical care, first 30-74 min\nPhysician wRVU 4.50\n$308.96\nEstimated APP Productivity: 3.82 · 85% Medicare NPP equivalent\nBUNDLED\n32551\nedit\n×\nTube thoracostomy, includes connection to drainage system\nSelected wRVU 2.96 · Payable wRVU 0.00\nNot included\nBundled / not separately payable: Bundled into CPT 99291 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate. Consider whether modifier 22 on 99291 is supportable when documentation shows substantially increased work.\nEstimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled\nCPT 32551 is bundled into CPT 99291 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?",
+        "lines": [
+          {
+            "cpt": "99291",
+            "rank": "Primary",
+            "userMod": "",
+            "mods": [],
+            "effWrvu": 4.5,
+            "payableWrvu": 4.5,
+            "pay": 308.96,
+            "excluded": false,
+            "state": "CLEAN",
+            "addon": false,
+            "denials": 0,
+            "cautions": 0,
+            "warnings": [],
+            "text": ""
+          },
+          {
+            "cpt": "32551",
+            "rank": "Bundled",
+            "userMod": "59",
+            "mods": [],
+            "effWrvu": 2.96,
+            "payableWrvu": 0,
+            "pay": 0,
+            "excluded": true,
+            "state": "BLOCKED",
+            "addon": false,
+            "denials": 1,
+            "cautions": 0,
+            "warnings": [
+              "CPT 32551 is bundled into CPT 99291 under the active NCCI edit used by this Case Builder."
+            ],
+            "text": "Bundled into CPT 99291 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate."
+          }
+        ]
+      },
+      "c2ExcludedWithoutModifier": true,
+      "c2ExcludedWithModifier": true,
+      "c2Visible": true,
+      "denialShownWithoutModifier": true,
+      "denialShownWithModifier": true,
+      "cautionShownWithModifier": false,
+      "modifierBypassPrevented": true,
+      "column1Payable": true,
+      "anyBundledPayLeak": false,
+      "screenshot": "screenshots/extra_critical_99291_32551_99291_32551.png"
+    }
+  ],
+  "indicator1": [
+    {
+      "name": "indicator1_15734_43280",
+      "c1": "15734",
+      "c2": "43280",
+      "tn": "40.08",
+      "ts": "$1,892.84 · MPPR applied",
+      "rm": "2 lines · medicare · WARNING",
+      "lines": [
+        {
+          "cpt": "15734",
+          "rank": "Primary",
+          "mods": [],
+          "effWrvu": 22.43,
+          "payableWrvu": 22.43,
+          "pay": 1386.81,
+          "excluded": false,
+          "state": "CLEAN",
+          "denials": 0,
+          "cautions": 0
+        },
+        {
+          "cpt": "43280",
+          "rank": "Secondary #1",
+          "mods": [
+            "59"
+          ],
+          "effWrvu": 17.65,
+          "payableWrvu": 17.65,
+          "pay": 506.025,
+          "excluded": false,
+          "state": "WARNING",
+          "denials": 0,
+          "cautions": 1
+        }
+      ],
+      "cautionShown": true,
+      "denialShown": false,
+      "excluded": false,
+      "screenshot": "screenshots/indicator1_15734_43280_15734_43280_retest.png"
+    },
+    {
+      "name": "indicator1_44140_49000",
+      "c1": "44140",
+      "c2": "49000",
+      "tn": "34.26",
+      "ts": "$1,614.61 · MPPR applied",
+      "rm": "2 lines · medicare · WARNING",
+      "lines": [
+        {
+          "cpt": "44140",
+          "rank": "Primary",
+          "mods": [],
+          "effWrvu": 22.03,
+          "payableWrvu": 22.03,
+          "pay": 1250.2,
+          "excluded": false,
+          "state": "CLEAN",
+          "denials": 0,
+          "cautions": 0
+        },
+        {
+          "cpt": "49000",
+          "rank": "Secondary #1",
+          "mods": [
+            "59"
+          ],
+          "effWrvu": 12.23,
+          "payableWrvu": 12.23,
+          "pay": 364.405,
+          "excluded": false,
+          "state": "WARNING",
+          "denials": 0,
+          "cautions": 1
+        }
+      ],
+      "cautionShown": true,
+      "denialShown": false,
+      "excluded": false,
+      "screenshot": "screenshots/indicator1_44140_49000_44140_49000_retest.png"
+    }
+  ],
+  "clean": [
+    {
+      "name": "clean_43280_rt",
+      "specialty": "General Surgery",
+      "tn": "17.65",
+      "ts": "$1,012.05",
+      "rm": "1 line · medicare · CLEAN",
+      "lines": [
+        {
+          "cpt": "43280",
+          "mods": [
+            "RT"
+          ],
+          "effWrvu": 17.65,
+          "payableWrvu": 17.65,
+          "pay": 1012.05,
+          "excluded": false,
+          "state": "CLEAN",
+          "denials": 0,
+          "cautions": 0
+        }
+      ],
+      "selectedTotal": 17.65,
+      "payableTotal": 17.65,
+      "screenshot": "screenshots/clean_43280_rt.png"
+    },
+    {
+      "name": "clean_44970_lt",
+      "specialty": "Trauma/ACS",
+      "tn": "9.21",
+      "ts": "$578.17",
+      "rm": "1 line · medicare · CLEAN",
+      "lines": [
+        {
+          "cpt": "44970",
+          "mods": [
+            "LT"
+          ],
+          "effWrvu": 9.21,
+          "payableWrvu": 9.21,
+          "pay": 578.17,
+          "excluded": false,
+          "state": "CLEAN",
+          "denials": 0,
+          "cautions": 0
+        }
+      ],
+      "selectedTotal": 9.21,
+      "payableTotal": 9.21,
+      "screenshot": "screenshots/clean_44970_lt.png"
+    }
+  ],
+  "summary": {
+    "indicator0Count": 11,
+    "indicator0AllExcludedWithoutModifier": true,
+    "indicator0AllExcludedWithModifier": true,
+    "indicator0AllVisible": true,
+    "indicator0AllDenialWithoutModifier": true,
+    "indicator0AllBypassPrevented": true,
+    "indicator0NoBundledPayLeak": true,
+    "indicator1Count": 2,
+    "indicator1CautionNoExclusion": true,
+    "cleanCount": 2,
+    "cleanNoPanels": true
+  },
+  "consoleEvents": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    }
+  ]
+}

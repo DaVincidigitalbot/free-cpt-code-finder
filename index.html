@@ -600,7 +600,32 @@ const NCCI={
  // "49593|15734": {modAllowed:true, note:"Component separation bundled with complex hernia repair; modifier 59 allowed when performed on separate anatomic site."},
  // "44970|44950": {modAllowed:false, note:"Appendectomy bundled; no modifier override permitted."},
 };
-function ncciCheck(cptA,cptB){return NCCI[`${cptA}|${cptB}`]||NCCI[`${cptB}|${cptA}`]||null}
+function normalizeNcciEdit(edit,column1,column2,matchedReverse=false){
+ const modAllowed=edit.modAllowed!==undefined?!!edit.modAllowed:(edit.modifier59_allowed!==undefined?!!edit.modifier59_allowed:String(edit.modifierIndicator||edit.modifier_indicator||'0')==='1');
+ return {...edit,modAllowed,column1:String(edit.column1||edit.column_1||column1),column2:String(edit.column2||edit.column_2||column2),modifierIndicator:String(edit.modifierIndicator||edit.modifier_indicator||(modAllowed?'1':'0')),matchedReverse};
+}
+function ncciCheck(cptA,cptB){
+ const a=String(cptA||''),b=String(cptB||'');
+ if(!a||!b)return null;
+ const direct=NCCI[`${a}|${b}`];
+ if(direct)return normalizeNcciEdit(direct,a,b,false);
+ const reverse=NCCI[`${b}|${a}`];
+ if(reverse)return normalizeNcciEdit(reverse,b,a,true);
+ return null;
+}
+function ncciBlockedColumn2Map(procs){
+ const blocked=new Map();
+ procs.forEach((a,i)=>procs.forEach((b,j)=>{
+  if(i>=j)return;
+  const edit=ncciCheck(a.cpt,b.cpt);
+  if(!edit||edit.modAllowed)return;
+  const column1Line=procs.find(l=>String(l.cpt)===String(edit.column1))||a;
+  procs.filter(l=>String(l.cpt)===String(edit.column2)).forEach(line=>{
+   if(!blocked.has(line.id))blocked.set(line.id,{edit,column1Line});
+  });
+ }));
+ return blocked;
+}
 function escText(v){return String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
 function affectedDistinctModifiers(){return 'Modifier 59, XS, XE, XP, and XU'}
 function modifierDenialEducation(type,ctx={}){
@@ -609,7 +634,7 @@ function modifierDenialEducation(type,ctx={}){
  const selected=ctx.selected?'-'+ctx.selected:'the selected modifier';
  const pair=primary.cpt&&line.cpt?'CPT '+line.cpt+' with CPT '+primary.cpt:(line.cpt?'CPT '+line.cpt:'this line');
  const edit=ctx.edit||{};
- if(type==='ncci_no_modifier')return {title:'Why is the modifier blocked?',what:'CPT '+line.cpt+' is bundled into CPT '+primary.cpt+' under the active NCCI edit used by this Case Builder.',why:('The edit is treated as non-bypassable. When the NCCI modifier indicator is 0, a distinct-service modifier cannot be used to override the pair. '+(edit.note||'')).trim(),affected:affectedDistinctModifiers()+' are not permitted for this code pair.',next:'If documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on the primary procedure is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice.'};
+ if(type==='ncci_no_modifier'){const c1=edit.column1||primary.cpt;const c2=edit.column2||line.cpt;return {title:'Why is the modifier blocked?',what:'CPT '+c2+' is bundled into CPT '+c1+' under the active NCCI edit used by this Case Builder.',why:('CMS designates CPT '+c1+' as Column 1 and CPT '+c2+' as Column 2. Modifier indicator '+(edit.modifierIndicator||'0')+' means a distinct-service modifier cannot be used to bypass this edit. '+(edit.note||'')).trim(),affected:affectedDistinctModifiers()+' are not permitted for this code pair.',next:'If documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on CPT '+c1+' is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice.'};}
  if(type==='no_ncci_edit')return {title:'Why is the modifier blocked?',what:selected+' was requested for '+pair+', but the Case Builder does not have a conditional NCCI edit requiring a distinct-service override for this pair.',why:'Distinct-service modifiers are intended to bypass specific bundling edits only when the payer rule set allows it and documentation supports separate work. Without a recognized conditional edit, the modifier is not applied automatically.',affected:selected+' was not applied. Other distinct-service modifiers should not be substituted unless the underlying rule set supports them.',next:'Review whether the services are actually separate by diagnosis, site, session, or practitioner. If the issue is increased work on the primary operation rather than a separately reportable service, consider documentation review for modifier 22 instead of forcing a distinct-service modifier.'};
  if(type==='laterality_resolves')return {title:'Why is modifier 59 blocked?',what:'Modifier -59 was requested, but '+line.laterality+' already identifies the side-specific service.',why:'RT/LT laterality is the more specific explanation for anatomic distinction when side is the reason the service is separate. Stacking -59 on top of RT/LT can create a weaker coding story.',affected:'Modifier 59 is not applied. Use RT or LT when laterality is the documented distinction.',next:'Confirm the op note clearly supports the side-specific service. If the services are separate for a reason other than laterality, review whether XS, XE, XP, or XU is better supported by documentation and payer policy.'};
  if(type==='same_side_ncci')return {title:'Why does the NCCI conflict remain?',what:'The NCCI edit between CPT '+primary.cpt+' and CPT '+line.cpt+' remains unresolved because both procedures are marked on the same side.',why:'A laterality modifier only supports anatomic distinction when the procedures are on different sides or clearly separate structures. Same-side laterality does not by itself establish a distinct procedural service.',affected:affectedDistinctModifiers()+' require documentation of a distinct service; laterality alone is not enough here.',next:'Review whether the procedures involved a separate organ/structure, separate incision, separate encounter, or separate practitioner. If not, leave the bundled relationship intact.'};
@@ -619,7 +644,7 @@ function modifierDenialEducation(type,ctx={}){
  return {title:'Why?',what:'The modifier was not applied.',why:'The Case Builder blocked the modifier because the current coding rule set does not support it in this context.',affected:selected,next:'Review the operative documentation and payer policy before choosing another coding path.'};
 }
 function addModifierDenial(line,type,ctx={}){const denial=modifierDenialEducation(type,{...ctx,line});line.modifierDenials=line.modifierDenials||[];line.modifierDenials.push(denial);line.conflicts.push(denial.what)}
-function markBundledNotPayable(line,primary,edit){line.payableExcluded=true;line.payableExclusionReason='Bundled into CPT '+(primary&&primary.cpt?primary.cpt:'primary procedure')+' under a non-bypassable NCCI edit. This line is selected for review but excluded from the payable estimate.';line.payableExclusionEdit=edit&&edit.note?edit.note:''}
+function markBundledNotPayable(line,primary,edit){line.payableExcluded=true;line.payableExclusionReason='Bundled into CPT '+(edit&&edit.column1?edit.column1:(primary&&primary.cpt?primary.cpt:'primary procedure'))+' under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.';line.payableExclusionEdit=edit&&edit.note?edit.note:''}
 function renderModifierDenials(line){if(!line.modifierDenials||!line.modifierDenials.length)return '';return line.modifierDenials.map(d=>'<details class="modifier-denial"><summary>'+escText(d.title||'Why?')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy.</div></div></details>').join('')}
 function modifierCautionEducation(type,ctx={}){
  const primary=ctx.primary||{};
@@ -858,7 +883,10 @@ function getModifierConflictState(){
 function computeMods(){
  const procs=caseLines.filter(l=>l.kind==='proc').sort((a,b)=>b.baseWrvu-a.baseWrvu);
  const ems=caseLines.filter(l=>l.kind==='em');
- caseLines=[...procs,...ems];
+ const bundledMap=ncciBlockedColumn2Map(procs);
+ const payableProcs=procs.filter(l=>!bundledMap.has(l.id));
+ const bundledProcs=procs.filter(l=>bundledMap.has(l.id));
+ caseLines=[...payableProcs,...bundledProcs,...ems];
  const hasRepeated15734=procs.filter(l=>l.cpt==='15734').length>1;
  let pIdx=0;
  let repeated15734Rank=0;
@@ -943,8 +971,21 @@ function computeMods(){
     : 'Performed robotically — coded as laparoscopic per CMS/AMA guidance; robotic assistance documented for clinical record, does not affect CPT selection or reimbursement.';
    l.rationale.push({mod:'—',reason:roboticReason,cite:'CMS/AMA robotic coding guidance'});
   }
-  const primaryProc=procs[0];
+  const bundledInfo=bundledMap.get(l.id);
+  const primaryProc=payableProcs[0]||procs[0];
   const pairEdit=pIdx>0?ncciCheck(primaryProc?.cpt,l.cpt):null;
+  if(bundledInfo){
+   markBundledNotPayable(l,bundledInfo.column1Line,bundledInfo.edit);
+   addModifierDenial(l,'ncci_no_modifier',{primary:bundledInfo.column1Line,edit:bundledInfo.edit,selected:l.userMod||'59'});
+   l.rank='Bundled';
+   l.rankReason='CMS NCCI Column 2 code bundled into CPT '+bundledInfo.edit.column1+' with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.';
+   l.rationale.push({mod:'NCCI',reason:l.rankReason,cite:'CMS NCCI PTP modifier indicator 0'});
+   l.engineState='BLOCKED';
+   l.warnings.push(...l.conflicts);
+   l.mods=[];
+   l.rationale.push({mod:'Blocked',reason:l.conflicts.join(' '),cite:RULES.CONFLICT});
+   return;
+  }
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
    addModifierDenial(l,'same_side_ncci',{primary:primaryProc,edit:pairEdit});
   }
@@ -1093,13 +1134,14 @@ function recalc(why){
   lns.innerHTML=caseLines.map((l,i)=>{
    let label;
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
+   else if(l.payableExcluded){label='<span class="rk">Bundled</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
-   const canEditModifier=l.kind==='em'||(l.kind==='proc'&&rk>1&&!lineIsAddon(l));
+   const canEditModifier=l.kind==='em'||(l.kind==='proc'&&(rk>1||l.payableExcluded)&&!lineIsAddon(l));
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
     <div class="rw"><span class="rwl">${l.payableExcluded?`Selected wRVU ${l.effWrvu.toFixed(2)} · Payable wRVU 0.00`:`Physician wRVU ${l.effWrvu.toFixed(2)}`}</span><span>${l.payableExcluded?'Not included':formatCurrency(l.pay)}</span></div>
-    ${l.payableExcluded?`<div class="md" style="margin-top:6px;color:#92400e"><strong>Bundled / not payable estimate:</strong> ${escText(l.payableExclusionReason)} Consider whether modifier 22 on ${caseLines.find(x=>x.kind==='proc'&&!x.payableExcluded)?.cpt||'the primary procedure'} is supportable when documentation shows substantially increased work.</div>`:''}
+    ${l.payableExcluded?`<div class="md" style="margin-top:6px;color:#92400e"><strong>Bundled / not separately payable:</strong> ${escText(l.payableExclusionReason)} Consider whether modifier 22 on ${caseLines.find(x=>x.kind==='proc'&&!x.payableExcluded)?.cpt||'the primary procedure'} is supportable when documentation shows substantially increased work.</div>`:''}
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
     ${renderModifierCautions(l)}
