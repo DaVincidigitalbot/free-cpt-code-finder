@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-06-11T20:44:11.871Z",
+  "result": {
+    "totalWrvu": "31.12",
+    "totalPay": "$1,649.34 · selected 46.01 wRVU",
+    "status": "2 lines · medicare · BLOCKED",
+    "selectedTotal": "46.01",
+    "payableTotal": "31.12",
+    "payablePayment": "1649.34",
+    "primary": {
+      "cpt": "44207",
+      "effWrvu": 31.12,
+      "pay": 1649.34,
+      "payableExcluded": false
+    },
+    "bundled": {
+      "cpt": "44180",
+      "effWrvu": 14.89,
+      "pay": 0,
+      "payableExcluded": true,
+      "mods": "",
+      "reason": "Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected for review but excluded from the payable estimate."
+    },
+    "lineText": "PRIMARY\n44207\n×\nLaparoscopic colectomy, partial, with colorectal anastomosis\nPhysician wRVU 31.12\n$1,649.34\nSEC 1\n44180\nedit\n×\nLaparoscopy, surgical, enterolysis (freeing of intestinal adhesion)\nSelected wRVU 14.89 · Payable wRVU 0.00\nNot included\nBundled / not payable estimate: Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected for review but excluded from the payable estimate. Consider whether modifier 22 on 44207 is supportable when documentation shows substantially increased work.\nCPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.\nWhy is the modifier blocked?\nWHAT HAPPENED\nCPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.\nWHY IT HAPPENED\nThe edit is treated as non-bypassable. When the NCCI modifier indicator is 0, a distinct-service modifier cannot be used to override the pair. CMS NCCI PTP edit: CPT 44207 is Column 1 and CPT 44180 is Column 2; modifier indicator 0; CPT separate procedure definition.\nMODIFIERS AFFECTED\nModifier 59, XS, XE, XP, and XU are not permitted for this code pair.\nWHAT TO CONSIDER NEXT\nIf documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on the primary procedure is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice.\nEducational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy.",
+    "denialText": "Why is the modifier blocked?\nWHAT HAPPENED\nCPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.\nWHY IT HAPPENED\nThe edit is treated as non-bypassable. When the NCCI modifier indicator is 0, a distinct-service modifier cannot be used to override the pair. CMS NCCI PTP edit: CPT 44207 is Column 1 and CPT 44180 is Column 2; modifier indicator 0; CPT separate procedure definition.\nMODIFIERS AFFECTED\nModifier 59, XS, XE, XP, and XU are not permitted for this code pair.\nWHAT TO CONSIDER NEXT\nIf documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on the primary procedure is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice.\nEducational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy."
+  },
+  "consoleEvents": []
+}

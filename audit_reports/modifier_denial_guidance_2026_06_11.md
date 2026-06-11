@@ -124,3 +124,47 @@ Validation artifacts:
 ### Guardrail Confirmation
 
 No changes were made to modifier logic, calculations, NCCI pair handling, RVU values, MPPR logic, or code selection. The new state is educational display only. Runtime NCCI test pairs were used only in browser validation and were not added to the repository.
+
+## Addendum: NCCI Indicator 0 Payable Display Fix
+
+Added after review concern on 2026-06-11.
+
+### Finding
+
+The concern was valid. Before this fix, the Case Builder did not distinguish selected total from payable estimated total in non-bypassable NCCI edits. In the runtime validation case `44207 / 44180` with modifier indicator 0, the UI displayed 46.01 wRVU / $2,081.55 even though CPT 44180 was bundled into CPT 44207 and could not be bypassed with modifier 59/XS/XE/XP/XU.
+
+### Fix Classification
+
+This required a calculation-display fix, not only a messaging fix. No CPT/RVU data, NCCI pair data, NCCI lookup logic, modifier-allowance logic, or MPPR formula was changed.
+
+### New Display Behavior
+
+For non-bypassable NCCI indicator-0 bundled Column 2 lines:
+
+- The line remains visible as selected for review.
+- The line is marked bundled / not payable estimate.
+- The line shows selected wRVU and payable wRVU 0.00.
+- The main Case Builder total excludes the bundled Column 2 line from payable wRVU/payment.
+- The total footer keeps selected total visible for transparency.
+
+### Validation
+
+Validation artifacts:
+
+- `qa_artifacts/ncci_indicator0_payable_display_2026_06_11/NCCI_INDICATOR0_PAYABLE_DISPLAY_REVIEW.md`
+- `qa_artifacts/ncci_indicator0_payable_display_2026_06_11/payable_display_validation.json`
+- `qa_artifacts/ncci_indicator0_payable_display_2026_06_11/regression_validation.json`
+- `qa_artifacts/ncci_indicator0_payable_display_2026_06_11/screenshots/after_44207_44180_indicator0_payable_display.png`
+
+| Scenario | Result |
+| --- | --- |
+| 44207 + 44180, runtime NCCI indicator 0, selected -59 | BLOCKED, -59 removed, 44180 excluded from payable estimate |
+| Selected total | 46.01 wRVU |
+| Payable displayed total | 31.12 wRVU |
+| Payable displayed estimate | $1,649.34 |
+| Routine 43280-RT regression | CLEAN, no exclusion, 17.65 wRVU / $1,012.05 |
+| NCCI indicator 1 regression | WARNING, -59 allowed with caution, no exclusion, 40.08 wRVU / $1,892.84 |
+
+### User-Facing Outcome
+
+The UI now communicates that 44207 is payable/primary, 44180 is bundled into 44207, modifier 59/XS cannot bypass the edit, 44180 is not included in the payable estimate, and modifier 22 on 44207 may be considered only when documentation supports substantially increased work.

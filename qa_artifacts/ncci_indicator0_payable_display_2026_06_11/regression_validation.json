@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-06-11T20:44:51.881Z",
+  "scenarios": [
+    {
+      "name": "routine_rt",
+      "result": {
+        "tn": "17.65",
+        "ts": "$1,012.05",
+        "rm": "1 line · medicare · CLEAN",
+        "mods": "RT",
+        "excluded": false
+      },
+      "events": []
+    },
+    {
+      "name": "indicator1_caution",
+      "result": {
+        "tn": "40.08",
+        "ts": "$1,892.84 · MPPR applied",
+        "rm": "2 lines · medicare · WARNING",
+        "mods": "59",
+        "excluded": false,
+        "cautions": 1,
+        "denials": 0
+      },
+      "events": []
+    },
+    {
+      "name": "indicator0_blocked",
+      "result": {
+        "tn": "31.12",
+        "ts": "$1,649.34 · selected 46.01 wRVU",
+        "rm": "2 lines · medicare · BLOCKED",
+        "mods": "",
+        "excluded": true,
+        "pay": 0,
+        "selected": "46.01",
+        "payable": "31.12",
+        "denials": 1
+      },
+      "events": []
+    }
+  ]
+}

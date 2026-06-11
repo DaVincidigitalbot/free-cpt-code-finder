@@ -619,6 +619,7 @@ function modifierDenialEducation(type,ctx={}){
  return {title:'Why?',what:'The modifier was not applied.',why:'The Case Builder blocked the modifier because the current coding rule set does not support it in this context.',affected:selected,next:'Review the operative documentation and payer policy before choosing another coding path.'};
 }
 function addModifierDenial(line,type,ctx={}){const denial=modifierDenialEducation(type,{...ctx,line});line.modifierDenials=line.modifierDenials||[];line.modifierDenials.push(denial);line.conflicts.push(denial.what)}
+function markBundledNotPayable(line,primary,edit){line.payableExcluded=true;line.payableExclusionReason='Bundled into CPT '+(primary&&primary.cpt?primary.cpt:'primary procedure')+' under a non-bypassable NCCI edit. This line is selected for review but excluded from the payable estimate.';line.payableExclusionEdit=edit&&edit.note?edit.note:''}
 function renderModifierDenials(line){if(!line.modifierDenials||!line.modifierDenials.length)return '';return line.modifierDenials.map(d=>'<details class="modifier-denial"><summary>'+escText(d.title||'Why?')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy.</div></div></details>').join('')}
 function modifierCautionEducation(type,ctx={}){
  const primary=ctx.primary||{};
@@ -814,6 +815,7 @@ function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
 function isEMCode(cpt){const n=Number(cpt);return (n>=99202&&n<=99205)||(n>=99211&&n<=99215)||(n>=99221&&n<=99223)||(n>=99231&&n<=99233)||(n>=99242&&n<=99245)||(n>=99252&&n<=99255)||n===99238||n===99239||n===99291||n===99292}
 function getProductivityMode(){return window.FreeCPTAppMode&&window.FreeCPTAppMode.isAppMode&&window.FreeCPTAppMode.isAppMode()?'app':'physician'}
 function appEstimateForLine(l){
+ if(l&&l.payableExcluded)return {value:0,factor:0,label:'Excluded from payable estimate because this line is bundled'};
  const helper=window.FreeCPTAppMode&&window.FreeCPTAppMode.estimateFor;
  if(helper)return helper(l.cpt,l.effWrvu||0);
  const factor=isEMCode(l.cpt)?0.85:0.136;
@@ -866,6 +868,9 @@ function computeMods(){
   l.conflicts=[];
   l.modifierDenials=[];
   l.modifierCautions=[];
+  l.payableExcluded=false;
+  l.payableExclusionReason='';
+  l.payableExclusionEdit='';
   l.engineState='CLEAN';
   if(l.kind==='em'){
    if(procs.length>0){
@@ -968,7 +973,7 @@ function computeMods(){
     const edit=pairEdit;
     if(l.userMod==='59'&&!edit){addModifierDenial(l,'no_ncci_edit',{primary:primaryProc,selected:l.userMod});}
     else if(l.userMod==='59'&&(l.laterality==='RT'||l.laterality==='LT')){addModifierDenial(l,'laterality_resolves',{primary:primaryProc,selected:l.userMod});}
-    else if(edit&&!edit.modAllowed){addModifierDenial(l,'ncci_no_modifier',{primary:primaryProc,edit,selected:l.userMod});}
+    else if(edit&&!edit.modAllowed){addModifierDenial(l,'ncci_no_modifier',{primary:primaryProc,edit,selected:l.userMod});markBundledNotPayable(l,primaryProc,edit);}
     else if(lineIsAddon(l)){addModifierDenial(l,'addon_distinct',{primary:primaryProc,selected:l.userMod});}
     else{
      l.mods.push(l.userMod);
@@ -1066,12 +1071,19 @@ function renderDxList(){
 
 function recalc(why){
  if(caseLines.length)computeMods();
- let twrvu=0,rank=0;
+ let twrvu=0,selectedWrvu=0,rank=0;
  caseLines.forEach(l=>{
-  twrvu+=l.effWrvu;
-  const base=adjustedPaymentForLine(l);
-  if(l.kind==='em'){l.pay=base}
-  else{l.pay=(rank===0||setting==='nonfac'||lineIsAddon(l))?base:base*0.5;rank++}
+  selectedWrvu+=l.effWrvu;
+  if(l.payableExcluded){
+   l.payableWrvu=0;
+   l.pay=0;
+  }else{
+   l.payableWrvu=l.effWrvu;
+   twrvu+=l.payableWrvu;
+   const base=adjustedPaymentForLine(l);
+   if(l.kind==='em'){l.pay=base}
+   else{l.pay=(rank===0||setting==='nonfac'||lineIsAddon(l))?base:base*0.5;rank++}
+  }
  });
  const tpay=caseLines.reduce((s,l)=>s+l.pay,0);
  const lns=document.getElementById('lns');
@@ -1086,7 +1098,8 @@ function recalc(why){
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
-    <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>${formatCurrency(l.pay)}</span></div>
+    <div class="rw"><span class="rwl">${l.payableExcluded?`Selected wRVU ${l.effWrvu.toFixed(2)} · Payable wRVU 0.00`:`Physician wRVU ${l.effWrvu.toFixed(2)}`}</span><span>${l.payableExcluded?'Not included':formatCurrency(l.pay)}</span></div>
+    ${l.payableExcluded?`<div class="md" style="margin-top:6px;color:#92400e"><strong>Bundled / not payable estimate:</strong> ${escText(l.payableExclusionReason)} Consider whether modifier 22 on ${caseLines.find(x=>x.kind==='proc'&&!x.payableExcluded)?.cpt||'the primary procedure'} is supportable when documentation shows substantially increased work.</div>`:''}
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
     ${renderModifierCautions(l)}
@@ -1094,8 +1107,8 @@ function recalc(why){
    </div>`}).join('')+renderAlifBuilderSuggestion();
  }
  document.getElementById('tn').textContent=twrvu.toFixed(2);
- const mppr=caseLines.some(l=>l.kind==='proc'&&/^Secondary/.test(String(l.rank||''))&&!lineIsAddon(l))&&setting==='facility';
- document.getElementById('ts').textContent=`${formatCurrency(tpay)}${mppr?' · MPPR applied':''}`;
+ const mppr=caseLines.some(l=>l.kind==='proc'&&!l.payableExcluded&&/^Secondary/.test(String(l.rank||''))&&!lineIsAddon(l))&&setting==='facility';
+ document.getElementById('ts').textContent=`${formatCurrency(tpay)}${mppr?' · MPPR applied':''}${selectedWrvu!==twrvu?' · selected '+selectedWrvu.toFixed(2)+' wRVU':''}`;
  document.getElementById('rm').textContent=`${caseLines.length} line${caseLines.length!==1?'s':''} · ${payer} · ${getModifierConflictState()}`;
  renderAppCaseSummary();
  renderDxList();
