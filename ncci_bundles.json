@@ -1,36 +1,28 @@
 {
   "bundles": {
     "49505": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": [],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
-      "reason": "49568 is add-on code, never gets -59"
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
     },
     "49507": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": [],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
-      "reason": "49568 is add-on code, never gets -59"
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
     },
     "49520": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": [],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
-      "reason": "49568 is add-on code, never gets -59"
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
     },
     "49525": {
-      "column2_codes": [
-        "49568"
-      ],
+      "column2_codes": [],
       "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
       "modifier59_allowed": false,
-      "reason": "49568 is add-on code, never gets -59"
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
     },
     "44140": {
       "column2_codes": [
@@ -158,30 +150,6 @@
         "49320"
       ],
       "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "49652": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "49653": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic ventral hernia repair bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "49654": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic incisional hernia repair bundles with diagnostic laparoscopy",
       "modifier59_allowed": false,
       "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
@@ -752,12 +720,6 @@
     }
   },
   "common_pairs": [
-    {
-      "column1": "49505",
-      "column2": "49568",
-      "bundle_type": "addon",
-      "explanation": "Mesh insertion is add-on to hernia repair"
-    },
     {
       "column1": "44140",
       "column2": "44604",

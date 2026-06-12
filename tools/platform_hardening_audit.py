@@ -26,6 +26,7 @@ CMS_ZIP_CANDIDATES = [
 INACTIVE_MARKERS = (
     "inactive/deleted and should not be used for current billing",
     "This code is inactive/deleted and should not be used for current billing.",
+    "inactive, deleted, or not supported by the current CMS RVU26C dataset and should not be used for current billing",
 )
 
 

@@ -27270,26 +27270,6 @@
       "wrvu_source_file": "cpt_database.json",
       "wrvu_source_url": ""
     },
-    "49566": {
-      "description": "Repair recurrent incisional or ventral hernia; incarcerated or strangulated (legacy/deleted 2023)",
-      "global_period": 90,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 15.53,
-      "wrvu_source": "CMS PFS RVU22D October 2022; code deleted/replaced by 2023 anterior abdominal hernia family",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "49568": {
-      "description": "Implantation of mesh or other prosthesis for open incisional or ventral hernia repair (add-on)",
-      "global_period": "ZZZ",
-      "is_addon": true,
-      "mp_rvu": 0.55,
-      "pe_rvu": 0,
-      "total_rvu": 5.43,
-      "work_rvu": 4.88
-    },
     "49570": {
       "description": "CPT 49570",
       "global_period": 90,
@@ -27308,52 +27288,6 @@
       "pe_rvu": 0.0,
       "total_rvu": 0.0,
       "work_rvu": 0.0,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "49580": {
-      "description": "Repair umbilical hernia, younger than age 5 years; reducible",
-      "global_period": 90,
-      "mp_rvu": 0.55,
-      "pe_rvu": 2.13,
-      "total_rvu": 6.93,
-      "work_rvu": 3.18
-    },
-    "49582": {
-      "description": "Umbilical hernia repair, <5 years, incarcerated",
-      "global_period": 90,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 5.58,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "49585": {
-      "description": "Repair umbilical hernia, age 5 years or older; reducible",
-      "global_period": 90,
-      "mp_rvu": 0.39,
-      "pe_rvu": 5.33,
-      "total_rvu": 11.57,
-      "work_rvu": 6.21
-    },
-    "49587": {
-      "description": "Repair umbilical hernia, age 5 years or older; incarcerated or strangulated",
-      "global_period": 90,
-      "mp_rvu": 0.59,
-      "pe_rvu": 8.07,
-      "total_rvu": 17.51,
-      "work_rvu": 9.21
-    },
-    "49590": {
-      "description": "Spigelian hernia repair, reducible",
-      "global_period": 90,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 7.83,
       "wrvu_source": "cpt_database.json",
       "wrvu_source_file": "cpt_database.json",
       "wrvu_source_url": ""
@@ -27534,30 +27468,6 @@
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
-    "49652": {
-      "description": "Laparoscopy, surgical; repair initial ventral hernia",
-      "global_period": 90,
-      "mp_rvu": 0.99,
-      "pe_rvu": 13.54,
-      "total_rvu": 29.38,
-      "work_rvu": 8.86
-    },
-    "49653": {
-      "description": "Laparoscopy, surgical; repair ventral hernia 3-10 cm",
-      "global_period": 90,
-      "mp_rvu": 1.26,
-      "pe_rvu": 17.19,
-      "total_rvu": 37.3,
-      "work_rvu": 18.85
-    },
-    "49654": {
-      "description": "Laparoscopy, surgical; repair ventral hernia >10 cm",
-      "global_period": 90,
-      "mp_rvu": 1.52,
-      "pe_rvu": 20.84,
-      "total_rvu": 45.21,
-      "work_rvu": 29.43
-    },
     "49655": {
       "description": "CPT 49655",
       "global_period": 90,
@@ -27568,22 +27478,6 @@
       "wrvu_source": "cpt_database.json",
       "wrvu_source_file": "cpt_database.json",
       "wrvu_source_url": ""
-    },
-    "49656": {
-      "description": "Laparoscopy, repair recurrent ventral hernia; <3 cm",
-      "global_period": 90,
-      "mp_rvu": 0.82,
-      "pe_rvu": 11.36,
-      "total_rvu": 24.68,
-      "work_rvu": 12.5
-    },
-    "49657": {
-      "description": "Laparoscopy, repair recurrent ventral hernia; 3-10 cm or larger",
-      "global_period": 90,
-      "mp_rvu": 1.05,
-      "pe_rvu": 14.55,
-      "total_rvu": 31.6,
-      "work_rvu": 16
     },
     "49900": {
       "description": "Suture secondary wound dehiscence, abdominal wall",
@@ -43714,39 +43608,6 @@
       "wrvu_source_file": "CMS 2026 National Physician Fee Schedule Relative Value File",
       "wrvu_source_url": "https://www.cms.gov/medicare/physician-fee-schedule/search/overview"
     },
-    "99218": {
-      "description": "Initial observation care, straightforward/low",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 1.82,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99219": {
-      "description": "Initial observation care, moderate",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 0.59,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99220": {
-      "description": "Initial observation care, high",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 3.56,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
     "99221": {
       "description": "Initial hospital care, straightforward/low",
       "global_period": "XXX",
@@ -43779,39 +43640,6 @@
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
-    "99224": {
-      "description": "Subsequent observation care, straightforward",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 0.74,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99225": {
-      "description": "Subsequent observation care, moderate",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 1.39,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99226": {
-      "description": "Subsequent observation care, high",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 2.0,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
     },
     "99231": {
       "description": "Subsequent hospital care, straightforward",
@@ -43901,17 +43729,6 @@
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
-    "99241": {
-      "description": "Office consultation, straightforward",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 0.64,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
     "99242": {
       "description": "Office consultation, straightforward",
       "global_period": "XXX",
@@ -43955,17 +43772,6 @@
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
-    "99251": {
-      "description": "Inpatient consultation, straightforward",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 0.64,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
     },
     "99252": {
       "description": "Inpatient consultation, straightforward",
@@ -44187,17 +43993,6 @@
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
-    "99343": {
-      "description": "Home visit, new patient, moderate",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 2.46,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
     "99344": {
       "description": "Home visit, new patient, moderate-high",
       "global_period": "XXX",
@@ -44263,50 +44058,6 @@
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
-    "99354": {
-      "description": "Prolonged service, outpatient, first hour",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 2.33,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99355": {
-      "description": "Prolonged service, outpatient, each additional 30 min",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 2.33,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99356": {
-      "description": "Prolonged service, inpatient, first hour",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 2.33,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99357": {
-      "description": "Prolonged service, inpatient, each additional 30 min",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 2.33,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
     },
     "99381": {
       "description": "Preventive visit, new, infant",
@@ -44494,39 +44245,6 @@
       "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
       "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
-    },
-    "99441": {
-      "description": "Telephone E/M, 5-10 min",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 0.5,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99442": {
-      "description": "Telephone E/M, 11-20 min",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 0.97,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
-    },
-    "99443": {
-      "description": "Telephone E/M, 21-30 min",
-      "global_period": 0,
-      "mp_rvu": 0.0,
-      "pe_rvu": 0.0,
-      "total_rvu": 0.0,
-      "work_rvu": 1.5,
-      "wrvu_source": "cpt_database.json",
-      "wrvu_source_file": "cpt_database.json",
-      "wrvu_source_url": ""
     },
     "99446": {
       "description": "Interprofessional phone/internet consultation, 5-10 min",
