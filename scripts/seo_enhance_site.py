@@ -28,6 +28,7 @@ PUBLIC_NO_INDEX = {
     "test_billing.html",
     "test_confidence.html",
     "test_validation.html",
+    "v2.html",
     "public/admin.html",
     "public/blog/template.html",
 }
@@ -58,9 +59,9 @@ def title_for(raw: str, fallback: str) -> str:
 
 
 def desc_for(raw: str) -> str:
-    match = re.search(r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)', raw, flags=re.I)
+    match = re.search(r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1', raw, flags=re.I)
     if match:
-        return html.unescape(match.group(1)).strip()
+        return html.unescape(match.group(2)).strip()
     text = clean_text(raw)
     return text[:155].strip()
 
@@ -290,21 +291,50 @@ def ensure_related_section(path: Path, raw: str) -> str:
 
 
 def update_sitemap() -> None:
-    urls: list[tuple[str, float]] = [
-        (f"{SITE}/", 1.0),
-        (f"{SITE}/codes/", 0.95),
-        (f"{SITE}/blog/", 0.9),
-        (f"{SITE}/cpt-code-for/", 0.9),
-    ]
-    for folder, priority in [("blog", 0.82), ("codes", 0.78)]:
-        for path in sorted((ROOT / folder).rglob("*.html")):
-            rel = path.relative_to(ROOT).as_posix()
-            if rel.endswith("template.html") or rel.endswith("index.html"):
-                continue
-            raw = read(path)
-            if "noindex" in raw[:1500].lower():
-                continue
-            urls.append((canonical_from_rel(rel), priority))
+    skip_dirs = {
+        ".git",
+        "__pycache__",
+        "tmp",
+        "qa_artifacts",
+        "seo_reports",
+        "node_modules",
+        "assistant-backend",
+        "ads",
+        "admin",
+        "cyrioniq",
+        "public",
+        "scheduled-posts",
+    }
+    priority_by_prefix = {
+        "index.html": 1.0,
+        "codes/index.html": 0.95,
+        "blog/index.html": 0.9,
+        "cpt-code-for/index.html": 0.9,
+        "coding-centers/": 0.88,
+        "specialties/": 0.86,
+        "categories/": 0.84,
+        "documentation/": 0.82,
+        "academy/": 0.82,
+        "blog/": 0.82,
+        "codes/": 0.78,
+        "modifiers/": 0.78,
+    }
+    urls: list[tuple[str, float]] = []
+    for path in sorted(ROOT.rglob("*.html")):
+        rel = path.relative_to(ROOT).as_posix()
+        if set(path.relative_to(ROOT).parts) & skip_dirs:
+            continue
+        if rel.startswith("_internal_archive/") or rel in PUBLIC_NO_INDEX:
+            continue
+        raw = read(path)
+        if "noindex" in raw[:1500].lower():
+            continue
+        priority = 0.72
+        for prefix, candidate in priority_by_prefix.items():
+            if rel == prefix or rel.startswith(prefix):
+                priority = candidate
+                break
+        urls.append((canonical_from_rel(rel), priority))
     seen = set()
     entries = []
     for url, priority in urls:

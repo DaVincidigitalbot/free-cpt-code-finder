@@ -35,11 +35,25 @@ def text_only(raw: str) -> str:
 
 def public_html_files() -> list[Path]:
     out = []
+    skip_dirs = {
+        ".git",
+        "__pycache__",
+        "tmp",
+        "qa_artifacts",
+        "seo_reports",
+        "node_modules",
+        "assistant-backend",
+        "ads",
+        "admin",
+        "cyrioniq",
+        "public",
+        "scheduled-posts",
+    }
     for path in ROOT.rglob("*.html"):
         rel = path.relative_to(ROOT).as_posix()
-        if any(part in path.parts for part in [".git", "__pycache__"]):
+        if set(path.relative_to(ROOT).parts) & skip_dirs:
             continue
-        if rel.startswith(("public/", "_internal_archive/", "assistant-backend/node_modules/")):
+        if rel.startswith("_internal_archive/"):
             continue
         if rel in {
             "admin.html",
@@ -55,6 +69,7 @@ def public_html_files() -> list[Path]:
             "test_confidence.html",
             "test_validation.html",
             "cyrioniq/index.html",
+            "v2.html",
         }:
             continue
         out.append(path)
@@ -85,7 +100,7 @@ def audit_local_metadata() -> dict:
         rel = path.relative_to(ROOT).as_posix()
         raw = read(path)
         title = re.search(r"<title>([\s\S]*?)</title>", raw, flags=re.I)
-        desc = re.search(r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)', raw, flags=re.I)
+        desc = re.search(r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1', raw, flags=re.I)
         canonical = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)', raw, flags=re.I)
         robots = re.search(r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']+)', raw, flags=re.I)
         h1 = re.search(r"<h1\b", raw, flags=re.I)
@@ -99,7 +114,7 @@ def audit_local_metadata() -> dict:
         if not desc:
             problems.append({"severity": "warning", "page": rel, "issue": "missing meta description"})
         else:
-            desc_seen.setdefault(desc.group(1).strip(), []).append(rel)
+            desc_seen.setdefault(desc.group(2).strip(), []).append(rel)
         if not canonical:
             problems.append({"severity": "error", "page": rel, "issue": "missing canonical"})
         elif canonical.group(1) != url:
@@ -136,6 +151,9 @@ def audit_internal_links(limit_pages: int | None = None) -> list[dict]:
             if href.startswith(("http://", "https://", "mailto:", "tel:", "#", "javascript:", "data:")):
                 continue
             target_path = href.split("#")[0]
+            if not target_path:
+                continue
+            target_path = target_path.split("?", 1)[0]
             if not target_path:
                 continue
             if target_path.startswith("/"):
