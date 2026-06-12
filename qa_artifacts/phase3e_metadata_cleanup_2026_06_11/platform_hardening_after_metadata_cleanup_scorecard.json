@@ -1,0 +1,124 @@
+{
+  "audit": "platform_hardening_audit",
+  "cms_indicator_baseline": "/home/setup/.openclaw/workspace/staging/freecpt-phase1c-b-cms-reversion/qa_artifacts/phase2d_b_source_review_2026_06_11/cms/rvu26c.zip",
+  "conversion_factor": 33.4009,
+  "active_cpt_count": 3874,
+  "homepage_case_builder_count": 3874,
+  "inactive_deleted_page_count": 41,
+  "hard_error_count": 329,
+  "integrity_score": 91.51,
+  "category_counts": {
+    "rvu": 329
+  },
+  "check_counts": {
+    "descriptor": 0,
+    "rvu": 329,
+    "indicator": 0,
+    "homepage_case_builder": 0,
+    "deleted_code": 0,
+    "page_metadata": 0
+  },
+  "hard_errors": [
+    {
+      "category": "rvu",
+      "code": "00100",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00120",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00140",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00142",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00160",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00170",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00190",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00300",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00320",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00400",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00500",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00520",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00540",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00560",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00600",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00620",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00630",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00700",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00740",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    },
+    {
+      "category": "rvu",
+      "code": "00790",
+      "message": "Active CPT has 0.00 total RVU without inactive/deleted classification"
+    }
+  ],
+  "hard_errors_truncated": true
+}
