@@ -188,11 +188,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
   function sourceContext() {
     return params.get("context") || params.get("source") || "rvuready-landing";
   }
+  function sourcePath() {
+    return params.get("source") || location.pathname;
+  }
   function trackRvuready(eventType) {
     const payload = {
       eventType: eventType,
       sourcePage: location.href,
-      sourcePath: location.pathname,
+      sourcePath: sourcePath(),
       sourceContext: sourceContext()
     };
     if (typeof gtag === "function") {
@@ -233,7 +236,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
     const data = Object.fromEntries(new FormData(form).entries());
     data.foundingUserInterest = true;
     data.sourcePage = location.href;
-    data.sourcePath = location.pathname;
+    data.sourcePath = sourcePath();
     data.sourceContext = sourceContext();
     try {
       const response = await fetch("https://free-cpt-code-finder.onrender.com/leads", {

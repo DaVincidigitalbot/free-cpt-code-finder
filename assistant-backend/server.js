@@ -389,6 +389,94 @@ function percent(numerator, denominator) {
   return Number(((Number(numerator || 0) / Number(denominator || 0)) * 100).toFixed(2));
 }
 
+function analyticsCount(row, key) {
+  return Number((row || {})[key] || 0);
+}
+
+function inferRvureadyTrafficSource(sourceContext = '', sourcePath = '') {
+  const context = normalizeAnalyticsKey(sourceContext || '', '');
+  const path = String(sourcePath || '').toLowerCase();
+  if (context === 'homepage' || path === '/' || path === '/index.html') return 'homepage';
+  if (context === 'orthopedic-hand' || path.includes('orthopedic-hand')) return 'orthopedic-hand';
+  if (context === 'cpt-page' || path.startsWith('/codes/')) return 'cpt-pages';
+  if (context === 'modifier-page' || path.startsWith('/modifiers') || path.includes('/modifiers/')) return 'modifier-pages';
+  if (context === 'coding-center' || path.startsWith('/coding-centers/')) return 'coding-centers';
+  if (context === 'blog' || path.startsWith('/blog/')) return 'blog';
+  return context || 'other';
+}
+
+function mergeAnalyticsRows(target, row) {
+  for (const key of rvureadyEventTypes) {
+    target[key] = analyticsCount(target, key) + analyticsCount(row, key);
+  }
+}
+
+function analyticsRowsFromMap(map = {}) {
+  return Object.entries(map).map(([key, row]) => {
+    const clicks = analyticsCount(row, 'cta_click');
+    const leads = analyticsCount(row, 'form_submit');
+    const impressions = analyticsCount(row, 'cta_impression');
+    return {
+      key,
+      impressions,
+      clicks,
+      landingVisits: analyticsCount(row, 'landing_visit'),
+      formStarts: analyticsCount(row, 'form_start'),
+      leads,
+      clickThroughRate: percent(clicks, impressions),
+      conversionRate: percent(leads, clicks)
+    };
+  });
+}
+
+function rvureadyTrafficSourceRows(summary) {
+  const groups = {
+    homepage: {},
+    'cpt-pages': {},
+    'modifier-pages': {},
+    'coding-centers': {},
+    'orthopedic-hand': {}
+  };
+  for (const [sourceContext, row] of Object.entries(summary.bySourceContext || {})) {
+    const group = inferRvureadyTrafficSource(sourceContext, '');
+    groups[group] = groups[group] || {};
+    mergeAnalyticsRows(groups[group], row);
+  }
+  for (const [sourcePath, row] of Object.entries(summary.bySourcePath || {})) {
+    if (analyticsCount(row, 'cta_click') || analyticsCount(row, 'cta_impression')) {
+      const group = inferRvureadyTrafficSource('', sourcePath);
+      groups[group] = groups[group] || {};
+      mergeAnalyticsRows(groups[group], row);
+    }
+  }
+  return Object.entries(groups)
+    .map(([source, row]) => {
+      const clicks = analyticsCount(row, 'cta_click');
+      const leads = analyticsCount(row, 'form_submit');
+      const impressions = analyticsCount(row, 'cta_impression');
+      return {
+        source,
+        impressions,
+        clicks,
+        leads,
+        conversionRate: percent(leads, clicks),
+        clickThroughRate: percent(clicks, impressions)
+      };
+    })
+    .sort((a, b) => b.leads - a.leads || b.clicks - a.clicks || a.source.localeCompare(b.source));
+}
+
+function rvureadyTopPageRows(summary, lowest = false) {
+  const rows = analyticsRowsFromMap(summary.bySourcePath || {})
+    .filter(row => row.clicks || row.leads || row.impressions)
+    .filter(row => row.key !== '/rvuready/');
+  rows.sort((a, b) => {
+    if (lowest) return a.conversionRate - b.conversionRate || b.clicks - a.clicks || a.key.localeCompare(b.key);
+    return b.conversionRate - a.conversionRate || b.leads - a.leads || b.clicks - a.clicks || a.key.localeCompare(b.key);
+  });
+  return rows.slice(0, 15);
+}
+
 function rvureadyFunnelSummary() {
   const analytics = loadRvureadyAnalytics();
   const total = analytics.total || {};
@@ -1071,6 +1159,15 @@ app.get('/admin/rvuready-analytics', (req, res) => {
   const summary = rvureadyFunnelSummary();
   const m = summary.metrics;
   const r = summary.conversionRates;
+  const businessRows = rvureadyTrafficSourceRows(summary)
+    .map(row => '<tr><td>' + escapeHtml(row.source) + '</td><td>' + row.impressions + '</td><td>' + row.clicks + '</td><td>' + row.leads + '</td><td>' + row.conversionRate.toFixed(2) + '%</td><td>' + row.clickThroughRate.toFixed(2) + '%</td></tr>')
+    .join('');
+  const topRows = rvureadyTopPageRows(summary, false)
+    .map(row => '<tr><td><code>' + escapeHtml(row.key) + '</code></td><td>' + row.impressions + '</td><td>' + row.clicks + '</td><td>' + row.leads + '</td><td>' + row.conversionRate.toFixed(2) + '%</td><td>' + row.clickThroughRate.toFixed(2) + '%</td></tr>')
+    .join('');
+  const lowRows = rvureadyTopPageRows(summary, true)
+    .map(row => '<tr><td><code>' + escapeHtml(row.key) + '</code></td><td>' + row.impressions + '</td><td>' + row.clicks + '</td><td>' + row.leads + '</td><td>' + row.conversionRate.toFixed(2) + '%</td><td>' + row.clickThroughRate.toFixed(2) + '%</td></tr>')
+    .join('');
   const sourceRows = Object.entries(summary.bySourceContext)
     .sort((a, b) => Number(b[1].form_submit || 0) - Number(a[1].form_submit || 0) || Number(b[1].cta_click || 0) - Number(a[1].cta_click || 0))
     .slice(0, 30)
@@ -1086,7 +1183,7 @@ app.get('/admin/rvuready-analytics', (req, res) => {
     .slice(0, 30)
     .map(([day, row]) => '<tr><td>' + escapeHtml(day) + '</td><td>' + Number(row.cta_impression || 0) + '</td><td>' + Number(row.cta_click || 0) + '</td><td>' + Number(row.landing_visit || 0) + '</td><td>' + Number(row.form_start || 0) + '</td><td>' + Number(row.form_submit || 0) + '</td><td>' + percent(row.cta_click, row.cta_impression).toFixed(2) + '%</td></tr>')
     .join('');
-  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RVUReady Funnel Analytics</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}.card{background:white;border:1px solid #e2e8f0;border-radius:8px;padding:14px}.label{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:800}.value{font-size:28px;font-weight:900;color:#0b1f3a;margin-top:5px}.rate{color:#2563eb;font-weight:900}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin:12px 0 28px}th,td{padding:10px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.note{color:#475569;line-height:1.5}@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){main{padding:16px}.cards{grid-template-columns:1fr}}</style></head><body><header><h1>RVUReady Funnel Analytics</h1><div>Aggregate-only events | updated: ' + escapeHtml(summary.updatedAt || 'not yet') + '</div></header><main><p class="note">Privacy-conscious dashboard. Counts only event type, source path/context, and date. No names, emails, free-text pain points, PHI, or visitor identifiers are stored here.</p><div class="cards"><div class="card"><div class="label">CTA impressions</div><div class="value">' + m.ctaImpressions + '</div></div><div class="card"><div class="label">CTA clicks</div><div class="value">' + m.ctaClicks + '</div><div class="rate">CTR ' + r.clickThroughRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Landing visits</div><div class="value">' + m.landingPageVisits + '</div><div class="rate">LP CVR ' + r.landingPageConversionRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Leads</div><div class="value">' + m.leads + '</div><div class="rate">Overall ' + r.overallVisitorToLeadRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Form starts</div><div class="value">' + m.formStarts + '</div></div><div class="card"><div class="label">Form submissions</div><div class="value">' + m.formSubmissions + '</div><div class="rate">Completion ' + r.formCompletionRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Events logged</div><div class="value">' + summary.eventsLogged + '</div></div></div><h2>By Source Context</h2><table><thead><tr><th>Source</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (sourceRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table><h2>By Source Path</h2><table><thead><tr><th>Path</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (pathRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table><h2>By Day</h2><table><thead><tr><th>Day</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (dayRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table></main></body></html>');
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RVUReady Analytics Dashboard</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}.card{background:white;border:1px solid #e2e8f0;border-radius:8px;padding:14px}.label{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:800}.value{font-size:28px;font-weight:900;color:#0b1f3a;margin-top:5px}.rate{color:#2563eb;font-weight:900}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin:12px 0 28px}th,td{padding:10px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.note{color:#475569;line-height:1.5}.section-note{margin-top:-12px;margin-bottom:12px;color:#64748b;font-size:13px}@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){main{padding:16px}.cards{grid-template-columns:1fr}table{display:block;overflow-x:auto;white-space:nowrap}}</style></head><body><header><h1>RVUReady Analytics Dashboard</h1><div>Aggregate-only events | updated: ' + escapeHtml(summary.updatedAt || 'not yet') + '</div></header><main><p class="note">Privacy-conscious dashboard. Counts only event type, source path/context, and date. No names, emails, free-text pain points, PHI, or visitor identifiers are stored here.</p><div class="cards"><div class="card"><div class="label">CTA impressions</div><div class="value">' + m.ctaImpressions + '</div></div><div class="card"><div class="label">CTA clicks</div><div class="value">' + m.ctaClicks + '</div><div class="rate">CTR ' + r.clickThroughRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Landing visits</div><div class="value">' + m.landingPageVisits + '</div><div class="rate">LP CVR ' + r.landingPageConversionRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Leads</div><div class="value">' + m.leads + '</div><div class="rate">Overall ' + r.overallVisitorToLeadRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Form submissions</div><div class="value">' + m.formSubmissions + '</div><div class="rate">Submit/click ' + percent(m.formSubmissions, m.ctaClicks).toFixed(2) + '%</div></div><div class="card"><div class="label">Events logged</div><div class="value">' + summary.eventsLogged + '</div></div></div><h2>Traffic Source Conversion</h2><p class="section-note">Core decision table: traffic source, clicks, leads, and lead conversion rate.</p><table><thead><tr><th>Traffic Source</th><th>Impressions</th><th>Clicks</th><th>Leads</th><th>Conversion %</th><th>CTR</th></tr></thead><tbody>' + (businessRows || '<tr><td colspan="6">No source data yet.</td></tr>') + '</tbody></table><h2>Top-Converting Pages</h2><table><thead><tr><th>Page</th><th>Impressions</th><th>Clicks</th><th>Leads</th><th>Conversion %</th><th>CTR</th></tr></thead><tbody>' + (topRows || '<tr><td colspan="6">No page conversion data yet.</td></tr>') + '</tbody></table><h2>Lowest-Converting Pages</h2><table><thead><tr><th>Page</th><th>Impressions</th><th>Clicks</th><th>Leads</th><th>Conversion %</th><th>CTR</th></tr></thead><tbody>' + (lowRows || '<tr><td colspan="6">No page conversion data yet.</td></tr>') + '</tbody></table><h2>By Source Context</h2><table><thead><tr><th>Source</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (sourceRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table><h2>By Source Path</h2><table><thead><tr><th>Path</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (pathRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table><h2>By Day</h2><table><thead><tr><th>Day</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (dayRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 app.post('/search-analytics', reportRateLimit, (req, res) => {

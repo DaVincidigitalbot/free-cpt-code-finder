@@ -23,6 +23,7 @@
     if (path.startsWith("/codes/")) return "cpt-page";
     if (path.startsWith("/modifiers") || path.includes("/modifiers/")) return "modifier-page";
     if (path.startsWith("/coding-centers/")) return "coding-center";
+    if (path.includes("orthopedic-hand")) return "orthopedic-hand";
     if (path.startsWith("/blog/")) return "blog";
     return "site-page";
   }
