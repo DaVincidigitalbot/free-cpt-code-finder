@@ -252,9 +252,29 @@ Static checks:
 - No OCR / AI note scoring / feature-expansion copy added
 - Existing analytics and lead capture scripts preserved
 
+Production verification:
+
+- Rebuilt page live at `https://freecptcodefinder.com/rvuready/`
+- New hero CTA live
+- New problem section live
+- New checklist section live
+- New surgeon-built section live
+- New founding-user offer live
+- Old generic `What it does / Why it matters / Who it serves` blocks removed
+- CPT issue-report widget hidden on RVUReady page
+- Email-only lead submission passed
+
+Email-only production test:
+
+- Lead ID: `RVU-20260612025647-76C9`
+- GitHub Issue: https://github.com/DaVincidigitalbot/free-cpt-code-finder/issues/39
+- Test email: `graydon+rvuready-rebuild-test@example.com`
+- Required fields used: email only
+- No PHI used
+
 ## Recommendation
 
-Deploy the rebuild and watch the analytics dashboard for:
+Watch the analytics dashboard for:
 
 - CTA CTR
 - Landing-page conversion rate
@@ -269,4 +289,3 @@ Expected near-term improvement should come from:
 3. Email-first form.
 4. Reduced competing UI.
 5. More clinician-specific pain examples.
-
