@@ -151,6 +151,46 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
   const status = document.getElementById("rvureadyStatus");
   if (!form || !status) return;
   const params = new URLSearchParams(location.search);
+  let formStarted = false;
+  function sourceContext() {
+    return params.get("context") || params.get("source") || "rvuready-landing";
+  }
+  function trackRvuready(eventType) {
+    const payload = {
+      eventType: eventType,
+      sourcePage: location.href,
+      sourcePath: location.pathname,
+      sourceContext: sourceContext()
+    };
+    if (typeof gtag === "function") {
+      gtag("event", "rvuready_" + eventType, {
+        source_path: payload.sourcePath,
+        source_context: payload.sourceContext
+      });
+    }
+    const body = JSON.stringify(payload);
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("https://free-cpt-code-finder.onrender.com/rvuready-analytics", new Blob([body], { type: "application/json" }));
+      return;
+    }
+    fetch("https://free-cpt-code-finder.onrender.com/rvuready-analytics", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: body,
+      keepalive: true
+    }).catch(function(){});
+  }
+  trackRvuready("landing_visit");
+  form.addEventListener("input", function() {
+    if (formStarted) return;
+    formStarted = true;
+    trackRvuready("form_start");
+  }, { once: false });
+  form.addEventListener("focusin", function() {
+    if (formStarted) return;
+    formStarted = true;
+    trackRvuready("form_start");
+  }, { once: false });
   form.addEventListener("submit", async function(event) {
     event.preventDefault();
     const button = form.querySelector("button[type=submit]");
@@ -161,7 +201,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
     data.foundingUserInterest = form.elements.foundingUserInterest.checked;
     data.sourcePage = location.href;
     data.sourcePath = location.pathname;
-    data.sourceContext = params.get("context") || params.get("source") || "rvuready-landing";
+    data.sourceContext = sourceContext();
     try {
       const response = await fetch("https://free-cpt-code-finder.onrender.com/leads", {
         method: "POST",
@@ -173,7 +213,10 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
       status.className = "rvu-status ok";
       status.textContent = "You are on the founding-user list. Lead ID: " + json.lead.id + ".";
       form.reset();
-      if (typeof gtag === "function") gtag("event", "rvuready_beta_signup", { source_context: data.sourceContext });
+      if (typeof gtag === "function") {
+        gtag("event", "rvuready_form_submit", { source_context: data.sourceContext });
+        gtag("event", "rvuready_beta_signup", { source_context: data.sourceContext });
+      }
     } catch (err) {
       status.className = "rvu-status err";
       status.textContent = err.message === "phi_like_lead_rejected" ? "Please remove patient-identifying details and submit again." : "Could not submit right now. Try again in a minute.";

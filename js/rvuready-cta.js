@@ -27,6 +27,32 @@
     return "site-page";
   }
 
+  function trackRvuready(eventType) {
+    const payload = {
+      eventType,
+      sourcePath: path || "/",
+      sourcePage: location.href,
+      sourceContext: sourceLabel()
+    };
+    if (typeof gtag === "function") {
+      gtag("event", "rvuready_" + eventType, {
+        source_path: payload.sourcePath,
+        source_context: payload.sourceContext
+      });
+    }
+    const body = JSON.stringify(payload);
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("https://free-cpt-code-finder.onrender.com/rvuready-analytics", new Blob([body], { type: "application/json" }));
+      return;
+    }
+    fetch("https://free-cpt-code-finder.onrender.com/rvuready-analytics", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      keepalive: true
+    }).catch(function () {});
+  }
+
   function createCta() {
     const root = relRoot();
     const href = root + "rvuready/?source=" + encodeURIComponent(path || "/") + "&context=" + encodeURIComponent(sourceLabel());
@@ -74,6 +100,19 @@
       main.insertBefore(cta, anchor.nextSibling);
     } else {
       main.appendChild(cta);
+    }
+    const ctaLink = cta.querySelector("a");
+    if (ctaLink) ctaLink.addEventListener("click", () => trackRvuready("cta_click"));
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          trackRvuready("cta_impression");
+          observer.disconnect();
+        }
+      }, { threshold: 0.35 });
+      observer.observe(cta);
+    } else {
+      trackRvuready("cta_impression");
     }
   });
 })();

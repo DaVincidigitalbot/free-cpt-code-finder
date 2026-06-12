@@ -14,6 +14,7 @@ const cptDbPath = path.join(projectRoot, 'cpt_database.json');
 const dataDir = path.join(__dirname, 'data');
 const reportLogPath = path.join(dataDir, 'bug_reports.json');
 const leadLogPath = path.join(dataDir, 'rvuready_leads.json');
+const rvureadyAnalyticsPath = path.join(dataDir, 'rvuready_analytics.json');
 const unsuccessfulSearchLogPath = path.join(dataDir, 'unsuccessful_searches.json');
 const suggestionAnalyticsLogPath = path.join(dataDir, 'suggestion_analytics.json');
 const mappingStoreTitle = '[FREECPT SUGGESTED CPT MAPPINGS]';
@@ -58,6 +59,7 @@ function ensureDataDir() {
   fs.mkdirSync(dataDir, { recursive: true });
   if (!fs.existsSync(reportLogPath)) fs.writeFileSync(reportLogPath, '[]\n');
   if (!fs.existsSync(leadLogPath)) fs.writeFileSync(leadLogPath, '[]\n');
+  if (!fs.existsSync(rvureadyAnalyticsPath)) fs.writeFileSync(rvureadyAnalyticsPath, '{}\n');
   if (!fs.existsSync(unsuccessfulSearchLogPath)) fs.writeFileSync(unsuccessfulSearchLogPath, '[]\n');
   if (!fs.existsSync(suggestionAnalyticsLogPath)) fs.writeFileSync(suggestionAnalyticsLogPath, '[]\n');
 }
@@ -92,6 +94,20 @@ function saveLead(lead) {
   const leads = loadLeads();
   leads.unshift(lead);
   fs.writeFileSync(leadLogPath, JSON.stringify(leads.slice(0, 3000), null, 2) + '\n');
+}
+
+function loadRvureadyAnalytics() {
+  ensureDataDir();
+  try {
+    const parsed = JSON.parse(fs.readFileSync(rvureadyAnalyticsPath, 'utf8'));
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveRvureadyAnalytics(analytics) {
+  fs.writeFileSync(rvureadyAnalyticsPath, JSON.stringify(analytics, null, 2) + '\n');
 }
 
 function loadUnsuccessfulSearches() {
@@ -313,6 +329,92 @@ function buildRvureadyLead(input = {}) {
     userAgent: sanitizeText(input.userAgent || '', 240),
     delivery: { githubIssueUrl: null, errors: [] },
     safety: { noPhiRequested: true, rawClinicalNoteStored: false, signupOnly: true }
+  };
+}
+
+const rvureadyEventTypes = new Set(['cta_impression', 'cta_click', 'landing_visit', 'form_start', 'form_submit']);
+
+function normalizeAnalyticsKey(value, fallback = 'unknown') {
+  return sanitizeText(value || fallback, 120).toLowerCase().replace(/[^a-z0-9/_-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || fallback;
+}
+
+function currentDayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function buildRvureadyAnalyticsEvent(input = {}) {
+  const eventType = normalizeAnalyticsKey(input.eventType || input.event || '');
+  if (!rvureadyEventTypes.has(eventType)) {
+    const err = new Error('unsupported_event_type');
+    err.statusCode = 400;
+    throw err;
+  }
+  const sourcePath = pagePathOnly(input.sourcePath || input.pagePath || input.pageUrl || input.sourcePage || '') || '/';
+  const sourceContext = normalizeAnalyticsKey(input.sourceContext || input.context || sourcePath, 'unknown');
+  const sourcePage = sanitizeText(input.sourcePage || input.pageUrl || '', 240);
+  return {
+    eventType,
+    day: sanitizeText(input.day || currentDayKey(), 10),
+    sourcePath,
+    sourceContext,
+    sourcePage
+  };
+}
+
+function bumpCounter(target, key, amount = 1) {
+  target[key] = Number(target[key] || 0) + amount;
+}
+
+function recordRvureadyAnalyticsEvent(event) {
+  const analytics = loadRvureadyAnalytics();
+  analytics.updatedAt = new Date().toISOString();
+  analytics.total = analytics.total && typeof analytics.total === 'object' ? analytics.total : {};
+  analytics.byDay = analytics.byDay && typeof analytics.byDay === 'object' ? analytics.byDay : {};
+  analytics.bySourceContext = analytics.bySourceContext && typeof analytics.bySourceContext === 'object' ? analytics.bySourceContext : {};
+  analytics.bySourcePath = analytics.bySourcePath && typeof analytics.bySourcePath === 'object' ? analytics.bySourcePath : {};
+  analytics.eventsLogged = Number(analytics.eventsLogged || 0) + 1;
+  bumpCounter(analytics.total, event.eventType);
+  analytics.byDay[event.day] = analytics.byDay[event.day] && typeof analytics.byDay[event.day] === 'object' ? analytics.byDay[event.day] : {};
+  bumpCounter(analytics.byDay[event.day], event.eventType);
+  analytics.bySourceContext[event.sourceContext] = analytics.bySourceContext[event.sourceContext] && typeof analytics.bySourceContext[event.sourceContext] === 'object' ? analytics.bySourceContext[event.sourceContext] : {};
+  bumpCounter(analytics.bySourceContext[event.sourceContext], event.eventType);
+  analytics.bySourcePath[event.sourcePath] = analytics.bySourcePath[event.sourcePath] && typeof analytics.bySourcePath[event.sourcePath] === 'object' ? analytics.bySourcePath[event.sourcePath] : {};
+  bumpCounter(analytics.bySourcePath[event.sourcePath], event.eventType);
+  saveRvureadyAnalytics(analytics);
+  return analytics;
+}
+
+function percent(numerator, denominator) {
+  if (!denominator) return 0;
+  return Number(((Number(numerator || 0) / Number(denominator || 0)) * 100).toFixed(2));
+}
+
+function rvureadyFunnelSummary() {
+  const analytics = loadRvureadyAnalytics();
+  const total = analytics.total || {};
+  const leads = loadLeads();
+  const formSubmissions = Number(total.form_submit || 0);
+  const leadCount = leads.length;
+  return {
+    updatedAt: analytics.updatedAt || null,
+    eventsLogged: Number(analytics.eventsLogged || 0),
+    metrics: {
+      ctaImpressions: Number(total.cta_impression || 0),
+      ctaClicks: Number(total.cta_click || 0),
+      landingPageVisits: Number(total.landing_visit || 0),
+      formStarts: Number(total.form_start || 0),
+      formSubmissions,
+      leads: leadCount
+    },
+    conversionRates: {
+      clickThroughRate: percent(total.cta_click, total.cta_impression),
+      landingPageConversionRate: percent(formSubmissions || leadCount, total.landing_visit),
+      formCompletionRate: percent(formSubmissions || leadCount, total.form_start),
+      overallVisitorToLeadRate: percent(formSubmissions || leadCount, total.cta_impression)
+    },
+    byDay: analytics.byDay || {},
+    bySourceContext: analytics.bySourceContext || {},
+    bySourcePath: analytics.bySourcePath || {}
   };
 }
 
@@ -851,7 +953,7 @@ function answerTextFromResponse(response) {
 }
 
 app.get('/health', (_req, res) => {
-  res.json({ ok: true, provider: 'openai_responses_api', openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, reports: loadReports().length, leads: loadLeads().length, reportStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', leadStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', githubIssues: { enabled: githubIssuesEnabled, durableStore: githubIssuesDurableStore, repo: githubRepo }, allowedOrigins, rateLimit: { reports: { windowMs: reportRateLimit.windowMs || Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000), max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30) } }, phiWarning: 'Do not submit PHI. Reports and leads should use test data or de-identified workflow details only.' });
+  res.json({ ok: true, provider: 'openai_responses_api', openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, reports: loadReports().length, leads: loadLeads().length, rvureadyAnalytics: rvureadyFunnelSummary().metrics, reportStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', leadStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', analyticsStore: 'aggregate_runtime_json_plus_ga4_events', githubIssues: { enabled: githubIssuesEnabled, durableStore: githubIssuesDurableStore, repo: githubRepo }, allowedOrigins, rateLimit: { reports: { windowMs: reportRateLimit.windowMs || Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000), max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30) } }, phiWarning: 'Do not submit PHI. Reports, leads, and analytics should use test data or de-identified workflow details only.' });
 });
 
 app.get('/report-tester', (_req, res) => {
@@ -926,6 +1028,16 @@ app.post('/leads', reportRateLimit, async (req, res) => {
       lead.delivery.errors.push(err.message);
     }
     saveLead(lead);
+    try {
+      recordRvureadyAnalyticsEvent(buildRvureadyAnalyticsEvent({
+        eventType: 'form_submit',
+        sourcePath: lead.sourcePath,
+        sourcePage: lead.sourcePage,
+        sourceContext: lead.sourceContext || 'lead-submit'
+      }));
+    } catch (analyticsErr) {
+      lead.delivery.errors.push('analytics_failed: ' + analyticsErr.message);
+    }
     res.status(201).json({
       ok: true,
       lead: {
@@ -939,6 +1051,42 @@ app.post('/leads', reportRateLimit, async (req, res) => {
     if (status >= 500) console.error(err);
     res.status(status).json({ error: err.message || 'lead_failed' });
   }
+});
+
+app.post('/rvuready-analytics', reportRateLimit, (req, res) => {
+  try {
+    const event = buildRvureadyAnalyticsEvent(req.body || {});
+    recordRvureadyAnalyticsEvent(event);
+    res.status(201).json({ ok: true, logged: true });
+  } catch (err) {
+    const status = err.statusCode || 500;
+    if (status >= 500) console.error(err);
+    res.status(status).json({ error: err.message || 'analytics_failed' });
+  }
+});
+
+app.get('/admin/rvuready-analytics', (req, res) => {
+  const configuredKey = adminReportsKey;
+  if (configuredKey && req.query.key !== configuredKey) return res.status(401).send('Unauthorized');
+  const summary = rvureadyFunnelSummary();
+  const m = summary.metrics;
+  const r = summary.conversionRates;
+  const sourceRows = Object.entries(summary.bySourceContext)
+    .sort((a, b) => Number(b[1].form_submit || 0) - Number(a[1].form_submit || 0) || Number(b[1].cta_click || 0) - Number(a[1].cta_click || 0))
+    .slice(0, 30)
+    .map(([source, row]) => '<tr><td>' + escapeHtml(source) + '</td><td>' + Number(row.cta_impression || 0) + '</td><td>' + Number(row.cta_click || 0) + '</td><td>' + Number(row.landing_visit || 0) + '</td><td>' + Number(row.form_start || 0) + '</td><td>' + Number(row.form_submit || 0) + '</td><td>' + percent(row.cta_click, row.cta_impression).toFixed(2) + '%</td></tr>')
+    .join('');
+  const pathRows = Object.entries(summary.bySourcePath)
+    .sort((a, b) => Number(b[1].form_submit || 0) - Number(a[1].form_submit || 0) || Number(b[1].cta_click || 0) - Number(a[1].cta_click || 0))
+    .slice(0, 30)
+    .map(([source, row]) => '<tr><td><code>' + escapeHtml(source) + '</code></td><td>' + Number(row.cta_impression || 0) + '</td><td>' + Number(row.cta_click || 0) + '</td><td>' + Number(row.landing_visit || 0) + '</td><td>' + Number(row.form_start || 0) + '</td><td>' + Number(row.form_submit || 0) + '</td><td>' + percent(row.cta_click, row.cta_impression).toFixed(2) + '%</td></tr>')
+    .join('');
+  const dayRows = Object.entries(summary.byDay)
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .slice(0, 30)
+    .map(([day, row]) => '<tr><td>' + escapeHtml(day) + '</td><td>' + Number(row.cta_impression || 0) + '</td><td>' + Number(row.cta_click || 0) + '</td><td>' + Number(row.landing_visit || 0) + '</td><td>' + Number(row.form_start || 0) + '</td><td>' + Number(row.form_submit || 0) + '</td><td>' + percent(row.cta_click, row.cta_impression).toFixed(2) + '%</td></tr>')
+    .join('');
+  res.type('html').send('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RVUReady Funnel Analytics</title><style>body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f8fafc;color:#0f172a}header{padding:24px 28px;background:#0b1f3a;color:white}main{padding:24px 28px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}.card{background:white;border:1px solid #e2e8f0;border-radius:8px;padding:14px}.label{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:800}.value{font-size:28px;font-weight:900;color:#0b1f3a;margin-top:5px}.rate{color:#2563eb;font-weight:900}table{width:100%;border-collapse:collapse;background:white;border:1px solid #e2e8f0;margin:12px 0 28px}th,td{padding:10px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;background:#f1f5f9}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.note{color:#475569;line-height:1.5}@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){main{padding:16px}.cards{grid-template-columns:1fr}}</style></head><body><header><h1>RVUReady Funnel Analytics</h1><div>Aggregate-only events | updated: ' + escapeHtml(summary.updatedAt || 'not yet') + '</div></header><main><p class="note">Privacy-conscious dashboard. Counts only event type, source path/context, and date. No names, emails, free-text pain points, PHI, or visitor identifiers are stored here.</p><div class="cards"><div class="card"><div class="label">CTA impressions</div><div class="value">' + m.ctaImpressions + '</div></div><div class="card"><div class="label">CTA clicks</div><div class="value">' + m.ctaClicks + '</div><div class="rate">CTR ' + r.clickThroughRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Landing visits</div><div class="value">' + m.landingPageVisits + '</div><div class="rate">LP CVR ' + r.landingPageConversionRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Leads</div><div class="value">' + m.leads + '</div><div class="rate">Overall ' + r.overallVisitorToLeadRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Form starts</div><div class="value">' + m.formStarts + '</div></div><div class="card"><div class="label">Form submissions</div><div class="value">' + m.formSubmissions + '</div><div class="rate">Completion ' + r.formCompletionRate.toFixed(2) + '%</div></div><div class="card"><div class="label">Events logged</div><div class="value">' + summary.eventsLogged + '</div></div></div><h2>By Source Context</h2><table><thead><tr><th>Source</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (sourceRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table><h2>By Source Path</h2><table><thead><tr><th>Path</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (pathRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table><h2>By Day</h2><table><thead><tr><th>Day</th><th>Impressions</th><th>Clicks</th><th>Landing</th><th>Starts</th><th>Submits</th><th>CTR</th></tr></thead><tbody>' + (dayRows || '<tr><td colspan="7">No analytics events yet.</td></tr>') + '</tbody></table></main></body></html>');
 });
 
 app.post('/search-analytics', reportRateLimit, (req, res) => {
