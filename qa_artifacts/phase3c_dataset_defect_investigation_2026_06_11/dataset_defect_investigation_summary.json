@@ -1,0 +1,18 @@
+{
+  "total_dataset_defect_records": 117,
+  "counts_by_likely_source": {
+    "legacy import": 32,
+    "unknown": 10,
+    "specialty import": 75
+  },
+  "counts_by_classification": {
+    "requires specialty review": 46,
+    "should be re-imported from authoritative source": 43,
+    "should be inactive/deleted": 28
+  },
+  "general_surgery_records": 22,
+  "trauma_acs_relevant_records": 28,
+  "records_appearing_in_search": 117,
+  "records_appearing_in_case_builder": 117,
+  "highest_traffic_note": "No live GA4/Search Console/search-log export exists in this checkout. Priority proxy uses surgical relevance, specialty, homepage/Case Builder exposure, and current work RVU."
+}
