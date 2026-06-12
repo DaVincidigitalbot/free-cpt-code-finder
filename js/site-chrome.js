@@ -52,6 +52,7 @@
   const nav = [
     ["/cpt-code-for/", "CPT Code For"],
     ["/codes/", "Codes"],
+    ["/rvuready/", "RVUReady"],
     ["/app-productivity.html", "APP"],
     ["/blog/", "Blog"],
     ["/sources.html", "Sources"],
@@ -118,6 +119,13 @@
       reportScript.defer = true;
       reportScript.dataset.fccfReportWidget = "1";
       document.head.appendChild(reportScript);
+    }
+    if (!document.querySelector("script[data-fccf-rvuready-cta]")) {
+      const rvuScript = document.createElement("script");
+      rvuScript.src = root + "js/rvuready-cta.js";
+      rvuScript.defer = true;
+      rvuScript.dataset.fccfRvureadyCta = "1";
+      document.head.appendChild(rvuScript);
     }
     if (!document.querySelector("script[data-fccf-app-mode]")) {
       const appScript = document.createElement("script");

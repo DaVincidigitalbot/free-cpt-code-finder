@@ -13,6 +13,7 @@ const projectRoot = path.resolve(__dirname, '..');
 const cptDbPath = path.join(projectRoot, 'cpt_database.json');
 const dataDir = path.join(__dirname, 'data');
 const reportLogPath = path.join(dataDir, 'bug_reports.json');
+const leadLogPath = path.join(dataDir, 'rvuready_leads.json');
 const unsuccessfulSearchLogPath = path.join(dataDir, 'unsuccessful_searches.json');
 const suggestionAnalyticsLogPath = path.join(dataDir, 'suggestion_analytics.json');
 const mappingStoreTitle = '[FREECPT SUGGESTED CPT MAPPINGS]';
@@ -56,6 +57,7 @@ try {
 function ensureDataDir() {
   fs.mkdirSync(dataDir, { recursive: true });
   if (!fs.existsSync(reportLogPath)) fs.writeFileSync(reportLogPath, '[]\n');
+  if (!fs.existsSync(leadLogPath)) fs.writeFileSync(leadLogPath, '[]\n');
   if (!fs.existsSync(unsuccessfulSearchLogPath)) fs.writeFileSync(unsuccessfulSearchLogPath, '[]\n');
   if (!fs.existsSync(suggestionAnalyticsLogPath)) fs.writeFileSync(suggestionAnalyticsLogPath, '[]\n');
 }
@@ -74,6 +76,22 @@ function saveReport(report) {
   const reports = loadReports();
   reports.unshift(report);
   fs.writeFileSync(reportLogPath, JSON.stringify(reports.slice(0, 1000), null, 2) + '\n');
+}
+
+function loadLeads() {
+  ensureDataDir();
+  try {
+    const parsed = JSON.parse(fs.readFileSync(leadLogPath, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveLead(lead) {
+  const leads = loadLeads();
+  leads.unshift(lead);
+  fs.writeFileSync(leadLogPath, JSON.stringify(leads.slice(0, 3000), null, 2) + '\n');
 }
 
 function loadUnsuccessfulSearches() {
@@ -249,6 +267,53 @@ function pagePathOnly(value) {
   } catch {
     return null;
   }
+}
+
+function normalizeEmail(value) {
+  return sanitizeText(value || '', 200).toLowerCase();
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || ''));
+}
+
+function buildRvureadyLead(input = {}) {
+  const email = normalizeEmail(input.email);
+  const name = sanitizeText(input.name || '', 120);
+  const role = sanitizeText(input.role || '', 80);
+  const specialty = sanitizeText(input.specialty || '', 120);
+  const practiceSetting = sanitizeText(input.practiceSetting || input.practice || '', 120);
+  const documentationPain = sanitizeText(input.documentationPain || input.painPoint || input.message || '', 1000);
+  const sourcePage = sanitizeText(input.sourcePage || input.pageUrl || '', 240);
+  const sourcePath = pagePathOnly(input.sourcePath || input.sourcePage || input.pageUrl || '');
+  const sourceContext = sanitizeText(input.sourceContext || '', 240);
+  if (!isValidEmail(email)) {
+    const err = new Error('valid email required');
+    err.statusCode = 400;
+    throw err;
+  }
+  if (looksLikePhiReport([documentationPain, sourceContext])) {
+    const err = new Error('phi_like_lead_rejected');
+    err.statusCode = 400;
+    throw err;
+  }
+  return {
+    id: 'RVU-' + new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14) + '-' + crypto.randomBytes(2).toString('hex').toUpperCase(),
+    createdAt: new Date().toISOString(),
+    name,
+    email,
+    role,
+    specialty,
+    practiceSetting,
+    documentationPain,
+    foundingUserInterest: input.foundingUserInterest === true || input.foundingInterest === true || input.foundingUserInterest === 'true' || input.foundingInterest === 'true',
+    sourcePage,
+    sourcePath,
+    sourceContext,
+    userAgent: sanitizeText(input.userAgent || '', 240),
+    delivery: { githubIssueUrl: null, errors: [] },
+    safety: { noPhiRequested: true, rawClinicalNoteStored: false, signupOnly: true }
+  };
 }
 
 function searchCpt(query, limit = 8) {
@@ -448,6 +513,42 @@ async function createGithubIssue(report) {
   });
   const json = await response.json();
   if (!response.ok) throw new Error(json.message || 'GitHub issue creation failed (' + response.status + ')');
+  return { url: json.html_url, number: json.number };
+}
+
+async function createRvureadyLeadIssue(lead) {
+  if (!githubIssuesEnabled) return { skipped: true, reason: 'CREATE_GITHUB_ISSUES is not true' };
+  if (!githubToken) return { skipped: true, reason: 'GITHUB_TOKEN is not set' };
+  await ensureGithubLabels(['rvuready-lead', 'lead']);
+  const body = [
+    '<!-- FREECPT_RVUREADY_LEAD_JSON_START',
+    JSON.stringify(lead, null, 2),
+    'FREECPT_RVUREADY_LEAD_JSON_END -->',
+    '',
+    'Lead ID: ' + lead.id,
+    'Email: ' + lead.email,
+    'Name: ' + (lead.name || '(not provided)'),
+    'Role: ' + (lead.role || '(not provided)'),
+    'Specialty: ' + (lead.specialty || '(not provided)'),
+    'Practice Setting: ' + (lead.practiceSetting || '(not provided)'),
+    'Founding User Interest: ' + (lead.foundingUserInterest ? 'Yes' : 'No'),
+    '',
+    'Documentation Pain:',
+    lead.documentationPain || '(not provided)',
+    '',
+    'Source:',
+    lead.sourcePage || lead.sourcePath || '(not provided)',
+    '',
+    'Safety:',
+    'Signup only. No PHI requested. Raw clinical note text is not stored by this lead form.'
+  ].join('\n');
+  const titleBits = [lead.role, lead.specialty].filter(Boolean).join(' / ') || lead.email;
+  const response = await githubFetch('/issues', {
+    method: 'POST',
+    body: JSON.stringify({ title: '[RVUReady Lead] ' + titleBits, body, labels: ['rvuready-lead', 'lead'] })
+  });
+  const json = await response.json();
+  if (!response.ok) throw new Error(json.message || 'GitHub RVUReady lead issue creation failed (' + response.status + ')');
   return { url: json.html_url, number: json.number };
 }
 
@@ -750,7 +851,7 @@ function answerTextFromResponse(response) {
 }
 
 app.get('/health', (_req, res) => {
-  res.json({ ok: true, provider: 'openai_responses_api', openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, reports: loadReports().length, reportStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', githubIssues: { enabled: githubIssuesEnabled, durableStore: githubIssuesDurableStore, repo: githubRepo }, allowedOrigins, rateLimit: { reports: { windowMs: reportRateLimit.windowMs || Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000), max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30) } }, phiWarning: 'Do not submit PHI. Reports should use test data or de-identified workflow details only.' });
+  res.json({ ok: true, provider: 'openai_responses_api', openai: !!openai, cptRows: Array.isArray(cptDb) ? cptDb.length : 0, reports: loadReports().length, leads: loadLeads().length, reportStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', leadStore: githubIssuesDurableStore ? 'github_issues' : 'runtime_json', githubIssues: { enabled: githubIssuesEnabled, durableStore: githubIssuesDurableStore, repo: githubRepo }, allowedOrigins, rateLimit: { reports: { windowMs: reportRateLimit.windowMs || Number(process.env.REPORT_RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000), max: Number(process.env.REPORT_RATE_LIMIT_MAX || 30) } }, phiWarning: 'Do not submit PHI. Reports and leads should use test data or de-identified workflow details only.' });
 });
 
 app.get('/report-tester', (_req, res) => {
@@ -808,6 +909,35 @@ app.post('/reports', reportRateLimit, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'report_failed', detail: err.message });
+  }
+});
+
+app.post('/leads', reportRateLimit, async (req, res) => {
+  try {
+    const lead = buildRvureadyLead({
+      ...req.body,
+      userAgent: req.get('user-agent') || req.body?.userAgent || ''
+    });
+    try {
+      const github = await createRvureadyLeadIssue(lead);
+      if (github.url) lead.delivery.githubIssueUrl = github.url;
+      if (github.skipped) lead.delivery.errors.push(github.reason);
+    } catch (err) {
+      lead.delivery.errors.push(err.message);
+    }
+    saveLead(lead);
+    res.status(201).json({
+      ok: true,
+      lead: {
+        id: lead.id,
+        createdAt: lead.createdAt,
+        delivery: lead.delivery
+      }
+    });
+  } catch (err) {
+    const status = err.statusCode || 500;
+    if (status >= 500) console.error(err);
+    res.status(status).json({ error: err.message || 'lead_failed' });
   }
 });
 
