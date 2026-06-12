@@ -36,12 +36,12 @@
     section.innerHTML = [
       '<div class="rvuready-inline-cta__copy">',
       '<div class="rvuready-inline-cta__eyebrow">RVUReady beta</div>',
-      '<h2>Before you sign the note, know whether it supports the work.</h2>',
-      '<p>RVUReady is a documentation revenue check for surgeons and APPs. Join the beta list from FreeCPTCodeFinder traffic.</p>',
+      '<h2>You already did the work. Did your note get credit for it?</h2>',
+      '<p>RVUReady helps physicians and APPs identify documentation gaps before the note is signed.</p>',
       '</div>',
       '<div class="rvuready-inline-cta__actions">',
-      '<a class="rvuready-inline-cta__button" href="' + href + '">Join beta waitlist</a>',
-      '<span>No PHI in signup. Local-first workflow planned.</span>',
+      '<a class="rvuready-inline-cta__button" href="' + href + '">Get founding-user access</a>',
+      '<span>Surgeon-built. No PHI required for signup.</span>',
       '</div>'
     ].join("");
     return section;

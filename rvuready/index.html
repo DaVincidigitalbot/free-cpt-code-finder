@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RVUReady Beta Waitlist | Documentation Revenue Check for Surgeons</title>
-<meta name="description" content="Join the RVUReady beta waitlist. RVUReady helps surgeons and APPs check whether documentation supports the work, wRVUs, and billing story before notes are signed.">
+<title>You Already Did the Work. Did Your Note Get Credit for It? | RVUReady</title>
+<meta name="description" content="RVUReady helps physicians and APPs identify documentation gaps that can lead to missed CPT support, weak modifier justification, downcoding, and preventable wRVU loss before the note is signed.">
 <link rel="canonical" href="https://freecptcodefinder.com/rvuready/">
-<meta property="og:title" content="RVUReady Beta Waitlist">
-<meta property="og:description" content="Documentation revenue check for surgeons and APPs. Join the beta waitlist.">
+<meta property="og:title" content="You Already Did the Work. Did Your Note Get Credit for It?">
+<meta property="og:description" content="RVUReady helps physicians and APPs identify documentation gaps before the note is signed.">
 <meta property="og:url" content="https://freecptcodefinder.com/rvuready/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -26,6 +26,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
 .rvu-points{display:grid;gap:10px;margin:24px 0 0;padding:0;list-style:none}
 .rvu-points li{display:flex;gap:10px;align-items:flex-start;color:#1f2937;line-height:1.45}
 .rvu-points span{flex:0 0 22px;height:22px;border-radius:999px;background:#dbeafe;color:#1d4ed8;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.rvu-trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin:24px 0 0;padding:0;list-style:none}
+.rvu-trust li{display:flex;gap:9px;align-items:center;font-weight:800;color:#0b1f3a}
+.rvu-trust span{color:#047857;font-weight:900}
 .rvu-form-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:0 16px 40px rgba(15,23,42,.08)}
 .rvu-form-card h2{font-size:24px;margin:0 0 6px;color:var(--navy)}
 .rvu-form-card p{margin:0 0 16px;color:var(--muted);line-height:1.5}
@@ -57,8 +60,16 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
   <section class="rvu-hero">
     <div>
       <div class="rvu-kicker">RVUReady beta waitlist</div>
-      <h1>Know whether the note supports the work before you sign it.</h1>
-      <p class="rvu-lede">RVUReady is a documentation revenue check for surgeons, APPs, and physician groups. It helps flag missing complexity, laterality, approach, modifier support, and wRVU-sensitive documentation before a note becomes a billing problem.</p>
+      <h1>You Already Did the Work. Did Your Note Get Credit for It?</h1>
+      <p class="rvu-lede">RVUReady helps physicians and APPs identify documentation gaps that can lead to missed CPT support, weak modifier justification, downcoding, and preventable wRVU loss before the note is signed.</p>
+      <p class="rvu-lede">Most clinicians are never formally taught how documentation, coding, modifiers, and reimbursement connect. The result? You may be doing the work correctly while documenting it in a way that leaves revenue behind.</p>
+      <p class="rvu-lede">RVUReady helps you spot those gaps before the chart is finalized.</p>
+      <ul class="rvu-trust" aria-label="RVUReady trust signals">
+        <li><span>&#10003;</span> Surgeon-built</li>
+        <li><span>&#10003;</span> CPT and wRVU focused</li>
+        <li><span>&#10003;</span> Privacy-conscious workflow</li>
+        <li><span>&#10003;</span> No PHI required for signup</li>
+      </ul>
       <ul class="rvu-points">
         <li><span>1</span><div><strong>For surgeons and APPs:</strong> quick review of operative notes, consults, and procedure documentation before submission.</div></li>
         <li><span>2</span><div><strong>For revenue teams:</strong> cleaner handoff between clinical work, CPT selection, modifier support, and downstream coding review.</div></li>
@@ -66,8 +77,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
       </ul>
     </div>
     <aside class="rvu-form-card" id="waitlist">
-      <h2>Join the beta list</h2>
-      <p>Founding users will help shape the first workflow and pricing. Do not submit PHI.</p>
+      <h2>Get founding-user access</h2>
+      <p>Join the early list. Founding users help shape the workflow and get early product access. Do not submit PHI.</p>
       <form class="rvu-form" id="rvureadyLeadForm">
         <label>Name
           <input name="name" autocomplete="name" placeholder="Your name">
@@ -106,7 +117,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
           <input type="checkbox" name="foundingUserInterest" value="true">
           <span>I am interested in being a founding user and giving product feedback.</span>
         </label>
-        <button class="rvu-submit" type="submit">Join RVUReady beta</button>
+        <button class="rvu-submit" type="submit">Get founding-user access</button>
         <div class="rvu-status" id="rvureadyStatus" aria-live="polite"></div>
       </form>
     </aside>
@@ -160,7 +171,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
       const json = await response.json().catch(function(){ return {}; });
       if (!response.ok || !json.ok) throw new Error(json.error || "Signup failed");
       status.className = "rvu-status ok";
-      status.textContent = "You are on the beta list. Lead ID: " + json.lead.id + ".";
+      status.textContent = "You are on the founding-user list. Lead ID: " + json.lead.id + ".";
       form.reset();
       if (typeof gtag === "function") gtag("event", "rvuready_beta_signup", { source_context: data.sourceContext });
     } catch (err) {
