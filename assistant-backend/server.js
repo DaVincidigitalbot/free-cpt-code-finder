@@ -442,13 +442,6 @@ function rvureadyTrafficSourceRows(summary) {
     groups[group] = groups[group] || {};
     mergeAnalyticsRows(groups[group], row);
   }
-  for (const [sourcePath, row] of Object.entries(summary.bySourcePath || {})) {
-    if (analyticsCount(row, 'cta_click') || analyticsCount(row, 'cta_impression')) {
-      const group = inferRvureadyTrafficSource('', sourcePath);
-      groups[group] = groups[group] || {};
-      mergeAnalyticsRows(groups[group], row);
-    }
-  }
   return Object.entries(groups)
     .map(([source, row]) => {
       const clicks = analyticsCount(row, 'cta_click');
