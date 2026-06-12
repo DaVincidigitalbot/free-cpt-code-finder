@@ -1,0 +1,30 @@
+{
+  "total_records": 43,
+  "counts_by_authoritative_source": {
+    "specialty dataset candidate: ABOS hand source URL": 2,
+    "no approved authoritative source found in local artifacts": 41
+  },
+  "counts_by_recommended_disposition": {
+    "requires specialty review": 43
+  },
+  "counts_by_likely_source": {
+    "specialty import": 43
+  },
+  "counts_by_specialty": {
+    "orthopedic_surgery": 7,
+    "orthopedics": 5,
+    "pain_management": 4,
+    "ophthalmology": 11,
+    "ent": 1,
+    "radiology": 5,
+    "radiation_oncology": 3,
+    "pulmonology": 7
+  },
+  "can_be_restored_automatically": 0,
+  "requires_specialty_review": 43,
+  "should_be_inactive_deleted_instead": 0,
+  "expected_hard_error_reduction_if_all_43_resolved": 43,
+  "current_phase3a_hard_errors_after_3d_a": 335,
+  "current_zero_rvu_hard_errors_after_3d_a": 329,
+  "metadata_defects_remaining_from_requested_11": 6
+}
