@@ -16,78 +16,86 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-NPFGH437ZS");</script>
 <script defer src="../js/site-chrome.js"></script>
 <style>
-:root{--navy:#0b1f3a;--blue:#2563eb;--ink:#0f172a;--muted:#475569;--line:#dbe4ef;--bg:#f8fafc;--panel:#fff}
+:root{--navy:#0b1f3a;--blue:#2563eb;--ink:#0f172a;--muted:#475569;--line:#dbe4ef;--bg:#f8fafc;--panel:#fff;--green:#047857}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.rvu-page{max-width:1120px;margin:0 auto;padding:0 20px 64px}
-.rvu-hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:34px;align-items:start;padding:54px 0 34px}
-.rvu-kicker{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
-.rvu-hero h1{font-size:clamp(38px,5vw,62px);line-height:1.02;margin:0 0 16px;color:var(--navy);letter-spacing:0}
-.rvu-lede{font-size:19px;line-height:1.55;color:#334155;max-width:760px;margin:0 0 22px}
-.rvu-points{display:grid;gap:10px;margin:24px 0 0;padding:0;list-style:none}
-.rvu-points li{display:flex;gap:10px;align-items:flex-start;color:#1f2937;line-height:1.45}
-.rvu-points span{flex:0 0 22px;height:22px;border-radius:999px;background:#dbeafe;color:#1d4ed8;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
-.rvu-trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin:24px 0 0;padding:0;list-style:none}
-.rvu-trust li{display:flex;gap:9px;align-items:center;font-weight:800;color:#0b1f3a}
-.rvu-trust span{color:#047857;font-weight:900}
-.rvu-form-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:0 16px 40px rgba(15,23,42,.08)}
-.rvu-form-card h2{font-size:24px;margin:0 0 6px;color:var(--navy)}
-.rvu-form-card p{margin:0 0 16px;color:var(--muted);line-height:1.5}
-.rvu-form{display:grid;gap:12px}
+.rvu-page{max-width:1080px;margin:0 auto;padding:0 18px 54px}
+.rvu-section{padding:34px 0;border-top:1px solid #e2e8f0}
+.rvu-section:first-child{border-top:0}
+.rvu-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.78fr);gap:26px;align-items:start;padding:30px 0 28px}
+.rvu-kicker{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.rvu-hero h1{font-size:clamp(34px,4.5vw,56px);line-height:1.03;margin:0 0 14px;color:var(--navy);letter-spacing:0}
+.rvu-lede{font-size:18px;line-height:1.52;color:#334155;max-width:760px;margin:0 0 14px}
+.rvu-lede strong{color:var(--navy)}
+.rvu-trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 12px;margin:18px 0 0;padding:0;list-style:none}
+.rvu-trust li{display:flex;gap:8px;align-items:center;font-weight:800;color:#0b1f3a;font-size:14px}
+.rvu-checkmark{color:var(--green);font-weight:900}
+.rvu-form-card{position:sticky;top:14px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:0 12px 28px rgba(15,23,42,.08)}
+.rvu-form-card h2{font-size:23px;margin:0 0 6px;color:var(--navy)}
+.rvu-form-card p{margin:0 0 14px;color:var(--muted);line-height:1.45;font-size:14px}
+.rvu-form{display:grid;gap:11px}
 .rvu-form label{font-size:13px;font-weight:800;color:#1e293b}
 .rvu-form input,.rvu-form select,.rvu-form textarea{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:7px;background:white;color:#0f172a;padding:11px 12px;font:inherit;margin-top:6px}
-.rvu-form textarea{min-height:88px;resize:vertical}
-.rvu-check{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:#334155;line-height:1.45}
-.rvu-check input{width:auto;margin-top:2px}
-.rvu-submit{height:46px;border:0;border-radius:7px;background:var(--navy);color:white;font-weight:850;font-size:15px;cursor:pointer}
+.rvu-form textarea{min-height:76px;resize:vertical}
+.rvu-submit{min-height:46px;border:0;border-radius:7px;background:var(--navy);color:white;font-weight:850;font-size:15px;cursor:pointer}
 .rvu-submit:hover{background:#12345f}
 .rvu-submit[disabled]{opacity:.65;cursor:wait}
 .rvu-status{font-size:13px;line-height:1.45;color:#334155;min-height:20px}
 .rvu-status.ok{color:#047857}.rvu-status.err{color:#b91c1c}
-.rvu-sections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:12px}
-.rvu-panel{background:white;border:1px solid var(--line);border-radius:8px;padding:20px}
-.rvu-panel h2{font-size:20px;margin:0 0 8px;color:var(--navy)}
-.rvu-panel p{margin:0;color:#334155;line-height:1.58}
-.rvu-strip{margin-top:18px;background:#0b1f3a;color:white;border-radius:8px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
-.rvu-strip h2{margin:0 0 6px;font-size:22px;color:white}
-.rvu-strip p{margin:0;color:#dbeafe;line-height:1.5}
-.rvu-strip a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:7px;background:#60a5fa;color:#081827;text-decoration:none;font-weight:850;white-space:nowrap}
-@media(max-width:860px){.rvu-hero,.rvu-sections,.rvu-strip{grid-template-columns:1fr}.rvu-page{padding:0 16px 44px}.rvu-hero{padding-top:32px}.rvu-strip a{width:100%;box-sizing:border-box}}
+.rvu-note{font-size:12px;color:#64748b;line-height:1.4}
+.rvu-section h2{font-size:clamp(26px,3vw,36px);line-height:1.12;color:var(--navy);margin:0 0 12px;letter-spacing:0}
+.rvu-section>p{font-size:17px;line-height:1.6;color:#334155;max-width:780px;margin:0 0 14px}
+.rvu-problem{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:22px;align-items:start}
+.rvu-callout{background:white;border-left:5px solid var(--blue);padding:18px;border-radius:8px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rvu-callout strong{display:block;color:var(--navy);font-size:19px;margin-bottom:6px}
+.rvu-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.rvu-list li{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid var(--line);border-radius:8px;padding:13px;color:#1f2937;line-height:1.42}
+.rvu-list .rvu-checkmark{flex:0 0 auto}
+.rvu-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.rvu-built{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:20px;align-items:start}
+.rvu-plain{background:white;border:1px solid var(--line);border-radius:8px;padding:18px}
+.rvu-plain h3{margin:0 0 10px;color:var(--navy);font-size:19px}
+.rvu-plain p{margin:0 0 10px;line-height:1.58;color:#334155}
+.rvu-offer{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.68fr);gap:20px;align-items:start}
+.rvu-offer-box{background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:18px}
+.rvu-offer-box h3{margin:0 0 10px;color:var(--navy);font-size:20px}
+.rvu-hero-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin-top:16px;padding:0 18px;border-radius:7px;background:var(--navy);color:white;text-decoration:none;font-weight:850}
+.rvu-hero-cta:hover{background:#12345f;color:white}
+.fccf-report-launch,.fccf-report-backdrop,.fccf-report-panel{display:none!important}
+@media(max-width:860px){.rvu-page{padding:0 14px 40px}.rvu-hero,.rvu-problem,.rvu-built,.rvu-offer{grid-template-columns:1fr}.rvu-hero{padding-top:20px;gap:18px}.rvu-hero h1{font-size:34px}.rvu-lede{font-size:16px}.rvu-form-card{position:static;padding:16px}.rvu-trust,.rvu-check-grid{grid-template-columns:1fr}.rvu-section{padding:28px 0}.rvu-section h2{font-size:28px}}
 </style>
 </head>
 <body>
 <div data-site-header></div>
 <main class="rvu-page">
-  <section class="rvu-hero">
+  <section class="rvu-hero" aria-label="RVUReady founding-user waitlist">
     <div>
       <div class="rvu-kicker">RVUReady beta waitlist</div>
       <h1>You Already Did the Work. Did Your Note Get Credit for It?</h1>
-      <p class="rvu-lede">RVUReady helps physicians and APPs identify documentation gaps that can lead to missed CPT support, weak modifier justification, downcoding, and preventable wRVU loss before the note is signed.</p>
-      <p class="rvu-lede">Most clinicians are never formally taught how documentation, coding, modifiers, and reimbursement connect. The result? You may be doing the work correctly while documenting it in a way that leaves revenue behind.</p>
-      <p class="rvu-lede">RVUReady helps you spot those gaps before the chart is finalized.</p>
+      <p class="rvu-lede">Most physicians and APPs are never formally taught how documentation supports CPT coding, modifiers, medical decision-making, and wRVU attribution.</p>
+      <p class="rvu-lede">As a result, many clinicians perform the work correctly but document it in a way that leaves revenue behind.</p>
+      <p class="rvu-lede"><strong>RVUReady helps identify documentation gaps before the note is signed.</strong></p>
+      <a class="rvu-hero-cta" href="#waitlist">Join the Founding User Waitlist</a>
       <ul class="rvu-trust" aria-label="RVUReady trust signals">
-        <li><span>&#10003;</span> Surgeon-built</li>
-        <li><span>&#10003;</span> CPT and wRVU focused</li>
-        <li><span>&#10003;</span> Privacy-conscious workflow</li>
-        <li><span>&#10003;</span> No PHI required for signup</li>
-      </ul>
-      <ul class="rvu-points">
-        <li><span>1</span><div><strong>For surgeons and APPs:</strong> quick review of operative notes, consults, and procedure documentation before submission.</div></li>
-        <li><span>2</span><div><strong>For revenue teams:</strong> cleaner handoff between clinical work, CPT selection, modifier support, and downstream coding review.</div></li>
-        <li><span>3</span><div><strong>Local-first direction:</strong> the signup form does not collect PHI, and the product direction remains privacy-conscious with local-first note review where feasible.</div></li>
+        <li><span class="rvu-checkmark">&#10003;</span> Surgeon-built</li>
+        <li><span class="rvu-checkmark">&#10003;</span> CPT and wRVU focused</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Privacy-conscious workflow</li>
+        <li><span class="rvu-checkmark">&#10003;</span> No PHI required for signup</li>
       </ul>
     </div>
     <aside class="rvu-form-card" id="waitlist">
-      <h2>Get founding-user access</h2>
-      <p>Join the early list. Founding users help shape the workflow and get early product access. Do not submit PHI.</p>
+      <h2>Join the Founding User Waitlist</h2>
+      <p>Email is the only required field. Everything else is optional and helps prioritize beta access.</p>
       <form class="rvu-form" id="rvureadyLeadForm">
-        <label>Name
-          <input name="name" autocomplete="name" placeholder="Your name">
-        </label>
         <label>Email
           <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         </label>
+        <button class="rvu-submit" type="submit">Join the Founding User Waitlist</button>
+        <div class="rvu-note">No PHI. No patient details. No long application.</div>
+        <label>Specialty <span class="rvu-note">(optional)</span>
+          <input name="specialty" autocomplete="organization-title" placeholder="General surgery, ortho hand, trauma...">
+        </label>
         <label>Role
-          <select name="role" required>
+          <select name="role">
             <option value="">Select role</option>
             <option>Surgeon</option>
             <option>APP</option>
@@ -97,51 +105,76 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
             <option>Revenue cycle leader</option>
           </select>
         </label>
-        <label>Specialty
-          <input name="specialty" autocomplete="organization-title" placeholder="General surgery, ortho hand, trauma...">
+        <label>Comments <span class="rvu-note">(optional)</span>
+          <textarea name="documentationPain" placeholder="Example: modifier support, MDM, time, operative complexity. No PHI."></textarea>
         </label>
-        <label>Practice setting
-          <select name="practiceSetting">
-            <option value="">Select setting</option>
-            <option>Hospital-employed</option>
-            <option>Private practice</option>
-            <option>Academic</option>
-            <option>Locums</option>
-            <option>Billing or coding team</option>
-          </select>
-        </label>
-        <label>Biggest documentation pain
-          <textarea name="documentationPain" placeholder="Example: missed modifier support, consult level uncertainty, operative complexity not captured. No PHI."></textarea>
-        </label>
-        <label class="rvu-check">
-          <input type="checkbox" name="foundingUserInterest" value="true">
-          <span>I am interested in being a founding user and giving product feedback.</span>
-        </label>
-        <button class="rvu-submit" type="submit">Get founding-user access</button>
+        <input type="hidden" name="foundingUserInterest" value="true">
         <div class="rvu-status" id="rvureadyStatus" aria-live="polite"></div>
       </form>
     </aside>
   </section>
-  <section class="rvu-sections" aria-label="RVUReady value">
-    <article class="rvu-panel">
-      <h2>What it does</h2>
-      <p>RVUReady reviews documentation for the details that support coding, modifier use, medical decision-making, and work intensity.</p>
-    </article>
-    <article class="rvu-panel">
-      <h2>Why it matters</h2>
-      <p>The work can be real and still underpaid if the note does not tell the story coders, payers, and auditors need to see.</p>
-    </article>
-    <article class="rvu-panel">
-      <h2>Who it serves</h2>
-      <p>Surgeons, APPs, residents, coders, and groups trying to reduce preventable leakage between clinical work and captured revenue.</p>
-    </article>
-  </section>
-  <section class="rvu-strip">
+
+  <section class="rvu-section rvu-problem" aria-label="The documentation problem">
     <div>
-      <h2>Built from the FreeCPTCodeFinder workflow.</h2>
-      <p>The first funnel is simple: high-intent CPT traffic, documentation pain, beta waitlist, founding-user follow-up.</p>
+      <h2>The Work Can Be Real and Still Be Underpaid</h2>
+      <p>The work may have happened. The note may not prove it.</p>
+      <p>That gap is where preventable revenue loss starts: not because the clinician did less, but because the documentation did not clearly support what happened.</p>
     </div>
-    <a href="#waitlist">Get on the list</a>
+    <div class="rvu-callout">
+      <strong>Common ways notes lose credit</strong>
+      <ul class="rvu-list">
+        <li><span class="rvu-checkmark">&#10003;</span> Decision for surgery documented weakly</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Independent image review omitted</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Time not documented when time matters</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Modifier-supporting language absent</li>
+        <li><span class="rvu-checkmark">&#10003;</span> High-risk decision-making not clearly reflected</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rvu-section" aria-label="What RVUReady looks for">
+    <h2>What RVUReady Looks For</h2>
+    <p>A simple documentation checklist for the details that often determine whether the note supports the work.</p>
+    <div class="rvu-check-grid">
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Decision for surgery support</li></ul>
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Independent image review</li></ul>
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Discussion with other clinicians</li></ul>
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Time documentation</li></ul>
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Modifier-supporting language</li></ul>
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Risk and MDM elements</li></ul>
+      <ul class="rvu-list"><li><span class="rvu-checkmark">&#10003;</span> Disposition and follow-up planning</li></ul>
+    </div>
+  </section>
+
+  <section class="rvu-section rvu-built" aria-label="Built by a surgeon">
+    <div>
+      <h2>Built by a Surgeon</h2>
+      <p>RVUReady exists because physicians are rarely taught CPT coding, modifier strategy, documentation optimization, or wRVU attribution in a practical way.</p>
+      <p>The goal is simple: help documentation support work already performed.</p>
+    </div>
+    <div class="rvu-plain">
+      <h3>What this is not</h3>
+      <p>Not upcoding.</p>
+      <p>Not gaming reimbursement.</p>
+      <p>Not replacing coders.</p>
+      <p><strong>It is support for accurate documentation before the chart is finalized.</strong></p>
+    </div>
+  </section>
+
+  <section class="rvu-section rvu-offer" aria-label="Founding user offer">
+    <div>
+      <h2>Founding User Offer</h2>
+      <p>Early users help shape the workflow around the documentation problems clinicians actually face.</p>
+    </div>
+    <div class="rvu-offer-box">
+      <h3>Founding users receive</h3>
+      <ul class="rvu-list">
+        <li><span class="rvu-checkmark">&#10003;</span> Early access</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Direct product input</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Preferred launch pricing</li>
+        <li><span class="rvu-checkmark">&#10003;</span> Priority onboarding</li>
+      </ul>
+    </div>
   </section>
 </main>
 <div data-site-footer></div>
@@ -198,7 +231,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,
     status.className = "rvu-status";
     status.textContent = "Submitting...";
     const data = Object.fromEntries(new FormData(form).entries());
-    data.foundingUserInterest = form.elements.foundingUserInterest.checked;
+    data.foundingUserInterest = true;
     data.sourcePage = location.href;
     data.sourcePath = location.pathname;
     data.sourceContext = sourceContext();
