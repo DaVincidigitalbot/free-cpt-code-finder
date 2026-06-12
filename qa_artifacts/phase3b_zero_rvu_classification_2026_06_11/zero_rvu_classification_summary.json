@@ -1,0 +1,29 @@
+{
+  "total_zero_rvu_records": 357,
+  "counts_by_category": {
+    "anesthesia/base-unit code": 47,
+    "carrier-priced code": 83,
+    "deleted/inactive code": 30,
+    "dataset defect": 117,
+    "bundled/non-payable code": 22,
+    "technical-only code": 58,
+    "legitimate zero-RVU code": 0,
+    "CMS import defect": 0,
+    "unknown": 0
+  },
+  "counts_by_cms_status": {
+    "J": 44,
+    "ABSENT": 150,
+    "C": 83,
+    "B": 5,
+    "X": 58,
+    "N": 11,
+    "I": 1,
+    "E": 3,
+    "R": 2
+  },
+  "records_appearing_in_search": 357,
+  "records_appearing_in_case_builder": 357,
+  "metadata_mismatch_count": 11,
+  "cms_source": "/home/setup/.openclaw/workspace/staging/freecpt-phase1c-b-cms-reversion/qa_artifacts/phase2d_b_source_review_2026_06_11/cms/rvu26c.zip"
+}
