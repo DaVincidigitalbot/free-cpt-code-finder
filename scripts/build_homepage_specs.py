@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +35,8 @@ SPECIALTY_LABELS = {
     "anesthesia": "Anesthesia",
 }
 
+HAND_SPECIALTY_LABEL = "Orthopedic Hand Surgery"
+
 
 def load_json(name: str):
     with (ROOT / name).open() as f:
@@ -47,6 +51,24 @@ def specialty_label(entry: dict) -> str:
     if raw.lower() == "surgery":
         return "Surgery"
     return raw.replace("_", " ").title() if raw else "Database"
+
+
+def is_orthopedic_hand_code(entry: dict) -> bool:
+    return any(
+        entry.get(field)
+        for field in (
+            "abos_hand_surgery",
+            "hand_surgery_subsection",
+            "orthopedic_hand_surgery_subsection",
+        )
+    ) or str(entry.get("specialty") or "").strip().lower().replace("_", " ") == "orthopedic hand surgery"
+
+
+def specialty_labels(entry: dict) -> list[str]:
+    labels = [specialty_label(entry)]
+    if is_orthopedic_hand_code(entry) and HAND_SPECIALTY_LABEL not in labels:
+        labels.append(HAND_SPECIALTY_LABEL)
+    return labels
 
 
 def bi_value(entry: dict) -> int:
@@ -85,7 +107,8 @@ def build_specs() -> dict[str, list[list]]:
             global_value(entry),
             bool(entry.get("addon_code")),
         ]
-        specs.setdefault(specialty_label(entry), []).append(row)
+        for label in specialty_labels(entry):
+            specs.setdefault(label, []).append(row)
     return dict(sorted(specs.items(), key=lambda item: item[0]))
 
 
@@ -128,7 +151,10 @@ def main() -> int:
     specs = build_specs()
     INDEX.write_text(replace_specs(INDEX.read_text(), specs))
     total = sum(len(rows) for rows in specs.values())
-    print(json.dumps({"specialties": len(specs), "codes": total}, indent=2))
+    print(json.dumps({"specialties": len(specs), "codes": total}, indent=2), flush=True)
+    validation = subprocess.run([sys.executable, "tools/validate_homepage_specs.py"], cwd=ROOT)
+    if validation.returncode:
+        return validation.returncode
     return 0
 
 
