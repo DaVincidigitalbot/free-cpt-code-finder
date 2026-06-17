@@ -344,7 +344,7 @@ class SpecialtyNavigator {
         },
         {
           key: 'ent',
-          label: 'ENT / Otolaryngology',
+          label: 'Otolaryngology / ENT',
           icon: '👂',
           systems: [
             {

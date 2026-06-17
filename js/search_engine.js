@@ -115,7 +115,7 @@ class UnifiedSearchEngine {
     if (n >= 65000 && n <= 68999) return 'Surgery — Eye/Ocular';
     if (n >= 69000 && n <= 69979) return 'Surgery — Auditory';
     if (n >= 70000 && n <= 79999) return 'Radiology';
-    if (n >= 80000 && n <= 89999) return 'Pathology';
+    if (n >= 80000 && n <= 89999) return 'Pathology / Lab';
     if (n >= 90000 && n <= 99199) return 'Medicine';
     return 'Other';
   }
@@ -249,7 +249,7 @@ class UnifiedSearchEngine {
       'Surgery — Endocrine', 'Surgery — Nervous', 'Surgery — Hemic/Lymphatic',
       'Surgery — Male Genital', 'Surgery — Female Genital', 'Surgery — Maternity',
       'Surgery — Eye/Ocular', 'Surgery — Auditory',
-      'E/M', 'Radiology', 'Pathology', 'Medicine', 'ICD-10', 'Other'
+      'E/M', 'Radiology', 'Pathology / Lab', 'Medicine', 'ICD-10', 'Other'
     ];
 
     const sortedKeys = keys.sort((a, b) => {

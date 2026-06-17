@@ -3,7 +3,7 @@
     {
       "id": "general_surgery",
       "label": "General Surgery",
-      "icon": "\ud83d\udd2a",
+      "icon": "🔪",
       "systems": [
         {
           "label": "Abdominal",
@@ -164,7 +164,7 @@
     {
       "id": "trauma",
       "label": "Trauma Surgery",
-      "icon": "\ud83d\ude91",
+      "icon": "🚑",
       "systems": [
         {
           "label": "Thoracic Trauma",
@@ -260,9 +260,77 @@
       ]
     },
     {
+      "id": "hpb_surgery",
+      "label": "HPB Surgery",
+      "icon": "HPB",
+      "systems": [
+        {
+          "label": "Liver",
+          "groups": [
+            {
+              "label": "Hepatectomy / Liver Procedures",
+              "codes": [
+                "47100",
+                "47120",
+                "47122",
+                "47125",
+                "47130",
+                "47133",
+                "47135",
+                "47140",
+                "47141",
+                "47350",
+                "47360",
+                "47362",
+                "47370",
+                "47382"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pancreas",
+          "groups": [
+            {
+              "label": "Pancreatectomy / Pancreatic Procedures",
+              "codes": [
+                "48000",
+                "48001",
+                "48020",
+                "48100",
+                "48102",
+                "48105",
+                "48120",
+                "48140",
+                "48145",
+                "48146",
+                "48148",
+                "48150",
+                "48152",
+                "48153",
+                "48154",
+                "48155",
+                "48160",
+                "48400",
+                "48500",
+                "48510",
+                "48520",
+                "48540",
+                "48545",
+                "48547",
+                "48548",
+                "48552",
+                "48556"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "ent",
-      "label": "Otolaryngology (ENT)",
-      "icon": "\ud83d\udc42",
+      "label": "Otolaryngology / ENT",
+      "icon": "👂",
       "systems": [
         {
           "label": "Sinus Surgery",
@@ -347,7 +415,7 @@
     {
       "id": "orthopedic",
       "label": "Orthopedic Surgery",
-      "icon": "\ud83e\uddb4",
+      "icon": "🦴",
       "systems": [
         {
           "label": "General",
@@ -1635,7 +1703,7 @@
     {
       "id": "orthopedic_hand_surgery",
       "label": "Orthopedic Hand Surgery",
-      "icon": "\u270b",
+      "icon": "✋",
       "systems": [
         {
           "label": "Hand and Upper Extremity",
@@ -2508,7 +2576,7 @@
     {
       "id": "cardiothoracic",
       "label": "Cardiothoracic Surgery",
-      "icon": "\u2764\ufe0f",
+      "icon": "❤️",
       "systems": [
         {
           "label": "Thoracic",
@@ -2770,7 +2838,7 @@
     {
       "id": "vascular",
       "label": "Vascular Surgery",
-      "icon": "\ud83e\ude78",
+      "icon": "🩸",
       "systems": [
         {
           "label": "Carotid",
@@ -2865,7 +2933,7 @@
     {
       "id": "neurosurgery",
       "label": "Neurosurgery",
-      "icon": "\ud83e\udde0",
+      "icon": "🧠",
       "systems": [
         {
           "label": "Cranial",
@@ -2951,7 +3019,7 @@
     {
       "id": "urology",
       "label": "Urology",
-      "icon": "\ud83d\udca7",
+      "icon": "💧",
       "systems": [
         {
           "label": "Kidney",
@@ -3032,7 +3100,7 @@
     {
       "id": "obgyn",
       "label": "OB/GYN",
-      "icon": "\ud83d\udc76",
+      "icon": "👶",
       "systems": [
         {
           "label": "Gynecologic",
@@ -3231,7 +3299,7 @@
     {
       "id": "ophthalmology",
       "label": "Ophthalmology",
-      "icon": "\ud83d\udc41\ufe0f",
+      "icon": "👁️",
       "systems": [
         {
           "label": "Eye Exams & Diagnostics",
@@ -3393,7 +3461,7 @@
     {
       "id": "gastroenterology",
       "label": "Gastroenterology",
-      "icon": "\ud83e\udec1",
+      "icon": "🫁",
       "systems": [
         {
           "label": "Upper GI",
@@ -3465,7 +3533,7 @@
     {
       "id": "interventional_radiology",
       "label": "Interventional Radiology",
-      "icon": "\ud83d\udce1",
+      "icon": "📡",
       "systems": [
         {
           "label": "Vascular IR",
@@ -3523,7 +3591,7 @@
     {
       "id": "pain_pmr",
       "label": "Pain Management / PM&R",
-      "icon": "\ud83d\udc89",
+      "icon": "💉",
       "systems": [
         {
           "label": "Spinal Procedures",
@@ -3592,7 +3660,7 @@
     {
       "id": "emergency_medicine",
       "label": "Emergency Medicine",
-      "icon": "\ud83c\udfe5",
+      "icon": "🏥",
       "systems": [
         {
           "label": "ED Visits",
@@ -3621,7 +3689,7 @@
     {
       "id": "internal_medicine",
       "label": "Internal Medicine",
-      "icon": "\ud83e\ude7a",
+      "icon": "🩺",
       "systems": [
         {
           "label": "Office Visits",
@@ -3680,7 +3748,7 @@
     {
       "id": "plastic_surgery",
       "label": "Plastic Surgery",
-      "icon": "\u2728",
+      "icon": "✨",
       "systems": [
         {
           "label": "Reconstructive",
@@ -3743,7 +3811,7 @@
     {
       "id": "radiology",
       "label": "Radiology",
-      "icon": "\ud83d\udcf7",
+      "icon": "📷",
       "systems": [
         {
           "label": "CT",
@@ -3905,7 +3973,7 @@
     {
       "key": "emergency_department_procedures",
       "label": "Emergency Department Procedures",
-      "icon": "\u26a1",
+      "icon": "⚡",
       "systems": [
         {
           "key": "ultrasound_access_airway",
