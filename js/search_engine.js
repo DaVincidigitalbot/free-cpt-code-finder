@@ -68,7 +68,15 @@ class UnifiedSearchEngine {
         globalPeriod: d.global_period || 0,
         category: cat,
         specialty,
-        _search: `${code} ${(d.description || '').toLowerCase()} ${specialty.toLowerCase()}`,
+        _search: [
+          code,
+          d.description || '',
+          specialty,
+          ...(Array.isArray(d.search_terms) ? d.search_terms : []),
+          ...(Array.isArray(d.specialty_aliases) ? d.specialty_aliases : []),
+          d.notes || '',
+          d.component_type || '',
+        ].join(' ').toLowerCase(),
       });
     }
 
