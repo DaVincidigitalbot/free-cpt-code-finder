@@ -1792,11 +1792,13 @@ async function loadCptSearchIndex(){
   const paymentByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.estimated_medicare_payment||0)]));
   const totalRvuByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.total_rvu||0)]));
   const addonByCode=new Map(external.map(entry=>[String(entry.code||''),!!entry.addon_code]));
+  const externalTermsByCode=new Map(external.map(entry=>[String(entry.code||''),normalizeSearchValue(`${(entry.search_terms||[]).join(' ')} ${(entry.specialty_aliases||[]).join(' ')} ${entry.notes||''} ${entry.component_type||''}`)]));
   const specIndex=dedupeSearchIndexByCode(buildSearchIndexFromSpecs().map(item=>({
    ...item,
    estimatedPayment:paymentByCode.get(item.code)||0,
    totalRvu:totalRvuByCode.get(item.code)||0,
-   addonCode:addonByCode.get(item.code)||false
+   addonCode:addonByCode.get(item.code)||false,
+   haystack:normalizeSearchValue(`${item.haystack||''} ${externalTermsByCode.get(item.code)||''}`)
   })));
   const seen=new Set(specIndex.map(item=>item.code));
 	  const externalIndex=external.slice(0,4000).map(entry=>({
