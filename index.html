@@ -71,7 +71,7 @@ a{color:inherit;text-decoration:none}
 .autocomplete-item:first-child{border-top:0}
 .autocomplete-item:hover,.autocomplete-item.active{background:var(--ox2)}
 .autocomplete-main{flex:1;min-width:0}
-.autocomplete-title{font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.autocomplete-title{font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .autocomplete-meta{margin-top:3px;font-size:11px;color:var(--ink2);font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;display:flex;gap:8px;flex-wrap:wrap}
 .autocomplete-code{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:12px;font-weight:600;color:var(--ox);white-space:nowrap}
 .autocomplete-action{font-size:11px;color:var(--ink3);white-space:nowrap;padding-top:1px}
@@ -110,7 +110,9 @@ a{color:inherit;text-decoration:none}
 .proc{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:7px 8px;border-radius:5px;cursor:pointer;font-size:13px;transition:background .1s;position:relative}
 .proc:hover{background:var(--ox2)}
 .proc.has-lat{cursor:pointer}
-.proc-n{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.proc-n{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+[data-full-desc]{cursor:help}
+[data-full-desc]:focus-visible{outline:2px solid var(--ox);outline-offset:2px;border-radius:4px}
 .proc-c{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:11px;color:var(--ox);font-weight:500}
 .proc-w{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:11px;color:var(--ink2);min-width:36px;text-align:right}
 .proc-bi{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:9px;color:var(--ink3);margin-left:6px;opacity:.6}
@@ -186,7 +188,7 @@ a{color:inherit;text-decoration:none}
 .mpick-cancel{font-size:11px;color:var(--ink3);background:none;border:0;cursor:pointer;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace}
 .mpick-cancel:hover{color:var(--ox)}
 .mpick-foot .k{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:10px;color:var(--ink3)}
-.rd{font-size:11px;color:var(--ink2);line-height:1.4;margin-bottom:4px}
+.rd{font-size:11px;color:var(--ink2);line-height:1.4;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rw{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:11px;display:flex;justify-content:space-between}
 .rw .rwl{color:var(--ink3)}
 .ctrls{padding:14px 0 10px;border-top:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
@@ -198,6 +200,9 @@ a{color:inherit;text-decoration:none}
 .rf button{flex:1;padding:8px;border:1px solid var(--line2);border-radius:5px;font-size:11px;color:var(--ink2);font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;transition:all .1s}
 .rf button:hover{border-color:var(--ink);color:var(--ink)}
 .rf button.danger:hover{border-color:var(--ox);color:var(--ox)}
+.desc-popover{position:fixed;z-index:5000;max-width:min(520px,calc(100vw - 28px));padding:11px 13px;border:1px solid var(--line2);border-radius:8px;background:var(--white);color:var(--ink);box-shadow:0 18px 48px rgba(10,10,10,.18);font-size:12px;line-height:1.45;overflow-wrap:anywhere;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+.desc-popover.show{opacity:1;transform:translateY(0)}
+html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 
 /* AI ASSISTANT */
 .ai-launch{position:fixed;right:22px;bottom:22px;z-index:120;display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:999px;background:var(--ox);color:var(--white);box-shadow:0 18px 36px rgba(10,10,10,.18);font-weight:600;letter-spacing:-.01em}
@@ -632,7 +637,7 @@ function renderSpecs(){
       <button class=\"lat-chip approach-chip\" data-v=\"robotic\" onclick=\"setApproach(${si},${pi},'robotic',event)\">Robotic</button>
      </div>`:'';
     return `<div class=\"proc ${biClass}\" id=\"p${si}-${pi}\" data-approach=\"${approachMode}\" onclick=\"onProcClick(${si},${pi},event)\">
-     <div class=\"proc-n\">${displayDesc}${biLabel}</div>
+     <div class=\"proc-n\"${tooltipAttrs(desc)}>${displayDesc}${biLabel}</div>
      <div class=\"proc-c\">${cpt}</div>
      <div class=\"proc-w\">${wNum.toFixed(2)}</div>
      ${biVal===1?`<div class=\"lat-tray\">${approachTray}
@@ -913,7 +918,12 @@ let mpickLineId=null,mpickIndex=0;
 function openMpick(lineId,opts={}){
  const line=caseLines.find(l=>l.id===lineId);if(!line)return;
  mpickLineId=lineId;
- document.getElementById('mpick-title').textContent=`${line.cpt} · ${line.desc}`;
+ const mpickTitle=document.getElementById('mpick-title');
+ mpickTitle.textContent=`${line.cpt} · ${line.desc}`;
+ mpickTitle.setAttribute('title',line.desc);
+ mpickTitle.setAttribute('data-full-desc',line.desc);
+ mpickTitle.setAttribute('tabindex','0');
+ mpickTitle.setAttribute('aria-describedby','descTooltip');
  const isEM=line.kind==='em';
  document.getElementById('mpick-sub').textContent=isEM?`Select E/M modifier`:`Select distinct-service modifier`;
  const primary=caseLines.filter(l=>l.kind==='proc')[0];
@@ -994,7 +1004,7 @@ function recalc(why){
    const canEditModifier=l.kind==='em'||(l.kind==='proc'&&rk>1&&!isAddonCode(l.cpt));
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
-    <div class="rd">${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
+    <div class="rd"${tooltipAttrs(l.desc)}>${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
     <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
@@ -1230,6 +1240,75 @@ const searchState={
 
 function normalizeSearchValue(value){
  return String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+}
+
+function escapeAttr(value){
+ return String(value||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function tooltipAttrs(description){
+ const text=String(description||'').trim();
+ if(!text)return '';
+ const escaped=escapeAttr(text);
+ return ' data-full-desc="'+escaped+'" title="'+escaped+'" tabindex="0" aria-describedby="descTooltip"';
+}
+
+function bindDescriptionTooltips(){
+ const tooltip=document.createElement('div');
+ tooltip.id='descTooltip';
+ tooltip.className='desc-popover';
+ tooltip.setAttribute('role','tooltip');
+ tooltip.setAttribute('aria-hidden','true');
+ document.body.appendChild(tooltip);
+ let active=null;
+ let shownAt=0;
+ const targetFromEvent=e=>e.target.closest('[data-full-desc]');
+ const place=(el)=>{
+  if(!el)return;
+  const text=el.getAttribute('data-full-desc')||'';
+  if(!text)return;
+  active=el;
+  shownAt=Date.now();
+  tooltip.textContent=text;
+  tooltip.setAttribute('aria-hidden','false');
+  tooltip.classList.add('show');
+  const rect=el.getBoundingClientRect();
+  const margin=14;
+  const width=Math.min(520,window.innerWidth-margin*2);
+  tooltip.style.maxWidth=width+'px';
+  tooltip.style.left=margin+'px';
+  tooltip.style.top=margin+'px';
+  const tip=tooltip.getBoundingClientRect();
+  const tipWidth=tip.width||width;
+  const tipHeight=tip.height||64;
+  let left=Math.min(Math.max(rect.left,margin),window.innerWidth-tipWidth-margin);
+  let top=rect.bottom+8;
+  if(top+tipHeight>window.innerHeight-margin)top=rect.top-tipHeight-8;
+  top=Math.min(Math.max(top,margin),Math.max(margin,window.innerHeight-tipHeight-margin));
+  tooltip.style.left=left+'px';
+  tooltip.style.top=top+'px';
+ };
+ const hide=()=>{
+  active=null;
+  tooltip.classList.remove('show');
+  tooltip.setAttribute('aria-hidden','true');
+ };
+ document.addEventListener('mouseover',e=>{const el=targetFromEvent(e);if(el)place(el)});
+ document.addEventListener('focusin',e=>{const el=targetFromEvent(e);if(el)place(el)});
+document.addEventListener('click',e=>{
+ const el=targetFromEvent(e);
+  if(el){e.preventDefault();e.stopPropagation();place(el);return}
+ hide();
+},true);
+ document.addEventListener('mouseout',e=>{
+  if(active&&e.target.closest('[data-full-desc]')===active&&!active.contains(e.relatedTarget))hide();
+ });
+ document.addEventListener('focusout',e=>{
+  if(active&&e.target.closest('[data-full-desc]')===active)hide();
+ });
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+ window.addEventListener('scroll',()=>{if(Date.now()-shownAt>150)hide()},true);
+ window.addEventListener('resize',hide);
 }
 
 function normalizeCptDatabaseRows(data){
@@ -1575,7 +1654,7 @@ function renderAutocompleteResults(){
   box.classList.remove('show');
   return;
  }
- box.innerHTML=`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title">${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
+ box.innerHTML=`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title"${tooltipAttrs(item.description||item.specialty)}>${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>$${Number(item.estimatedPayment||0).toFixed(2)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
  box.classList.add('show');
 }
 
@@ -1820,6 +1899,7 @@ document.getElementById('themeToggle').addEventListener('click',e=>{
  applyTheme(next);
 });
 
+bindDescriptionTooltips();
 renderSpecs();
 renderGuidedCards();
 </script><style>.site-footer{margin-top:36px;background:var(--ink);color:#D7DFEA}.site-footer-inner{max-width:1200px;margin:0 auto;padding:32px 40px}.site-footer-brand{font-size:14px;font-weight:700;color:var(--white)}.site-footer-copy{margin-top:10px;font-size:14px;line-height:1.7;color:#D7DFEA;max-width:980px}.site-footer-copy strong{color:var(--white)}.site-footer-nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.site-footer-nav a{color:#8ec5ff;text-decoration:none;font-size:14px}@media(max-width:1000px){.site-footer-inner{padding:24px 20px}}</style><footer class="site-footer">

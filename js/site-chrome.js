@@ -45,6 +45,91 @@
       });
     });
   }
+  function bindDescriptionTooltips(scope = document) {
+    if (!document.body || document.body.dataset.descTooltipBound === "1") return;
+    document.body.dataset.descTooltipBound = "1";
+    const tooltip = document.createElement("div");
+    tooltip.id = "descTooltip";
+    tooltip.className = "desc-popover";
+    tooltip.setAttribute("role", "tooltip");
+    tooltip.setAttribute("aria-hidden", "true");
+    document.body.appendChild(tooltip);
+    let active = null;
+    let shownAt = 0;
+    const targetFromEvent = (e) => e.target.closest("[data-full-desc]");
+    const place = (el) => {
+      const text = el && el.getAttribute("data-full-desc");
+      if (!text) return;
+      active = el;
+      shownAt = Date.now();
+      tooltip.textContent = text;
+      tooltip.setAttribute("aria-hidden", "false");
+      tooltip.classList.add("show");
+      const rect = el.getBoundingClientRect();
+      const margin = 14;
+      const width = Math.min(520, window.innerWidth - margin * 2);
+      tooltip.style.maxWidth = width + "px";
+      tooltip.style.left = margin + "px";
+      tooltip.style.top = margin + "px";
+      const tip = tooltip.getBoundingClientRect();
+      const tipWidth = tip.width || width;
+      const tipHeight = tip.height || 64;
+      let left = Math.min(Math.max(rect.left, margin), window.innerWidth - tipWidth - margin);
+      let top = rect.bottom + 8;
+      if (top + tipHeight > window.innerHeight - margin) top = rect.top - tipHeight - 8;
+      top = Math.min(Math.max(top, margin), Math.max(margin, window.innerHeight - tipHeight - margin));
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    };
+    const hide = () => {
+      active = null;
+      tooltip.classList.remove("show");
+      tooltip.setAttribute("aria-hidden", "true");
+    };
+    document.addEventListener("mouseover", (e) => {
+      const el = targetFromEvent(e);
+      if (el) place(el);
+    });
+    document.addEventListener("focusin", (e) => {
+      const el = targetFromEvent(e);
+      if (el) place(el);
+    });
+    document.addEventListener("click", (e) => {
+      const el = targetFromEvent(e);
+      if (el) {
+        e.preventDefault();
+        e.stopPropagation();
+        place(el);
+        return;
+      }
+      hide();
+    }, true);
+    document.addEventListener("mouseout", (e) => {
+      if (active && e.target.closest("[data-full-desc]") === active && !active.contains(e.relatedTarget)) hide();
+    });
+    document.addEventListener("focusout", (e) => {
+      if (active && e.target.closest("[data-full-desc]") === active) hide();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") hide();
+    });
+    window.addEventListener("scroll", () => { if (Date.now() - shownAt > 150) hide(); }, true);
+    window.addEventListener("resize", hide);
+  }
+  function enhanceDescriptionTooltipTargets(scope = document) {
+    scope
+      .querySelectorAll(".code-card .desc, .code-card .code-desc, .code-card p, td")
+      .forEach((el) => {
+        if (el.dataset.fullDesc) return;
+        const text = (el.textContent || "").trim();
+        if (text.length < 42) return;
+        el.dataset.fullDesc = text;
+        el.setAttribute("title", text);
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("aria-describedby", "descTooltip");
+      });
+    bindDescriptionTooltips(scope);
+  }
   applyTheme(getPreferredTheme());
   const root = relRoot();
   const path =
@@ -91,8 +176,9 @@
     if (mountHeader) mountHeader.innerHTML = header;
     const mountFooter = document.querySelector("[data-site-footer]");
     if (mountFooter) mountFooter.innerHTML = footer;
-    bindThemeToggles(document);
-    applyTheme(getPreferredTheme());
+	    bindThemeToggles(document);
+	    enhanceDescriptionTooltipTargets(document);
+	    applyTheme(getPreferredTheme());
     const btn = document.querySelector(".site-menu-btn");
     const mobile = document.getElementById("site-mobile-nav");
     if (btn && mobile) {
