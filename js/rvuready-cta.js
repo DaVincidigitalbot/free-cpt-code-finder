@@ -42,14 +42,11 @@
       });
     }
     const body = JSON.stringify(payload);
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("https://free-cpt-code-finder.onrender.com/rvuready-analytics", new Blob([body], { type: "application/json" }));
-      return;
-    }
     fetch("https://free-cpt-code-finder.onrender.com/rvuready-analytics", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body,
+      credentials: "omit",
       keepalive: true
     }).catch(function () {});
   }
