@@ -1,0 +1,83 @@
+{
+  "productionUrl": "https://freecptcodefinder.com",
+  "categoryCount": 41,
+  "targetCounts": {
+    "General Surgery": 848,
+    "Cardiothoracic Surgery": 43,
+    "Orthopedic Surgery": 3,
+    "Urology": 95,
+    "HPB Surgery": 12,
+    "Otolaryngology / ENT": 96,
+    "Pathology / Lab": 70
+  },
+  "cptRecordCount": 3875,
+  "removedPresent": [],
+  "badDbValues": {},
+  "searchResults": {
+    "colectomy": {
+      "expected": "44140",
+      "found": true
+    },
+    "CABG": {
+      "expected": "33533",
+      "found": true
+    },
+    "component separation": {
+      "expected": "15734",
+      "found": true
+    },
+    "fasciotomy": {
+      "expected": "27600",
+      "found": true
+    },
+    "nephrectomy": {
+      "expected": "50545",
+      "found": true
+    },
+    "Whipple": {
+      "expected": "48150",
+      "found": true
+    },
+    "hernia repair": {
+      "expected": "49505",
+      "found": true
+    },
+    "exploratory laparotomy": {
+      "expected": "49000",
+      "found": true
+    },
+    "tonsillectomy": {
+      "expected": "42825",
+      "found": true
+    },
+    "debridement": {
+      "expected": "11044",
+      "found": true
+    },
+    "sinus endoscopy": {
+      "expected": "31231",
+      "found": true
+    },
+    "splenectomy": {
+      "expected": "38100",
+      "found": true
+    },
+    "BMP": {
+      "expected": "80048",
+      "found": true
+    }
+  },
+  "caseBuilderHas44140": true,
+  "screenshots": [
+    "/tmp/freecpt-category-cleanup/qa_artifacts/category_cleanup_live_2026_06_17/production-desktop-case-builder-44140.png",
+    "/tmp/freecpt-category-cleanup/qa_artifacts/category_cleanup_live_2026_06_17/production-desktop-hpb-category.png",
+    "/tmp/freecpt-category-cleanup/qa_artifacts/category_cleanup_live_2026_06_17/production-desktop-search-whipple-48150.png",
+    "/tmp/freecpt-category-cleanup/qa_artifacts/category_cleanup_live_2026_06_17/production-desktop-specialty-tree-top.png",
+    "/tmp/freecpt-category-cleanup/qa_artifacts/category_cleanup_live_2026_06_17/production-mobile-ent-category.png",
+    "/tmp/freecpt-category-cleanup/qa_artifacts/category_cleanup_live_2026_06_17/production-validation.json"
+  ],
+  "errors": [],
+  "productionMainHead": "8296bccd",
+  "categoryCleanupCommit": "9fb393d5",
+  "bmpSynonymFollowupCommit": "8296bccd"
+}
