@@ -10,7 +10,8 @@
         "Colectomy",
         "Ventral Hernia Repair",
         "PEG Tube Placement",
-        "Tracheostomy"
+        "Tracheostomy",
+        "Transversus Abdominis Release (TAR)"
       ]
     },
     {
@@ -306,17 +307,50 @@
       ]
     },
     {
-      "slug": "tar",
-      "title": "TAR",
-      "summary": "Posterior component separation, transversus release, mesh position, and coding. Coming soon.",
+      "slug": "transversus-abdominis-release",
+      "title": "Transversus Abdominis Release (TAR)",
+      "summary": "Posterior component separation, retrorectus anatomy, TAR release plane, mesh strategy, bailout thinking, and abdominal wall reconstruction documentation.",
       "category": "General Surgery",
-      "status": "planned",
-      "mostViewedScore": 84,
+      "status": "live",
+      "mostViewedScore": 99,
       "cptCodes": [
         "15734",
         "49595",
-        "49617"
-      ]
+        "49596",
+        "49617",
+        "49618",
+        "49615",
+        "49613"
+      ],
+      "relatedProcedures": [
+        "Ventral Hernia Repair",
+        "Open Abdomen",
+        "Exploratory Laparotomy"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Ventral Hernia Repair CPT Guide",
+          "url": "/blog/guides/cpt-code-ventral-hernia-repair.html"
+        },
+        {
+          "title": "Modifier 22 Explained",
+          "url": "/blog/modifiers/modifier-22-explained.html"
+        },
+        {
+          "title": "Most Surgeons Under-Document Hard Cases",
+          "url": "/blog/modifiers/most-surgeons-under-document-hard-cases.html"
+        },
+        {
+          "title": "Common Modifier Mistakes Surgeons Make",
+          "url": "/blog/modifiers/common-modifier-mistakes-surgeons.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
+      ],
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 110
     },
     {
       "slug": "inguinal-hernia-repair",
@@ -2749,6 +2783,491 @@
         "bottomLine": "Treat the patient, not the device.",
         "id": "chest-tube-placement-31"
       }
+    ],
+    "transversus-abdominis-release": [
+      {
+        "level": "student",
+        "question": "What is a transversus abdominis release?",
+        "answer": "TAR is a posterior component separation that opens the transversus abdominis muscle medial to the linea semilunaris to extend the retromuscular/preperitoneal plane laterally.",
+        "bullets": [
+          "It preserves large skin and subcutaneous flaps compared with anterior component separation.",
+          "It creates a broad extraperitoneal mesh space.",
+          "It is used for complex ventral or incisional hernias when midline closure needs additional medial advancement."
+        ],
+        "bottomLine": "TAR is not just a bigger hernia repair; it is a controlled posterior abdominal wall reconstruction."
+      },
+      {
+        "level": "student",
+        "question": "Which layers form the classic retrorectus space?",
+        "answer": "The retrorectus space lies between the posterior surface of the rectus muscle and the posterior rectus sheath above the arcuate line.",
+        "bullets": [
+          "The rectus muscle and epigastric vessels are anterior.",
+          "The posterior sheath is posterior.",
+          "The plane is bounded laterally by the linea semilunaris unless extended by TAR."
+        ],
+        "bottomLine": "If you cannot name the layer in front of you and the layer behind you, you are not oriented."
+      },
+      {
+        "level": "student",
+        "question": "What is the linea semilunaris?",
+        "answer": "The linea semilunaris is the lateral border of the rectus sheath where the aponeuroses of the lateral abdominal wall contribute to the rectus sheath.",
+        "bullets": [
+          "It marks the lateral limit of simple retrorectus dissection.",
+          "Dissection too lateral without understanding the anatomy risks neurovascular injury.",
+          "TAR releases the transversus layer medial to this region to extend the plane laterally."
+        ],
+        "bottomLine": "The semilunar line is an anatomic boundary and a danger zone."
+      },
+      {
+        "level": "student",
+        "question": "Why are neurovascular bundles important during TAR?",
+        "answer": "The intercostal, subcostal, iliohypogastric, and ilioinguinal neurovascular bundles course laterally and enter the rectus complex; injury can denervate the abdominal wall.",
+        "bullets": [
+          "Denervation weakens the repair and can create bulging.",
+          "Lateral dissection must respect the perforating neurovascular anatomy.",
+          "A beautiful mesh plane is not a success if the abdominal wall is devascularized or denervated."
+        ],
+        "bottomLine": "TAR is a nerve-aware operation."
+      },
+      {
+        "level": "student",
+        "question": "What is the posterior sheath?",
+        "answer": "The posterior sheath is the posterior fascial layer of the rectus sheath above the arcuate line, formed by aponeurotic contributions of the lateral abdominal wall.",
+        "bullets": [
+          "It separates the retrorectus space from deeper preperitoneal/peritoneal layers.",
+          "It is commonly closed to keep mesh out of direct contact with bowel.",
+          "Posterior sheath quality determines whether the retromuscular plane can be safely reconstructed."
+        ],
+        "bottomLine": "Posterior sheath integrity is one of the central variables in TAR."
+      },
+      {
+        "level": "student",
+        "question": "What is the goal of mesh placement in TAR?",
+        "answer": "The goal is broad extraperitoneal mesh reinforcement, usually in a retromuscular/preperitoneal plane, with midline fascial closure when physiologically and anatomically possible.",
+        "bullets": [
+          "The mesh should reinforce the reconstructed abdominal wall.",
+          "Wide overlap matters.",
+          "Avoiding direct bowel contact is preferred when possible."
+        ],
+        "bottomLine": "The plane matters as much as the mesh."
+      },
+      {
+        "level": "student",
+        "question": "What is meant by a bridged repair?",
+        "answer": "A bridged repair uses mesh to span an unclosed fascial defect rather than reapproximating the fascia over the mesh.",
+        "bullets": [
+          "Bridging may be necessary in rare salvage situations.",
+          "It generally carries higher recurrence and bulge risk than fascial closure with reinforcement.",
+          "TAR is often used to avoid bridging by gaining medial advancement."
+        ],
+        "bottomLine": "TAR is often a strategy to close the abdominal wall, not merely to place a bigger mesh."
+      },
+      {
+        "level": "student",
+        "question": "What is loss of domain?",
+        "answer": "Loss of domain means a substantial portion of abdominal contents chronically lives outside the abdominal cavity, making reduction and closure physiologically hazardous.",
+        "bullets": [
+          "Closure can raise intra-abdominal pressure.",
+          "Patients may develop ventilatory compromise, renal hypoperfusion, or abdominal compartment physiology.",
+          "Preoperative planning may include weight loss, botulinum toxin, progressive pneumoperitoneum in selected centers, or staged repair."
+        ],
+        "bottomLine": "Loss of domain is a physiology problem, not just a large-hole problem."
+      },
+      {
+        "level": "student",
+        "question": "What is the difference between anterior and posterior component separation?",
+        "answer": "Anterior component separation releases the external oblique aponeurosis, often requiring broad skin/subcutaneous flaps; posterior component separation/TAR works through the retromuscular plane and releases the transversus abdominis.",
+        "bullets": [
+          "Anterior release can be effective but has wound morbidity when large flaps are raised.",
+          "Posterior release preserves anterior perforators better.",
+          "TAR creates a large extraperitoneal mesh space."
+        ],
+        "bottomLine": "The release you choose changes the wound risk, mesh plane, and anatomy you must protect."
+      },
+      {
+        "level": "student",
+        "question": "Why does wound class matter in TAR?",
+        "answer": "Wound class affects mesh selection, infection risk, staging decisions, and whether permanent synthetic mesh is appropriate.",
+        "bullets": [
+          "Clean elective cases often support permanent synthetic mesh in a retromuscular plane.",
+          "Contaminated or dirty cases require caution and may require biologic/biosynthetic mesh, delayed reconstruction, or staged management depending on context.",
+          "An enterotomy changes the operation because it changes contamination."
+        ],
+        "bottomLine": "Mesh selection follows the field, not the surgeon’s preference alone."
+      },
+      {
+        "level": "student",
+        "question": "What should be documented when TAR is performed?",
+        "answer": "Document defect size, initial versus recurrent status, reducible/incarcerated/strangulated status, release performed, laterality/bilaterality if relevant, mesh plane/type/size, posterior layer closure, contamination, and complications such as enterotomy.",
+        "bullets": [
+          "Component separation documentation must describe the actual reconstructive work.",
+          "Defect size should be measured after reduction.",
+          "Contamination and mesh strategy must be explicit."
+        ],
+        "bottomLine": "If the reconstruction is complex, the note must explain why."
+      },
+      {
+        "level": "student",
+        "question": "Which CPT code is commonly reviewed for trunk component separation or myofascial flap work?",
+        "answer": "CPT 15734 is commonly reviewed for muscle, myocutaneous, or fasciocutaneous flap of the trunk, depending on the documented work and payer rules.",
+        "bullets": [
+          "Use coding guidance and payer policy.",
+          "Do not assume every hernia repair includes separately reportable component separation.",
+          "The operative note must support the actual flap/release work."
+        ],
+        "bottomLine": "Coding follows documented anatomy and work, not the phrase “complex hernia.”"
+      },
+      {
+        "level": "resident",
+        "question": "When is TAR most useful?",
+        "answer": "TAR is most useful for complex midline ventral or incisional hernias where primary fascial closure is under excessive tension and a large extraperitoneal mesh plane is needed.",
+        "bullets": [
+          "Large defects, recurrent defects, lateral retraction, and prior mesh can push the plan toward TAR.",
+          "The indication is stronger when retrorectus repair alone will not provide enough medial advancement.",
+          "TAR should be planned, not used as a panic maneuver after the posterior layer is destroyed."
+        ],
+        "bottomLine": "Use TAR when it solves a real tension and plane problem."
+      },
+      {
+        "level": "resident",
+        "question": "When is TAR a bad idea?",
+        "answer": "TAR is a bad idea when patient physiology, wound contamination, tissue quality, or surgeon/team capability makes a long reconstructive operation unsafe.",
+        "bullets": [
+          "Sepsis, uncontrolled contamination, severe malnutrition, uncontrolled diabetes, active smoking, severe obesity, and inability to tolerate abdominal domain restoration are cautions.",
+          "In a dirty field, a shorter source-control operation or staged reconstruction may be safer.",
+          "If closure causes dangerous physiology, the operation must change."
+        ],
+        "bottomLine": "A technically possible TAR is not always a good operation."
+      },
+      {
+        "level": "resident",
+        "question": "Where should the TAR incision be made?",
+        "answer": "The release is typically made in the posterior rectus sheath medial to the linea semilunaris to expose and divide the transversus abdominis while protecting neurovascular structures.",
+        "bullets": [
+          "Stay oriented to rectus muscle, posterior sheath, transversus muscle, and peritoneum.",
+          "Too lateral risks neurovascular injury.",
+          "Too medial or too deep can destroy posterior layer or enter the peritoneal cavity unnecessarily."
+        ],
+        "bottomLine": "The release is precise; it is not a blind lateral slash."
+      },
+      {
+        "level": "resident",
+        "question": "How do you recognize the correct TAR plane?",
+        "answer": "After incising the posterior lamella and transversus muscle, the correct plane develops deep to transversus and superficial to transversalis fascia/peritoneum, extending laterally as an extraperitoneal space.",
+        "bullets": [
+          "The plane should open with relatively bloodless blunt and sharp dissection when correct.",
+          "Peritoneal rents are common but should be controlled.",
+          "If you are seeing muscle fibers in the wrong direction or uncontrolled bleeding, reassess the layer."
+        ],
+        "bottomLine": "Plane recognition is the operation."
+      },
+      {
+        "level": "resident",
+        "question": "What are the key steps of a posterior component separation with TAR?",
+        "answer": "Enter the retrorectus space, dissect to the lateral boundary, incise the posterior sheath medial to semilunar line, divide transversus, develop the lateral extraperitoneal plane, close the posterior layer, place large mesh, then close anterior fascia when safe.",
+        "bullets": [
+          "Do both sides as needed.",
+          "Protect posterior layer continuity.",
+          "Avoid tension and dead space where possible."
+        ],
+        "bottomLine": "TAR is a sequence; skipping anatomy steps creates complications."
+      },
+      {
+        "level": "resident",
+        "question": "What do you do if the posterior sheath tears?",
+        "answer": "First define the size and location of the defect, then repair it if possible with absorbable suture, use adjacent peritoneum or posterior sheath advancement when available, consider omentum or alternate barrier strategy, and reassess whether mesh can remain extraperitoneal.",
+        "bullets": [
+          "Small rents are common and repairable.",
+          "Large loss of posterior layer may force a different mesh choice, plane, or staged strategy.",
+          "Do not ignore a posterior layer defect that leaves permanent mesh directly against bowel unless that is an intentional and appropriate mesh decision."
+        ],
+        "bottomLine": "Posterior sheath failure is a decision point, not a nuisance."
+      },
+      {
+        "level": "resident",
+        "question": "How does an enterotomy change TAR?",
+        "answer": "An enterotomy changes wound class, infection risk, mesh selection, and whether definitive reconstruction should proceed.",
+        "bullets": [
+          "Recognize and control the injury immediately.",
+          "Repair or resect as indicated, irrigate, and reassess contamination.",
+          "A clean, immediately repaired serosal injury is different from gross spillage or devitalized bowel."
+        ],
+        "bottomLine": "The bowel injury now owns the operation."
+      },
+      {
+        "level": "resident",
+        "question": "How should mesh selection change by wound class?",
+        "answer": "Clean cases generally favor permanent synthetic mesh in a retromuscular/preperitoneal plane; clean-contaminated cases require judgment; contaminated or dirty cases may require staged reconstruction, biosynthetic/biologic options, or delayed permanent mesh.",
+        "bullets": [
+          "Institutional practice and patient factors matter.",
+          "Macroporous synthetic mesh may be used selectively in some contaminated fields, but this is not a reflex decision.",
+          "Gross contamination and uncontrolled source control argue against a heroic permanent reconstruction."
+        ],
+        "bottomLine": "Mesh choice is a risk decision, not a brand decision."
+      },
+      {
+        "level": "resident",
+        "question": "What is the major advantage of retrorectus mesh?",
+        "answer": "Retrorectus mesh sits in a well-vascularized extraperitoneal plane with broad overlap and avoids direct visceral contact when the posterior layer is intact.",
+        "bullets": [
+          "The plane is durable and broadly accepted for complex abdominal wall repair.",
+          "It allows force distribution across the abdominal wall.",
+          "It pairs naturally with posterior component separation/TAR."
+        ],
+        "bottomLine": "Retrorectus is the workhorse plane because it respects biology and mechanics."
+      },
+      {
+        "level": "resident",
+        "question": "Why is onlay mesh less attractive in many complex TAR-type cases?",
+        "answer": "Onlay mesh requires subcutaneous flap creation and sits in a wound-prone plane, increasing seroma and wound morbidity risk in many patients.",
+        "bullets": [
+          "Onlay can be appropriate in selected cases.",
+          "It does not solve posterior layer or intra-abdominal domain problems.",
+          "It may not provide the same mechanical reconstruction as a broad retromuscular repair."
+        ],
+        "bottomLine": "Onlay is a tool, not the default flagship reconstructive plane."
+      },
+      {
+        "level": "resident",
+        "question": "Why is intraperitoneal mesh less desirable when an extraperitoneal plane is possible?",
+        "answer": "Intraperitoneal mesh can contact bowel and may increase concerns about adhesions, fistula, erosion, or difficult reoperation depending on mesh type and patient context.",
+        "bullets": [
+          "Barrier meshes exist but do not make the plane equivalent to retrorectus.",
+          "Prior contamination or bowel injury increases concern.",
+          "When the posterior layer can be reconstructed, extraperitoneal placement is usually preferable."
+        ],
+        "bottomLine": "Keep mesh away from bowel when you can do so safely."
+      },
+      {
+        "level": "resident",
+        "question": "What is a common failure mode after TAR?",
+        "answer": "Common failure modes include lateral release-site problems, midline recurrence from tension or poor closure, bulging from denervation, mesh infection, seroma, and recurrence from inadequate overlap or poor tissue biology.",
+        "bullets": [
+          "Not every postoperative bulge is a true fascial recurrence.",
+          "Denervation can produce functional bulging.",
+          "Patient optimization and technique both matter."
+        ],
+        "bottomLine": "Failures often start with the original indication, plane, or tissue handling."
+      },
+      {
+        "level": "resident",
+        "question": "What is the bailout if fascial closure causes high airway pressures or hypotension?",
+        "answer": "Stop forcing closure, release tension if anatomically appropriate, reassess volume/paralysis/ventilation, consider staged closure or temporary abdominal closure, and prioritize physiology over reconstruction.",
+        "bullets": [
+          "Loss of domain can create abdominal compartment physiology.",
+          "A closed abdomen that the patient cannot tolerate is not a success.",
+          "Document the physiologic reason for changing strategy."
+        ],
+        "bottomLine": "The patient’s physiology outranks the planned repair."
+      },
+      {
+        "level": "resident",
+        "question": "How do you document component separation correctly?",
+        "answer": "Describe the release performed, anatomic planes entered, whether unilateral or bilateral, the purpose of the release, posterior layer reconstruction, mesh plane and size, and how the release enabled fascial closure.",
+        "bullets": [
+          "Do not just write “component separation performed.”",
+          "Specify TAR/posterior component separation if that is what was done.",
+          "Tie the work to the abdominal wall reconstruction."
+        ],
+        "bottomLine": "The note must make the reconstructive work legible."
+      },
+      {
+        "level": "resident",
+        "question": "How should prior mesh affect TAR planning?",
+        "answer": "Prior mesh affects adhesiolysis risk, plane availability, infection risk, and whether explantation or partial incorporation changes the reconstruction.",
+        "bullets": [
+          "Old intraperitoneal mesh may make bowel injury more likely.",
+          "Old retrorectus mesh can obliterate the workhorse plane.",
+          "Infected mesh changes the operation toward source control and reconstruction planning."
+        ],
+        "bottomLine": "Prior mesh is not just history; it is anatomy."
+      },
+      {
+        "level": "resident",
+        "question": "How do you decide between unilateral and bilateral TAR?",
+        "answer": "The decision depends on defect width, lateral fascial retraction, ability to close midline without tension, and whether one-sided release provides adequate advancement and mesh space.",
+        "bullets": [
+          "Do not perform bilateral TAR reflexively.",
+          "Do not under-release and then close under dangerous tension.",
+          "The release should match the reconstructive problem."
+        ],
+        "bottomLine": "The right amount of release is the amount that achieves durable, safe closure."
+      },
+      {
+        "level": "resident",
+        "question": "Why is centralization of the rectus complex important?",
+        "answer": "Centralization restores abdominal wall mechanics by bringing rectus muscles and fascia back toward the midline rather than leaving a wide bridged gap.",
+        "bullets": [
+          "It improves force transmission and abdominal wall function.",
+          "It reduces bulge compared with bridging when feasible.",
+          "It requires enough release and safe posterior layer reconstruction."
+        ],
+        "bottomLine": "You are rebuilding a functional wall, not covering a hole."
+      },
+      {
+        "level": "resident",
+        "question": "What should be considered before elective TAR in a smoker or poorly controlled diabetic?",
+        "answer": "Elective reconstruction should usually be delayed for optimization when possible because wound morbidity, infection, recurrence, and mesh complications are higher.",
+        "bullets": [
+          "Optimization may include smoking cessation, glycemic control, weight loss, nutrition, and skin/soft-tissue planning.",
+          "Emergent incarceration or obstruction may change priorities.",
+          "The threshold for staged or limited surgery is lower in hostile biology."
+        ],
+        "bottomLine": "Optimization is part of the operation."
+      },
+      {
+        "level": "resident",
+        "question": "What is the relationship between TAR and the arcuate line?",
+        "answer": "Below the arcuate line there is no robust posterior rectus sheath, so the posterior plane transitions into preperitoneal/transversalis fascia dissection and requires careful layer management.",
+        "bullets": [
+          "Plane confusion is common caudally.",
+          "Peritoneal rents may be more frequent.",
+          "Inferior mesh overlap still matters."
+        ],
+        "bottomLine": "The posterior layer changes below the arcuate line; your dissection must change with it."
+      },
+      {
+        "level": "resident",
+        "question": "What is the safest response to uncontrolled bleeding in the lateral TAR plane?",
+        "answer": "Stop, compress, improve exposure, identify the source, and control it precisely; do not keep sweeping laterally while losing orientation.",
+        "bullets": [
+          "Bleeding often means you are too lateral, off plane, or injuring perforators/neurovascular structures.",
+          "Energy near nerves should be used cautiously.",
+          "Calling for help early is better than extending the injury."
+        ],
+        "bottomLine": "Loss of hemostasis is often loss of the plane."
+      },
+      {
+        "level": "oral_boards",
+        "question": "You planned a clean TAR, but during adhesiolysis you create a 1 cm full-thickness enterotomy with minimal spillage. What is your operative decision?",
+        "answer": "Control the bowel injury immediately, repair or resect based on bowel quality, irrigate, reassess contamination and patient factors, and decide whether definitive reconstruction with mesh remains appropriate.",
+        "bullets": [
+          "A small controlled enterotomy is not the same as gross fecal contamination.",
+          "Mesh choice and whether to proceed depend on field contamination, bowel quality, patient risk, and institutional practice.",
+          "The documentation should explicitly describe the enterotomy, repair, wound class, irrigation, mesh decision, and rationale."
+        ],
+        "bottomLine": "After enterotomy, the safest decision is individualized risk management, not automatic completion or automatic abandonment."
+      },
+      {
+        "level": "oral_boards",
+        "question": "During closure after bilateral TAR, peak airway pressures rise and the anesthesiologist reports worsening ventilation. What do you do?",
+        "answer": "Stop tightening the abdomen, release the closure if needed, reassess paralysis and volume status, evaluate for abdominal compartment physiology, and convert to a staged or temporary closure strategy if physiology does not tolerate definitive closure.",
+        "bullets": [
+          "Do not accept dangerous physiology to achieve a technically closed fascia.",
+          "Loss of domain should be anticipated preoperatively, but intraoperative physiology is decisive.",
+          "Document the physiologic intolerance and the staged plan."
+        ],
+        "bottomLine": "A forced closure that creates organ dysfunction is a complication, not a victory."
+      },
+      {
+        "level": "oral_boards",
+        "question": "You cannot close the posterior layer after TAR because the sheath is shredded and peritoneum is thin. What are your options?",
+        "answer": "Options include repairing what can be repaired, using adjacent peritoneum/hernia sac/omentum as a barrier when appropriate, changing mesh type or plane, placing mesh only if bowel protection is acceptable, staging reconstruction, or aborting definitive mesh repair.",
+        "bullets": [
+          "Permanent synthetic mesh directly against bowel is not the same decision as extraperitoneal retromuscular mesh.",
+          "Large posterior layer loss should force a deliberate mesh strategy.",
+          "A staged plan may be safer than a compromised definitive repair."
+        ],
+        "bottomLine": "Posterior layer failure changes the mesh decision."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A patient has a massive recurrent hernia, BMI 48, active smoking, A1c 10.2, and no obstruction. They request immediate TAR. What is your recommendation?",
+        "answer": "Recommend against elective immediate TAR and pursue optimization, risk counseling, and staged planning unless urgent symptoms change the risk-benefit balance.",
+        "bullets": [
+          "The case has high wound, infection, respiratory, and recurrence risk.",
+          "Optimization is not denial of care; it is part of durable reconstruction.",
+          "Shared decision-making should include recurrence, mesh infection, pulmonary complications, and alternatives."
+        ],
+        "bottomLine": "The right operation at the wrong time is still the wrong operation."
+      },
+      {
+        "level": "oral_boards",
+        "question": "You discover gross contamination from an unrecognized enteric fistula during planned TAR. What is the safest strategy?",
+        "answer": "Prioritize source control: control or resect the fistula/bowel source, manage contamination, avoid heroic permanent synthetic reconstruction in a dirty field, and consider staged abdominal wall reconstruction after recovery.",
+        "bullets": [
+          "The operation has changed from elective reconstruction to contaminated source control.",
+          "Temporary closure, drain strategy, delayed mesh, or biologic/biosynthetic options may be considered based on patient and field.",
+          "Document the change in wound class and rationale for staging."
+        ],
+        "bottomLine": "Dirty field plus complex reconstruction is where judgment matters more than ambition."
+      },
+      {
+        "level": "oral_boards",
+        "question": "You are asked to justify TAR instead of a bridged intraperitoneal mesh repair for a large midline defect. What is your reasoning?",
+        "answer": "TAR can restore midline fascial closure, centralize the rectus complex, create a large extraperitoneal mesh plane, avoid direct mesh-bowel contact, and reduce reliance on a bridged repair when anatomy and physiology allow.",
+        "bullets": [
+          "Bridging may have higher recurrence and bulge risk.",
+          "Intraperitoneal mesh may create future visceral interface problems.",
+          "The argument fails if the patient cannot tolerate closure or the field is not appropriate."
+        ],
+        "bottomLine": "TAR is justified when it improves abdominal wall mechanics and mesh biology without exceeding patient risk."
+      },
+      {
+        "level": "oral_boards",
+        "question": "After unilateral TAR you still cannot close the midline without tension. What is your next move?",
+        "answer": "Reassess the plane and release, ensure adequate mobilization, consider contralateral TAR if appropriate, reassess loss-of-domain physiology, and choose staged closure or bridging only if safer options are exhausted.",
+        "bullets": [
+          "Do not simply pull harder.",
+          "Failure of unilateral release may mean the defect requires bilateral release or a different plan.",
+          "The final strategy must balance closure tension against physiologic tolerance."
+        ],
+        "bottomLine": "Tension is information; respond to it, do not ignore it."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A postoperative TAR patient develops fever, tachycardia, increasing pain, and leukocytosis on POD 4. What are you worried about?",
+        "answer": "You should worry about missed enterotomy, intra-abdominal abscess, mesh infection, wound infection, hematoma/seroma infection, or early fascial failure depending on the exam and imaging.",
+        "bullets": [
+          "Do not dismiss early systemic signs as routine postoperative pain.",
+          "CT imaging, labs, wound evaluation, and source control decisions are often needed.",
+          "Mesh salvage versus removal depends on source, organism burden, mesh type, and patient stability."
+        ],
+        "bottomLine": "After complex reconstruction, sepsis is a source-control problem until proven otherwise."
+      },
+      {
+        "level": "oral_boards",
+        "question": "In a recurrent hernia after prior anterior component separation, why might TAR be attractive?",
+        "answer": "TAR uses a posterior plane that may remain available after prior anterior release and avoids re-raising compromised skin flaps.",
+        "bullets": [
+          "Prior anterior release increases concern for wound vascularity.",
+          "Posterior dissection may provide a new reconstructive plane.",
+          "Prior mesh and scarring still require careful preoperative planning."
+        ],
+        "bottomLine": "TAR can be valuable because it approaches the abdominal wall from a different plane."
+      },
+      {
+        "level": "oral_boards",
+        "question": "You finish TAR with a clean field and broad retromuscular mesh, but the anterior fascia will not close centrally. What do you document and why?",
+        "answer": "Document the reason fascial closure was not possible, releases performed, residual defect/bridge if any, mesh size and plane, overlap, tissue quality, physiologic constraints, and why the chosen strategy was safest.",
+        "bullets": [
+          "A bridged or partially bridged repair needs explicit rationale.",
+          "The note should distinguish technical limitation from planned reconstruction.",
+          "This affects recurrence counseling and coding review."
+        ],
+        "bottomLine": "If the reconstruction is not ideal, the note must explain the judgment."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A patient with cirrhosis and uncontrolled ascites has a large reducible ventral hernia. Is elective TAR appropriate?",
+        "answer": "Usually no; uncontrolled ascites substantially increases wound complications, leak, infection, recurrence, and mortality risk. Optimize ascites and liver status first unless emergent incarceration, strangulation, or skin compromise changes the equation.",
+        "bullets": [
+          "Ascites control is part of hernia management.",
+          "Mesh reconstruction in uncontrolled ascites is high risk.",
+          "Emergent indications may force a limited or staged approach."
+        ],
+        "bottomLine": "Cirrhosis physiology can make elegant abdominal wall reconstruction unsafe."
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you explain TAR to a resident in one sentence during the case?",
+        "answer": "We are extending the retrorectus repair laterally by releasing transversus so we can close the midline and place a large extraperitoneal mesh without raising big skin flaps.",
+        "bullets": [
+          "This captures the plane, release, closure goal, and wound advantage.",
+          "It also reminds the resident that TAR is not the mesh; TAR creates the space and advancement."
+        ],
+        "bottomLine": "Teach the operation as anatomy plus purpose."
+      }
     ]
   },
   "caseChallenges": {
@@ -3829,6 +4348,234 @@
           "codingDocumentationPearl": "Document air leak grade/persistence, tube position and side-hole location, suction/water seal status, system troubleshooting, imaging, repositioning/additional tube decision, and escalation for bronchopleural fistula or lung injury."
         }
       }
+    ],
+    "transversus-abdominis-release": [
+      {
+        "title": "Enterotomy during planned TAR",
+        "focus": "Contamination / Mesh Strategy",
+        "history": "A 62-year-old man with a recurrent 14 cm midline incisional hernia presents for elective open posterior component separation with TAR. He has prior small bowel obstruction surgery and old intraperitoneal mesh.",
+        "physical": "Large reducible midline hernia, healed laparotomy scar, no cellulitis, soft abdomen.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 82",
+          "BP 138/76",
+          "RR 16",
+          "SpO2 98% on room air"
+        ],
+        "labs": [
+          "WBC 7.4",
+          "Hgb 13.6",
+          "Cr 0.9",
+          "Albumin 3.7",
+          "A1c 6.8"
+        ],
+        "imaging": "CT shows a wide midline incisional hernia with small bowel adherent to prior intraperitoneal mesh, no obstruction, and moderate loss of domain.",
+        "intraoperative": "During adhesiolysis from old mesh, a 1 cm full-thickness enterotomy is recognized immediately with minimal succus and healthy surrounding bowel.",
+        "decisionPoint": "What would you do next, and would you proceed with TAR and mesh?",
+        "expertDiscussion": {
+          "correctAnswer": "Control the enterotomy immediately, repair or resect based on bowel quality, irrigate, reassess contamination, and then make a deliberate mesh/reconstruction decision based on the actual field and patient risk. A small controlled enterotomy does not automatically mandate abandoning reconstruction, but it does change wound class and mesh strategy.",
+          "whyCorrect": "The key is immediate recognition, source control, and reassessment. The operation is no longer the same clean elective reconstruction. Proceeding may still be reasonable in selected cases if contamination is minimal and controlled, but the mesh type, plane, antibiotic strategy, and documentation must reflect the event.",
+          "whyAlternativesWrong": [
+            "Ignoring the enterotomy and proceeding as a clean case is unsafe and dishonest documentation.",
+            "Automatically placing permanent mesh despite gross contamination can create avoidable mesh infection risk.",
+            "Automatically aborting every case after a tiny controlled enterotomy may deny a reasonable reconstruction when risk remains acceptable."
+          ],
+          "commonTraineeMistakes": [
+            "Continuing adhesiolysis before controlling the injury.",
+            "Failing to announce the wound-class change.",
+            "Documenting “serosal tear” when the injury was full thickness.",
+            "Using the original mesh plan without reassessment."
+          ],
+          "attendingPearl": "The enterotomy owns the room until it is controlled. Only then does the abdominal wall plan get a vote.",
+          "codingDocumentationPearl": "Document the enterotomy, repair versus resection, contamination level, wound class, irrigation, antibiotic plan, mesh type/plane, and whether reconstruction was completed, modified, staged, or aborted."
+        }
+      },
+      {
+        "title": "Loss of domain physiology during closure",
+        "focus": "Physiology / Bailout",
+        "history": "A 58-year-old woman with a giant recurrent ventral hernia undergoes bilateral TAR after preoperative optimization. CT suggested significant loss of domain.",
+        "physical": "Large chronic hernia containing small bowel and colon; no skin ulceration.",
+        "vitals": [
+          "Pre-closure HR 88",
+          "BP 124/70",
+          "Peak airway pressure 24 cm H2O",
+          "Urine output adequate"
+        ],
+        "labs": [
+          "WBC 6.8",
+          "Hgb 12.1",
+          "Cr 0.8",
+          "Albumin 3.5"
+        ],
+        "imaging": "Preoperative CT showed a large hernia sac with a substantial viscero-abdominal disproportion.",
+        "intraoperative": "After posterior layer closure and mesh placement, anterior fascial closure is attempted. Peak airway pressures rise to 39, tidal volumes fall, urine output drops, and blood pressure softens.",
+        "decisionPoint": "Do you keep closing, perform more release, bridge, or stage?",
+        "expertDiscussion": {
+          "correctAnswer": "Stop the closure, release tension if needed, communicate with anesthesia, reassess paralysis/volume/ventilation, and avoid definitive closure if physiology remains unsafe. Options include additional appropriate release, partial/staged closure, temporary abdominal closure, or a modified repair.",
+          "whyCorrect": "Loss-of-domain complications are physiologic. A technically closed fascia that creates abdominal compartment physiology, ventilatory failure, or renal hypoperfusion is a failed decision.",
+          "whyAlternativesWrong": [
+            "Forcing midline closure because “we are almost done” can cause organ dysfunction.",
+            "Bridging without understanding the physiologic problem may still leave excessive intra-abdominal pressure if contents were forcibly reduced.",
+            "Ignoring anesthesia concerns removes the best real-time monitor of closure tolerance."
+          ],
+          "commonTraineeMistakes": [
+            "Treating high airway pressure as an anesthesia problem only.",
+            "Continuing to tighten sutures during hypotension.",
+            "Failing to document why the reconstruction was staged."
+          ],
+          "attendingPearl": "The abdomen does not care about your preoperative plan. Physiology is the final attending.",
+          "codingDocumentationPearl": "Document physiologic intolerance of closure, objective changes such as airway pressures or hemodynamics, additional release or staging decisions, temporary closure if used, and rationale for deviation from the planned reconstruction."
+        }
+      },
+      {
+        "title": "Posterior sheath failure",
+        "focus": "Posterior Layer / Mesh Plane",
+        "history": "A 67-year-old man with a large recurrent midline hernia and prior open repairs is undergoing TAR. The posterior sheath is thin and scarred.",
+        "physical": "Recurrent reducible hernia with attenuated midline tissue; no active infection.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 76",
+          "BP 132/78",
+          "SpO2 97%"
+        ],
+        "labs": [
+          "WBC 8.1",
+          "Hgb 14.0",
+          "Cr 1.1",
+          "Albumin 3.2"
+        ],
+        "imaging": "CT demonstrates prior mesh, rectus retraction, and a wide midline defect.",
+        "intraoperative": "During posterior layer closure, the sheath tears repeatedly and a 12 cm area cannot be closed without shredding.",
+        "decisionPoint": "What is your bailout strategy for the posterior layer and mesh?",
+        "expertDiscussion": {
+          "correctAnswer": "Define the posterior layer defect, repair what can be repaired, consider peritoneum/hernia sac/omentum or other barrier options when appropriate, reassess whether permanent mesh can safely remain extraperitoneal, and consider alternative mesh, plane, or staged reconstruction if bowel protection is inadequate.",
+          "whyCorrect": "The posterior layer protects viscera from mesh and preserves the intended retromuscular reconstruction. A large unrepaired posterior defect changes the risk profile of the repair.",
+          "whyAlternativesWrong": [
+            "Continuing to place permanent synthetic mesh as if the posterior layer were intact ignores bowel interface risk.",
+            "Closing the posterior layer under shredding tension can enlarge the defect.",
+            "Abandoning without considering available barrier or staging options may be premature."
+          ],
+          "commonTraineeMistakes": [
+            "Calling a major posterior layer gap a “small peritoneal rent.”",
+            "Failing to adjust mesh choice.",
+            "Not documenting why the final plane was changed."
+          ],
+          "attendingPearl": "When the back wall fails, the whole operation changes. Respect that moment.",
+          "codingDocumentationPearl": "Document posterior sheath quality, defect size, repair method, barrier used if any, mesh plane/type/size, whether mesh contacts viscera, and why the final strategy was chosen."
+        }
+      },
+      {
+        "title": "Patient not optimized for elective TAR",
+        "focus": "Patient Selection",
+        "history": "A 52-year-old man with BMI 48, active smoking, A1c 10.2, and a large reducible incisional hernia requests immediate TAR because he is frustrated by the bulge.",
+        "physical": "Large reducible midline hernia, no obstruction, no skin ulceration, no cellulitis.",
+        "vitals": [
+          "T 36.6 C",
+          "HR 90",
+          "BP 146/84",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "WBC 7.0",
+          "Hgb 13.9",
+          "Cr 0.9",
+          "Albumin 3.4",
+          "A1c 10.2"
+        ],
+        "imaging": "CT shows a 13 cm midline defect with reducible bowel, no obstruction, no strangulation.",
+        "intraoperative": "Not applicable; this is a preoperative decision.",
+        "decisionPoint": "Would you offer elective TAR now?",
+        "expertDiscussion": {
+          "correctAnswer": "No, not electively in the absence of urgent features. Counsel the patient, optimize smoking, diabetes, weight, nutrition, and skin risk, and create a staged plan with clear thresholds for urgent reassessment.",
+          "whyCorrect": "The hernia is symptomatic but not emergent. The modifiable risk profile predicts wound complications, infection, mesh problems, and recurrence. Optimization improves the chance that a major reconstruction will work.",
+          "whyAlternativesWrong": [
+            "Offering immediate elective TAR because the CT is impressive ignores preventable risk.",
+            "Dismissing the patient without a plan fails the longitudinal responsibility of abdominal wall reconstruction.",
+            "A small patch repair now may compromise future definitive reconstruction."
+          ],
+          "commonTraineeMistakes": [
+            "Thinking “big hernia” automatically means “big operation now.”",
+            "Underestimating smoking and diabetes risk.",
+            "Failing to document shared decision-making and optimization targets."
+          ],
+          "attendingPearl": "The best abdominal wall surgeons know when not to operate.",
+          "codingDocumentationPearl": "Document symptoms, reducibility, absence of obstruction/strangulation, risk factors, optimization plan, counseling, and return precautions. Do not imply urgent incarceration if it is not present."
+        }
+      },
+      {
+        "title": "Recurrent hernia after prior anterior component separation",
+        "focus": "Plane Selection",
+        "history": "A 61-year-old woman had prior anterior component separation and onlay mesh five years ago. She now has a recurrent midline hernia.",
+        "physical": "Midline bulge, thin scarred subcutaneous tissue, no drainage, no cellulitis.",
+        "vitals": [
+          "T 36.9 C",
+          "HR 78",
+          "BP 128/72",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "WBC 6.2",
+          "Hgb 12.8",
+          "Cr 0.7",
+          "Albumin 3.8"
+        ],
+        "imaging": "CT shows recurrent midline defect, onlay mesh/scarring anteriorly, rectus muscles retracted but posterior plane may be usable.",
+        "intraoperative": "At exploration, anterior soft tissue planes are scarred. Retrorectus entry is feasible.",
+        "decisionPoint": "Why might posterior component separation/TAR be preferable to repeating anterior component separation?",
+        "expertDiscussion": {
+          "correctAnswer": "TAR may use a relatively different posterior plane, avoid re-raising compromised skin flaps, create a broad extraperitoneal mesh space, and restore midline closure when anatomy permits.",
+          "whyCorrect": "Prior anterior release and onlay mesh can compromise skin perfusion and wound biology. A posterior approach may reduce wound morbidity and provide a better mesh plane.",
+          "whyAlternativesWrong": [
+            "Repeating anterior component separation through scarred flaps can increase wound morbidity.",
+            "Simple bridging may fail to restore abdominal wall mechanics.",
+            "Ignoring prior operations risks entering destroyed planes without a bailout."
+          ],
+          "commonTraineeMistakes": [
+            "Not reading the prior operative note.",
+            "Assuming prior component separation means no further release is possible.",
+            "Failing to identify old mesh plane on CT."
+          ],
+          "attendingPearl": "Every recurrent hernia is an anatomy exam written by the last operation.",
+          "codingDocumentationPearl": "Document prior repair history, prior mesh location if known, recurrent status, planes entered, release performed, mesh explantation if done, and why TAR was selected."
+        }
+      },
+      {
+        "title": "Contaminated fistula found during planned reconstruction",
+        "focus": "Dirty Field / Staging",
+        "history": "A 70-year-old patient is scheduled for complex ventral hernia repair with possible TAR. Preoperative imaging suggested bowel near old mesh but no definite fistula.",
+        "physical": "Large recurrent hernia, chronic draining sinus near old incision, no diffuse peritonitis.",
+        "vitals": [
+          "T 37.4 C",
+          "HR 96",
+          "BP 122/68",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "WBC 11.8",
+          "Hgb 11.4",
+          "Cr 1.0",
+          "Albumin 2.9"
+        ],
+        "imaging": "CT shows old mesh, inflammatory changes, and possible tethered small bowel.",
+        "intraoperative": "Old mesh is infected and densely adherent to small bowel. A chronic enterocutaneous fistula is confirmed with contaminated mesh.",
+        "decisionPoint": "Do you proceed with definitive TAR and permanent mesh reconstruction?",
+        "expertDiscussion": {
+          "correctAnswer": "Prioritize source control: remove infected mesh as appropriate, control or resect the fistula source, manage contamination, and strongly consider staged abdominal wall reconstruction rather than definitive permanent synthetic TAR in a dirty infected field.",
+          "whyCorrect": "The operation has changed from elective abdominal wall reconstruction to infected mesh/fistula source control. Definitive reconstruction in a dirty field may create catastrophic mesh infection or recurrent fistula.",
+          "whyAlternativesWrong": [
+            "Proceeding with the original permanent mesh TAR plan ignores gross contamination.",
+            "Only draining the sinus without controlling the fistula source is incomplete.",
+            "A heroic one-stage reconstruction may be wrong if tissue, nutrition, and contamination are unfavorable."
+          ],
+          "commonTraineeMistakes": [
+            "Failing to abandon the original plan when the field changes.",
+            "Under-documenting infected mesh and fistula.",
+            "Not planning takeback or staged reconstruction."
+          ],
+          "attendingPearl": "Source control before sculpture. You cannot reconstruct your way out of uncontrolled contamination.",
+          "codingDocumentationPearl": "Document infected mesh, fistula findings, bowel resection/repair if performed, wound class, explantation, drain/temporary closure decisions, and explicit rationale for staged reconstruction."
+        }
+      }
     ]
   },
   "graydonPearls": {
@@ -3910,6 +4657,26 @@
         "text": "If the airway is threatened, open the incision and decompress. The patient needs oxygen before imaging.",
         "context": "Emergency",
         "severity": "warning"
+      }
+    ],
+    "transversus-abdominis-release": [
+      {
+        "severity": "standard",
+        "context": "Operative judgment",
+        "title": "TAR is a plane operation.",
+        "text": "If you lose the plane, stop and rebuild orientation. The dangerous move is not asking where you are."
+      },
+      {
+        "severity": "warning",
+        "context": "Bailout thinking",
+        "title": "The posterior sheath is not optional.",
+        "text": "A failed posterior layer changes mesh choice, bowel protection, and whether definitive reconstruction is still wise."
+      },
+      {
+        "severity": "standard",
+        "context": "Attending mindset",
+        "title": "Do not worship closure.",
+        "text": "A closed abdomen that causes physiologic collapse is not a durable repair. The patient has to tolerate the reconstruction."
       }
     ]
   }

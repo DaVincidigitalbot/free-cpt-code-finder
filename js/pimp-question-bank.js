@@ -272,7 +272,7 @@
     const searchResults = root.querySelector("[data-search-results]");
     root.querySelector("[data-recent]").innerHTML = procedures.filter((p) => p.status === "live").map(procedureHtml).join("");
     root.querySelector("[data-most-viewed]").innerHTML = procedures.slice().sort((a,b)=>(b.mostViewedScore||0)-(a.mostViewedScore||0)).slice(0,6).map(procedureHtml).join("");
-    const featured = ["ventral-hernia-repair", "exploratory-laparotomy", "total-thyroidectomy", "chest-tube-placement"].map((slug) => procedures.find((p) => p.slug === slug)).filter(Boolean);
+    const featured = ["transversus-abdominis-release", "ventral-hernia-repair", "exploratory-laparotomy", "total-thyroidectomy"].map((slug) => procedures.find((p) => p.slug === slug)).filter(Boolean);
     const featuredRoot = root.querySelector("[data-featured-procedures]");
     if (featuredRoot) featuredRoot.innerHTML = featured.map(procedureHtml).join("");
     const updatedRoot = root.querySelector("[data-recently-updated]");
