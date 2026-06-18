@@ -3,17 +3,34 @@
     {
       "name": "General Surgery",
       "description": "Core abdominal, alimentary, hernia, biliary, and bedside procedures for students, residents, fellows, APPs, and attendings.",
-      "procedures": ["Laparoscopic Cholecystectomy", "Appendectomy", "Exploratory Laparotomy", "Colectomy", "Ventral Hernia Repair", "PEG Tube Placement", "Tracheostomy"]
+      "procedures": [
+        "Laparoscopic Cholecystectomy",
+        "Appendectomy",
+        "Exploratory Laparotomy",
+        "Colectomy",
+        "Ventral Hernia Repair",
+        "PEG Tube Placement",
+        "Tracheostomy"
+      ]
     },
     {
       "name": "Endocrine Surgery",
       "description": "Thyroid, parathyroid, and adrenal operations with anatomy, nerve-risk, documentation, and CPT education.",
-      "procedures": ["Thyroid Lobectomy", "Total Thyroidectomy", "Parathyroidectomy"]
+      "procedures": [
+        "Thyroid Lobectomy",
+        "Total Thyroidectomy",
+        "Parathyroidectomy"
+      ]
     },
     {
       "name": "Trauma Surgery",
       "description": "High-yield operative trauma preparation including damage control, open abdomen, chest tubes, and rib fixation.",
-      "procedures": ["Rib Fixation", "Chest Tube Placement", "Open Abdomen", "Damage Control Laparotomy"]
+      "procedures": [
+        "Rib Fixation",
+        "Chest Tube Placement",
+        "Open Abdomen",
+        "Damage Control Laparotomy"
+      ]
     }
   ],
   "procedures": [
@@ -25,48 +42,515 @@
       "status": "live",
       "recentlyAdded": true,
       "mostViewedScore": 100,
-      "cptCodes": ["47562", "47563", "47564"],
-      "relatedProcedures": ["Open Cholecystectomy", "Diagnostic Laparoscopy", "Exploratory Laparotomy"],
+      "cptCodes": [
+        "47562",
+        "47563",
+        "47564"
+      ],
+      "relatedProcedures": [
+        "Open Cholecystectomy",
+        "Diagnostic Laparoscopy",
+        "Exploratory Laparotomy"
+      ],
       "relatedGuides": [
-        {"title": "Laparoscopic Cholecystectomy CPT Guide", "url": "/blog/guides/cpt-code-laparoscopic-cholecystectomy.html"},
-        {"title": "Modifier 22 Explained", "url": "/blog/modifiers/modifier-22-explained.html"},
-        {"title": "Global Surgical Package Explained", "url": "/blog/guides/global-surgical-package-explained.html"},
-        {"title": "Understanding Work RVUs", "url": "/blog/rvu/understanding-work-rvus.html"}
+        {
+          "title": "Laparoscopic Cholecystectomy CPT Guide",
+          "url": "/blog/guides/cpt-code-laparoscopic-cholecystectomy.html"
+        },
+        {
+          "title": "Modifier 22 Explained",
+          "url": "/blog/modifiers/modifier-22-explained.html"
+        },
+        {
+          "title": "Global Surgical Package Explained",
+          "url": "/blog/guides/global-surgical-package-explained.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
       ]
     },
-    {"slug": "open-cholecystectomy", "title": "Open Cholecystectomy", "summary": "Open biliary exposure, safe dissection, difficult gallbladder strategy, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 70, "cptCodes": ["47600", "47605", "47610"]},
-    {"slug": "laparoscopic-appendectomy", "title": "Laparoscopic Appendectomy", "summary": "Appendiceal anatomy, mesoappendix control, stump management, complications, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 96, "cptCodes": ["44970"]},
-    {"slug": "open-appendectomy", "title": "Open Appendectomy", "summary": "Open right lower quadrant exposure, appendix base management, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 65, "cptCodes": ["44950", "44960"]},
-    {"slug": "diagnostic-laparoscopy", "title": "Diagnostic Laparoscopy", "summary": "Safe access, intra-abdominal survey, biopsy decisions, and documentation. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 68, "cptCodes": ["49320", "49321"]},
-    {"slug": "exploratory-laparotomy", "title": "Exploratory Laparotomy", "summary": "Entry, systematic exploration, source control, damage control decisions, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 93, "cptCodes": ["49000"]},
-    {"slug": "small-bowel-resection", "title": "Small Bowel Resection", "summary": "Resection strategy, mesenteric control, anastomosis decisions, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 78, "cptCodes": ["44120", "44121"]},
-    {"slug": "right-colectomy", "title": "Right Colectomy", "summary": "Ileocolic pedicle, right colon mobilization, oncologic planes, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 82, "cptCodes": ["44140", "44205"]},
-    {"slug": "sigmoid-colectomy", "title": "Sigmoid Colectomy", "summary": "Left colon anatomy, ureter protection, vascular control, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 80, "cptCodes": ["44140", "44204"]},
-    {"slug": "low-anterior-resection", "title": "Low Anterior Resection", "summary": "Pelvic anatomy, TME concepts, anastomosis, leak prevention, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 74, "cptCodes": ["44145", "44207"]},
-    {"slug": "hartmann-procedure", "title": "Hartmann Procedure", "summary": "Source control, rectal stump management, colostomy creation, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 71, "cptCodes": ["44143"]},
-    {"slug": "colostomy-reversal", "title": "Colostomy Reversal", "summary": "Adhesiolysis, rectal stump identification, anastomosis, and documentation. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 72, "cptCodes": ["44626"]},
-    {"slug": "ileostomy-reversal", "title": "Ileostomy Reversal", "summary": "Local takedown, small bowel anastomosis, wound strategy, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 69, "cptCodes": ["44620", "44625"]},
-    {"slug": "ventral-hernia-repair", "title": "Ventral Hernia Repair", "summary": "Defect measurement, mesh planes, recurrence risk, documentation, and 2023+ CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 94, "cptCodes": ["49591", "49593", "49595"]},
-    {"slug": "robotic-ventral-hernia-repair", "title": "Robotic Ventral Hernia Repair", "summary": "Robotic approach, mesh positioning, fascial closure, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 83, "cptCodes": ["49613", "49615", "49617"]},
-    {"slug": "tar", "title": "TAR", "summary": "Posterior component separation, transversus release, mesh position, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 84, "cptCodes": ["15734", "49595", "49617"]},
-    {"slug": "inguinal-hernia-repair", "title": "Inguinal Hernia Repair", "summary": "Open and minimally invasive groin anatomy, mesh choices, nerves, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 91, "cptCodes": ["49505", "49650", "49651"]},
-    {"slug": "paraesophageal-hernia-repair", "title": "Paraesophageal Hernia Repair", "summary": "Hiatal anatomy, crural closure, fundoplication decisions, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 76, "cptCodes": ["43280", "43281", "43282"]},
-    {"slug": "splenectomy", "title": "Splenectomy", "summary": "Splenic hilum control, short gastrics, vaccination, complications, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 67, "cptCodes": ["38100", "38120"]},
-    {"slug": "peg-tube-placement", "title": "PEG Tube Placement", "summary": "Endoscopic landmarks, transillumination, safe tract, complications, and coding. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 73, "cptCodes": ["43246"]},
-    {"slug": "tracheostomy", "title": "Tracheostomy", "summary": "Neck anatomy, airway planning, thyroid isthmus, bleeding risk, and CPT. Coming soon.", "category": "General Surgery", "status": "planned", "mostViewedScore": 86, "cptCodes": ["31600"]},
-    {"slug": "thyroid-lobectomy", "title": "Thyroid Lobectomy", "summary": "RLN anatomy, superior pole control, parathyroid preservation, and CPT. Coming soon.", "category": "Endocrine Surgery", "status": "planned", "mostViewedScore": 79, "cptCodes": ["60220"]},
-    {"slug": "total-thyroidectomy", "title": "Total Thyroidectomy", "summary": "Bilateral neck anatomy, RLN/parathyroid strategy, postop hypocalcemia, and coding. Coming soon.", "category": "Endocrine Surgery", "status": "planned", "mostViewedScore": 81, "cptCodes": ["60240", "60252", "60254"]},
-    {"slug": "parathyroidectomy", "title": "Parathyroidectomy", "summary": "Parathyroid embryology, localization, four-gland exploration, and CPT. Coming soon.", "category": "Endocrine Surgery", "status": "planned", "mostViewedScore": 66, "cptCodes": ["60500"]},
-    {"slug": "rib-fixation", "title": "Rib Fixation", "summary": "Chest wall anatomy, patient selection, fixation strategy, documentation, and CPT. Coming soon.", "category": "Trauma Surgery", "status": "planned", "mostViewedScore": 85, "cptCodes": ["21811", "21812"]},
-    {"slug": "chest-tube-placement", "title": "Chest Tube Placement", "summary": "Triangle of safety, tube position, complications, documentation, and coding. Coming soon.", "category": "Trauma Surgery", "status": "planned", "mostViewedScore": 90, "cptCodes": ["32551"]},
-    {"slug": "open-abdomen", "title": "Open Abdomen", "summary": "Temporary abdominal closure, re-exploration timing, fistula risk, and coding. Coming soon.", "category": "Trauma Surgery", "status": "planned", "mostViewedScore": 77, "cptCodes": ["97605", "97606", "49900"]},
-    {"slug": "damage-control-laparotomy", "title": "Damage Control Laparotomy", "summary": "Hemorrhage control, contamination control, packing, physiology, and staged closure. Coming soon.", "category": "Trauma Surgery", "status": "planned", "mostViewedScore": 88, "cptCodes": ["49000"]}
+    {
+      "slug": "open-cholecystectomy",
+      "title": "Open Cholecystectomy",
+      "summary": "Open biliary exposure, safe dissection, difficult gallbladder strategy, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 70,
+      "cptCodes": [
+        "47600",
+        "47605",
+        "47610"
+      ]
+    },
+    {
+      "slug": "laparoscopic-appendectomy",
+      "title": "Laparoscopic Appendectomy",
+      "summary": "Appendiceal anatomy, mesoappendix control, stump management, complications, oral boards, documentation, CPT, and wRVUs.",
+      "category": "General Surgery",
+      "status": "live",
+      "mostViewedScore": 96,
+      "cptCodes": [
+        "44970"
+      ],
+      "relatedProcedures": [
+        "Exploratory Laparotomy",
+        "Open Appendectomy",
+        "Diagnostic Laparoscopy"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Appendectomy CPT Guide",
+          "url": "/blog/guides/cpt-code-appendectomy.html"
+        },
+        {
+          "title": "Global Surgical Package Explained",
+          "url": "/blog/guides/global-surgical-package-explained.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
+      ],
+      "recentlyAdded": true
+    },
+    {
+      "slug": "open-appendectomy",
+      "title": "Open Appendectomy",
+      "summary": "Open right lower quadrant exposure, appendix base management, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 65,
+      "cptCodes": [
+        "44950",
+        "44960"
+      ]
+    },
+    {
+      "slug": "diagnostic-laparoscopy",
+      "title": "Diagnostic Laparoscopy",
+      "summary": "Safe access, intra-abdominal survey, biopsy decisions, and documentation. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 68,
+      "cptCodes": [
+        "49320",
+        "49321"
+      ]
+    },
+    {
+      "slug": "exploratory-laparotomy",
+      "title": "Exploratory Laparotomy",
+      "summary": "Entry, systematic exploration, source control, damage control decisions, documentation, CPT, and wRVUs.",
+      "category": "General Surgery",
+      "status": "live",
+      "mostViewedScore": 93,
+      "cptCodes": [
+        "49000"
+      ],
+      "relatedProcedures": [
+        "Laparoscopic Appendectomy",
+        "Ventral Hernia Repair",
+        "Chest Tube Placement"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Exploratory Laparotomy CPT Guide",
+          "url": "/blog/guides/cpt-code-exploratory-laparotomy.html"
+        },
+        {
+          "title": "Trauma Laparotomy CPT Guide",
+          "url": "/blog/guides/trauma-laparotomy-cpt-guide.html"
+        },
+        {
+          "title": "Modifier 22 Explained",
+          "url": "/blog/modifiers/modifier-22-explained.html"
+        }
+      ],
+      "recentlyAdded": true
+    },
+    {
+      "slug": "small-bowel-resection",
+      "title": "Small Bowel Resection",
+      "summary": "Resection strategy, mesenteric control, anastomosis decisions, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 78,
+      "cptCodes": [
+        "44120",
+        "44121"
+      ]
+    },
+    {
+      "slug": "right-colectomy",
+      "title": "Right Colectomy",
+      "summary": "Ileocolic pedicle, right colon mobilization, oncologic planes, and CPT. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 82,
+      "cptCodes": [
+        "44140",
+        "44205"
+      ]
+    },
+    {
+      "slug": "sigmoid-colectomy",
+      "title": "Sigmoid Colectomy",
+      "summary": "Left colon anatomy, ureter protection, vascular control, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 80,
+      "cptCodes": [
+        "44140",
+        "44204"
+      ]
+    },
+    {
+      "slug": "low-anterior-resection",
+      "title": "Low Anterior Resection",
+      "summary": "Pelvic anatomy, TME concepts, anastomosis, leak prevention, and CPT. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 74,
+      "cptCodes": [
+        "44145",
+        "44207"
+      ]
+    },
+    {
+      "slug": "hartmann-procedure",
+      "title": "Hartmann Procedure",
+      "summary": "Source control, rectal stump management, colostomy creation, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 71,
+      "cptCodes": [
+        "44143"
+      ]
+    },
+    {
+      "slug": "colostomy-reversal",
+      "title": "Colostomy Reversal",
+      "summary": "Adhesiolysis, rectal stump identification, anastomosis, and documentation. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 72,
+      "cptCodes": [
+        "44626"
+      ]
+    },
+    {
+      "slug": "ileostomy-reversal",
+      "title": "Ileostomy Reversal",
+      "summary": "Local takedown, small bowel anastomosis, wound strategy, and CPT. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 69,
+      "cptCodes": [
+        "44620",
+        "44625"
+      ]
+    },
+    {
+      "slug": "ventral-hernia-repair",
+      "title": "Ventral Hernia Repair",
+      "summary": "Defect measurement, mesh planes, recurrence risk, complications, 2023+ CPT documentation, and wRVUs.",
+      "category": "General Surgery",
+      "status": "live",
+      "mostViewedScore": 94,
+      "cptCodes": [
+        "49591",
+        "49593",
+        "49595",
+        "49613",
+        "49615",
+        "49617"
+      ],
+      "relatedProcedures": [
+        "Exploratory Laparotomy",
+        "Laparoscopic Appendectomy",
+        "Laparoscopic Cholecystectomy"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Ventral Hernia Repair CPT Guide",
+          "url": "/blog/guides/cpt-code-ventral-hernia-repair.html"
+        },
+        {
+          "title": "Modifier 22 Explained",
+          "url": "/blog/modifiers/modifier-22-explained.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
+      ],
+      "recentlyAdded": true
+    },
+    {
+      "slug": "robotic-ventral-hernia-repair",
+      "title": "Robotic Ventral Hernia Repair",
+      "summary": "Robotic approach, mesh positioning, fascial closure, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 83,
+      "cptCodes": [
+        "49613",
+        "49615",
+        "49617"
+      ]
+    },
+    {
+      "slug": "tar",
+      "title": "TAR",
+      "summary": "Posterior component separation, transversus release, mesh position, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 84,
+      "cptCodes": [
+        "15734",
+        "49595",
+        "49617"
+      ]
+    },
+    {
+      "slug": "inguinal-hernia-repair",
+      "title": "Inguinal Hernia Repair",
+      "summary": "Open and minimally invasive groin anatomy, mesh choices, nerves, and CPT. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 91,
+      "cptCodes": [
+        "49505",
+        "49650",
+        "49651"
+      ]
+    },
+    {
+      "slug": "paraesophageal-hernia-repair",
+      "title": "Paraesophageal Hernia Repair",
+      "summary": "Hiatal anatomy, crural closure, fundoplication decisions, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 76,
+      "cptCodes": [
+        "43280",
+        "43281",
+        "43282"
+      ]
+    },
+    {
+      "slug": "splenectomy",
+      "title": "Splenectomy",
+      "summary": "Splenic hilum control, short gastrics, vaccination, complications, and CPT. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 67,
+      "cptCodes": [
+        "38100",
+        "38120"
+      ]
+    },
+    {
+      "slug": "peg-tube-placement",
+      "title": "PEG Tube Placement",
+      "summary": "Endoscopic landmarks, transillumination, safe tract, complications, and coding. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 73,
+      "cptCodes": [
+        "43246"
+      ]
+    },
+    {
+      "slug": "tracheostomy",
+      "title": "Tracheostomy",
+      "summary": "Neck anatomy, airway planning, thyroid isthmus, bleeding risk, and CPT. Coming soon.",
+      "category": "General Surgery",
+      "status": "planned",
+      "mostViewedScore": 86,
+      "cptCodes": [
+        "31600"
+      ]
+    },
+    {
+      "slug": "thyroid-lobectomy",
+      "title": "Thyroid Lobectomy",
+      "summary": "Unilateral thyroid anatomy, RLN and parathyroid preservation, superior pole control, documentation, CPT, and wRVUs.",
+      "category": "Endocrine Surgery",
+      "status": "live",
+      "mostViewedScore": 79,
+      "cptCodes": [
+        "60220"
+      ],
+      "relatedProcedures": [
+        "Total Thyroidectomy",
+        "Parathyroidectomy"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Thyroid Surgery CPT Guide",
+          "url": "/blog/guides/cpt-code-thyroid-surgery.html"
+        },
+        {
+          "title": "Global Surgical Package Explained",
+          "url": "/blog/guides/global-surgical-package-explained.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
+      ],
+      "recentlyAdded": true
+    },
+    {
+      "slug": "total-thyroidectomy",
+      "title": "Total Thyroidectomy",
+      "summary": "Bilateral thyroid anatomy, RLN/parathyroid preservation, hypocalcemia risk, documentation, CPT, and wRVUs.",
+      "category": "Endocrine Surgery",
+      "status": "live",
+      "mostViewedScore": 81,
+      "cptCodes": [
+        "60240",
+        "60252",
+        "60254"
+      ],
+      "relatedProcedures": [
+        "Thyroid Lobectomy",
+        "Parathyroidectomy"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Thyroid Surgery CPT Guide",
+          "url": "/blog/guides/cpt-code-thyroid-surgery.html"
+        },
+        {
+          "title": "Global Surgical Package Explained",
+          "url": "/blog/guides/global-surgical-package-explained.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
+      ],
+      "recentlyAdded": true
+    },
+    {
+      "slug": "parathyroidectomy",
+      "title": "Parathyroidectomy",
+      "summary": "Parathyroid embryology, localization, four-gland exploration, and CPT. Coming soon.",
+      "category": "Endocrine Surgery",
+      "status": "planned",
+      "mostViewedScore": 66,
+      "cptCodes": [
+        "60500"
+      ]
+    },
+    {
+      "slug": "rib-fixation",
+      "title": "Rib Fixation",
+      "summary": "Chest wall anatomy, patient selection, fixation strategy, documentation, and CPT. Coming soon.",
+      "category": "Trauma Surgery",
+      "status": "planned",
+      "mostViewedScore": 85,
+      "cptCodes": [
+        "21811",
+        "21812"
+      ]
+    },
+    {
+      "slug": "chest-tube-placement",
+      "title": "Chest Tube Placement",
+      "summary": "Triangle of safety, pleural anatomy, tube positioning, complications, documentation, CPT, and wRVUs.",
+      "category": "Trauma Surgery",
+      "status": "live",
+      "mostViewedScore": 90,
+      "cptCodes": [
+        "32551"
+      ],
+      "relatedProcedures": [
+        "Exploratory Laparotomy",
+        "Ventral Hernia Repair",
+        "Laparoscopic Appendectomy"
+      ],
+      "relatedGuides": [
+        {
+          "title": "Trauma Surgery CPT Guide",
+          "url": "/blog/guides/cpt-code-trauma-surgery.html"
+        },
+        {
+          "title": "Critical Care Billing Guide",
+          "url": "/blog/guides/cpt-code-critical-care-billing.html"
+        },
+        {
+          "title": "Understanding Work RVUs",
+          "url": "/blog/rvu/understanding-work-rvus.html"
+        }
+      ],
+      "recentlyAdded": true
+    },
+    {
+      "slug": "open-abdomen",
+      "title": "Open Abdomen",
+      "summary": "Temporary abdominal closure, re-exploration timing, fistula risk, and coding. Coming soon.",
+      "category": "Trauma Surgery",
+      "status": "planned",
+      "mostViewedScore": 77,
+      "cptCodes": [
+        "97605",
+        "97606",
+        "49900"
+      ]
+    },
+    {
+      "slug": "damage-control-laparotomy",
+      "title": "Damage Control Laparotomy",
+      "summary": "Hemorrhage control, contamination control, packing, physiology, and staged closure. Coming soon.",
+      "category": "Trauma Surgery",
+      "status": "planned",
+      "mostViewedScore": 88,
+      "cptCodes": [
+        "49000"
+      ]
+    }
   ],
   "relatedCodingGuides": [
-    {"title": "Laparoscopic Cholecystectomy CPT Guide", "url": "/blog/guides/cpt-code-laparoscopic-cholecystectomy.html", "summary": "47562 vs 47563 vs 47564, cholangiography, CBD exploration, and documentation."},
-    {"title": "Appendectomy CPT Guide", "url": "/blog/guides/cpt-code-appendectomy.html", "summary": "Open and laparoscopic appendectomy coding with modifiers and global periods."},
-    {"title": "Ventral Hernia Repair CPT Guide", "url": "/blog/guides/cpt-code-ventral-hernia-repair.html", "summary": "2023+ hernia coding, mesh, defect size, approach, and wRVU education."},
-    {"title": "Modifier 22 Explained", "url": "/blog/modifiers/modifier-22-explained.html", "summary": "How to document increased procedural services without overusing modifier 22."}
+    {
+      "title": "Laparoscopic Cholecystectomy CPT Guide",
+      "url": "/blog/guides/cpt-code-laparoscopic-cholecystectomy.html",
+      "summary": "47562 vs 47563 vs 47564, cholangiography, CBD exploration, and documentation."
+    },
+    {
+      "title": "Appendectomy CPT Guide",
+      "url": "/blog/guides/cpt-code-appendectomy.html",
+      "summary": "Open and laparoscopic appendectomy coding with modifiers and global periods."
+    },
+    {
+      "title": "Ventral Hernia Repair CPT Guide",
+      "url": "/blog/guides/cpt-code-ventral-hernia-repair.html",
+      "summary": "2023+ hernia coding, mesh, defect size, approach, and wRVU education."
+    },
+    {
+      "title": "Modifier 22 Explained",
+      "url": "/blog/modifiers/modifier-22-explained.html",
+      "summary": "How to document increased procedural services without overusing modifier 22."
+    },
+    {
+      "title": "Exploratory Laparotomy CPT Guide",
+      "url": "/blog/guides/cpt-code-exploratory-laparotomy.html",
+      "summary": "Open abdominal exploration, trauma laparotomy, modifiers, and documentation."
+    },
+    {
+      "title": "Thyroid Surgery CPT Guide",
+      "url": "/blog/guides/cpt-code-thyroid-surgery.html",
+      "summary": "Lobectomy, total thyroidectomy, neck dissection, and endocrine documentation."
+    },
+    {
+      "title": "Trauma Surgery CPT Guide",
+      "url": "/blog/guides/cpt-code-trauma-surgery.html",
+      "summary": "Trauma procedures, source control, chest tubes, and critical care billing links."
+    }
   ],
   "questions": {
     "laparoscopic-cholecystectomy": [
@@ -75,7 +559,11 @@
         "level": "student",
         "question": "What causes biliary colic?",
         "answer": "Biliary colic is usually caused by transient obstruction of the cystic duct by a gallstone, creating gallbladder distention and visceral pain.",
-        "bullets": ["Pain is classically postprandial, especially after fatty meals.", "Labs may be normal if obstruction resolves.", "Persistent obstruction with inflammation becomes acute cholecystitis."],
+        "bullets": [
+          "Pain is classically postprandial, especially after fatty meals.",
+          "Labs may be normal if obstruction resolves.",
+          "Persistent obstruction with inflammation becomes acute cholecystitis."
+        ],
         "bottomLine": "Biliary colic is intermittent cystic duct obstruction without sustained infection or inflammation."
       },
       {
@@ -83,7 +571,11 @@
         "level": "student",
         "question": "What is Murphy's sign?",
         "answer": "Murphy's sign is inspiratory arrest caused by pain when the examiner palpates the right upper quadrant during deep inspiration.",
-        "bullets": ["It suggests gallbladder inflammation.", "A sonographic Murphy's sign is tenderness when the ultrasound probe presses over the gallbladder.", "Absence does not exclude acute cholecystitis, especially in older or immunocompromised patients."],
+        "bullets": [
+          "It suggests gallbladder inflammation.",
+          "A sonographic Murphy's sign is tenderness when the ultrasound probe presses over the gallbladder.",
+          "Absence does not exclude acute cholecystitis, especially in older or immunocompromised patients."
+        ],
         "bottomLine": "Murphy's sign is a clinical clue, not a definitive test."
       },
       {
@@ -91,7 +583,11 @@
         "level": "resident",
         "question": "What structures form Calot's triangle?",
         "answer": "Classically, Calot's triangle is bounded by the cystic duct, common hepatic duct, and cystic artery.",
-        "bullets": ["Many surgeons use hepatocystic triangle more precisely: cystic duct, common hepatic duct, and inferior liver edge.", "The key danger is mistaking the common bile duct or common hepatic duct for the cystic duct.", "Aberrant right hepatic artery anatomy can pass through the operative field."],
+        "bullets": [
+          "Many surgeons use hepatocystic triangle more precisely: cystic duct, common hepatic duct, and inferior liver edge.",
+          "The key danger is mistaking the common bile duct or common hepatic duct for the cystic duct.",
+          "Aberrant right hepatic artery anatomy can pass through the operative field."
+        ],
         "bottomLine": "Know both definitions, but operate by critical view principles rather than memorized triangle labels."
       },
       {
@@ -99,7 +595,11 @@
         "level": "resident",
         "question": "What is the Critical View of Safety?",
         "answer": "The Critical View of Safety is a method for confirming biliary anatomy before dividing any tubular structure.",
-        "bullets": ["Clear the hepatocystic triangle of fat and fibrous tissue.", "Separate the lower third of the gallbladder from the liver bed.", "Identify only two structures entering the gallbladder: the cystic duct and cystic artery."],
+        "bullets": [
+          "Clear the hepatocystic triangle of fat and fibrous tissue.",
+          "Separate the lower third of the gallbladder from the liver bed.",
+          "Identify only two structures entering the gallbladder: the cystic duct and cystic artery."
+        ],
         "bottomLine": "Critical view reduces the risk of bile duct injury by forcing positive anatomic identification."
       },
       {
@@ -107,7 +607,12 @@
         "level": "oral_boards",
         "question": "How do you manage a major bile duct injury recognized intraoperatively?",
         "answer": "Stop, define the injury, control contamination, drain appropriately, and get expert hepatobiliary help early.",
-        "bullets": ["Do not keep clipping or dividing structures when anatomy is uncertain.", "If expertise is available, repair may involve Roux-en-Y hepaticojejunostomy depending on injury level.", "If expertise is not available, place drains, avoid devascularizing the duct, document clearly, and transfer early.", "Control bile leak and sepsis before definitive reconstruction when needed."],
+        "bullets": [
+          "Do not keep clipping or dividing structures when anatomy is uncertain.",
+          "If expertise is available, repair may involve Roux-en-Y hepaticojejunostomy depending on injury level.",
+          "If expertise is not available, place drains, avoid devascularizing the duct, document clearly, and transfer early.",
+          "Control bile leak and sepsis before definitive reconstruction when needed."
+        ],
         "bottomLine": "Recognition plus restraint is better than a rushed repair by the wrong team."
       },
       {
@@ -115,7 +620,12 @@
         "level": "oral_boards",
         "question": "What is Mirizzi syndrome?",
         "answer": "Mirizzi syndrome is extrinsic compression of the common hepatic duct, usually from an impacted stone in the cystic duct or Hartmann's pouch.",
-        "bullets": ["It can cause obstructive jaundice and severe inflammation at the gallbladder neck.", "It increases the risk of bile duct injury during cholecystectomy.", "Advanced cases may include a cholecystocholedochal fistula.", "Subtotal cholecystectomy, cholangiography, or open conversion may be safer than forcing dissection."],
+        "bullets": [
+          "It can cause obstructive jaundice and severe inflammation at the gallbladder neck.",
+          "It increases the risk of bile duct injury during cholecystectomy.",
+          "Advanced cases may include a cholecystocholedochal fistula.",
+          "Subtotal cholecystectomy, cholangiography, or open conversion may be safer than forcing dissection."
+        ],
         "bottomLine": "Mirizzi syndrome is a danger signal: do not chase normal anatomy through hostile inflammation."
       },
       {
@@ -123,7 +633,14 @@
         "level": "oral_boards",
         "question": "What should you do if you cannot safely identify anatomy during dissection?",
         "answer": "Stop the dissection and move to a safer strategy.",
-        "bullets": ["Improve exposure and retraction.", "Re-establish landmarks from known safe planes.", "Attempt to obtain the Critical View of Safety.", "Consider intraoperative cholangiography.", "Consider a fundus-first approach or subtotal cholecystectomy.", "Convert to open if conversion improves safety."],
+        "bullets": [
+          "Improve exposure and retraction.",
+          "Re-establish landmarks from known safe planes.",
+          "Attempt to obtain the Critical View of Safety.",
+          "Consider intraoperative cholangiography.",
+          "Consider a fundus-first approach or subtotal cholecystectomy.",
+          "Convert to open if conversion improves safety."
+        ],
         "bottomLine": "Never divide unidentified structures."
       },
       {
@@ -131,7 +648,11 @@
         "level": "resident",
         "question": "When should you consider intraoperative cholangiography?",
         "answer": "Consider cholangiography when biliary anatomy is unclear, stones are suspected, labs or imaging suggest ductal pathology, or the case is high risk.",
-        "bullets": ["It can help define duct anatomy and identify filling defects.", "It does not replace careful dissection or critical view.", "Document that cholangiography was performed and what it showed."],
+        "bullets": [
+          "It can help define duct anatomy and identify filling defects.",
+          "It does not replace careful dissection or critical view.",
+          "Document that cholangiography was performed and what it showed."
+        ],
         "bottomLine": "Cholangiography is an anatomic tool, not permission to divide uncertain structures."
       },
       {
@@ -139,7 +660,11 @@
         "level": "resident",
         "question": "Where does the cystic artery usually arise?",
         "answer": "The cystic artery usually arises from the right hepatic artery.",
-        "bullets": ["Variant anatomy is common.", "A right hepatic artery may run close to or through the hepatocystic triangle.", "Bleeding can obscure anatomy and increase bile duct injury risk."],
+        "bullets": [
+          "Variant anatomy is common.",
+          "A right hepatic artery may run close to or through the hepatocystic triangle.",
+          "Bleeding can obscure anatomy and increase bile duct injury risk."
+        ],
         "bottomLine": "Control bleeding deliberately; blind clipping in the hilum is dangerous."
       },
       {
@@ -147,8 +672,689 @@
         "level": "oral_boards",
         "question": "How do you evaluate a postoperative bile leak after laparoscopic cholecystectomy?",
         "answer": "Assess severity, control sepsis, image the patient, drain collections, and decompress the biliary system when appropriate.",
-        "bullets": ["Look for abdominal pain, fever, bilious drain output, leukocytosis, or peritonitis.", "CT can identify collections; HIDA can confirm active leak.", "ERCP with sphincterotomy and stent is common for cystic duct stump leaks.", "Major duct injury requires early specialist involvement."],
+        "bullets": [
+          "Look for abdominal pain, fever, bilious drain output, leukocytosis, or peritonitis.",
+          "CT can identify collections; HIDA can confirm active leak.",
+          "ERCP with sphincterotomy and stent is common for cystic duct stump leaks.",
+          "Major duct injury requires early specialist involvement."
+        ],
         "bottomLine": "Drain the bile, control infection, and define whether this is a stump leak or major duct injury."
+      }
+    ],
+    "laparoscopic-appendectomy": [
+      {
+        "level": "student",
+        "question": "What is the classic pathophysiology of appendicitis?",
+        "answer": "Luminal obstruction leads to distention, bacterial overgrowth, venous congestion, ischemia, and possible perforation.",
+        "bullets": [
+          "Fecalith and lymphoid hyperplasia are common causes.",
+          "Perforation risk rises with time and obstruction severity."
+        ],
+        "bottomLine": "Appendicitis is obstruction plus inflammation until proven otherwise.",
+        "id": "laparoscopic-appendectomy-1"
+      },
+      {
+        "level": "student",
+        "question": "Where is McBurney point?",
+        "answer": "McBurney point is about one-third of the distance from the anterior superior iliac spine to the umbilicus.",
+        "bullets": [
+          "It approximates the appendix base in classic anatomy.",
+          "Pain location varies with appendix position."
+        ],
+        "bottomLine": "A normal exam location does not exclude appendicitis.",
+        "id": "laparoscopic-appendectomy-2"
+      },
+      {
+        "level": "resident",
+        "question": "How do you find the appendix base laparoscopically?",
+        "answer": "Follow the taeniae coli on the cecum to their convergence at the appendix base.",
+        "bullets": [
+          "The tip can be retrocecal or pelvic.",
+          "The base is the structure that must be safely controlled."
+        ],
+        "bottomLine": "Base identification is more important than finding the tip first.",
+        "id": "laparoscopic-appendectomy-3"
+      },
+      {
+        "level": "resident",
+        "question": "What artery supplies the appendix?",
+        "answer": "The appendiceal artery usually arises from the ileocolic artery and runs in the mesoappendix.",
+        "bullets": [
+          "Control of the mesoappendix prevents bleeding.",
+          "Inflammation can make the artery friable."
+        ],
+        "bottomLine": "Bleeding in the mesoappendix can obscure the base.",
+        "id": "laparoscopic-appendectomy-4"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage a necrotic appendix base?",
+        "answer": "Do not blindly loop friable tissue; divide through healthy tissue using stapled cecal cuff, partial cecectomy, or conversion when needed.",
+        "bullets": [
+          "Assess cecal viability.",
+          "Control contamination.",
+          "Drain selectively based on source control."
+        ],
+        "bottomLine": "Secure healthy tissue, not just the appendix.",
+        "id": "laparoscopic-appendectomy-5"
+      },
+      {
+        "level": "resident",
+        "question": "When is nonoperative management reasonable?",
+        "answer": "Selected patients with contained abscess or phlegmon may undergo antibiotics with or without percutaneous drainage.",
+        "bullets": [
+          "Diffuse peritonitis or instability pushes toward operation.",
+          "Follow-up is needed when neoplasm risk exists."
+        ],
+        "bottomLine": "Selection matters more than dogma.",
+        "id": "laparoscopic-appendectomy-6"
+      },
+      {
+        "level": "student",
+        "question": "What is Rovsing sign?",
+        "answer": "Right lower quadrant pain caused by palpation of the left lower quadrant.",
+        "bullets": [
+          "It suggests peritoneal irritation.",
+          "It is not diagnostic alone."
+        ],
+        "bottomLine": "Use exam findings as clues, not final answers.",
+        "id": "laparoscopic-appendectomy-7"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What do you do if the appendix is normal?",
+        "answer": "Perform a diagnostic survey for alternate pathology and follow surgeon judgment on appendectomy based on context.",
+        "bullets": [
+          "Inspect terminal ileum, cecum, pelvis, adnexa when relevant, and Meckel region if indicated.",
+          "Document findings clearly."
+        ],
+        "bottomLine": "Do not stop thinking because the appendix looks normal.",
+        "id": "laparoscopic-appendectomy-8"
+      },
+      {
+        "level": "resident",
+        "question": "What changes when appendicitis is perforated?",
+        "answer": "Source control, contamination management, antibiotics, abscess risk, and sometimes drain decisions become central.",
+        "bullets": [
+          "Perforation increases abscess risk.",
+          "Specimen extraction and wound protection matter."
+        ],
+        "bottomLine": "Perforation is a source-control case.",
+        "id": "laparoscopic-appendectomy-9"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage postoperative abscess after appendectomy?",
+        "answer": "Evaluate with imaging, treat with antibiotics, and drain percutaneously when drainable; reoperate if uncontrolled sepsis or failed drainage.",
+        "bullets": [
+          "Look for fever, leukocytosis, pain, ileus.",
+          "Consider retained fecalith."
+        ],
+        "bottomLine": "Drain the collection and control sepsis.",
+        "id": "laparoscopic-appendectomy-10"
+      }
+    ],
+    "exploratory-laparotomy": [
+      {
+        "level": "student",
+        "question": "What is exploratory laparotomy?",
+        "answer": "An open abdominal operation to diagnose and treat intra-abdominal pathology.",
+        "bullets": [
+          "It may be trauma, obstruction, perforation, ischemia, or sepsis driven.",
+          "Exploration often leads to additional procedures."
+        ],
+        "bottomLine": "It is both diagnostic and therapeutic.",
+        "id": "exploratory-laparotomy-1"
+      },
+      {
+        "level": "resident",
+        "question": "What is the first priority after entering for trauma laparotomy?",
+        "answer": "Rapid control of hemorrhage and contamination.",
+        "bullets": [
+          "Pack bleeding quadrants.",
+          "Suction contamination.",
+          "Communicate with anesthesia."
+        ],
+        "bottomLine": "Control comes before elegance.",
+        "id": "exploratory-laparotomy-2"
+      },
+      {
+        "level": "resident",
+        "question": "How do you run the bowel?",
+        "answer": "Start at the ligament of Treitz and examine small bowel systematically to the ileocecal valve, checking both sides of mesentery.",
+        "bullets": [
+          "Use gentle handling.",
+          "Look for devascularization and bucket-handle injuries."
+        ],
+        "bottomLine": "System prevents missed injuries.",
+        "id": "exploratory-laparotomy-3"
+      },
+      {
+        "level": "oral_boards",
+        "question": "When do you choose damage control laparotomy?",
+        "answer": "When physiology is failing: hypothermia, acidosis, coagulopathy, ongoing shock, or massive contamination/bleeding.",
+        "bullets": [
+          "Abbreviate.",
+          "Pack/control contamination.",
+          "Temporary close and resuscitate."
+        ],
+        "bottomLine": "Do enough to survive, then come back.",
+        "id": "exploratory-laparotomy-4"
+      },
+      {
+        "level": "student",
+        "question": "What incision is most common for exploratory laparotomy?",
+        "answer": "A midline laparotomy incision.",
+        "bullets": [
+          "It is fast and extensible.",
+          "It gives access to all quadrants."
+        ],
+        "bottomLine": "Midline is the workhorse incision.",
+        "id": "exploratory-laparotomy-5"
+      },
+      {
+        "level": "resident",
+        "question": "What are the zones of retroperitoneal hematoma?",
+        "answer": "Zone 1 central, Zone 2 perirenal/flank, Zone 3 pelvic.",
+        "bullets": [
+          "Penetrating and expanding hematomas are treated differently than stable blunt hematomas.",
+          "Zone 1 generally requires exploration."
+        ],
+        "bottomLine": "Know the zone before opening trouble.",
+        "id": "exploratory-laparotomy-6"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage a cold acidotic coagulopathic patient with bowel injury?",
+        "answer": "Control contamination quickly, consider stapled ends or exteriorization, temporary close, ICU resuscitation, planned takeback.",
+        "bullets": [
+          "Avoid long reconstruction in poor physiology.",
+          "Prevent ongoing contamination."
+        ],
+        "bottomLine": "Physiology determines the operation.",
+        "id": "exploratory-laparotomy-7"
+      },
+      {
+        "level": "resident",
+        "question": "What is abdominal compartment syndrome?",
+        "answer": "Organ dysfunction from elevated intra-abdominal pressure.",
+        "bullets": [
+          "Oliguria, ventilatory difficulty, high pressures, shock can occur.",
+          "Tight closure after resuscitation is risky."
+        ],
+        "bottomLine": "Do not close an abdomen that should stay open.",
+        "id": "exploratory-laparotomy-8"
+      },
+      {
+        "level": "student",
+        "question": "What is the ligament of Treitz?",
+        "answer": "The duodenojejunal flexure and suspensory ligament marking the start of jejunum.",
+        "bullets": [
+          "It is the starting point for running bowel.",
+          "It helps orient upper abdominal anatomy."
+        ],
+        "bottomLine": "It is an anatomic landmark for systematic survey.",
+        "id": "exploratory-laparotomy-9"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What do you document after exploratory laparotomy?",
+        "answer": "Indication, incision, systematic findings, source control, repairs/resections, drains/packs, temporary closure, counts, and plan.",
+        "bullets": [
+          "Negative findings can matter.",
+          "Additional procedures should be explicit."
+        ],
+        "bottomLine": "Document the operation actually performed.",
+        "id": "exploratory-laparotomy-10"
+      }
+    ],
+    "thyroid-lobectomy": [
+      {
+        "level": "student",
+        "question": "What nerve is most feared in thyroid surgery?",
+        "answer": "The recurrent laryngeal nerve.",
+        "bullets": [
+          "Injury causes hoarseness and vocal cord dysfunction.",
+          "Bilateral injury can threaten airway."
+        ],
+        "bottomLine": "Find and protect the nerve.",
+        "id": "thyroid-lobectomy-1"
+      },
+      {
+        "level": "resident",
+        "question": "Where does the recurrent laryngeal nerve usually run?",
+        "answer": "In or near the tracheoesophageal groove, entering near the cricothyroid joint.",
+        "bullets": [
+          "Right and left courses differ in the chest.",
+          "Nonrecurrent nerve is rare but important."
+        ],
+        "bottomLine": "Know the usual course and respect variants.",
+        "id": "thyroid-lobectomy-2"
+      },
+      {
+        "level": "resident",
+        "question": "How do you protect the external branch of the superior laryngeal nerve?",
+        "answer": "Control superior pole vessels close to the thyroid capsule.",
+        "bullets": [
+          "High ligation risks the nerve.",
+          "Injury affects pitch and projection."
+        ],
+        "bottomLine": "Stay capsular at the superior pole.",
+        "id": "thyroid-lobectomy-3"
+      },
+      {
+        "level": "student",
+        "question": "How many parathyroid glands are typical?",
+        "answer": "Four, though number and location vary.",
+        "bullets": [
+          "Superior glands are more constant.",
+          "Inferior glands migrate more."
+        ],
+        "bottomLine": "Preserve both gland and blood supply.",
+        "id": "thyroid-lobectomy-4"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What do you do with loss of nerve signal during lobectomy?",
+        "answer": "Stop, troubleshoot equipment/anesthesia, inspect nerve, and avoid unsafe contralateral surgery.",
+        "bullets": [
+          "Confirm tube position.",
+          "Assess nerve continuity.",
+          "Document the event."
+        ],
+        "bottomLine": "Do not create bilateral nerve risk.",
+        "id": "thyroid-lobectomy-5"
+      },
+      {
+        "level": "resident",
+        "question": "What is Berry ligament?",
+        "answer": "Dense attachment between thyroid and trachea near the recurrent laryngeal nerve entry point.",
+        "bullets": [
+          "It is a danger zone for thermal injury.",
+          "Fine dissection is required."
+        ],
+        "bottomLine": "Berry ligament is where patience matters.",
+        "id": "thyroid-lobectomy-6"
+      },
+      {
+        "level": "student",
+        "question": "Why can a neck hematoma be dangerous?",
+        "answer": "It can compress the airway rapidly.",
+        "bullets": [
+          "Swelling, pressure, dyspnea, and stridor are warning signs.",
+          "Bedside opening may be lifesaving."
+        ],
+        "bottomLine": "Neck hematoma is an airway emergency.",
+        "id": "thyroid-lobectomy-7"
+      },
+      {
+        "level": "resident",
+        "question": "When is lobectomy enough for thyroid cancer?",
+        "answer": "Selected low-risk differentiated thyroid cancers may be managed with lobectomy based on tumor and patient factors.",
+        "bullets": [
+          "Guidelines and pathology matter.",
+          "Completion thyroidectomy may be needed later."
+        ],
+        "bottomLine": "Extent should match oncologic risk.",
+        "id": "thyroid-lobectomy-8"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage devascularized parathyroid tissue?",
+        "answer": "Confirm it is parathyroid when appropriate and autotransplant into muscle per surgeon practice.",
+        "bullets": [
+          "Avoid unnecessary removal.",
+          "Preserve vascularized glands first."
+        ],
+        "bottomLine": "Autotransplant is salvage, not the goal.",
+        "id": "thyroid-lobectomy-9"
+      },
+      {
+        "level": "resident",
+        "question": "What should be documented for CPT 60220?",
+        "answer": "Unilateral lobectomy, side, with or without isthmusectomy, and key operative findings.",
+        "bullets": [
+          "Do not imply total thyroidectomy.",
+          "Document nerve/parathyroid handling."
+        ],
+        "bottomLine": "Extent drives coding.",
+        "id": "thyroid-lobectomy-10"
+      }
+    ],
+    "total-thyroidectomy": [
+      {
+        "level": "student",
+        "question": "What is removed in total thyroidectomy?",
+        "answer": "Both thyroid lobes and the isthmus.",
+        "bullets": [
+          "A pyramidal lobe may also be removed when present.",
+          "Extent matters for cancer and Graves disease."
+        ],
+        "bottomLine": "Total means bilateral thyroid removal.",
+        "id": "total-thyroidectomy-1"
+      },
+      {
+        "level": "resident",
+        "question": "Why is bilateral RLN injury catastrophic?",
+        "answer": "It can cause bilateral vocal cord paralysis and airway obstruction.",
+        "bullets": [
+          "Loss of signal on the first side changes the plan.",
+          "Airway planning is critical."
+        ],
+        "bottomLine": "Never ignore bilateral nerve risk.",
+        "id": "total-thyroidectomy-2"
+      },
+      {
+        "level": "resident",
+        "question": "What causes postoperative hypocalcemia?",
+        "answer": "Parathyroid devascularization, removal, stunning, or hungry bone physiology.",
+        "bullets": [
+          "Symptoms include perioral numbness, tingling, tetany.",
+          "PTH and calcium guide treatment."
+        ],
+        "bottomLine": "Parathyroid preservation is a primary objective.",
+        "id": "total-thyroidectomy-3"
+      },
+      {
+        "level": "student",
+        "question": "What are symptoms of thyroid storm?",
+        "answer": "Fever, tachycardia, hypertension or shock, agitation, and organ dysfunction.",
+        "bullets": [
+          "Uncontrolled Graves increases risk.",
+          "Preoperative control prevents it."
+        ],
+        "bottomLine": "Do not operate elective uncontrolled thyrotoxicosis.",
+        "id": "total-thyroidectomy-4"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What if nerve signal is lost on side one?",
+        "answer": "Troubleshoot and strongly consider stopping before the second side unless the risk-benefit is extraordinary.",
+        "bullets": [
+          "Inspect nerve continuity.",
+          "Discuss staged completion when safe."
+        ],
+        "bottomLine": "Protect the airway over completing the plan.",
+        "id": "total-thyroidectomy-5"
+      },
+      {
+        "level": "resident",
+        "question": "What CPT codes may apply when neck dissection is included?",
+        "answer": "The dynamic CPT table lists thyroidectomy codes including malignancy/neck dissection variants for review.",
+        "bullets": [
+          "Use the actual performed extent.",
+          "Limited and radical neck dissections are not the same."
+        ],
+        "bottomLine": "Extent and indication drive code choice.",
+        "id": "total-thyroidectomy-6"
+      },
+      {
+        "level": "student",
+        "question": "What is the external branch of the superior laryngeal nerve function?",
+        "answer": "It innervates cricothyroid muscle for pitch control.",
+        "bullets": [
+          "Injury may impair singing or projection.",
+          "Superior pole technique protects it."
+        ],
+        "bottomLine": "Voice risk is not only RLN.",
+        "id": "total-thyroidectomy-7"
+      },
+      {
+        "level": "resident",
+        "question": "How do you prevent neck hematoma?",
+        "answer": "Meticulous hemostasis, Valsalva check, and careful closure.",
+        "bullets": [
+          "Drains do not replace hemostasis.",
+          "Airway symptoms require immediate action."
+        ],
+        "bottomLine": "A dry field matters.",
+        "id": "total-thyroidectomy-8"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage postoperative symptomatic hypocalcemia?",
+        "answer": "Check calcium/PTH, give oral or IV calcium based on severity, add vitamin D/calcitriol when indicated, and monitor.",
+        "bullets": [
+          "Severe tetany or ECG changes need urgent treatment.",
+          "Airway symptoms are separate concern."
+        ],
+        "bottomLine": "Treat symptoms while confirming labs.",
+        "id": "total-thyroidectomy-9"
+      },
+      {
+        "level": "resident",
+        "question": "What should be documented for total thyroidectomy?",
+        "answer": "Indication, extent, bilateral nerve identification/monitoring, parathyroid preservation/autotransplantation, lymph node dissection if performed, and complications.",
+        "bullets": [
+          "Cancer operations need nodal details.",
+          "Difficult thyroiditis should be described."
+        ],
+        "bottomLine": "Document extent and risk structures.",
+        "id": "total-thyroidectomy-10"
+      }
+    ],
+    "ventral-hernia-repair": [
+      {
+        "level": "student",
+        "question": "What is a ventral hernia?",
+        "answer": "A defect in the anterior abdominal wall fascia, including primary and incisional hernias.",
+        "bullets": [
+          "Incisional hernias occur at prior incision sites.",
+          "Symptoms range from bulge to obstruction."
+        ],
+        "bottomLine": "The fascial defect is the target.",
+        "id": "ventral-hernia-repair-1"
+      },
+      {
+        "level": "resident",
+        "question": "What drives 2023+ ventral hernia CPT selection?",
+        "answer": "Initial versus recurrent, reducible versus incarcerated/strangulated, and total defect size.",
+        "bullets": [
+          "Approach is handled differently than old codes.",
+          "Documentation must support size/status."
+        ],
+        "bottomLine": "Measure and document the fascial defect.",
+        "id": "ventral-hernia-repair-2"
+      },
+      {
+        "level": "resident",
+        "question": "What mesh planes are commonly discussed?",
+        "answer": "Onlay, retrorectus/sublay, preperitoneal, and intraperitoneal positions.",
+        "bullets": [
+          "Each has tradeoffs.",
+          "Retrorectus often provides strong extraperitoneal placement."
+        ],
+        "bottomLine": "Mesh plane is strategy, not decoration.",
+        "id": "ventral-hernia-repair-3"
+      },
+      {
+        "level": "student",
+        "question": "What is incarceration?",
+        "answer": "Hernia contents are trapped and cannot be reduced.",
+        "bullets": [
+          "Strangulation means compromised blood supply.",
+          "Obstruction can coexist."
+        ],
+        "bottomLine": "Incarceration is anatomy; strangulation is ischemia.",
+        "id": "ventral-hernia-repair-4"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What do you do if you enter bowel during adhesiolysis?",
+        "answer": "Recognize it, control contamination, repair or resect appropriately, reassess mesh choice and whether definitive repair remains safe.",
+        "bullets": [
+          "Do not ignore a thermal injury.",
+          "Contamination changes prosthetic strategy."
+        ],
+        "bottomLine": "Bowel injury changes the case.",
+        "id": "ventral-hernia-repair-5"
+      },
+      {
+        "level": "resident",
+        "question": "How much mesh overlap is usually desired?",
+        "answer": "Adequate circumferential overlap is needed; exact target depends on defect and technique.",
+        "bullets": [
+          "Small overlap increases recurrence.",
+          "Fixation and plane matter too."
+        ],
+        "bottomLine": "Overlap must be planned, not hoped for.",
+        "id": "ventral-hernia-repair-6"
+      },
+      {
+        "level": "oral_boards",
+        "question": "When is component separation considered?",
+        "answer": "Large defects, loss of domain, inability to close fascia without tension, or complex abdominal wall reconstruction.",
+        "bullets": [
+          "TAR is one posterior option.",
+          "Do not code component separation unless performed and documented."
+        ],
+        "bottomLine": "Release is for closure, not routine billing.",
+        "id": "ventral-hernia-repair-7"
+      },
+      {
+        "level": "student",
+        "question": "What is a seroma?",
+        "answer": "A postoperative fluid collection in the dead space.",
+        "bullets": [
+          "Common after hernia repair.",
+          "Most are observed unless symptomatic or infected."
+        ],
+        "bottomLine": "Not every seroma is infection.",
+        "id": "ventral-hernia-repair-8"
+      },
+      {
+        "level": "resident",
+        "question": "What patient factors increase recurrence?",
+        "answer": "Smoking, obesity, diabetes, malnutrition, chronic cough, ascites, steroids, and wound infection.",
+        "bullets": [
+          "Optimization improves outcomes.",
+          "Emergency repairs have less optimization time."
+        ],
+        "bottomLine": "The repair starts before incision.",
+        "id": "ventral-hernia-repair-9"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What must be documented for coding?",
+        "answer": "Initial/recurrent status, reducible/incarcerated/strangulated status, total defect size, mesh use/plane, approach, and any component separation.",
+        "bullets": [
+          "Coders cannot infer defect size.",
+          "Document contamination and bowel work."
+        ],
+        "bottomLine": "Documentation drives accurate coding.",
+        "id": "ventral-hernia-repair-10"
+      }
+    ],
+    "chest-tube-placement": [
+      {
+        "level": "student",
+        "question": "What is the triangle of safety?",
+        "answer": "A safe lateral chest area bordered by pectoralis major, latissimus dorsi, a line above the nipple/inframammary fold, and the axilla.",
+        "bullets": [
+          "It avoids diaphragm and major structures.",
+          "Exact landmarks vary with body habitus."
+        ],
+        "bottomLine": "Use landmarks deliberately.",
+        "id": "chest-tube-placement-1"
+      },
+      {
+        "level": "student",
+        "question": "Why go over the rib?",
+        "answer": "The intercostal neurovascular bundle runs under the rib.",
+        "bullets": [
+          "Going over the rib lowers vessel/nerve injury risk.",
+          "Local anesthetic should include periosteum and pleura."
+        ],
+        "bottomLine": "Over the rib protects the bundle.",
+        "id": "chest-tube-placement-2"
+      },
+      {
+        "level": "resident",
+        "question": "What confirms pleural entry before tube advancement?",
+        "answer": "A finger sweep through the tract into the pleural space.",
+        "bullets": [
+          "It confirms location and checks adhesions.",
+          "It prevents subcutaneous placement."
+        ],
+        "bottomLine": "Finger before tube.",
+        "id": "chest-tube-placement-3"
+      },
+      {
+        "level": "resident",
+        "question": "Where do you direct the tube for pneumothorax?",
+        "answer": "Generally apical/anterior direction for air, adjusted to clinical context.",
+        "bullets": [
+          "Fluid often needs posterior/basal drainage.",
+          "Confirm with function and imaging."
+        ],
+        "bottomLine": "Direction follows the target.",
+        "id": "chest-tube-placement-4"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What if the patient has tension pneumothorax?",
+        "answer": "Decompress immediately; do not wait for imaging in an unstable patient.",
+        "bullets": [
+          "Needle/finger thoracostomy may precede tube depending setting.",
+          "Then place definitive drainage."
+        ],
+        "bottomLine": "Treat physiology first.",
+        "id": "chest-tube-placement-5"
+      },
+      {
+        "level": "student",
+        "question": "What is tidaling?",
+        "answer": "Respiratory fluctuation in the water seal chamber reflecting pleural pressure changes.",
+        "bullets": [
+          "Absence may mean reexpansion, obstruction, disconnection, or malposition.",
+          "Interpret with the patient and system."
+        ],
+        "bottomLine": "Tidaling is a clue, not a diagnosis.",
+        "id": "chest-tube-placement-6"
+      },
+      {
+        "level": "resident",
+        "question": "What output suggests massive hemothorax?",
+        "answer": "Large immediate blood output or ongoing high output concerning for surgical bleeding.",
+        "bullets": [
+          "Thresholds vary by protocol.",
+          "Call thoracic/trauma surgery early."
+        ],
+        "bottomLine": "Output volume can trigger operation.",
+        "id": "chest-tube-placement-7"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage a chest tube placed below the diaphragm?",
+        "answer": "Stop using it as a chest tube, assess injury with imaging/surgical consultation, and manage organ injury based on patient stability.",
+        "bullets": [
+          "Do not blindly pull if traversing solid organ.",
+          "Prevent with correct site."
+        ],
+        "bottomLine": "Low placement can be an abdominal injury.",
+        "id": "chest-tube-placement-8"
+      },
+      {
+        "level": "resident",
+        "question": "What is subcutaneous placement?",
+        "answer": "The tube tracks in soft tissue rather than pleural space.",
+        "bullets": [
+          "Poor drainage, swelling, and imaging reveal it.",
+          "Replace through a correct tract."
+        ],
+        "bottomLine": "A tube in the wrong place is not treatment.",
+        "id": "chest-tube-placement-9"
+      },
+      {
+        "level": "oral_boards",
+        "question": "What do you document for CPT 32551?",
+        "answer": "Tube thoracostomy placement with side, indication, technique, tube size, connection to drainage, output, air leak/tidaling, confirmation, and complications.",
+        "bullets": [
+          "CPT values come from the dynamic table.",
+          "Clinical documentation should be concise."
+        ],
+        "bottomLine": "Document the clinically necessary facts.",
+        "id": "chest-tube-placement-10"
       }
     ]
   }
