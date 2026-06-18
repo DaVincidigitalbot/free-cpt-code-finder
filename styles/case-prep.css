@@ -47,6 +47,7 @@
 .quiz-answer.show{display:block}
 .quiz-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .case-challenge-list{display:grid;gap:16px}
+.case-challenge-disclaimer{border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink2);padding:12px 14px;margin:12px 0 16px;font-size:.92rem}
 .case-challenge-card{border:1px solid var(--line);border-radius:8px;background:var(--white);overflow:hidden}
 .case-challenge-header{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;padding:18px;border-bottom:1px solid var(--line);background:var(--paper)}
 .case-challenge-header h3{margin:4px 0 0;font-size:1.15rem}
