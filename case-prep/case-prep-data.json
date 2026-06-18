@@ -2767,11 +2767,22 @@
         "intraoperative": "Dense inflammation obscures the infundibulum; the cystic duct/common duct junction cannot be safely inferred.",
         "decisionPoint": "You cannot obtain a critical view of safety. What is the safest next move?",
         "discussion": "Do not keep dissecting deeper in an unsafe triangle. Improve exposure, lower the infundibulum only if anatomy becomes clear, use cholangiography or ultrasound if helpful, and choose a bailout such as subtotal cholecystectomy or conversion when uncertainty persists.",
-        "teachingPoints": [
-          "Critical view requires two and only two structures entering the gallbladder.",
-          "Bailout is a safety decision, not a failure.",
-          "The injury pattern in bad cholecystectomy is usually caused by accepting a false ductal identity."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Stop unsafe dissection, restore exposure, and choose adjunct imaging or a bailout such as subtotal cholecystectomy or conversion if critical view cannot be obtained.",
+          "whyCorrect": "Do not keep dissecting deeper in an unsafe triangle. Improve exposure, lower the infundibulum only if anatomy becomes clear, use cholangiography or ultrasound if helpful, and choose a bailout such as subtotal cholecystectomy or conversion when uncertainty persists.",
+          "whyAlternativesWrong": [
+            "Pushing deeper in the hepatocystic triangle risks common bile duct or right hepatic artery injury.",
+            "Blindly clipping a presumed cystic duct accepts an unproven identity.",
+            "Converting without a plan may help exposure but does not automatically solve dangerous anatomy."
+          ],
+          "commonTraineeMistakes": [
+            "Mistaking inflammation for anatomy.",
+            "Treating conversion as failure instead of a tool.",
+            "Documenting a critical view that was not actually achieved."
+          ],
+          "attendingPearl": "The senior move in a bad gallbladder is to make the operation safer, not prettier.",
+          "codingDocumentationPearl": "Document indication, inflammation severity, critical view or why it was not safely obtainable, cholangiography if performed, subtotal technique if used, drains, complications, and bile leak management plan."
+        }
       },
       {
         "title": "Possible choledocholithiasis before cholecystectomy",
@@ -2794,11 +2805,22 @@
         "intraoperative": "The gallbladder is not severely inflamed; anatomy is favorable.",
         "decisionPoint": "Do you proceed directly, obtain MRCP/ERCP, or perform intraoperative cholangiography?",
         "discussion": "This is an intermediate-risk duct stone scenario. Reasonable management includes intraoperative cholangiography or preoperative MRCP depending on local resources and clinical trajectory. ERCP is best reserved for high probability or confirmed duct stones because it carries its own risk.",
-        "teachingPoints": [
-          "Risk stratify CBD stones; do not reflexively order ERCP for every transient bilirubin rise.",
-          "IOC changes both management and CPT documentation.",
-          "A normalizing bilirubin may represent a passed stone but does not prove the duct is clear."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Treat this as intermediate-risk choledocholithiasis and use IOC or MRCP depending on local resources rather than reflex ERCP.",
+          "whyCorrect": "This is an intermediate-risk duct stone scenario. Reasonable management includes intraoperative cholangiography or preoperative MRCP depending on local resources and clinical trajectory. ERCP is best reserved for high probability or confirmed duct stones because it carries its own risk.",
+          "whyAlternativesWrong": [
+            "Routine ERCP exposes the patient to pancreatitis and procedural risk when probability is not high.",
+            "Ignoring the duct risks retained stone, cholangitis, or pancreatitis.",
+            "Open exploration is not first-line for a stable intermediate-risk patient."
+          ],
+          "commonTraineeMistakes": [
+            "Equating any bilirubin bump with mandatory ERCP.",
+            "Failing to trend bilirubin.",
+            "Forgetting IOC changes both management and coding."
+          ],
+          "attendingPearl": "Duct-stone decisions should be probability-based, not habit-based.",
+          "codingDocumentationPearl": "Document indication, inflammation severity, critical view or why it was not safely obtainable, cholangiography if performed, subtotal technique if used, drains, complications, and bile leak management plan."
+        }
       },
       {
         "title": "Cystic artery bleeding during dissection",
@@ -2821,11 +2843,22 @@
         "intraoperative": "A small arterial branch bleeds briskly near the gallbladder neck and exposure deteriorates.",
         "decisionPoint": "What do you do next?",
         "discussion": "Pause and restore the field. Use suction, compress, widen exposure, and control the bleeding close to the gallbladder only after you know the structure. Avoid blind clips in the hepatocystic triangle because the right hepatic artery or an aberrant branch may be injured.",
-        "teachingPoints": [
-          "Bleeding plus inflammation is a setup for bile duct injury.",
-          "Temporary pressure is better than blind clipping.",
-          "Control should follow anatomy, not panic."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Compress, suction, re-establish exposure, and control the bleeding only after confirming the anatomy and staying close to the gallbladder.",
+          "whyCorrect": "Pause and restore the field. Use suction, compress, widen exposure, and control the bleeding close to the gallbladder only after you know the structure. Avoid blind clips in the hepatocystic triangle because the right hepatic artery or an aberrant branch may be injured.",
+          "whyAlternativesWrong": [
+            "Blind clips can capture the right hepatic artery or bile duct.",
+            "More traction can worsen avulsion and distort identity.",
+            "Energy in a bloody triangle can convert bleeding into a bile duct injury."
+          ],
+          "commonTraineeMistakes": [
+            "Letting bleeding rush the operation.",
+            "Clipping before orientation is restored.",
+            "Forgetting aberrant right hepatic artery anatomy."
+          ],
+          "attendingPearl": "Bleeding is dangerous mostly because it tempts surgeons to accept less anatomy.",
+          "codingDocumentationPearl": "Document indication, inflammation severity, critical view or why it was not safely obtainable, cholangiography if performed, subtotal technique if used, drains, complications, and bile leak management plan."
+        }
       },
       {
         "title": "Postoperative bile leak after difficult cholecystectomy",
@@ -2848,11 +2881,22 @@
         "intraoperative": "Original operation included a subtotal cholecystectomy for unsafe anatomy.",
         "decisionPoint": "How do you manage this patient?",
         "discussion": "Stabilize, drain infected or symptomatic collections, define the leak, and decompress the biliary tree with ERCP/stent for most cystic duct stump or gallbladder remnant leaks. Reoperation is reserved for uncontrolled sepsis, major duct injury, or failed less invasive control.",
-        "teachingPoints": [
-          "Bile leak management is source control plus biliary decompression.",
-          "Do not ignore persistent bilious drainage.",
-          "Major duct injury requires early recognition and hepatobiliary expertise."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Stabilize, drain collections when needed, define the leak, and decompress the biliary tree with ERCP/stent for most cystic duct stump or remnant leaks.",
+          "whyCorrect": "Stabilize, drain infected or symptomatic collections, define the leak, and decompress the biliary tree with ERCP/stent for most cystic duct stump or gallbladder remnant leaks. Reoperation is reserved for uncontrolled sepsis, major duct injury, or failed less invasive control.",
+          "whyAlternativesWrong": [
+            "Observation alone is unsafe with sepsis, collections, or persistent bilious drainage.",
+            "Immediate reoperation is often unnecessary for controlled cystic duct stump leaks.",
+            "Antibiotics alone do not provide source control or biliary decompression."
+          ],
+          "commonTraineeMistakes": [
+            "Calling bilious output 'expected' for too long.",
+            "Missing a major duct injury.",
+            "Failing to drain infected collections."
+          ],
+          "attendingPearl": "Bile leak management is source control plus lower-pressure bile flow.",
+          "codingDocumentationPearl": "Document indication, inflammation severity, critical view or why it was not safely obtainable, cholangiography if performed, subtotal technique if used, drains, complications, and bile leak management plan."
+        }
       }
     ],
     "laparoscopic-appendectomy": [
@@ -2877,11 +2921,22 @@
         "intraoperative": "The appendix is not seen after initial inspection; cecum is mobile and inflamed posteriorly.",
         "decisionPoint": "What is your strategy to find the appendix safely?",
         "discussion": "Orient on the cecum first, identify the taeniae coli, and follow their convergence to the appendiceal base. Mobilize the cecum enough to inspect retrocecal and paracecal positions while protecting terminal ileum and gonadal/retroperitoneal structures.",
-        "teachingPoints": [
-          "The base is the fixed target when the tip is hidden.",
-          "Retrocecal appendices are often missed by chasing inflammation.",
-          "Better exposure beats blind traction."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Find the cecum, identify taeniae coli, follow their convergence to the base, then mobilize enough to inspect retrocecal or pelvic positions safely.",
+          "whyCorrect": "Orient on the cecum first, identify the taeniae coli, and follow their convergence to the appendiceal base. Mobilize the cecum enough to inspect retrocecal and paracecal positions while protecting terminal ileum and gonadal/retroperitoneal structures.",
+          "whyAlternativesWrong": [
+            "Chasing the inflamed tip can injure cecum, ileum, or retroperitoneum.",
+            "Random dissection behind the cecum loses orientation.",
+            "Converting before using basic anatomic landmarks may be premature in a stable patient."
+          ],
+          "commonTraineeMistakes": [
+            "Looking for the tip instead of the base.",
+            "Forgetting retrocecal position.",
+            "Applying traction before identifying cecum and terminal ileum."
+          ],
+          "attendingPearl": "When the appendix is hidden, the taeniae coli are the map.",
+          "codingDocumentationPearl": "Document perforation, abscess, gangrene, fecalith, stump method, cecal involvement, drain/source control decisions, and any postoperative abscess management."
+        }
       },
       {
         "title": "Necrotic base with cecal inflammation",
@@ -2904,11 +2959,22 @@
         "intraoperative": "The appendix is gangrenous; the base is friable and adjacent cecum is inflamed.",
         "decisionPoint": "How do you close the stump?",
         "discussion": "Do not place an endoloop across necrotic tissue and hope. Options include stapling across healthy cecum, partial cecectomy, drain/selective source control, or conversion if safe laparoscopic closure cannot be achieved.",
-        "teachingPoints": [
-          "Stump security depends on healthy tissue.",
-          "A stapler is not magic if fired across unsafe anatomy.",
-          "The bailout is controlled source control, not a prettier laparoscopic finish."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Close only on healthy tissue: staple across healthy cecum, perform partial cecectomy, convert, drain, or stage source control as needed.",
+          "whyCorrect": "Do not place an endoloop across necrotic tissue and hope. Options include stapling across healthy cecum, partial cecectomy, drain/selective source control, or conversion if safe laparoscopic closure cannot be achieved.",
+          "whyAlternativesWrong": [
+            "An endoloop on necrotic base can fail and leak.",
+            "A stapler across friable cecum can misfire or create ischemic closure.",
+            "Ignoring cecal involvement risks stump blowout."
+          ],
+          "commonTraineeMistakes": [
+            "Prioritizing a laparoscopic finish over stump security.",
+            "Underestimating cecal inflammation.",
+            "Not documenting perforation and base management."
+          ],
+          "attendingPearl": "The appendix stump is safe only when the tissue holding it is safe.",
+          "codingDocumentationPearl": "Document perforation, abscess, gangrene, fecalith, stump method, cecal involvement, drain/source control decisions, and any postoperative abscess management."
+        }
       },
       {
         "title": "Mesoappendix bleeding obscures the base",
@@ -2931,11 +2997,22 @@
         "intraoperative": "During mesoappendix division, arterial bleeding obscures the field near the base.",
         "decisionPoint": "What do you do next?",
         "discussion": "Stop traction, suction and compress, re-establish view, and control the appendiceal artery or branch with energy, clip, or stapler only when the base, cecum, and terminal ileum are oriented. Blind energy near the base risks bowel injury.",
-        "teachingPoints": [
-          "Bleeding changes the operation from speed to orientation.",
-          "The mesoappendix is controlled away from terminal ileum when possible.",
-          "Do not let blood pressure from the field make the decision."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Stop traction, compress/suction, regain orientation, and control the appendiceal artery branch only when the base, cecum, and ileum are clear.",
+          "whyCorrect": "Stop traction, suction and compress, re-establish view, and control the appendiceal artery or branch with energy, clip, or stapler only when the base, cecum, and terminal ileum are oriented. Blind energy near the base risks bowel injury.",
+          "whyAlternativesWrong": [
+            "Blind energy near the base can injure ileum or cecum.",
+            "More traction may avulse mesentery.",
+            "Stapling without orientation can trap bowel."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bleeding as a speed problem.",
+            "Losing the terminal ileum landmark.",
+            "Failing to pause and re-expose."
+          ],
+          "attendingPearl": "Blood in the field is a reason to slow down, not speed up.",
+          "codingDocumentationPearl": "Document perforation, abscess, gangrene, fecalith, stump method, cecal involvement, drain/source control decisions, and any postoperative abscess management."
+        }
       },
       {
         "title": "Persistent fever after perforated appendectomy",
@@ -2958,11 +3035,22 @@
         "intraoperative": "Original case had purulence in the pelvis and a fecalith retrieved from an abscess cavity.",
         "decisionPoint": "What is the next step?",
         "discussion": "Treat as postoperative intraabdominal abscess: antibiotics plus image-guided drainage when feasible. Reoperation is for failed drainage, uncontrolled sepsis, or concern for missed injury.",
-        "teachingPoints": [
-          "A retained fecalith raises abscess risk.",
-          "Drains do not prevent all abscesses.",
-          "Persistent fever after perforation deserves imaging, not reassurance."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Image for abscess and treat with antibiotics plus percutaneous drainage when feasible.",
+          "whyCorrect": "Treat as postoperative intraabdominal abscess: antibiotics plus image-guided drainage when feasible. Reoperation is for failed drainage, uncontrolled sepsis, or concern for missed injury.",
+          "whyAlternativesWrong": [
+            "Reassurance alone misses source-control failure.",
+            "Antibiotics alone may fail for a drainable 5 cm abscess.",
+            "Immediate laparotomy is not first-line for a stable drainable collection."
+          ],
+          "commonTraineeMistakes": [
+            "Forgetting retained fecalith risk.",
+            "Not imaging persistent postoperative fever.",
+            "Overusing prophylactic drains as false reassurance."
+          ],
+          "attendingPearl": "After perforated appendicitis, persistent fever is an abscess until proven otherwise.",
+          "codingDocumentationPearl": "Document perforation, abscess, gangrene, fecalith, stump method, cecal involvement, drain/source control decisions, and any postoperative abscess management."
+        }
       }
     ],
     "exploratory-laparotomy": [
@@ -2987,11 +3075,22 @@
         "intraoperative": "Upon entry there is massive hemoperitoneum.",
         "decisionPoint": "What is your first operative sequence?",
         "discussion": "Make a generous midline incision, evacuate clot enough to work, pack all four quadrants, communicate with anesthesia, then remove packs systematically to identify and control major bleeding before contamination. If physiology is failing, abbreviate the operation.",
-        "teachingPoints": [
-          "Packing is a diagnostic and therapeutic maneuver.",
-          "Control hemorrhage before definitive reconstruction.",
-          "Damage control is triggered by physiology, not pride."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Perform rapid midline laparotomy, evacuate enough clot to work, pack all four quadrants, resuscitate with anesthesia, then systematically identify hemorrhage and contamination.",
+          "whyCorrect": "Make a generous midline incision, evacuate clot enough to work, pack all four quadrants, communicate with anesthesia, then remove packs systematically to identify and control major bleeding before contamination. If physiology is failing, abbreviate the operation.",
+          "whyAlternativesWrong": [
+            "A CT scan is unsafe in an unstable positive FAST patient.",
+            "Looking for the exact injury before packing wastes time and blood.",
+            "Definitive repair before physiology is controlled can kill the patient."
+          ],
+          "commonTraineeMistakes": [
+            "Losing communication with anesthesia.",
+            "Unpacking randomly.",
+            "Trying to fix every injury during lethal physiology."
+          ],
+          "attendingPearl": "Damage control starts the moment physiology becomes the enemy.",
+          "codingDocumentationPearl": "Document indication, hemodynamic instability, hemorrhage/contamination control, injuries found, bowel run, packs, discontinuity, temporary closure, planned takeback, and damage-control rationale."
+        }
       },
       {
         "title": "Zone I retroperitoneal hematoma",
@@ -3014,11 +3113,22 @@
         "intraoperative": "There is a central expanding retroperitoneal hematoma near the great vessels.",
         "decisionPoint": "Do you explore it?",
         "discussion": "A central Zone I hematoma, especially expanding or pulsatile, generally requires exploration because it may represent major vascular injury. Gain proximal and distal control and use exposure maneuvers appropriate to the suspected location.",
-        "teachingPoints": [
-          "Zone I is not managed like lateral stable Zone II hematoma.",
-          "Exposure is part of hemorrhage control.",
-          "Know before opening whether you need supraceliac, aortic, caval, or mesenteric control."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Explore an expanding or central Zone I hematoma with proximal and distal control planned before opening it.",
+          "whyCorrect": "A central Zone I hematoma, especially expanding or pulsatile, generally requires exploration because it may represent major vascular injury. Gain proximal and distal control and use exposure maneuvers appropriate to the suspected location.",
+          "whyAlternativesWrong": [
+            "Leaving a central expanding hematoma alone risks missed major vascular injury.",
+            "Opening without exposure/control can create uncontrolled hemorrhage.",
+            "Treating all retroperitoneal zones the same is unsafe."
+          ],
+          "commonTraineeMistakes": [
+            "Not knowing hematoma zones.",
+            "Opening before gaining control.",
+            "Confusing stable lateral hematoma logic with central hematoma logic."
+          ],
+          "attendingPearl": "Retroperitoneal hematoma management is anatomy-specific hemorrhage strategy.",
+          "codingDocumentationPearl": "Document indication, hemodynamic instability, hemorrhage/contamination control, injuries found, bowel run, packs, discontinuity, temporary closure, planned takeback, and damage-control rationale."
+        }
       },
       {
         "title": "Systematic bowel run after penetrating trauma",
@@ -3041,11 +3151,22 @@
         "intraoperative": "One enterotomy is identified early; contamination is limited.",
         "decisionPoint": "How do you avoid missing additional injuries?",
         "discussion": "Run the bowel deliberately from the ligament of Treitz to the ileocecal valve, inspecting both sides and the mesenteric border, then re-run when needed after repairs. Inspect colon, stomach, lesser sac, diaphragm, and retroperitoneum based on trajectory.",
-        "teachingPoints": [
-          "Finding one hole is not permission to stop looking.",
-          "Orientation must be maintained throughout the bowel run.",
-          "Missed injury is the oral-board disaster in penetrating trauma."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Run bowel deliberately from ligament of Treitz to ileocecal valve, inspect both sides and mesentery, then re-run or broaden exploration based on trajectory.",
+          "whyCorrect": "Run the bowel deliberately from the ligament of Treitz to the ileocecal valve, inspecting both sides and the mesenteric border, then re-run when needed after repairs. Inspect colon, stomach, lesser sac, diaphragm, and retroperitoneum based on trajectory.",
+          "whyAlternativesWrong": [
+            "Stopping after the first injury misses paired enterotomies.",
+            "A casual look at visible bowel is not a bowel run.",
+            "Ignoring trajectory can miss diaphragm, stomach, colon, or retroperitoneal injury."
+          ],
+          "commonTraineeMistakes": [
+            "Losing orientation.",
+            "Missing mesenteric border injuries.",
+            "Not inspecting the lesser sac or diaphragm when trajectory demands it."
+          ],
+          "attendingPearl": "Finding one hole proves only that at least one hole exists.",
+          "codingDocumentationPearl": "Document indication, hemodynamic instability, hemorrhage/contamination control, injuries found, bowel run, packs, discontinuity, temporary closure, planned takeback, and damage-control rationale."
+        }
       },
       {
         "title": "Open abdomen after abbreviated laparotomy",
@@ -3068,11 +3189,22 @@
         "intraoperative": "Bowel left in discontinuity, packs placed near liver, temporary abdominal closure applied.",
         "decisionPoint": "What is the plan now?",
         "discussion": "Resuscitate in ICU, correct hypothermia/acidosis/coagulopathy, monitor abdominal domain and output, and return in 24-48 hours or sooner for bleeding, ischemia, or compartment concern. The next operation should remove packs, reassess all injuries, restore continuity when physiology allows, and pursue fascial closure when feasible.",
-        "teachingPoints": [
-          "Temporary closure is not the end of the operation; it is a bridge.",
-          "Document discontinuity, packs, drains, and planned takeback.",
-          "Early fascial closure is a goal, but physiology wins."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Resuscitate, correct physiology, monitor the temporary closure, and return in 24-48 hours or sooner for bleeding, ischemia, compartment physiology, or failed source control.",
+          "whyCorrect": "Resuscitate in ICU, correct hypothermia/acidosis/coagulopathy, monitor abdominal domain and output, and return in 24-48 hours or sooner for bleeding, ischemia, or compartment concern. The next operation should remove packs, reassess all injuries, restore continuity when physiology allows, and pursue fascial closure when feasible.",
+          "whyAlternativesWrong": [
+            "Leaving the abdomen open without a takeback plan is incomplete care.",
+            "Forcing closure during edema or shock risks compartment syndrome.",
+            "Restoring continuity before physiology recovers may be unsafe."
+          ],
+          "commonTraineeMistakes": [
+            "Poor pack/discontinuity documentation.",
+            "Delayed takeback.",
+            "Forgetting early fascial closure goals."
+          ],
+          "attendingPearl": "Temporary abdominal closure is a planned pause, not the end of the operation.",
+          "codingDocumentationPearl": "Document indication, hemodynamic instability, hemorrhage/contamination control, injuries found, bowel run, packs, discontinuity, temporary closure, planned takeback, and damage-control rationale."
+        }
       }
     ],
     "thyroid-lobectomy": [
@@ -3097,11 +3229,22 @@
         "intraoperative": "Near Berry ligament, nerve monitor signal is lost after traction; the nerve appears anatomically intact.",
         "decisionPoint": "What do you do next?",
         "discussion": "Stop dissection, troubleshoot the monitoring system, confirm vagus and RLN signals, release traction, inspect nerve continuity, and avoid further thermal or traction injury. For lobectomy, finish only what is necessary and document the event clearly.",
-        "teachingPoints": [
-          "The RLN is most vulnerable near Berry ligament.",
-          "Signal loss is managed systematically, not emotionally.",
-          "An intact-looking nerve can still have neuropraxia."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Stop, troubleshoot equipment/anesthesia factors, test vagus and RLN, release traction, inspect continuity, and avoid further injury.",
+          "whyCorrect": "Stop dissection, troubleshoot the monitoring system, confirm vagus and RLN signals, release traction, inspect nerve continuity, and avoid further thermal or traction injury. For lobectomy, finish only what is necessary and document the event clearly.",
+          "whyAlternativesWrong": [
+            "Continuing near Berry ligament can convert neuropraxia into permanent injury.",
+            "Assuming the monitor is always wrong ignores a real warning.",
+            "Panicking and pulling harder worsens traction injury."
+          ],
+          "commonTraineeMistakes": [
+            "Not checking the vagus.",
+            "Using energy near an uncertain nerve.",
+            "Failing to document the event."
+          ],
+          "attendingPearl": "A nerve that looks intact can still be injured; respect the signal and the anatomy.",
+          "codingDocumentationPearl": "Document side, extent of resection, nerve identification/monitoring, parathyroid handling, autotransplantation if performed, difficult anatomy, and any loss-of-signal event."
+        }
       },
       {
         "title": "Tubercle of Zuckerkandl points toward the nerve",
@@ -3124,11 +3267,22 @@
         "intraoperative": "A prominent posterior tubercle tethers the lobe medially.",
         "decisionPoint": "How should this change your dissection?",
         "discussion": "Treat the tubercle as a warning sign. Develop capsular dissection carefully, identify the RLN before dividing tissue near Berry ligament, and avoid blind traction or energy at the posterior tubercle.",
-        "teachingPoints": [
-          "The tubercle often points to the RLN.",
-          "Posterior thyroid anatomy is where routine cases become nerve injuries.",
-          "Capsular dissection protects parathyroid blood supply and nerve identity."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Treat the tubercle as a landmark and danger sign; identify the RLN before dividing posterior tissue near Berry ligament.",
+          "whyCorrect": "Treat the tubercle as a warning sign. Develop capsular dissection carefully, identify the RLN before dividing tissue near Berry ligament, and avoid blind traction or energy at the posterior tubercle.",
+          "whyAlternativesWrong": [
+            "Blind traction on the tubercle can tent the RLN.",
+            "Energy at the posterior capsule before nerve identification is dangerous.",
+            "Ignoring this variant removes a useful map."
+          ],
+          "commonTraineeMistakes": [
+            "Rushing posterior dissection.",
+            "Mistaking tubercle tissue for expendable thyroid remnant.",
+            "Devascularizing parathyroids during exposure."
+          ],
+          "attendingPearl": "The tubercle often points to the nerve; listen to it.",
+          "codingDocumentationPearl": "Document side, extent of resection, nerve identification/monitoring, parathyroid handling, autotransplantation if performed, difficult anatomy, and any loss-of-signal event."
+        }
       },
       {
         "title": "Possible nonrecurrent laryngeal nerve",
@@ -3151,11 +3305,22 @@
         "intraoperative": "The expected RLN is not found in the tracheoesophageal groove.",
         "decisionPoint": "What should you assume and do?",
         "discussion": "Assume a possible nonrecurrent RLN until proven otherwise. Stop blind dissection, search carefully for a transverse nerve entering the larynx, use stimulation/vagus mapping if available, and divide vessels only after nerve anatomy is established.",
-        "teachingPoints": [
-          "Aberrant right subclavian artery is associated with nonrecurrent RLN.",
-          "Failure to find the nerve is not clearance to proceed.",
-          "Variant anatomy punishes routine habits."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Assume a nonrecurrent RLN, stop blind groove dissection, map carefully, and look for a transverse nerve entering the larynx.",
+          "whyCorrect": "Assume a possible nonrecurrent RLN until proven otherwise. Stop blind dissection, search carefully for a transverse nerve entering the larynx, use stimulation/vagus mapping if available, and divide vessels only after nerve anatomy is established.",
+          "whyAlternativesWrong": [
+            "Proceeding because the usual RLN is absent risks transecting the variant nerve.",
+            "Mass ligation of inferior vessels can capture the nerve.",
+            "Ignoring arteria lusoria misses the preoperative warning."
+          ],
+          "commonTraineeMistakes": [
+            "Expecting all nerves to recur.",
+            "Dividing tissue before nerve identity is known.",
+            "Not using stimulation/mapping when available."
+          ],
+          "attendingPearl": "If the expected nerve is not where it should be, the operation has changed.",
+          "codingDocumentationPearl": "Document side, extent of resection, nerve identification/monitoring, parathyroid handling, autotransplantation if performed, difficult anatomy, and any loss-of-signal event."
+        }
       },
       {
         "title": "Voice fatigue risk from superior pole dissection",
@@ -3178,11 +3343,22 @@
         "intraoperative": "Superior pole vessels are short and close to the cricothyroid region.",
         "decisionPoint": "How do you protect voice function?",
         "discussion": "Divide superior pole vessels close to the thyroid capsule, avoid high mass ligation, maintain awareness of the external branch of the superior laryngeal nerve, and document counseling and meticulous superior pole technique.",
-        "teachingPoints": [
-          "EBSLN injury may present as pitch and projection loss.",
-          "Professional voice users need explicit preoperative counseling.",
-          "Superior pole control is an anatomy operation, not a clamp-and-cut step."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Divide superior pole vessels close to the thyroid capsule and protect the external branch of the superior laryngeal nerve.",
+          "whyCorrect": "Divide superior pole vessels close to the thyroid capsule, avoid high mass ligation, maintain awareness of the external branch of the superior laryngeal nerve, and document counseling and meticulous superior pole technique.",
+          "whyAlternativesWrong": [
+            "High mass ligation increases EBSLN injury risk.",
+            "Ignoring professional voice use underestimates morbidity.",
+            "Focusing only on RLN misses another important voice nerve."
+          ],
+          "commonTraineeMistakes": [
+            "Not counseling voice professionals.",
+            "Taking superior pole vessels too high.",
+            "Not recognizing pitch/projection loss as nerve morbidity."
+          ],
+          "attendingPearl": "Superior pole dissection is where voice quality is protected.",
+          "codingDocumentationPearl": "Document side, extent of resection, nerve identification/monitoring, parathyroid handling, autotransplantation if performed, difficult anatomy, and any loss-of-signal event."
+        }
       }
     ],
     "total-thyroidectomy": [
@@ -3207,11 +3383,22 @@
         "intraoperative": "After completing the first side, ipsilateral vagus/RLN signal is lost and does not recover after troubleshooting.",
         "decisionPoint": "Do you proceed to the second side?",
         "discussion": "Do not risk bilateral vocal cord paralysis casually. Troubleshoot, inspect continuity, wait, and if true loss persists, strongly consider staging the contralateral side unless cancer urgency or another compelling indication changes the risk-benefit discussion.",
-        "teachingPoints": [
-          "Bilateral RLN injury is catastrophic.",
-          "The second side decision is judgment, not momentum.",
-          "Document signal testing, anatomy, and rationale."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Confirm true loss of signal and strongly consider staging rather than proceeding to the second side.",
+          "whyCorrect": "Do not risk bilateral vocal cord paralysis casually. Troubleshoot, inspect continuity, wait, and if true loss persists, strongly consider staging the contralateral side unless cancer urgency or another compelling indication changes the risk-benefit discussion.",
+          "whyAlternativesWrong": [
+            "Proceeding bilaterally risks bilateral vocal cord paralysis.",
+            "Ignoring the signal because the nerve appears intact misses neuropraxia.",
+            "Letting the original plan override new information is poor judgment."
+          ],
+          "commonTraineeMistakes": [
+            "Not troubleshooting before deciding.",
+            "Not documenting vagus/RLN testing.",
+            "Continuing because the consent says total thyroidectomy."
+          ],
+          "attendingPearl": "The second side is optional when the first side tells you the airway is at risk.",
+          "codingDocumentationPearl": "Document bilateral nerve identification/monitoring, parathyroid preservation/autotransplantation, central neck work if performed, loss-of-signal decisions, hypocalcemia plan, and airway/hematoma events."
+        }
       },
       {
         "title": "Postoperative neck hematoma",
@@ -3234,11 +3421,22 @@
         "intraoperative": "Original case had difficult Graves dissection with diffuse oozing.",
         "decisionPoint": "What do you do right now?",
         "discussion": "This is an airway emergency. Open the incision at bedside if airway compromise is present, evacuate clot enough to relieve pressure, call anesthesia/OR team, secure airway if possible, and return to the OR for definitive hemostasis.",
-        "teachingPoints": [
-          "Do not send an airway-threatening neck hematoma to CT.",
-          "Bedside decompression can be lifesaving.",
-          "Calm speed matters more than perfect sterility in imminent obstruction."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Treat as an airway emergency: open the incision immediately if compromised, call for help, decompress, secure airway when possible, and return to OR.",
+          "whyCorrect": "This is an airway emergency. Open the incision at bedside if airway compromise is present, evacuate clot enough to relieve pressure, call anesthesia/OR team, secure airway if possible, and return to the OR for definitive hemostasis.",
+          "whyAlternativesWrong": [
+            "CT delays lifesaving decompression.",
+            "Waiting for labs is unsafe.",
+            "Trying prolonged airway maneuvers without decompression may fail."
+          ],
+          "commonTraineeMistakes": [
+            "Underreacting to neck pressure and voice change.",
+            "Leaving scissors unavailable at bedside.",
+            "Assuming oxygen saturation will warn early enough."
+          ],
+          "attendingPearl": "A thyroid hematoma gets opened first and explained later.",
+          "codingDocumentationPearl": "Document bilateral nerve identification/monitoring, parathyroid preservation/autotransplantation, central neck work if performed, loss-of-signal decisions, hypocalcemia plan, and airway/hematoma events."
+        }
       },
       {
         "title": "Symptomatic hypocalcemia after total thyroidectomy",
@@ -3261,11 +3459,22 @@
         "intraoperative": "Both inferior parathyroids were difficult to preserve; one gland was autotransplanted.",
         "decisionPoint": "What is your next step?",
         "discussion": "Treat symptoms promptly with calcium replacement, use IV calcium for severe symptoms or ECG changes, give oral calcium/calcitriol for ongoing replacement, correct magnesium, trend calcium/PTH, and educate about warning symptoms.",
-        "teachingPoints": [
-          "Hypocalcemia prevention begins during dissection.",
-          "PTH helps risk-stratify early after surgery.",
-          "Severe symptoms are treated, not watched."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Treat symptomatic hypocalcemia with calcium replacement, IV calcium for severe symptoms/ECG changes, calcitriol as needed, magnesium correction, and serial labs.",
+          "whyCorrect": "Treat symptoms promptly with calcium replacement, use IV calcium for severe symptoms or ECG changes, give oral calcium/calcitriol for ongoing replacement, correct magnesium, trend calcium/PTH, and educate about warning symptoms.",
+          "whyAlternativesWrong": [
+            "Watching symptomatic hypocalcemia can allow tetany or arrhythmia.",
+            "Calcium alone may fail if magnesium is low.",
+            "Imaging does not answer this postoperative problem."
+          ],
+          "commonTraineeMistakes": [
+            "Not checking ionized calcium/PTH.",
+            "Missing magnesium.",
+            "Discharging without symptom instructions."
+          ],
+          "attendingPearl": "Hypocalcemia prevention starts in the neck, but rescue happens in the labs and symptoms.",
+          "codingDocumentationPearl": "Document bilateral nerve identification/monitoring, parathyroid preservation/autotransplantation, central neck work if performed, loss-of-signal decisions, hypocalcemia plan, and airway/hematoma events."
+        }
       },
       {
         "title": "Invasive thyroid cancer adherent to RLN",
@@ -3288,11 +3497,22 @@
         "intraoperative": "Tumor is densely adherent to a functioning RLN.",
         "decisionPoint": "Do you shave the tumor, sacrifice the nerve, or stop?",
         "discussion": "Decision depends on preoperative vocal cord function, gross invasion, ability to achieve meaningful oncologic clearance, patient counseling, and available adjuncts. A functioning nerve is usually preserved if safe oncologic shaving is reasonable; known invaded nonfunctional nerve may be sacrificed for disease control.",
-        "teachingPoints": [
-          "Oncologic thyroid surgery is anatomy plus function.",
-          "Preoperative laryngoscopy matters when invasion is suspected.",
-          "Do not make irreversible nerve decisions without knowing the functional context."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Base nerve preservation versus sacrifice on vocal cord function, gross invasion, oncologic goal, and patient-specific counseling; preserve a functioning nerve when safe shaving is reasonable.",
+          "whyCorrect": "Decision depends on preoperative vocal cord function, gross invasion, ability to achieve meaningful oncologic clearance, patient counseling, and available adjuncts. A functioning nerve is usually preserved if safe oncologic shaving is reasonable; known invaded nonfunctional nerve may be sacrificed for disease control.",
+          "whyAlternativesWrong": [
+            "Automatically sacrificing a functioning nerve may create avoidable disability.",
+            "Automatically shaving gross invasive disease may compromise cancer control.",
+            "Making the decision without laryngoscopy/function context is unsafe."
+          ],
+          "commonTraineeMistakes": [
+            "No preoperative laryngoscopy when invasion suspected.",
+            "Not distinguishing adherence from invasion.",
+            "Not involving cancer-risk context."
+          ],
+          "attendingPearl": "In thyroid cancer, the right answer balances cure, voice, airway, and honest preoperative planning.",
+          "codingDocumentationPearl": "Document bilateral nerve identification/monitoring, parathyroid preservation/autotransplantation, central neck work if performed, loss-of-signal decisions, hypocalcemia plan, and airway/hematoma events."
+        }
       }
     ],
     "ventral-hernia-repair": [
@@ -3317,11 +3537,22 @@
         "intraoperative": "A small bowel enterotomy occurs during dense adhesiolysis and is recognized immediately.",
         "decisionPoint": "What do you do next and how does it change the hernia plan?",
         "discussion": "Control contamination, repair or resect bowel as indicated, irrigate selectively, reassess wound class and patient risk, and reconsider mesh choice, plane, and whether to stage reconstruction. A clean permanent synthetic mesh plan may no longer be appropriate.",
-        "teachingPoints": [
-          "Recognized enterotomy is a management problem; missed enterotomy is a disaster.",
-          "Mesh strategy follows contamination reality.",
-          "Documentation must include enterotomy, repair, wound class, and rationale."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Recognize and control the enterotomy, repair or resect as needed, control contamination, then reassess mesh type, plane, and whether to stage the reconstruction.",
+          "whyCorrect": "Control contamination, repair or resect bowel as indicated, irrigate selectively, reassess wound class and patient risk, and reconsider mesh choice, plane, and whether to stage reconstruction. A clean permanent synthetic mesh plan may no longer be appropriate.",
+          "whyAlternativesWrong": [
+            "Ignoring contamination and proceeding with a clean permanent mesh plan risks infection.",
+            "Failing to repair/resect definitively invites leak.",
+            "Aborting without source control is not adequate."
+          ],
+          "commonTraineeMistakes": [
+            "Not changing wound class.",
+            "Continuing the original mesh plan despite contamination.",
+            "Poor documentation of enterotomy recognition and repair."
+          ],
+          "attendingPearl": "A recognized enterotomy changes the operation; a missed enterotomy changes the outcome.",
+          "codingDocumentationPearl": "Document defect size, recurrent status, reducible/incarcerated/strangulated status, mesh plane/type, component separation/TAR, contamination/wound class, enterotomy management, and why any staged plan was chosen."
+        }
       },
       {
         "title": "Posterior sheath destroyed during retrorectus repair",
@@ -3344,11 +3575,22 @@
         "intraoperative": "The retrorectus space is developed, but the posterior sheath tears extensively and cannot close primarily.",
         "decisionPoint": "What are your options?",
         "discussion": "Do not ignore the posterior layer. Options include posterior sheath repair, peritoneal flap, TAR to gain medialization and posterior layer coverage, alternate mesh plane, absorbable barrier strategy, or staged/aborted reconstruction depending on contamination and tissue quality.",
-        "teachingPoints": [
-          "Retromuscular repair requires a protected visceral layer.",
-          "TAR is a solution to posterior layer and medialization problems when anatomy supports it.",
-          "Bridging should be an intentional compromise, not an accidental endpoint."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Reconstruct a safe posterior layer or change strategy with repair, peritoneal flap, TAR, alternate plane, barrier strategy, or staged repair.",
+          "whyCorrect": "Do not ignore the posterior layer. Options include posterior sheath repair, peritoneal flap, TAR to gain medialization and posterior layer coverage, alternate mesh plane, absorbable barrier strategy, or staged/aborted reconstruction depending on contamination and tissue quality.",
+          "whyAlternativesWrong": [
+            "Placing mesh directly on bowel unintentionally is unsafe.",
+            "Ignoring the posterior layer undermines the retromuscular repair.",
+            "Bridging by accident invites recurrence."
+          ],
+          "commonTraineeMistakes": [
+            "Confusing retrorectus space after the posterior layer is lost.",
+            "Not considering TAR.",
+            "Forcing a repair that has no visceral protection."
+          ],
+          "attendingPearl": "The posterior layer is not cosmetic; it is the bowel’s protection from your mesh.",
+          "codingDocumentationPearl": "Document defect size, recurrent status, reducible/incarcerated/strangulated status, mesh plane/type, component separation/TAR, contamination/wound class, enterotomy management, and why any staged plan was chosen."
+        }
       },
       {
         "title": "Loss of domain physiology during closure",
@@ -3371,11 +3613,22 @@
         "intraoperative": "After fascial approximation, peak airway pressures rise and venous return worsens.",
         "decisionPoint": "Do you force closure?",
         "discussion": "No. Reassess domain physiology, release tension, consider component separation/TAR if not done, temporary closure, staged reconstruction, or planned ventral hernia. The patient’s physiology overrides the desire for a closed fascia.",
-        "teachingPoints": [
-          "A technically closed abdomen can be a physiologic failure.",
-          "Airway pressure and hemodynamics are surgical data.",
-          "Forced closure can create abdominal compartment syndrome."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Do not force closure; release tension, reassess domain, consider component separation/TAR, temporary closure, staged reconstruction, or planned ventral hernia.",
+          "whyCorrect": "No. Reassess domain physiology, release tension, consider component separation/TAR if not done, temporary closure, staged reconstruction, or planned ventral hernia. The patient’s physiology overrides the desire for a closed fascia.",
+          "whyAlternativesWrong": [
+            "Forcing closure can cause abdominal compartment syndrome.",
+            "Ignoring airway pressure/hemodynamics misses real-time physiology.",
+            "Mesh bridging under extreme tension may fail."
+          ],
+          "commonTraineeMistakes": [
+            "Treating fascial closure as the only success metric.",
+            "Not coordinating with anesthesia.",
+            "Ignoring preoperative loss-of-domain planning."
+          ],
+          "attendingPearl": "A closed fascia is not a victory if the patient cannot ventilate or perfuse.",
+          "codingDocumentationPearl": "Document defect size, recurrent status, reducible/incarcerated/strangulated status, mesh plane/type, component separation/TAR, contamination/wound class, enterotomy management, and why any staged plan was chosen."
+        }
       },
       {
         "title": "Choosing mesh plane for an elective repair",
@@ -3398,11 +3651,22 @@
         "intraoperative": "Retrorectus plane appears developable bilaterally.",
         "decisionPoint": "Which mesh plane is your default and why?",
         "discussion": "For many clean midline ventral hernias, retromuscular/retrorectus mesh is the workhorse because it provides wide overlap, vascularized coverage, avoids intraperitoneal contact, and supports durable midline reconstruction. The exact approach still depends on anatomy, prior operations, defect size, and surgeon expertise.",
-        "teachingPoints": [
-          "Mesh plane is a recurrence and complication decision.",
-          "Onlay is easy but has wound morbidity tradeoffs.",
-          "Intraperitoneal mesh may be useful but exposes mesh to visceral contact issues."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Use a retromuscular/retrorectus plane when anatomy supports it because it gives durable overlap with vascularized coverage and avoids visceral mesh contact.",
+          "whyCorrect": "For many clean midline ventral hernias, retromuscular/retrorectus mesh is the workhorse because it provides wide overlap, vascularized coverage, avoids intraperitoneal contact, and supports durable midline reconstruction. The exact approach still depends on anatomy, prior operations, defect size, and surgeon expertise.",
+          "whyAlternativesWrong": [
+            "Onlay may be easier but carries wound morbidity tradeoffs.",
+            "Inlay/bridged repairs are weaker when avoidable.",
+            "Intraperitoneal mesh can be useful but has visceral-contact tradeoffs."
+          ],
+          "commonTraineeMistakes": [
+            "Choosing plane by habit instead of anatomy.",
+            "Inadequate overlap.",
+            "Not documenting mesh plane and defect size."
+          ],
+          "attendingPearl": "The mesh plane is the operation.",
+          "codingDocumentationPearl": "Document defect size, recurrent status, reducible/incarcerated/strangulated status, mesh plane/type, component separation/TAR, contamination/wound class, enterotomy management, and why any staged plan was chosen."
+        }
       }
     ],
     "chest-tube-placement": [
@@ -3427,11 +3691,22 @@
         "intraoperative": "Not applicable before decompression.",
         "decisionPoint": "What do you do next?",
         "discussion": "Treat immediately with needle/finger decompression followed by definitive tube thoracostomy. In a crashing patient, diagnosis is clinical; waiting for imaging is the wrong move.",
-        "teachingPoints": [
-          "Tension pneumothorax is a clinical diagnosis in extremis.",
-          "Definitive management requires pleural decompression and a functioning tube.",
-          "Reassess ventilation and hemodynamics immediately after decompression."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Decompress immediately based on clinical diagnosis, then place a definitive functioning chest tube.",
+          "whyCorrect": "Treat immediately with needle/finger decompression followed by definitive tube thoracostomy. In a crashing patient, diagnosis is clinical; waiting for imaging is the wrong move.",
+          "whyAlternativesWrong": [
+            "Waiting for x-ray can be fatal.",
+            "Needle decompression alone may fail or re-tension.",
+            "Treating ventilator settings before decompression misses the cause."
+          ],
+          "commonTraineeMistakes": [
+            "Asking for imaging in classic unstable tension physiology.",
+            "Not reassessing after decompression.",
+            "Failing to place definitive tube."
+          ],
+          "attendingPearl": "In tension pneumothorax, the next test is a hole in the pleura.",
+          "codingDocumentationPearl": "Document indication, side, interspace/location, technique, tube size, immediate output/air leak, post-placement imaging, complications, and escalation thresholds when output or physiology is concerning."
+        }
       },
       {
         "title": "Massive hemothorax after tube placement",
@@ -3454,11 +3729,22 @@
         "intraoperative": "Chest tube immediately returns 1600 mL blood.",
         "decisionPoint": "What is your next move?",
         "discussion": "This meets classic massive hemothorax concern. Resuscitate with blood, notify OR/thoracic/trauma team, and proceed toward operative control rather than simply watching the drainage chamber.",
-        "teachingPoints": [
-          "Immediate output around 1500 mL or ongoing high output is dangerous.",
-          "Tube thoracostomy diagnoses and temporizes; it does not fix major bleeding.",
-          "Physiology and output trend both matter."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Activate operative hemorrhage control while resuscitating with blood; immediate high output is not a drainage problem, it is a bleeding problem.",
+          "whyCorrect": "This meets classic massive hemothorax concern. Resuscitate with blood, notify OR/thoracic/trauma team, and proceed toward operative control rather than simply watching the drainage chamber.",
+          "whyAlternativesWrong": [
+            "Watching the chamber wastes time during major intrathoracic bleeding.",
+            "Clamping the tube can worsen retained blood/tension physiology.",
+            "Crystalloid-only resuscitation worsens trauma coagulopathy."
+          ],
+          "commonTraineeMistakes": [
+            "Not recognizing 1500 mL immediate output.",
+            "Delayed OR notification.",
+            "Separating tube output from physiology."
+          ],
+          "attendingPearl": "A chest tube can diagnose the need for an operation.",
+          "codingDocumentationPearl": "Document indication, side, interspace/location, technique, tube size, immediate output/air leak, post-placement imaging, complications, and escalation thresholds when output or physiology is concerning."
+        }
       },
       {
         "title": "Tube placed too low with abdominal concern",
@@ -3481,11 +3767,22 @@
         "intraoperative": "Not applicable yet.",
         "decisionPoint": "How do you manage suspected diaphragmatic or intraabdominal placement?",
         "discussion": "Do not just pull the tube blindly if there may be liver, spleen, diaphragm, or bowel injury. Stabilize, image if stable, involve appropriate surgical teams, remove under controlled conditions, and repair injuries when indicated.",
-        "teachingPoints": [
-          "Low placement risks diaphragm and abdominal organs.",
-          "The safe triangle still requires rib-space awareness.",
-          "Complication management starts with recognizing the trajectory."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Stabilize, image if stable, avoid blind removal, and remove/repair under controlled conditions with appropriate surgical backup.",
+          "whyCorrect": "Do not just pull the tube blindly if there may be liver, spleen, diaphragm, or bowel injury. Stabilize, image if stable, involve appropriate surgical teams, remove under controlled conditions, and repair injuries when indicated.",
+          "whyAlternativesWrong": [
+            "Blindly pulling may release tamponade or worsen organ injury.",
+            "Ignoring low trajectory risks missed diaphragm/liver/spleen/bowel injury.",
+            "Leaving a malpositioned tube without a plan risks ongoing harm."
+          ],
+          "commonTraineeMistakes": [
+            "Not recognizing low interspace danger.",
+            "No CT in a stable patient with suspicious course.",
+            "No escalation to trauma/general surgery when abdomen is involved."
+          ],
+          "attendingPearl": "A misplaced tube is a new injury until proven otherwise.",
+          "codingDocumentationPearl": "Document indication, side, interspace/location, technique, tube size, immediate output/air leak, post-placement imaging, complications, and escalation thresholds when output or physiology is concerning."
+        }
       },
       {
         "title": "Persistent air leak after tube thoracostomy",
@@ -3508,11 +3805,22 @@
         "intraoperative": "Tube was directed posteriorly and inferiorly despite pneumothorax indication.",
         "decisionPoint": "What do you check next?",
         "discussion": "Assess the system from patient to wall: tube position, side holes inside chest, kinks, dressing seal, connections, suction, and lung injury. Reposition or place an additional correctly directed tube if drainage is inadequate.",
-        "teachingPoints": [
-          "Air goes up; fluid goes down.",
-          "Persistent air leak can be patient pathology or system failure.",
-          "Side holes outside the chest are a common mechanical failure."
-        ]
+        "expertDiscussion": {
+          "correctAnswer": "Troubleshoot patient, tube position, side holes, dressing, connections, suction, and lung injury; reposition or add a properly directed tube if inadequate.",
+          "whyCorrect": "Assess the system from patient to wall: tube position, side holes inside chest, kinks, dressing seal, connections, suction, and lung injury. Reposition or place an additional correctly directed tube if drainage is inadequate.",
+          "whyAlternativesWrong": [
+            "Assuming every air leak is lung injury misses system leaks.",
+            "Leaving side holes outside the chest guarantees failure.",
+            "For pneumothorax, a posterior/inferior tube may not evacuate apical air well."
+          ],
+          "commonTraineeMistakes": [
+            "Not checking the system from patient to wall.",
+            "Ignoring tube direction.",
+            "Not obtaining imaging when lung fails to expand."
+          ],
+          "attendingPearl": "Chest tube troubleshooting starts at the patient and ends at the wall.",
+          "codingDocumentationPearl": "Document indication, side, interspace/location, technique, tube size, immediate output/air leak, post-placement imaging, complications, and escalation thresholds when output or physiology is concerning."
+        }
       }
     ]
   }

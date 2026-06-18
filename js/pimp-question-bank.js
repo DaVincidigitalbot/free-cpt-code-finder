@@ -4,7 +4,7 @@
   const labels = {
     student: "🟢 Medical Student",
     resident: "🟡 Resident",
-    oral_boards: "🔴 Chief Resident / Oral Boards",
+    oral_boards: "🔴 Advanced Decision-Making",
   };
   const esc = (s) =>
     String(s || "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -51,20 +51,29 @@
     return items && items.length ? "<ul>" + items.map((item) => "<li>" + esc(item) + "</li>").join("") + "</ul>" : "";
   }
   function renderChallengeCard(challenge, index) {
+    const discussion = challenge.expertDiscussion || {};
+    const answerBlocks = [
+      ["Correct Answer", discussion.correctAnswer || challenge.discussion],
+      ["Why This Is Correct", discussion.whyCorrect],
+      ["Why Alternatives Are Wrong", discussion.whyAlternativesWrong],
+      ["Common Trainee Mistakes", discussion.commonTraineeMistakes],
+      ["Attending Pearl", discussion.attendingPearl],
+      ["Coding / Documentation Pearl", discussion.codingDocumentationPearl],
+    ].filter((block) => block[1] && (!Array.isArray(block[1]) || block[1].length));
     return '<article class="case-challenge-card">' +
-      '<div class="case-challenge-header"><div><span class="case-challenge-eyebrow">Challenge ' + (index + 1) + '</span><h3>' + esc(challenge.title) + '</h3></div><span class="case-challenge-badge">' + esc(challenge.focus || "Oral Boards") + '</span></div>' +
+      '<div class="case-challenge-header"><div><span class="case-challenge-eyebrow">Surgical Decision Challenge ' + (index + 1) + '</span><h3>' + esc(challenge.title) + '</h3></div><span class="case-challenge-badge">' + esc(challenge.focus || "Judgment") + '</span></div>' +
       '<div class="case-challenge-grid">' +
       '<section><h4>History</h4><p>' + esc(challenge.history) + '</p></section>' +
       '<section><h4>Physical Examination</h4><p>' + esc(challenge.physical) + '</p></section>' +
       '<section><h4>Vitals</h4>' + listHtml(challenge.vitals) + '</section>' +
       '<section><h4>Labs</h4>' + listHtml(challenge.labs) + '</section>' +
-      '<section><h4>Imaging Findings</h4><p>' + esc(challenge.imaging) + '</p></section>' +
-      '<section><h4>Intraoperative Findings</h4><p>' + esc(challenge.intraoperative) + '</p></section>' +
+      '<section><h4>Imaging</h4><p>' + esc(challenge.imaging) + '</p></section>' +
+      '<section><h4>Relevant Operative Findings</h4><p>' + esc(challenge.intraoperative) + '</p></section>' +
       '</div>' +
-      '<div class="case-challenge-decision"><h4>What Would You Do Next?</h4><p>' + esc(challenge.decisionPoint) + '</p></div>' +
-      '<button class="case-challenge-reveal" type="button" aria-expanded="false">Reveal Answer Discussion</button>' +
+      '<div class="case-challenge-decision"><h4>Decision Question</h4><p>' + esc(challenge.decisionPoint) + '</p></div>' +
+      '<button class="case-challenge-reveal" type="button" aria-expanded="false">Reveal Expert Discussion</button>' +
       '<div class="case-challenge-answer"><div class="case-challenge-answer-inner">' +
-      '<p>' + esc(challenge.discussion) + '</p>' + listHtml(challenge.teachingPoints) +
+      answerBlocks.map((block) => '<section class="case-challenge-answer-block"><h4>' + esc(block[0]) + '</h4>' + (Array.isArray(block[1]) ? listHtml(block[1]) : '<p>' + esc(block[1]) + '</p>') + '</section>').join("") +
       '</div></div>' +
       '</article>';
   }
@@ -74,7 +83,7 @@
         const card = btn.closest(".case-challenge-card");
         const open = card.classList.toggle("open");
         btn.setAttribute("aria-expanded", String(open));
-        btn.textContent = open ? "Hide Answer Discussion" : "Reveal Answer Discussion";
+        btn.textContent = open ? "Hide Expert Discussion" : "Reveal Expert Discussion";
       });
     });
   }
@@ -97,7 +106,7 @@
       '<button class="pimp-filter active" data-filter="all" type="button">All Questions</button>' +
       '<button class="pimp-filter" data-filter="student" type="button">Medical Student</button>' +
       '<button class="pimp-filter" data-filter="resident" type="button">Resident</button>' +
-      '<button class="pimp-filter" data-filter="oral_boards" type="button">Oral Boards</button>' +
+      '<button class="pimp-filter" data-filter="oral_boards" type="button">Advanced</button>' +
       '</div><button class="quiz-toggle" data-quiz-toggle type="button">Quiz Mode</button></div>' +
       '<div class="pimp-list" data-pimp-list>' + questions.map(renderQuestionCard).join("") + '</div>' +
       '<div class="quiz-panel" data-quiz-panel></div>';

@@ -62,9 +62,13 @@
 .case-challenge-decision{padding:16px;border-bottom:1px solid var(--line);background:#f8fbff}
 .case-challenge-reveal{width:100%;border:0;background:transparent;color:var(--ox);font-weight:800;text-align:left;padding:15px 16px}
 .case-challenge-answer{max-height:0;overflow:hidden;transition:max-height .18s ease;background:var(--white)}
-.case-challenge-card.open .case-challenge-answer{max-height:640px;border-top:1px solid var(--line)}
+.case-challenge-card.open .case-challenge-answer{max-height:1200px;border-top:1px solid var(--line)}
 .case-challenge-answer-inner{padding:0 16px 16px;color:var(--ink2)}
 .case-challenge-answer-inner ul{margin-bottom:0}
+.case-challenge-answer-block{border-bottom:1px solid var(--line);padding:14px 0}
+.case-challenge-answer-block:last-child{border-bottom:0;padding-bottom:0}
+.case-challenge-answer-block h4{margin:0 0 6px;font-size:.82rem;text-transform:uppercase;color:var(--ink2)}
+.case-challenge-answer-block p{margin:0}
 .related-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
 .related-list a{display:block;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:12px;color:var(--ink2)}
 .share-print{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
