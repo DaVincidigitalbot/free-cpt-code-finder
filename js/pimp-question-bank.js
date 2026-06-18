@@ -9,6 +9,11 @@
   const esc = (s) =>
     String(s || "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const money = (v) => (typeof v === "number" ? "$" + v.toFixed(2) : "—");
+  function track(eventName, params) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...(params || {}) });
+    if (typeof window.gtag === "function") window.gtag("event", eventName, params || {});
+  }
   async function loadJson(url) {
     const res = await fetch(url);
     if (!res.ok) throw new Error("Could not load " + url);
@@ -26,8 +31,8 @@
     if (q.bottomLine) parts.push("<p><strong>Bottom line:</strong> " + esc(q.bottomLine) + "</p>");
     return parts.join("");
   }
-  function renderQuestionCard(q) {
-    return '<article class="pimp-card" data-level="' + esc(q.level) + '">' +
+  function renderQuestionCard(q, index) {
+    return '<article class="pimp-card" data-level="' + esc(q.level) + '" data-question-index="' + index + '">' +
       '<button class="pimp-question" type="button" aria-expanded="false">' +
       '<span>Q: ' + esc(q.question) + '</span>' +
       '<span class="pimp-level">' + esc(labels[q.level] || q.level) + '</span>' +
@@ -42,6 +47,11 @@
         const card = btn.closest(".pimp-card");
         const open = card.classList.toggle("open");
         btn.setAttribute("aria-expanded", String(open));
+        if (open) track("case_prep_pimp_question_open", {
+          procedure_slug: document.body && document.body.dataset.procedureSlug || "",
+          question_index: card.dataset.questionIndex || "",
+          question_level: card.dataset.level || "",
+        });
         const label = btn.querySelector(".pimp-reveal");
         if (label) label.textContent = open ? "Click to Collapse Answer" : "Click to Reveal Answer";
       });
@@ -50,7 +60,10 @@
   function listHtml(items) {
     return items && items.length ? "<ul>" + items.map((item) => "<li>" + esc(item) + "</li>").join("") + "</ul>" : "";
   }
-  function renderChallengeCard(challenge, index) {
+  function cptLinkList(codes) {
+    return codes && codes.length ? '<div class="case-challenge-cpt-links"><strong>Related CPT review:</strong> ' + codes.map((code) => '<a data-case-prep-cpt-link href="/codes/' + esc(code) + '.html">' + esc(code) + '</a>').join(" ") + '</div>' : "";
+  }
+  function renderChallengeCard(challenge, index, cptCodes) {
     const discussion = challenge.expertDiscussion || {};
     const answerBlocks = [
       ["Correct Answer", discussion.correctAnswer || challenge.discussion],
@@ -74,6 +87,7 @@
       '<button class="case-challenge-reveal" type="button" aria-expanded="false">Reveal Expert Discussion</button>' +
       '<div class="case-challenge-answer"><div class="case-challenge-answer-inner">' +
       answerBlocks.map((block) => '<section class="case-challenge-answer-block"><h4>' + esc(block[0]) + '</h4>' + (Array.isArray(block[1]) ? listHtml(block[1]) : '<p>' + esc(block[1]) + '</p>') + '</section>').join("") +
+      cptLinkList(cptCodes) +
       '</div></div>' +
       '</article>';
   }
@@ -84,18 +98,31 @@
         const open = card.classList.toggle("open");
         btn.setAttribute("aria-expanded", String(open));
         btn.textContent = open ? "Hide Expert Discussion" : "Reveal Expert Discussion";
+        if (open) track("case_prep_decision_challenge_open", {
+          procedure_slug: document.body && document.body.dataset.procedureSlug || "",
+          challenge_title: card.querySelector("h3") ? card.querySelector("h3").textContent : "",
+        });
       });
+    });
+    scope.querySelectorAll("[data-case-prep-cpt-link]").forEach((link) => {
+      link.addEventListener("click", () => track("case_prep_to_cpt_click", {
+        procedure_slug: document.body && document.body.dataset.procedureSlug || "",
+        cpt_code: link.textContent.replace(/[^0-9A-Z]/g, ""),
+        source_area: "decision_challenge",
+      }));
     });
   }
   function renderCaseChallenges(slug) {
     const root = document.querySelector("[data-case-challenges]");
     if (!root) return;
     const challenges = (state.data.caseChallenges && state.data.caseChallenges[slug]) || [];
+    const proc = state.data.procedures.find((p) => p.slug === slug);
+    const cptCodes = proc && proc.cptCodes ? proc.cptCodes : [];
     if (!challenges.length) {
       root.innerHTML = '<p>Case challenges are being built for this procedure.</p>';
       return;
     }
-    root.innerHTML = '<div class="case-challenge-list">' + challenges.map(renderChallengeCard).join("") + '</div>';
+    root.innerHTML = '<div class="case-challenge-list">' + challenges.map((c, i) => renderChallengeCard(c, i, cptCodes)).join("") + '</div>';
     bindChallenges(root);
   }
   function renderPimpBank(slug) {
@@ -155,11 +182,16 @@
     if (!root) return;
     const proc = state.data.procedures.find((p) => p.slug === slug);
     const codes = proc && proc.cptCodes ? proc.cptCodes : [];
-    root.innerHTML = '<div class="case-prep-table-scroll"><table><thead><tr><th>CPT</th><th>Description</th><th>wRVU</th><th>Global</th><th>Estimated Medicare</th></tr></thead><tbody>' +
+    root.innerHTML = '<div class="case-prep-cpt-context"><h3>Core CPT Review for This Case</h3><p>Use the CPT table with the operative anatomy and documentation pearls above. The goal is not just picking a code; it is documenting the clinical facts that justify the code.</p><div class="case-prep-cpt-chiprow">' + codes.map((code) => '<a data-case-prep-cpt-link href="/codes/' + esc(code) + '.html">CPT ' + esc(code) + '</a>').join("") + '</div></div>' +
+      '<div class="case-prep-table-scroll"><table><thead><tr><th>CPT</th><th>Description</th><th>wRVU</th><th>Global</th><th>Estimated Medicare</th></tr></thead><tbody>' +
       codes.map((code) => {
         const d = state.cpt[code] || {};
-        return '<tr><td><a class="inline-code-link" href="/codes/' + code + '.html"><strong>' + code + '</strong></a></td><td>' + esc(d.description || "") + '</td><td>' + esc(d.work_rvu ?? "—") + '</td><td>' + esc((d.global_period_days ?? "—") + " days") + '</td><td>' + money(d.estimated_medicare_payment) + '</td></tr>';
+        return '<tr><td><a class="inline-code-link" data-case-prep-cpt-link href="/codes/' + code + '.html"><strong>' + code + '</strong></a></td><td>' + esc(d.description || "") + '</td><td>' + esc(d.work_rvu ?? "—") + '</td><td>' + esc((d.global_period_days ?? "—") + " days") + '</td><td>' + money(d.estimated_medicare_payment) + '</td></tr>';
       }).join("") + '</tbody></table></div>';
+    root.querySelectorAll("[data-case-prep-cpt-link]").forEach((link) => link.addEventListener("click", () => track("case_prep_to_cpt_click", {
+      procedure_slug: slug,
+      cpt_code: link.textContent.replace(/[^0-9A-Z]/g, ""),
+    })));
   }
   function renderRelated(slug) {
     const root = document.querySelector("[data-related-content]");
@@ -174,6 +206,35 @@
     });
     (proc.relatedGuides || []).forEach((g) => items.push([g.title, g.url]));
     root.innerHTML = '<div class="related-list">' + items.map((i) => '<a href="' + esc(i[1]) + '">' + esc(i[0]) + '</a>').join("") + '</div>';
+    root.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => track("case_prep_related_click", {
+      procedure_slug: slug,
+      target_url: link.getAttribute("href") || "",
+    })));
+  }
+  function renderGraydonPearls(slug) {
+    const root = document.querySelector("[data-graydon-pearls]");
+    if (!root) return;
+    const pearls = (state.data.graydonPearls && state.data.graydonPearls[slug]) || [];
+    if (!pearls.length) {
+      root.closest(".case-prep-section").style.display = "none";
+      return;
+    }
+    root.innerHTML = '<div class="graydon-pearls">' + pearls.map((p) => '<article class="graydon-pearl graydon-pearl--' + esc(p.severity || "standard") + '"><div class="graydon-pearl__label">' + esc(p.context || "Pearl") + '</div><h3>' + esc(p.title) + '</h3><p>' + esc(p.text) + '</p></article>').join("") + '</div>';
+  }
+  function observeAtlas(slug) {
+    const atlas = document.querySelector(".case-prep-atlas,.anatomy-diagram");
+    if (!atlas || !("IntersectionObserver" in window)) return;
+    let sent = false;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!sent && entry.isIntersecting) {
+          sent = true;
+          track("case_prep_anatomy_atlas_view", { procedure_slug: slug });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.45 });
+    observer.observe(atlas);
   }
   function injectFaqSchema(slug) {
     const questions = (state.data.questions[slug] || []).slice(0, 8);
@@ -211,6 +272,13 @@
     const searchResults = root.querySelector("[data-search-results]");
     root.querySelector("[data-recent]").innerHTML = procedures.filter((p) => p.status === "live").map(procedureHtml).join("");
     root.querySelector("[data-most-viewed]").innerHTML = procedures.slice().sort((a,b)=>(b.mostViewedScore||0)-(a.mostViewedScore||0)).slice(0,6).map(procedureHtml).join("");
+    const featured = ["ventral-hernia-repair", "exploratory-laparotomy", "total-thyroidectomy", "chest-tube-placement"].map((slug) => procedures.find((p) => p.slug === slug)).filter(Boolean);
+    const featuredRoot = root.querySelector("[data-featured-procedures]");
+    if (featuredRoot) featuredRoot.innerHTML = featured.map(procedureHtml).join("");
+    const updatedRoot = root.querySelector("[data-recently-updated]");
+    if (updatedRoot) updatedRoot.innerHTML = procedures.filter((p) => p.status === "live").slice().sort((a,b)=>(b.recentlyUpdatedScore||0)-(a.recentlyUpdatedScore||0)).slice(0,6).map(procedureHtml).join("");
+    const challengesRoot = root.querySelector("[data-new-decision-challenges]");
+    if (challengesRoot) challengesRoot.innerHTML = procedures.filter((p) => p.status === "live" && state.data.caseChallenges && state.data.caseChallenges[p.slug]).map(procedureHtml).join("");
     root.querySelector("[data-related-guides]").innerHTML = state.data.relatedCodingGuides.map((g) => '<a class="case-prep-card" href="' + esc(g.url) + '"><h3>' + esc(g.title) + '</h3><p>' + esc(g.summary) + '</p></a>').join("");
     const input = root.querySelector("[data-case-prep-search]");
     input.addEventListener("input", () => {
@@ -230,8 +298,10 @@
         renderPimpBank(slug);
         renderCaseChallenges(slug);
         renderCptPearls(slug);
+        renderGraydonPearls(slug);
         renderRelated(slug);
         injectFaqSchema(slug);
+        observeAtlas(slug);
       }
     } catch (err) {
       console.error(err);

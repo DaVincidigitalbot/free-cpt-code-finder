@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Prep Analytics Dashboard | FreeCPTCodeFinder.com</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://freecptcodefinder.com/case-prep/analytics-dashboard.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/styles/site-theme.css">
+  <link rel="stylesheet" href="/styles/case-prep.css">
+  <script defer src="/js/site-chrome.js"></script>
+</head>
+<body>
+<div class="site-shell">
+  <div class="site-page" data-site-header></div>
+  <main class="site-content-wrap site-richtext">
+    <section class="case-prep-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> -> <a href="/case-prep/">Surgical Case Prep</a> -> Analytics Dashboard</div>
+        <div class="case-prep-kicker">Internal Analytics Spec</div>
+        <h1>Case Prep Analytics Dashboard</h1>
+        <p class="case-prep-lede">Event map for measuring Case Prep traffic flow, engagement, and educational interaction. This page is noindex and intended for implementation review.</p>
+      </div>
+    </section>
+    <section class="case-prep-section">
+      <div class="container">
+        <h2>Traffic Flow Events</h2>
+        <div class="case-prep-table-scroll"><table><thead><tr><th>Event</th><th>Source</th><th>Purpose</th></tr></thead><tbody>
+          <tr><td>case_prep_internal_click</td><td>CPT/blog callouts</td><td>Measures CPT -> Case Prep and blog -> Case Prep traffic flow.</td></tr>
+          <tr><td>case_prep_to_cpt_click</td><td>Case Prep CPT tables/context links</td><td>Measures Case Prep -> CPT page flow.</td></tr>
+          <tr><td>case_prep_related_click</td><td>Related content blocks</td><td>Measures internal Case Prep and guide cross-link behavior.</td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+    <section class="case-prep-section">
+      <div class="container">
+        <h2>Engagement Events</h2>
+        <div class="case-prep-table-scroll"><table><thead><tr><th>Event</th><th>Interaction</th><th>Primary Parameters</th></tr></thead><tbody>
+          <tr><td>case_prep_decision_challenge_open</td><td>Surgical Decision Challenge reveal</td><td>procedure_slug, challenge_title</td></tr>
+          <tr><td>case_prep_pimp_question_open</td><td>Pimp question reveal</td><td>procedure_slug, question_index, question_level</td></tr>
+          <tr><td>case_prep_anatomy_atlas_view</td><td>Anatomy atlas enters viewport</td><td>procedure_slug</td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+    <section class="case-prep-section">
+      <div class="container">
+        <h2>Review Dashboard</h2>
+        <div class="case-prep-grid">
+          <article class="case-prep-panel"><h3>CPT -> Case Prep Clicks</h3><p>Filter GA4 by event case_prep_internal_click and source_type=cpt.</p></article>
+          <article class="case-prep-panel"><h3>Blog -> Case Prep Clicks</h3><p>Filter GA4 by event case_prep_internal_click and source_type=blog.</p></article>
+          <article class="case-prep-panel"><h3>Most-Opened Decision Challenges</h3><p>Rank case_prep_decision_challenge_open by challenge_title and procedure_slug.</p></article>
+          <article class="case-prep-panel"><h3>Most-Viewed Anatomy Atlases</h3><p>Rank case_prep_anatomy_atlas_view by procedure_slug.</p></article>
+          <article class="case-prep-panel"><h3>Most-Clicked Pimp Questions</h3><p>Rank case_prep_pimp_question_open by procedure_slug, question_level, and question_index.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</div>
+</body>
+</html>

@@ -69,7 +69,8 @@
           "title": "Understanding Work RVUs",
           "url": "/blog/rvu/understanding-work-rvus.html"
         }
-      ]
+      ],
+      "recentlyUpdatedScore": 100
     },
     {
       "slug": "open-cholecystectomy",
@@ -113,7 +114,8 @@
           "url": "/blog/rvu/understanding-work-rvus.html"
         }
       ],
-      "recentlyAdded": true
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 96
     },
     {
       "slug": "open-appendectomy",
@@ -168,7 +170,8 @@
           "url": "/blog/modifiers/modifier-22-explained.html"
         }
       ],
-      "recentlyAdded": true
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 95
     },
     {
       "slug": "small-bowel-resection",
@@ -286,7 +289,8 @@
           "url": "/blog/rvu/understanding-work-rvus.html"
         }
       ],
-      "recentlyAdded": true
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 100
     },
     {
       "slug": "robotic-ventral-hernia-repair",
@@ -402,7 +406,8 @@
           "url": "/blog/rvu/understanding-work-rvus.html"
         }
       ],
-      "recentlyAdded": true
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 79
     },
     {
       "slug": "total-thyroidectomy",
@@ -434,7 +439,8 @@
           "url": "/blog/rvu/understanding-work-rvus.html"
         }
       ],
-      "recentlyAdded": true
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 90
     },
     {
       "slug": "parathyroidectomy",
@@ -488,7 +494,8 @@
           "url": "/blog/rvu/understanding-work-rvus.html"
         }
       ],
-      "recentlyAdded": true
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 85
     },
     {
       "slug": "open-abdomen",
@@ -3821,6 +3828,88 @@
           "attendingPearl": "Chest tube troubleshooting starts at the patient and ends at the wall.",
           "codingDocumentationPearl": "Document air leak grade/persistence, tube position and side-hole location, suction/water seal status, system troubleshooting, imaging, repositioning/additional tube decision, and escalation for bronchopleural fistula or lung injury."
         }
+      }
+    ]
+  },
+  "graydonPearls": {
+    "ventral-hernia-repair": [
+      {
+        "title": "The operation is the abdominal wall",
+        "text": "Most residents focus on the hernia. Experienced surgeons focus on the abdominal wall: tissue quality, plane, tension, contamination, and physiology.",
+        "context": "Judgment",
+        "severity": "senior"
+      },
+      {
+        "title": "The posterior layer protects the patient",
+        "text": "If the posterior sheath is destroyed, the operation has changed. Do not place mesh on bowel by accident and call it a retromuscular repair.",
+        "context": "Bailout",
+        "severity": "warning"
+      },
+      {
+        "title": "Enterotomy changes the plan",
+        "text": "A recognized enterotomy is a management problem. A missed enterotomy is a disaster.",
+        "context": "Complication",
+        "severity": "warning"
+      }
+    ],
+    "exploratory-laparotomy": [
+      {
+        "title": "Never lose orientation",
+        "text": "Run the bowel deliberately from ligament of Treitz to ileocecal valve. Finding one injury does not mean you are done looking.",
+        "context": "Trauma",
+        "severity": "senior"
+      },
+      {
+        "title": "Physiology decides the operation",
+        "text": "Damage control is not giving up. It is choosing hemorrhage control, contamination control, temporary closure, and ICU resuscitation before the patient runs out of reserve.",
+        "context": "Bailout",
+        "severity": "senior"
+      },
+      {
+        "title": "Packs are a system",
+        "text": "Four-quadrant packing only works if you unpack systematically and communicate with anesthesia while the patient declares the next priority.",
+        "context": "Exposure",
+        "severity": "standard"
+      }
+    ],
+    "thyroid-lobectomy": [
+      {
+        "title": "The nerve is proven, not assumed",
+        "text": "The recurrent laryngeal nerve is identified by anatomy, continuity, and judgment. A structure near Berry ligament is not safe just because it is where you expected it to be.",
+        "context": "Anatomy",
+        "severity": "warning"
+      },
+      {
+        "title": "The tubercle is a warning sign",
+        "text": "A prominent tubercle of Zuckerkandl often points toward the RLN. Slow down before posterior division.",
+        "context": "Danger Zone",
+        "severity": "senior"
+      },
+      {
+        "title": "Voice matters before and after the case",
+        "text": "Superior pole work can injure the external branch of the superior laryngeal nerve. Professional voice users need that risk taken seriously.",
+        "context": "Complication",
+        "severity": "standard"
+      }
+    ],
+    "total-thyroidectomy": [
+      {
+        "title": "The second side is earned",
+        "text": "After loss of signal on side one, proceeding to side two is not momentum. It is a new airway-risk decision.",
+        "context": "Judgment",
+        "severity": "warning"
+      },
+      {
+        "title": "Hypocalcemia prevention starts in the neck",
+        "text": "Preserving parathyroid blood supply is not a postoperative plan. It is an intraoperative discipline.",
+        "context": "Complication",
+        "severity": "senior"
+      },
+      {
+        "title": "A neck hematoma is not a CT problem",
+        "text": "If the airway is threatened, open the incision and decompress. The patient needs oxygen before imaging.",
+        "context": "Emergency",
+        "severity": "warning"
       }
     ]
   }
