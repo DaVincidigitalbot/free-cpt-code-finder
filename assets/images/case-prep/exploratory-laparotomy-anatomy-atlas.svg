@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img">
+<defs>
+<linearGradient id="bowel" x1="0" x2="1"><stop offset="0" stop-color="#f3c7a9"/><stop offset="1" stop-color="#c9836f"/></linearGradient>
+<linearGradient id="organ" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f7d7bd"/><stop offset="1" stop-color="#b86761"/></linearGradient>
+<linearGradient id="muscle" x1="0" x2="1"><stop offset="0" stop-color="#e7a0a0"/><stop offset="1" stop-color="#a94d55"/></linearGradient>
+<linearGradient id="thyroid" x1="0" x2="1"><stop offset="0" stop-color="#c77a66"/><stop offset="1" stop-color="#8c3f45"/></linearGradient>
+<marker id="dot" markerWidth="8" markerHeight="8" refX="4" refY="4"><circle cx="4" cy="4" r="3" fill="#111827"/></marker>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#23577b"/></marker>
+<style>
+.bg{fill:#f8fafc}.panel{fill:#fff;stroke:#d7dee8;stroke-width:2}.title{font:700 30px Inter,Arial,sans-serif;fill:#102033}.sub{font:700 15px Inter,Arial,sans-serif;fill:#526173;text-transform:uppercase;letter-spacing:1.4px}.h{font:700 21px Inter,Arial,sans-serif;fill:#102033}.label{font:600 16px Inter,Arial,sans-serif;fill:#132033}.small{font:600 13px Inter,Arial,sans-serif;fill:#263447}.note{font:500 15px Inter,Arial,sans-serif;fill:#344256}.tiny{font:500 12px Inter,Arial,sans-serif;fill:#4b5563}.leader{fill:none;stroke:#1f2937;stroke-width:1.5;marker-end:url(#dot)}.artery{fill:none;stroke:#b91c1c;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.vein{fill:none;stroke:#2563eb;stroke-width:6;stroke-linecap:round}.nerve{fill:none;stroke:#d6a21e;stroke-width:5;stroke-linecap:round;stroke-dasharray:8 5}.duct{fill:none;stroke:#7f9b42;stroke-width:13;stroke-linecap:round;stroke-linejoin:round}.danger{fill:#fff1f2;stroke:#dc2626;stroke-width:2}.pearl{fill:#ecfdf5;stroke:#6aa06c;stroke-width:2}.variant{fill:#fff7ed;stroke:#f59e0b;stroke-width:2}.flow{fill:#eef6ff;stroke:#23577b;stroke-width:2}.mesh{fill:#dbeafe;stroke:#2563eb;stroke-width:2;stroke-dasharray:6 4}.zone1{fill:#fee2e2;stroke:#b91c1c;stroke-width:2}.zone2{fill:#ffedd5;stroke:#ea580c;stroke-width:2}.zone3{fill:#ede9fe;stroke:#7c3aed;stroke-width:2}
+</style>
+</defs>
+<rect width="1440" height="980" class="bg"/>
+<text x="54" y="52" class="title">Exploratory Laparotomy Trauma Anatomy</text>
+<text x="54" y="80" class="note">Abdominal orientation, retroperitoneal hematoma zones, bowel run sequence, and exposure maneuvers.</text>
+<rect x="44" y="112" width="650" height="510" rx="18" class="panel"/><text x="72" y="154" class="sub">Open anterior trauma orientation</text><text x="72" y="184" class="h">Organs and retroperitoneal zones</text>
+<path d="M145 210 C265 150 430 160 590 230 C565 290 500 325 390 328 C280 330 190 292 145 210Z" fill="url(#organ)" stroke="#7c3f36" stroke-width="3"/><text x="165" y="250" class="label">Liver</text>
+<ellipse cx="445" cy="305" rx="85" ry="45" fill="#e7a0a0" stroke="#8b4b3f" stroke-width="3"/><text x="430" y="286" class="label">Stomach</text>
+<ellipse cx="570" cy="322" rx="44" ry="76" fill="#8b3146" stroke="#5b1d2e" stroke-width="3"/><text x="592" y="300" class="label">Spleen</text>
+<path d="M370 335 C405 360 430 390 440 432" fill="none" stroke="#d99a79" stroke-width="28" stroke-linecap="round"/><text x="472" y="388" class="label">Duodenum</text>
+<rect x="215" y="395" width="360" height="132" rx="45" fill="none" stroke="#a56a58" stroke-width="34"/><text x="225" y="545" class="label">Colon</text>
+<path d="M305 420 C350 380 430 380 470 430 C515 485 450 558 370 535 C300 515 270 465 305 420Z" fill="none" stroke="url(#bowel)" stroke-width="22" stroke-linecap="round"/><text x="330" y="455" class="label">Small bowel</text>
+<ellipse cx="355" cy="390" rx="66" ry="112" class="zone1" opacity=".42"/><text x="322" y="362" class="small">Zone I</text>
+<ellipse cx="220" cy="470" rx="78" ry="112" class="zone2" opacity=".42"/><ellipse cx="560" cy="470" rx="78" ry="112" class="zone2" opacity=".42"/><text x="185" y="570" class="small">Zone II</text><text x="526" y="570" class="small">Zone II</text>
+<ellipse cx="390" cy="574" rx="128" ry="62" class="zone3" opacity=".46"/><text x="360" y="584" class="small">Zone III</text>
+<text x="94" y="582" class="label">Retroperitoneum</text><path d="M86 577 C227 562, 227 540, 360 560" class="leader"/><text x="502" y="536" class="label">Ileocecal valve</text><path d="M494 531 C511 516, 511 490, 520 510" class="leader"/><text x="90" y="354" class="label">Ligament of Treitz</text><path d="M82 349 C222 334, 222 345, 355 365" class="leader"/>
+<rect x="746" y="112" width="650" height="510" rx="18" class="panel"/><text x="774" y="154" class="sub">Intra-abdominal operative view</text><text x="774" y="184" class="h">Bowel run and exposure maneuvers</text>
+<path d="M850 260 C905 210 995 220 1010 290 C1020 345 940 380 890 335 C850 300 870 255 940 260" fill="none" stroke="url(#bowel)" stroke-width="25" stroke-linecap="round"/>
+<path d="M935 340 C1015 360 1100 415 1086 500 C1075 570 980 575 926 525 C880 480 905 415 996 420" fill="none" stroke="url(#bowel)" stroke-width="25" stroke-linecap="round"/>
+<path d="M845 246 L890 230" stroke="#23577b" stroke-width="3" marker-end="url(#arrow)"/><text x="780" y="236" class="label">Ligament of Treitz</text>
+<path d="M1084 506 L1150 548" stroke="#23577b" stroke-width="3" marker-end="url(#arrow)"/><text x="1156" y="560" class="label">Ileocecal valve</text>
+<path d="M815 650 L1245 650" stroke="#23577b" stroke-width="3" marker-end="url(#arrow)"/><text x="842" y="632" class="note">Run bowel Treitz to ileocecal valve, then back again</text>
+<rect x="790" y="700" width="560" height="158" rx="18" class="pearl"/><text x="818" y="738" class="h">Exposure Maneuvers</text><text x="818" y="772" class="note">Kocher: mobilize duodenum for pancreatic/IVC exposure.</text><text x="818" y="804" class="note">Mattox: left medial visceral rotation to expose aorta.</text><text x="818" y="836" class="note">Cattell-Braasch: right colon mobilization to expose cava/duodenum.</text>
+<rect x="70" y="670" width="590" height="128" rx="18" class="pearl"/><text x="96" y="712" class="h">Teaching Pearl</text><text x="96" y="746" class="note">Never lose orientation. Run bowel from Ligament of Treitz</text><text x="96" y="776" class="note">to ileocecal valve and then back again.</text>
+<text x="54" y="952" class="tiny">Educational surgical anatomy illustration. Anatomy varies; operative decisions depend on exposure, patient factors, and attending surgeon judgment.</text>
+</svg>

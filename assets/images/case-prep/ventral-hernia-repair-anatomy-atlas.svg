@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img">
+<defs>
+<linearGradient id="bowel" x1="0" x2="1"><stop offset="0" stop-color="#f3c7a9"/><stop offset="1" stop-color="#c9836f"/></linearGradient>
+<linearGradient id="organ" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f7d7bd"/><stop offset="1" stop-color="#b86761"/></linearGradient>
+<linearGradient id="muscle" x1="0" x2="1"><stop offset="0" stop-color="#e7a0a0"/><stop offset="1" stop-color="#a94d55"/></linearGradient>
+<linearGradient id="thyroid" x1="0" x2="1"><stop offset="0" stop-color="#c77a66"/><stop offset="1" stop-color="#8c3f45"/></linearGradient>
+<marker id="dot" markerWidth="8" markerHeight="8" refX="4" refY="4"><circle cx="4" cy="4" r="3" fill="#111827"/></marker>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#23577b"/></marker>
+<style>
+.bg{fill:#f8fafc}.panel{fill:#fff;stroke:#d7dee8;stroke-width:2}.title{font:700 30px Inter,Arial,sans-serif;fill:#102033}.sub{font:700 15px Inter,Arial,sans-serif;fill:#526173;text-transform:uppercase;letter-spacing:1.4px}.h{font:700 21px Inter,Arial,sans-serif;fill:#102033}.label{font:600 16px Inter,Arial,sans-serif;fill:#132033}.small{font:600 13px Inter,Arial,sans-serif;fill:#263447}.note{font:500 15px Inter,Arial,sans-serif;fill:#344256}.tiny{font:500 12px Inter,Arial,sans-serif;fill:#4b5563}.leader{fill:none;stroke:#1f2937;stroke-width:1.5;marker-end:url(#dot)}.artery{fill:none;stroke:#b91c1c;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.vein{fill:none;stroke:#2563eb;stroke-width:6;stroke-linecap:round}.nerve{fill:none;stroke:#d6a21e;stroke-width:5;stroke-linecap:round;stroke-dasharray:8 5}.duct{fill:none;stroke:#7f9b42;stroke-width:13;stroke-linecap:round;stroke-linejoin:round}.danger{fill:#fff1f2;stroke:#dc2626;stroke-width:2}.pearl{fill:#ecfdf5;stroke:#6aa06c;stroke-width:2}.variant{fill:#fff7ed;stroke:#f59e0b;stroke-width:2}.flow{fill:#eef6ff;stroke:#23577b;stroke-width:2}.mesh{fill:#dbeafe;stroke:#2563eb;stroke-width:2;stroke-dasharray:6 4}.zone1{fill:#fee2e2;stroke:#b91c1c;stroke-width:2}.zone2{fill:#ffedd5;stroke:#ea580c;stroke-width:2}.zone3{fill:#ede9fe;stroke:#7c3aed;stroke-width:2}
+</style>
+</defs>
+<rect width="1440" height="980" class="bg"/>
+<text x="54" y="52" class="title">Ventral Hernia Repair Anatomy</text>
+<text x="54" y="80" class="note">Abdominal wall layers, mesh planes, TAR anatomy, neurovascular bundles, and enterotomy risk zones.</text>
+<rect x="44" y="112" width="650" height="520" rx="18" class="panel"/><text x="72" y="154" class="sub">Abdominal wall cross-section</text><text x="72" y="184" class="h">Layered anatomy and mesh planes</text>
+<rect x="120" y="210" width="420" height="28" rx="8" fill="#f5c6aa" stroke="#334155"/><text x="560" y="230" class="small">Skin</text>
+<rect x="178" y="244" width="420" height="28" rx="8" fill="#f6d7a8" stroke="#334155"/><text x="560" y="264" class="small">Subcutaneous tissue</text>
+<rect x="236" y="278" width="420" height="28" rx="8" fill="#d98282" stroke="#334155"/><text x="560" y="298" class="small">External oblique</text>
+<rect x="294" y="312" width="420" height="28" rx="8" fill="#c96f76" stroke="#334155"/><text x="560" y="332" class="small">Internal oblique</text>
+<rect x="352" y="346" width="420" height="28" rx="8" fill="#b85d66" stroke="#334155"/><text x="560" y="366" class="small">Transversus abdominis</text>
+<rect x="284" y="390" width="112" height="170" rx="36" fill="url(#muscle)" stroke="#7f1d1d" stroke-width="3"/><text x="252" y="590" class="label">Rectus muscle</text>
+<rect x="426" y="418" width="280" height="28" rx="8" fill="#e5e7eb" stroke="#334155"/><text x="560" y="438" class="small">Posterior sheath</text>
+<rect x="470" y="500" width="240" height="28" rx="8" fill="#f8fafc" stroke="#334155"/><text x="560" y="520" class="small">Peritoneum</text>
+<path d="M396 390 C430 394 462 407 492 430" class="artery"/><text x="458" y="405" class="label">Neurovascular bundle</text>
+<rect x="192" y="246" width="86" height="42" rx="10" class="mesh"/><text x="197" y="272" class="small">Onlay</text>
+<rect x="96" y="430" width="88" height="42" rx="10" class="danger"/><text x="108" y="456" class="small">Inlay</text>
+<rect x="318" y="356" width="124" height="58" rx="10" class="mesh"/><text x="324" y="382" class="small">Sublay</text><text x="324" y="402" class="small">Retromuscular</text>
+<rect x="418" y="462" width="118" height="42" rx="10" class="mesh"/><text x="426" y="488" class="small">Preperitoneal</text>
+<rect x="250" y="604" width="150" height="36" rx="10" class="mesh"/><text x="274" y="628" class="small">Intraperitoneal/IPOM</text>
+<rect x="746" y="112" width="650" height="520" rx="18" class="panel"/><text x="774" y="154" class="sub">Posterior / Retromuscular View</text><text x="774" y="184" class="h">TAR and common enterotomy locations</text>
+<rect x="910" y="214" width="112" height="350" rx="44" fill="url(#muscle)" stroke="#7f1d1d" stroke-width="3"/><rect x="1102" y="214" width="112" height="350" rx="44" fill="url(#muscle)" stroke="#7f1d1d" stroke-width="3"/>
+<path d="M1024 250 L1098 250 L1098 548 L1024 548 Z" fill="#e5e7eb" stroke="#475569" stroke-width="3"/><text x="1018" y="590" class="label">Posterior sheath</text>
+<path d="M1212 260 C1260 330 1262 460 1212 532" fill="none" stroke="#b85d66" stroke-width="42" stroke-linecap="round"/><text x="1190" y="404" class="label">Transversus</text><text x="1190" y="426" class="label">abdominis</text>
+<path d="M1100 298 C1150 320 1190 352 1220 398" stroke="#dc2626" stroke-width="6" stroke-dasharray="10 8"/><text x="1128" y="286" class="label">TAR release line</text>
+<path d="M910 330 C840 350 812 396 806 470" class="artery"/><path d="M1214 330 C1284 350 1312 396 1318 470" class="artery"/><text x="790" y="510" class="label">Neurovascular bundles enter rectus laterally</text>
+<circle cx="935" cy="278" r="18" class="danger"/><circle cx="1012" cy="522" r="18" class="danger"/><circle cx="1168" cy="286" r="18" class="danger"/><text x="790" y="642" class="label">Common enterotomy locations:</text><text x="790" y="670" class="note">abdominal wall adhesions, hernia sac, old mesh, midline scar.</text>
+<rect x="70" y="680" width="590" height="150" rx="18" class="pearl"/><text x="96" y="720" class="h">Teaching Pearls</text><text x="96" y="754" class="note">Retromuscular plane is the workhorse plane.</text><text x="96" y="784" class="note">Know where neurovascular bundles enter rectus.</text><text x="96" y="814" class="note">Recognize enterotomy immediately; mesh plan may change.</text>
+<rect x="790" y="704" width="560" height="126" rx="18" class="variant"/><text x="818" y="744" class="h">Mesh Location Summary</text><text x="818" y="778" class="note">Onlay, inlay/bridge, sublay-retromuscular, preperitoneal, intraperitoneal.</text><text x="818" y="808" class="note">Bridged inlay repairs carry recurrence risk; close fascia when safe.</text>
+<text x="54" y="952" class="tiny">Educational surgical anatomy illustration. Anatomy varies; operative decisions depend on exposure, patient factors, and attending surgeon judgment.</text>
+</svg>
