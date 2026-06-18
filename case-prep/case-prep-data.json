@@ -2743,5 +2743,777 @@
         "id": "chest-tube-placement-31"
       }
     ]
+  },
+  "caseChallenges": {
+    "laparoscopic-cholecystectomy": [
+      {
+        "title": "Acute cholecystitis with hostile hepatocystic triangle",
+        "focus": "Bailout judgment",
+        "history": "A 54-year-old diabetic patient presents with 3 days of right upper quadrant pain, fever, nausea, and ultrasound-proven stones.",
+        "physical": "Focal RUQ tenderness with guarding but no diffuse peritonitis.",
+        "vitals": [
+          "T 38.4 C",
+          "HR 112",
+          "BP 126/74",
+          "SpO2 97%"
+        ],
+        "labs": [
+          "WBC 17.8",
+          "Total bilirubin 1.3",
+          "AST/ALT mildly elevated",
+          "Lactate normal"
+        ],
+        "imaging": "Ultrasound shows stones, wall thickening, pericholecystic fluid, and a 5 mm common bile duct.",
+        "intraoperative": "Dense inflammation obscures the infundibulum; the cystic duct/common duct junction cannot be safely inferred.",
+        "decisionPoint": "You cannot obtain a critical view of safety. What is the safest next move?",
+        "discussion": "Do not keep dissecting deeper in an unsafe triangle. Improve exposure, lower the infundibulum only if anatomy becomes clear, use cholangiography or ultrasound if helpful, and choose a bailout such as subtotal cholecystectomy or conversion when uncertainty persists.",
+        "teachingPoints": [
+          "Critical view requires two and only two structures entering the gallbladder.",
+          "Bailout is a safety decision, not a failure.",
+          "The injury pattern in bad cholecystectomy is usually caused by accepting a false ductal identity."
+        ]
+      },
+      {
+        "title": "Possible choledocholithiasis before cholecystectomy",
+        "focus": "Preoperative decision making",
+        "history": "A 41-year-old patient has biliary colic, jaundice that improved overnight, and gallstones.",
+        "physical": "Mild RUQ tenderness without peritonitis.",
+        "vitals": [
+          "T 37.2 C",
+          "HR 86",
+          "BP 132/78",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "Total bilirubin fell from 3.2 to 1.7",
+          "Alkaline phosphatase elevated",
+          "WBC 9.5",
+          "Lipase normal"
+        ],
+        "imaging": "Ultrasound shows cholelithiasis and a 7 mm common bile duct without visible CBD stone.",
+        "intraoperative": "The gallbladder is not severely inflamed; anatomy is favorable.",
+        "decisionPoint": "Do you proceed directly, obtain MRCP/ERCP, or perform intraoperative cholangiography?",
+        "discussion": "This is an intermediate-risk duct stone scenario. Reasonable management includes intraoperative cholangiography or preoperative MRCP depending on local resources and clinical trajectory. ERCP is best reserved for high probability or confirmed duct stones because it carries its own risk.",
+        "teachingPoints": [
+          "Risk stratify CBD stones; do not reflexively order ERCP for every transient bilirubin rise.",
+          "IOC changes both management and CPT documentation.",
+          "A normalizing bilirubin may represent a passed stone but does not prove the duct is clear."
+        ]
+      },
+      {
+        "title": "Cystic artery bleeding during dissection",
+        "focus": "Intraoperative control",
+        "history": "A 63-year-old patient undergoes lap chole for chronic cholecystitis.",
+        "physical": "Elective case, stable abdominal exam.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 78",
+          "BP 148/82",
+          "SpO2 98%"
+        ],
+        "labs": [
+          "WBC 8.1",
+          "Hemoglobin 13.4",
+          "Total bilirubin 0.8",
+          "INR 1.0"
+        ],
+        "imaging": "Ultrasound shows multiple stones and contracted gallbladder.",
+        "intraoperative": "A small arterial branch bleeds briskly near the gallbladder neck and exposure deteriorates.",
+        "decisionPoint": "What do you do next?",
+        "discussion": "Pause and restore the field. Use suction, compress, widen exposure, and control the bleeding close to the gallbladder only after you know the structure. Avoid blind clips in the hepatocystic triangle because the right hepatic artery or an aberrant branch may be injured.",
+        "teachingPoints": [
+          "Bleeding plus inflammation is a setup for bile duct injury.",
+          "Temporary pressure is better than blind clipping.",
+          "Control should follow anatomy, not panic."
+        ]
+      },
+      {
+        "title": "Postoperative bile leak after difficult cholecystectomy",
+        "focus": "Complication management",
+        "history": "A patient returns 5 days after a difficult cholecystectomy with abdominal pain, nausea, and persistent drain output.",
+        "physical": "Tender RUQ, drain with bilious output, no generalized peritonitis.",
+        "vitals": [
+          "T 37.9 C",
+          "HR 104",
+          "BP 118/70",
+          "SpO2 97%"
+        ],
+        "labs": [
+          "WBC 14.2",
+          "Total bilirubin 1.1",
+          "Creatinine normal",
+          "Lactate 1.4"
+        ],
+        "imaging": "CT shows a small subhepatic collection; HIDA suggests active bile leak.",
+        "intraoperative": "Original operation included a subtotal cholecystectomy for unsafe anatomy.",
+        "decisionPoint": "How do you manage this patient?",
+        "discussion": "Stabilize, drain infected or symptomatic collections, define the leak, and decompress the biliary tree with ERCP/stent for most cystic duct stump or gallbladder remnant leaks. Reoperation is reserved for uncontrolled sepsis, major duct injury, or failed less invasive control.",
+        "teachingPoints": [
+          "Bile leak management is source control plus biliary decompression.",
+          "Do not ignore persistent bilious drainage.",
+          "Major duct injury requires early recognition and hepatobiliary expertise."
+        ]
+      }
+    ],
+    "laparoscopic-appendectomy": [
+      {
+        "title": "Appendix not immediately visible",
+        "focus": "Anatomic orientation",
+        "history": "A 22-year-old patient presents with migratory RLQ pain and CT-confirmed appendicitis.",
+        "physical": "RLQ tenderness without diffuse peritonitis.",
+        "vitals": [
+          "T 38.1 C",
+          "HR 102",
+          "BP 122/70",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "WBC 15.6",
+          "Creatinine normal",
+          "Pregnancy test negative when applicable",
+          "Lactate normal"
+        ],
+        "imaging": "CT shows inflamed appendix posterior to the cecum.",
+        "intraoperative": "The appendix is not seen after initial inspection; cecum is mobile and inflamed posteriorly.",
+        "decisionPoint": "What is your strategy to find the appendix safely?",
+        "discussion": "Orient on the cecum first, identify the taeniae coli, and follow their convergence to the appendiceal base. Mobilize the cecum enough to inspect retrocecal and paracecal positions while protecting terminal ileum and gonadal/retroperitoneal structures.",
+        "teachingPoints": [
+          "The base is the fixed target when the tip is hidden.",
+          "Retrocecal appendices are often missed by chasing inflammation.",
+          "Better exposure beats blind traction."
+        ]
+      },
+      {
+        "title": "Necrotic base with cecal inflammation",
+        "focus": "Stump management",
+        "history": "A 46-year-old patient has 5 days of pain and fever with perforated appendicitis on CT.",
+        "physical": "RLQ tenderness, localized peritonitis.",
+        "vitals": [
+          "T 38.7 C",
+          "HR 118",
+          "BP 112/68",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "WBC 19.4",
+          "Sodium 132",
+          "Creatinine 1.2",
+          "Lactate 2.1"
+        ],
+        "imaging": "CT shows phlegmon, appendicolith, and periappendiceal gas.",
+        "intraoperative": "The appendix is gangrenous; the base is friable and adjacent cecum is inflamed.",
+        "decisionPoint": "How do you close the stump?",
+        "discussion": "Do not place an endoloop across necrotic tissue and hope. Options include stapling across healthy cecum, partial cecectomy, drain/selective source control, or conversion if safe laparoscopic closure cannot be achieved.",
+        "teachingPoints": [
+          "Stump security depends on healthy tissue.",
+          "A stapler is not magic if fired across unsafe anatomy.",
+          "The bailout is controlled source control, not a prettier laparoscopic finish."
+        ]
+      },
+      {
+        "title": "Mesoappendix bleeding obscures the base",
+        "focus": "Bleeding control",
+        "history": "A 35-year-old patient is undergoing lap appendectomy for suppurative appendicitis.",
+        "physical": "Stable localized RLQ tenderness preoperatively.",
+        "vitals": [
+          "T 37.9 C",
+          "HR 96",
+          "BP 130/76",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "WBC 13.8",
+          "Hemoglobin 14.1",
+          "Platelets normal",
+          "INR 1.0"
+        ],
+        "imaging": "CT shows uncomplicated appendicitis with appendicolith.",
+        "intraoperative": "During mesoappendix division, arterial bleeding obscures the field near the base.",
+        "decisionPoint": "What do you do next?",
+        "discussion": "Stop traction, suction and compress, re-establish view, and control the appendiceal artery or branch with energy, clip, or stapler only when the base, cecum, and terminal ileum are oriented. Blind energy near the base risks bowel injury.",
+        "teachingPoints": [
+          "Bleeding changes the operation from speed to orientation.",
+          "The mesoappendix is controlled away from terminal ileum when possible.",
+          "Do not let blood pressure from the field make the decision."
+        ]
+      },
+      {
+        "title": "Persistent fever after perforated appendectomy",
+        "focus": "Postoperative abscess",
+        "history": "A patient returns 7 days after appendectomy for perforated appendicitis with fever and anorexia.",
+        "physical": "Mild lower abdominal tenderness, no diffuse peritonitis.",
+        "vitals": [
+          "T 38.6 C",
+          "HR 108",
+          "BP 120/72",
+          "SpO2 98%"
+        ],
+        "labs": [
+          "WBC 16.1",
+          "Creatinine normal",
+          "CRP elevated",
+          "Blood cultures pending"
+        ],
+        "imaging": "CT shows a 5 cm pelvic fluid collection with rim enhancement.",
+        "intraoperative": "Original case had purulence in the pelvis and a fecalith retrieved from an abscess cavity.",
+        "decisionPoint": "What is the next step?",
+        "discussion": "Treat as postoperative intraabdominal abscess: antibiotics plus image-guided drainage when feasible. Reoperation is for failed drainage, uncontrolled sepsis, or concern for missed injury.",
+        "teachingPoints": [
+          "A retained fecalith raises abscess risk.",
+          "Drains do not prevent all abscesses.",
+          "Persistent fever after perforation deserves imaging, not reassurance."
+        ]
+      }
+    ],
+    "exploratory-laparotomy": [
+      {
+        "title": "Unstable trauma laparotomy after positive FAST",
+        "focus": "Damage control sequence",
+        "history": "A 28-year-old arrives after multiple gunshot wounds with transient response to blood.",
+        "physical": "Distended abdomen, penetrating torso wounds, altered mental status.",
+        "vitals": [
+          "T 35.2 C",
+          "HR 138",
+          "SBP 78 after transient response",
+          "SpO2 94%"
+        ],
+        "labs": [
+          "Base deficit 9",
+          "INR 1.8",
+          "pH 7.18",
+          "Hemoglobin falling"
+        ],
+        "imaging": "FAST positive; no CT because the patient is unstable.",
+        "intraoperative": "Upon entry there is massive hemoperitoneum.",
+        "decisionPoint": "What is your first operative sequence?",
+        "discussion": "Make a generous midline incision, evacuate clot enough to work, pack all four quadrants, communicate with anesthesia, then remove packs systematically to identify and control major bleeding before contamination. If physiology is failing, abbreviate the operation.",
+        "teachingPoints": [
+          "Packing is a diagnostic and therapeutic maneuver.",
+          "Control hemorrhage before definitive reconstruction.",
+          "Damage control is triggered by physiology, not pride."
+        ]
+      },
+      {
+        "title": "Zone I retroperitoneal hematoma",
+        "focus": "Retroperitoneal decision making",
+        "history": "A 39-year-old has blunt trauma after MVC and becomes hypotensive despite transfusion.",
+        "physical": "Seatbelt sign, distended abdomen, pelvic binder in place.",
+        "vitals": [
+          "T 35.8 C",
+          "HR 124",
+          "BP 86/50",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "Lactate 5.8",
+          "INR 1.5",
+          "Hemoglobin 8.2",
+          "Platelets 102"
+        ],
+        "imaging": "CT was not possible because of instability; FAST positive.",
+        "intraoperative": "There is a central expanding retroperitoneal hematoma near the great vessels.",
+        "decisionPoint": "Do you explore it?",
+        "discussion": "A central Zone I hematoma, especially expanding or pulsatile, generally requires exploration because it may represent major vascular injury. Gain proximal and distal control and use exposure maneuvers appropriate to the suspected location.",
+        "teachingPoints": [
+          "Zone I is not managed like lateral stable Zone II hematoma.",
+          "Exposure is part of hemorrhage control.",
+          "Know before opening whether you need supraceliac, aortic, caval, or mesenteric control."
+        ]
+      },
+      {
+        "title": "Systematic bowel run after penetrating trauma",
+        "focus": "Missed injury prevention",
+        "history": "A 31-year-old with stab wound to abdomen is explored for peritonitis.",
+        "physical": "Focal peritonitis around epigastrium with guarding.",
+        "vitals": [
+          "T 36.9 C",
+          "HR 105",
+          "BP 118/74",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "WBC 12.0",
+          "Hemoglobin 12.6",
+          "Lactate 1.9",
+          "INR 1.0"
+        ],
+        "imaging": "CT suggests pneumoperitoneum and possible small bowel injury.",
+        "intraoperative": "One enterotomy is identified early; contamination is limited.",
+        "decisionPoint": "How do you avoid missing additional injuries?",
+        "discussion": "Run the bowel deliberately from the ligament of Treitz to the ileocecal valve, inspecting both sides and the mesenteric border, then re-run when needed after repairs. Inspect colon, stomach, lesser sac, diaphragm, and retroperitoneum based on trajectory.",
+        "teachingPoints": [
+          "Finding one hole is not permission to stop looking.",
+          "Orientation must be maintained throughout the bowel run.",
+          "Missed injury is the oral-board disaster in penetrating trauma."
+        ]
+      },
+      {
+        "title": "Open abdomen after abbreviated laparotomy",
+        "focus": "Takeback planning",
+        "history": "A patient undergoes damage-control laparotomy for bowel injury and hemorrhage.",
+        "physical": "Postoperative ICU patient with temporary abdominal closure.",
+        "vitals": [
+          "T 35.9 C improving",
+          "HR 118",
+          "MAP 68 on low-dose pressor",
+          "Ventilated"
+        ],
+        "labs": [
+          "pH improved from 7.12 to 7.29",
+          "INR 1.4",
+          "Lactate 3.8 downtrending",
+          "Calcium low"
+        ],
+        "imaging": "No immediate imaging; packing count and temporary closure documented.",
+        "intraoperative": "Bowel left in discontinuity, packs placed near liver, temporary abdominal closure applied.",
+        "decisionPoint": "What is the plan now?",
+        "discussion": "Resuscitate in ICU, correct hypothermia/acidosis/coagulopathy, monitor abdominal domain and output, and return in 24-48 hours or sooner for bleeding, ischemia, or compartment concern. The next operation should remove packs, reassess all injuries, restore continuity when physiology allows, and pursue fascial closure when feasible.",
+        "teachingPoints": [
+          "Temporary closure is not the end of the operation; it is a bridge.",
+          "Document discontinuity, packs, drains, and planned takeback.",
+          "Early fascial closure is a goal, but physiology wins."
+        ]
+      }
+    ],
+    "thyroid-lobectomy": [
+      {
+        "title": "Loss of nerve signal during lobectomy",
+        "focus": "RLN safety",
+        "history": "A 52-year-old undergoes right lobectomy for indeterminate nodule.",
+        "physical": "No preoperative voice change; normal neck exam except thyroid nodule.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 72",
+          "BP 128/76",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "TSH normal",
+          "Calcium normal",
+          "No coagulopathy",
+          "FNA Bethesda IV"
+        ],
+        "imaging": "Ultrasound shows right 3.1 cm nodule without suspicious nodes.",
+        "intraoperative": "Near Berry ligament, nerve monitor signal is lost after traction; the nerve appears anatomically intact.",
+        "decisionPoint": "What do you do next?",
+        "discussion": "Stop dissection, troubleshoot the monitoring system, confirm vagus and RLN signals, release traction, inspect nerve continuity, and avoid further thermal or traction injury. For lobectomy, finish only what is necessary and document the event clearly.",
+        "teachingPoints": [
+          "The RLN is most vulnerable near Berry ligament.",
+          "Signal loss is managed systematically, not emotionally.",
+          "An intact-looking nerve can still have neuropraxia."
+        ]
+      },
+      {
+        "title": "Tubercle of Zuckerkandl points toward the nerve",
+        "focus": "Variant anatomy",
+        "history": "A patient has right thyroid lobectomy for compressive benign nodule.",
+        "physical": "No lymphadenopathy; normal voice.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 80",
+          "BP 136/82",
+          "SpO2 98%"
+        ],
+        "labs": [
+          "TSH 1.4",
+          "Calcium normal",
+          "CBC normal",
+          "INR normal"
+        ],
+        "imaging": "Ultrasound shows posterior thyroid projection near tracheoesophageal groove.",
+        "intraoperative": "A prominent posterior tubercle tethers the lobe medially.",
+        "decisionPoint": "How should this change your dissection?",
+        "discussion": "Treat the tubercle as a warning sign. Develop capsular dissection carefully, identify the RLN before dividing tissue near Berry ligament, and avoid blind traction or energy at the posterior tubercle.",
+        "teachingPoints": [
+          "The tubercle often points to the RLN.",
+          "Posterior thyroid anatomy is where routine cases become nerve injuries.",
+          "Capsular dissection protects parathyroid blood supply and nerve identity."
+        ]
+      },
+      {
+        "title": "Possible nonrecurrent laryngeal nerve",
+        "focus": "Rare but dangerous variant",
+        "history": "A 47-year-old undergoes right thyroid lobectomy; preoperative CT noted aberrant right subclavian artery.",
+        "physical": "Normal voice and swallowing.",
+        "vitals": [
+          "T 36.6 C",
+          "HR 74",
+          "BP 124/78",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "TSH normal",
+          "Calcium normal",
+          "CBC normal",
+          "INR normal"
+        ],
+        "imaging": "Cross-sectional imaging suggests arteria lusoria.",
+        "intraoperative": "The expected RLN is not found in the tracheoesophageal groove.",
+        "decisionPoint": "What should you assume and do?",
+        "discussion": "Assume a possible nonrecurrent RLN until proven otherwise. Stop blind dissection, search carefully for a transverse nerve entering the larynx, use stimulation/vagus mapping if available, and divide vessels only after nerve anatomy is established.",
+        "teachingPoints": [
+          "Aberrant right subclavian artery is associated with nonrecurrent RLN.",
+          "Failure to find the nerve is not clearance to proceed.",
+          "Variant anatomy punishes routine habits."
+        ]
+      },
+      {
+        "title": "Voice fatigue risk from superior pole dissection",
+        "focus": "EBSLN preservation",
+        "history": "A singer needs lobectomy for a suspicious superior pole nodule.",
+        "physical": "Normal speaking voice; professional voice use.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 68",
+          "BP 118/72",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "TSH normal",
+          "Calcium normal",
+          "No anticoagulation",
+          "FNA suspicious"
+        ],
+        "imaging": "Ultrasound shows superior pole lesion near upper pole vessels.",
+        "intraoperative": "Superior pole vessels are short and close to the cricothyroid region.",
+        "decisionPoint": "How do you protect voice function?",
+        "discussion": "Divide superior pole vessels close to the thyroid capsule, avoid high mass ligation, maintain awareness of the external branch of the superior laryngeal nerve, and document counseling and meticulous superior pole technique.",
+        "teachingPoints": [
+          "EBSLN injury may present as pitch and projection loss.",
+          "Professional voice users need explicit preoperative counseling.",
+          "Superior pole control is an anatomy operation, not a clamp-and-cut step."
+        ]
+      }
+    ],
+    "total-thyroidectomy": [
+      {
+        "title": "Loss of signal after first side",
+        "focus": "Staged thyroidectomy decision",
+        "history": "A 44-year-old has planned total thyroidectomy for Graves disease.",
+        "physical": "Diffuse goiter, no preoperative voice abnormality.",
+        "vitals": [
+          "T 37.0 C",
+          "HR 92",
+          "BP 132/80",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "TSH suppressed but medically optimized",
+          "Calcium normal",
+          "CBC normal",
+          "INR normal"
+        ],
+        "imaging": "Ultrasound shows bilateral enlarged hypervascular gland without suspicious nodes.",
+        "intraoperative": "After completing the first side, ipsilateral vagus/RLN signal is lost and does not recover after troubleshooting.",
+        "decisionPoint": "Do you proceed to the second side?",
+        "discussion": "Do not risk bilateral vocal cord paralysis casually. Troubleshoot, inspect continuity, wait, and if true loss persists, strongly consider staging the contralateral side unless cancer urgency or another compelling indication changes the risk-benefit discussion.",
+        "teachingPoints": [
+          "Bilateral RLN injury is catastrophic.",
+          "The second side decision is judgment, not momentum.",
+          "Document signal testing, anatomy, and rationale."
+        ]
+      },
+      {
+        "title": "Postoperative neck hematoma",
+        "focus": "Airway emergency",
+        "history": "Two hours after total thyroidectomy, the patient develops neck pressure and dyspnea.",
+        "physical": "Expanding tense neck swelling, anxiety, voice change, mild stridor.",
+        "vitals": [
+          "T 36.9 C",
+          "HR 122",
+          "BP 168/94",
+          "SpO2 91%"
+        ],
+        "labs": [
+          "No immediate lab should delay action",
+          "Hemoglobin pending",
+          "Calcium not relevant to first move",
+          "Coags pending"
+        ],
+        "imaging": "No imaging should delay decompression in an airway-threatening hematoma.",
+        "intraoperative": "Original case had difficult Graves dissection with diffuse oozing.",
+        "decisionPoint": "What do you do right now?",
+        "discussion": "This is an airway emergency. Open the incision at bedside if airway compromise is present, evacuate clot enough to relieve pressure, call anesthesia/OR team, secure airway if possible, and return to the OR for definitive hemostasis.",
+        "teachingPoints": [
+          "Do not send an airway-threatening neck hematoma to CT.",
+          "Bedside decompression can be lifesaving.",
+          "Calm speed matters more than perfect sterility in imminent obstruction."
+        ]
+      },
+      {
+        "title": "Symptomatic hypocalcemia after total thyroidectomy",
+        "focus": "Metabolic complication",
+        "history": "A patient develops perioral numbness and hand tingling after total thyroidectomy.",
+        "physical": "Positive Chvostek sign, no airway distress.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 88",
+          "BP 122/74",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "Calcium 7.1",
+          "Ionized calcium low",
+          "PTH low",
+          "Magnesium low-normal"
+        ],
+        "imaging": "No imaging indicated for routine hypocalcemia evaluation.",
+        "intraoperative": "Both inferior parathyroids were difficult to preserve; one gland was autotransplanted.",
+        "decisionPoint": "What is your next step?",
+        "discussion": "Treat symptoms promptly with calcium replacement, use IV calcium for severe symptoms or ECG changes, give oral calcium/calcitriol for ongoing replacement, correct magnesium, trend calcium/PTH, and educate about warning symptoms.",
+        "teachingPoints": [
+          "Hypocalcemia prevention begins during dissection.",
+          "PTH helps risk-stratify early after surgery.",
+          "Severe symptoms are treated, not watched."
+        ]
+      },
+      {
+        "title": "Invasive thyroid cancer adherent to RLN",
+        "focus": "Oncologic judgment",
+        "history": "A patient has biopsy-proven papillary thyroid cancer with hoarseness absent preoperatively.",
+        "physical": "Firm thyroid mass, no obvious vocal cord deficit by history.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 76",
+          "BP 130/78",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "TSH normal",
+          "Calcium normal",
+          "CBC normal",
+          "INR normal"
+        ],
+        "imaging": "Ultrasound suggests posterior extrathyroidal extension near tracheoesophageal groove.",
+        "intraoperative": "Tumor is densely adherent to a functioning RLN.",
+        "decisionPoint": "Do you shave the tumor, sacrifice the nerve, or stop?",
+        "discussion": "Decision depends on preoperative vocal cord function, gross invasion, ability to achieve meaningful oncologic clearance, patient counseling, and available adjuncts. A functioning nerve is usually preserved if safe oncologic shaving is reasonable; known invaded nonfunctional nerve may be sacrificed for disease control.",
+        "teachingPoints": [
+          "Oncologic thyroid surgery is anatomy plus function.",
+          "Preoperative laryngoscopy matters when invasion is suspected.",
+          "Do not make irreversible nerve decisions without knowing the functional context."
+        ]
+      }
+    ],
+    "ventral-hernia-repair": [
+      {
+        "title": "Enterotomy during adhesiolysis",
+        "focus": "Contamination and mesh judgment",
+        "history": "A 62-year-old with recurrent incisional hernia and prior laparotomies undergoes repair.",
+        "physical": "Reducible midline hernia, thin scarred abdominal wall.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 82",
+          "BP 138/78",
+          "SpO2 98%"
+        ],
+        "labs": [
+          "WBC 7.8",
+          "Albumin 3.4",
+          "A1c 7.8",
+          "Creatinine normal"
+        ],
+        "imaging": "CT shows bowel adherent to the hernia sac and 9 cm fascial defect.",
+        "intraoperative": "A small bowel enterotomy occurs during dense adhesiolysis and is recognized immediately.",
+        "decisionPoint": "What do you do next and how does it change the hernia plan?",
+        "discussion": "Control contamination, repair or resect bowel as indicated, irrigate selectively, reassess wound class and patient risk, and reconsider mesh choice, plane, and whether to stage reconstruction. A clean permanent synthetic mesh plan may no longer be appropriate.",
+        "teachingPoints": [
+          "Recognized enterotomy is a management problem; missed enterotomy is a disaster.",
+          "Mesh strategy follows contamination reality.",
+          "Documentation must include enterotomy, repair, wound class, and rationale."
+        ]
+      },
+      {
+        "title": "Posterior sheath destroyed during retrorectus repair",
+        "focus": "Plane bailout",
+        "history": "A patient undergoes open retromuscular ventral hernia repair.",
+        "physical": "Large reducible incisional hernia without skin compromise.",
+        "vitals": [
+          "T 36.6 C",
+          "HR 78",
+          "BP 128/72",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "WBC normal",
+          "Albumin 3.8",
+          "A1c 6.8",
+          "No coagulopathy"
+        ],
+        "imaging": "CT shows 11 cm midline defect with preserved rectus muscles.",
+        "intraoperative": "The retrorectus space is developed, but the posterior sheath tears extensively and cannot close primarily.",
+        "decisionPoint": "What are your options?",
+        "discussion": "Do not ignore the posterior layer. Options include posterior sheath repair, peritoneal flap, TAR to gain medialization and posterior layer coverage, alternate mesh plane, absorbable barrier strategy, or staged/aborted reconstruction depending on contamination and tissue quality.",
+        "teachingPoints": [
+          "Retromuscular repair requires a protected visceral layer.",
+          "TAR is a solution to posterior layer and medialization problems when anatomy supports it.",
+          "Bridging should be an intentional compromise, not an accidental endpoint."
+        ]
+      },
+      {
+        "title": "Loss of domain physiology during closure",
+        "focus": "Physiologic bailout",
+        "history": "A patient with a massive chronic ventral hernia undergoes abdominal wall reconstruction.",
+        "physical": "Large hernia with much of viscera outside abdominal domain.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 88",
+          "BP 132/76",
+          "SpO2 98%"
+        ],
+        "labs": [
+          "Albumin 3.2",
+          "Creatinine normal",
+          "A1c 7.1",
+          "Hemoglobin 12.2"
+        ],
+        "imaging": "CT suggests significant loss of domain.",
+        "intraoperative": "After fascial approximation, peak airway pressures rise and venous return worsens.",
+        "decisionPoint": "Do you force closure?",
+        "discussion": "No. Reassess domain physiology, release tension, consider component separation/TAR if not done, temporary closure, staged reconstruction, or planned ventral hernia. The patient’s physiology overrides the desire for a closed fascia.",
+        "teachingPoints": [
+          "A technically closed abdomen can be a physiologic failure.",
+          "Airway pressure and hemodynamics are surgical data.",
+          "Forced closure can create abdominal compartment syndrome."
+        ]
+      },
+      {
+        "title": "Choosing mesh plane for an elective repair",
+        "focus": "Operative planning",
+        "history": "A 55-year-old with symptomatic 6 cm midline incisional hernia is optimized for elective repair.",
+        "physical": "Reducible hernia, intact skin, BMI 32.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 76",
+          "BP 126/78",
+          "SpO2 99%"
+        ],
+        "labs": [
+          "Albumin 4.0",
+          "A1c 6.4",
+          "WBC normal",
+          "Creatinine normal"
+        ],
+        "imaging": "CT shows midline defect with adequate rectus width and no contamination.",
+        "intraoperative": "Retrorectus plane appears developable bilaterally.",
+        "decisionPoint": "Which mesh plane is your default and why?",
+        "discussion": "For many clean midline ventral hernias, retromuscular/retrorectus mesh is the workhorse because it provides wide overlap, vascularized coverage, avoids intraperitoneal contact, and supports durable midline reconstruction. The exact approach still depends on anatomy, prior operations, defect size, and surgeon expertise.",
+        "teachingPoints": [
+          "Mesh plane is a recurrence and complication decision.",
+          "Onlay is easy but has wound morbidity tradeoffs.",
+          "Intraperitoneal mesh may be useful but exposes mesh to visceral contact issues."
+        ]
+      }
+    ],
+    "chest-tube-placement": [
+      {
+        "title": "Tension pneumothorax in extremis",
+        "focus": "Immediate decompression",
+        "history": "A trauma patient becomes acutely hypoxic and hypotensive after intubation.",
+        "physical": "Absent breath sounds on the right, distended neck veins, tracheal deviation suspected.",
+        "vitals": [
+          "T 36.5 C",
+          "HR 142",
+          "BP 72/40",
+          "SpO2 78%"
+        ],
+        "labs": [
+          "No lab should delay decompression",
+          "ABG pending",
+          "Hemoglobin unknown",
+          "Lactate pending"
+        ],
+        "imaging": "No chest x-ray should delay treatment in classic unstable tension physiology.",
+        "intraoperative": "Not applicable before decompression.",
+        "decisionPoint": "What do you do next?",
+        "discussion": "Treat immediately with needle/finger decompression followed by definitive tube thoracostomy. In a crashing patient, diagnosis is clinical; waiting for imaging is the wrong move.",
+        "teachingPoints": [
+          "Tension pneumothorax is a clinical diagnosis in extremis.",
+          "Definitive management requires pleural decompression and a functioning tube.",
+          "Reassess ventilation and hemodynamics immediately after decompression."
+        ]
+      },
+      {
+        "title": "Massive hemothorax after tube placement",
+        "focus": "Thoracotomy threshold",
+        "history": "A patient with penetrating chest trauma receives a chest tube.",
+        "physical": "Pale, diaphoretic, decreased breath sounds on left.",
+        "vitals": [
+          "T 35.9 C",
+          "HR 128",
+          "BP 86/48",
+          "SpO2 93%"
+        ],
+        "labs": [
+          "Hemoglobin 8.8",
+          "Base deficit 6",
+          "INR 1.3",
+          "Type and cross active"
+        ],
+        "imaging": "Portable CXR before tube showed large left hemothorax.",
+        "intraoperative": "Chest tube immediately returns 1600 mL blood.",
+        "decisionPoint": "What is your next move?",
+        "discussion": "This meets classic massive hemothorax concern. Resuscitate with blood, notify OR/thoracic/trauma team, and proceed toward operative control rather than simply watching the drainage chamber.",
+        "teachingPoints": [
+          "Immediate output around 1500 mL or ongoing high output is dangerous.",
+          "Tube thoracostomy diagnoses and temporizes; it does not fix major bleeding.",
+          "Physiology and output trend both matter."
+        ]
+      },
+      {
+        "title": "Tube placed too low with abdominal concern",
+        "focus": "Complication recognition",
+        "history": "A patient had emergent tube placement for hemothorax at an outside facility.",
+        "physical": "Tube exits low on chest wall; abdominal pain develops.",
+        "vitals": [
+          "T 37.1 C",
+          "HR 104",
+          "BP 118/70",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "WBC 13.0",
+          "Hemoglobin 10.2",
+          "LFTs mildly elevated",
+          "Lactate 2.0"
+        ],
+        "imaging": "CXR suggests the tube courses inferiorly; CT shows possible transdiaphragmatic placement.",
+        "intraoperative": "Not applicable yet.",
+        "decisionPoint": "How do you manage suspected diaphragmatic or intraabdominal placement?",
+        "discussion": "Do not just pull the tube blindly if there may be liver, spleen, diaphragm, or bowel injury. Stabilize, image if stable, involve appropriate surgical teams, remove under controlled conditions, and repair injuries when indicated.",
+        "teachingPoints": [
+          "Low placement risks diaphragm and abdominal organs.",
+          "The safe triangle still requires rib-space awareness.",
+          "Complication management starts with recognizing the trajectory."
+        ]
+      },
+      {
+        "title": "Persistent air leak after tube thoracostomy",
+        "focus": "Troubleshooting",
+        "history": "A patient with pneumothorax has a chest tube but persistent bubbling and incomplete lung expansion.",
+        "physical": "Mild dyspnea, tube dressing intact, no severe distress.",
+        "vitals": [
+          "T 36.9 C",
+          "HR 92",
+          "BP 124/76",
+          "SpO2 94%"
+        ],
+        "labs": [
+          "WBC normal",
+          "Hemoglobin stable",
+          "ABG not critical",
+          "No coagulopathy"
+        ],
+        "imaging": "CXR shows persistent apical pneumothorax.",
+        "intraoperative": "Tube was directed posteriorly and inferiorly despite pneumothorax indication.",
+        "decisionPoint": "What do you check next?",
+        "discussion": "Assess the system from patient to wall: tube position, side holes inside chest, kinks, dressing seal, connections, suction, and lung injury. Reposition or place an additional correctly directed tube if drainage is inadequate.",
+        "teachingPoints": [
+          "Air goes up; fluid goes down.",
+          "Persistent air leak can be patient pathology or system failure.",
+          "Side holes outside the chest are a common mechanical failure."
+        ]
+      }
+    ]
   }
 }

@@ -47,6 +47,48 @@
       });
     });
   }
+  function listHtml(items) {
+    return items && items.length ? "<ul>" + items.map((item) => "<li>" + esc(item) + "</li>").join("") + "</ul>" : "";
+  }
+  function renderChallengeCard(challenge, index) {
+    return '<article class="case-challenge-card">' +
+      '<div class="case-challenge-header"><div><span class="case-challenge-eyebrow">Challenge ' + (index + 1) + '</span><h3>' + esc(challenge.title) + '</h3></div><span class="case-challenge-badge">' + esc(challenge.focus || "Oral Boards") + '</span></div>' +
+      '<div class="case-challenge-grid">' +
+      '<section><h4>History</h4><p>' + esc(challenge.history) + '</p></section>' +
+      '<section><h4>Physical Examination</h4><p>' + esc(challenge.physical) + '</p></section>' +
+      '<section><h4>Vitals</h4>' + listHtml(challenge.vitals) + '</section>' +
+      '<section><h4>Labs</h4>' + listHtml(challenge.labs) + '</section>' +
+      '<section><h4>Imaging Findings</h4><p>' + esc(challenge.imaging) + '</p></section>' +
+      '<section><h4>Intraoperative Findings</h4><p>' + esc(challenge.intraoperative) + '</p></section>' +
+      '</div>' +
+      '<div class="case-challenge-decision"><h4>What Would You Do Next?</h4><p>' + esc(challenge.decisionPoint) + '</p></div>' +
+      '<button class="case-challenge-reveal" type="button" aria-expanded="false">Reveal Answer Discussion</button>' +
+      '<div class="case-challenge-answer"><div class="case-challenge-answer-inner">' +
+      '<p>' + esc(challenge.discussion) + '</p>' + listHtml(challenge.teachingPoints) +
+      '</div></div>' +
+      '</article>';
+  }
+  function bindChallenges(scope) {
+    scope.querySelectorAll(".case-challenge-reveal").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".case-challenge-card");
+        const open = card.classList.toggle("open");
+        btn.setAttribute("aria-expanded", String(open));
+        btn.textContent = open ? "Hide Answer Discussion" : "Reveal Answer Discussion";
+      });
+    });
+  }
+  function renderCaseChallenges(slug) {
+    const root = document.querySelector("[data-case-challenges]");
+    if (!root) return;
+    const challenges = (state.data.caseChallenges && state.data.caseChallenges[slug]) || [];
+    if (!challenges.length) {
+      root.innerHTML = '<p>Case challenges are being built for this procedure.</p>';
+      return;
+    }
+    root.innerHTML = '<div class="case-challenge-list">' + challenges.map(renderChallengeCard).join("") + '</div>';
+    bindChallenges(root);
+  }
   function renderPimpBank(slug) {
     const root = document.querySelector("[data-pimp-bank]");
     if (!root) return;
@@ -177,6 +219,7 @@
       const slug = document.body && document.body.dataset.procedureSlug;
       if (slug) {
         renderPimpBank(slug);
+        renderCaseChallenges(slug);
         renderCptPearls(slug);
         renderRelated(slug);
         injectFaqSchema(slug);
