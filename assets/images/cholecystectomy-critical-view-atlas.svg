@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+  <title id="title">Cholecystectomy anatomy and critical view of safety atlas</title>
+  <desc id="desc">Surgeon-grade educational illustration comparing traditional open anatomy orientation with laparoscopic and robotic operative orientation, including gallbladder regions, cystic duct, cystic artery, common hepatic duct, common bile duct, right hepatic artery, liver edge, hepatocystic triangle, critical view of safety steps, and common anatomical variants.</desc>
+  <defs>
+    <linearGradient id="liverGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f2d8be"/>
+      <stop offset="0.55" stop-color="#d99a79"/>
+      <stop offset="1" stop-color="#a85f56"/>
+    </linearGradient>
+    <linearGradient id="gbGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d9edc2"/>
+      <stop offset="0.55" stop-color="#7fb26b"/>
+      <stop offset="1" stop-color="#3f7e4f"/>
+    </linearGradient>
+    <linearGradient id="ductGrad" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#e7f3c3"/>
+      <stop offset="1" stop-color="#9eb85c"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1f2937" flood-opacity="0.16"/>
+    </filter>
+    <marker id="labelDot" markerWidth="8" markerHeight="8" refX="4" refY="4">
+      <circle cx="4" cy="4" r="3.2" fill="#111827"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <style>
+      .bg{fill:#f8fafc}
+      .panel{fill:#ffffff;stroke:#d7dee8;stroke-width:2;filter:url(#softShadow)}
+      .panel-title{font:700 24px Inter,Arial,sans-serif;fill:#122033;letter-spacing:.2px}
+      .panel-subtitle{font:600 14px Inter,Arial,sans-serif;fill:#526173;text-transform:uppercase;letter-spacing:1.4px}
+      .label{font:600 17px Inter,Arial,sans-serif;fill:#172033}
+      .label-small{font:600 14px Inter,Arial,sans-serif;fill:#263447}
+      .note{font:500 15px Inter,Arial,sans-serif;fill:#344256}
+      .tiny{font:500 12px Inter,Arial,sans-serif;fill:#4b5563}
+      .duct{fill:none;stroke:url(#ductGrad);stroke-width:22;stroke-linecap:round;stroke-linejoin:round}
+      .duct-edge{fill:none;stroke:#49652f;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+      .artery{fill:none;stroke:#b91c1c;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+      .artery-thin{fill:none;stroke:#b91c1c;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+      .leader{fill:none;stroke:#1f2937;stroke-width:1.5;stroke-linecap:round;marker-end:url(#labelDot)}
+      .triangle{fill:#f6c453;fill-opacity:.26;stroke:#a15c00;stroke-width:2;stroke-dasharray:7 7}
+      .cvs{fill:#ecfdf5;stroke:#6aa06c;stroke-width:2}
+      .variant{fill:#fff7ed;stroke:#f59e0b;stroke-width:2}
+      .danger{fill:#fff1f2;stroke:#dc2626;stroke-width:2}
+    </style>
+  </defs>
+
+  <rect width="1440" height="980" class="bg"/>
+  <text x="60" y="52" class="panel-title">Cholecystectomy Anatomy: Open Orientation vs Laparoscopic/Robotic View</text>
+  <text x="60" y="80" class="note">Chief-resident review: identify the gallbladder-cystic duct junction, arterial anatomy, major ducts, and hepatocystic triangle before clipping or dividing any structure.</text>
+
+  <rect x="44" y="112" width="650" height="520" rx="18" class="panel"/>
+  <text x="72" y="154" class="panel-subtitle">Traditional open anatomical orientation</text>
+  <text x="72" y="184" class="panel-title">Hepatocystic Anatomy</text>
+
+  <!-- Open orientation liver and biliary tree -->
+  <path d="M188 202 C292 154 462 148 620 208 C604 265 565 310 500 333 C430 366 328 356 214 322 C169 308 144 285 142 252 C141 230 156 212 188 202Z" fill="url(#liverGrad)" stroke="#7c3f36" stroke-width="2.5"/>
+  <path d="M188 318 C292 354 420 365 548 318" fill="none" stroke="#7c3f36" stroke-width="4"/>
+  <text x="483" y="250" class="label">Liver edge</text>
+  <path d="M468 258 C492 272 520 290 548 318" class="leader"/>
+
+  <path d="M266 246 C228 260 205 305 211 365 C217 425 255 472 302 472 C349 472 381 427 377 367 C373 309 331 253 266 246Z" fill="url(#gbGrad)" stroke="#2e5c3c" stroke-width="3"/>
+  <path d="M310 458 C335 480 365 486 396 473 C424 462 440 437 439 407 C437 383 422 369 399 361 C386 383 381 410 377 432 C363 449 340 457 310 458Z" fill="#5d9b5d" stroke="#2e5c3c" stroke-width="3"/>
+  <path d="M397 361 C423 361 449 371 473 392" class="duct"/>
+  <path d="M397 361 C423 361 449 371 473 392" class="duct-edge"/>
+  <path d="M472 392 C505 426 522 468 524 532" class="duct"/>
+  <path d="M472 392 C505 426 522 468 524 532" class="duct-edge"/>
+  <path d="M474 391 C491 342 509 303 534 262" class="duct"/>
+  <path d="M474 391 C491 342 509 303 534 262" class="duct-edge"/>
+  <path d="M536 262 C552 230 575 210 606 198" class="duct"/>
+  <path d="M536 262 C552 230 575 210 606 198" class="duct-edge"/>
+
+  <path d="M216 364 C252 342 309 342 397 361 L474 391 L534 262 Z" class="triangle"/>
+  <text x="360" y="322" class="label-small">Hepatocystic triangle</text>
+
+  <path d="M202 226 C185 216 171 209 154 204" class="leader"/>
+  <text x="82" y="202" class="label">Fundus</text>
+  <path d="M259 345 C238 339 216 332 193 319" class="leader"/>
+  <text x="92" y="316" class="label">Body</text>
+  <path d="M396 379 C372 408 368 437 379 465" class="leader"/>
+  <text x="105" y="505" class="label">Infundibulum / Hartmann's pouch</text>
+  <path d="M438 371 C470 353 498 338 534 316" class="leader"/>
+  <text x="525" y="374" class="label">Cystic duct</text>
+  <path d="M517 278 C493 274 462 271 421 270" class="leader"/>
+  <text x="429" y="250" class="label">Common hepatic duct</text>
+  <path d="M524 500 C555 500 586 500 616 500" class="leader"/>
+  <text x="530" y="548" class="label">Common bile duct</text>
+
+  <path d="M210 204 C270 197 341 204 405 237 C445 257 477 283 508 313" class="artery"/>
+  <path d="M505 313 C470 314 435 328 407 352" class="artery-thin"/>
+  <path d="M505 313 C535 306 560 294 584 278" class="artery-thin"/>
+  <path d="M390 348 C363 348 343 356 327 374" class="artery-thin"/>
+  <text x="94" y="170" class="label">Right hepatic artery</text>
+  <path d="M300 207 C250 188 204 179 160 178" class="leader"/>
+  <text x="138" y="443" class="label">Cystic artery</text>
+  <path d="M323 374 C272 402 221 423 176 435" class="leader"/>
+
+  <rect x="70" y="560" width="585" height="58" rx="10" class="cvs"/>
+  <text x="92" y="584" class="note">Critical View target: lower gallbladder off cystic plate,</text>
+  <text x="92" y="606" class="note">triangle cleared, and only two structures entering gallbladder.</text>
+
+  <rect x="746" y="112" width="650" height="520" rx="18" class="panel"/>
+  <text x="774" y="154" class="panel-subtitle">Laparoscopic / robotic operative orientation</text>
+  <text x="774" y="184" class="panel-title">Retraction Opens the Hepatocystic Triangle</text>
+
+  <!-- Laparoscopic orientation -->
+  <path d="M900 202 C1036 152 1190 168 1332 238 C1315 289 1269 328 1204 350 C1116 380 1007 370 886 327 C829 307 810 280 823 250 C834 226 858 211 900 202Z" fill="url(#liverGrad)" stroke="#7c3f36" stroke-width="2.5"/>
+  <path d="M870 326 C1006 367 1154 371 1285 326" fill="none" stroke="#7c3f36" stroke-width="4"/>
+  <text x="1230" y="302" class="label">Liver edge</text>
+
+  <path d="M1026 438 C986 417 959 379 948 328 C936 273 946 226 976 202 C1015 216 1049 257 1060 310 C1072 369 1060 413 1026 438Z" fill="url(#gbGrad)" stroke="#2e5c3c" stroke-width="3"/>
+  <path d="M950 326 C926 334 911 350 905 375 C900 398 908 417 927 432 C951 420 969 400 981 373 C976 353 966 338 950 326Z" fill="#5d9b5d" stroke="#2e5c3c" stroke-width="3"/>
+  <path d="M927 432 C898 465 872 487 842 505" class="duct"/>
+  <path d="M927 432 C898 465 872 487 842 505" class="duct-edge"/>
+  <path d="M842 505 C815 457 789 414 760 376" class="duct"/>
+  <path d="M842 505 C815 457 789 414 760 376" class="duct-edge"/>
+  <path d="M842 505 C857 552 864 596 862 626" class="duct"/>
+  <path d="M842 505 C857 552 864 596 862 626" class="duct-edge"/>
+  <path d="M872 486 C940 468 1000 441 1052 402 L948 328 Z" class="triangle"/>
+
+  <path d="M1160 235 C1072 253 1000 290 938 344 C914 365 895 388 876 414" class="artery"/>
+  <path d="M876 414 C916 404 955 407 990 424" class="artery-thin"/>
+  <path d="M940 410 C910 429 892 449 883 474" class="artery-thin"/>
+
+  <path d="M1004 205 C996 164 998 134 1012 112" stroke="#334155" stroke-width="3" fill="none" marker-end="url(#arrowRed)"/>
+  <text x="1018" y="126" class="label-small">Fundus retracted cephalad</text>
+  <path d="M924 432 C869 425 824 419 788 416" stroke="#334155" stroke-width="3" fill="none" marker-end="url(#arrowRed)"/>
+  <text x="782" y="404" class="label-small">Infundibulum retracted laterally</text>
+
+  <text x="1082" y="420" class="label">Fundus</text>
+  <path d="M1051 300 C1076 331 1092 365 1110 406" class="leader"/>
+  <text x="1081" y="456" class="label">Body</text>
+  <path d="M1019 388 C1043 414 1066 436 1089 452" class="leader"/>
+  <text x="1057" y="503" class="label">Infundibulum / Hartmann's pouch</text>
+  <path d="M930 430 C969 462 1006 488 1044 503" class="leader"/>
+  <text x="772" y="534" class="label">Cystic duct</text>
+  <path d="M876 474 C839 493 805 510 779 522" class="leader"/>
+  <text x="756" y="355" class="label">Common hepatic duct</text>
+  <path d="M765 376 C768 364 770 356 774 350" class="leader"/>
+  <text x="900" y="638" class="label">Common bile duct</text>
+  <path d="M862 614 C876 626 888 634 900 638" class="leader"/>
+  <text x="1174" y="236" class="label">Right hepatic artery</text>
+  <path d="M1130 243 C1148 241 1162 239 1174 236" class="leader"/>
+  <text x="964" y="472" class="label">Cystic artery</text>
+  <path d="M923 458 C938 462 952 467 964 472" class="leader"/>
+  <text x="1004" y="383" class="label-small">Hepatocystic triangle</text>
+
+  <rect x="772" y="560" width="585" height="58" rx="10" class="cvs"/>
+  <text x="794" y="584" class="note">Do not call CVS until only cystic duct and cystic artery</text>
+  <text x="794" y="606" class="note">are seen entering the gallbladder after the lower third is freed.</text>
+
+  <rect x="44" y="666" width="650" height="250" rx="18" class="panel"/>
+  <text x="72" y="706" class="panel-title">Critical View of Safety Teaching Points</text>
+  <circle cx="91" cy="746" r="11" fill="#16a34a"/><text x="116" y="752" class="note">Clear the hepatocystic triangle of fat and fibrous tissue.</text>
+  <circle cx="91" cy="786" r="11" fill="#16a34a"/><text x="116" y="792" class="note">Separate the lower third of gallbladder from the cystic plate.</text>
+  <circle cx="91" cy="826" r="11" fill="#16a34a"/><text x="116" y="832" class="note">Confirm exactly two structures enter the gallbladder: cystic duct and cystic artery.</text>
+  <circle cx="91" cy="866" r="11" fill="#dc2626"/><text x="116" y="872" class="note">If anatomy is unclear: stop, improve exposure, use cholangiography, subtotal, fundus-first, or convert.</text>
+
+  <rect x="746" y="666" width="650" height="250" rx="18" class="panel"/>
+  <text x="774" y="706" class="panel-title">Common Variants That Change the Operation</text>
+  <rect x="774" y="732" width="282" height="58" rx="12" class="variant"/>
+  <path d="M798 761 C829 748 855 747 882 761" class="duct" style="stroke-width:13"/>
+  <text x="900" y="758" class="note">Short cystic duct:</text>
+  <text x="900" y="778" class="note">avoid CBD narrowing.</text>
+  <rect x="1080" y="732" width="282" height="58" rx="12" class="variant"/>
+  <path d="M1104 766 C1134 748 1165 749 1192 768" class="duct" style="stroke-width:13"/>
+  <path d="M1150 748 C1160 731 1174 722 1190 718" class="duct-edge" style="stroke-width:4"/>
+  <text x="1210" y="758" class="note">Accessory hepatic duct:</text>
+  <text x="1210" y="778" class="note">identify before clipping.</text>
+  <rect x="774" y="814" width="282" height="58" rx="12" class="danger"/>
+  <path d="M800 844 C854 817 913 817 1030 850" class="artery"/>
+  <text x="900" y="840" class="note">Aberrant right hepatic artery:</text>
+  <text x="900" y="860" class="note">protect before clipping.</text>
+  <rect x="1080" y="814" width="282" height="58" rx="12" class="danger"/>
+  <path d="M1102 844 C1138 832 1175 833 1210 850" class="artery-thin"/>
+  <path d="M1102 858 C1142 873 1185 872 1225 856" class="artery-thin" stroke-dasharray="6 5"/>
+  <text x="1236" y="840" class="note">Posterior cystic artery:</text>
+  <text x="1236" y="860" class="note">inspect behind duct.</text>
+
+  <text x="60" y="948" class="tiny">Educational illustration. Anatomy varies. The operative decision is based on exposure, confirmed landmarks, intraoperative findings, and attending surgeon judgment.</text>
+</svg>

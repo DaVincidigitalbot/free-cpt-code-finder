@@ -16,8 +16,8 @@
 .case-prep-panel h3{margin-top:0}
 .case-prep-callout{border-left:4px solid var(--ox);background:var(--ox2);padding:16px 18px;border-radius:0 8px 8px 0;margin:18px 0}
 .anatomy-diagram{display:grid;gap:12px;margin:16px 0}
-.anatomy-map{position:relative;min-height:280px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,var(--paper),var(--white));overflow:hidden}
-.anatomy-map svg{width:100%;height:280px}
+.anatomy-map{position:relative;min-height:420px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,var(--paper),var(--white));overflow:hidden}
+.anatomy-map svg,.anatomy-map img{display:block;width:100%;height:auto}
 .anatomy-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
 .anatomy-legend span{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--white);font-size:.9rem;color:var(--ink2)}
 .steps-list{display:grid;gap:12px;counter-reset:step}
