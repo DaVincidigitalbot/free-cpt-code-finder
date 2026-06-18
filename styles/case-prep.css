@@ -55,3 +55,5 @@
 .fccf-report-launch{max-width:calc(100vw - 28px)!important}
 @media(max-width:800px){.case-prep-two{grid-template-columns:1fr}.pimp-question{grid-template-columns:1fr}.pimp-level{justify-self:start}.case-prep-hero{padding-top:12px}}
 @media print{.hdr,.site-footer,.pimp-toolbar,.share-print,.site-menu-btn{display:none!important}.pimp-answer{max-height:none!important;border-top:1px solid var(--line)!important}.case-prep-section{break-inside:avoid}}
+
+.case-prep-visual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}.case-prep-visual{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:14px;overflow:hidden}.case-prep-visual h3{margin:0 0 8px;font-size:1rem}.case-prep-visual svg{width:100%;height:auto;display:block}.surgeon-pearl{border-left:5px solid var(--moss);background:var(--ox2);padding:18px;border-radius:0 8px 8px 0;font-size:1.05rem}.case-prep-warning-list li strong{color:var(--ink)}
