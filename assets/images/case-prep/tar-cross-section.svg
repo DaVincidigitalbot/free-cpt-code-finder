@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">
+  <title id="title">Abdominal wall cross-section axial view for TAR planning</title>
+  <desc id="desc">Surgical atlas plate showing abdominal wall layers, rectus complex, linea alba, linea semilunaris, neurovascular bundles, retrorectus and preperitoneal planes, posterior sheath, transversalis fascia, peritoneum, and intraabdominal contents.</desc>
+  <defs>
+    <linearGradient id="skinGrad" x1="0" x2="1"><stop offset="0" stop-color="#f2b39d"/><stop offset="0.5" stop-color="#f7c9b8"/><stop offset="1" stop-color="#f2b39d"/></linearGradient>
+    <linearGradient id="fatGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffe2a8"/><stop offset="1" stop-color="#f7bf62"/></linearGradient>
+    <linearGradient id="muscleGrad" x1="0" x2="1"><stop offset="0" stop-color="#a9413b"/><stop offset="0.5" stop-color="#d96b5f"/><stop offset="1" stop-color="#9d352f"/></linearGradient>
+    <linearGradient id="rectusGrad" x1="0" x2="1"><stop offset="0" stop-color="#b63e3b"/><stop offset="0.5" stop-color="#e9786f"/><stop offset="1" stop-color="#aa3631"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#16202a" flood-opacity=".18"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#24313f"/></marker>
+    <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9f1d1d"/></marker>
+    <style>
+      .bg{fill:#f7f4ee}.panel{fill:#fffdf8;stroke:#d4c8b8;stroke-width:2}.ink{fill:#1f2933}.muted{fill:#536170}.small{font:500 24px Inter,Arial,sans-serif}.label{font:700 28px Inter,Arial,sans-serif}.h1{font:800 42px Inter,Arial,sans-serif}.h2{font:800 30px Inter,Arial,sans-serif}.note{font:650 25px Inter,Arial,sans-serif}.micro{font:650 21px Inter,Arial,sans-serif}.leader{fill:none;stroke:#24313f;stroke-width:3;marker-end:url(#arrow)}.leaderRed{fill:none;stroke:#9f1d1d;stroke-width:3;marker-end:url(#redArrow)}.fascia{fill:none;stroke:#fbfaf7;stroke-width:10;stroke-linecap:round}.fasciaDark{fill:none;stroke:#7b8794;stroke-width:4;stroke-linecap:round}.planeRetro{fill:#8fd3ff;opacity:.42;stroke:#1976a2;stroke-width:3}.planePre{fill:#a7d7a7;opacity:.38;stroke:#3f8f48;stroke-width:3}.nerve{fill:none;stroke:#f3c623;stroke-width:7;stroke-linecap:round}.vessel{fill:none;stroke:#0f6db0;stroke-width:6;stroke-linecap:round}.artery{fill:none;stroke:#c52222;stroke-width:6;stroke-linecap:round}.peritoneum{fill:none;stroke:#6f4e37;stroke-width:8;stroke-linecap:round}.organ{fill:#c98773;stroke:#7d3d31;stroke-width:3}.callout{fill:#edf7ff;stroke:#88b9d8;stroke-width:2}.warn{fill:#fff4dc;stroke:#d5a33c;stroke-width:2}
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="1160"/>
+  <rect x="28" y="28" width="1544" height="1104" rx="22" class="panel"/>
+  <text x="68" y="86" class="ink h1">Figure A. Abdominal Wall Cross-Section - Axial View</text>
+  <text x="68" y="128" class="muted small">Layered abdominal wall anatomy and mesh planes relevant to retrorectus repair and TAR.</text>
+
+  <g filter="url(#shadow)">
+    <path d="M340 248 C458 178 642 148 800 148 C958 148 1142 178 1260 248 C1324 286 1360 356 1352 438 C1344 536 1286 656 1198 752 C1096 864 940 924 800 924 C660 924 504 864 402 752 C314 656 256 536 248 438 C240 356 276 286 340 248Z" fill="#fff7e8" stroke="#d4b487" stroke-width="4"/>
+    <path d="M362 286 C476 216 650 190 800 190 C950 190 1124 216 1238 286" fill="none" stroke="url(#skinGrad)" stroke-width="44" stroke-linecap="round"/>
+    <path d="M366 326 C478 266 652 238 800 238 C948 238 1122 266 1234 326" fill="none" stroke="url(#fatGrad)" stroke-width="58" stroke-linecap="round"/>
+    <path d="M390 381 C500 320 660 292 800 292 C940 292 1100 320 1210 381" fill="none" stroke="#e6b664" stroke-width="10" stroke-linecap="round"/>
+    <path d="M408 421 C516 356 674 328 800 328 C926 328 1084 356 1192 421" fill="none" stroke="#ce8c42" stroke-width="8" stroke-linecap="round"/>
+
+    <path d="M314 440 C402 362 500 322 606 314 C556 410 530 542 556 716 C470 672 384 594 334 508 C322 486 316 462 314 440Z" fill="url(#muscleGrad)" stroke="#7f2d2a" stroke-width="4"/>
+    <path d="M1286 440 C1198 362 1100 322 994 314 C1044 410 1070 542 1044 716 C1130 672 1216 594 1266 508 C1278 486 1284 462 1286 440Z" fill="url(#muscleGrad)" stroke="#7f2d2a" stroke-width="4"/>
+    <path d="M394 510 C462 426 538 382 628 362 C600 458 592 572 616 704 C536 680 456 622 406 548Z" fill="#c85850" stroke="#7f2d2a" stroke-width="3" opacity=".95"/>
+    <path d="M1206 510 C1138 426 1062 382 972 362 C1000 458 1008 572 984 704 C1064 680 1144 622 1194 548Z" fill="#c85850" stroke="#7f2d2a" stroke-width="3" opacity=".95"/>
+    <path d="M474 572 C526 488 592 436 668 414 C652 510 658 612 694 704 C610 696 532 650 484 602Z" fill="#b6423c" stroke="#7f2d2a" stroke-width="3"/>
+    <path d="M1126 572 C1074 488 1008 436 932 414 C948 510 942 612 906 704 C990 696 1068 650 1116 602Z" fill="#b6423c" stroke="#7f2d2a" stroke-width="3"/>
+
+    <path d="M642 338 C704 304 896 304 958 338 L922 738 C870 778 730 778 678 738 Z" fill="#f7eee2" stroke="#b8a48e" stroke-width="4"/>
+    <path d="M680 366 C730 336 870 336 920 366 L900 720 C850 748 750 748 700 720 Z" fill="url(#rectusGrad)" stroke="#7f2d2a" stroke-width="4"/>
+    <path d="M800 332 L800 760" class="fascia"/>
+    <path d="M800 330 L800 760" class="fasciaDark"/>
+    <path d="M660 400 C720 378 880 378 940 400" class="fascia"/>
+    <path d="M670 724 C728 758 872 758 930 724" class="fascia"/>
+
+    <path d="M660 420 C710 398 890 398 940 420 L922 690 C860 716 740 716 678 690 Z" class="planeRetro"/>
+    <path d="M540 724 C610 790 710 824 800 824 C890 824 990 790 1060 724 C1022 778 940 858 800 866 C660 858 578 778 540 724Z" class="planePre"/>
+    <path d="M604 740 C664 805 736 838 800 838 C864 838 936 805 996 740" class="peritoneum"/>
+    <path d="M646 792 C710 836 890 836 954 792" fill="none" stroke="#a86b55" stroke-width="20" stroke-linecap="round" opacity=".65"/>
+    <ellipse cx="724" cy="846" rx="88" ry="42" class="organ"/>
+    <ellipse cx="860" cy="842" rx="96" ry="44" class="organ"/>
+    <ellipse cx="790" cy="888" rx="110" ry="40" class="organ" opacity=".9"/>
+
+    <path d="M632 395 C604 468 604 608 632 688" class="vessel"/>
+    <path d="M968 395 C996 468 996 608 968 688" class="vessel"/>
+    <path d="M618 396 C590 468 590 608 618 688" class="artery"/>
+    <path d="M982 396 C1010 468 1010 608 982 688" class="artery"/>
+    <path d="M548 468 C514 474 490 494 474 522" class="nerve"/>
+    <path d="M1052 468 C1086 474 1110 494 1126 522" class="nerve"/>
+    <path d="M600 350 C555 402 526 510 528 648" class="fasciaDark"/>
+    <path d="M1000 350 C1045 402 1074 510 1072 648" class="fasciaDark"/>
+  </g>
+
+  <g>
+    <text x="76" y="238" class="ink label">Skin</text><path d="M160 230 C250 226 296 236 357 272" class="leader"/>
+    <text x="76" y="294" class="ink label">Subcutaneous tissue</text><path d="M320 286 C362 286 382 298 428 316" class="leader"/>
+    <text x="76" y="350" class="muted small">Camper fascia</text><path d="M250 342 C306 328 338 330 398 344" class="leader"/>
+    <text x="76" y="404" class="muted small">Scarpa fascia</text><path d="M236 396 C310 386 360 388 426 402" class="leader"/>
+    <text x="76" y="496" class="ink label">External oblique</text><path d="M306 488 C342 470 354 454 414 424" class="leader"/>
+    <text x="76" y="558" class="ink label">Internal oblique</text><path d="M304 550 C362 542 424 520 508 480" class="leader"/>
+    <text x="76" y="620" class="ink label">Transversus abdominis</text><path d="M390 612 C438 610 514 588 620 536" class="leader"/>
+    <text x="76" y="702" class="ink label">Neurovascular bundles</text><path d="M410 694 C454 662 482 590 542 494" class="leaderRed"/>
+    <text x="76" y="764" class="ink label">Linea semilunaris</text><path d="M352 756 C450 742 516 682 604 354" class="leader"/>
+
+    <text x="1132" y="238" class="ink label">Rectus muscle</text><path d="M1124 232 C1050 268 988 318 908 382" class="leader"/>
+    <text x="1132" y="300" class="ink label">Posterior rectus sheath</text><path d="M1138 292 C1040 344 982 488 930 720" class="leader"/>
+    <text x="1132" y="362" class="ink label">Linea alba</text><path d="M1128 354 C1010 342 908 342 804 408" class="leader"/>
+    <text x="1132" y="444" class="ink label">Deep inferior</text><text x="1132" y="476" class="ink label">epigastric vessels</text><path d="M1124 464 C1064 458 1018 470 982 514" class="leaderRed"/>
+    <text x="1132" y="568" class="ink label">Retrorectus plane</text><path d="M1128 560 C1042 566 976 586 912 628" class="leader"/>
+    <text x="1132" y="632" class="ink label">Preperitoneal plane</text><path d="M1128 624 C1054 682 1000 730 930 782" class="leader"/>
+    <text x="1132" y="704" class="ink label">Transversalis fascia</text><path d="M1128 696 C1022 724 940 758 862 814" class="leader"/>
+    <text x="1132" y="768" class="ink label">Peritoneum</text><path d="M1128 760 C1010 760 926 786 842 832" class="leader"/>
+    <text x="1132" y="832" class="ink label">Intraabdominal contents</text><path d="M1128 824 C1030 852 946 872 880 874" class="leader"/>
+  </g>
+
+  <g>
+    <rect x="78" y="956" width="338" height="118" rx="14" class="callout"/>
+    <text x="104" y="998" class="ink h2">Above arcuate line</text>
+    <text x="104" y="1038" class="muted note">Posterior sheath present.</text>
+    <rect x="442" y="956" width="334" height="118" rx="14" class="warn"/>
+    <text x="468" y="998" class="ink h2">Below arcuate line</text>
+    <text x="468" y="1038" class="muted note">Posterior sheath absent.</text>
+    <rect x="802" y="956" width="318" height="118" rx="14" class="callout"/>
+    <text x="828" y="998" class="ink h2">Retrorectus plane</text>
+    <text x="828" y="1038" class="muted note">Preferred mesh plane.</text>
+    <rect x="1146" y="956" width="360" height="118" rx="14" class="warn"/>
+    <text x="1172" y="998" class="ink h2">Nerve preservation</text>
+    <text x="1172" y="1038" class="muted note">Protect lateral bundles.</text>
+  </g>
+</svg>

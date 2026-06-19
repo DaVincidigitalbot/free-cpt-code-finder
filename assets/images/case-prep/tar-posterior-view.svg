@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1220" viewBox="0 0 1600 1220" role="img" aria-labelledby="title desc">
+  <title id="title">Posterior view of transversus abdominis release extending retrorectus repair</title>
+  <desc id="desc">Surgical atlas plate showing posterior rectus sheath, rectus muscles, transversus abdominis, linea alba, linea semilunaris, neurovascular bundles, TAR release incision, retromuscular preperitoneal plane, mesh, peritoneum, and the goal of wide extraperitoneal reinforcement.</desc>
+  <defs>
+    <linearGradient id="muscle" x1="0" x2="1"><stop offset="0" stop-color="#9f302c"/><stop offset="0.5" stop-color="#de7166"/><stop offset="1" stop-color="#9f302c"/></linearGradient>
+    <linearGradient id="mesh" x1="0" x2="1"><stop offset="0" stop-color="#d9ecff"/><stop offset="0.5" stop-color="#eef7ff"/><stop offset="1" stop-color="#d9ecff"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#16202a" flood-opacity=".18"/></filter>
+    <pattern id="meshGrid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M0 0H30M0 0V30" fill="none" stroke="#6aa6d9" stroke-width="2" opacity=".55"/><path d="M0 30L30 0" fill="none" stroke="#6aa6d9" stroke-width="1.5" opacity=".38"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#24313f"/></marker>
+    <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9f1d1d"/></marker>
+    <style>
+      .bg{fill:#f7f4ee}.panel{fill:#fffdf8;stroke:#d4c8b8;stroke-width:2}.ink{fill:#1f2933}.muted{fill:#536170}.h1{font:800 42px Inter,Arial,sans-serif}.h2{font:800 30px Inter,Arial,sans-serif}.label{font:700 27px Inter,Arial,sans-serif}.small{font:500 24px Inter,Arial,sans-serif}.note{font:650 24px Inter,Arial,sans-serif}.micro{font:650 20px Inter,Arial,sans-serif}.leader{fill:none;stroke:#24313f;stroke-width:3;marker-end:url(#arrow)}.leaderRed{fill:none;stroke:#9f1d1d;stroke-width:3;marker-end:url(#redArrow)}.fascia{fill:#f5eee2;stroke:#b79f87;stroke-width:4}.posterior{fill:#efe2d1;stroke:#a88d72;stroke-width:4}.plane{fill:#a8d7ff;opacity:.45;stroke:#1976a2;stroke-width:4}.meshBase{fill:url(#mesh);stroke:#2874a6;stroke-width:4}.release{fill:none;stroke:#bb1f1f;stroke-width:9;stroke-linecap:round;stroke-dasharray:18 14}.nerve{fill:none;stroke:#f3c623;stroke-width:8;stroke-linecap:round}.vessel{fill:none;stroke:#c52222;stroke-width:5;stroke-linecap:round}.peritoneum{fill:#f6d8c7;stroke:#9b5d47;stroke-width:4}.callout{fill:#edf7ff;stroke:#88b9d8;stroke-width:2}.warn{fill:#fff4dc;stroke:#d5a33c;stroke-width:2}.goal{fill:#f0f7ee;stroke:#8ab17d;stroke-width:3}
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="1220"/>
+  <rect x="28" y="28" width="1544" height="1164" rx="22" class="panel"/>
+  <text x="68" y="86" class="ink h1">Figure B. Posterior View - TAR Extends Retrorectus Repair</text>
+  <text x="68" y="128" class="muted small">Posterior component separation expands the retromuscular space laterally while keeping mesh extraperitoneal.</text>
+
+  <g filter="url(#shadow)">
+    <path d="M480 210 C430 312 406 446 408 606 C410 762 446 894 512 996 C596 954 650 842 664 690 L686 424 C654 318 586 246 480 210Z" fill="url(#muscle)" stroke="#7f2d2a" stroke-width="5"/>
+    <path d="M1120 210 C1170 312 1194 446 1192 606 C1190 762 1154 894 1088 996 C1004 954 950 842 936 690 L914 424 C946 318 1014 246 1120 210Z" fill="url(#muscle)" stroke="#7f2d2a" stroke-width="5"/>
+    <path d="M672 224 C726 196 874 196 928 224 L914 998 C854 1034 746 1034 686 998 Z" class="posterior"/>
+    <path d="M800 206 L800 1030" fill="none" stroke="#fdfaf5" stroke-width="14" stroke-linecap="round"/>
+    <path d="M800 206 L800 1030" fill="none" stroke="#7b8794" stroke-width="4" stroke-linecap="round"/>
+
+    <path d="M646 290 C710 260 890 260 954 290 L930 944 C860 982 740 982 670 944 Z" class="plane"/>
+    <path d="M354 376 C452 316 560 294 660 300 C630 450 622 666 654 848 C552 856 454 826 372 754 C322 600 316 476 354 376Z" fill="#c95950" stroke="#7f2d2a" stroke-width="4"/>
+    <path d="M1246 376 C1148 316 1040 294 940 300 C970 450 978 666 946 848 C1048 856 1146 826 1228 754 C1278 600 1284 476 1246 376Z" fill="#c95950" stroke="#7f2d2a" stroke-width="4"/>
+    <path d="M626 310 C582 412 568 670 618 862" class="release"/>
+    <path d="M974 310 C1018 412 1032 670 982 862" class="release"/>
+    <path d="M462 432 C552 404 636 396 710 410 L696 906 C586 914 486 886 402 826 C380 670 390 534 462 432Z" class="plane"/>
+    <path d="M1138 432 C1048 404 964 396 890 410 L904 906 C1014 914 1114 886 1198 826 C1220 670 1210 534 1138 432Z" class="plane"/>
+
+    <path d="M418 410 C526 372 654 356 800 356 C946 356 1074 372 1182 410 L1158 914 C1042 956 920 976 800 976 C680 976 558 956 442 914 Z" class="meshBase"/>
+    <path d="M418 410 C526 372 654 356 800 356 C946 356 1074 372 1182 410 L1158 914 C1042 956 920 976 800 976 C680 976 558 956 442 914 Z" fill="url(#meshGrid)" opacity=".9"/>
+    <path d="M684 398 C742 376 858 376 916 398 L900 898 C846 922 754 922 700 898 Z" class="posterior" opacity=".88"/>
+    <path d="M704 430 C746 412 854 412 896 430 L882 858 C834 876 766 876 718 858 Z" class="peritoneum" opacity=".9"/>
+
+    <path d="M608 286 C552 396 534 676 596 886" fill="none" stroke="#7b8794" stroke-width="5" stroke-linecap="round"/>
+    <path d="M992 286 C1048 396 1066 676 1004 886" fill="none" stroke="#7b8794" stroke-width="5" stroke-linecap="round"/>
+    <path d="M552 372 C508 420 484 518 480 664" class="nerve"/>
+    <path d="M1048 372 C1092 420 1116 518 1120 664" class="nerve"/>
+    <path d="M538 374 C498 424 474 520 470 662" class="vessel"/>
+    <path d="M1062 374 C1102 424 1126 520 1130 662" class="vessel"/>
+  </g>
+
+  <g>
+    <text x="70" y="242" class="ink label">Rectus muscles</text><path d="M284 234 C356 226 414 232 480 268" class="leader"/>
+    <text x="70" y="312" class="ink label">Posterior rectus sheath</text><path d="M374 304 C474 292 576 294 676 326" class="leader"/>
+    <text x="70" y="382" class="ink label">Transversus abdominis</text><path d="M386 374 C456 370 536 380 620 418" class="leader"/>
+    <text x="70" y="452" class="ink label">TAR release incision</text><path d="M360 444 C452 448 546 416 624 340" class="leaderRed"/>
+    <text x="70" y="522" class="ink label">Neurovascular bundles</text><path d="M382 514 C456 520 506 488 552 394" class="leaderRed"/>
+    <text x="70" y="592" class="ink label">Linea semilunaris</text><path d="M344 584 C452 588 548 514 608 286" class="leader"/>
+
+    <text x="1168" y="242" class="ink label">Linea alba</text><path d="M1160 234 C1038 238 918 258 804 362" class="leader"/>
+    <text x="1168" y="324" class="ink label">Retromuscular /</text><text x="1168" y="356" class="ink label">preperitoneal plane</text><path d="M1160 344 C1062 420 994 468 902 520" class="leader"/>
+    <text x="1168" y="446" class="ink label">Mesh</text><path d="M1160 438 C1048 520 956 612 846 680" class="leader"/>
+    <text x="1168" y="526" class="ink label">Peritoneum</text><path d="M1160 518 C1052 622 958 732 880 844" class="leader"/>
+    <text x="1168" y="606" class="ink label">Posterior layer closure</text><path d="M1160 598 C1040 708 946 806 886 890" class="leader"/>
+  </g>
+
+  <g>
+    <rect x="78" y="1036" width="318" height="72" rx="14" class="callout"/>
+    <text x="104" y="1066" class="micro ink">Release is medial to</text>
+    <text x="104" y="1091" class="micro ink">the linea semilunaris.</text>
+    <rect x="424" y="1036" width="314" height="72" rx="14" class="warn"/>
+    <text x="450" y="1066" class="micro ink">Protect neurovascular</text>
+    <text x="450" y="1091" class="micro ink">bundles.</text>
+    <rect x="766" y="1036" width="352" height="72" rx="14" class="callout"/>
+    <text x="792" y="1066" class="micro ink">TAR expands the retromuscular</text>
+    <text x="792" y="1091" class="micro ink">space laterally.</text>
+    <rect x="1146" y="1036" width="364" height="72" rx="14" class="warn"/>
+    <text x="1172" y="1066" class="micro ink">Mesh remains extraperitoneal;</text>
+    <text x="1172" y="1091" class="micro ink">posterior closure protects bowel.</text>
+  </g>
+
+  <g>
+    <rect x="270" y="1128" width="1060" height="52" rx="16" class="goal"/>
+    <text x="306" y="1164" class="ink note">Goal: Wide, well-vascularized extraperitoneal mesh reinforcement with midline fascial closure.</text>
+  </g>
+</svg>
