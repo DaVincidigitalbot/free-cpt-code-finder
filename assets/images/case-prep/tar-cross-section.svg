@@ -10,13 +10,14 @@
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#24313f"/></marker>
     <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9f1d1d"/></marker>
     <style>
-      .bg{fill:#f7f4ee}.panel{fill:#fffdf8;stroke:#d4c8b8;stroke-width:2}.ink{fill:#1f2933}.muted{fill:#536170}.small{font:500 24px Inter,Arial,sans-serif}.label{font:700 28px Inter,Arial,sans-serif}.h1{font:800 42px Inter,Arial,sans-serif}.h2{font:800 30px Inter,Arial,sans-serif}.note{font:650 25px Inter,Arial,sans-serif}.micro{font:650 21px Inter,Arial,sans-serif}.leader{fill:none;stroke:#24313f;stroke-width:3;marker-end:url(#arrow)}.leaderRed{fill:none;stroke:#9f1d1d;stroke-width:3;marker-end:url(#redArrow)}.fascia{fill:none;stroke:#fbfaf7;stroke-width:10;stroke-linecap:round}.fasciaDark{fill:none;stroke:#7b8794;stroke-width:4;stroke-linecap:round}.planeRetro{fill:#8fd3ff;opacity:.42;stroke:#1976a2;stroke-width:3}.planePre{fill:#a7d7a7;opacity:.38;stroke:#3f8f48;stroke-width:3}.nerve{fill:none;stroke:#f3c623;stroke-width:7;stroke-linecap:round}.vessel{fill:none;stroke:#0f6db0;stroke-width:6;stroke-linecap:round}.artery{fill:none;stroke:#c52222;stroke-width:6;stroke-linecap:round}.peritoneum{fill:none;stroke:#6f4e37;stroke-width:8;stroke-linecap:round}.organ{fill:#c98773;stroke:#7d3d31;stroke-width:3}.callout{fill:#edf7ff;stroke:#88b9d8;stroke-width:2}.warn{fill:#fff4dc;stroke:#d5a33c;stroke-width:2}
+      .bg{fill:#f7f4ee}.panel{fill:#fffdf8;stroke:#d4c8b8;stroke-width:2}.header{fill:#10263d}.ink{fill:#1f2933}.white{fill:#fff}.muted{fill:#536170}.small{font:500 24px Inter,Arial,sans-serif}.label{font:700 28px Inter,Arial,sans-serif}.h1{font:800 42px Inter,Arial,sans-serif}.h2{font:800 30px Inter,Arial,sans-serif}.note{font:650 25px Inter,Arial,sans-serif}.micro{font:650 21px Inter,Arial,sans-serif}.leader{fill:none;stroke:#24313f;stroke-width:3;marker-end:url(#arrow)}.leaderRed{fill:none;stroke:#9f1d1d;stroke-width:3;marker-end:url(#redArrow)}.fascia{fill:none;stroke:#fbfaf7;stroke-width:10;stroke-linecap:round}.fasciaDark{fill:none;stroke:#7b8794;stroke-width:4;stroke-linecap:round}.semilunar{fill:none;stroke:#1d4f63;stroke-width:4;stroke-dasharray:12 10;stroke-linecap:round}.planeRetro{fill:#8fd3ff;opacity:.42;stroke:#1976a2;stroke-width:3}.planePre{fill:#a7d7a7;opacity:.38;stroke:#3f8f48;stroke-width:3}.nerve{fill:none;stroke:#f3c623;stroke-width:7;stroke-linecap:round}.vessel{fill:none;stroke:#0f6db0;stroke-width:6;stroke-linecap:round}.artery{fill:none;stroke:#c52222;stroke-width:6;stroke-linecap:round}.peritoneum{fill:none;stroke:#6f4e37;stroke-width:8;stroke-linecap:round}.organ{fill:#8b5aa8;stroke:#55356b;stroke-width:3}.callout{fill:#edf7ff;stroke:#88b9d8;stroke-width:2}.warn{fill:#fff4dc;stroke:#d5a33c;stroke-width:2}.legend{fill:#ffffff;stroke:#cfd8df;stroke-width:2}.num{fill:#10263d}.numText{fill:#fff;font:800 18px Inter,Arial,sans-serif;text-anchor:middle;dominant-baseline:central}
     </style>
   </defs>
   <rect class="bg" width="1600" height="1160"/>
   <rect x="28" y="28" width="1544" height="1104" rx="22" class="panel"/>
-  <text x="68" y="86" class="ink h1">Figure A. Abdominal Wall Cross-Section - Axial View</text>
-  <text x="68" y="128" class="muted small">Layered abdominal wall anatomy and mesh planes relevant to retrorectus repair and TAR.</text>
+  <rect x="48" y="48" width="1504" height="100" rx="14" class="header"/>
+  <text x="76" y="90" class="white h1">A. ABDOMINAL WALL CROSS-SECTION (Axial View)</text>
+  <text x="76" y="126" class="white small">Layered abdominal wall anatomy and mesh planes relevant to retrorectus repair and TAR.</text>
 
   <g filter="url(#shadow)">
     <path d="M340 248 C458 178 642 148 800 148 C958 148 1142 178 1260 248 C1324 286 1360 356 1352 438 C1344 536 1286 656 1198 752 C1096 864 940 924 800 924 C660 924 504 864 402 752 C314 656 256 536 248 438 C240 356 276 286 340 248Z" fill="#fff7e8" stroke="#d4b487" stroke-width="4"/>
@@ -25,12 +26,12 @@
     <path d="M390 381 C500 320 660 292 800 292 C940 292 1100 320 1210 381" fill="none" stroke="#e6b664" stroke-width="10" stroke-linecap="round"/>
     <path d="M408 421 C516 356 674 328 800 328 C926 328 1084 356 1192 421" fill="none" stroke="#ce8c42" stroke-width="8" stroke-linecap="round"/>
 
-    <path d="M314 440 C402 362 500 322 606 314 C556 410 530 542 556 716 C470 672 384 594 334 508 C322 486 316 462 314 440Z" fill="url(#muscleGrad)" stroke="#7f2d2a" stroke-width="4"/>
-    <path d="M1286 440 C1198 362 1100 322 994 314 C1044 410 1070 542 1044 716 C1130 672 1216 594 1266 508 C1278 486 1284 462 1286 440Z" fill="url(#muscleGrad)" stroke="#7f2d2a" stroke-width="4"/>
-    <path d="M394 510 C462 426 538 382 628 362 C600 458 592 572 616 704 C536 680 456 622 406 548Z" fill="#c85850" stroke="#7f2d2a" stroke-width="3" opacity=".95"/>
-    <path d="M1206 510 C1138 426 1062 382 972 362 C1000 458 1008 572 984 704 C1064 680 1144 622 1194 548Z" fill="#c85850" stroke="#7f2d2a" stroke-width="3" opacity=".95"/>
-    <path d="M474 572 C526 488 592 436 668 414 C652 510 658 612 694 704 C610 696 532 650 484 602Z" fill="#b6423c" stroke="#7f2d2a" stroke-width="3"/>
-    <path d="M1126 572 C1074 488 1008 436 932 414 C948 510 942 612 906 704 C990 696 1068 650 1116 602Z" fill="#b6423c" stroke="#7f2d2a" stroke-width="3"/>
+    <path d="M314 440 C402 362 500 322 606 314 C556 410 530 542 556 716 C470 672 384 594 334 508 C322 486 316 462 314 440Z" fill="#6aa84f" stroke="#2f6b2f" stroke-width="4"/>
+    <path d="M1286 440 C1198 362 1100 322 994 314 C1044 410 1070 542 1044 716 C1130 672 1216 594 1266 508 C1278 486 1284 462 1286 440Z" fill="#6aa84f" stroke="#2f6b2f" stroke-width="4"/>
+    <path d="M394 510 C462 426 538 382 628 362 C600 458 592 572 616 704 C536 680 456 622 406 548Z" fill="#35a6a0" stroke="#1f6f6a" stroke-width="3" opacity=".95"/>
+    <path d="M1206 510 C1138 426 1062 382 972 362 C1000 458 1008 572 984 704 C1064 680 1144 622 1194 548Z" fill="#35a6a0" stroke="#1f6f6a" stroke-width="3" opacity=".95"/>
+    <path d="M474 572 C526 488 592 436 668 414 C652 510 658 612 694 704 C610 696 532 650 484 602Z" fill="#8e5bb8" stroke="#5a347d" stroke-width="3"/>
+    <path d="M1126 572 C1074 488 1008 436 932 414 C948 510 942 612 906 704 C990 696 1068 650 1116 602Z" fill="#8e5bb8" stroke="#5a347d" stroke-width="3"/>
 
     <path d="M642 338 C704 304 896 304 958 338 L922 738 C870 778 730 778 678 738 Z" fill="#f7eee2" stroke="#b8a48e" stroke-width="4"/>
     <path d="M680 366 C730 336 870 336 920 366 L900 720 C850 748 750 748 700 720 Z" fill="url(#rectusGrad)" stroke="#7f2d2a" stroke-width="4"/>
@@ -53,8 +54,17 @@
     <path d="M982 396 C1010 468 1010 608 982 688" class="artery"/>
     <path d="M548 468 C514 474 490 494 474 522" class="nerve"/>
     <path d="M1052 468 C1086 474 1110 494 1126 522" class="nerve"/>
-    <path d="M600 350 C555 402 526 510 528 648" class="fasciaDark"/>
-    <path d="M1000 350 C1045 402 1074 510 1072 648" class="fasciaDark"/>
+    <path d="M600 350 C555 402 526 510 528 648" class="semilunar"/>
+    <path d="M1000 350 C1045 402 1074 510 1072 648" class="semilunar"/>
+  </g>
+
+  <g>
+    <rect x="520" y="170" width="560" height="80" rx="14" class="legend"/>
+    <circle cx="552" cy="204" r="13" fill="#6aa84f"/><text x="576" y="212" class="ink micro">External oblique</text>
+    <circle cx="784" cy="204" r="13" fill="#35a6a0"/><text x="808" y="212" class="ink micro">Internal oblique</text>
+    <circle cx="1010" cy="204" r="13" fill="#8e5bb8"/><text x="1034" y="212" class="ink micro">Transversus</text>
+    <circle cx="552" cy="236" r="13" fill="#8fd3ff"/><text x="576" y="244" class="ink micro">Retrorectus plane</text>
+    <circle cx="808" cy="236" r="13" fill="#a7d7a7"/><text x="832" y="244" class="ink micro">Preperitoneal plane</text>
   </g>
 
   <g>
