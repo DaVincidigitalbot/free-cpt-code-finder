@@ -479,13 +479,25 @@
     {
       "slug": "parathyroidectomy",
       "title": "Parathyroidectomy",
-      "summary": "Parathyroid embryology, localization, four-gland exploration, and CPT. Coming soon.",
+      "summary": "Parathyroid embryology, localization, intraoperative PTH, ectopic gland search, focused versus bilateral exploration, reoperative neck risk, complications, CPT coding, and decision challenges.",
       "category": "Endocrine Surgery",
-      "status": "planned",
-      "mostViewedScore": 66,
+      "status": "live",
+      "mostViewedScore": 91,
       "cptCodes": [
-        "60500"
-      ]
+        "60500",
+        "60502",
+        "60505"
+      ],
+      "relatedProcedures": [
+        "thyroid-lobectomy",
+        "total-thyroidectomy"
+      ],
+      "relatedGuides": [
+        "endocrine-surgery-coding",
+        "modifier-22"
+      ],
+      "recentlyAdded": true,
+      "recentlyUpdatedScore": 97
     },
     {
       "slug": "rib-fixation",
@@ -3268,6 +3280,459 @@
         ],
         "bottomLine": "Teach the operation as anatomy plus purpose."
       }
+    ],
+    "parathyroidectomy": [
+      {
+        "level": "student",
+        "question": "What are the usual parathyroid gland positions?",
+        "answer": "Most patients have four glands: superior glands near the posterior upper/mid thyroid, often close to the cricothyroid joint region, and inferior glands near the lower pole or thyrothymic tract.",
+        "bullets": [
+          "Superior glands are usually more constant.",
+          "Inferior glands are more variable because they migrate with the thymus.",
+          "A normal gland can be only a few millimeters, so gentle exposure matters."
+        ],
+        "bottomLine": "Know the expected locations before chasing ectopic disease."
+      },
+      {
+        "level": "student",
+        "question": "Why are inferior parathyroid glands more variable than superior glands?",
+        "answer": "Inferior glands arise from the third pharyngeal pouch and migrate with the thymus, so they can be low in the neck, in the thyrothymic ligament, intrathymic, or mediastinal.",
+        "bullets": [
+          "Superior glands arise from the fourth pouch.",
+          "Inferior glands share migration with the thymus.",
+          "A low missing gland should trigger a thymic/thyrothymic search pattern."
+        ],
+        "bottomLine": "Embryology explains the missing inferior gland."
+      },
+      {
+        "level": "student",
+        "question": "What is the relationship between parathyroidectomy and the recurrent laryngeal nerve?",
+        "answer": "The RLN runs in or near the tracheoesophageal groove and is at risk during posterior thyroid/parathyroid dissection, especially with superior glands, reoperative scarring, or deep ectopic targets.",
+        "bullets": [
+          "Identify anatomy before traction or clipping.",
+          "Avoid blind posterior dissection.",
+          "Voice risk should be part of preop consent."
+        ],
+        "bottomLine": "Parathyroid surgery is neck anatomy surgery, not just gland removal."
+      },
+      {
+        "level": "student",
+        "question": "What does a focused parathyroidectomy mean?",
+        "answer": "A focused parathyroidectomy targets a localized abnormal gland with limited dissection, usually supported by concordant imaging and intraoperative PTH monitoring.",
+        "bullets": [
+          "It is not a blind small incision operation.",
+          "PTH monitoring provides functional feedback.",
+          "Failure of biochemical cure should prompt a broader search."
+        ],
+        "bottomLine": "Focused surgery requires confidence in the target and a plan if the PTH does not fall."
+      },
+      {
+        "level": "student",
+        "question": "What does bilateral neck exploration mean?",
+        "answer": "Bilateral exploration systematically evaluates both sides of the neck and all expected parathyroid locations when imaging is negative, discordant, multigland disease is suspected, or focused exploration fails.",
+        "bullets": [
+          "It requires disciplined orientation.",
+          "It increases the chance of finding multigland disease.",
+          "It also increases dissection and nerve/parathyroid handling."
+        ],
+        "bottomLine": "Bilateral exploration is the operation when the disease pattern is not confidently localized."
+      },
+      {
+        "level": "student",
+        "question": "What is intraoperative PTH monitoring used for?",
+        "answer": "Intraoperative PTH monitoring uses the short half-life of PTH to confirm biochemical response after excision of hyperfunctioning tissue.",
+        "bullets": [
+          "A common benchmark is a greater than 50% drop from baseline at an accepted time point.",
+          "Interpret results in the context of renal function, timing, and gland disease pattern.",
+          "A non-drop means the operation is not done."
+        ],
+        "bottomLine": "The lab helps confirm physiology; it does not replace operative judgment."
+      },
+      {
+        "level": "student",
+        "question": "What is hungry bone syndrome?",
+        "answer": "Hungry bone syndrome is prolonged postoperative hypocalcemia after removal of chronic high-PTH drive, often seen with severe bone disease, high alkaline phosphatase, very high PTH, or renal disease.",
+        "bullets": [
+          "It can require aggressive calcium and calcitriol replacement.",
+          "Check and correct magnesium.",
+          "Severe symptoms or ECG changes require urgent IV calcium."
+        ],
+        "bottomLine": "The bone can become the calcium sink after a successful operation."
+      },
+      {
+        "level": "student",
+        "question": "What preoperative studies commonly localize a parathyroid adenoma?",
+        "answer": "Common localization includes neck ultrasound and sestamibi/SPECT-CT; 4D-CT, MRI, PET tracers, or selective venous sampling may be used in difficult or reoperative cases.",
+        "bullets": [
+          "Ultrasound can show thyroid nodules too.",
+          "Sestamibi can be false positive or false negative.",
+          "Reoperative cases often need higher-quality localization before incision."
+        ],
+        "bottomLine": "Localization guides incision and strategy but does not prove cure."
+      },
+      {
+        "level": "student",
+        "question": "What is an ectopic parathyroid gland?",
+        "answer": "An ectopic gland is parathyroid tissue outside the usual expected position, commonly intrathyroidal, thyrothymic, intrathymic, mediastinal, retroesophageal, or within the carotid sheath.",
+        "bullets": [
+          "Inferior glands often migrate along the thymic pathway.",
+          "Superior glands can be posterior or retroesophageal.",
+          "A search pattern beats wandering dissection."
+        ],
+        "bottomLine": "Ectopic does not mean random; it usually follows embryology."
+      },
+      {
+        "level": "student",
+        "question": "Why does parathyroid surgery require thyroid anatomy knowledge?",
+        "answer": "Parathyroid glands sit on or near the thyroid capsule, share vascular relationships with thyroid vessels, and are dissected close to the RLN and tracheoesophageal groove.",
+        "bullets": [
+          "Thyroid nodules can confuse imaging.",
+          "The inferior thyroid artery helps orient posterior anatomy.",
+          "Prior thyroid surgery changes every tissue plane."
+        ],
+        "bottomLine": "You cannot safely do parathyroid surgery if thyroid anatomy is fuzzy."
+      },
+      {
+        "level": "resident",
+        "question": "When should a focused parathyroidectomy convert to bilateral exploration?",
+        "answer": "Convert when the localized target is not found, the excised gland does not match expectations, intraoperative PTH does not fall appropriately, imaging is discordant with operative findings, or multigland disease becomes likely.",
+        "bullets": [
+          "Have the conversion discussion before surgery.",
+          "Do not keep digging through one scarred quadrant when the physiology says disease remains.",
+          "Conversion should be orderly and anatomy-driven."
+        ],
+        "bottomLine": "Focused exploration is a strategy, not a promise."
+      },
+      {
+        "level": "resident",
+        "question": "What is the missing inferior gland search pattern?",
+        "answer": "After confirming expected lower pole anatomy, search the thyrothymic ligament, cervical thymus, intrathymic tissue, low central neck, carotid sheath region, and upper mediastinum if indicated.",
+        "bullets": [
+          "Follow embryology from the third pouch migration.",
+          "Avoid blind mediastinal dissection through a small neck exposure.",
+          "Use imaging and PTH response to decide how far to pursue."
+        ],
+        "bottomLine": "For an inferior gland, think thymus first."
+      },
+      {
+        "level": "resident",
+        "question": "How should a missing superior gland be approached?",
+        "answer": "Search posterior to the upper/mid thyroid, near the cricothyroid joint, tracheoesophageal groove, retroesophageal space, and paraesophageal region while protecting the RLN.",
+        "bullets": [
+          "The superior gland is usually more constant but can hide posteriorly.",
+          "Deep dissection risks the RLN and esophagus.",
+          "Do not confuse fat, lymph node, or thyroid nodule for parathyroid tissue."
+        ],
+        "bottomLine": "For a superior gland, think posterior and deep."
+      },
+      {
+        "level": "resident",
+        "question": "What makes reoperative parathyroidectomy high risk?",
+        "answer": "Scar tissue, distorted anatomy, prior nerve mobilization, devascularized tissue planes, altered glands, and higher risk of RLN injury or persistent disease make reoperation higher risk.",
+        "bullets": [
+          "Preop laryngoscopy is important.",
+          "Localization should be strong before incision.",
+          "The threshold for specialist endocrine surgery and adjunct imaging is lower."
+        ],
+        "bottomLine": "Reoperative parathyroid surgery is a different operation."
+      },
+      {
+        "level": "resident",
+        "question": "What is the role of preoperative laryngoscopy in reoperative parathyroid surgery?",
+        "answer": "It documents baseline vocal cord function and identifies pre-existing RLN injury before another high-risk neck operation.",
+        "bullets": [
+          "A bilateral nerve injury can be catastrophic.",
+          "Prior thyroid or parathyroid surgery increases concern.",
+          "Documentation protects the patient and the surgeon."
+        ],
+        "bottomLine": "You need to know whether the patient already has one working nerve."
+      },
+      {
+        "level": "resident",
+        "question": "How do you interpret a PTH that drops more than 50% but remains above normal?",
+        "answer": "It may still indicate cure depending on baseline and protocol, but interpretation depends on timing, renal function, magnitude of drop, and clinical context; persistent elevation may suggest multigland disease or delayed clearance.",
+        "bullets": [
+          "Use the institution's protocol consistently.",
+          "Look at trend and timing.",
+          "Do not ignore discordance between operative findings and biochemical response."
+        ],
+        "bottomLine": "Percent drop matters, but physiology is more nuanced than one number."
+      },
+      {
+        "level": "resident",
+        "question": "How do renal failure and secondary hyperparathyroidism change the operation?",
+        "answer": "Renal hyperparathyroidism is usually multigland disease and may require subtotal parathyroidectomy or total parathyroidectomy with autotransplantation rather than focused adenoma excision.",
+        "bullets": [
+          "Single-gland thinking is wrong for most secondary disease.",
+          "Hungry bone risk is higher.",
+          "Documentation should specify secondary/tertiary disease and the extent of resection."
+        ],
+        "bottomLine": "Disease biology determines the operation."
+      },
+      {
+        "level": "resident",
+        "question": "What is the difference between primary, secondary, and tertiary hyperparathyroidism surgically?",
+        "answer": "Primary disease is often a single adenoma; secondary disease is usually renal-driven multigland hyperplasia; tertiary disease is autonomous hyperparathyroidism after prolonged secondary stimulation, often after transplant.",
+        "bullets": [
+          "Primary disease commonly supports focused surgery if localized.",
+          "Secondary/tertiary disease often requires multigland planning.",
+          "Do not apply adenoma logic to renal hyperplasia."
+        ],
+        "bottomLine": "The diagnosis drives localization expectations and operative extent."
+      },
+      {
+        "level": "resident",
+        "question": "What are signs of multigland disease during exploration?",
+        "answer": "Multiple enlarged glands, inadequate PTH drop after removing a target, family history/syndromic risk, lithium exposure, renal disease, or discordant imaging can suggest multigland disease.",
+        "bullets": [
+          "Inspect findings against the biochemical response.",
+          "Do not over-resect normal glands without reason.",
+          "Syndromic patients need a different framework."
+        ],
+        "bottomLine": "A beautiful adenoma can still be only part of the problem."
+      },
+      {
+        "level": "resident",
+        "question": "How do thyroid nodules complicate parathyroid localization?",
+        "answer": "Thyroid nodules can mimic parathyroid lesions on ultrasound or sestamibi and may require correlation with imaging, FNA/PTH washout in selected cases, and a plan for thyroid pathology if clinically indicated.",
+        "bullets": [
+          "Avoid unnecessary thyroidectomy.",
+          "Know whether a thyroid nodule changes the incision or consent.",
+          "Document why a thyroid procedure was or was not performed."
+        ],
+        "bottomLine": "Not every posterior neck target is parathyroid."
+      },
+      {
+        "level": "resident",
+        "question": "What is PTH washout and when can it help?",
+        "answer": "PTH washout measures PTH in aspirate from a suspected lesion to help distinguish parathyroid tissue from lymph node or thyroid nodule in selected difficult localization cases.",
+        "bullets": [
+          "It is not routine for straightforward cases.",
+          "Needle biopsy of parathyroid lesions has caveats and local practice variation.",
+          "It can be helpful in reoperative or confusing anatomy."
+        ],
+        "bottomLine": "Use it selectively when imaging ambiguity changes the operation."
+      },
+      {
+        "level": "resident",
+        "question": "How should postoperative hypocalcemia be monitored?",
+        "answer": "Monitor symptoms, calcium or ionized calcium, PTH when appropriate, magnesium, ECG if severe, and risk factors such as renal disease or severe bone turnover.",
+        "bullets": [
+          "Perioral numbness and tetany matter.",
+          "Correct magnesium or calcium replacement may fail.",
+          "Severe symptoms, seizure, arrhythmia, prolonged QT, or markedly low ionized calcium should prompt IV calcium."
+        ],
+        "bottomLine": "Treat the patient and the ionized calcium, not just the total calcium."
+      },
+      {
+        "level": "resident",
+        "question": "What are documentation essentials for parathyroidectomy?",
+        "answer": "Document diagnosis, localization studies, exploration type, glands identified/excised, intraoperative PTH values and timing, nerve monitoring/nerve status when used, and complications or ectopic search.",
+        "bullets": [
+          "Name the side and gland when known.",
+          "Record PTH baseline and post-excision values.",
+          "Document reoperative difficulty and scar when present."
+        ],
+        "bottomLine": "The operation is judged by anatomy, physiology, and documentation."
+      },
+      {
+        "level": "resident",
+        "question": "What should be done if a gland is removed but PTH does not drop?",
+        "answer": "Confirm timing and sample integrity, reassess whether the correct gland was removed, continue systematic exploration for additional hyperfunctioning or ectopic tissue, and avoid premature closure.",
+        "bullets": [
+          "Do not blame the lab without checking the biology.",
+          "Look for multigland disease.",
+          "Review imaging and operative orientation before widening dissection."
+        ],
+        "bottomLine": "A non-drop means active disease likely remains until proven otherwise."
+      },
+      {
+        "level": "resident",
+        "question": "How does lithium-associated hyperparathyroidism affect operative planning?",
+        "answer": "Lithium can be associated with multigland disease, making focused surgery less reliable and increasing the need for bilateral exploration depending on imaging, biochemistry, and surgeon judgment.",
+        "bullets": [
+          "Ask specifically about lithium.",
+          "Expect possible asymmetric hyperplasia.",
+          "PTH monitoring is useful but not a substitute for four-gland awareness."
+        ],
+        "bottomLine": "Medication history changes the disease model."
+      },
+      {
+        "level": "resident",
+        "question": "How should an intrathyroidal parathyroid adenoma be handled?",
+        "answer": "If convincing evidence supports an intrathyroidal adenoma and other search is negative or PTH does not drop, thyroid lobectomy or targeted thyroid resection may be considered based on localization and risk.",
+        "bullets": [
+          "Avoid reflex lobectomy for a missing gland.",
+          "Correlate imaging and exploration.",
+          "Document the rationale clearly."
+        ],
+        "bottomLine": "Intrathyroidal disease is uncommon enough that you should prove the indication."
+      },
+      {
+        "level": "resident",
+        "question": "What is the relationship between inferior thyroid artery branches and parathyroid blood supply?",
+        "answer": "Parathyroid blood supply often comes from branches of the inferior thyroid artery, so dissection should preserve vascular pedicles when glands are being left in situ.",
+        "bullets": [
+          "This matters more when preserving normal glands.",
+          "Avoid skeletonizing everything just to see it.",
+          "Autotransplantation may be considered for devascularized normal tissue in selected settings."
+        ],
+        "bottomLine": "Devitalized parathyroid tissue can become a postoperative calcium problem."
+      },
+      {
+        "level": "resident",
+        "question": "When is mediastinal exploration considered for parathyroid disease?",
+        "answer": "Mediastinal exploration is considered when localization and operative findings support an ectopic mediastinal gland, especially along thymic migration pathways, and cervical strategies are insufficient.",
+        "bullets": [
+          "Confirm with high-quality imaging when possible.",
+          "Cervical thymectomy may reach some upper mediastinal glands.",
+          "Deep mediastinal targets may need a different approach and team."
+        ],
+        "bottomLine": "Do not make the chest the next step just because the neck was frustrating."
+      },
+      {
+        "level": "resident",
+        "question": "How does a sestamibi-positive lesion but ultrasound-negative result influence planning?",
+        "answer": "Discordant imaging lowers confidence in a focused operation; the plan may still target the lesion but should include readiness for bilateral exploration and PTH-guided decision-making.",
+        "bullets": [
+          "Consider 4D-CT or additional imaging if it changes management.",
+          "Consent for broader exploration.",
+          "Do not promise a tiny focused operation."
+        ],
+        "bottomLine": "Discordance should make you more humble, not paralyzed."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A patient has concordant right inferior localization, you remove a candidate adenoma, and PTH fails to fall. What now?",
+        "answer": "Do not close. Confirm timing/sample issues, reassess the specimen and anatomy, then continue exploration for a second gland or ectopic disease using a systematic search pattern.",
+        "bullets": [
+          "Wrong answers include closing because imaging was concordant, removing random tissue, or continuing blind dissection in the same spot.",
+          "The safer path is systematic exploration with biochemical feedback.",
+          "Document PTH values and the change in strategy."
+        ],
+        "bottomLine": "The operation is not complete until the physiology fits."
+      },
+      {
+        "level": "oral_boards",
+        "question": "During reoperative parathyroidectomy, the target is deep in scar near the tracheoesophageal groove. What is the key danger?",
+        "answer": "The major danger is RLN injury in distorted scarred anatomy; exposure, nerve identification/monitoring when used, and a low threshold to stop or adjust strategy are essential.",
+        "bullets": [
+          "Do not pull hard on scar.",
+          "Know preop vocal cord status.",
+          "If anatomy is unsafe, stopping can be better judgment than hero dissection."
+        ],
+        "bottomLine": "A cured calcium problem is not a win if the patient cannot breathe or speak safely."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A patient has severe bone disease and very high PTH before surgery. What postoperative complication are you anticipating?",
+        "answer": "Hungry bone syndrome with prolonged hypocalcemia, requiring calcium/calcitriol planning, magnesium correction, and close monitoring.",
+        "bullets": [
+          "Do not call all hypocalcemia transient hypoparathyroidism.",
+          "Risk is higher with high bone turnover.",
+          "Severe symptoms, tetany, seizure, arrhythmia, prolonged QT, or markedly low ionized calcium warrant IV calcium."
+        ],
+        "bottomLine": "Successful endocrine surgery can create a predictable postoperative physiology problem."
+      },
+      {
+        "level": "oral_boards",
+        "question": "In focused exploration, you cannot find the localized inferior gland. What is your next move?",
+        "answer": "Re-establish landmarks, confirm the side and imaging, search the thyrothymic ligament/cervical thymus and expected inferior migration path, then convert to broader exploration if needed.",
+        "bullets": [
+          "Do not dig randomly under the clavicle.",
+          "Protect the RLN and thyroid blood supply.",
+          "Use PTH and operative findings to decide escalation."
+        ],
+        "bottomLine": "When lost, return to embryology and landmarks."
+      },
+      {
+        "level": "oral_boards",
+        "question": "You identify an enlarged gland and a second mildly enlarged gland. Should you remove both?",
+        "answer": "It depends on disease pattern, PTH response, gland appearance, and risk of multigland disease. Remove clearly abnormal hyperfunctioning tissue but avoid unnecessary devascularization or over-resection of normal glands.",
+        "bullets": [
+          "PTH trend helps adjudicate.",
+          "Family history, lithium, renal disease, or MEN changes suspicion.",
+          "Document why each gland was removed or preserved."
+        ],
+        "bottomLine": "The judgment is curing disease without creating permanent hypoparathyroidism."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A patient has negative ultrasound and negative sestamibi but clear biochemical primary hyperparathyroidism. What operation is appropriate?",
+        "answer": "A bilateral neck exploration by an experienced endocrine surgeon is appropriate if surgery is indicated; additional localization may be considered if it changes approach, especially before reoperation.",
+        "bullets": [
+          "Do not deny surgery solely because imaging is negative.",
+          "Focused surgery is less attractive without localization.",
+          "The surgeon must be prepared for systematic four-gland exploration."
+        ],
+        "bottomLine": "Negative imaging does not mean no disease."
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you manage a suspected parathyroid carcinoma intraoperatively?",
+        "answer": "Avoid capsular violation, perform en bloc resection of involved tissues when suspected, and do not morcellate or biopsy the lesion casually.",
+        "bullets": [
+          "Think of very high calcium/PTH, palpable firm mass, invasion, or adherent lesion.",
+          "Simple shell-out is wrong if carcinoma is suspected.",
+          "Document suspicion and extent of resection."
+        ],
+        "bottomLine": "Parathyroid carcinoma is rare, but violating it is a bad day."
+      },
+      {
+        "level": "oral_boards",
+        "question": "PTH drops appropriately after one gland removal, but the patient has MEN1. Is the case over?",
+        "answer": "MEN1 commonly causes multigland disease, so the operative plan should not be the same as sporadic single adenoma surgery; subtotal or total parathyroidectomy with autotransplantation may be considered depending on context.",
+        "bullets": [
+          "Do not apply single-adenoma logic to MEN1.",
+          "Discuss recurrence risk.",
+          "Document the inherited disease context and planned extent."
+        ],
+        "bottomLine": "Syndrome changes the rules."
+      },
+      {
+        "level": "oral_boards",
+        "question": "A post-parathyroidectomy patient develops hoarseness. What is your evaluation?",
+        "answer": "Assess airway and voice symptoms, perform laryngoscopy to evaluate vocal cord mobility, distinguish temporary neuropraxia from injury, and arrange ENT/speech follow-up as needed.",
+        "bullets": [
+          "Do not dismiss it as intubation without checking.",
+          "Bilateral symptoms or airway issues are urgent.",
+          "Preop laryngoscopy helps interpretation in reoperative cases."
+        ],
+        "bottomLine": "Voice change after neck surgery deserves objective evaluation."
+      },
+      {
+        "level": "oral_boards",
+        "question": "When would you stage or abort a parathyroid exploration?",
+        "answer": "Stage or stop when anatomy becomes unsafe, nerve function is threatened, localization is unreliable in scar, the patient becomes unstable, or continued exploration risks more harm than benefit.",
+        "bullets": [
+          "Persistent disease is bad, but bilateral nerve injury is worse.",
+          "Re-image and re-plan rather than wander.",
+          "Document the reason for stopping and next diagnostic plan."
+        ],
+        "bottomLine": "Stopping can be the attending-level move."
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you distinguish a lymph node from a parathyroid gland intraoperatively?",
+        "answer": "Use location, color, vascular pattern, texture, frozen section selectively if needed, and biochemical PTH response after excision; do not rely on appearance alone in a scarred neck.",
+        "bullets": [
+          "Frozen section can confirm tissue type but not necessarily hyperfunction.",
+          "PTH response proves functional success.",
+          "Avoid removing normal structures just to satisfy uncertainty."
+        ],
+        "bottomLine": "The neck contains many small tan things. Not all are parathyroid."
+      },
+      {
+        "level": "oral_boards",
+        "question": "What is the danger of overzealous bilateral exploration after a successful PTH drop?",
+        "answer": "Unnecessary dissection can injure the RLN, devascularize normal parathyroid tissue, increase bleeding, and create hypocalcemia without improving cure.",
+        "bullets": [
+          "Curiosity is not an indication.",
+          "Know when to stop.",
+          "Documentation should reflect biochemical endpoint."
+        ],
+        "bottomLine": "Once the physiology confirms cure, more dissection can become harm."
+      }
     ]
   },
   "caseChallenges": {
@@ -4576,6 +5041,218 @@
           "codingDocumentationPearl": "Document infected mesh, fistula findings, bowel resection/repair if performed, wound class, explantation, drain/temporary closure decisions, and explicit rationale for staged reconstruction."
         }
       }
+    ],
+    "parathyroidectomy": [
+      {
+        "title": "Concordant imaging, failed PTH drop",
+        "focus": "Intraoperative PTH / Missing Disease",
+        "history": "A 58-year-old woman with symptomatic primary hyperparathyroidism has calcium 11.4 mg/dL and PTH 186 pg/mL. Ultrasound and sestamibi both localize a right inferior adenoma.",
+        "physical": "No prior neck surgery. Normal voice. No thyroid mass on examination.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 74",
+          "BP 132/78",
+          "RR 14",
+          "SpO2 99% on room air"
+        ],
+        "labs": [
+          "Calcium 11.4",
+          "PTH 186",
+          "Creatinine 0.8",
+          "25-OH vitamin D 31",
+          "Alkaline phosphatase 108"
+        ],
+        "imaging": "Ultrasound and sestamibi/SPECT-CT show a 1.4 cm right inferior posterior lesion near the lower thyroid pole.",
+        "intraoperative": "A 1.5 cm right inferior-appearing gland is removed. Ten-minute PTH is 154 pg/mL and twenty-minute PTH is 148 pg/mL.",
+        "decisionPoint": "What would you do next?",
+        "expertDiscussion": {
+          "correctAnswer": "Do not close. Confirm timing and sample integrity, reassess the removed specimen and operative anatomy, then proceed with systematic exploration for additional hyperfunctioning or ectopic parathyroid tissue.",
+          "whyCorrect": "The PTH failed to fall despite excision of the presumed target, so the operation has not achieved biochemical cure. Concordant imaging raises preoperative confidence but cannot override intraoperative physiology.",
+          "whyAlternativesWrong": "Closing because the imaging was concordant risks persistent hyperparathyroidism. Randomly removing tissue risks nerve injury and hypoparathyroidism. Repeating only the same dissection without rebuilding orientation wastes time and increases risk.",
+          "commonMistakes": [
+            "Trusting imaging more than intraoperative physiology.",
+            "Failing to check whether the PTH sample was drawn at the correct time.",
+            "Continuing blind dissection in the right lower neck instead of using a systematic four-gland/ectopic search."
+          ],
+          "attendingPearl": "A focused operation becomes a bilateral exploration the moment the biology stops agreeing with the plan."
+        },
+        "codingPearl": "Document the localized target, gland excised, baseline and timed PTH values, and the reason the operation expanded beyond focused exploration."
+      },
+      {
+        "title": "Missing inferior gland",
+        "focus": "Embryology / Ectopic Search",
+        "history": "A 46-year-old man has kidney stones and biochemical primary hyperparathyroidism. Imaging suggests a left inferior adenoma but is not perfectly concordant.",
+        "physical": "Thin neck, no palpable thyroid abnormality, normal voice.",
+        "vitals": [
+          "T 36.9 C",
+          "HR 68",
+          "BP 124/72",
+          "RR 16",
+          "SpO2 98% on room air"
+        ],
+        "labs": [
+          "Calcium 11.1",
+          "PTH 142",
+          "Creatinine 1.0",
+          "Phosphorus 2.1",
+          "Vitamin D 28"
+        ],
+        "imaging": "Ultrasound suggests a left lower pole lesion. Sestamibi shows faint uptake low in the left central neck.",
+        "intraoperative": "The left lower pole is exposed, but no convincing inferior gland is found. The RLN is in view and protected.",
+        "decisionPoint": "What is your search strategy?",
+        "expertDiscussion": {
+          "correctAnswer": "Return to landmarks and follow the inferior gland embryologic migration path: lower pole, thyrothymic ligament, cervical thymus, intrathymic tissue, low central neck, and selected upper mediastinal search if supported by imaging and safety.",
+          "whyCorrect": "Inferior glands derive from the third pharyngeal pouch and migrate with the thymus, making the thyrothymic tract and thymus high-yield search locations.",
+          "whyAlternativesWrong": "Deep blind dissection under the clavicle can injure vessels or nerves. Assuming the gland is absent ignores predictable embryology. Converting to contralateral exploration may be appropriate, but only after a disciplined ipsilateral search and reassessment.",
+          "commonMistakes": [
+            "Not using embryology to guide the search.",
+            "Avulsing or devascularizing normal tissue while chasing fat.",
+            "Failing to protect the RLN during low central neck dissection."
+          ],
+          "attendingPearl": "A missing inferior gland usually did not disappear; it followed the thymus."
+        },
+        "codingPearl": "Document ectopic search locations specifically, including thyrothymic ligament, cervical thymus, mediastinal extension if performed, and whether exploration remained cervical."
+      },
+      {
+        "title": "Reoperative localized parathyroidectomy",
+        "focus": "Reoperative Neck / RLN Risk",
+        "history": "A 64-year-old woman had prior thyroid lobectomy and failed parathyroid exploration elsewhere. She remains hypercalcemic with fatigue and nephrolithiasis.",
+        "physical": "Well-healed low neck incision. Voice is normal by history.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 80",
+          "BP 146/82",
+          "RR 15",
+          "SpO2 97% on room air"
+        ],
+        "labs": [
+          "Calcium 11.8",
+          "PTH 221",
+          "Creatinine 1.1",
+          "Vitamin D 35",
+          "Alkaline phosphatase 126"
+        ],
+        "imaging": "4D-CT localizes a 9 mm right retroesophageal target posterior to the remaining thyroid tissue. Prior op note reports difficult scar near the RLN.",
+        "intraoperative": "Dense scar is encountered near the tracheoesophageal groove. The target is close to the expected RLN course.",
+        "decisionPoint": "How should you proceed?",
+        "expertDiscussion": {
+          "correctAnswer": "Proceed with deliberate reoperative exposure: confirm baseline vocal cord status preoperatively, use prior records and imaging, identify safe landmarks, use nerve monitoring if part of local practice, avoid traction in scar, and stop or stage if nerve safety becomes uncertain.",
+          "whyCorrect": "Reoperative parathyroidectomy has a higher RLN and failure risk. Cure matters, but not at the cost of unsafe blind scar dissection.",
+          "whyAlternativesWrong": "Treating this like a virgin neck underestimates risk. Pulling scar to find the target can injure the RLN. Abandoning without a plan may be wrong if localization is strong and exposure can be made safe.",
+          "commonMistakes": [
+            "Skipping preoperative laryngoscopy.",
+            "Not reviewing prior operative reports.",
+            "Letting a small target justify dangerous traction in the tracheoesophageal groove."
+          ],
+          "attendingPearl": "In a reoperative neck, the first structure you protect is the patient's only known functioning voice."
+        },
+        "codingPearl": "Document prior operation, scarred field, localization, reoperative exploration, nerve status/monitoring when used, and why re-exploration coding is supported."
+      },
+      {
+        "title": "Severe hypocalcemia after successful exploration",
+        "focus": "Hungry Bone / Postoperative Management",
+        "history": "A 55-year-old man with primary hyperparathyroidism, bone pain, and osteoporosis undergoes removal of a large adenoma with appropriate PTH drop.",
+        "physical": "Postoperative day one, he reports perioral numbness and hand cramping.",
+        "vitals": [
+          "T 37.0 C",
+          "HR 96",
+          "BP 138/80",
+          "RR 18",
+          "SpO2 98% on room air"
+        ],
+        "labs": [
+          "Calcium 6.9",
+          "Ionized calcium markedly low",
+          "Magnesium 1.4",
+          "PTH low-normal after resection",
+          "Alkaline phosphatase 490"
+        ],
+        "imaging": "Preoperative DEXA showed osteoporosis. No neck hematoma.",
+        "intraoperative": "Large parathyroid adenoma removed; PTH dropped from 760 to 52 pg/mL.",
+        "decisionPoint": "What is the most important next step?",
+        "expertDiscussion": {
+          "correctAnswer": "Treat symptomatic severe hypocalcemia urgently with IV calcium when indicated, check ECG/QT, correct magnesium, and begin ongoing calcium/calcitriol replacement while monitoring for hungry bone syndrome.",
+          "whyCorrect": "This patient has symptomatic marked hypocalcemia after correction of chronic high-PTH bone turnover. Magnesium deficiency can worsen hypocalcemia and impair correction.",
+          "whyAlternativesWrong": "Observation alone is unsafe with symptoms and marked ionized hypocalcemia. Oral calcium alone may be inadequate initially. Calling it routine transient hypocalcemia misses hungry bone physiology.",
+          "commonMistakes": [
+            "Forgetting to correct magnesium.",
+            "Ignoring ECG risk with severe hypocalcemia.",
+            "Underestimating calcium needs in high bone turnover patients."
+          ],
+          "attendingPearl": "The operation can be technically perfect and still create a calcium emergency you should have predicted."
+        },
+        "codingPearl": "Document postoperative hypocalcemia severity, symptoms, ionized calcium, magnesium correction, IV calcium indications, and ongoing calcium/calcitriol plan."
+      },
+      {
+        "title": "Discordant imaging with thyroid nodules",
+        "focus": "Localization / Thyroid Confounder",
+        "history": "A 61-year-old woman with calcium 10.9 and PTH 132 has fatigue and osteopenia. Ultrasound shows multiple thyroid nodules and a possible left posterior lesion.",
+        "physical": "Palpable multinodular thyroid, normal voice, no compressive symptoms.",
+        "vitals": [
+          "T 36.6 C",
+          "HR 72",
+          "BP 128/74",
+          "RR 14",
+          "SpO2 99% on room air"
+        ],
+        "labs": [
+          "Calcium 10.9",
+          "PTH 132",
+          "Creatinine 0.9",
+          "TSH 1.6",
+          "Vitamin D 34"
+        ],
+        "imaging": "Ultrasound suggests left posterior parathyroid versus thyroid nodule. Sestamibi is nonlocalizing. 4D-CT is pending.",
+        "intraoperative": "Not applicable; this is the preoperative planning visit.",
+        "decisionPoint": "Would you schedule focused parathyroidectomy now?",
+        "expertDiscussion": {
+          "correctAnswer": "Do not overpromise focused surgery. Clarify localization with additional imaging if it will change the operation, evaluate thyroid nodules according to thyroid nodule guidelines, and consent for possible bilateral exploration if surgery proceeds.",
+          "whyCorrect": "Discordant imaging and thyroid nodules lower confidence that the suspected target is truly parathyroid. The thyroid problem may also require separate decision-making.",
+          "whyAlternativesWrong": "Proceeding with a tiny focused incision risks missing disease or operating on the wrong target. Performing thyroidectomy solely because nodules exist is also wrong without indication.",
+          "commonMistakes": [
+            "Letting ultrasound alone drive the whole plan.",
+            "Not separating thyroid nodule management from parathyroid disease.",
+            "Failing to consent for conversion to bilateral exploration."
+          ],
+          "attendingPearl": "A thyroid nodule can look like a parathyroid adenoma until it makes you humble."
+        },
+        "codingPearl": "Document discordant localization, thyroid nodule assessment, additional imaging rationale, and whether thyroid work is separately indicated."
+      },
+      {
+        "title": "Focused exploration versus bilateral exploration",
+        "focus": "Operative Strategy",
+        "history": "A 50-year-old woman has biochemical primary hyperparathyroidism. Ultrasound localizes a right superior adenoma; sestamibi is equivocal. She strongly wants the smallest operation possible.",
+        "physical": "No prior neck surgery. Normal voice. No palpable thyroid mass.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 76",
+          "BP 130/76",
+          "RR 16",
+          "SpO2 99% on room air"
+        ],
+        "labs": [
+          "Calcium 11.0",
+          "PTH 158",
+          "Creatinine 0.7",
+          "Vitamin D 30",
+          "Phosphorus 2.3"
+        ],
+        "imaging": "Ultrasound shows a 1.2 cm right posterior lesion. Sestamibi has faint bilateral activity and is not definitive.",
+        "intraoperative": "Not applicable; this is the operative planning conversation.",
+        "decisionPoint": "How do you frame the operative plan?",
+        "expertDiscussion": {
+          "correctAnswer": "Offer a targeted start if reasonable, but explicitly plan for intraoperative PTH monitoring and conversion to bilateral exploration if the target is not found, pathology is discordant, or PTH does not drop.",
+          "whyCorrect": "The patient preference for a small operation is reasonable only within the boundaries of cure and safety. Discordant imaging requires a flexible plan.",
+          "whyAlternativesWrong": "Promising a focused-only operation may leave persistent disease. Defaulting to bilateral exploration without explaining why may ignore patient preference and available localization. Skipping PTH removes key feedback.",
+          "commonMistakes": [
+            "Letting patient preference override surgical endpoints.",
+            "Failing to define conversion criteria before incision.",
+            "Treating equivocal imaging as fully concordant."
+          ],
+          "attendingPearl": "The right consent is not 'small incision.' It is 'small incision if the disease behaves.'"
+        },
+        "codingPearl": "Document the planned approach, localization confidence, use of intraoperative PTH, and conversion criteria from focused to bilateral exploration."
+      }
     ]
   },
   "graydonPearls": {
@@ -4677,6 +5354,26 @@
         "context": "Attending mindset",
         "title": "Do not worship closure.",
         "text": "A closed abdomen that causes physiologic collapse is not a durable repair. The patient has to tolerate the reconstruction."
+      }
+    ],
+    "parathyroidectomy": [
+      {
+        "severity": "standard",
+        "context": "Embryology",
+        "title": "Embryology is the map.",
+        "text": "When the gland is missing, stop thinking randomly. Superior glands go posterior; inferior glands follow the thymus."
+      },
+      {
+        "severity": "high",
+        "context": "Reoperative neck",
+        "title": "Scar changes the rules.",
+        "text": "In a reoperative neck, the operation is won by respecting the nerve and knowing when to stop, re-image, and come back safer."
+      },
+      {
+        "severity": "standard",
+        "context": "PTH monitoring",
+        "title": "The lab is feedback, not autopilot.",
+        "text": "A PTH drop can confirm judgment, but it cannot rescue sloppy anatomy or justify closing when the story does not fit."
       }
     ]
   }

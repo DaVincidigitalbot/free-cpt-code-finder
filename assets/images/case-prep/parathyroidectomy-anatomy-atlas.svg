@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 2240" role="img" aria-labelledby="title desc">
+  <title id="title">Parathyroidectomy anatomy atlas</title>
+  <desc id="desc">Mobile-responsive surgical atlas showing parathyroid anatomy, recurrent laryngeal nerve relationship, ectopic gland locations, embryology, PTH monitoring, and focused versus bilateral exploration strategy.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}
+      .panel{fill:#fff;stroke:#cbd5e1;stroke-width:2}
+      .ink{fill:#0f172a;font-family:Inter,Arial,sans-serif}
+      .muted{fill:#475569;font-family:Inter,Arial,sans-serif}
+      .h1{font-size:34px;font-weight:800}
+      .h2{font-size:28px;font-weight:800}
+      .h3{font-size:24px;font-weight:800}
+      .body{font-size:22px}
+      .small{font-size:20px}
+      .xs{font-size:18px}
+      .label{font-size:22px;font-weight:800}
+      .thyroid{fill:#f6b7a7;stroke:#9f4f46;stroke-width:3}
+      .trachea{fill:#dbeafe;stroke:#3b82f6;stroke-width:3}
+      .nerve{fill:none;stroke:#f59e0b;stroke-width:7;stroke-linecap:round}
+      .artery{fill:none;stroke:#dc2626;stroke-width:5;stroke-linecap:round}
+      .para{fill:#fde68a;stroke:#92400e;stroke-width:3}
+      .safe{fill:#dcfce7;stroke:#16a34a;stroke-width:2}
+      .danger{fill:#fee2e2;stroke:#dc2626;stroke-width:2}
+      .flow{fill:#eff6ff;stroke:#2563eb;stroke-width:2}
+      .plane{fill:#e0f2fe;stroke:#0369a1;stroke-width:2}
+      .leader{stroke:#334155;stroke-width:2.5;fill:none}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64748b"/></marker>
+  </defs>
+  <rect class="bg" width="760" height="2240"/>
+  <text x="36" y="58" class="ink h1">Parathyroidectomy Anatomy Atlas</text>
+  <text x="36" y="94" class="muted small">Embryology-driven search, RLN protection, PTH feedback, and bailout strategy.</text>
+
+  <rect x="28" y="126" width="704" height="650" rx="18" class="panel"/>
+  <text x="56" y="172" class="ink h2">1. Operative Neck Orientation</text>
+  <text x="56" y="208" class="muted small">Anterior view: small target, high-consequence anatomy.</text>
+
+  <rect x="334" y="270" width="88" height="348" rx="40" class="trachea"/>
+  <path d="M352 296h52M348 336h60M346 376h64M346 416h64M348 456h60M352 496h52M356 536h44M360 576h36" stroke="#60a5fa" stroke-width="5"/>
+  <text x="338" y="646" class="ink label">Trachea</text>
+
+  <path d="M276 254 C190 304 190 458 272 620 C326 586 332 298 276 254Z" class="thyroid"/>
+  <path d="M484 254 C570 304 570 458 488 620 C434 586 428 298 484 254Z" class="thyroid"/>
+  <path d="M302 324 C344 360 416 360 458 324" fill="none" stroke="#9f4f46" stroke-width="8" stroke-linecap="round"/>
+  <text x="76" y="284" class="ink label">Thyroid lobe</text><path d="M248 282 L188 282" class="leader"/>
+  <text x="552" y="284" class="ink label">Thyroid lobe</text><path d="M510 282 L542 282" class="leader"/>
+
+  <path d="M258 324 C228 408 234 520 286 636" class="nerve"/>
+  <path d="M502 324 C532 408 526 520 474 636" class="nerve"/>
+  <text x="56" y="378" class="ink label">RLN</text>
+  <text x="56" y="406" class="muted small">TE groove</text>
+  <path d="M242 392 L174 392" class="leader"/>
+  <text x="528" y="384" class="ink label">RLN danger</text>
+  <text x="528" y="412" class="muted small">scar + traction</text>
+  <path d="M514 398 L526 398" class="leader"/>
+
+  <path d="M230 320 C196 366 180 454 190 542" class="artery"/>
+  <path d="M530 320 C564 366 580 454 570 542" class="artery"/>
+  <text x="82" y="596" class="ink label">ITA branches</text>
+  <text x="82" y="624" class="muted small">blood supply to glands</text>
+  <path d="M198 532 L248 586" class="leader"/>
+
+  <ellipse cx="282" cy="360" rx="21" ry="29" class="para"/>
+  <ellipse cx="478" cy="360" rx="21" ry="29" class="para"/>
+  <ellipse cx="282" cy="548" rx="21" ry="29" class="para"/>
+  <ellipse cx="478" cy="548" rx="21" ry="29" class="para"/>
+  <text x="56" y="672" class="ink label">Inferior glands</text>
+  <text x="56" y="700" class="muted small">variable: lower pole to thymic path</text>
+  <path d="M264 548 L188 660" class="leader"/>
+  <text x="478" y="662" class="ink label">Superior glands</text>
+  <text x="478" y="690" class="muted small">posterior,</text>
+  <text x="478" y="718" class="muted small">more constant</text>
+  <path d="M486 360 L540 650" class="leader"/>
+
+  <rect x="28" y="812" width="704" height="336" rx="18" class="panel"/>
+  <text x="56" y="858" class="ink h2">2. Embryology Search Map</text>
+  <rect x="56" y="892" width="648" height="92" rx="14" class="flow"/>
+  <text x="82" y="930" class="ink h3">Superior glands: 4th pouch</text>
+  <text x="82" y="960" class="muted body">Posterior upper/mid thyroid, TE groove, retroesophageal.</text>
+  <rect x="56" y="1010" width="648" height="110" rx="14" class="flow"/>
+  <text x="82" y="1048" class="ink h3">Inferior glands: 3rd pouch + thymus</text>
+  <text x="82" y="1078" class="muted body">Lower pole, thyrothymic ligament, cervical thymus,</text>
+  <text x="82" y="1106" class="muted body">intrathymic tissue, low central neck, upper mediastinum.</text>
+
+  <rect x="28" y="1184" width="704" height="338" rx="18" class="panel"/>
+  <text x="56" y="1230" class="ink h2">3. Common Ectopic Locations</text>
+  <text x="56" y="1264" class="muted small">Ectopic does not mean random. Search predictable migration paths.</text>
+  <circle cx="82" cy="1318" r="11" class="para"/><text x="108" y="1326" class="ink label">Intrathyroidal</text>
+  <circle cx="82" cy="1372" r="11" class="para"/><text x="108" y="1380" class="ink label">Thyrothymic ligament</text>
+  <circle cx="82" cy="1426" r="11" class="para"/><text x="108" y="1434" class="ink label">Cervical thymus / intrathymic</text>
+  <circle cx="82" cy="1480" r="11" class="para"/><text x="108" y="1488" class="ink label">Retroesophageal / paraesophageal</text>
+
+  <rect x="28" y="1558" width="704" height="368" rx="18" class="panel"/>
+  <text x="56" y="1604" class="ink h2">4. Focused vs Bilateral Exploration</text>
+  <rect x="56" y="1640" width="280" height="116" rx="14" class="safe"/>
+  <text x="82" y="1680" class="ink h3">Focused start</text>
+  <text x="82" y="1710" class="muted body">Concordant target</text>
+  <text x="82" y="1738" class="muted body">plus PTH plan</text>
+  <path d="M350 1698 H408" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="424" y="1640" width="280" height="116" rx="14" class="danger"/>
+  <text x="450" y="1680" class="ink h3">Convert when</text>
+  <text x="450" y="1710" class="muted body">No gland, no PTH drop,</text>
+  <text x="450" y="1738" class="muted body">or multigland suspicion</text>
+  <rect x="56" y="1790" width="648" height="98" rx="14" class="flow"/>
+  <text x="82" y="1828" class="ink h3">PTH monitoring concept</text>
+  <text x="82" y="1858" class="muted body">Short half-life: compare baseline to timed post-excision values.</text>
+  <text x="82" y="1884" class="muted xs">Common endpoint: &gt;50% drop; interpret in context.</text>
+
+  <rect x="28" y="1962" width="704" height="246" rx="18" class="panel"/>
+  <text x="56" y="2008" class="ink h2">5. Attending-Level Safety Pearls</text>
+  <rect x="56" y="2040" width="648" height="44" rx="10" class="safe"/>
+  <text x="76" y="2068" class="ink small">Missing gland: superior = posterior; inferior = thymic path.</text>
+  <rect x="56" y="2096" width="648" height="44" rx="10" class="danger"/>
+  <text x="76" y="2124" class="ink small">Reoperative neck: strong localization before scar dissection.</text>
+  <rect x="56" y="2152" width="648" height="44" rx="10" class="plane"/>
+  <text x="76" y="2180" class="ink small">Hungry bone: predict risk; correct Ca/Mg early.</text>
+</svg>
