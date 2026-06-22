@@ -1,0 +1,124 @@
+{
+  "status": "pass",
+  "checkedAt": "2026-06-22T21:46:48.949Z",
+  "baseUrl": "http://127.0.0.1:8790",
+  "consoleMessages": [],
+  "cases": {
+    "ncci": {
+      "total": "31.12",
+      "subline": "$1,649.34 · selected 46.01 wRVU",
+      "cards": [
+        {
+          "className": "warning-card warning-card--ncci",
+          "warningClass": "ncci",
+          "title": "NCCI Hard Stop",
+          "summary": "CPT 44180 is bundled into CPT 44207 under an NCCI edit that cannot be bypassed. Payable estimate adjusted accordingly.",
+          "text": "NCCI Hard StopCPT 44180 is bundled into CPT 44207 under an NCCI edit that cannot be bypassed. Payable estimate adjusted accordingly.Learn More ▾Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits CMS NCCI Column 1 CPT 44207 / Column 2 CPT 44180. CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0NCCI Column 1 / Column 2 logic means the Column 2 service is not separately payable for this same-encounter relationship when modifier indicator 0 applies.Modifier 59, XE, XS, XP, and XU should not be used to bypass modifier-indicator-0 relationships.If documentation shows substantially increased work on CPT 44207, review whether modifier 22 is supportable. This does not override the NCCI hard stop."
+        }
+      ],
+      "lines": [
+        "Primary44207×\n    Laparoscopic colectomy, partial, with colorectal anastomosis\n    Physician wRVU 31.12$1,649.34\n    \n    \n    Estimated APP Productivity: 4.23 · 13.6% assistant-at-surgery equivalent",
+        "Bundled44180edit×\n    Laparoscopy, surgical, enterolysis (freeing of intestinal adhesion)\n    Selected wRVU 14.89 · Payable wRVU 0.00Not included\n    \n    NCCI Hard StopCPT 44180 is bundled into CPT 44207 under an NCCI edit that cannot be bypassed. Payable estimate adjusted accordingly.Learn More ▾Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits CMS NCCI Column 1 CPT 44207 / Column 2 CPT 44180. CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0NCCI Column 1 / Column 2 logic means the Column 2 service is not separately payable for this same-encounter relationship when modifier indicator 0 applies.Modifier 59, XE, XS, XP, and XU should not be used to bypass modifier-indicator-0 relationships.If documentation shows substantially increased work on CPT 44207, review whether modifier 22 is supportable. This does not override the NCCI hard stop.\n    Estimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled"
+      ],
+      "overflow": [],
+      "duplicateTexts": {
+        "CPT 44180 is bundled into CPT 44207 under an NCCI edit that cannot be bypassed. Payable estimate adjusted accordingly.": 1
+      }
+    },
+    "separate": {
+      "total": "18.00",
+      "subline": "$1,020.40 · selected 30.23 wRVU",
+      "cards": [
+        {
+          "className": "warning-card warning-card--separate",
+          "warningClass": "separate",
+          "title": "Separate Procedure",
+          "summary": "CPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.",
+          "text": "Separate ProcedureCPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.Learn More ▾⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly.CPT 49000 is integral to CPT 44005 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.Separate-procedure codes may be separately reportable only when performed at a distinct encounter, distinct anatomic site, or for a clinically independent indication supported by documentation.Modifier use should not bypass a same-incision or same-clinical-context separate-procedure relationship unless payer policy and documentation clearly support distinct work.If documentation shows substantially increased work on CPT 44005, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable."
+        }
+      ],
+      "lines": [
+        "Primary44005×\n    Enterolysis (freeing of intestinal adhesion)\n    Physician wRVU 18.00$1,020.40\n    \n    \n    Estimated APP Productivity: 2.45 · 13.6% assistant-at-surgery equivalent",
+        "Bundled49000edit×\n    Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)\n    Selected wRVU 12.23 · Payable wRVU 0.00Not included\n    \n    Separate ProcedureCPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.Learn More ▾⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly.CPT 49000 is integral to CPT 44005 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.Separate-procedure codes may be separately reportable only when performed at a distinct encounter, distinct anatomic site, or for a clinically independent indication supported by documentation.Modifier use should not bypass a same-incision or same-clinical-context separate-procedure relationship unless payer policy and documentation clearly support distinct work.If documentation shows substantially increased work on CPT 44005, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable.\n    Estimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled"
+      ],
+      "overflow": [],
+      "duplicateTexts": {
+        "CPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.": 1
+      }
+    },
+    "splenic": {
+      "total": "22.03",
+      "subline": "$1,250.20 · selected 41.09 wRVU",
+      "cards": [
+        {
+          "className": "warning-card warning-card--separate",
+          "warningClass": "separate",
+          "title": "Separate Procedure",
+          "summary": "CPT 38100 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.",
+          "text": "Separate ProcedureCPT 38100 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.Learn More ▾⚠️ CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.CPT 38100 is integral to CPT 44140 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.Separate-procedure codes may be separately reportable only when performed at a distinct encounter, distinct anatomic site, or for a clinically independent indication supported by documentation.Modifier use should not bypass a same-incision or same-clinical-context separate-procedure relationship unless payer policy and documentation clearly support distinct work.If documentation shows substantially increased work on CPT 44140, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable."
+        }
+      ],
+      "lines": [
+        "Primary44140×\n    Colectomy, partial; with anastomosis\n    Physician wRVU 22.03$1,250.20\n    \n    \n    Estimated APP Productivity: 3.00 · 13.6% assistant-at-surgery equivalent",
+        "Bundled38100edit×\n    Splenectomy; total (separate procedure)\n    Selected wRVU 19.06 · Payable wRVU 0.00Not included\n    \n    Separate ProcedureCPT 38100 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.Learn More ▾⚠️ CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.CPT 38100 is integral to CPT 44140 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.Separate-procedure codes may be separately reportable only when performed at a distinct encounter, distinct anatomic site, or for a clinically independent indication supported by documentation.Modifier use should not bypass a same-incision or same-clinical-context separate-procedure relationship unless payer policy and documentation clearly support distinct work.If documentation shows substantially increased work on CPT 44140, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable.\n    Estimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled"
+      ],
+      "overflow": [],
+      "duplicateTexts": {
+        "CPT 38100 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.": 1
+      }
+    },
+    "doc": {
+      "total": "23.95",
+      "subline": "$1,314.33",
+      "cards": [
+        {
+          "className": "warning-card warning-card--doc",
+          "warningClass": "doc",
+          "title": "Documentation Opportunity",
+          "summary": "Documentation may support additional review.",
+          "text": "Documentation OpportunityDocumentation may support additional review.Learn More ▾Same-day major surgery context detected. Modifier -57 is usually the decision-for-surgery modifier; confirm documentation before using -25."
+        }
+      ],
+      "lines": [
+        "Primary44140×\n    Colectomy, partial; with anastomosis\n    Physician wRVU 22.03$1,250.20\n    \n    \n    Estimated APP Productivity: 3.00 · 13.6% assistant-at-surgery equivalent",
+        "E/M99214-25edit×\n    Est pt, mod\n    Physician wRVU 1.92$64.13\n    \n    Documentation OpportunityDocumentation may support additional review.Learn More ▾Same-day major surgery context detected. Modifier -57 is usually the decision-for-surgery modifier; confirm documentation before using -25.\n    Estimated APP Productivity: 1.63 · 85% Medicare NPP equivalent"
+      ],
+      "overflow": [],
+      "duplicateTexts": {
+        "Documentation may support additional review.": 1
+      }
+    },
+    "mobile": {
+      "total": "18.00",
+      "subline": "$1,020.40 · selected 30.23 wRVU",
+      "cards": [
+        {
+          "className": "warning-card warning-card--separate",
+          "warningClass": "separate",
+          "title": "Separate Procedure",
+          "summary": "CPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.",
+          "text": "Separate ProcedureCPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.Learn More ▾⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly.CPT 49000 is integral to CPT 44005 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.Separate-procedure codes may be separately reportable only when performed at a distinct encounter, distinct anatomic site, or for a clinically independent indication supported by documentation.Modifier use should not bypass a same-incision or same-clinical-context separate-procedure relationship unless payer policy and documentation clearly support distinct work.If documentation shows substantially increased work on CPT 44005, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable."
+        }
+      ],
+      "lines": [
+        "Primary44005×\n    Enterolysis (freeing of intestinal adhesion)\n    Physician wRVU 18.00$1,020.40\n    \n    \n    Estimated APP Productivity: 2.45 · 13.6% assistant-at-surgery equivalent",
+        "Bundled49000edit×\n    Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)\n    Selected wRVU 12.23 · Payable wRVU 0.00Not included\n    \n    Separate ProcedureCPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.Learn More ▾⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly.CPT 49000 is integral to CPT 44005 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.Separate-procedure codes may be separately reportable only when performed at a distinct encounter, distinct anatomic site, or for a clinically independent indication supported by documentation.Modifier use should not bypass a same-incision or same-clinical-context separate-procedure relationship unless payer policy and documentation clearly support distinct work.If documentation shows substantially increased work on CPT 44005, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable.\n    Estimated APP Productivity: 0.00 · Excluded from payable estimate because this line is bundled"
+      ],
+      "overflow": [],
+      "duplicateTexts": {
+        "CPT 49000 is generally not separately reportable in this clinical context. Payable estimate adjusted accordingly.": 1
+      }
+    }
+  },
+  "noDuplicateWarningValidation": {
+    "ncciCards": 1,
+    "separateCards": 1,
+    "splenicCards": 1,
+    "docCards": 1,
+    "mobileCards": 1
+  },
+  "overflowValidation": {
+    "desktopNcciOverflow": [],
+    "mobileOverflow": []
+  }
+}
