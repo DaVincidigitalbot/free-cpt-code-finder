@@ -491,6 +491,10 @@ class ModifierEngine {
             clinicalContext.indication,
             clinicalContext.diagnosticIndication,
             clinicalContext.diagnostic_indication,
+            clinicalContext.omentectomyContext,
+            clinicalContext.omentectomy_context,
+            clinicalContext.omentalIndication,
+            clinicalContext.omental_indication,
             clinicalContext.encounter,
             clinicalContext.session
         ].map(value => String(value || '').trim()).filter(Boolean);
@@ -517,6 +521,23 @@ class ModifierEngine {
         return !!primarySide && primarySide === secondarySide && (primarySide === 'RT' || primarySide === 'LT');
     }
 
+    omentectomyContext(secondaryProc, context) {
+        const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
+        return String(
+            clinicalContext.omentectomyContext ||
+            clinicalContext.omentectomy_context ||
+            clinicalContext.omentalIndication ||
+            clinicalContext.omental_indication ||
+            clinicalContext.indication ||
+            ''
+        ).trim();
+    }
+
+    suppressibleOmentectomyContext(rule, secondaryProc, context) {
+        const allowed = ((rule.suppress_when && rule.suppress_when.omentectomy_context) || []).map(String);
+        return allowed.includes(this.omentectomyContext(secondaryProc, context));
+    }
+
     separateProcedureShouldSuppress(rule, primaryProc, secondaryProc, context) {
         if (!rule.requires_context) return true;
         if (rule.relationship === 'iatrogenic_complication_treatment') {
@@ -527,6 +548,10 @@ class ModifierEngine {
         if (rule.relationship === 'same_joint_diagnostic_integral') {
             if (this.separateProcedureDistinctContext(rule, secondaryProc, context)) return false;
             return this.sameKneeContext(rule, primaryProc, secondaryProc, context);
+        }
+        if (rule.relationship === 'abdominal_oncologic_debulking_integral') {
+            if (this.separateProcedureDistinctContext(rule, secondaryProc, context)) return false;
+            return this.suppressibleOmentectomyContext(rule, secondaryProc, context);
         }
         return false;
     }
@@ -541,6 +566,11 @@ class ModifierEngine {
             if (
                 this.separateProcedureDistinctContext(rule, secondaryProc, context) ||
                 this.sameKneeContext(rule, primaryProc, secondaryProc, context)
+            ) return null;
+        } else if (rule.relationship === 'abdominal_oncologic_debulking_integral') {
+            if (
+                this.separateProcedureDistinctContext(rule, secondaryProc, context) ||
+                this.suppressibleOmentectomyContext(rule, secondaryProc, context)
             ) return null;
         } else {
             return null;

@@ -3,7 +3,7 @@
   "rule_file": "separate_procedure_rules.json",
   "loaded_cpt_count": 3875,
   "separate_procedure_code_count": 24,
-  "affected_relationship_count": 79,
+  "affected_relationship_count": 85,
   "separate_procedure_codes": [
     {
       "code": "11755",
@@ -7183,6 +7183,486 @@
         ],
         "confidence": "high",
         "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "45126",
+        "49255"
+      ],
+      "primary": {
+        "code": "45126",
+        "description": "Pelvic exenteration for colorectal malignancy",
+        "work_rvu": 47.87
+      },
+      "secondary": {
+        "code": "49255",
+        "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+        "work_rvu": 12.25
+      },
+      "selected_wrvus": 60.12,
+      "correct_payable_wrvus": 47.87,
+      "suppressed_wrvus": 12.25,
+      "selected_reimbursement": 3234.54,
+      "correct_payable_reimbursement": 2482.69,
+      "suppressed_reimbursement": 751.85,
+      "context_required": true,
+      "suppress_when": {
+        "omentectomy_context": [
+          "cytoreduction_debulking",
+          "included_in_parent_operation",
+          "accomplish_primary_abdominal_oncologic_operation",
+          "incidental_integral_same_abdominal_operation"
+        ],
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+        "primary_family": "abdominal_oncologic_debulking_or_tumor_resection",
+        "primary_codes": [
+          "45126",
+          "49203",
+          "58240",
+          "58943",
+          "58952",
+          "58956"
+        ],
+        "secondary": "49255",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "abdominal_oncologic_debulking_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "omentectomy_context": [
+            "cytoreduction_debulking",
+            "included_in_parent_operation",
+            "accomplish_primary_abdominal_oncologic_operation",
+            "incidental_integral_same_abdominal_operation"
+          ],
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "isolated_omental_infarction",
+          "omental_torsion",
+          "omental_mass",
+          "omental_abscess",
+          "distinct_omental_biopsy_resection",
+          "trauma_related_omental_injury",
+          "separate_encounter",
+          "clinically_independent_omental_indication"
+        ],
+        "modifier_risk": "separate_indication_or_encounter_required",
+        "reason": "Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",
+        "warning": "CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style separate-procedure same-encounter/same-region logic",
+          "clinical/coding inference requiring explicit omentectomy context"
+        ],
+        "confidence": "medium_high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "49203",
+        "49255"
+      ],
+      "primary": {
+        "code": "49203",
+        "description": "Excision or destruction, open, intra-abdominal tumors, cysts or endometriomas, 1 or more peritoneal, mesenteric, or retroperitoneal primary or secondary tumors; largest tumor 5 cm diameter or less",
+        "work_rvu": 16.76
+      },
+      "secondary": {
+        "code": "49255",
+        "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+        "work_rvu": 12.25
+      },
+      "selected_wrvus": 29.01,
+      "correct_payable_wrvus": 16.76,
+      "suppressed_wrvus": 12.25,
+      "selected_reimbursement": 751.85,
+      "correct_payable_reimbursement": 0,
+      "suppressed_reimbursement": 751.85,
+      "context_required": true,
+      "suppress_when": {
+        "omentectomy_context": [
+          "cytoreduction_debulking",
+          "included_in_parent_operation",
+          "accomplish_primary_abdominal_oncologic_operation",
+          "incidental_integral_same_abdominal_operation"
+        ],
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+        "primary_family": "abdominal_oncologic_debulking_or_tumor_resection",
+        "primary_codes": [
+          "45126",
+          "49203",
+          "58240",
+          "58943",
+          "58952",
+          "58956"
+        ],
+        "secondary": "49255",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "abdominal_oncologic_debulking_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "omentectomy_context": [
+            "cytoreduction_debulking",
+            "included_in_parent_operation",
+            "accomplish_primary_abdominal_oncologic_operation",
+            "incidental_integral_same_abdominal_operation"
+          ],
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "isolated_omental_infarction",
+          "omental_torsion",
+          "omental_mass",
+          "omental_abscess",
+          "distinct_omental_biopsy_resection",
+          "trauma_related_omental_injury",
+          "separate_encounter",
+          "clinically_independent_omental_indication"
+        ],
+        "modifier_risk": "separate_indication_or_encounter_required",
+        "reason": "Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",
+        "warning": "CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style separate-procedure same-encounter/same-region logic",
+          "clinical/coding inference requiring explicit omentectomy context"
+        ],
+        "confidence": "medium_high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "58240",
+        "49255"
+      ],
+      "primary": {
+        "code": "58240",
+        "description": "Pelvic exenteration for gynecologic malignancy",
+        "work_rvu": 48.1
+      },
+      "secondary": {
+        "code": "49255",
+        "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+        "work_rvu": 12.25
+      },
+      "selected_wrvus": 60.35,
+      "correct_payable_wrvus": 48.1,
+      "suppressed_wrvus": 12.25,
+      "selected_reimbursement": 3429.6,
+      "correct_payable_reimbursement": 2677.75,
+      "suppressed_reimbursement": 751.85,
+      "context_required": true,
+      "suppress_when": {
+        "omentectomy_context": [
+          "cytoreduction_debulking",
+          "included_in_parent_operation",
+          "accomplish_primary_abdominal_oncologic_operation",
+          "incidental_integral_same_abdominal_operation"
+        ],
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+        "primary_family": "abdominal_oncologic_debulking_or_tumor_resection",
+        "primary_codes": [
+          "45126",
+          "49203",
+          "58240",
+          "58943",
+          "58952",
+          "58956"
+        ],
+        "secondary": "49255",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "abdominal_oncologic_debulking_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "omentectomy_context": [
+            "cytoreduction_debulking",
+            "included_in_parent_operation",
+            "accomplish_primary_abdominal_oncologic_operation",
+            "incidental_integral_same_abdominal_operation"
+          ],
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "isolated_omental_infarction",
+          "omental_torsion",
+          "omental_mass",
+          "omental_abscess",
+          "distinct_omental_biopsy_resection",
+          "trauma_related_omental_injury",
+          "separate_encounter",
+          "clinically_independent_omental_indication"
+        ],
+        "modifier_risk": "separate_indication_or_encounter_required",
+        "reason": "Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",
+        "warning": "CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style separate-procedure same-encounter/same-region logic",
+          "clinical/coding inference requiring explicit omentectomy context"
+        ],
+        "confidence": "medium_high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "58943",
+        "49255"
+      ],
+      "primary": {
+        "code": "58943",
+        "description": "Oophorectomy for ovarian malignancy",
+        "work_rvu": 19.03
+      },
+      "secondary": {
+        "code": "49255",
+        "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+        "work_rvu": 12.25
+      },
+      "selected_wrvus": 31.28,
+      "correct_payable_wrvus": 19.03,
+      "suppressed_wrvus": 12.25,
+      "selected_reimbursement": 1881.47,
+      "correct_payable_reimbursement": 1129.62,
+      "suppressed_reimbursement": 751.85,
+      "context_required": true,
+      "suppress_when": {
+        "omentectomy_context": [
+          "cytoreduction_debulking",
+          "included_in_parent_operation",
+          "accomplish_primary_abdominal_oncologic_operation",
+          "incidental_integral_same_abdominal_operation"
+        ],
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+        "primary_family": "abdominal_oncologic_debulking_or_tumor_resection",
+        "primary_codes": [
+          "45126",
+          "49203",
+          "58240",
+          "58943",
+          "58952",
+          "58956"
+        ],
+        "secondary": "49255",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "abdominal_oncologic_debulking_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "omentectomy_context": [
+            "cytoreduction_debulking",
+            "included_in_parent_operation",
+            "accomplish_primary_abdominal_oncologic_operation",
+            "incidental_integral_same_abdominal_operation"
+          ],
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "isolated_omental_infarction",
+          "omental_torsion",
+          "omental_mass",
+          "omental_abscess",
+          "distinct_omental_biopsy_resection",
+          "trauma_related_omental_injury",
+          "separate_encounter",
+          "clinically_independent_omental_indication"
+        ],
+        "modifier_risk": "separate_indication_or_encounter_required",
+        "reason": "Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",
+        "warning": "CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style separate-procedure same-encounter/same-region logic",
+          "clinical/coding inference requiring explicit omentectomy context"
+        ],
+        "confidence": "medium_high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "58952",
+        "49255"
+      ],
+      "primary": {
+        "code": "58952",
+        "description": "Bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy for malignancy",
+        "work_rvu": 26.61
+      },
+      "secondary": {
+        "code": "49255",
+        "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+        "work_rvu": 12.25
+      },
+      "selected_wrvus": 38.86,
+      "correct_payable_wrvus": 26.61,
+      "suppressed_wrvus": 12.25,
+      "selected_reimbursement": 2271.59,
+      "correct_payable_reimbursement": 1519.74,
+      "suppressed_reimbursement": 751.85,
+      "context_required": true,
+      "suppress_when": {
+        "omentectomy_context": [
+          "cytoreduction_debulking",
+          "included_in_parent_operation",
+          "accomplish_primary_abdominal_oncologic_operation",
+          "incidental_integral_same_abdominal_operation"
+        ],
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+        "primary_family": "abdominal_oncologic_debulking_or_tumor_resection",
+        "primary_codes": [
+          "45126",
+          "49203",
+          "58240",
+          "58943",
+          "58952",
+          "58956"
+        ],
+        "secondary": "49255",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "abdominal_oncologic_debulking_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "omentectomy_context": [
+            "cytoreduction_debulking",
+            "included_in_parent_operation",
+            "accomplish_primary_abdominal_oncologic_operation",
+            "incidental_integral_same_abdominal_operation"
+          ],
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "isolated_omental_infarction",
+          "omental_torsion",
+          "omental_mass",
+          "omental_abscess",
+          "distinct_omental_biopsy_resection",
+          "trauma_related_omental_injury",
+          "separate_encounter",
+          "clinically_independent_omental_indication"
+        ],
+        "modifier_risk": "separate_indication_or_encounter_required",
+        "reason": "Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",
+        "warning": "CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style separate-procedure same-encounter/same-region logic",
+          "clinical/coding inference requiring explicit omentectomy context"
+        ],
+        "confidence": "medium_high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "58956",
+        "49255"
+      ],
+      "primary": {
+        "code": "58956",
+        "description": "Bilateral salpingo-oophorectomy with total omentectomy for malignancy",
+        "work_rvu": 22.23
+      },
+      "secondary": {
+        "code": "49255",
+        "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+        "work_rvu": 12.25
+      },
+      "selected_wrvus": 34.48,
+      "correct_payable_wrvus": 22.23,
+      "suppressed_wrvus": 12.25,
+      "selected_reimbursement": 2012.4,
+      "correct_payable_reimbursement": 1260.55,
+      "suppressed_reimbursement": 751.85,
+      "context_required": true,
+      "suppress_when": {
+        "omentectomy_context": [
+          "cytoreduction_debulking",
+          "included_in_parent_operation",
+          "accomplish_primary_abdominal_oncologic_operation",
+          "incidental_integral_same_abdominal_operation"
+        ],
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+        "primary_family": "abdominal_oncologic_debulking_or_tumor_resection",
+        "primary_codes": [
+          "45126",
+          "49203",
+          "58240",
+          "58943",
+          "58952",
+          "58956"
+        ],
+        "secondary": "49255",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "abdominal_oncologic_debulking_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "omentectomy_context": [
+            "cytoreduction_debulking",
+            "included_in_parent_operation",
+            "accomplish_primary_abdominal_oncologic_operation",
+            "incidental_integral_same_abdominal_operation"
+          ],
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "isolated_omental_infarction",
+          "omental_torsion",
+          "omental_mass",
+          "omental_abscess",
+          "distinct_omental_biopsy_resection",
+          "trauma_related_omental_injury",
+          "separate_encounter",
+          "clinically_independent_omental_indication"
+        ],
+        "modifier_risk": "separate_indication_or_encounter_required",
+        "reason": "Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",
+        "warning": "CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style separate-procedure same-encounter/same-region logic",
+          "clinical/coding inference requiring explicit omentectomy context"
+        ],
+        "confidence": "medium_high",
+        "status": "review_package"
       }
     }
   ]

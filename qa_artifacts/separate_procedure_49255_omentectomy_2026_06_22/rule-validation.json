@@ -1,0 +1,244 @@
+{
+  "status": "pass",
+  "rule_id": "omentectomy-integral-to-abdominal-oncologic-debulking",
+  "rule_status": "review_package",
+  "parent_cpt_count": 6,
+  "parent_cpt_codes": [
+    "45126",
+    "49203",
+    "58240",
+    "58943",
+    "58952",
+    "58956"
+  ],
+  "escape_hatch_contexts": [
+    "isolated_omental_infarction",
+    "omental_torsion",
+    "omental_mass",
+    "omental_abscess",
+    "distinct_omental_biopsy_resection",
+    "trauma_related_omental_injury",
+    "separate_encounter",
+    "clinically_independent_omental_indication"
+  ],
+  "suppressible_contexts": [
+    "cytoreduction_debulking",
+    "included_in_parent_operation",
+    "accomplish_primary_abdominal_oncologic_operation",
+    "incidental_integral_same_abdominal_operation"
+  ],
+  "positive_and_negative_tests": [
+    {
+      "name": "positive_bso_hysterectomy_omentectomy_debulking",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentectomyContext": "cytoreduction_debulking"
+        }
+      },
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952"
+      ],
+      "payable_wrvus": 26.61,
+      "suppressed_procedures": [
+        {
+          "code": "49255",
+          "by": "58952",
+          "work_rvu": 12.25
+        }
+      ],
+      "suppressed_wrvus": 12.25
+    },
+    {
+      "name": "positive_bso_total_omentectomy_included_parent",
+      "selected": [
+        "58956",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentectomyContext": "included_in_parent_operation"
+        }
+      },
+      "selected_wrvus": 34.48,
+      "payable_procedures": [
+        "58956"
+      ],
+      "payable_wrvus": 22.23,
+      "suppressed_procedures": [
+        {
+          "code": "49255",
+          "by": "58956",
+          "work_rvu": 12.25
+        }
+      ],
+      "suppressed_wrvus": 12.25
+    },
+    {
+      "name": "positive_intra_abdominal_tumor_resection_integral_omentectomy",
+      "selected": [
+        "49203",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentectomyContext": "incidental_integral_same_abdominal_operation"
+        }
+      },
+      "selected_wrvus": 29.01,
+      "payable_procedures": [
+        "49203"
+      ],
+      "payable_wrvus": 16.76,
+      "suppressed_procedures": [
+        {
+          "code": "49255",
+          "by": "49203",
+          "work_rvu": 12.25
+        }
+      ],
+      "suppressed_wrvus": 12.25
+    },
+    {
+      "name": "negative_omentectomy_alone",
+      "selected": [
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentalIndication": "omental_mass"
+        }
+      },
+      "selected_wrvus": 12.25,
+      "payable_procedures": [
+        "49255"
+      ],
+      "payable_wrvus": 12.25,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_unknown_context_review_required",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {},
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952",
+        "49255"
+      ],
+      "payable_wrvus": 38.86,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_distinct_omental_mass",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentalIndication": "omental_mass"
+        }
+      },
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952",
+        "49255"
+      ],
+      "payable_wrvus": 38.86,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_separate_encounter",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "encounter": "separate_encounter"
+        }
+      },
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952",
+        "49255"
+      ],
+      "payable_wrvus": 38.86,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    }
+  ],
+  "before_after_payable_wrvu_examples": {
+    "unknown_context": {
+      "name": "unknown_context",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {},
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952",
+        "49255"
+      ],
+      "payable_wrvus": 38.86,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    "debulking_context": {
+      "name": "debulking_context",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentectomyContext": "cytoreduction_debulking"
+        }
+      },
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952"
+      ],
+      "payable_wrvus": 26.61,
+      "suppressed_procedures": [
+        {
+          "code": "49255",
+          "by": "58952",
+          "work_rvu": 12.25
+        }
+      ],
+      "suppressed_wrvus": 12.25
+    },
+    "distinct_omental_mass": {
+      "name": "distinct_omental_mass",
+      "selected": [
+        "58952",
+        "49255"
+      ],
+      "contextByCode": {
+        "49255": {
+          "omentalIndication": "omental_mass"
+        }
+      },
+      "selected_wrvus": 38.86,
+      "payable_procedures": [
+        "58952",
+        "49255"
+      ],
+      "payable_wrvus": 38.86,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    }
+  }
+}
