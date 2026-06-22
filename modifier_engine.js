@@ -458,6 +458,46 @@ class ModifierEngine {
         });
     }
 
+    getSeparateRulePrimaryProcedure(rule, procedures) {
+        const primaryCodes = (rule.primary_codes || [rule.primary]).filter(Boolean).map(String);
+        return procedures.find(proc => primaryCodes.includes(String(proc.code))) || null;
+    }
+
+    getProcedureClinicalContext(proc, context) {
+        const byCode = context.clinicalContextByCode || {};
+        const byId = context.clinicalContextById || {};
+        return {
+            ...(byCode[String(proc.code)] || {}),
+            ...(byId[String(proc.id)] || {}),
+            ...(proc.clinicalContext || {})
+        };
+    }
+
+    separateProcedureShouldSuppress(rule, secondaryProc, context) {
+        if (!rule.requires_context) return true;
+        if (rule.relationship === 'iatrogenic_complication_treatment') {
+            const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
+            const indication = clinicalContext.splenicIndication || clinicalContext.splenic_indication || clinicalContext.indication;
+            return indication === 'iatrogenic_splenic_injury';
+        }
+        return false;
+    }
+
+    separateProcedureReviewWarning(rule, primaryProc, secondaryProc, context) {
+        if (rule.relationship !== 'iatrogenic_complication_treatment') return null;
+        const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
+        const indication = clinicalContext.splenicIndication || clinicalContext.splenic_indication || clinicalContext.indication;
+        const distinctIndications = new Set(rule.do_not_suppress_when || []);
+        if (indication === 'iatrogenic_splenic_injury' || distinctIndications.has(indication)) return null;
+        return {
+            type: 'separate_procedure_review_required',
+            message: rule.warning,
+            severity: 'warning',
+            primary: primaryProc.code,
+            secondary: secondaryProc.code
+        };
+    }
+
     applySeparateProcedureRules(procedures, context) {
         const rules = (this.separateProcedureRules && this.separateProcedureRules.rules) || [];
         if (!rules.length) return;
@@ -465,14 +505,27 @@ class ModifierEngine {
         this.addAuditEntry('separate_procedure_check', null, 'Checking CPT separate-procedure payment rules');
 
         rules.forEach(rule => {
-            const primaryProc = procedures.find(proc => String(proc.code) === String(rule.primary));
+            const primaryProc = this.getSeparateRulePrimaryProcedure(rule, procedures);
             const secondaryProc = procedures.find(proc => String(proc.code) === String(rule.secondary));
             if (!primaryProc || !secondaryProc || secondaryProc.rank === 'included') return;
+
+            if (!this.separateProcedureShouldSuppress(rule, secondaryProc, context)) {
+                const warning = this.separateProcedureReviewWarning(rule, primaryProc, secondaryProc, context);
+                if (warning) {
+                    secondaryProc.warnings.push(warning);
+                    secondaryProc.auditRisk = 'medium';
+                    secondaryProc.explanations.push('Review required for ' + rule.secondary + ' with ' + primaryProc.code + ': ' + rule.reason);
+                    this.addAuditEntry('separate_procedure_review_required', rule.secondary,
+                        rule.secondary + ' paired with ' + primaryProc.code + '; no payable suppression without matching clinical context',
+                        { rule: rule.rule, reason: rule.reason });
+                }
+                return;
+            }
 
             secondaryProc.rank = 'bundled';
             secondaryProc.adjustedWRVU = 0;
             secondaryProc.suppressed = true;
-            secondaryProc.suppressedBy = rule.primary;
+            secondaryProc.suppressedBy = rule.primary || primaryProc.code;
             secondaryProc.bundleRule = rule;
             secondaryProc.auditRisk = 'low';
             secondaryProc.warnings.push({
@@ -480,10 +533,10 @@ class ModifierEngine {
                 message: rule.warning,
                 severity: 'info'
             });
-            secondaryProc.explanations.push(`${rule.secondary} bundled into ${rule.primary}: ${rule.reason}`);
+            secondaryProc.explanations.push(rule.secondary + ' bundled into ' + (rule.primary || primaryProc.code) + ': ' + rule.reason);
 
             this.addAuditEntry('separate_procedure_suppressed', rule.secondary,
-                `${rule.secondary} suppressed as integral to ${rule.primary}`,
+                rule.secondary + ' suppressed as integral to ' + (rule.primary || primaryProc.code),
                 { rule: rule.rule, reason: rule.reason });
         });
     }

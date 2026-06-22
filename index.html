@@ -604,7 +604,9 @@ const NCCI={
  // "44970|44950": {modAllowed:false, note:"Appendectomy bundled; no modifier override permitted."},
 };
 const SEPARATE_PROCEDURE_RULES=[
- {primary:"44005",secondary:"49000",rule:"bundled",category:"separate_procedure",reason:"Exploratory laparotomy integral to enterolysis",warning:"⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."}
+ {primary:"44005",secondary:"49000",rule:"bundled",category:"separate_procedure",reason:"Exploratory laparotomy integral to enterolysis",warning:"⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."},
+ {id:"iatrogenic-splenic-injury-total-splenectomy",primary_family:"related_abdominal_operation",primary_codes:["43620","43621","43622","43631","43632","43633","43634","43635","43840","44120","44121","44140","44143","44155","44202","44203","44204","44205","44206","44207","44208","44210","44212","48140","48150","48153","49000"],secondary:"38100",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"iatrogenic_complication_treatment",requires_context:true,suppress_when:{splenic_indication:"iatrogenic_splenic_injury",same_encounter:true,same_anatomic_region:true},do_not_suppress_when:["traumatic_splenic_injury","pre_existing_splenic_pathology","splenic_mass","hypersplenism","abscess","planned_oncologic_splenectomy","separate_encounter","clinically_independent_splenic_indication"],modifier_risk:"never_bypass_for_iatrogenic_complication",reason:"Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",warning:"⚠️ CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation."},
+ {id:"iatrogenic-splenic-injury-partial-splenectomy",primary_family:"related_abdominal_operation",primary_codes:["43620","43621","43622","43631","43632","43633","43634","43635","43840","44120","44121","44140","44143","44155","44202","44203","44204","44205","44206","44207","44208","44210","44212","48140","48150","48153","49000"],secondary:"38101",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"iatrogenic_complication_treatment",requires_context:true,suppress_when:{splenic_indication:"iatrogenic_splenic_injury",same_encounter:true,same_anatomic_region:true},do_not_suppress_when:["traumatic_splenic_injury","pre_existing_splenic_pathology","splenic_mass","hypersplenism","abscess","planned_oncologic_splenectomy","separate_encounter","clinically_independent_splenic_indication"],modifier_risk:"never_bypass_for_iatrogenic_complication",reason:"Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",warning:"⚠️ CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation."}
 ];
 const NCCI_LOAD_STATUS={source:'ncci_bundles.json',loaded:false,count:0,error:null};
 window.NCCI_LOAD_STATUS=NCCI_LOAD_STATUS;
@@ -675,20 +677,64 @@ function ncciBlockedColumn2Map(procs){
  }));
  return blocked;
 }
+const DISTINCT_SPLENIC_INDICATIONS=new Set(['traumatic_splenic_injury','pre_existing_splenic_pathology','splenic_mass','hypersplenism','abscess','planned_oncologic_splenectomy','separate_encounter','clinically_independent_splenic_indication']);
+function rulePrimaryCodes(rule){return new Set((rule.primary_codes||[rule.primary]).filter(Boolean).map(String))}
+function findSeparateRulePrimaryLine(rule,procs){
+ const codes=rulePrimaryCodes(rule);
+ return procs.find(l=>codes.has(String(l.cpt)))||null;
+}
+function lineClinicalContext(line){
+ const globalCtx=window.CaseBuilderClinicalContext||{};
+ return {...(globalCtx[String(line&&line.cpt)]||{}),...(globalCtx[String(line&&line.id)]||{}),...((line&&line.clinicalContext)||{})};
+}
+function splenicIndicationForLine(line){
+ const ctx=lineClinicalContext(line);
+ return String(ctx.splenicIndication||ctx.splenic_indication||ctx.indication||'').trim();
+}
+function separateProcedureShouldSuppress(rule,line){
+ if(!rule.requires_context)return true;
+ if(rule.relationship==='iatrogenic_complication_treatment'){
+  return splenicIndicationForLine(line)==='iatrogenic_splenic_injury';
+ }
+ return false;
+}
+function separateProcedureReviewWarning(rule,line,primaryLine){
+ if(rule.relationship!=='iatrogenic_complication_treatment')return null;
+ const indication=splenicIndicationForLine(line);
+ if(indication==='iatrogenic_splenic_injury')return null;
+ if(DISTINCT_SPLENIC_INDICATIONS.has(indication))return null;
+ return {
+  rule,
+  primaryLine,
+  warning:rule.warning,
+  reason:'Review required: CPT '+rule.secondary+' is a separate-procedure splenectomy code paired with related abdominal CPT '+(primaryLine&&primaryLine.cpt?primaryLine.cpt:'procedure')+'. Case Builder will not suppress payable wRVU unless the splenectomy context is explicitly iatrogenic splenic injury.'
+ };
+}
+function separateProcedureReviewWarningsForLine(line,procs){
+ return SEPARATE_PROCEDURE_RULES.map(rule=>{
+  if(String(rule.secondary)!==String(line.cpt))return null;
+  const primaryLine=findSeparateRulePrimaryLine(rule,procs);
+  if(!primaryLine)return null;
+  return separateProcedureReviewWarning(rule,line,primaryLine);
+ }).filter(Boolean);
+}
 function separateProcedureBlockedMap(procs){
  const blocked=new Map();
  SEPARATE_PROCEDURE_RULES.forEach(rule=>{
-  const primaryLine=procs.find(l=>String(l.cpt)===String(rule.primary));
+  const primaryLine=findSeparateRulePrimaryLine(rule,procs);
   if(!primaryLine)return;
   procs.filter(l=>String(l.cpt)===String(rule.secondary)).forEach(line=>{
+   if(!separateProcedureShouldSuppress(rule,line))return;
    blocked.set(line.id,{
     column1Line:primaryLine,
     edit:{
-     column1:String(rule.primary),
+     column1:String(rule.primary||primaryLine.cpt),
      column2:String(rule.secondary),
      modifierIndicator:'0',
      modAllowed:false,
      separateProcedureRule:true,
+     requiresContext:!!rule.requires_context,
+     relationship:rule.relationship||'',
      rule:rule.rule,
      reason:rule.reason,
      warning:rule.warning,
@@ -887,7 +933,7 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const normalizedDesc=String(desc||'');
  const inferredMidline=/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(normalizedDesc);
  const payment=paymentSnapshotForCode(cpt,wrvu,meta);
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source,addonCode:payment.addonCode};
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source,addonCode:payment.addonCode,clinicalContext:{...(meta.clinicalContext||{})}};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
  if(existing.length>0&&(payment.addonCode||isAddonCode(cpt))){
@@ -918,6 +964,16 @@ function addEM(cpt,desc,wrvu){
 }
 function removeLine(i){log(`REMOVE ${caseLines[i].cpt}`);caseLines.splice(i,1);recalc('line removed')}
 function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
+function setCaseBuilderClinicalContext(target,context={}){
+ const key=String(target||'');
+ const line=caseLines.find(l=>String(l.id)===key)||caseLines.find(l=>String(l.cpt)===key);
+ if(!line)return false;
+ line.clinicalContext={...(line.clinicalContext||{}),...(context||{})};
+ log('CLINICAL CONTEXT '+line.cpt+' '+JSON.stringify(line.clinicalContext));
+ recalc('clinical context updated');
+ return true;
+}
+window.setCaseBuilderClinicalContext=setCaseBuilderClinicalContext;
 
 function isEMCode(cpt){const n=Number(cpt);return (n>=99202&&n<=99205)||(n>=99211&&n<=99215)||(n>=99221&&n<=99223)||(n>=99231&&n<=99233)||(n>=99242&&n<=99245)||(n>=99252&&n<=99255)||n===99238||n===99239||n===99291||n===99292}
 function getProductivityMode(){return window.FreeCPTAppMode&&window.FreeCPTAppMode.isAppMode&&window.FreeCPTAppMode.isAppMode()?'app':'physician'}
@@ -1076,6 +1132,14 @@ function computeMods(){
    }
    l.mods=[];
    return;
+  }
+  const separateReviewWarnings=separateProcedureReviewWarningsForLine(l,procs);
+  if(separateReviewWarnings.length){
+   l.engineState='WARNING';
+   separateReviewWarnings.forEach(item=>{
+    l.warnings.push(item.warning);
+    l.rationale.push({mod:'Review',reason:item.reason+' '+String(item.warning||'').replace(/^⚠️\s*/,''),cite:'CPT separate procedure rule / CMS NCCI review-required context'});
+   });
   }
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
    addModifierDenial(l,'same_side_ncci',{primary:primaryProc,edit:pairEdit});
