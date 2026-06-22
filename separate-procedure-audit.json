@@ -3,7 +3,7 @@
   "rule_file": "separate_procedure_rules.json",
   "loaded_cpt_count": 3875,
   "separate_procedure_code_count": 24,
-  "affected_relationship_count": 1,
+  "affected_relationship_count": 55,
   "separate_procedure_codes": [
     {
       "code": "11755",
@@ -172,6 +172,8 @@
       "selected_reimbursement": 1749.21,
       "correct_payable_reimbursement": 1020.4,
       "suppressed_reimbursement": 728.81,
+      "context_required": false,
+      "suppress_when": null,
       "rule_applied": {
         "primary": "44005",
         "secondary": "49000",
@@ -179,6 +181,4920 @@
         "category": "separate_procedure",
         "reason": "Exploratory laparotomy integral to enterolysis",
         "warning": "CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."
+      }
+    },
+    {
+      "cpt_pair": [
+        "43620",
+        "38100"
+      ],
+      "primary": {
+        "code": "43620",
+        "description": "Gastrectomy, total; with esophagoenterostomy",
+        "work_rvu": 33.19
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.25,
+      "correct_payable_wrvus": 33.19,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2908.22,
+      "correct_payable_reimbursement": 1834.38,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43621",
+        "38100"
+      ],
+      "primary": {
+        "code": "43621",
+        "description": "Gastrectomy, total; with Roux-en-Y reconstruction",
+        "work_rvu": 38.54
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 57.6,
+      "correct_payable_wrvus": 38.54,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3165.4,
+      "correct_payable_reimbursement": 2091.56,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43622",
+        "38100"
+      ],
+      "primary": {
+        "code": "43622",
+        "description": "Gastrectomy, total; with formation of intestinal pouch",
+        "work_rvu": 39.03
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 58.09,
+      "correct_payable_wrvus": 39.03,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3203.15,
+      "correct_payable_reimbursement": 2129.31,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43631",
+        "38100"
+      ],
+      "primary": {
+        "code": "43631",
+        "description": "Gastrectomy, partial, distal; with gastroduodenostomy",
+        "work_rvu": 23.9
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 42.96,
+      "correct_payable_wrvus": 23.9,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2429.58,
+      "correct_payable_reimbursement": 1355.74,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43632",
+        "38100"
+      ],
+      "primary": {
+        "code": "43632",
+        "description": "Gastrectomy, partial, distal; with gastrojejunostomy",
+        "work_rvu": 34.26
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 53.32,
+      "correct_payable_wrvus": 34.26,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2949.3,
+      "correct_payable_reimbursement": 1875.46,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43633",
+        "38100"
+      ],
+      "primary": {
+        "code": "43633",
+        "description": "Gastrectomy, partial, distal; with Roux-en-Y reconstruction",
+        "work_rvu": 32.31
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 51.37,
+      "correct_payable_wrvus": 32.31,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2849.77,
+      "correct_payable_reimbursement": 1775.93,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43634",
+        "38100"
+      ],
+      "primary": {
+        "code": "43634",
+        "description": "Gastrectomy, partial, distal; with formation of intestinal pouch",
+        "work_rvu": 35.72
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 54.78,
+      "correct_payable_wrvus": 35.72,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3035.81,
+      "correct_payable_reimbursement": 1961.97,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43635",
+        "38100"
+      ],
+      "primary": {
+        "code": "43635",
+        "description": "Vagotomy when performed with partial distal gastrectomy",
+        "work_rvu": 2.01
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 21.07,
+      "correct_payable_wrvus": 2.01,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1174.71,
+      "correct_payable_reimbursement": 100.87,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43840",
+        "38100"
+      ],
+      "primary": {
+        "code": "43840",
+        "description": "Gastrorrhaphy, suture of perforated duodenal or gastric ulcer, wound, or injury",
+        "work_rvu": 22.26
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.32,
+      "correct_payable_wrvus": 22.26,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2346.41,
+      "correct_payable_reimbursement": 1272.57,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44120",
+        "38100"
+      ],
+      "primary": {
+        "code": "44120",
+        "description": "Enterectomy, resection of small intestine; single resection and anastomosis",
+        "work_rvu": 20.3
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 39.36,
+      "correct_payable_wrvus": 20.3,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2210.14,
+      "correct_payable_reimbursement": 1136.3,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44121",
+        "38100"
+      ],
+      "primary": {
+        "code": "44121",
+        "description": "Enterectomy, resection of small intestine; each additional resection and anastomosis",
+        "work_rvu": 4.33
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 23.39,
+      "correct_payable_wrvus": 4.33,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1290.28,
+      "correct_payable_reimbursement": 216.44,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44140",
+        "38100"
+      ],
+      "primary": {
+        "code": "44140",
+        "description": "Colectomy, partial; with anastomosis",
+        "work_rvu": 22.03
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.09,
+      "correct_payable_wrvus": 22.03,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2324.04,
+      "correct_payable_reimbursement": 1250.2,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44143",
+        "38100"
+      ],
+      "primary": {
+        "code": "44143",
+        "description": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure)",
+        "work_rvu": 27.1
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 46.16,
+      "correct_payable_wrvus": 27.1,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2604.6,
+      "correct_payable_reimbursement": 1530.76,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44155",
+        "38100"
+      ],
+      "primary": {
+        "code": "44155",
+        "description": "Colectomy, total, abdominal, with proctectomy; with ileostomy",
+        "work_rvu": 33.56
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.62,
+      "correct_payable_wrvus": 33.56,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2994.06,
+      "correct_payable_reimbursement": 1920.22,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44202",
+        "38100"
+      ],
+      "primary": {
+        "code": "44202",
+        "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, single resection and anastomosis",
+        "work_rvu": 22.81
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.87,
+      "correct_payable_wrvus": 22.81,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2362.78,
+      "correct_payable_reimbursement": 1288.94,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44203",
+        "38100"
+      ],
+      "primary": {
+        "code": "44203",
+        "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, each additional small intestine resection and anastomosis",
+        "work_rvu": 4.33
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 23.39,
+      "correct_payable_wrvus": 4.33,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1289.94,
+      "correct_payable_reimbursement": 216.1,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44204",
+        "38100"
+      ],
+      "primary": {
+        "code": "44204",
+        "description": "Laparoscopic colectomy, partial",
+        "work_rvu": 25.76
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 44.82,
+      "correct_payable_wrvus": 25.76,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2487.03,
+      "correct_payable_reimbursement": 1413.19,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44205",
+        "38100"
+      ],
+      "primary": {
+        "code": "44205",
+        "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+        "work_rvu": 22.38
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.44,
+      "correct_payable_wrvus": 22.38,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2299.99,
+      "correct_payable_reimbursement": 1226.15,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44206",
+        "38100"
+      ],
+      "primary": {
+        "code": "44206",
+        "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
+        "work_rvu": 29.05
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 48.11,
+      "correct_payable_wrvus": 29.05,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2674.41,
+      "correct_payable_reimbursement": 1600.57,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44207",
+        "38100"
+      ],
+      "primary": {
+        "code": "44207",
+        "description": "Laparoscopic colectomy, partial, with colorectal anastomosis",
+        "work_rvu": 31.12
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 50.18,
+      "correct_payable_wrvus": 31.12,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2723.18,
+      "correct_payable_reimbursement": 1649.34,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44208",
+        "38100"
+      ],
+      "primary": {
+        "code": "44208",
+        "description": "Laparoscopic colectomy, partial, with IPAA",
+        "work_rvu": 33.14
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.2,
+      "correct_payable_wrvus": 33.14,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2875.82,
+      "correct_payable_reimbursement": 1801.98,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44210",
+        "38100"
+      ],
+      "primary": {
+        "code": "44210",
+        "description": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy",
+        "work_rvu": 29.34
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 48.4,
+      "correct_payable_wrvus": 29.34,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2701.47,
+      "correct_payable_reimbursement": 1627.63,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44212",
+        "38100"
+      ],
+      "primary": {
+        "code": "44212",
+        "description": "Laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis",
+        "work_rvu": 33.72
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.78,
+      "correct_payable_wrvus": 33.72,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2935.94,
+      "correct_payable_reimbursement": 1862.1,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "48140",
+        "38100"
+      ],
+      "primary": {
+        "code": "48140",
+        "description": "Pancreatectomy, distal subtotal",
+        "work_rvu": 25.66
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 44.72,
+      "correct_payable_wrvus": 25.66,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2530.45,
+      "correct_payable_reimbursement": 1456.61,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "48150",
+        "38100"
+      ],
+      "primary": {
+        "code": "48150",
+        "description": "Pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (Whipple-type procedure)",
+        "work_rvu": 51.52
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 70.58,
+      "correct_payable_wrvus": 51.52,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3944.98,
+      "correct_payable_reimbursement": 2871.14,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "48153",
+        "38100"
+      ],
+      "primary": {
+        "code": "48153",
+        "description": "Pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, Whipple-type procedure)",
+        "work_rvu": 51.47
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 70.53,
+      "correct_payable_wrvus": 51.47,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3936.63,
+      "correct_payable_reimbursement": 2862.79,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "49000",
+        "38100"
+      ],
+      "primary": {
+        "code": "49000",
+        "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+        "work_rvu": 12.23
+      },
+      "secondary": {
+        "code": "38100",
+        "description": "Splenectomy; total (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 31.29,
+      "correct_payable_wrvus": 12.23,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1802.65,
+      "correct_payable_reimbursement": 728.81,
+      "suppressed_reimbursement": 1073.84,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-total-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38100",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43620",
+        "38101"
+      ],
+      "primary": {
+        "code": "43620",
+        "description": "Gastrectomy, total; with esophagoenterostomy",
+        "work_rvu": 33.19
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.25,
+      "correct_payable_wrvus": 33.19,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2920.91,
+      "correct_payable_reimbursement": 1834.38,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43621",
+        "38101"
+      ],
+      "primary": {
+        "code": "43621",
+        "description": "Gastrectomy, total; with Roux-en-Y reconstruction",
+        "work_rvu": 38.54
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 57.6,
+      "correct_payable_wrvus": 38.54,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3178.09,
+      "correct_payable_reimbursement": 2091.56,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43622",
+        "38101"
+      ],
+      "primary": {
+        "code": "43622",
+        "description": "Gastrectomy, total; with formation of intestinal pouch",
+        "work_rvu": 39.03
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 58.09,
+      "correct_payable_wrvus": 39.03,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3215.84,
+      "correct_payable_reimbursement": 2129.31,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43631",
+        "38101"
+      ],
+      "primary": {
+        "code": "43631",
+        "description": "Gastrectomy, partial, distal; with gastroduodenostomy",
+        "work_rvu": 23.9
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 42.96,
+      "correct_payable_wrvus": 23.9,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2442.27,
+      "correct_payable_reimbursement": 1355.74,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43632",
+        "38101"
+      ],
+      "primary": {
+        "code": "43632",
+        "description": "Gastrectomy, partial, distal; with gastrojejunostomy",
+        "work_rvu": 34.26
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 53.32,
+      "correct_payable_wrvus": 34.26,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2961.99,
+      "correct_payable_reimbursement": 1875.46,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43633",
+        "38101"
+      ],
+      "primary": {
+        "code": "43633",
+        "description": "Gastrectomy, partial, distal; with Roux-en-Y reconstruction",
+        "work_rvu": 32.31
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 51.37,
+      "correct_payable_wrvus": 32.31,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2862.46,
+      "correct_payable_reimbursement": 1775.93,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43634",
+        "38101"
+      ],
+      "primary": {
+        "code": "43634",
+        "description": "Gastrectomy, partial, distal; with formation of intestinal pouch",
+        "work_rvu": 35.72
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 54.78,
+      "correct_payable_wrvus": 35.72,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3048.5,
+      "correct_payable_reimbursement": 1961.97,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43635",
+        "38101"
+      ],
+      "primary": {
+        "code": "43635",
+        "description": "Vagotomy when performed with partial distal gastrectomy",
+        "work_rvu": 2.01
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 21.07,
+      "correct_payable_wrvus": 2.01,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1187.4,
+      "correct_payable_reimbursement": 100.87,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "43840",
+        "38101"
+      ],
+      "primary": {
+        "code": "43840",
+        "description": "Gastrorrhaphy, suture of perforated duodenal or gastric ulcer, wound, or injury",
+        "work_rvu": 22.26
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.32,
+      "correct_payable_wrvus": 22.26,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2359.1,
+      "correct_payable_reimbursement": 1272.57,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44120",
+        "38101"
+      ],
+      "primary": {
+        "code": "44120",
+        "description": "Enterectomy, resection of small intestine; single resection and anastomosis",
+        "work_rvu": 20.3
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 39.36,
+      "correct_payable_wrvus": 20.3,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2222.83,
+      "correct_payable_reimbursement": 1136.3,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44121",
+        "38101"
+      ],
+      "primary": {
+        "code": "44121",
+        "description": "Enterectomy, resection of small intestine; each additional resection and anastomosis",
+        "work_rvu": 4.33
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 23.39,
+      "correct_payable_wrvus": 4.33,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1302.97,
+      "correct_payable_reimbursement": 216.44,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44140",
+        "38101"
+      ],
+      "primary": {
+        "code": "44140",
+        "description": "Colectomy, partial; with anastomosis",
+        "work_rvu": 22.03
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.09,
+      "correct_payable_wrvus": 22.03,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2336.73,
+      "correct_payable_reimbursement": 1250.2,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44143",
+        "38101"
+      ],
+      "primary": {
+        "code": "44143",
+        "description": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure)",
+        "work_rvu": 27.1
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 46.16,
+      "correct_payable_wrvus": 27.1,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2617.29,
+      "correct_payable_reimbursement": 1530.76,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44155",
+        "38101"
+      ],
+      "primary": {
+        "code": "44155",
+        "description": "Colectomy, total, abdominal, with proctectomy; with ileostomy",
+        "work_rvu": 33.56
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.62,
+      "correct_payable_wrvus": 33.56,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3006.75,
+      "correct_payable_reimbursement": 1920.22,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44202",
+        "38101"
+      ],
+      "primary": {
+        "code": "44202",
+        "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, single resection and anastomosis",
+        "work_rvu": 22.81
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.87,
+      "correct_payable_wrvus": 22.81,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2375.47,
+      "correct_payable_reimbursement": 1288.94,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44203",
+        "38101"
+      ],
+      "primary": {
+        "code": "44203",
+        "description": "Laparoscopy, surgical; enterectomy, resection of small intestine, each additional small intestine resection and anastomosis",
+        "work_rvu": 4.33
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 23.39,
+      "correct_payable_wrvus": 4.33,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1302.63,
+      "correct_payable_reimbursement": 216.1,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44204",
+        "38101"
+      ],
+      "primary": {
+        "code": "44204",
+        "description": "Laparoscopic colectomy, partial",
+        "work_rvu": 25.76
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 44.82,
+      "correct_payable_wrvus": 25.76,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2499.72,
+      "correct_payable_reimbursement": 1413.19,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44205",
+        "38101"
+      ],
+      "primary": {
+        "code": "44205",
+        "description": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+        "work_rvu": 22.38
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 41.44,
+      "correct_payable_wrvus": 22.38,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2312.68,
+      "correct_payable_reimbursement": 1226.15,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44206",
+        "38101"
+      ],
+      "primary": {
+        "code": "44206",
+        "description": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment",
+        "work_rvu": 29.05
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 48.11,
+      "correct_payable_wrvus": 29.05,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2687.1,
+      "correct_payable_reimbursement": 1600.57,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44207",
+        "38101"
+      ],
+      "primary": {
+        "code": "44207",
+        "description": "Laparoscopic colectomy, partial, with colorectal anastomosis",
+        "work_rvu": 31.12
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 50.18,
+      "correct_payable_wrvus": 31.12,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2735.87,
+      "correct_payable_reimbursement": 1649.34,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44208",
+        "38101"
+      ],
+      "primary": {
+        "code": "44208",
+        "description": "Laparoscopic colectomy, partial, with IPAA",
+        "work_rvu": 33.14
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.2,
+      "correct_payable_wrvus": 33.14,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2888.51,
+      "correct_payable_reimbursement": 1801.98,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44210",
+        "38101"
+      ],
+      "primary": {
+        "code": "44210",
+        "description": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy",
+        "work_rvu": 29.34
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 48.4,
+      "correct_payable_wrvus": 29.34,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2714.16,
+      "correct_payable_reimbursement": 1627.63,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "44212",
+        "38101"
+      ],
+      "primary": {
+        "code": "44212",
+        "description": "Laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis",
+        "work_rvu": 33.72
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 52.78,
+      "correct_payable_wrvus": 33.72,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2948.63,
+      "correct_payable_reimbursement": 1862.1,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "48140",
+        "38101"
+      ],
+      "primary": {
+        "code": "48140",
+        "description": "Pancreatectomy, distal subtotal",
+        "work_rvu": 25.66
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 44.72,
+      "correct_payable_wrvus": 25.66,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 2543.14,
+      "correct_payable_reimbursement": 1456.61,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "48150",
+        "38101"
+      ],
+      "primary": {
+        "code": "48150",
+        "description": "Pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastroenterostomy (Whipple-type procedure)",
+        "work_rvu": 51.52
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 70.58,
+      "correct_payable_wrvus": 51.52,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3957.67,
+      "correct_payable_reimbursement": 2871.14,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "48153",
+        "38101"
+      ],
+      "primary": {
+        "code": "48153",
+        "description": "Pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenoenterostomy (pylorus-sparing, Whipple-type procedure)",
+        "work_rvu": 51.47
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 70.53,
+      "correct_payable_wrvus": 51.47,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 3949.32,
+      "correct_payable_reimbursement": 2862.79,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "49000",
+        "38101"
+      ],
+      "primary": {
+        "code": "49000",
+        "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+        "work_rvu": 12.23
+      },
+      "secondary": {
+        "code": "38101",
+        "description": "Splenectomy; partial (separate procedure)",
+        "work_rvu": 19.06
+      },
+      "selected_wrvus": 31.29,
+      "correct_payable_wrvus": 12.23,
+      "suppressed_wrvus": 19.06,
+      "selected_reimbursement": 1815.34,
+      "correct_payable_reimbursement": 728.81,
+      "suppressed_reimbursement": 1086.53,
+      "context_required": true,
+      "suppress_when": {
+        "splenic_indication": "iatrogenic_splenic_injury",
+        "same_encounter": true,
+        "same_anatomic_region": true
+      },
+      "rule_applied": {
+        "id": "iatrogenic-splenic-injury-partial-splenectomy",
+        "primary_family": "related_abdominal_operation",
+        "primary_codes": [
+          "43620",
+          "43621",
+          "43622",
+          "43631",
+          "43632",
+          "43633",
+          "43634",
+          "43635",
+          "43840",
+          "44120",
+          "44121",
+          "44140",
+          "44143",
+          "44155",
+          "44202",
+          "44203",
+          "44204",
+          "44205",
+          "44206",
+          "44207",
+          "44208",
+          "44210",
+          "44212",
+          "48140",
+          "48150",
+          "48153",
+          "49000"
+        ],
+        "secondary": "38101",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "iatrogenic_complication_treatment",
+        "requires_context": true,
+        "suppress_when": {
+          "splenic_indication": "iatrogenic_splenic_injury",
+          "same_encounter": true,
+          "same_anatomic_region": true
+        },
+        "do_not_suppress_when": [
+          "traumatic_splenic_injury",
+          "pre_existing_splenic_pathology",
+          "splenic_mass",
+          "hypersplenism",
+          "abscess",
+          "planned_oncologic_splenectomy",
+          "separate_encounter",
+          "clinically_independent_splenic_indication"
+        ],
+        "modifier_risk": "never_bypass_for_iatrogenic_complication",
+        "reason": "Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",
+        "warning": "CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "CMS NCCI Policy Manual hemic/lymphatic guidance",
+          "CMS NCCI separate-procedure same-encounter/same-region logic"
+        ],
+        "confidence": "high",
+        "status": "active"
       }
     }
   ]

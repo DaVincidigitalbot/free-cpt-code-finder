@@ -1,0 +1,340 @@
+{
+  "status": "pass",
+  "rule_count": 2,
+  "abdominal_parent_cpt_families_included": {
+    "gastric": [
+      "43620",
+      "43621",
+      "43622",
+      "43631",
+      "43632",
+      "43633",
+      "43634",
+      "43635",
+      "43840"
+    ],
+    "small_bowel_colorectal": [
+      "44120",
+      "44121",
+      "44140",
+      "44143",
+      "44155",
+      "44202",
+      "44203",
+      "44204",
+      "44205",
+      "44206",
+      "44207",
+      "44208",
+      "44210",
+      "44212"
+    ],
+    "pancreas": [
+      "48140",
+      "48150",
+      "48153"
+    ],
+    "exploratory_abdominal_access": [
+      "49000"
+    ]
+  },
+  "excluded_distinct_splenic_indications": [
+    "traumatic_splenic_injury",
+    "pre_existing_splenic_pathology",
+    "splenic_mass",
+    "hypersplenism",
+    "abscess",
+    "planned_oncologic_splenectomy",
+    "separate_encounter",
+    "clinically_independent_splenic_indication"
+  ],
+  "positive_and_negative_tests": [
+    {
+      "name": "positive_colectomy_total_splenectomy_iatrogenic",
+      "selected": [
+        "44140",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140"
+      ],
+      "payable_wrvus": 22.03,
+      "suppressed_procedures": [
+        {
+          "code": "38100",
+          "by": "44140",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    },
+    {
+      "name": "positive_gastrectomy_total_splenectomy_iatrogenic",
+      "selected": [
+        "43620",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 52.25,
+      "payable_procedures": [
+        "43620"
+      ],
+      "payable_wrvus": 33.19,
+      "suppressed_procedures": [
+        {
+          "code": "38100",
+          "by": "43620",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    },
+    {
+      "name": "positive_distal_pancreatectomy_total_splenectomy_iatrogenic",
+      "selected": [
+        "48140",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 44.72,
+      "payable_procedures": [
+        "48140"
+      ],
+      "payable_wrvus": 25.66,
+      "suppressed_procedures": [
+        {
+          "code": "38100",
+          "by": "48140",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    },
+    {
+      "name": "negative_trauma_laparotomy_splenic_rupture",
+      "selected": [
+        "49000",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "traumatic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 31.29,
+      "payable_procedures": [
+        "49000",
+        "38100"
+      ],
+      "payable_wrvus": 31.29,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_splenectomy_alone",
+      "selected": [
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "splenic_mass"
+        }
+      },
+      "selected_wrvus": 19.06,
+      "payable_procedures": [
+        "38100"
+      ],
+      "payable_wrvus": 19.06,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_colectomy_pre_existing_splenic_pathology",
+      "selected": [
+        "44140",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "pre_existing_splenic_pathology"
+        }
+      },
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140",
+        "38100"
+      ],
+      "payable_wrvus": 41.09,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_separate_encounter_splenectomy",
+      "selected": [
+        "44140",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "separate_encounter"
+        }
+      },
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140",
+        "38100"
+      ],
+      "payable_wrvus": 41.09,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "review_required_colectomy_unknown_splenic_context",
+      "selected": [
+        "44140",
+        "38100"
+      ],
+      "contextByCode": {},
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140",
+        "38100"
+      ],
+      "payable_wrvus": 41.09,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "positive_colectomy_partial_splenectomy_iatrogenic",
+      "selected": [
+        "44140",
+        "38101"
+      ],
+      "contextByCode": {
+        "38101": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140"
+      ],
+      "payable_wrvus": 22.03,
+      "suppressed_procedures": [
+        {
+          "code": "38101",
+          "by": "44140",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    }
+  ],
+  "before_after_payable_wrvu_examples": {
+    "colectomy_38100_before_context": {
+      "name": "before_or_unknown_context",
+      "selected": [
+        "44140",
+        "38100"
+      ],
+      "contextByCode": {},
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140",
+        "38100"
+      ],
+      "payable_wrvus": 41.09,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    "colectomy_38100_after_iatrogenic_context": {
+      "name": "after_iatrogenic_context",
+      "selected": [
+        "44140",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 41.09,
+      "payable_procedures": [
+        "44140"
+      ],
+      "payable_wrvus": 22.03,
+      "suppressed_procedures": [
+        {
+          "code": "38100",
+          "by": "44140",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    },
+    "gastrectomy_38100_after_iatrogenic_context": {
+      "name": "gastrectomy_after_iatrogenic_context",
+      "selected": [
+        "43620",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 52.25,
+      "payable_procedures": [
+        "43620"
+      ],
+      "payable_wrvus": 33.19,
+      "suppressed_procedures": [
+        {
+          "code": "38100",
+          "by": "43620",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    },
+    "distal_pancreatectomy_38100_after_iatrogenic_context": {
+      "name": "distal_pancreatectomy_after_iatrogenic_context",
+      "selected": [
+        "48140",
+        "38100"
+      ],
+      "contextByCode": {
+        "38100": {
+          "splenicIndication": "iatrogenic_splenic_injury"
+        }
+      },
+      "selected_wrvus": 44.72,
+      "payable_procedures": [
+        "48140"
+      ],
+      "payable_wrvus": 25.66,
+      "suppressed_procedures": [
+        {
+          "code": "38100",
+          "by": "48140",
+          "work_rvu": 19.06
+        }
+      ],
+      "suppressed_wrvus": 19.06
+    }
+  }
+}

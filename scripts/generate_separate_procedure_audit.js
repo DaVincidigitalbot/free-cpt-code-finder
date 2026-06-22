@@ -31,38 +31,44 @@ const separateProcedureCodes = Object.values(cptDb)
   .sort((a, b) => String(a.code).localeCompare(String(b.code)));
 
 const affectedRelationships = (ruleData.rules || []).map(rule => {
-  const primary = cptDb[rule.primary];
-  const secondary = cptDb[rule.secondary];
-  if (!primary || !secondary) {
-    throw new Error(`Rule references unloaded CPT code: ${rule.primary} / ${rule.secondary}`);
-  }
+  const primaryCodes = (rule.primary_codes || [rule.primary]).filter(Boolean).map(String);
+  if (!primaryCodes.length) throw new Error(`Rule references no primary CPT code for secondary ${rule.secondary}`);
+  return primaryCodes.map(primaryCode => {
+    const primary = cptDb[primaryCode];
+    const secondary = cptDb[rule.secondary];
+    if (!primary || !secondary) {
+      throw new Error(`Rule references unloaded CPT code: ${primaryCode} / ${rule.secondary}`);
+    }
 
-  const selectedWrvu = wrvu((primary.work_rvu || 0) + (secondary.work_rvu || 0));
-  const payableWrvu = wrvu(primary.work_rvu || 0);
-  const selectedPayment = money((primary.estimated_medicare_payment || 0) + (secondary.estimated_medicare_payment || 0));
-  const payablePayment = money(primary.estimated_medicare_payment || ((primary.total_rvu || 0) * conversionFactor));
+    const selectedWrvu = wrvu((primary.work_rvu || 0) + (secondary.work_rvu || 0));
+    const payableWrvu = wrvu(primary.work_rvu || 0);
+    const selectedPayment = money((primary.estimated_medicare_payment || 0) + (secondary.estimated_medicare_payment || 0));
+    const payablePayment = money(primary.estimated_medicare_payment || ((primary.total_rvu || 0) * conversionFactor));
 
-  return {
-    cpt_pair: [rule.primary, rule.secondary],
-    primary: {
-      code: rule.primary,
-      description: primary.description,
-      work_rvu: wrvu(primary.work_rvu || 0)
-    },
-    secondary: {
-      code: rule.secondary,
-      description: secondary.description,
-      work_rvu: wrvu(secondary.work_rvu || 0)
-    },
-    selected_wrvus: selectedWrvu,
-    correct_payable_wrvus: payableWrvu,
-    suppressed_wrvus: wrvu(selectedWrvu - payableWrvu),
-    selected_reimbursement: selectedPayment,
-    correct_payable_reimbursement: payablePayment,
-    suppressed_reimbursement: money(selectedPayment - payablePayment),
-    rule_applied: rule
-  };
-});
+    return {
+      cpt_pair: [primaryCode, rule.secondary],
+      primary: {
+        code: primaryCode,
+        description: primary.description,
+        work_rvu: wrvu(primary.work_rvu || 0)
+      },
+      secondary: {
+        code: rule.secondary,
+        description: secondary.description,
+        work_rvu: wrvu(secondary.work_rvu || 0)
+      },
+      selected_wrvus: selectedWrvu,
+      correct_payable_wrvus: payableWrvu,
+      suppressed_wrvus: wrvu(selectedWrvu - payableWrvu),
+      selected_reimbursement: selectedPayment,
+      correct_payable_reimbursement: payablePayment,
+      suppressed_reimbursement: money(selectedPayment - payablePayment),
+      context_required: !!rule.requires_context,
+      suppress_when: rule.suppress_when || null,
+      rule_applied: rule
+    };
+  });
+}).flat();
 
 const report = {
   generated_at: process.env.AUDIT_GENERATED_AT || existingReport?.generated_at || new Date().toISOString(),
