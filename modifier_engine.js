@@ -473,22 +473,78 @@ class ModifierEngine {
         };
     }
 
-    separateProcedureShouldSuppress(rule, secondaryProc, context) {
+    truthyContext(value) {
+        return value === true || value === 'true' || value === 'yes' || value === 'same' || value === 1 || value === '1';
+    }
+
+    procedureSide(proc, context) {
+        const clinicalContext = this.getProcedureClinicalContext(proc, context);
+        return String(clinicalContext.side || clinicalContext.kneeSide || clinicalContext.knee_side || proc.laterality || '').toUpperCase();
+    }
+
+    separateProcedureDistinctContext(rule, secondaryProc, context) {
+        const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
+        const values = [
+            clinicalContext.relationship,
+            clinicalContext.kneeRelationship,
+            clinicalContext.knee_relationship,
+            clinicalContext.indication,
+            clinicalContext.diagnosticIndication,
+            clinicalContext.diagnostic_indication,
+            clinicalContext.encounter,
+            clinicalContext.session
+        ].map(value => String(value || '').trim()).filter(Boolean);
+        if (
+            clinicalContext.sameKnee === false ||
+            clinicalContext.same_knee === false ||
+            clinicalContext.sameAnatomicSite === false ||
+            clinicalContext.same_anatomic_site === false
+        ) return true;
+        return values.some(value => (rule.do_not_suppress_when || []).includes(value));
+    }
+
+    sameKneeContext(rule, primaryProc, secondaryProc, context) {
+        const secondaryContext = this.getProcedureClinicalContext(secondaryProc, context);
+        if (
+            this.truthyContext(secondaryContext.sameKnee) ||
+            this.truthyContext(secondaryContext.same_knee) ||
+            this.truthyContext(secondaryContext.sameAnatomicSite) ||
+            this.truthyContext(secondaryContext.same_anatomic_site)
+        ) return true;
+
+        const primarySide = this.procedureSide(primaryProc, context);
+        const secondarySide = this.procedureSide(secondaryProc, context);
+        return !!primarySide && primarySide === secondarySide && (primarySide === 'RT' || primarySide === 'LT');
+    }
+
+    separateProcedureShouldSuppress(rule, primaryProc, secondaryProc, context) {
         if (!rule.requires_context) return true;
         if (rule.relationship === 'iatrogenic_complication_treatment') {
             const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
             const indication = clinicalContext.splenicIndication || clinicalContext.splenic_indication || clinicalContext.indication;
             return indication === 'iatrogenic_splenic_injury';
         }
+        if (rule.relationship === 'same_joint_diagnostic_integral') {
+            if (this.separateProcedureDistinctContext(rule, secondaryProc, context)) return false;
+            return this.sameKneeContext(rule, primaryProc, secondaryProc, context);
+        }
         return false;
     }
 
     separateProcedureReviewWarning(rule, primaryProc, secondaryProc, context) {
-        if (rule.relationship !== 'iatrogenic_complication_treatment') return null;
-        const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
-        const indication = clinicalContext.splenicIndication || clinicalContext.splenic_indication || clinicalContext.indication;
-        const distinctIndications = new Set(rule.do_not_suppress_when || []);
-        if (indication === 'iatrogenic_splenic_injury' || distinctIndications.has(indication)) return null;
+        if (rule.relationship === 'iatrogenic_complication_treatment') {
+            const clinicalContext = this.getProcedureClinicalContext(secondaryProc, context);
+            const indication = clinicalContext.splenicIndication || clinicalContext.splenic_indication || clinicalContext.indication;
+            const distinctIndications = new Set(rule.do_not_suppress_when || []);
+            if (indication === 'iatrogenic_splenic_injury' || distinctIndications.has(indication)) return null;
+        } else if (rule.relationship === 'same_joint_diagnostic_integral') {
+            if (
+                this.separateProcedureDistinctContext(rule, secondaryProc, context) ||
+                this.sameKneeContext(rule, primaryProc, secondaryProc, context)
+            ) return null;
+        } else {
+            return null;
+        }
         return {
             type: 'separate_procedure_review_required',
             message: rule.warning,
@@ -509,7 +565,7 @@ class ModifierEngine {
             const secondaryProc = procedures.find(proc => String(proc.code) === String(rule.secondary));
             if (!primaryProc || !secondaryProc || secondaryProc.rank === 'included') return;
 
-            if (!this.separateProcedureShouldSuppress(rule, secondaryProc, context)) {
+            if (!this.separateProcedureShouldSuppress(rule, primaryProc, secondaryProc, context)) {
                 const warning = this.separateProcedureReviewWarning(rule, primaryProc, secondaryProc, context);
                 if (warning) {
                     secondaryProc.warnings.push(warning);
