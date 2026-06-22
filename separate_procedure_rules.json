@@ -1,0 +1,14 @@
+{
+  "version": "2026-06-22",
+  "source": "FreeCPTCodeFinder separate-procedure payment rules",
+  "rules": [
+    {
+      "primary": "44005",
+      "secondary": "49000",
+      "rule": "bundled",
+      "category": "separate_procedure",
+      "reason": "Exploratory laparotomy integral to enterolysis",
+      "warning": "CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."
+    }
+  ]
+}

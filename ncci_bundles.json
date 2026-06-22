@@ -373,7 +373,8 @@
         "44120",
         "44140",
         "38100",
-        "47550"
+        "47550",
+        "49000"
       ],
       "description": "Lysis of adhesions bundled into most abdominal procedures unless extensive",
       "modifier59_allowed": true,
@@ -781,6 +782,12 @@
       "column2": "49568",
       "bundle_type": "addon",
       "explanation": "Mesh insertion is add-on to hernia repair"
+    },
+    {
+      "column1": "44005",
+      "column2": "49000",
+      "bundle_type": "separate_procedure",
+      "explanation": "Exploratory laparotomy integral to enterolysis"
     },
     {
       "column1": "44140",

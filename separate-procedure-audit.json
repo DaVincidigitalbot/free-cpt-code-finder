@@ -1,0 +1,179 @@
+{
+  "generated_at": "2026-06-22T14:04:48.794Z",
+  "rule_file": "separate_procedure_rules.json",
+  "loaded_cpt_count": 3673,
+  "separate_procedure_code_count": 23,
+  "affected_relationship_count": 1,
+  "separate_procedure_codes": [
+    {
+      "code": "11755",
+      "description": "Biopsy of nail unit eg, plate, bed, matrix, hyponychium, proximal and lateral nail folds separate procedure",
+      "work_rvu": 1.22,
+      "estimated_medicare_payment": 54.44
+    },
+    {
+      "code": "20103",
+      "description": "Exploration of penetrating extremity wound separate procedure",
+      "work_rvu": 5.21,
+      "estimated_medicare_payment": 316.64
+    },
+    {
+      "code": "24006",
+      "description": "Arthrotomy of the elbow, with capsular excision for capsular release (separate procedure)",
+      "work_rvu": 9.5,
+      "estimated_medicare_payment": 664.34
+    },
+    {
+      "code": "24340",
+      "description": "Tenodesis of biceps tendon at elbow (separate procedure)",
+      "work_rvu": 7.88,
+      "estimated_medicare_payment": 583.51
+    },
+    {
+      "code": "25230",
+      "description": "Radial styloidectomy separate procedure",
+      "work_rvu": 5.24,
+      "estimated_medicare_payment": 413.5
+    },
+    {
+      "code": "25250",
+      "description": "Removal of wrist prosthesis; separate procedure",
+      "work_rvu": 6.6,
+      "estimated_medicare_payment": 513.71
+    },
+    {
+      "code": "27306",
+      "description": "Tenotomy, percutaneous, adductor or hamstring; single tendon (separate procedure)",
+      "work_rvu": 4.62,
+      "estimated_medicare_payment": 324.99
+    },
+    {
+      "code": "28060",
+      "description": "Fasciectomy, plantar fascia; partial (separate procedure)",
+      "work_rvu": 5.27,
+      "estimated_medicare_payment": 343.7
+    },
+    {
+      "code": "28062",
+      "description": "Fasciectomy, plantar fascia; radical (separate procedure)",
+      "work_rvu": 6.52,
+      "estimated_medicare_payment": 384.11
+    },
+    {
+      "code": "28110",
+      "description": "Ostectomy, partial excision, fifth metatarsal head (bunionette) (separate procedure)",
+      "work_rvu": 4.11,
+      "estimated_medicare_payment": 282.24
+    },
+    {
+      "code": "28315",
+      "description": "Sesamoidectomy, first toe (separate procedure)",
+      "work_rvu": 4.88,
+      "estimated_medicare_payment": 310.96
+    },
+    {
+      "code": "29870",
+      "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+      "work_rvu": 5.06,
+      "estimated_medicare_payment": 602.89
+    },
+    {
+      "code": "31600",
+      "description": "Tracheostomy, planned (separate procedure);",
+      "work_rvu": 5.42,
+      "estimated_medicare_payment": 273.22
+    },
+    {
+      "code": "31601",
+      "description": "Tracheostomy, planned (separate procedure); younger than 2 years",
+      "work_rvu": 7.8,
+      "estimated_medicare_payment": 379.43
+    },
+    {
+      "code": "32220",
+      "description": "Decortication, pulmonary (separate procedure); total",
+      "work_rvu": 25.98,
+      "estimated_medicare_payment": 1538.45
+    },
+    {
+      "code": "38100",
+      "description": "Splenectomy; total (separate procedure)",
+      "work_rvu": 19.06,
+      "estimated_medicare_payment": 1073.84
+    },
+    {
+      "code": "38101",
+      "description": "Splenectomy; partial (separate procedure)",
+      "work_rvu": 19.06,
+      "estimated_medicare_payment": 1086.53
+    },
+    {
+      "code": "38760",
+      "description": "Inguinofemoral lymphadenectomy, superficial, including Cloquet's node (separate procedure)",
+      "work_rvu": 13.28,
+      "estimated_medicare_payment": 780.58
+    },
+    {
+      "code": "44050",
+      "description": "Reduction of intussusception (separate procedure)",
+      "work_rvu": 15.13,
+      "estimated_medicare_payment": 881.45
+    },
+    {
+      "code": "46080",
+      "description": "Sphincterotomy, anal, division of sphincter (separate procedure)",
+      "work_rvu": 2.46,
+      "estimated_medicare_payment": 315.64
+    },
+    {
+      "code": "49255",
+      "description": "Omentectomy, epiploectomy, resection of omentum (separate procedure)",
+      "work_rvu": 12.25,
+      "estimated_medicare_payment": 751.85
+    },
+    {
+      "code": "60540",
+      "description": "Adrenalectomy, partial or complete, or exploration of adrenal gland with or without biopsy, transabdominal, lumbar or dorsal (separate procedure)",
+      "work_rvu": 17.57,
+      "estimated_medicare_payment": 1011.05
+    },
+    {
+      "code": "64508",
+      "description": "Injection, anesthetic agent; carotid sinus (separate procedure)",
+      "work_rvu": 1.85,
+      "estimated_medicare_payment": 0
+    }
+  ],
+  "affected_relationships": [
+    {
+      "cpt_pair": [
+        "44005",
+        "49000"
+      ],
+      "primary": {
+        "code": "44005",
+        "description": "Enterolysis (freeing of intestinal adhesion)",
+        "work_rvu": 18
+      },
+      "secondary": {
+        "code": "49000",
+        "description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+        "work_rvu": 12.23
+      },
+      "selected_wrvus": 30.23,
+      "correct_payable_wrvus": 18,
+      "suppressed_wrvus": 12.23,
+      "selected_reimbursement": 1749.21,
+      "correct_payable_reimbursement": 1020.4,
+      "suppressed_reimbursement": 728.81,
+      "rule_applied": {
+        "primary": "44005",
+        "secondary": "49000",
+        "rule": "bundled",
+        "category": "separate_procedure",
+        "reason": "Exploratory laparotomy integral to enterolysis",
+        "warning": "CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."
+      }
+    }
+  ]
+}
