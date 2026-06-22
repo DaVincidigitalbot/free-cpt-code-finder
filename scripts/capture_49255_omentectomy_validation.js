@@ -133,6 +133,9 @@ async function main() {
     if (testCase.name === 'bso_hysterectomy_49255_debulking_suppressed') {
       await page.screenshot({ path: path.join(artifactDir, 'bso-hysterectomy-49255-debulking-suppressed.png'), fullPage: true });
     }
+    if (testCase.name === 'tumor_resection_49255_integral_suppressed') {
+      await page.screenshot({ path: path.join(artifactDir, 'tumor-resection-49203-49255-integral-suppressed.png'), fullPage: true });
+    }
     if (testCase.name === 'bso_hysterectomy_49255_unknown_context_review_required') {
       await page.screenshot({ path: path.join(artifactDir, 'bso-hysterectomy-49255-review-required.png'), fullPage: true });
     }
@@ -155,6 +158,7 @@ async function main() {
     validationJson: path.relative(repoRoot, path.join(artifactDir, 'browser-validation.json')),
     screenshots: [
       path.relative(repoRoot, path.join(artifactDir, 'bso-hysterectomy-49255-debulking-suppressed.png')),
+      path.relative(repoRoot, path.join(artifactDir, 'tumor-resection-49203-49255-integral-suppressed.png')),
       path.relative(repoRoot, path.join(artifactDir, 'bso-hysterectomy-49255-review-required.png'))
     ],
     consoleMessages

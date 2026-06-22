@@ -10,7 +10,7 @@ const outputPath = path.join(repoRoot, 'separate-procedure-audit.json');
 const existingReport = fs.existsSync(outputPath)
   ? JSON.parse(fs.readFileSync(outputPath, 'utf8'))
   : null;
-const conversionFactor = 32.3465;
+const conversionFactor = 33.4009;
 
 function money(value) {
   return Number(value.toFixed(2));
@@ -20,13 +20,24 @@ function wrvu(value) {
   return Number(value.toFixed(2));
 }
 
+function estimatedPayment(entry) {
+  const explicitPayment = Number(entry.estimated_medicare_payment || 0);
+  if (explicitPayment > 0) {
+    return money(explicitPayment);
+  }
+
+  const totalRvu = Number(entry.total_rvu || 0);
+  const workRvu = Number(entry.work_rvu || 0);
+  return money((totalRvu || workRvu) * conversionFactor);
+}
+
 const separateProcedureCodes = Object.values(cptDb)
   .filter(entry => /\bseparate procedure\b/i.test(entry.description || ''))
   .map(entry => ({
     code: entry.code,
     description: entry.description,
     work_rvu: entry.work_rvu || 0,
-    estimated_medicare_payment: money(entry.estimated_medicare_payment || ((entry.total_rvu || 0) * conversionFactor))
+    estimated_medicare_payment: estimatedPayment(entry)
   }))
   .sort((a, b) => String(a.code).localeCompare(String(b.code)));
 
@@ -42,8 +53,8 @@ const affectedRelationships = (ruleData.rules || []).map(rule => {
 
     const selectedWrvu = wrvu((primary.work_rvu || 0) + (secondary.work_rvu || 0));
     const payableWrvu = wrvu(primary.work_rvu || 0);
-    const selectedPayment = money((primary.estimated_medicare_payment || 0) + (secondary.estimated_medicare_payment || 0));
-    const payablePayment = money(primary.estimated_medicare_payment || ((primary.total_rvu || 0) * conversionFactor));
+    const selectedPayment = money(estimatedPayment(primary) + estimatedPayment(secondary));
+    const payablePayment = estimatedPayment(primary);
 
     return {
       cpt_pair: [primaryCode, rule.secondary],

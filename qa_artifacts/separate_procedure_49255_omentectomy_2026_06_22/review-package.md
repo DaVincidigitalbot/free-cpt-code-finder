@@ -61,7 +61,25 @@ CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performe
 
 - 58952 + 49255 with omentectomyContext=cytoreduction_debulking: selected wRVU 38.86; payable wRVU 26.61; 49255 suppressed 12.25 wRVU.
 - 58956 + 49255 with omentectomyContext=included_in_parent_operation: selected wRVU 34.48; payable wRVU 22.23; 49255 suppressed 12.25 wRVU.
-- 49203 + 49255 with omentectomyContext=incidental_integral_same_abdominal_operation: selected wRVU 29.01; payable wRVU 16.76; 49255 suppressed 12.25 wRVU.
+- 49203 + 49255 with omentectomyContext=incidental_integral_same_abdominal_operation: selected wRVU 29.01; payable wRVU 16.76; selected reimbursement $1,311.65; payable reimbursement $559.80; 49255 suppressed 12.25 wRVU / $751.85.
+
+## 49203 Payment Audit Correction
+
+The original audit artifact reported 49203 + 49255 with payable wRVU 16.76 but payable reimbursement $0.00. That was a bad audit calculation, not a browser payment-engine defect.
+
+- CPT 49203 remains payable.
+- CPT 49203 has work_rvu 16.76 but total_rvu 0 and estimated_medicare_payment 0 in cpt_database.json.
+- Case Builder already falls back to work_rvu x 2026 Medicare conversion factor when explicit payment and total RVU are missing.
+- The audit generator incorrectly used $0 when explicit payment and total RVU were missing.
+- The audit generator now matches Case Builder fallback: explicit payment, else total RVU, else work RVU x 33.4009.
+
+Corrected 49203 + 49255 audit values:
+
+- selected wRVU: 29.01
+- payable wRVU: 16.76
+- selected reimbursement: $1,311.65
+- payable reimbursement: $559.80
+- suppressed reimbursement: $751.85
 
 ## Negative / Escape-Hatch Tests
 
@@ -81,6 +99,7 @@ Result:
 - Status: pass
 - Console messages: []
 - Overflow: none
+- 49203 + 49255 integral-context validation: 49203 remains payable; 49255 is suppressed only when explicit omentectomy context matches.
 - Suppressed debulking screenshot captured
 - Unknown-context review-required screenshot captured
 
@@ -89,6 +108,7 @@ Artifacts:
 - qa_artifacts/separate_procedure_49255_omentectomy_2026_06_22/browser-validation.json
 - qa_artifacts/separate_procedure_49255_omentectomy_2026_06_22/rule-validation.json
 - qa_artifacts/separate_procedure_49255_omentectomy_2026_06_22/bso-hysterectomy-49255-debulking-suppressed.png
+- qa_artifacts/separate_procedure_49255_omentectomy_2026_06_22/tumor-resection-49203-49255-integral-suppressed.png
 - qa_artifacts/separate_procedure_49255_omentectomy_2026_06_22/bso-hysterectomy-49255-review-required.png
 
 ## Regression Validation
