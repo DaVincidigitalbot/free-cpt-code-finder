@@ -3,7 +3,7 @@
   "rule_file": "separate_procedure_rules.json",
   "loaded_cpt_count": 3875,
   "separate_procedure_code_count": 24,
-  "affected_relationship_count": 55,
+  "affected_relationship_count": 79,
   "separate_procedure_codes": [
     {
       "code": "11755",
@@ -5095,6 +5095,2094 @@
         ],
         "confidence": "high",
         "status": "active"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29850",
+        "29870"
+      ],
+      "primary": {
+        "code": "29850",
+        "description": "Arthroscopically aided treatment of tibial fracture proximal",
+        "work_rvu": 8.06
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 13.12,
+      "correct_payable_wrvus": 8.06,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1196.42,
+      "correct_payable_reimbursement": 593.53,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29851",
+        "29870"
+      ],
+      "primary": {
+        "code": "29851",
+        "description": "Arthroscopically aided treatment of tibial fracture bicondylar",
+        "work_rvu": 12.93
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 17.99,
+      "correct_payable_wrvus": 12.93,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1464.63,
+      "correct_payable_reimbursement": 861.74,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29855",
+        "29870"
+      ],
+      "primary": {
+        "code": "29855",
+        "description": "Arthroscopically aided treatment of tibial fracture unicondylar",
+        "work_rvu": 10.49
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 15.55,
+      "correct_payable_wrvus": 10.49,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1332.7,
+      "correct_payable_reimbursement": 729.81,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29856",
+        "29870"
+      ],
+      "primary": {
+        "code": "29856",
+        "description": "Arthroscopically aided treatment of tibial fracture bicondylar with internal fixation",
+        "work_rvu": 13.92
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 18.98,
+      "correct_payable_wrvus": 13.92,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1520.75,
+      "correct_payable_reimbursement": 917.86,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29866",
+        "29870"
+      ],
+      "primary": {
+        "code": "29866",
+        "description": "Arthroscopy knee surgical; osteochondral autograft single plug",
+        "work_rvu": 14.3
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 19.36,
+      "correct_payable_wrvus": 14.3,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1582.2,
+      "correct_payable_reimbursement": 979.31,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29867",
+        "29870"
+      ],
+      "primary": {
+        "code": "29867",
+        "description": "Arthroscopy knee surgical; osteochondral allograft",
+        "work_rvu": 17.93
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 22.99,
+      "correct_payable_wrvus": 17.93,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1781.61,
+      "correct_payable_reimbursement": 1178.72,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29868",
+        "29870"
+      ],
+      "primary": {
+        "code": "29868",
+        "description": "Arthroscopy knee surgical; meniscal transplantation",
+        "work_rvu": 24.47
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 29.53,
+      "correct_payable_wrvus": 24.47,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 2115.28,
+      "correct_payable_reimbursement": 1512.39,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29871",
+        "29870"
+      ],
+      "primary": {
+        "code": "29871",
+        "description": "Arthroscopy knee surgical; for infection lavage and drainage",
+        "work_rvu": 6.52
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 11.58,
+      "correct_payable_wrvus": 6.52,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1094.22,
+      "correct_payable_reimbursement": 491.33,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29873",
+        "29870"
+      ],
+      "primary": {
+        "code": "29873",
+        "description": "Arthroscopy knee surgical; with lateral release",
+        "work_rvu": 6.08
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 11.14,
+      "correct_payable_wrvus": 6.08,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1123.94,
+      "correct_payable_reimbursement": 521.05,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29874",
+        "29870"
+      ],
+      "primary": {
+        "code": "29874",
+        "description": "Arthroscopy knee surgical; for removal of loose body or foreign body",
+        "work_rvu": 7.01
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 12.07,
+      "correct_payable_wrvus": 7.01,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1108.91,
+      "correct_payable_reimbursement": 506.02,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29875",
+        "29870"
+      ],
+      "primary": {
+        "code": "29875",
+        "description": "Arthroscopy knee surgical; synovectomy limited",
+        "work_rvu": 6.29
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 11.35,
+      "correct_payable_wrvus": 6.29,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1077.18,
+      "correct_payable_reimbursement": 474.29,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29876",
+        "29870"
+      ],
+      "primary": {
+        "code": "29876",
+        "description": "Arthroscopy, knee, chondroplasty",
+        "work_rvu": 8.65
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 13.71,
+      "correct_payable_wrvus": 8.65,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1217.8,
+      "correct_payable_reimbursement": 614.91,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29877",
+        "29870"
+      ],
+      "primary": {
+        "code": "29877",
+        "description": "Arthroscopy, knee, debridement/shaving",
+        "work_rvu": 8.09
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 13.15,
+      "correct_payable_wrvus": 8.09,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1189.74,
+      "correct_payable_reimbursement": 586.85,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29879",
+        "29870"
+      ],
+      "primary": {
+        "code": "29879",
+        "description": "Arthroscopy knee surgical; abrasion arthroplasty or multiple drilling/microfracture",
+        "work_rvu": 8.77
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 13.83,
+      "correct_payable_wrvus": 8.77,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1226.15,
+      "correct_payable_reimbursement": 623.26,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29880",
+        "29870"
+      ],
+      "primary": {
+        "code": "29880",
+        "description": "Arthroscopy, knee, meniscectomy medial AND lateral",
+        "work_rvu": 7.21
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 12.27,
+      "correct_payable_wrvus": 7.21,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1135.97,
+      "correct_payable_reimbursement": 533.08,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29881",
+        "29870"
+      ],
+      "primary": {
+        "code": "29881",
+        "description": "Arthroscopy, knee, surgical; with meniscectomy (medial OR lateral, including any meniscal shaving) including debridement/shaving of articular cartilage (chondroplasty), same or separate compartment(s), when performed",
+        "work_rvu": 6.85
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 11.91,
+      "correct_payable_wrvus": 6.85,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1118.6,
+      "correct_payable_reimbursement": 515.71,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29882",
+        "29870"
+      ],
+      "primary": {
+        "code": "29882",
+        "description": "Arthroscopy, knee, meniscus repair, medial",
+        "work_rvu": 9.36
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 14.42,
+      "correct_payable_wrvus": 9.36,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1244.86,
+      "correct_payable_reimbursement": 641.97,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29883",
+        "29870"
+      ],
+      "primary": {
+        "code": "29883",
+        "description": "Arthroscopy, knee, meniscus repair, lateral",
+        "work_rvu": 11.48
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 16.54,
+      "correct_payable_wrvus": 11.48,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1388.81,
+      "correct_payable_reimbursement": 785.92,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29884",
+        "29870"
+      ],
+      "primary": {
+        "code": "29884",
+        "description": "Arthroscopy knee surgical; with lysis of adhesions",
+        "work_rvu": 8.07
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 13.13,
+      "correct_payable_wrvus": 8.07,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1189.08,
+      "correct_payable_reimbursement": 586.19,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29885",
+        "29870"
+      ],
+      "primary": {
+        "code": "29885",
+        "description": "Arthroscopy knee surgical; drilling for intact osteochondritis dissecans lesion",
+        "work_rvu": 9.95
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 15.01,
+      "correct_payable_wrvus": 9.95,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1315.33,
+      "correct_payable_reimbursement": 712.44,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29886",
+        "29870"
+      ],
+      "primary": {
+        "code": "29886",
+        "description": "Arthroscopy knee surgical; drilling for osteochondritis dissecans with internal fixation",
+        "work_rvu": 8.28
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 13.34,
+      "correct_payable_wrvus": 8.28,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1207.78,
+      "correct_payable_reimbursement": 604.89,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29887",
+        "29870"
+      ],
+      "primary": {
+        "code": "29887",
+        "description": "Arthroscopy knee surgical; drilling for chondral defect with bone graft",
+        "work_rvu": 9.91
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 14.97,
+      "correct_payable_wrvus": 9.91,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1313.33,
+      "correct_payable_reimbursement": 710.44,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29888",
+        "29870"
+      ],
+      "primary": {
+        "code": "29888",
+        "description": "Arthroscopically aided anterior cruciate ligament repair/augmentation or reconstruction",
+        "work_rvu": 13.94
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 19,
+      "correct_payable_wrvus": 13.94,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1492.36,
+      "correct_payable_reimbursement": 889.47,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
+      }
+    },
+    {
+      "cpt_pair": [
+        "29889",
+        "29870"
+      ],
+      "primary": {
+        "code": "29889",
+        "description": "Arthroscopically aided posterior cruciate ligament repair/augmentation or reconstruction",
+        "work_rvu": 16.97
+      },
+      "secondary": {
+        "code": "29870",
+        "description": "Arthroscopy, knee, diagnostic, with or without synovial biopsy (separate procedure)",
+        "work_rvu": 5.06
+      },
+      "selected_wrvus": 22.03,
+      "correct_payable_wrvus": 16.97,
+      "suppressed_wrvus": 5.06,
+      "selected_reimbursement": 1735.18,
+      "correct_payable_reimbursement": 1132.29,
+      "suppressed_reimbursement": 602.89,
+      "context_required": true,
+      "suppress_when": {
+        "same_joint": "knee",
+        "same_knee": true,
+        "same_encounter": true
+      },
+      "rule_applied": {
+        "id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+        "primary_family": "same_knee_surgical_arthroscopy",
+        "primary_codes": [
+          "29850",
+          "29851",
+          "29855",
+          "29856",
+          "29866",
+          "29867",
+          "29868",
+          "29871",
+          "29873",
+          "29874",
+          "29875",
+          "29876",
+          "29877",
+          "29879",
+          "29880",
+          "29881",
+          "29882",
+          "29883",
+          "29884",
+          "29885",
+          "29886",
+          "29887",
+          "29888",
+          "29889"
+        ],
+        "secondary": "29870",
+        "rule": "bundled_when_context_matches",
+        "category": "separate_procedure",
+        "relationship": "same_joint_diagnostic_integral",
+        "requires_context": true,
+        "suppress_when": {
+          "same_joint": "knee",
+          "same_knee": true,
+          "same_encounter": true
+        },
+        "do_not_suppress_when": [
+          "contralateral_knee",
+          "different_joint",
+          "separate_encounter",
+          "separate_session",
+          "staged_diagnostic_only",
+          "diagnostic_arthroscopy_alone",
+          "clinically_independent_diagnostic_indication"
+        ],
+        "modifier_risk": "separate_site_or_encounter_required",
+        "reason": "Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",
+        "warning": "CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",
+        "source_basis": [
+          "CPT separate-procedure designation",
+          "NCCI-style same-joint diagnostic-to-definitive procedure logic",
+          "clinical/coding inference requiring same-knee context"
+        ],
+        "confidence": "high",
+        "status": "review_package"
       }
     }
   ]

@@ -1,0 +1,270 @@
+{
+  "status": "pass",
+  "rule_id": "diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",
+  "rule_status": "review_package",
+  "parent_cpt_count": 24,
+  "parent_cpt_codes": [
+    "29850",
+    "29851",
+    "29855",
+    "29856",
+    "29866",
+    "29867",
+    "29868",
+    "29871",
+    "29873",
+    "29874",
+    "29875",
+    "29876",
+    "29877",
+    "29879",
+    "29880",
+    "29881",
+    "29882",
+    "29883",
+    "29884",
+    "29885",
+    "29886",
+    "29887",
+    "29888",
+    "29889"
+  ],
+  "escape_hatch_contexts": [
+    "contralateral_knee",
+    "different_joint",
+    "separate_encounter",
+    "separate_session",
+    "staged_diagnostic_only",
+    "diagnostic_arthroscopy_alone",
+    "clinically_independent_diagnostic_indication"
+  ],
+  "positive_and_negative_tests": [
+    {
+      "name": "positive_meniscectomy_same_knee_explicit_context",
+      "selected": [
+        "29881",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "sameKnee": true
+        }
+      },
+      "selected_wrvus": 11.91,
+      "payable_procedures": [
+        "29881"
+      ],
+      "payable_wrvus": 6.85,
+      "suppressed_procedures": [
+        {
+          "code": "29870",
+          "by": "29881",
+          "work_rvu": 5.06
+        }
+      ],
+      "suppressed_wrvus": 5.06
+    },
+    {
+      "name": "positive_acl_same_knee_matching_laterality_context",
+      "selected": [
+        "29888",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "side": "RT"
+        },
+        "29888": {
+          "side": "RT"
+        }
+      },
+      "selected_wrvus": 19,
+      "payable_procedures": [
+        "29888"
+      ],
+      "payable_wrvus": 13.94,
+      "suppressed_procedures": [
+        {
+          "code": "29870",
+          "by": "29888",
+          "work_rvu": 5.06
+        }
+      ],
+      "suppressed_wrvus": 5.06
+    },
+    {
+      "name": "positive_lavage_same_knee_same_anatomic_site",
+      "selected": [
+        "29871",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "same_anatomic_site": true
+        }
+      },
+      "selected_wrvus": 11.58,
+      "payable_procedures": [
+        "29871"
+      ],
+      "payable_wrvus": 6.52,
+      "suppressed_procedures": [
+        {
+          "code": "29870",
+          "by": "29871",
+          "work_rvu": 5.06
+        }
+      ],
+      "suppressed_wrvus": 5.06
+    },
+    {
+      "name": "negative_contralateral_knee",
+      "selected": [
+        "29881",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "side": "LT",
+          "kneeRelationship": "contralateral_knee"
+        },
+        "29881": {
+          "side": "RT"
+        }
+      },
+      "selected_wrvus": 11.91,
+      "payable_procedures": [
+        "29881",
+        "29870"
+      ],
+      "payable_wrvus": 11.91,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_separate_encounter",
+      "selected": [
+        "29881",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "encounter": "separate_encounter"
+        }
+      },
+      "selected_wrvus": 11.91,
+      "payable_procedures": [
+        "29881",
+        "29870"
+      ],
+      "payable_wrvus": 11.91,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "negative_diagnostic_arthroscopy_alone",
+      "selected": [
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "indication": "diagnostic_arthroscopy_alone"
+        }
+      },
+      "selected_wrvus": 5.06,
+      "payable_procedures": [
+        "29870"
+      ],
+      "payable_wrvus": 5.06,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    {
+      "name": "review_required_unknown_same_knee_context",
+      "selected": [
+        "29881",
+        "29870"
+      ],
+      "contextByCode": {},
+      "selected_wrvus": 11.91,
+      "payable_procedures": [
+        "29881",
+        "29870"
+      ],
+      "payable_wrvus": 11.91,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    }
+  ],
+  "before_after_payable_wrvu_examples": {
+    "meniscectomy_29870_unknown_context": {
+      "name": "before_or_unknown_context",
+      "selected": [
+        "29881",
+        "29870"
+      ],
+      "contextByCode": {},
+      "selected_wrvus": 11.91,
+      "payable_procedures": [
+        "29881",
+        "29870"
+      ],
+      "payable_wrvus": 11.91,
+      "suppressed_procedures": [],
+      "suppressed_wrvus": 0
+    },
+    "meniscectomy_29870_same_knee_context": {
+      "name": "after_same_knee_context",
+      "selected": [
+        "29881",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "sameKnee": true
+        }
+      },
+      "selected_wrvus": 11.91,
+      "payable_procedures": [
+        "29881"
+      ],
+      "payable_wrvus": 6.85,
+      "suppressed_procedures": [
+        {
+          "code": "29870",
+          "by": "29881",
+          "work_rvu": 5.06
+        }
+      ],
+      "suppressed_wrvus": 5.06
+    },
+    "acl_29870_same_knee_context": {
+      "name": "acl_same_knee_context",
+      "selected": [
+        "29888",
+        "29870"
+      ],
+      "contextByCode": {
+        "29870": {
+          "side": "RT"
+        },
+        "29888": {
+          "side": "RT"
+        }
+      },
+      "selected_wrvus": 19,
+      "payable_procedures": [
+        "29888"
+      ],
+      "payable_wrvus": 13.94,
+      "suppressed_procedures": [
+        {
+          "code": "29870",
+          "by": "29888",
+          "work_rvu": 5.06
+        }
+      ],
+      "suppressed_wrvus": 5.06
+    }
+  }
+}

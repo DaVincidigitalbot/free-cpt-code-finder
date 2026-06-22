@@ -623,7 +623,8 @@ const NCCI={
 const SEPARATE_PROCEDURE_RULES=[
  {primary:"44005",secondary:"49000",rule:"bundled",category:"separate_procedure",reason:"Exploratory laparotomy integral to enterolysis",warning:"⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."},
  {id:"iatrogenic-splenic-injury-total-splenectomy",primary_family:"related_abdominal_operation",primary_codes:["43620","43621","43622","43631","43632","43633","43634","43635","43840","44120","44121","44140","44143","44155","44202","44203","44204","44205","44206","44207","44208","44210","44212","48140","48150","48153","49000"],secondary:"38100",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"iatrogenic_complication_treatment",requires_context:true,suppress_when:{splenic_indication:"iatrogenic_splenic_injury",same_encounter:true,same_anatomic_region:true},do_not_suppress_when:["traumatic_splenic_injury","pre_existing_splenic_pathology","splenic_mass","hypersplenism","abscess","planned_oncologic_splenectomy","separate_encounter","clinically_independent_splenic_indication"],modifier_risk:"never_bypass_for_iatrogenic_complication",reason:"Total splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",warning:"⚠️ CPT 38100 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation."},
- {id:"iatrogenic-splenic-injury-partial-splenectomy",primary_family:"related_abdominal_operation",primary_codes:["43620","43621","43622","43631","43632","43633","43634","43635","43840","44120","44121","44140","44143","44155","44202","44203","44204","44205","44206","44207","44208","44210","44212","48140","48150","48153","49000"],secondary:"38101",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"iatrogenic_complication_treatment",requires_context:true,suppress_when:{splenic_indication:"iatrogenic_splenic_injury",same_encounter:true,same_anatomic_region:true},do_not_suppress_when:["traumatic_splenic_injury","pre_existing_splenic_pathology","splenic_mass","hypersplenism","abscess","planned_oncologic_splenectomy","separate_encounter","clinically_independent_splenic_indication"],modifier_risk:"never_bypass_for_iatrogenic_complication",reason:"Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",warning:"⚠️ CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation."}
+ {id:"iatrogenic-splenic-injury-partial-splenectomy",primary_family:"related_abdominal_operation",primary_codes:["43620","43621","43622","43631","43632","43633","43634","43635","43840","44120","44121","44140","44143","44155","44202","44203","44204","44205","44206","44207","44208","44210","44212","48140","48150","48153","49000"],secondary:"38101",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"iatrogenic_complication_treatment",requires_context:true,suppress_when:{splenic_indication:"iatrogenic_splenic_injury",same_encounter:true,same_anatomic_region:true},do_not_suppress_when:["traumatic_splenic_injury","pre_existing_splenic_pathology","splenic_mass","hypersplenism","abscess","planned_oncologic_splenectomy","separate_encounter","clinically_independent_splenic_indication"],modifier_risk:"never_bypass_for_iatrogenic_complication",reason:"Partial splenectomy performed only to manage an iatrogenic splenic injury during a related abdominal operation is not separately reportable.",warning:"⚠️ CPT 38101 is a separate-procedure splenectomy code. When splenectomy is performed only to manage an iatrogenic splenic injury during another abdominal operation, it is generally not separately reportable. If the splenectomy was performed for trauma, pre-existing splenic disease, malignancy, abscess, hypersplenism, or a distinct indication, separate reporting may be supportable with documentation."},
+ {id:"diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",primary_family:"same_knee_surgical_arthroscopy",primary_codes:["29850","29851","29855","29856","29866","29867","29868","29871","29873","29874","29875","29876","29877","29879","29880","29881","29882","29883","29884","29885","29886","29887","29888","29889"],secondary:"29870",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"same_joint_diagnostic_integral",requires_context:true,suppress_when:{same_joint:"knee",same_knee:true,same_encounter:true},do_not_suppress_when:["contralateral_knee","different_joint","separate_encounter","separate_session","staged_diagnostic_only","diagnostic_arthroscopy_alone","clinically_independent_diagnostic_indication"],modifier_risk:"separate_site_or_encounter_required",reason:"Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",warning:"⚠️ CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation."}
 ];
 const NCCI_LOAD_STATUS={source:'ncci_bundles.json',loaded:false,count:0,error:null};
 window.NCCI_LOAD_STATUS=NCCI_LOAD_STATUS;
@@ -708,24 +709,58 @@ function splenicIndicationForLine(line){
  const ctx=lineClinicalContext(line);
  return String(ctx.splenicIndication||ctx.splenic_indication||ctx.indication||'').trim();
 }
-function separateProcedureShouldSuppress(rule,line){
+function truthyContext(value){return value===true||value==='true'||value==='yes'||value==='same'||value===1||value==='1'}
+function lineSide(line){
+ const ctx=lineClinicalContext(line);
+ return String(ctx.side||ctx.kneeSide||ctx.knee_side||line?.laterality||'').toUpperCase();
+}
+function separateProcedureDistinctContext(rule,line){
+ const ctx=lineClinicalContext(line);
+ const values=[ctx.relationship,ctx.kneeRelationship,ctx.knee_relationship,ctx.indication,ctx.diagnosticIndication,ctx.diagnostic_indication,ctx.encounter,ctx.session].map(v=>String(v||'').trim()).filter(Boolean);
+ if(ctx.sameKnee===false||ctx.same_knee===false||ctx.sameAnatomicSite===false||ctx.same_anatomic_site===false)return true;
+ return values.some(value=>(rule.do_not_suppress_when||[]).includes(value));
+}
+function sameKneeContext(rule,line,primaryLine){
+ const lineCtx=lineClinicalContext(line);
+ const primaryCtx=lineClinicalContext(primaryLine);
+ if(truthyContext(lineCtx.sameKnee)||truthyContext(lineCtx.same_knee)||truthyContext(lineCtx.sameAnatomicSite)||truthyContext(lineCtx.same_anatomic_site))return true;
+ const secondarySide=lineSide(line);
+ const primarySide=lineSide(primaryLine);
+ return !!secondarySide&&secondarySide===primarySide&&(secondarySide==='RT'||secondarySide==='LT');
+}
+function separateProcedureShouldSuppress(rule,line,primaryLine){
  if(!rule.requires_context)return true;
  if(rule.relationship==='iatrogenic_complication_treatment'){
   return splenicIndicationForLine(line)==='iatrogenic_splenic_injury';
  }
+ if(rule.relationship==='same_joint_diagnostic_integral'){
+  if(separateProcedureDistinctContext(rule,line))return false;
+  return sameKneeContext(rule,line,primaryLine);
+ }
  return false;
 }
 function separateProcedureReviewWarning(rule,line,primaryLine){
- if(rule.relationship!=='iatrogenic_complication_treatment')return null;
- const indication=splenicIndicationForLine(line);
- if(indication==='iatrogenic_splenic_injury')return null;
- if(DISTINCT_SPLENIC_INDICATIONS.has(indication))return null;
- return {
-  rule,
-  primaryLine,
-  warning:rule.warning,
-  reason:'Review required: CPT '+rule.secondary+' is a separate-procedure splenectomy code paired with related abdominal CPT '+(primaryLine&&primaryLine.cpt?primaryLine.cpt:'procedure')+'. Case Builder will not suppress payable wRVU unless the splenectomy context is explicitly iatrogenic splenic injury.'
- };
+ if(rule.relationship==='iatrogenic_complication_treatment'){
+  const indication=splenicIndicationForLine(line);
+  if(indication==='iatrogenic_splenic_injury')return null;
+  if(DISTINCT_SPLENIC_INDICATIONS.has(indication))return null;
+  return {
+   rule,
+   primaryLine,
+   warning:rule.warning,
+   reason:'Review required: CPT '+rule.secondary+' is a separate-procedure splenectomy code paired with related abdominal CPT '+(primaryLine&&primaryLine.cpt?primaryLine.cpt:'procedure')+'. Case Builder will not suppress payable wRVU unless the splenectomy context is explicitly iatrogenic splenic injury.'
+  };
+ }
+ if(rule.relationship==='same_joint_diagnostic_integral'){
+  if(separateProcedureDistinctContext(rule,line)||sameKneeContext(rule,line,primaryLine))return null;
+  return {
+   rule,
+   primaryLine,
+   warning:rule.warning,
+   reason:'Review required: CPT '+rule.secondary+' is a separate-procedure diagnostic knee arthroscopy code paired with surgical knee arthroscopy CPT '+(primaryLine&&primaryLine.cpt?primaryLine.cpt:'procedure')+'. Case Builder will not suppress payable wRVU unless same-knee same-encounter context is explicit.'
+  };
+ }
+ return null;
 }
 function separateProcedureReviewWarningsForLine(line,procs){
  return SEPARATE_PROCEDURE_RULES.map(rule=>{
@@ -741,7 +776,7 @@ function separateProcedureBlockedMap(procs){
   const primaryLine=findSeparateRulePrimaryLine(rule,procs);
   if(!primaryLine)return;
   procs.filter(l=>String(l.cpt)===String(rule.secondary)).forEach(line=>{
-   if(!separateProcedureShouldSuppress(rule,line))return;
+   if(!separateProcedureShouldSuppress(rule,line,primaryLine))return;
    blocked.set(line.id,{
     column1Line:primaryLine,
     edit:{
