@@ -603,6 +603,9 @@ const NCCI={
  // "49593|15734": {modAllowed:true, note:"Component separation bundled with complex hernia repair; modifier 59 allowed when performed on separate anatomic site."},
  // "44970|44950": {modAllowed:false, note:"Appendectomy bundled; no modifier override permitted."},
 };
+const SEPARATE_PROCEDURE_RULES=[
+ {primary:"44005",secondary:"49000",rule:"bundled",category:"separate_procedure",reason:"Exploratory laparotomy integral to enterolysis",warning:"⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly."}
+];
 const NCCI_LOAD_STATUS={source:'ncci_bundles.json',loaded:false,count:0,error:null};
 window.NCCI_LOAD_STATUS=NCCI_LOAD_STATUS;
 function ncciBundleNote(column1,column2,bundle){
@@ -672,6 +675,30 @@ function ncciBlockedColumn2Map(procs){
  }));
  return blocked;
 }
+function separateProcedureBlockedMap(procs){
+ const blocked=new Map();
+ SEPARATE_PROCEDURE_RULES.forEach(rule=>{
+  const primaryLine=procs.find(l=>String(l.cpt)===String(rule.primary));
+  if(!primaryLine)return;
+  procs.filter(l=>String(l.cpt)===String(rule.secondary)).forEach(line=>{
+   blocked.set(line.id,{
+    column1Line:primaryLine,
+    edit:{
+     column1:String(rule.primary),
+     column2:String(rule.secondary),
+     modifierIndicator:'0',
+     modAllowed:false,
+     separateProcedureRule:true,
+     rule:rule.rule,
+     reason:rule.reason,
+     warning:rule.warning,
+     note:rule.warning
+    }
+   });
+  });
+ });
+ return blocked;
+}
 function escText(v){return String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
 function affectedDistinctModifiers(){return 'Modifier 59, XS, XE, XP, and XU'}
 function modifierDenialEducation(type,ctx={}){
@@ -690,7 +717,16 @@ function modifierDenialEducation(type,ctx={}){
  return {title:'Why?',what:'The modifier was not applied.',why:'The Case Builder blocked the modifier because the current coding rule set does not support it in this context.',affected:selected,next:'Review the operative documentation and payer policy before choosing another coding path.'};
 }
 function addModifierDenial(line,type,ctx={}){const denial=modifierDenialEducation(type,{...ctx,line});line.modifierDenials=line.modifierDenials||[];line.modifierDenials.push(denial);line.conflicts.push(denial.what)}
-function markBundledNotPayable(line,primary,edit){line.payableExcluded=true;line.payableExclusionReason='Bundled into CPT '+(edit&&edit.column1?edit.column1:(primary&&primary.cpt?primary.cpt:'primary procedure'))+' under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.';line.payableExclusionEdit=edit&&edit.note?edit.note:''}
+function markBundledNotPayable(line,primary,edit){
+ line.payableExcluded=true;
+ if(edit&&edit.separateProcedureRule){
+  line.payableExclusionReason=edit.warning||('CPT '+line.cpt+' is integral to CPT '+(edit.column1||(primary&&primary.cpt)||'the primary procedure')+' and is not separately payable.');
+  line.payableExclusionEdit=edit.reason||'CPT separate procedure rule';
+  return;
+ }
+ line.payableExclusionReason='Bundled into CPT '+(edit&&edit.column1?edit.column1:(primary&&primary.cpt?primary.cpt:'primary procedure'))+' under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.';
+ line.payableExclusionEdit=edit&&edit.note?edit.note:'';
+}
 function renderModifierDenials(line){if(!line.modifierDenials||!line.modifierDenials.length)return '';return line.modifierDenials.map(d=>'<details class="modifier-denial"><summary>'+escText(d.title||'Why?')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it happened</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to consider next</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Verify final billing against current AMA, CMS NCCI, and payer policy.</div></div></details>').join('')}
 function modifierCautionEducation(type,ctx={}){
  const primary=ctx.primary||{};
@@ -929,9 +965,11 @@ function getModifierConflictState(){
 function computeMods(){
  const procs=caseLines.filter(l=>l.kind==='proc').sort((a,b)=>b.baseWrvu-a.baseWrvu);
  const ems=caseLines.filter(l=>l.kind==='em');
+ const separateMap=separateProcedureBlockedMap(procs);
  const bundledMap=ncciBlockedColumn2Map(procs);
- const payableProcs=procs.filter(l=>!bundledMap.has(l.id));
- const bundledProcs=procs.filter(l=>bundledMap.has(l.id));
+ const excludedMap=new Map([...bundledMap,...separateMap]);
+ const payableProcs=procs.filter(l=>!excludedMap.has(l.id));
+ const bundledProcs=procs.filter(l=>excludedMap.has(l.id));
  caseLines=[...payableProcs,...bundledProcs,...ems];
  const hasRepeated15734=procs.filter(l=>l.cpt==='15734').length>1;
  let pIdx=0;
@@ -1017,19 +1055,26 @@ function computeMods(){
     : 'Performed robotically — coded as laparoscopic per CMS/AMA guidance; robotic assistance documented for clinical record, does not affect CPT selection or reimbursement.';
    l.rationale.push({mod:'—',reason:roboticReason,cite:'CMS/AMA robotic coding guidance'});
   }
-  const bundledInfo=bundledMap.get(l.id);
+  const bundledInfo=excludedMap.get(l.id);
   const primaryProc=payableProcs[0]||procs[0];
   const pairEdit=pIdx>0?ncciCheck(primaryProc?.cpt,l.cpt):null;
   if(bundledInfo){
    markBundledNotPayable(l,bundledInfo.column1Line,bundledInfo.edit);
-   addModifierDenial(l,'ncci_no_modifier',{primary:bundledInfo.column1Line,edit:bundledInfo.edit,selected:l.userMod||'59'});
    l.rank='Bundled';
-   l.rankReason='CMS NCCI Column 2 code bundled into CPT '+bundledInfo.edit.column1+' with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.';
-   l.rationale.push({mod:'NCCI',reason:l.rankReason,cite:'CMS NCCI PTP modifier indicator 0'});
-   l.engineState='BLOCKED';
-   l.warnings.push(...l.conflicts);
+   if(bundledInfo.edit&&bundledInfo.edit.separateProcedureRule){
+    l.rankReason='CPT '+bundledInfo.edit.column2+' is integral to CPT '+bundledInfo.edit.column1+' in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.';
+    l.rationale.push({mod:'Bundled',reason:bundledInfo.edit.reason+'. '+String(bundledInfo.edit.warning||'').replace(/^⚠️\s*/,''),cite:'CPT separate procedure rule / FreeCPTCodeFinder payment engine'});
+    l.engineState='WARNING';
+    l.warnings.push(bundledInfo.edit.warning);
+   }else{
+    addModifierDenial(l,'ncci_no_modifier',{primary:bundledInfo.column1Line,edit:bundledInfo.edit,selected:l.userMod||'59'});
+    l.rankReason='CMS NCCI Column 2 code bundled into CPT '+bundledInfo.edit.column1+' with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.';
+    l.rationale.push({mod:'NCCI',reason:l.rankReason,cite:'CMS NCCI PTP modifier indicator 0'});
+    l.engineState='BLOCKED';
+    l.warnings.push(...l.conflicts);
+    l.rationale.push({mod:'Blocked',reason:l.conflicts.join(' '),cite:RULES.CONFLICT});
+   }
    l.mods=[];
-   l.rationale.push({mod:'Blocked',reason:l.conflicts.join(' '),cite:RULES.CONFLICT});
    return;
   }
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
@@ -1264,8 +1309,8 @@ function openAuditReport(){
  if(!caseLines.length){alert('Add procedures to the case first.');return}
  const now=new Date();
  const caseId='CASE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
- let totalWrvu=0,totalPay=0;
- caseLines.forEach(l=>{totalWrvu+=l.effWrvu;totalPay+=l.pay});
+ let selectedWrvu=0,totalWrvu=0,totalPay=0;
+ caseLines.forEach(l=>{selectedWrvu+=l.effWrvu;totalWrvu+=Number(l.payableWrvu||0);totalPay+=l.pay});
 
  const rows=caseLines.map((l,i)=>{
   const rationaleHTML=l.rationale.map(r=>`
@@ -1298,7 +1343,7 @@ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:11pt;line-he
 .header h1{font-size:18pt;font-weight:600;letter-spacing:-.01em;color:var(--ox)}
 .header .sub{font-size:10pt;color:var(--ink2);margin-top:2px}
 .header .meta{text-align:right;font-size:9pt;color:var(--ink2);font-family:ui-monospace,Menlo,monospace;line-height:1.7}
-.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:6px;margin-bottom:22px}
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:6px;margin-bottom:22px}
 .summary>div{padding:12px 14px;border-right:1px solid var(--line)}
 .summary>div:last-child{border-right:0}
 .summary .lbl{font-size:8pt;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:4px;font-weight:600}
@@ -1351,7 +1396,8 @@ table{width:100%;border-collapse:collapse;font-size:10pt}
 <div class="summary">
 <div><div class="lbl">Payer</div><div class="val">${payer}</div></div>
 <div><div class="lbl">Setting</div><div class="val">${setting==='nonfac'?'Non-facility':'Facility'}</div></div>
-<div><div class="lbl">Total wRVU</div><div class="val">${totalWrvu.toFixed(2)}</div></div>
+<div><div class="lbl">Selected wRVU</div><div class="val">${selectedWrvu.toFixed(2)}</div></div>
+<div><div class="lbl">Payable wRVU</div><div class="val">${totalWrvu.toFixed(2)}</div></div>
 <div><div class="lbl">Est. payment</div><div class="val money">${formatCurrency(totalPay)}</div></div>
 </div>
 
@@ -1365,7 +1411,7 @@ ${rows}
 
 <div class="totals">
 <div class="left">Case totals · ${caseLines.length} line${caseLines.length!==1?'s':''} · ${caseLines.filter(l=>l.kind==='proc').length} procedure${caseLines.filter(l=>l.kind==='proc').length!==1?'s':''}${caseLines.filter(l=>l.kind==='em').length?' · '+caseLines.filter(l=>l.kind==='em').length+' E/M':''}</div>
-<div class="right">${totalWrvu.toFixed(2)} wRVU · <span class="money">$${totalPay.toFixed(2)}</span></div>
+<div class="right">${totalWrvu.toFixed(2)} payable wRVU · <span class="money">${formatCurrency(totalPay)}</span></div>
 </div>
 
 <h2>Activity log</h2>
@@ -1401,7 +1447,9 @@ function exportAuditJSON(){
   paymentFormula:'Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.',
   payer,setting,
   totals:{
-   wrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
+   selectedWrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
+   payableWrvu:+(caseLines.reduce((s,l)=>s+Number(l.payableWrvu||0),0).toFixed(2)),
+   wrvu:+(caseLines.reduce((s,l)=>s+Number(l.payableWrvu||0),0).toFixed(2)),
    payment:+(caseLines.reduce((s,l)=>s+l.pay,0).toFixed(2)),
    lines:caseLines.length,
    procedures:caseLines.filter(l=>l.kind==='proc').length,
@@ -1419,6 +1467,10 @@ function exportAuditJSON(){
    totalRvu:l.totalRvu,
    baseMedicarePayment:+Number(l.basePayment||0).toFixed(2),
    paymentSource:l.paymentSource,
+   payable:l.payableExcluded!==true,
+   payableWrvu:+Number(l.payableWrvu||0).toFixed(2),
+   payableExclusionReason:l.payableExclusionReason||null,
+   payableExclusionEdit:l.payableExclusionEdit||null,
    payment:+l.pay.toFixed(2),
    rationale:l.rationale
   })),

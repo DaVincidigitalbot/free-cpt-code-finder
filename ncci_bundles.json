@@ -333,7 +333,8 @@
         "44120",
         "44140",
         "38100",
-        "47550"
+        "47550",
+        "49000"
       ],
       "description": "Lysis of adhesions bundled into most abdominal procedures unless extensive",
       "modifier59_allowed": true,
@@ -720,6 +721,12 @@
     }
   },
   "common_pairs": [
+    {
+      "column1": "44005",
+      "column2": "49000",
+      "bundle_type": "separate_procedure",
+      "explanation": "Exploratory laparotomy integral to enterolysis"
+    },
     {
       "column1": "44140",
       "column2": "44604",

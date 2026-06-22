@@ -12,6 +12,7 @@ class ModifierEngine {
     constructor() {
         this.modifierRules = null;
         this.ncciBundles = null;
+        this.separateProcedureRules = { rules: [] };
         this.pendingQuestions = [];
         this.userResponses = {};
         this.debugMode = false;
@@ -27,12 +28,15 @@ class ModifierEngine {
             // Load modifier rules and NCCI bundles
             const rulesFetchToken = window.PerfProfiler?.start('fetch:modifier_rules.json', { blocksUI: false, category: 'fetch' });
             const bundlesFetchToken = window.PerfProfiler?.start('fetch:ncci_bundles.json', { blocksUI: false, category: 'fetch' });
-            const [rulesResponse, bundlesResponse] = await Promise.all([
+            const separateRulesFetchToken = window.PerfProfiler?.start('fetch:separate_procedure_rules.json', { blocksUI: false, category: 'fetch' });
+            const [rulesResponse, bundlesResponse, separateRulesResponse] = await Promise.all([
                 fetch('./modifier_rules.json'),
-                fetch('./ncci_bundles.json')
+                fetch('./ncci_bundles.json'),
+                fetch('./separate_procedure_rules.json')
             ]);
             window.PerfProfiler?.end(rulesFetchToken, { status: rulesResponse.status });
             window.PerfProfiler?.end(bundlesFetchToken, { status: bundlesResponse.status });
+            window.PerfProfiler?.end(separateRulesFetchToken, { status: separateRulesResponse.status });
 
             const rulesParseToken = window.PerfProfiler?.start('parse:modifier_rules.json', { blocksUI: false, category: 'parse' });
             this.modifierRules = await rulesResponse.json();
@@ -41,10 +45,15 @@ class ModifierEngine {
             const bundlesParseToken = window.PerfProfiler?.start('parse:ncci_bundles.json', { blocksUI: false, category: 'parse' });
             this.ncciBundles = await bundlesResponse.json();
             window.PerfProfiler?.end(bundlesParseToken, { bundleCount: Object.keys(this.ncciBundles.bundles).length });
+
+            const separateRulesParseToken = window.PerfProfiler?.start('parse:separate_procedure_rules.json', { blocksUI: false, category: 'parse' });
+            this.separateProcedureRules = await separateRulesResponse.json();
+            window.PerfProfiler?.end(separateRulesParseToken, { ruleCount: (this.separateProcedureRules.rules || []).length });
             
             console.log('🧠 Enhanced Modifier Intelligence Engine initialized successfully');
             console.log(`📊 Loaded ${Object.keys(this.modifierRules).length} CPT rules`);
             console.log(`📊 Loaded ${Object.keys(this.ncciBundles.bundles).length} NCCI bundles`);
+            console.log(`📊 Loaded ${(this.separateProcedureRules.rules || []).length} separate-procedure rules`);
             window.PerfProfiler?.end(perfToken, { ruleCount: Object.keys(this.modifierRules).length, bundleCount: Object.keys(this.ncciBundles.bundles).length });
             return true;
         } catch (error) {
@@ -116,6 +125,7 @@ class ModifierEngine {
 
         // Step 7: Check for NCCI bundles and enhanced bundling logic
         this.checkEnhancedNCCIBundles(procedures, context);
+        this.applySeparateProcedureRules(procedures, context);
         this.applyHiatalHerniaOverrides(procedures, context);
         this.applyDiagnosticLaparoscopyOverride(procedures, context);
 
@@ -445,6 +455,36 @@ class ModifierEngine {
                     }
                 }
             });
+        });
+    }
+
+    applySeparateProcedureRules(procedures, context) {
+        const rules = (this.separateProcedureRules && this.separateProcedureRules.rules) || [];
+        if (!rules.length) return;
+
+        this.addAuditEntry('separate_procedure_check', null, 'Checking CPT separate-procedure payment rules');
+
+        rules.forEach(rule => {
+            const primaryProc = procedures.find(proc => String(proc.code) === String(rule.primary));
+            const secondaryProc = procedures.find(proc => String(proc.code) === String(rule.secondary));
+            if (!primaryProc || !secondaryProc || secondaryProc.rank === 'included') return;
+
+            secondaryProc.rank = 'bundled';
+            secondaryProc.adjustedWRVU = 0;
+            secondaryProc.suppressed = true;
+            secondaryProc.suppressedBy = rule.primary;
+            secondaryProc.bundleRule = rule;
+            secondaryProc.auditRisk = 'low';
+            secondaryProc.warnings.push({
+                type: 'separate_procedure_bundle',
+                message: rule.warning,
+                severity: 'info'
+            });
+            secondaryProc.explanations.push(`${rule.secondary} bundled into ${rule.primary}: ${rule.reason}`);
+
+            this.addAuditEntry('separate_procedure_suppressed', rule.secondary,
+                `${rule.secondary} suppressed as integral to ${rule.primary}`,
+                { rule: rule.rule, reason: rule.reason });
         });
     }
 
@@ -1269,7 +1309,7 @@ class ModifierEngine {
     }
 
     generateSummary(procedures) {
-        const billableProcedures = procedures.filter(p => p.rank !== 'included');
+        const billableProcedures = procedures.filter(p => p.rank !== 'included' && p.rank !== 'suppressed' && p.rank !== 'bundled');
         const totalWRVU = billableProcedures.reduce((sum, proc) => sum + proc.adjustedWRVU, 0);
         const procedureCount = procedures.length;
         const billableProcedureCount = billableProcedures.length;
