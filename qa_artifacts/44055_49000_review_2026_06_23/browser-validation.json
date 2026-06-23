@@ -1,0 +1,611 @@
+{
+  "generatedAt": "2026-06-23T14:34:19.319Z",
+  "results": [
+    {
+      "name": "after-44055-49000",
+      "ncciLoadStatus": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 145,
+        "error": null
+      },
+      "ncciChecks": [
+        {
+          "pair": "44055|49000",
+          "edit": {
+            "column1": "44055",
+            "column2": "49000",
+            "modifierIndicator": "0",
+            "modAllowed": false,
+            "note": "Correction of malrotation/volvulus bundles exploratory laparotomy CMS NCCI Column 1 CPT 44055 / Column 2 CPT 49000. CMS NCCI Practitioner PTP edit: CPT 44055 is Column 1 and CPT 49000 is Column 2 with modifier indicator 0. Rationale: CPT Separate procedure definition.",
+            "rationale": "CMS NCCI Practitioner PTP edit: CPT 44055 is Column 1 and CPT 49000 is Column 2 with modifier indicator 0. Rationale: CPT Separate procedure definition.",
+            "source": "ncci_bundles.json",
+            "matchedReverse": false
+          }
+        }
+      ],
+      "totalsDom": {
+        "tn": "24.99",
+        "ts": "$1,377.79 · selected 37.22 wRVU",
+        "rm": "2 lines · medicare · BLOCKED"
+      },
+      "caseLines": [
+        {
+          "id": 1,
+          "cpt": "44055",
+          "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+          "baseWrvu": 24.99,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 1377.79,
+          "totalRvu": 41.25,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "Rank",
+              "reason": "Primary procedure — no MPPR reduction.",
+              "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [],
+          "modifierDenials": [],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": false,
+          "payableExclusionReason": "",
+          "payableExclusionEdit": "",
+          "payableExclusionClass": "",
+          "payableExcludedBy": "",
+          "documentationOpportunity": "",
+          "engineState": "CLEAN",
+          "effWrvu": 24.99,
+          "rank": "Primary",
+          "rankReason": "Highest wRVU (24.99). Billed 100%.",
+          "payableWrvu": 24.99,
+          "pay": 1377.79
+        },
+        {
+          "id": 2,
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "baseWrvu": 12.23,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 728.81,
+          "totalRvu": 21.82,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "NCCI",
+              "reason": "CMS NCCI Column 2 code bundled into CPT 44055 with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.",
+              "cite": "CMS NCCI PTP modifier indicator 0"
+            },
+            {
+              "mod": "Blocked",
+              "reason": "CPT 49000 is bundled into CPT 44055 under the active NCCI edit used by this Case Builder.",
+              "cite": "FreeCPT modifier conflict engine — invalid modifier structures are blocked until corrected"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [
+            "CPT 49000 is bundled into CPT 44055 under the active NCCI edit used by this Case Builder."
+          ],
+          "modifierDenials": [
+            {
+              "title": "Why is the modifier blocked?",
+              "what": "CPT 49000 is bundled into CPT 44055 under the active NCCI edit used by this Case Builder.",
+              "why": "CMS designates CPT 44055 as Column 1 and CPT 49000 as Column 2. Modifier indicator 0 means a distinct-service modifier cannot be used to bypass this edit. Correction of malrotation/volvulus bundles exploratory laparotomy CMS NCCI Column 1 CPT 44055 / Column 2 CPT 49000. CMS NCCI Practitioner PTP edit: CPT 44055 is Column 1 and CPT 49000 is Column 2 with modifier indicator 0. Rationale: CPT Separate procedure definition.",
+              "affected": "Modifier 59, XS, XE, XP, and XU are not permitted for this code pair.",
+              "next": "If documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on CPT 44055 is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice."
+            }
+          ],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": true,
+          "payableExclusionReason": "Bundled into CPT 44055 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Correction of malrotation/volvulus bundles exploratory laparotomy CMS NCCI Column 1 CPT 44055 / Column 2 CPT 49000. CMS NCCI Practitioner PTP edit: CPT 44055 is Column 1 and CPT 49000 is Column 2 with modifier indicator 0. Rationale: CPT Separate procedure definition.",
+          "payableExclusionClass": "ncci_hard_stop",
+          "payableExcludedBy": "44055",
+          "documentationOpportunity": "If documentation shows substantially increased work on CPT 44055, review whether modifier 22 is supportable. This does not override the NCCI hard stop.",
+          "engineState": "BLOCKED",
+          "effWrvu": 12.23,
+          "rank": "Bundled",
+          "rankReason": "CMS NCCI Column 2 code bundled into CPT 44055 with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.",
+          "payableWrvu": 0,
+          "pay": 0
+        }
+      ],
+      "audit": [
+        "[10:34:09 AM] TOTALS wRVU=24.99 pay=$1,377.79 (validation after-44055-49000)",
+        "[10:34:09 AM] RECALC primary=44055 · 2 proc + 0 E/M · medicare · state=BLOCKED",
+        "[10:34:09 AM] TOTALS wRVU=24.99 pay=$1,377.79 (procedure added)",
+        "[10:34:09 AM] RECALC primary=44055 · 2 proc + 0 E/M · medicare · state=BLOCKED",
+        "[10:34:09 AM] ADD 49000 \"Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)\" wRVU=12.23",
+        "[10:34:09 AM] TOTALS wRVU=24.99 pay=$1,377.79 (procedure added)",
+        "[10:34:09 AM] RECALC primary=44055 · 1 proc + 0 E/M · medicare · state=CLEAN",
+        "[10:34:09 AM] ADD 44055 \"Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)\" wRVU=24.99",
+        "[10:34:09 AM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+        "[10:34:09 AM] CASE CLEARED",
+        "[10:34:07 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+        "[10:34:07 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)"
+      ],
+      "validation": {
+        "expected": {
+          "selectedWrvu": 37.22,
+          "payableWrvu": 24.99,
+          "bundled": "49000",
+          "state": "BLOCKED"
+        },
+        "actual": {
+          "selectedWrvu": 37.22,
+          "payableWrvu": 24.99,
+          "bundledPayableExcluded": true,
+          "bundledPayableWrvu": 0
+        },
+        "pass": true
+      }
+    },
+    {
+      "name": "regression-44005-49000",
+      "ncciLoadStatus": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 145,
+        "error": null
+      },
+      "ncciChecks": [
+        {
+          "pair": "44005|49000",
+          "edit": {
+            "column1": "44005",
+            "column2": "49000",
+            "modifierIndicator": "1",
+            "modAllowed": true,
+            "note": "Lysis of adhesions bundled into most abdominal procedures unless extensive CMS NCCI Column 1 CPT 44005 / Column 2 CPT 49000. Use -59 with -22 if adhesiolysis extensive and unrelated to primary procedure",
+            "rationale": "Use -59 with -22 if adhesiolysis extensive and unrelated to primary procedure",
+            "source": "ncci_bundles.json",
+            "matchedReverse": false
+          }
+        }
+      ],
+      "totalsDom": {
+        "tn": "18.00",
+        "ts": "$1,020.40 · selected 30.23 wRVU",
+        "rm": "2 lines · medicare · WARNING"
+      },
+      "caseLines": [
+        {
+          "id": 1,
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "baseWrvu": 18,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 1020.4,
+          "totalRvu": 30.55,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "Rank",
+              "reason": "Primary procedure — no MPPR reduction.",
+              "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [],
+          "modifierDenials": [],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": false,
+          "payableExclusionReason": "",
+          "payableExclusionEdit": "",
+          "payableExclusionClass": "",
+          "payableExcludedBy": "",
+          "documentationOpportunity": "",
+          "engineState": "CLEAN",
+          "effWrvu": 18,
+          "rank": "Primary",
+          "rankReason": "Highest wRVU (18.00). Billed 100%.",
+          "payableWrvu": 18,
+          "pay": 1020.4
+        },
+        {
+          "id": 2,
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "baseWrvu": 12.23,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 728.81,
+          "totalRvu": 21.82,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "Bundled",
+              "reason": "Exploratory laparotomy integral to enterolysis. CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly.",
+              "cite": "CPT separate procedure rule / FreeCPTCodeFinder payment engine"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [],
+          "modifierDenials": [],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": true,
+          "payableExclusionReason": "⚠️ CPT 49000 is generally considered integral to CPT 44005 and is not separately reportable when the exploratory laparotomy is performed to accomplish the enterolysis. Payable estimates have been adjusted accordingly.",
+          "payableExclusionEdit": "Exploratory laparotomy integral to enterolysis",
+          "payableExclusionClass": "separate_procedure",
+          "payableExcludedBy": "44005",
+          "documentationOpportunity": "If documentation shows substantially increased work on CPT 44005, review whether modifier 22 is supportable. Do not use modifier 22 to make the separate-procedure code payable.",
+          "engineState": "WARNING",
+          "effWrvu": 12.23,
+          "rank": "Bundled",
+          "rankReason": "CPT 49000 is integral to CPT 44005 in this separate-procedure relationship. Selected/performed line is visible but excluded from payable estimate.",
+          "payableWrvu": 0,
+          "pay": 0
+        }
+      ],
+      "audit": [
+        "[10:34:12 AM] TOTALS wRVU=18.00 pay=$1,020.40 (validation regression-44005-49000)",
+        "[10:34:12 AM] RECALC primary=44005 · 2 proc + 0 E/M · medicare · state=WARNING",
+        "[10:34:12 AM] TOTALS wRVU=18.00 pay=$1,020.40 (procedure added)",
+        "[10:34:12 AM] RECALC primary=44005 · 2 proc + 0 E/M · medicare · state=WARNING",
+        "[10:34:12 AM] ADD 49000 \"Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)\" wRVU=12.23",
+        "[10:34:12 AM] TOTALS wRVU=18.00 pay=$1,020.40 (procedure added)",
+        "[10:34:12 AM] RECALC primary=44005 · 1 proc + 0 E/M · medicare · state=CLEAN",
+        "[10:34:12 AM] ADD 44005 \"Enterolysis (freeing of intestinal adhesion)\" wRVU=18",
+        "[10:34:12 AM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+        "[10:34:12 AM] CASE CLEARED",
+        "[10:34:10 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+        "[10:34:10 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)"
+      ],
+      "validation": {
+        "expected": {
+          "selectedWrvu": 30.23,
+          "payableWrvu": 18,
+          "bundled": "49000"
+        },
+        "actual": {
+          "selectedWrvu": 30.23,
+          "payableWrvu": 18,
+          "bundledPayableExcluded": true,
+          "bundledPayableWrvu": 0
+        },
+        "pass": true
+      }
+    },
+    {
+      "name": "regression-44207-44180",
+      "ncciLoadStatus": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 145,
+        "error": null
+      },
+      "ncciChecks": [
+        {
+          "pair": "44207|44180",
+          "edit": {
+            "column1": "44207",
+            "column2": "44180",
+            "modifierIndicator": "0",
+            "modAllowed": false,
+            "note": "Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits CMS NCCI Column 1 CPT 44207 / Column 2 CPT 44180. CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0",
+            "rationale": "CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0",
+            "source": "ncci_bundles.json",
+            "matchedReverse": false
+          }
+        }
+      ],
+      "totalsDom": {
+        "tn": "31.12",
+        "ts": "$1,649.34 · selected 46.01 wRVU",
+        "rm": "2 lines · medicare · BLOCKED"
+      },
+      "caseLines": [
+        {
+          "id": 1,
+          "cpt": "44207",
+          "desc": "Laparoscopic colectomy, partial, with colorectal anastomosis",
+          "baseWrvu": 31.12,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 1649.34,
+          "totalRvu": 49.38,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "Rank",
+              "reason": "Primary procedure — no MPPR reduction.",
+              "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [],
+          "modifierDenials": [],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": false,
+          "payableExclusionReason": "",
+          "payableExclusionEdit": "",
+          "payableExclusionClass": "",
+          "payableExcludedBy": "",
+          "documentationOpportunity": "",
+          "engineState": "CLEAN",
+          "effWrvu": 31.12,
+          "rank": "Primary",
+          "rankReason": "Highest wRVU (31.12). Billed 100%.",
+          "payableWrvu": 31.12,
+          "pay": 1649.34
+        },
+        {
+          "id": 2,
+          "cpt": "44180",
+          "desc": "Laparoscopy, surgical, enterolysis (freeing of intestinal adhesion)",
+          "baseWrvu": 14.89,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 864.42,
+          "totalRvu": 25.88,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "NCCI",
+              "reason": "CMS NCCI Column 2 code bundled into CPT 44207 with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.",
+              "cite": "CMS NCCI PTP modifier indicator 0"
+            },
+            {
+              "mod": "Blocked",
+              "reason": "CPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.",
+              "cite": "FreeCPT modifier conflict engine — invalid modifier structures are blocked until corrected"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [
+            "CPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder."
+          ],
+          "modifierDenials": [
+            {
+              "title": "Why is the modifier blocked?",
+              "what": "CPT 44180 is bundled into CPT 44207 under the active NCCI edit used by this Case Builder.",
+              "why": "CMS designates CPT 44207 as Column 1 and CPT 44180 as Column 2. Modifier indicator 0 means a distinct-service modifier cannot be used to bypass this edit. Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits CMS NCCI Column 1 CPT 44207 / Column 2 CPT 44180. CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0",
+              "affected": "Modifier 59, XS, XE, XP, and XU are not permitted for this code pair.",
+              "next": "If documentation shows substantially increased work, unusual complexity, longer operative time, or technical difficulty on the primary procedure, review whether modifier 22 on CPT 44207 is supportable. Also confirm payer-specific policy. This is educational support, not billing or legal advice."
+            }
+          ],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": true,
+          "payableExclusionReason": "Bundled into CPT 44207 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits CMS NCCI Column 1 CPT 44207 / Column 2 CPT 44180. CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0",
+          "payableExclusionClass": "ncci_hard_stop",
+          "payableExcludedBy": "44207",
+          "documentationOpportunity": "If documentation shows substantially increased work on CPT 44207, review whether modifier 22 is supportable. This does not override the NCCI hard stop.",
+          "engineState": "BLOCKED",
+          "effWrvu": 14.89,
+          "rank": "Bundled",
+          "rankReason": "CMS NCCI Column 2 code bundled into CPT 44207 with modifier indicator 0. Selected/performed line is visible but excluded from payable estimate.",
+          "payableWrvu": 0,
+          "pay": 0
+        }
+      ],
+      "audit": [
+        "[10:34:15 AM] TOTALS wRVU=31.12 pay=$1,649.34 (validation regression-44207-44180)",
+        "[10:34:15 AM] RECALC primary=44207 · 2 proc + 0 E/M · medicare · state=BLOCKED",
+        "[10:34:15 AM] TOTALS wRVU=31.12 pay=$1,649.34 (procedure added)",
+        "[10:34:15 AM] RECALC primary=44207 · 2 proc + 0 E/M · medicare · state=BLOCKED",
+        "[10:34:15 AM] ADD 44180 \"Laparoscopy, surgical, enterolysis (freeing of intestinal adhesion)\" wRVU=14.89",
+        "[10:34:15 AM] TOTALS wRVU=31.12 pay=$1,649.34 (procedure added)",
+        "[10:34:15 AM] RECALC primary=44207 · 1 proc + 0 E/M · medicare · state=CLEAN",
+        "[10:34:15 AM] ADD 44207 \"Laparoscopic colectomy, partial, with colorectal anastomosis\" wRVU=31.12",
+        "[10:34:15 AM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+        "[10:34:15 AM] CASE CLEARED",
+        "[10:34:13 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+        "[10:34:13 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)"
+      ],
+      "validation": {
+        "expected": {
+          "selectedWrvu": 46.01,
+          "payableWrvu": 31.12,
+          "bundled": "44180"
+        },
+        "actual": {
+          "selectedWrvu": 46.01,
+          "payableWrvu": 31.12,
+          "bundledPayableExcluded": true,
+          "bundledPayableWrvu": 0
+        },
+        "pass": true
+      }
+    },
+    {
+      "name": "mppr-44120-44140",
+      "ncciLoadStatus": {
+        "source": "ncci_bundles.json",
+        "loaded": true,
+        "count": 145,
+        "error": null
+      },
+      "ncciChecks": [
+        {
+          "pair": "44120|44140",
+          "edit": null
+        }
+      ],
+      "totalsDom": {
+        "tn": "42.33",
+        "ts": "$1,818.35 · MPPR applied",
+        "rm": "2 lines · medicare · CLEAN"
+      },
+      "caseLines": [
+        {
+          "id": 2,
+          "cpt": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "baseWrvu": 22.03,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 1250.2,
+          "totalRvu": 37.43,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "Rank",
+              "reason": "Primary procedure — no MPPR reduction.",
+              "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [],
+          "modifierDenials": [],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": false,
+          "payableExclusionReason": "",
+          "payableExclusionEdit": "",
+          "payableExclusionClass": "",
+          "payableExcludedBy": "",
+          "documentationOpportunity": "",
+          "engineState": "CLEAN",
+          "effWrvu": 22.03,
+          "rank": "Primary",
+          "rankReason": "Highest wRVU (22.03). Billed 100%.",
+          "payableWrvu": 22.03,
+          "pay": 1250.2
+        },
+        {
+          "id": 1,
+          "cpt": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "baseWrvu": 20.3,
+          "laterality": "",
+          "biIndicator": 0,
+          "kind": "proc",
+          "mods": [],
+          "userMod": "",
+          "isMidline": false,
+          "technicalComponent": false,
+          "basePayment": 1136.3,
+          "totalRvu": 34.02,
+          "paymentSource": "fallback",
+          "addonCode": false,
+          "clinicalContext": {},
+          "rationale": [
+            {
+              "mod": "Rank",
+              "reason": "Medicare MPPR applied automatically; -51 omitted.",
+              "cite": "CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting"
+            },
+            {
+              "mod": "—",
+              "reason": "No distinct-service modifier applied. If this procedure is on a separate site or encounter from the primary, coder should review and add -59, -XS, -XE, -XP, or -XU via the line editor.",
+              "cite": "CMS NCCI Policy Manual Ch. 1 §E — modifier 59 indicates distinct procedural service when procedures would otherwise be bundled"
+            }
+          ],
+          "warnings": [],
+          "conflicts": [],
+          "modifierDenials": [],
+          "modifierCautions": [],
+          "documentationWarnings": [],
+          "separateProcedureReviewWarnings": [],
+          "payableExcluded": false,
+          "payableExclusionReason": "",
+          "payableExclusionEdit": "",
+          "payableExclusionClass": "",
+          "payableExcludedBy": "",
+          "documentationOpportunity": "",
+          "engineState": "CLEAN",
+          "effWrvu": 20.3,
+          "rank": "Secondary #1",
+          "rankReason": "Secondary procedure, ranked below primary 44140.",
+          "payableWrvu": 20.3,
+          "pay": 568.15
+        }
+      ],
+      "audit": [
+        "[10:34:18 AM] TOTALS wRVU=42.33 pay=$1,818.35 (validation mppr-44120-44140)",
+        "[10:34:18 AM] RECALC primary=44140 · 2 proc + 0 E/M · medicare · state=CLEAN",
+        "[10:34:18 AM] TOTALS wRVU=42.33 pay=$1,818.35 (procedure added)",
+        "[10:34:18 AM] RECALC primary=44140 · 2 proc + 0 E/M · medicare · state=CLEAN",
+        "[10:34:18 AM] ADD 44140 \"Colectomy, partial; with anastomosis\" wRVU=22.03",
+        "[10:34:18 AM] TOTALS wRVU=20.30 pay=$1,136.30 (procedure added)",
+        "[10:34:18 AM] RECALC primary=44120 · 1 proc + 0 E/M · medicare · state=CLEAN",
+        "[10:34:18 AM] ADD 44120 \"Enterectomy, resection of small intestine; single resection and anastomosis\" wRVU=20.3",
+        "[10:34:18 AM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+        "[10:34:18 AM] CASE CLEARED",
+        "[10:34:16 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+        "[10:34:16 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)"
+      ],
+      "validation": {
+        "expected": {
+          "selectedWrvu": 42.33,
+          "payableWrvu": 42.33
+        },
+        "actual": {
+          "selectedWrvu": 42.33,
+          "payableWrvu": 42.33,
+          "bundledPayableExcluded": null,
+          "bundledPayableWrvu": null
+        },
+        "pass": true
+      }
+    }
+  ]
+}

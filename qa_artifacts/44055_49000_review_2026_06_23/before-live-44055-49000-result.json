@@ -1,0 +1,122 @@
+{
+  "ncciLoadStatus": {
+    "source": "ncci_bundles.json",
+    "loaded": true,
+    "count": 144,
+    "error": null
+  },
+  "ncci_44055_49000": null,
+  "separateRules": [],
+  "totalsDom": {
+    "tn": "37.22",
+    "ts": "$1,742.20 · MPPR applied",
+    "rm": "2 lines · medicare · CLEAN"
+  },
+  "caseLines": [
+    {
+      "id": 1,
+      "cpt": "44055",
+      "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+      "baseWrvu": 24.99,
+      "laterality": "",
+      "biIndicator": 0,
+      "kind": "proc",
+      "mods": [],
+      "userMod": "",
+      "isMidline": false,
+      "technicalComponent": false,
+      "basePayment": 1377.79,
+      "totalRvu": 41.25,
+      "paymentSource": "fallback",
+      "addonCode": false,
+      "clinicalContext": {},
+      "rationale": [
+        {
+          "mod": "Rank",
+          "reason": "Primary procedure — no MPPR reduction.",
+          "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+        }
+      ],
+      "warnings": [],
+      "conflicts": [],
+      "modifierDenials": [],
+      "modifierCautions": [],
+      "documentationWarnings": [],
+      "separateProcedureReviewWarnings": [],
+      "payableExcluded": false,
+      "payableExclusionReason": "",
+      "payableExclusionEdit": "",
+      "payableExclusionClass": "",
+      "payableExcludedBy": "",
+      "documentationOpportunity": "",
+      "engineState": "CLEAN",
+      "effWrvu": 24.99,
+      "rank": "Primary",
+      "rankReason": "Highest wRVU (24.99). Billed 100%.",
+      "payableWrvu": 24.99,
+      "pay": 1377.79
+    },
+    {
+      "id": 2,
+      "cpt": "49000",
+      "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+      "baseWrvu": 12.23,
+      "laterality": "",
+      "biIndicator": 0,
+      "kind": "proc",
+      "mods": [],
+      "userMod": "",
+      "isMidline": false,
+      "technicalComponent": false,
+      "basePayment": 728.81,
+      "totalRvu": 21.82,
+      "paymentSource": "fallback",
+      "addonCode": false,
+      "clinicalContext": {},
+      "rationale": [
+        {
+          "mod": "Rank",
+          "reason": "Medicare MPPR applied automatically; -51 omitted.",
+          "cite": "CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting"
+        },
+        {
+          "mod": "—",
+          "reason": "No distinct-service modifier applied. If this procedure is on a separate site or encounter from the primary, coder should review and add -59, -XS, -XE, -XP, or -XU via the line editor.",
+          "cite": "CMS NCCI Policy Manual Ch. 1 §E — modifier 59 indicates distinct procedural service when procedures would otherwise be bundled"
+        }
+      ],
+      "warnings": [],
+      "conflicts": [],
+      "modifierDenials": [],
+      "modifierCautions": [],
+      "documentationWarnings": [],
+      "separateProcedureReviewWarnings": [],
+      "payableExcluded": false,
+      "payableExclusionReason": "",
+      "payableExclusionEdit": "",
+      "payableExclusionClass": "",
+      "payableExcludedBy": "",
+      "documentationOpportunity": "",
+      "engineState": "CLEAN",
+      "effWrvu": 12.23,
+      "rank": "Secondary #1",
+      "rankReason": "Secondary procedure, ranked below primary 44055.",
+      "payableWrvu": 12.23,
+      "pay": 364.405
+    }
+  ],
+  "audit": [
+    "[9:15:14 AM] TOTALS wRVU=37.22 pay=$1,742.20 (investigation 44055+49000)",
+    "[9:15:14 AM] RECALC primary=44055 · 2 proc + 0 E/M · medicare · state=CLEAN",
+    "[9:15:14 AM] TOTALS wRVU=37.22 pay=$1,742.20 (procedure added)",
+    "[9:15:14 AM] RECALC primary=44055 · 2 proc + 0 E/M · medicare · state=CLEAN",
+    "[9:15:14 AM] ADD 49000 \"Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)\" wRVU=12.23",
+    "[9:15:14 AM] TOTALS wRVU=24.99 pay=$1,377.79 (procedure added)",
+    "[9:15:14 AM] RECALC primary=44055 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[9:15:14 AM] ADD 44055 \"Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)\" wRVU=24.99",
+    "[9:15:14 AM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+    "[9:15:14 AM] CASE CLEARED",
+    "[9:15:10 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[9:15:10 AM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)"
+  ]
+}

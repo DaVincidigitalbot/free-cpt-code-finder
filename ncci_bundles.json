@@ -44,6 +44,15 @@
       "modifier59_allowed": true,
       "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
     },
+    "44055": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "Correction of malrotation/volvulus bundles exploratory laparotomy",
+      "modifier59_allowed": false,
+      "modifier_indicator": "0",
+      "reason": "CMS NCCI Practitioner PTP edit: CPT 44055 is Column 1 and CPT 49000 is Column 2 with modifier indicator 0. Rationale: CPT Separate procedure definition."
+    },
     "49000": {
       "column2_codes": [
         "44604",
@@ -726,6 +735,12 @@
       "column2": "49000",
       "bundle_type": "separate_procedure",
       "explanation": "Exploratory laparotomy integral to enterolysis"
+    },
+    {
+      "column1": "44055",
+      "column2": "49000",
+      "bundle_type": "separate_procedure",
+      "explanation": "CMS NCCI Practitioner PTP edit, modifier indicator 0, CPT Separate procedure definition"
     },
     {
       "column1": "44140",
