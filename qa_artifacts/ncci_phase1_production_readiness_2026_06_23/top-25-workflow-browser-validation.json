@@ -1,0 +1,1251 @@
+{
+  "generatedAt": "2026-06-23T23:49:47.949Z",
+  "branch": "review/ncci-phase1-surgical-pack-20260623",
+  "activePairCount": 159,
+  "caseCount": 25,
+  "allPassed": true,
+  "results": [
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 40.03,
+      "payableWrvu": 22.03,
+      "totalText": "22.03",
+      "subtitleText": "$1,250.20 · selected 40.03 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 22.03,
+          "payableWrvu": 22.03,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44140 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44140 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Colectomy, partial; with anastomosis / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 44140 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "colectomy_enterolysis",
+      "label": "Colectomy + enterolysis",
+      "specialty": "Colorectal",
+      "codes": [
+        "44140",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44140 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/01-colectomy_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 45.1,
+      "payableWrvu": 27.1,
+      "totalText": "27.10",
+      "subtitleText": "$1,530.76 · selected 45.10 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44143",
+          "desc": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure)",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 27.1,
+          "payableWrvu": 27.1,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44143 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44143 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure) / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 44143 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "hartmann_enterolysis",
+      "label": "Hartmann colectomy + enterolysis",
+      "specialty": "Colorectal",
+      "codes": [
+        "44143",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44143 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/02-hartmann_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 32.07,
+      "payableWrvu": 14.07,
+      "totalText": "14.07",
+      "subtitleText": "$803.96 · selected 32.07 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44620",
+          "desc": "Closure of enterostomy, large or small intestine; without resection and anastomosis",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 14.07,
+          "payableWrvu": 14.07,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44620 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44620 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Closure of enterostomy, large or small intestine; without resection and anastomosis / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 44620 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "ostomy_reversal_enterolysis",
+      "label": "Ostomy reversal + enterolysis",
+      "specialty": "Colorectal",
+      "codes": [
+        "44620",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44620 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/03-ostomy_reversal_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 34.85,
+      "payableWrvu": 16.85,
+      "totalText": "16.85",
+      "subtitleText": "$933.56 · selected 34.85 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44625",
+          "desc": "Closure of enterostomy, large or small intestine; with resection and anastomosis other than colorectal",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 16.85,
+          "payableWrvu": 16.85,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44625 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44625 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Closure of enterostomy, large or small intestine; with resection and anastomosis other than colorectal / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 44625 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "ostomy_reversal_resection_enterolysis",
+      "label": "Ostomy reversal with resection + enterolysis",
+      "specialty": "Colorectal",
+      "codes": [
+        "44625",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44625 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/04-ostomy_reversal_resection_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 38.3,
+      "payableWrvu": 20.3,
+      "totalText": "20.30",
+      "subtitleText": "$1,136.30 · selected 38.30 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 20.3,
+          "payableWrvu": 20.3,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44120 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44120 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Enterectomy, resection of small intestine; single resection and anastomosis / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 44120 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "small_bowel_resection_enterolysis",
+      "label": "Small bowel resection + enterolysis",
+      "specialty": "General Surgery",
+      "codes": [
+        "44120",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44120 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/05-small_bowel_resection_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 37.22,
+      "payableWrvu": 24.99,
+      "totalText": "24.99",
+      "subtitleText": "$1,377.79 · selected 37.22 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44055",
+          "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 24.99,
+          "payableWrvu": 24.99,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 12.23,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 49000 is bundled into CPT 44055 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44055 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure) / Exploratory laparotomy, exploratory celiotomy with or without biopsy(s) CMS NCCI Column 1 CPT 44055 / Column 2 CPT 49000. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "ladd_exploratory_laparotomy",
+      "label": "Ladd procedure + exploratory laparotomy",
+      "specialty": "General Surgery",
+      "codes": [
+        "44055",
+        "49000"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44055 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/06-ladd_exploratory_laparotomy.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 42.99,
+      "payableWrvu": 24.99,
+      "totalText": "24.99",
+      "subtitleText": "$1,377.79 · selected 42.99 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "44055",
+          "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 24.99,
+          "payableWrvu": 24.99,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44055 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 44055 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure) / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 44055 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "ladd_enterolysis",
+      "label": "Ladd procedure + enterolysis",
+      "specialty": "General Surgery",
+      "codes": [
+        "44055",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 44055 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/07-ladd_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 37.06,
+      "payableWrvu": 19.06,
+      "totalText": "19.06",
+      "subtitleText": "$1,073.84 · selected 37.06 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "38100",
+          "desc": "Splenectomy; total (separate procedure)",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 19.06,
+          "payableWrvu": 19.06,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 38100 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 38100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Splenectomy; total (separate procedure) / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 38100 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "splenectomy_enterolysis",
+      "label": "Splenectomy + enterolysis",
+      "specialty": "Trauma/ACS",
+      "codes": [
+        "38100",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 38100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/08-splenectomy_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 40.39,
+      "payableWrvu": 21.33,
+      "totalText": "21.33",
+      "subtitleText": "$1,201.76 · selected 40.39 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "38115",
+          "desc": "Splenectomy, with repair of ruptured spleen",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 21.33,
+          "payableWrvu": 21.33,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "38101",
+          "desc": "Splenectomy; partial (separate procedure)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 19.06,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 38101 is bundled into CPT 38115 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 38115 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Splenectomy, with repair of ruptured spleen / Splenectomy; partial (separate procedure) CMS NCCI Column 1 CPT 38115 / Column 2 CPT 38101. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "splenic_repair_partial_splenectomy",
+      "label": "Splenic repair + partial splenectomy",
+      "specialty": "Trauma/ACS",
+      "codes": [
+        "38115",
+        "38101"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 38115 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/09-splenic_repair_partial_splenectomy.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 35.7,
+      "payableWrvu": 16.64,
+      "totalText": "16.64",
+      "subtitleText": "$998.69 · selected 35.70 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "38120",
+          "desc": "Laparoscopic splenectomy",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 16.64,
+          "payableWrvu": 16.64,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "38100",
+          "desc": "Splenectomy; total (separate procedure)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 19.06,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 38100 is bundled into CPT 38120 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 38120 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparoscopic splenectomy / Splenectomy; total (separate procedure) CMS NCCI Column 1 CPT 38120 / Column 2 CPT 38100. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "lap_splenectomy_open_splenectomy",
+      "label": "Laparoscopic splenectomy + open splenectomy",
+      "specialty": "Trauma/ACS",
+      "codes": [
+        "38120",
+        "38100"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 38120 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/10-lap_splenectomy_open_splenectomy.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 35.53,
+      "payableWrvu": 17.53,
+      "totalText": "17.53",
+      "subtitleText": "$1,123.27 · selected 35.53 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "45562",
+          "desc": "Exploration/repair of rectum",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 17.53,
+          "payableWrvu": 17.53,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 45562 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 45562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Exploration/repair of rectum / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 45562 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "rectal_exploration_enterolysis",
+      "label": "Rectal exploration/repair + enterolysis",
+      "specialty": "Trauma/ACS",
+      "codes": [
+        "45562",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 45562 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/11-rectal_exploration_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 32.76,
+      "payableWrvu": 14.76,
+      "totalText": "14.76",
+      "subtitleText": "$903.83 · selected 32.76 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "43510",
+          "desc": "Gastrotomy with exploration, drainage, or removal of foreign body",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 14.76,
+          "payableWrvu": 14.76,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 43510 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 43510 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Gastrotomy with exploration, drainage, or removal of foreign body / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 43510 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "gastric_foreign_body_enterolysis",
+      "label": "Gastrotomy/foreign body + enterolysis",
+      "specialty": "General Surgery",
+      "codes": [
+        "43510",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 43510 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/12-gastric_foreign_body_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 31.63,
+      "payableWrvu": 13.63,
+      "totalText": "13.63",
+      "subtitleText": "$809.97 · selected 31.63 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "39501",
+          "desc": "Repair, laceration of diaphragm, any approach",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 13.63,
+          "payableWrvu": 13.63,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 39501 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 39501 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Repair, laceration of diaphragm, any approach / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 39501 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "diaphragm_laceration_enterolysis",
+      "label": "Diaphragm laceration repair + enterolysis",
+      "specialty": "Trauma/ACS",
+      "codes": [
+        "39501",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 39501 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/13-diaphragm_laceration_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 36.04,
+      "payableWrvu": 18.04,
+      "totalText": "18.04",
+      "subtitleText": "$1,104.23 · selected 36.04 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "47015",
+          "desc": "Laparotomy with aspiration and/or injection of hepatic parasitic cyst or abscess",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 18.04,
+          "payableWrvu": 18.04,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 47015 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 47015 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparotomy with aspiration and/or injection of hepatic parasitic cyst or abscess / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 47015 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "hepatic_abscess_enterolysis",
+      "label": "Hepatic abscess laparotomy + enterolysis",
+      "specialty": "HPB",
+      "codes": [
+        "47015",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 47015 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/14-hepatic_abscess_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 30.59,
+      "payableWrvu": 12.59,
+      "totalText": "12.59",
+      "subtitleText": "$814.65 · selected 30.59 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "47100",
+          "desc": "Biopsy of liver, wedge",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 12.59,
+          "payableWrvu": 12.59,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 47100 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 47100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Biopsy of liver, wedge / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 47100 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "liver_wedge_biopsy_enterolysis",
+      "label": "Liver wedge biopsy + enterolysis",
+      "specialty": "HPB",
+      "codes": [
+        "47100",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 47100 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/15-liver_wedge_biopsy_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 56.03,
+      "payableWrvu": 38.03,
+      "totalText": "38.03",
+      "subtitleText": "$2,166.72 · selected 56.03 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "47120",
+          "desc": "Hepatectomy, resection of liver; partial lobectomy",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 38.03,
+          "payableWrvu": 38.03,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 47120 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 47120 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Hepatectomy, resection of liver; partial lobectomy / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 47120 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "partial_hepatectomy_enterolysis",
+      "label": "Partial hepatectomy + enterolysis",
+      "specialty": "HPB",
+      "codes": [
+        "47120",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 47120 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/16-partial_hepatectomy_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 35.65,
+      "payableWrvu": 17.65,
+      "totalText": "17.65",
+      "subtitleText": "$1,012.05 · selected 35.65 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "43280",
+          "desc": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty (eg, Nissen, Toupet procedures)",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 17.65,
+          "payableWrvu": 17.65,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 43280 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 43280 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty (eg, Nissen, Toupet procedures) / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 43280 / Column 2 CPT 44005. Misuse of Column Two code with Column One code"
+        }
+      ],
+      "pass": true,
+      "name": "nissen_enterolysis",
+      "label": "Nissen fundoplication + enterolysis",
+      "specialty": "Foregut",
+      "codes": [
+        "43280",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 43280 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/17-nissen_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 43.94,
+      "payableWrvu": 25.94,
+      "totalText": "25.94",
+      "subtitleText": "$1,424.88 · selected 43.94 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "43281",
+          "desc": "Laparoscopy, surgical, repair of paraesophageal hernia",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 25.94,
+          "payableWrvu": 25.94,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 43281 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 43281 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparoscopy, surgical, repair of paraesophageal hernia / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 43281 / Column 2 CPT 44005. Misuse of Column Two code with Column One code"
+        }
+      ],
+      "pass": true,
+      "name": "paraesophageal_hernia_enterolysis",
+      "label": "Paraesophageal hernia repair + enterolysis",
+      "specialty": "Hernia/Foregut",
+      "codes": [
+        "43281",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 43281 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/18-paraesophageal_hernia_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 46.67,
+      "payableWrvu": 28.67,
+      "totalText": "28.67",
+      "subtitleText": "$1,618.27 · selected 46.67 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "43644",
+          "desc": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y gastric bypass",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 28.67,
+          "payableWrvu": 28.67,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 43644 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 43644 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y gastric bypass / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 43644 / Column 2 CPT 44005. Misuse of Column Two code with Column One code"
+        }
+      ],
+      "pass": true,
+      "name": "gastric_bypass_enterolysis",
+      "label": "Gastric bypass + enterolysis",
+      "specialty": "General Surgery",
+      "codes": [
+        "43644",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 43644 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/19-gastric_bypass_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 37.87,
+      "payableWrvu": 19.87,
+      "totalText": "19.87",
+      "subtitleText": "$1,000.02 · selected 37.87 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "43775",
+          "desc": "Laparoscopic longitudinal gastrectomy / sleeve gastrectomy",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 19.87,
+          "payableWrvu": 19.87,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 43775 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 43775 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Laparoscopic longitudinal gastrectomy / sleeve gastrectomy / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 43775 / Column 2 CPT 44005. CPT Separate procedure definition"
+        }
+      ],
+      "pass": true,
+      "name": "sleeve_enterolysis",
+      "label": "Sleeve gastrectomy + enterolysis",
+      "specialty": "General Surgery",
+      "codes": [
+        "43775",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 43775 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/20-sleeve_enterolysis.png"
+    },
+    {
+      "state": "BLOCKED",
+      "selectedWrvu": 50.69,
+      "payableWrvu": 32.69,
+      "totalText": "32.69",
+      "subtitleText": "$1,573.85 · selected 50.69 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "hasSelectedPayable": true,
+      "hasWhy": true,
+      "lines": [
+        {
+          "cpt": "35081",
+          "desc": "Direct repair of aneurysm, abdominal aorta",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 32.69,
+          "payableWrvu": 32.69,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 35081 under the active NCCI edit used by this Case Builder."
+          ],
+          "payableExclusionReason": "Bundled into CPT 35081 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+          "payableExclusionEdit": "Direct repair of aneurysm, abdominal aorta / Enterolysis (freeing of intestinal adhesion) CMS NCCI Column 1 CPT 35081 / Column 2 CPT 44005. Standards of medical/surgical practice"
+        }
+      ],
+      "pass": true,
+      "name": "aaa_repair_enterolysis",
+      "label": "Abdominal aortic aneurysm repair + enterolysis",
+      "specialty": "Vascular",
+      "codes": [
+        "35081",
+        "44005"
+      ],
+      "expected": "blocked",
+      "suppressionReason": "Bundled into CPT 35081 under a non-bypassable NCCI edit. This line is selected/performed for review but is not separately payable and is excluded from the payable estimate.",
+      "screenshot": "top25_workflow_screenshots/21-aaa_repair_enterolysis.png"
+    },
+    {
+      "state": "CLEAN",
+      "selectedWrvu": 32.43,
+      "payableWrvu": 32.43,
+      "totalText": "32.43",
+      "subtitleText": "$1,649.34 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "hasHardStop": false,
+      "hasSelectedPayable": false,
+      "hasWhy": false,
+      "lines": [
+        {
+          "cpt": "15734",
+          "desc": "Muscle, myocutaneous, or fasciocutaneous flap; trunk",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 22.43,
+          "payableWrvu": 22.43,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "49593",
+          "desc": "Repair initial incisional/ventral hernia, reducible; 3-10 cm",
+          "rank": "Secondary #1",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 10,
+          "payableWrvu": 10,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        }
+      ],
+      "pass": true,
+      "name": "tar_component_separation_control",
+      "label": "TAR/component separation control",
+      "specialty": "Hernia",
+      "codes": [
+        "49593",
+        "15734"
+      ],
+      "expected": "control",
+      "suppressionReason": "No suppression expected",
+      "screenshot": "top25_workflow_screenshots/22-tar_component_separation_control.png"
+    },
+    {
+      "state": "CLEAN",
+      "selectedWrvu": 29.87,
+      "payableWrvu": 29.87,
+      "totalText": "29.87",
+      "subtitleText": "$1,306.31 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "hasHardStop": false,
+      "hasSelectedPayable": false,
+      "hasWhy": false,
+      "lines": [
+        {
+          "cpt": "60500",
+          "desc": "Parathyroidectomy",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 15.21,
+          "payableWrvu": 15.21,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "60240",
+          "desc": "Thyroidectomy, total or complete",
+          "rank": "Secondary #1",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 14.66,
+          "payableWrvu": 14.66,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        }
+      ],
+      "pass": true,
+      "name": "thyroid_parathyroid_control",
+      "label": "Thyroidectomy + parathyroidectomy control",
+      "specialty": "Endocrine",
+      "codes": [
+        "60240",
+        "60500"
+      ],
+      "expected": "control",
+      "suppressionReason": "No suppression expected",
+      "screenshot": "top25_workflow_screenshots/23-thyroid_parathyroid_control.png"
+    },
+    {
+      "state": "CLEAN",
+      "selectedWrvu": 17.78,
+      "payableWrvu": 17.78,
+      "totalText": "17.78",
+      "subtitleText": "$999.52 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "hasHardStop": false,
+      "hasSelectedPayable": false,
+      "hasWhy": false,
+      "lines": [
+        {
+          "cpt": "49002",
+          "desc": "Reopening of recent laparotomy",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 17.19,
+          "payableWrvu": 17.19,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "97606",
+          "desc": "Negative pressure wound therapy (wound VAC), >50 sq cm",
+          "rank": "Secondary #1",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 0.59,
+          "payableWrvu": 0.59,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        }
+      ],
+      "pass": true,
+      "name": "open_abdomen_vac_control",
+      "label": "Open abdomen re-exploration + VAC control",
+      "specialty": "Trauma/ACS",
+      "codes": [
+        "49002",
+        "97606"
+      ],
+      "expected": "control",
+      "suppressionReason": "No suppression expected",
+      "screenshot": "top25_workflow_screenshots/24-open_abdomen_vac_control.png"
+    },
+    {
+      "state": "CLEAN",
+      "selectedWrvu": 13.48,
+      "payableWrvu": 13.48,
+      "totalText": "13.48",
+      "subtitleText": "$616.25 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "hasHardStop": false,
+      "hasSelectedPayable": false,
+      "hasWhy": false,
+      "lines": [
+        {
+          "cpt": "21811",
+          "desc": "Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs",
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 10.52,
+          "payableWrvu": 10.52,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        },
+        {
+          "cpt": "32551",
+          "desc": "Tube thoracostomy, includes connection to drainage system",
+          "rank": "Secondary #1",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "effWrvu": 2.96,
+          "payableWrvu": 2.96,
+          "conflicts": [],
+          "payableExclusionReason": "",
+          "payableExclusionEdit": ""
+        }
+      ],
+      "pass": true,
+      "name": "rib_fixation_chest_tube_control",
+      "label": "Rib fixation + chest tube control",
+      "specialty": "Thoracic/Trauma",
+      "codes": [
+        "21811",
+        "32551"
+      ],
+      "expected": "control",
+      "suppressionReason": "No suppression expected",
+      "screenshot": "top25_workflow_screenshots/25-rib_fixation_chest_tube_control.png"
+    }
+  ]
+}

@@ -8,7 +8,10 @@ function readJson(file) {
 const active = readJson('data/ncci/active/cms_ncci_ptp_active.json');
 const manifest = readJson('data/ncci/active/manifest.json');
 const audit = readJson('data/ncci/versions/2026-Q3/import-audit.json');
-const behavior = readJson('data/ncci/versions/2026-Q3/surgical-modifier0-behavior-change-list.json');
+const behaviorFile = manifest.activationMode === 'phase1_surgical_modifier0_reduced_159'
+  ? 'data/ncci/versions/2026-Q3/surgical-modifier0-reduced-159-behavior-change-list.json'
+  : 'data/ncci/versions/2026-Q3/surgical-modifier0-behavior-change-list.json';
+const behavior = readJson(behaviorFile);
 
 const requiredPairs = [
   '44055|49000',
@@ -26,10 +29,10 @@ if (active.schema !== 'freecpt.ncci.ptp.v1') failures.push('Unexpected active sc
 if (active.version !== '2026-Q3') failures.push('Unexpected active CMS version');
 if (active.modifier1Activated !== false) failures.push('Phase 1 must not activate modifier-1 edits');
 if ((active.ptp_pairs || []).some(pair => String(pair.modifier_indicator) !== '0')) failures.push('Active dataset contains a non-modifier-0 pair');
-if (active.pairCount !== 500 || (active.ptp_pairs || []).length !== 500) failures.push('Active dataset must contain exactly 500 Phase 1 pairs');
+if (active.pairCount !== manifest.pairCount || (active.ptp_pairs || []).length !== manifest.pairCount) failures.push('Active dataset pair count must match manifest');
 if (manifest.activeVersion !== active.version) failures.push('Manifest activeVersion does not match active dataset');
 if (manifest.pairCount !== active.pairCount) failures.push('Manifest pairCount does not match active dataset');
-if (audit.activatedPairs !== active.pairCount) failures.push('Import audit activatedPairs does not match active dataset');
+if (audit.activatedPairs < active.pairCount) failures.push('Import audit activatedPairs is smaller than active dataset');
 if (behavior.behaviorChangeCount !== active.pairCount) failures.push('Behavior-change count does not match active dataset');
 
 for (const key of requiredPairs) {

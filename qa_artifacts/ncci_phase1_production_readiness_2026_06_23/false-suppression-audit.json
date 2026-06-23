@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-06-23T23:50:37.831Z",
+  "reviewedActivePairCount": 159,
+  "potentialConfusionCount": 15,
+  "summary": "No pair was identified as a true CMS-policy false suppression. These are specific combinations surgeons may commonly document/report and may be confused by because real work is selected but not separately payable.",
+  "pairs": [
+    {
+      "column1": "44120",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Enterectomy, resection of small intestine; single resection and anastomosis",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Small bowel resection with extensive adhesiolysis is commonly documented by surgeons; Medicare NCCI modifier-0 still suppresses 44005, so the UI must emphasize selected/performed vs payable.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44140",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Colectomy, partial; with anastomosis",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Colectomy with lysis of adhesions is a common operative-note combination; surgeons may expect effort credit, but 44005 is not separately payable under this modifier-0 relationship.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44143",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure)",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Hartmann procedure often involves adhesiolysis in reoperative abdomen; likely reported by surgeons, but should be suppressed for payable wRVU.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44620",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Closure of enterostomy, large or small intestine; without resection and anastomosis",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Ostomy reversal frequently involves adhesiolysis; common user-confusion risk because 44005 work feels real but is bundled.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44625",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Closure of enterostomy, large or small intestine; with resection and anastomosis other than colorectal",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Ostomy reversal with resection/anastomosis plus adhesiolysis is clinically plausible and commonly documented; NCCI still suppresses separate 44005 payable credit.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44310",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Ileostomy or jejunostomy, non-tube",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Ostomy creation with adhesiolysis can be clinically real; risk is surgeon frustration if they think the work disappeared.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44055",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Ladd procedure inherently includes lysis/reduction work; surgeons may document adhesiolysis, but separate 44005 payment should be suppressed.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "44055",
+      "column2": "49000",
+      "found": true,
+      "column1Description": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+      "column2Description": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+      "payableWrvuSuppressed": 12.23,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Known issue case; exploration is inherent to the Ladd/laparotomy operation and should be suppressed.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "38100",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Splenectomy; total (separate procedure)",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Trauma splenectomy may involve adhesiolysis in prior-operation abdomen; legitimate work may be documented but 44005 is bundled.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "43280",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Laparoscopy, surgical, esophagogastroduodenoscopy fundoplasty (eg, Nissen, Toupet procedures)",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "Misuse of Column Two code with Column One code",
+      "concern": "Foregut fundoplication in reoperative abdomen can involve adhesiolysis; suppression is correct but may need clear explanation.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "43281",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Laparoscopy, surgical, repair of paraesophageal hernia",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "Misuse of Column Two code with Column One code",
+      "concern": "Paraesophageal hernia repair commonly involves mediastinal/abdominal dissection; separate enterolysis can be confusing.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "43644",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Laparoscopy, surgical, gastric restrictive procedure; Roux-en-Y gastric bypass",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "Misuse of Column Two code with Column One code",
+      "concern": "Bariatric bypass with adhesiolysis is a common surgeon-reported combination; NCCI modifier-0 suppresses 44005.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "43775",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Laparoscopic longitudinal gastrectomy / sleeve gastrectomy",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Sleeve gastrectomy with adhesiolysis may be documented; risk is user expectation that adhesiolysis adds payable wRVU.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "47120",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Hepatectomy, resection of liver; partial lobectomy",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "CPT Separate procedure definition",
+      "concern": "Hepatectomy with adhesiolysis in reoperative upper abdomen can be real work; payable suppression should be explicit.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    },
+    {
+      "column1": "35081",
+      "column2": "44005",
+      "found": true,
+      "column1Description": "Direct repair of aneurysm, abdominal aorta",
+      "column2Description": "Enterolysis (freeing of intestinal adhesion)",
+      "payableWrvuSuppressed": 18,
+      "rationale": "Standards of medical/surgical practice",
+      "concern": "Open abdominal vascular exposure/AAA repair can require adhesiolysis; vascular users may expect separate reporting but NCCI suppresses.",
+      "recommendation": "Keep in 159-pair activation, but monitor post-deploy search/report feedback and keep warning-card text explicit."
+    }
+  ]
+}
