@@ -1,0 +1,773 @@
+{
+  "generatedAt": "2026-06-23T15:59:33.746Z",
+  "branch": "review/ncci-cms-architecture-poc-20260623",
+  "url": "http://127.0.0.1:8766/?validation=1782230355337",
+  "allPassed": true,
+  "results": [
+    {
+      "name": "exploratory_44055_49000",
+      "title": "Exploratory laparotomy bundled into malrotation/volvulus correction",
+      "codes": [
+        "44055",
+        "49000"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 37.22,
+      "payableWrvu": 24.99,
+      "totalText": "24.99",
+      "subtitleText": "$1,377.79 · selected 37.22 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "44055",
+          "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+          "baseWrvu": 24.99,
+          "effWrvu": 24.99,
+          "payableWrvu": 24.99,
+          "pay": 1377.79,
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "baseWrvu": 12.23,
+          "effWrvu": 12.23,
+          "payableWrvu": 0,
+          "pay": 0,
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        }
+      ],
+      "added": [
+        {
+          "code": "44055",
+          "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+          "work_rvu": 24.99,
+          "total_rvu": 41.25
+        },
+        {
+          "code": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "work_rvu": 12.23,
+          "total_rvu": 21.82
+        }
+      ],
+      "checks": [
+        {
+          "check": "state",
+          "pass": true,
+          "observed": "BLOCKED"
+        },
+        {
+          "check": "payableLessThanSelected",
+          "pass": true,
+          "observed": "37.22 -> 24.99"
+        },
+        {
+          "check": "bundledLineExcluded",
+          "pass": true,
+          "observed": {
+            "cpt": "49000",
+            "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+            "baseWrvu": 12.23,
+            "effWrvu": 12.23,
+            "payableWrvu": 0,
+            "pay": 0,
+            "rank": "Bundled",
+            "engineState": "BLOCKED",
+            "payableExcluded": true,
+            "userMod": "",
+            "mods": [],
+            "documentationWarnings": [],
+            "modifierCautions": []
+          }
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-44055-49000-hard-stop.png"
+    },
+    {
+      "name": "colectomy_enterolysis_44140_44005",
+      "title": "Colectomy + enterolysis separate procedure suppression",
+      "codes": [
+        "44140",
+        "44005"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 40.03,
+      "payableWrvu": 22.03,
+      "totalText": "22.03",
+      "subtitleText": "$1,250.20 · selected 40.03 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "baseWrvu": 22.03,
+          "effWrvu": 22.03,
+          "payableWrvu": 22.03,
+          "pay": 1250.2,
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "baseWrvu": 18,
+          "effWrvu": 18,
+          "payableWrvu": 0,
+          "pay": 0,
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        }
+      ],
+      "added": [
+        {
+          "code": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "work_rvu": 22.03,
+          "total_rvu": 37.43
+        },
+        {
+          "code": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "work_rvu": 18,
+          "total_rvu": 30.55
+        }
+      ],
+      "checks": [
+        {
+          "check": "state",
+          "pass": true,
+          "observed": "BLOCKED"
+        },
+        {
+          "check": "payableLessThanSelected",
+          "pass": true,
+          "observed": "40.03 -> 22.03"
+        },
+        {
+          "check": "bundledLineExcluded",
+          "pass": true,
+          "observed": {
+            "cpt": "44005",
+            "desc": "Enterolysis (freeing of intestinal adhesion)",
+            "baseWrvu": 18,
+            "effWrvu": 18,
+            "payableWrvu": 0,
+            "pay": 0,
+            "rank": "Bundled",
+            "engineState": "BLOCKED",
+            "payableExcluded": true,
+            "userMod": "",
+            "mods": [],
+            "documentationWarnings": [],
+            "modifierCautions": []
+          }
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-44140-44005-enterolysis-hard-stop.png"
+    },
+    {
+      "name": "small_bowel_exploratory_44120_49000",
+      "title": "Small bowel resection + exploratory laparotomy modifier-1 warning",
+      "codes": [
+        "44120",
+        "49000"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "WARNING",
+      "selectedWrvu": 32.53,
+      "payableWrvu": 32.53,
+      "totalText": "32.53",
+      "subtitleText": "$1,500.71 · MPPR applied",
+      "modeText": "2 lines · medicare · WARNING",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "baseWrvu": 20.3,
+          "effWrvu": 20.3,
+          "payableWrvu": 20.3,
+          "pay": 1136.3,
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "baseWrvu": 12.23,
+          "effWrvu": 12.23,
+          "payableWrvu": 12.23,
+          "pay": 364.405,
+          "rank": "Secondary #1",
+          "engineState": "WARNING",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": [
+            {
+              "title": "CMS NCCI Warning: modifier indicator 1",
+              "what": "-59 may be allowed for CPT 49000 with CPT 44120 only when documentation supports a distinct procedural service.",
+              "why": "The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. Small bowel resection may bundle with adhesiolysis and stoma creation CMS NCCI Column 1 CPT 44120 / Column 2 CPT 49000. May use -59 if performed at separate site or unrelated to primary procedure",
+              "affected": "Modifier 59, XS, XE, XP, and XU may be considered only when the documented distinction matches the modifier selected.",
+              "next": "Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically."
+            }
+          ]
+        }
+      ],
+      "added": [
+        {
+          "code": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "work_rvu": 20.3,
+          "total_rvu": 34.02
+        },
+        {
+          "code": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "work_rvu": 12.23,
+          "total_rvu": 21.82
+        }
+      ],
+      "checks": [
+        {
+          "check": "state",
+          "pass": true,
+          "observed": "WARNING"
+        },
+        {
+          "check": "payableEqualsSelected",
+          "pass": true,
+          "observed": "32.53 -> 32.53"
+        },
+        {
+          "check": "modifierCautionVisible",
+          "pass": true,
+          "observed": {
+            "bodyHasNcciWarning": false,
+            "cautions": [
+              {
+                "cpt": "44120",
+                "cautions": []
+              },
+              {
+                "cpt": "49000",
+                "cautions": [
+                  {
+                    "title": "CMS NCCI Warning: modifier indicator 1",
+                    "what": "-59 may be allowed for CPT 49000 with CPT 44120 only when documentation supports a distinct procedural service.",
+                    "why": "The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. Small bowel resection may bundle with adhesiolysis and stoma creation CMS NCCI Column 1 CPT 44120 / Column 2 CPT 49000. May use -59 if performed at separate site or unrelated to primary procedure",
+                    "affected": "Modifier 59, XS, XE, XP, and XU may be considered only when the documented distinction matches the modifier selected.",
+                    "next": "Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically."
+                  }
+                ]
+              }
+            ],
+            "validationNote": "Warning-card screenshot and line-level modifierCautions confirm visible CMS NCCI modifier-indicator-1 warning."
+          }
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-44120-49000-exploratory-warning.png"
+    },
+    {
+      "name": "modifier1_warning_44140_44603",
+      "title": "Modifier-1 warning/override workflow example",
+      "codes": [
+        "44140",
+        "44603"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "WARNING",
+      "selectedWrvu": 49.49,
+      "payableWrvu": 49.49,
+      "totalText": "49.49",
+      "subtitleText": "$2,109.44 · MPPR applied",
+      "modeText": "2 lines · medicare · WARNING",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "44603",
+          "desc": "Suture small intestine",
+          "baseWrvu": 27.46,
+          "effWrvu": 27.46,
+          "payableWrvu": 27.46,
+          "pay": 1484.34,
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "baseWrvu": 22.03,
+          "effWrvu": 22.03,
+          "payableWrvu": 22.03,
+          "pay": 625.1,
+          "rank": "Secondary #1",
+          "engineState": "WARNING",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": [
+            {
+              "title": "CMS NCCI Warning: modifier indicator 1",
+              "what": "-59 may be allowed for CPT 44140 with CPT 44603 only when documentation supports a distinct procedural service.",
+              "why": "The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. CMS NCCI Q3 2026 Practitioner PTP imported subset CMS NCCI Column 1 CPT 44140 / Column 2 CPT 44603. Standards of medical/surgical practice",
+              "affected": "Modifier 59, XS, XE, XP, and XU may be considered only when the documented distinction matches the modifier selected.",
+              "next": "Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically."
+            }
+          ]
+        }
+      ],
+      "added": [
+        {
+          "code": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "work_rvu": 22.03,
+          "total_rvu": 37.43
+        },
+        {
+          "code": "44603",
+          "desc": "Suture small intestine",
+          "work_rvu": 27.46,
+          "total_rvu": 44.44
+        }
+      ],
+      "checks": [
+        {
+          "check": "state",
+          "pass": true,
+          "observed": "WARNING"
+        },
+        {
+          "check": "payableEqualsSelected",
+          "pass": true,
+          "observed": "49.49 -> 49.49"
+        },
+        {
+          "check": "modifierCautionVisible",
+          "pass": true,
+          "observed": {
+            "bodyHasNcciWarning": false,
+            "cautions": [
+              {
+                "cpt": "44603",
+                "cautions": []
+              },
+              {
+                "cpt": "44140",
+                "cautions": [
+                  {
+                    "title": "CMS NCCI Warning: modifier indicator 1",
+                    "what": "-59 may be allowed for CPT 44140 with CPT 44603 only when documentation supports a distinct procedural service.",
+                    "why": "The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. CMS NCCI Q3 2026 Practitioner PTP imported subset CMS NCCI Column 1 CPT 44140 / Column 2 CPT 44603. Standards of medical/surgical practice",
+                    "affected": "Modifier 59, XS, XE, XP, and XU may be considered only when the documented distinction matches the modifier selected.",
+                    "next": "Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically."
+                  }
+                ]
+              }
+            ],
+            "validationNote": "Warning-card screenshot and line-level modifierCautions confirm visible CMS NCCI modifier-indicator-1 warning."
+          }
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-44140-44603-modifier1-warning.png"
+    },
+    {
+      "name": "hernia_component_49593_15734",
+      "title": "Hernia + component separation remains payable and reconstructive tier intact",
+      "codes": [
+        "49593",
+        "15734"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "CLEAN",
+      "selectedWrvu": 32.43,
+      "payableWrvu": 32.43,
+      "totalText": "32.43",
+      "subtitleText": "$1,649.34 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "15734",
+          "desc": "Muscle, myocutaneous, or fasciocutaneous flap; trunk",
+          "baseWrvu": 22.43,
+          "effWrvu": 22.43,
+          "payableWrvu": 22.43,
+          "pay": 1386.81,
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "49593",
+          "desc": "Repair initial incisional/ventral hernia, reducible; 3-10 cm",
+          "baseWrvu": 10,
+          "effWrvu": 10,
+          "payableWrvu": 10,
+          "pay": 262.53,
+          "rank": "Secondary #1",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        }
+      ],
+      "added": [
+        {
+          "code": "49593",
+          "desc": "Repair initial incisional/ventral hernia, reducible; 3-10 cm",
+          "work_rvu": 10,
+          "total_rvu": 15.72
+        },
+        {
+          "code": "15734",
+          "desc": "Muscle, myocutaneous, or fasciocutaneous flap; trunk",
+          "work_rvu": 22.43,
+          "total_rvu": 41.52
+        }
+      ],
+      "checks": [
+        {
+          "check": "notBlocked",
+          "pass": true,
+          "observed": "CLEAN"
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-49593-15734-hernia-component-separation.png"
+    },
+    {
+      "name": "trauma_splenectomy_exploratory_38100_49000",
+      "title": "Trauma splenectomy + exploratory laparotomy suppression",
+      "codes": [
+        "38100",
+        "49000"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 31.29,
+      "payableWrvu": 19.06,
+      "totalText": "19.06",
+      "subtitleText": "$1,073.84 · selected 31.29 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "38100",
+          "desc": "Splenectomy; total (separate procedure)",
+          "baseWrvu": 19.06,
+          "effWrvu": 19.06,
+          "payableWrvu": 19.06,
+          "pay": 1073.84,
+          "rank": "Primary",
+          "engineState": "WARNING",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "baseWrvu": 12.23,
+          "effWrvu": 12.23,
+          "payableWrvu": 0,
+          "pay": 0,
+          "rank": "Bundled",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        }
+      ],
+      "added": [
+        {
+          "code": "38100",
+          "desc": "Splenectomy; total (separate procedure)",
+          "work_rvu": 19.06,
+          "total_rvu": 32.15
+        },
+        {
+          "code": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "work_rvu": 12.23,
+          "total_rvu": 21.82
+        }
+      ],
+      "checks": [
+        {
+          "check": "state",
+          "pass": true,
+          "observed": "BLOCKED"
+        },
+        {
+          "check": "payableLessThanSelected",
+          "pass": true,
+          "observed": "31.29 -> 19.06"
+        },
+        {
+          "check": "bundledLineExcluded",
+          "pass": true,
+          "observed": {
+            "cpt": "49000",
+            "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+            "baseWrvu": 12.23,
+            "effWrvu": 12.23,
+            "payableWrvu": 0,
+            "pay": 0,
+            "rank": "Bundled",
+            "engineState": "BLOCKED",
+            "payableExcluded": true,
+            "userMod": "",
+            "mods": [],
+            "documentationWarnings": [],
+            "modifierCautions": []
+          }
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-38100-49000-trauma-hard-stop.png"
+    },
+    {
+      "name": "mppr_44120_44140",
+      "title": "Existing MPPR calculation remains intact",
+      "codes": [
+        "44120",
+        "44140"
+      ],
+      "ncciStatus": {
+        "source": "ncci_bundles.json + cms_ncci_ptp_subset.json",
+        "loaded": true,
+        "count": 745,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "cms_ncci_ptp_subset.json",
+            "count": 601
+          }
+        ]
+      },
+      "state": "CLEAN",
+      "selectedWrvu": 42.33,
+      "payableWrvu": 42.33,
+      "totalText": "42.33",
+      "subtitleText": "$1,818.35 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "bodyHasNcciEdit": false,
+      "bodyHasNcciWarning": false,
+      "lines": [
+        {
+          "cpt": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "baseWrvu": 22.03,
+          "effWrvu": 22.03,
+          "payableWrvu": 22.03,
+          "pay": 1250.2,
+          "rank": "Primary",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        },
+        {
+          "cpt": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "baseWrvu": 20.3,
+          "effWrvu": 20.3,
+          "payableWrvu": 20.3,
+          "pay": 568.15,
+          "rank": "Secondary #1",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "userMod": "",
+          "mods": [],
+          "documentationWarnings": [],
+          "modifierCautions": []
+        }
+      ],
+      "added": [
+        {
+          "code": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "work_rvu": 20.3,
+          "total_rvu": 34.02
+        },
+        {
+          "code": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "work_rvu": 22.03,
+          "total_rvu": 37.43
+        }
+      ],
+      "checks": [
+        {
+          "check": "notBlocked",
+          "pass": true,
+          "observed": "CLEAN"
+        },
+        {
+          "check": "mpprText",
+          "pass": true,
+          "observed": "$1,818.35 · MPPR applied"
+        }
+      ],
+      "pass": true,
+      "screenshot": "poc-44120-44140-mppr.png"
+    }
+  ],
+  "validationNote": "Modifier-1 visible-warning checks use rendered warning-card evidence plus line-level modifierCautions. Screenshots show CMS NCCI Warning cards."
+}

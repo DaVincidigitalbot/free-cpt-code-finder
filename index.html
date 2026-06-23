@@ -627,14 +627,14 @@ const SEPARATE_PROCEDURE_RULES=[
  {id:"diagnostic-knee-arthroscopy-same-knee-surgical-arthroscopy",primary_family:"same_knee_surgical_arthroscopy",primary_codes:["29850","29851","29855","29856","29866","29867","29868","29871","29873","29874","29875","29876","29877","29879","29880","29881","29882","29883","29884","29885","29886","29887","29888","29889"],secondary:"29870",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"same_joint_diagnostic_integral",requires_context:true,suppress_when:{same_joint:"knee",same_knee:true,same_encounter:true},do_not_suppress_when:["contralateral_knee","different_joint","separate_encounter","separate_session","staged_diagnostic_only","diagnostic_arthroscopy_alone","clinically_independent_diagnostic_indication"],modifier_risk:"separate_site_or_encounter_required",reason:"Diagnostic knee arthroscopy is integral to same-knee surgical arthroscopy when performed during the same encounter to accomplish the definitive arthroscopic procedure.",warning:"⚠️ CPT 29870 is a separate-procedure diagnostic knee arthroscopy code. When diagnostic knee arthroscopy is performed in the same knee and same encounter as a definitive surgical knee arthroscopy, it is generally not separately payable. If the diagnostic arthroscopy was performed on the contralateral knee, at a separate encounter/session, or for a clinically independent diagnostic indication, separate reporting may be supportable with documentation.",status:"active"},
  {id:"omentectomy-integral-to-abdominal-oncologic-debulking",primary_family:"abdominal_oncologic_debulking_or_tumor_resection",primary_codes:["45126","49203","58240","58943","58952","58956"],secondary:"49255",rule:"bundled_when_context_matches",category:"separate_procedure",relationship:"abdominal_oncologic_debulking_integral",requires_context:true,suppress_when:{omentectomy_context:["cytoreduction_debulking","included_in_parent_operation","accomplish_primary_abdominal_oncologic_operation","incidental_integral_same_abdominal_operation"],same_encounter:true,same_anatomic_region:true},do_not_suppress_when:["isolated_omental_infarction","omental_torsion","omental_mass","omental_abscess","distinct_omental_biopsy_resection","trauma_related_omental_injury","separate_encounter","clinically_independent_omental_indication"],modifier_risk:"separate_indication_or_encounter_required",reason:"Omentectomy performed for cytoreduction/debulking or to accomplish the primary abdominal oncologic operation is integral to the parent abdominal operation and is not separately payable.",warning:"⚠️ CPT 49255 is a separate-procedure omentectomy code. When omentectomy is performed for cytoreduction/debulking, to accomplish the primary abdominal oncologic operation, or as an incidental/integral part of the same abdominal operation, it is generally not separately payable. If the omentectomy was performed for isolated omental infarction or torsion, omental mass, abscess, distinct omental biopsy/resection, trauma-related omental injury, separate encounter, or another clinically independent omental indication, separate reporting may be supportable with documentation.",status:"review_package"}
 ];
-const NCCI_LOAD_STATUS={source:'ncci_bundles.json',loaded:false,count:0,error:null};
+const NCCI_LOAD_STATUS={source:'ncci_bundles.json + cms_ncci_ptp_subset.json',loaded:false,count:0,error:null,files:[]};
 window.NCCI_LOAD_STATUS=NCCI_LOAD_STATUS;
 function ncciBundleNote(column1,column2,bundle){
  return [bundle.description,'CMS NCCI Column 1 CPT '+column1+' / Column 2 CPT '+column2+'.',bundle.reason].filter(Boolean).join(' ');
 }
 function hydrateNcciFromBundles(data){
- const bundles=(data&&data.bundles)||{};
- let count=0;
+  const bundles=(data&&data.bundles)||{};
+  let count=0;
  Object.entries(bundles).forEach(([column1,bundle])=>{
   (bundle.column2_codes||[]).forEach(column2=>{
    const c1=String(column1),c2=String(column2);
@@ -648,17 +648,46 @@ function hydrateNcciFromBundles(data){
     source:data.source||NCCI_LOAD_STATUS.source
    };
    count++;
+   });
   });
- });
- return count;
+  ((data&&data.ptp_pairs)||[]).forEach(pair=>{
+   const c1=String(pair.column1||''),c2=String(pair.column2||'');
+   if(!c1||!c2)return;
+   NCCI[c1+'|'+c2]={
+    column1:c1,
+    column2:c2,
+    modifierIndicator:String(pair.modifier_indicator||pair.modifierIndicator||'0'),
+    modAllowed:String(pair.modifier_indicator||pair.modifierIndicator||'0')==='1',
+    note:[pair.description,'CMS NCCI Column 1 CPT '+c1+' / Column 2 CPT '+c2+'.',pair.rationale].filter(Boolean).join(' '),
+    rationale:pair.rationale||'CMS NCCI PTP edit',
+    source:data.source||pair.source||NCCI_LOAD_STATUS.source,
+    effectiveDate:pair.effective,
+    cmsVersion:data.version||pair.version||''
+   };
+   count++;
+  });
+  return count;
+}
+function loadNcciSource(file,required){
+ return fetch(file,{cache:'no-cache'})
+  .then(r=>{if(!r.ok)throw new Error(file+' HTTP '+r.status);return r.json();})
+  .then(data=>({file,count:hydrateNcciFromBundles(data)}))
+  .catch(err=>{
+   if(required)throw err;
+   console.warn('Optional NCCI source skipped:',err&&err.message?err.message:String(err));
+   return {file,count:0,optional:true,error:err&&err.message?err.message:String(err)};
+  });
 }
 function loadNcciBundles(){
- return fetch('ncci_bundles.json',{cache:'no-cache'})
-  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-  .then(data=>{
-   const count=hydrateNcciFromBundles(data);
+ return Promise.all([
+  loadNcciSource('ncci_bundles.json',true),
+  loadNcciSource('cms_ncci_ptp_subset.json',false)
+ ])
+  .then(results=>{
+   const count=results.reduce((sum,item)=>sum+item.count,0);
    NCCI_LOAD_STATUS.loaded=true;
    NCCI_LOAD_STATUS.count=count;
+   NCCI_LOAD_STATUS.files=results;
    NCCI_LOAD_STATUS.error=null;
    return count;
   })
@@ -859,7 +888,7 @@ function modifierCautionEducation(type,ctx={}){
  const line=ctx.line||{};
  const selected=ctx.selected?'-'+ctx.selected:'the selected modifier';
  const edit=ctx.edit||{};
- if(type==='ncci_modifier_allowed')return {title:'Documentation required',what:selected+' may be allowed for CPT '+line.cpt+' with CPT '+primary.cpt+' only when documentation supports a distinct procedural service.',why:'The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. '+(edit.note||''),affected:affectedDistinctModifiers()+' may be considered only when the documented distinction matches the modifier selected.',next:'Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically.'};
+ if(type==='ncci_modifier_allowed')return {title:'CMS NCCI Warning: modifier indicator 1',what:selected+' may be allowed for CPT '+line.cpt+' with CPT '+primary.cpt+' only when documentation supports a distinct procedural service.',why:'The NCCI edit is documentation-dependent. Modifier indicator 1 means the pair may be bypassed with an appropriate NCCI-associated modifier, but the modifier is not automatically appropriate just because the edit allows one. '+(edit.note||''),affected:affectedDistinctModifiers()+' may be considered only when the documented distinction matches the modifier selected.',next:'Confirm a separate site, separate encounter, separate lesion, separate organ/structure, separate practitioner, or other payer-recognized distinction. Do not append modifier 59 or an X-modifier automatically.'};
  return {title:'Documentation required',what:'The selected modifier may be allowed, but documentation must support it.',why:'The rule set allows the modifier only when the clinical facts support a distinct service.',affected:selected,next:'Review the operative documentation and payer policy before final coding.'};
 }
 function addModifierCaution(line,type,ctx={}){const caution=modifierCautionEducation(type,{...ctx,line});line.modifierCautions=line.modifierCautions||[];line.modifierCautions.push(caution)}
@@ -899,7 +928,11 @@ function lineWarningCards(line){
    'Separate reporting may be supportable when documentation shows a distinct encounter, distinct anatomic site, or clinically independent indication.'
   ]));
  }
- const docWarnings=uniqueStrings([...(line.documentationWarnings||[]),...(line.modifierCautions||[]).map(d=>[d.what,d.why,d.next].filter(Boolean).join(' '))]);
+ const modifierWarnings=uniqueStrings((line.modifierCautions||[]).map(d=>[d.what,d.why,d.next].filter(Boolean).join(' ')));
+ if(!line.payableExcluded&&modifierWarnings.length){
+  cards.push(warningCard('doc','CMS NCCI Warning','Modifier indicator 1. Payable estimate remains included, but override depends on documentation.',modifierWarnings));
+ }
+ const docWarnings=uniqueStrings([...(line.documentationWarnings||[])]);
  if(!line.payableExcluded&&docWarnings.length){
   cards.push(warningCard('doc','Documentation Opportunity','Documentation may support additional review.',docWarnings));
  }
@@ -1275,8 +1308,13 @@ function computeMods(){
     l.rationale.push({mod:'Review',reason:item.reason+' '+String(item.warning||'').replace(/^⚠️\s*/,''),cite:'CPT separate procedure rule / CMS NCCI review-required context'});
    });
   }
-  if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
+ if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
    addModifierDenial(l,'same_side_ncci',{primary:primaryProc,edit:pairEdit});
+  }
+  if(pairEdit&&pairEdit.modAllowed&&!l.userMod){
+   addModifierCaution(l,'ncci_modifier_allowed',{primary:primaryProc,line:l,edit:pairEdit,selected:'59'});
+   l.engineState='WARNING';
+   l.rationale.push({mod:'Review',reason:'CMS NCCI modifier indicator 1 edit detected. Line remains payable, but distinct-service documentation and coder review are required before appending modifier 59 or X-modifiers.',cite:'CMS NCCI PTP modifier indicator 1'});
   }
   if(lineIsAddon(l)&&pIdx===0){
    l.conflicts.push('Add-on code cannot be ranked as primary. Parent/base code required.');
