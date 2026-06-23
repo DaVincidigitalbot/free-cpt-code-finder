@@ -1,0 +1,447 @@
+{
+  "generatedAt": "2026-06-23T16:33:57.080Z",
+  "branch": "review/ncci-phase1-surgical-pack-20260623",
+  "url": "http://127.0.0.1:8767/?phase1=1782232417574",
+  "allPassed": true,
+  "results": [
+    {
+      "name": "enterolysis_colectomy_44140_44005",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 40.03,
+      "payableWrvu": 22.03,
+      "totalText": "22.03",
+      "subtitleText": "$1,250.20 · selected 40.03 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "lines": [
+        {
+          "cpt": "44140",
+          "desc": "Colectomy, partial; with anastomosis",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 22.03,
+          "effWrvu": 22.03,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "effWrvu": 18,
+          "rank": "Bundled",
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44140 under the active NCCI edit used by this Case Builder."
+          ]
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "enterolysis_colectomy_44140_44005",
+        "codes": [
+          "44140",
+          "44005"
+        ],
+        "expect": "BLOCKED",
+        "selected": 40.03,
+        "payable": 22.03,
+        "shot": "phase1-enterolysis-colectomy-44140-44005.png"
+      },
+      "screenshot": "phase1-enterolysis-colectomy-44140-44005.png"
+    },
+    {
+      "name": "exploratory_laparotomy_44055_49000",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 37.22,
+      "payableWrvu": 24.99,
+      "totalText": "24.99",
+      "subtitleText": "$1,377.79 · selected 37.22 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "lines": [
+        {
+          "cpt": "44055",
+          "desc": "Correction of malrotation by lysis of duodenal bands and/or reduction of midgut volvulus (eg, Ladd procedure)",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 24.99,
+          "effWrvu": 24.99,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "effWrvu": 12.23,
+          "rank": "Bundled",
+          "conflicts": [
+            "CPT 49000 is bundled into CPT 44055 under the active NCCI edit used by this Case Builder."
+          ]
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "exploratory_laparotomy_44055_49000",
+        "codes": [
+          "44055",
+          "49000"
+        ],
+        "expect": "BLOCKED",
+        "selected": 37.22,
+        "payable": 24.99,
+        "shot": "phase1-exlap-44055-49000.png"
+      },
+      "screenshot": "phase1-exlap-44055-49000.png"
+    },
+    {
+      "name": "small_bowel_enterolysis_44120_44005",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 38.3,
+      "payableWrvu": 20.3,
+      "totalText": "20.30",
+      "subtitleText": "$1,136.30 · selected 38.30 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "lines": [
+        {
+          "cpt": "44120",
+          "desc": "Enterectomy, resection of small intestine; single resection and anastomosis",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 20.3,
+          "effWrvu": 20.3,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "effWrvu": 18,
+          "rank": "Bundled",
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44120 under the active NCCI edit used by this Case Builder."
+          ]
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "small_bowel_enterolysis_44120_44005",
+        "codes": [
+          "44120",
+          "44005"
+        ],
+        "expect": "BLOCKED",
+        "selected": 38.3,
+        "payable": 20.3,
+        "shot": "phase1-small-bowel-enterolysis-44120-44005.png"
+      },
+      "screenshot": "phase1-small-bowel-enterolysis-44120-44005.png"
+    },
+    {
+      "name": "ostomy_reversal_enterolysis_44620_44005",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 32.07,
+      "payableWrvu": 14.07,
+      "totalText": "14.07",
+      "subtitleText": "$803.96 · selected 32.07 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "lines": [
+        {
+          "cpt": "44620",
+          "desc": "Closure of enterostomy, large or small intestine; without resection and anastomosis",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 14.07,
+          "effWrvu": 14.07,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "effWrvu": 18,
+          "rank": "Bundled",
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44620 under the active NCCI edit used by this Case Builder."
+          ]
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "ostomy_reversal_enterolysis_44620_44005",
+        "codes": [
+          "44620",
+          "44005"
+        ],
+        "expect": "BLOCKED",
+        "selected": 32.07,
+        "payable": 14.07,
+        "shot": "phase1-ostomy-reversal-enterolysis-44620-44005.png"
+      },
+      "screenshot": "phase1-ostomy-reversal-enterolysis-44620-44005.png"
+    },
+    {
+      "name": "ostomy_creation_enterolysis_44310_44005",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 35.15,
+      "payableWrvu": 17.15,
+      "totalText": "17.15",
+      "subtitleText": "$967.62 · selected 35.15 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "lines": [
+        {
+          "cpt": "44310",
+          "desc": "Ileostomy or jejunostomy, non-tube",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 17.15,
+          "effWrvu": 17.15,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "44005",
+          "desc": "Enterolysis (freeing of intestinal adhesion)",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "effWrvu": 18,
+          "rank": "Bundled",
+          "conflicts": [
+            "CPT 44005 is bundled into CPT 44310 under the active NCCI edit used by this Case Builder."
+          ]
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "ostomy_creation_enterolysis_44310_44005",
+        "codes": [
+          "44310",
+          "44005"
+        ],
+        "expect": "BLOCKED",
+        "selected": 35.15,
+        "payable": 17.15,
+        "shot": "phase1-ostomy-creation-enterolysis-44310-44005.png"
+      },
+      "screenshot": "phase1-ostomy-creation-enterolysis-44310-44005.png"
+    },
+    {
+      "name": "tar_component_separation_49593_15734",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "CLEAN",
+      "selectedWrvu": 32.43,
+      "payableWrvu": 32.43,
+      "totalText": "32.43",
+      "subtitleText": "$1,649.34 · MPPR applied",
+      "modeText": "2 lines · medicare · CLEAN",
+      "hasHardStop": false,
+      "lines": [
+        {
+          "cpt": "15734",
+          "desc": "Muscle, myocutaneous, or fasciocutaneous flap; trunk",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 22.43,
+          "effWrvu": 22.43,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "49593",
+          "desc": "Repair initial incisional/ventral hernia, reducible; 3-10 cm",
+          "engineState": "CLEAN",
+          "payableExcluded": false,
+          "payableWrvu": 10,
+          "effWrvu": 10,
+          "rank": "Secondary #1",
+          "conflicts": []
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "tar_component_separation_49593_15734",
+        "codes": [
+          "49593",
+          "15734"
+        ],
+        "expect": "CLEAN",
+        "selected": 32.43,
+        "payable": 32.43,
+        "shot": "phase1-tar-component-separation-49593-15734.png"
+      },
+      "screenshot": "phase1-tar-component-separation-49593-15734.png"
+    },
+    {
+      "name": "trauma_splenectomy_exlap_38100_49000",
+      "ncciStatus": {
+        "source": "ncci_bundles.json + data/ncci/active/cms_ncci_ptp_active.json",
+        "loaded": true,
+        "count": 644,
+        "error": null,
+        "files": [
+          {
+            "file": "ncci_bundles.json",
+            "count": 144
+          },
+          {
+            "file": "data/ncci/active/cms_ncci_ptp_active.json",
+            "count": 500
+          }
+        ]
+      },
+      "state": "BLOCKED",
+      "selectedWrvu": 31.29,
+      "payableWrvu": 19.06,
+      "totalText": "19.06",
+      "subtitleText": "$1,073.84 · selected 31.29 wRVU",
+      "modeText": "2 lines · medicare · BLOCKED",
+      "hasHardStop": true,
+      "lines": [
+        {
+          "cpt": "38100",
+          "desc": "Splenectomy; total (separate procedure)",
+          "engineState": "WARNING",
+          "payableExcluded": false,
+          "payableWrvu": 19.06,
+          "effWrvu": 19.06,
+          "rank": "Primary",
+          "conflicts": []
+        },
+        {
+          "cpt": "49000",
+          "desc": "Exploratory laparotomy, exploratory celiotomy with or without biopsy(s)",
+          "engineState": "BLOCKED",
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "effWrvu": 12.23,
+          "rank": "Bundled",
+          "conflicts": [
+            "CPT 49000 is bundled into CPT 38100 under the active NCCI edit used by this Case Builder."
+          ]
+        }
+      ],
+      "pass": true,
+      "expected": {
+        "name": "trauma_splenectomy_exlap_38100_49000",
+        "codes": [
+          "38100",
+          "49000"
+        ],
+        "expect": "BLOCKED",
+        "selected": 31.29,
+        "payable": 19.06,
+        "shot": "phase1-trauma-splenectomy-exlap-38100-49000.png"
+      },
+      "screenshot": "phase1-trauma-splenectomy-exlap-38100-49000.png"
+    }
+  ]
+}
