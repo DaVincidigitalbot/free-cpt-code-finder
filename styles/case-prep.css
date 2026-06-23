@@ -15,6 +15,9 @@
 .case-prep-panel{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:18px}
 .case-prep-panel h3{margin-top:0}
 .case-prep-callout{border-left:4px solid var(--ox);background:var(--ox2);padding:16px 18px;border-radius:0 8px 8px 0;margin:18px 0}
+.case-prep-section-header{max-width:760px;margin:0 0 18px}
+.case-prep-section-header h2{margin-bottom:6px}
+.case-prep-section-header p{margin:0;color:var(--ink2)}
 .anatomy-diagram{display:grid;gap:12px;margin:16px 0}
 .anatomy-map{position:relative;min-height:420px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,var(--paper),var(--white));overflow:hidden}
 .anatomy-map svg,.anatomy-map img{display:block;width:100%;height:auto}
@@ -89,7 +92,19 @@
 .case-prep-table-scroll{max-width:100%;overflow-x:auto}
 .case-prep-table-scroll table{min-width:620px}
 .fccf-report-launch{max-width:calc(100vw - 28px)!important}
-@media(max-width:800px){.case-prep-two{grid-template-columns:1fr}.pimp-question{grid-template-columns:1fr}.pimp-level{justify-self:start}.case-prep-hero{padding-top:12px}.case-challenge-header{display:block}.case-challenge-badge{display:inline-block;margin-top:10px}.case-challenge-grid{grid-template-columns:1fr}.case-challenge-grid section,.case-challenge-grid section:nth-child(2n),.case-challenge-grid section:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.case-challenge-grid section:last-child{border-bottom:0}}
+.watch-operation-section{background:linear-gradient(180deg,var(--white),var(--paper))}
+.tar-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.tar-video-card{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);border-radius:8px;background:var(--white);overflow:hidden}
+.tar-video-copy{padding:16px 16px 12px;border-bottom:1px solid var(--line)}
+.tar-video-label{margin:0 0 6px;font-family:var(--font-mono);font-size:.78rem;font-weight:800;text-transform:uppercase;color:var(--ox);letter-spacing:.06em}
+.tar-video-copy h3{margin:0 0 6px;font-size:1.1rem}
+.tar-video-copy p:last-child{margin:0;color:var(--ink2);font-size:.94rem}
+.tar-video-player{display:block;width:100%;aspect-ratio:16/9;height:auto;background:#111827;object-fit:contain}
+.tar-animation-frame{border:0}
+.case-prep-learning-objectives{margin-top:16px;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:16px}
+.case-prep-learning-objectives h3{margin:0 0 10px;font-size:1rem}
+.case-prep-learning-objectives ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 16px;margin:0;padding-left:18px;color:var(--ink2)}
+@media(max-width:800px){.case-prep-two{grid-template-columns:1fr}.pimp-question{grid-template-columns:1fr}.pimp-level{justify-self:start}.case-prep-hero{padding-top:12px}.case-challenge-header{display:block}.case-challenge-badge{display:inline-block;margin-top:10px}.case-challenge-grid{grid-template-columns:1fr}.case-challenge-grid section,.case-challenge-grid section:nth-child(2n),.case-challenge-grid section:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.case-challenge-grid section:last-child{border-bottom:0}.tar-video-grid{grid-template-columns:1fr}.tar-video-copy{padding:14px}.case-prep-learning-objectives ul{grid-template-columns:1fr}}
 @media print{.hdr,.site-footer,.pimp-toolbar,.share-print,.site-menu-btn{display:none!important}.pimp-answer{max-height:none!important;border-top:1px solid var(--line)!important}.case-prep-section{break-inside:avoid}}
 
 .case-prep-visual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}.case-prep-visual{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:14px;overflow:hidden}.case-prep-visual h3{margin:0 0 8px;font-size:1rem}.case-prep-visual svg{width:100%;height:auto;display:block}.surgeon-pearl{border-left:5px solid var(--moss);background:var(--ox2);padding:18px;border-radius:0 8px 8px 0;font-size:1.05rem}.case-prep-warning-list li strong{color:var(--ink)}
