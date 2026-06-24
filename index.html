@@ -14,6 +14,8 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NPFGH437ZS');</script>
 <link rel="stylesheet" href="/styles/app-mode.css">
 <script defer src="/js/app_mode.js"></script>
+<script>window.FCCF_TELEMETRY_CONFIG={enabled:false,endpoint:'',sampleRate:1};</script>
+<script defer src="/js/privacy-safe-telemetry.js"></script>
 <style>
 :root{color-scheme:light;--paper:#F7F7F3;--ink:#0F1720;--ink2:#4A5563;--ink3:#7B8794;--line:#E5E7EB;--line2:#D5DAE1;--ox:#23577B;--ox2:#EAF2F8;--warn:#6B4F2A;--white:#FFFFFF;--steel:#1E3A5F;--moss:#2D5A3D}
 html[data-theme='dark']{color-scheme:dark;--paper:#0B1220;--ink:#E6EDF5;--ink2:#B8C2CF;--ink3:#8A97A8;--line:#223049;--line2:#30415D;--ox:#7EC8FF;--ox2:#102235;--warn:#E8C07D;--white:#111A2A;--steel:#9BC3E6;--moss:#63B883;--search-text:#0F1720;--search-placeholder:#5B6574}
@@ -1498,6 +1500,11 @@ function recalc(why){
  renderAppCaseSummary();
  renderDxList();
  log(`TOTALS wRVU=${twrvu.toFixed(2)} pay=${formatCurrency(tpay)} (${why})`);
+ if(window.FCCFTelemetry&&caseLines.length){
+  const specialtyCategory=typeof searchState==='undefined'?'':searchState.specialtyFilter;
+  window.FCCFTelemetry.emitCaseSnapshot(caseLines,{specialtyCategory});
+  window.FCCFTelemetry.emitNcciEvents(caseLines);
+ }
 }
 
 // ===== SEGMENTED CONTROLS =====
@@ -2310,11 +2317,15 @@ function logSuggestionAnalytics(eventType,item){
  const key=eventType+':'+normalized+':'+(item?.code||'');
  if(eventType==='shown'&&searchState.suggestionShownLogged.has(key))return;
  if(eventType==='shown')searchState.suggestionShownLogged.add(key);
- fetch(REPORT_BACKEND_URL+'/suggestion-analytics',{
-  method:'POST',
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({searchTerm:searchState.searchQuery,eventType,clickedCpt:item?.code||'',pagePath:location.pathname})
- }).catch(()=>{});
+ if(window.FCCFTelemetry){
+  window.FCCFTelemetry.emitSearchEvent(searchState.searchQuery,{
+   resultCount:searchState.searchResults.length,
+   selectedCode:item?.code||'',
+   results:searchState.searchResults,
+   success:!!item,
+   didYouMeanUsed:eventType==='clicked'
+  });
+ }
 }
 
 function renderSuggestedCptCard(){
@@ -2387,11 +2398,9 @@ function logZeroResultSearch(query,resultCount){
  const normalized=normalizeSearchValue(query);
  if(!normalized||normalized.length<2||resultCount!==0||searchState.zeroResultLogged.has(normalized))return;
  searchState.zeroResultLogged.add(normalized);
- fetch(REPORT_BACKEND_URL+'/search-analytics',{
-  method:'POST',
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({searchTerm:String(query||'').trim(),resultCount:0,pagePath:location.pathname})
- }).catch(()=>{});
+ if(window.FCCFTelemetry){
+  window.FCCFTelemetry.emitSearchEvent(query,{resultCount:0,success:false,results:[]});
+ }
 }
 
 function filterSpecialtyCards(){
@@ -2541,6 +2550,15 @@ function addAutocompleteResultToCase(item){
 function selectAutocompleteResult(index){
  const item=searchState.searchResults[index];
  if(!item)return;
+ if(window.FCCFTelemetry){
+  window.FCCFTelemetry.emitSearchEvent(searchState.searchQuery,{
+   resultCount:searchState.searchResults.length,
+   selectedCode:item.code,
+   results:searchState.searchResults,
+   success:true,
+   didYouMeanUsed:false
+  });
+ }
  addAutocompleteResultToCase(item);
  document.getElementById('q').value=`${item.code} ${item.description}`.trim();
  searchState.searchResults=[];

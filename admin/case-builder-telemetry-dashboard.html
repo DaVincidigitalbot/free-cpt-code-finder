@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Case Builder Telemetry Dashboard | FreeCPTCodeFinder</title>
+  <style>
+    :root{--bg:#f5f7fb;--ink:#101828;--muted:#667085;--line:#d9e0ea;--panel:#fff;--blue:#23577b;--green:#207a4c;--red:#a63a3a}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+    header{background:#0f2233;color:white;padding:22px 28px}
+    header h1{margin:0;font-size:24px}
+    header p{margin:6px 0 0;color:#c8d5e2}
+    main{padding:24px 28px 40px;max-width:1360px;margin:0 auto}
+    .privacy{border:1px solid #b9d6c7;background:#edf8f1;color:#123d25;padding:12px 14px;border-radius:8px;margin-bottom:18px;font-weight:650}
+    .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+    .metric,.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+    .metric{padding:14px}
+    .metric span{display:block;color:var(--muted);font-size:12px;font-weight:750;text-transform:uppercase;letter-spacing:.04em}
+    .metric strong{display:block;margin-top:6px;font-size:28px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .panel{padding:16px;min-width:0}
+    .panel h2{margin:0 0 12px;font-size:16px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+    .num{text-align:right;font-variant-numeric:tabular-nums}
+    .pill{display:inline-block;border-radius:999px;padding:2px 8px;background:#e8f0f7;color:var(--blue);font-weight:750;font-size:12px}
+    .hard{background:#fff1f1;color:var(--red)}
+    .ok{background:#edf8f1;color:var(--green)}
+    @media(max-width:980px){.metrics,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Case Builder Telemetry Dashboard</h1>
+    <p>Review-only dashboard using sample aggregate data. No production telemetry is enabled.</p>
+  </header>
+  <main>
+    <div class="privacy">Privacy gate: aggregate CPT workflow data only. No IPs, emails, user IDs, free text, operative notes, MRNs, patient names, or dates of service.</div>
+    <section class="metrics" id="metrics"></section>
+    <section class="grid">
+      <div class="panel"><h2>Top CPT Combinations</h2><table id="combos"></table></div>
+      <div class="panel"><h2>Top NCCI-Triggered Combinations</h2><table id="ncci"></table></div>
+      <div class="panel"><h2>Top Suppressed wRVU Combinations</h2><table id="suppressed"></table></div>
+      <div class="panel"><h2>Modifier Usage</h2><table id="mods"></table></div>
+      <div class="panel"><h2>Most Searched CPTs</h2><table id="searches"></table></div>
+      <div class="panel"><h2>Common Case Builder Workflows</h2><table id="workflows"></table></div>
+    </section>
+  </main>
+  <script>
+    const fmt=n=>Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});
+    const money=n=>fmt(n)+' wRVU';
+    function table(id,headers,rows){
+      document.getElementById(id).innerHTML='<thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td'+(typeof c==='number'?' class="num"':'')+'>'+c+'</td>').join('')+'</tr>').join('')+'</tbody>';
+    }
+    fetch('../data/telemetry/sample_aggregate_report.json').then(r=>r.json()).then(data=>{
+      const s=data.summary;
+      document.getElementById('metrics').innerHTML=[
+        ['Case Builder Sessions',fmt(s.caseBuilderSessions),'ok'],
+        ['Payable Exclusions',fmt(s.payableExclusionsTriggered),'hard'],
+        ['Suppressed wRVU',fmt(s.suppressedWrvu),'hard'],
+        ['NCCI Warnings',fmt(s.ncciWarningsTriggered),'']
+      ].map(m=>'<div class="metric"><span>'+m[0]+'</span><strong>'+m[1]+'</strong><div class="pill '+m[2]+'">sample</div></div>').join('');
+      table('combos',['Combination','Specialty','Sessions','Selected','Payable'],data.topCptCombinations.map(r=>[r.combination,r.specialty,r.sessions,money(r.selectedWrvu),money(r.payableWrvu)]));
+      table('ncci',['Pair','Indicator','Severity','Events','Suppressed'],data.topNcciTriggeredCombinations.map(r=>[r.pair,r.modifierIndicator,'<span class="pill hard">'+r.severity+'</span>',r.events,money(r.suppressedWrvu)]));
+      table('suppressed',['Pair','Suppressed'],data.topSuppressedCombinations.map(r=>[r.pair,money(r.suppressedWrvu)]));
+      table('mods',['Modifier','Events'],data.modifierUsage.map(r=>[r.modifier,r.events]));
+      table('searches',['CPT','Searches','Selected'],data.searches.topSearchedCpts.map(r=>[r.code,r.searches,r.selected]));
+      table('workflows',['Workflow','Representative CPTs','Sessions'],data.commonWorkflows.map(r=>[r.workflow,r.representativeCombination,r.sessions]));
+    });
+  </script>
+</body>
+</html>

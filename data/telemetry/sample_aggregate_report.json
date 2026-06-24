@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "case_builder_telemetry_report.v1",
+  "generatedAt": "2026-06-23T22:45:00Z",
+  "period": {
+    "type": "sample",
+    "startDate": "2026-06-16",
+    "endDate": "2026-06-22"
+  },
+  "privacy": {
+    "storesPatientIdentifiers": false,
+    "storesUserIdentifiers": false,
+    "storesIpAddresses": false,
+    "storesFreeText": false,
+    "timestampGranularity": "day"
+  },
+  "summary": {
+    "caseBuilderSessions": 1280,
+    "totalCptsEntered": 3194,
+    "totalModifiersUsed": 318,
+    "ncciWarningsTriggered": 112,
+    "payableExclusionsTriggered": 86,
+    "selectedWrvu": 35842.76,
+    "payableWrvu": 34426.71,
+    "suppressedWrvu": 1416.05
+  },
+  "topCptCombinations": [
+    {"combination": "49593+15734", "sessions": 118, "specialty": "Hernia Surgery", "selectedWrvu": 3827.1, "payableWrvu": 3827.1},
+    {"combination": "44140+44005", "sessions": 94, "specialty": "Colorectal Surgery", "selectedWrvu": 3762.82, "payableWrvu": 2070.82},
+    {"combination": "44207+44180", "sessions": 76, "specialty": "Colorectal Surgery", "selectedWrvu": 3496.76, "payableWrvu": 2365.12},
+    {"combination": "44620+44005", "sessions": 61, "specialty": "General Surgery", "selectedWrvu": 1956.27, "payableWrvu": 858.27},
+    {"combination": "38100+49000", "sessions": 33, "specialty": "Trauma/ACS", "selectedWrvu": 1032.57, "payableWrvu": 628.98}
+  ],
+  "topNcciTriggeredCombinations": [
+    {"pair": "44140+44005", "events": 94, "modifierIndicator": "0", "severity": "hard_stop", "suppressedWrvu": 1692.0},
+    {"pair": "44207+44180", "events": 76, "modifierIndicator": "0", "severity": "hard_stop", "suppressedWrvu": 1131.64},
+    {"pair": "44620+44005", "events": 61, "modifierIndicator": "0", "severity": "hard_stop", "suppressedWrvu": 1098.0},
+    {"pair": "44055+49000", "events": 19, "modifierIndicator": "0", "severity": "hard_stop", "suppressedWrvu": 232.37},
+    {"pair": "38100+49000", "events": 33, "modifierIndicator": "0", "severity": "hard_stop", "suppressedWrvu": 403.59}
+  ],
+  "topSuppressedCombinations": [
+    {"pair": "44140+44005", "suppressedWrvu": 1692.0},
+    {"pair": "44207+44180", "suppressedWrvu": 1131.64},
+    {"pair": "44620+44005", "suppressedWrvu": 1098.0},
+    {"pair": "38100+49000", "suppressedWrvu": 403.59},
+    {"pair": "44055+49000", "suppressedWrvu": 232.37}
+  ],
+  "modifierUsage": [
+    {"modifier": "50", "events": 104},
+    {"modifier": "RT", "events": 74},
+    {"modifier": "LT", "events": 68},
+    {"modifier": "59", "events": 41},
+    {"modifier": "XS", "events": 31}
+  ],
+  "searches": {
+    "topSearchedCpts": [
+      {"code": "49593", "searches": 142, "selected": 91},
+      {"code": "44140", "searches": 118, "selected": 80},
+      {"code": "44005", "searches": 98, "selected": 59},
+      {"code": "44207", "searches": 86, "selected": 62},
+      {"code": "15734", "searches": 79, "selected": 66}
+    ],
+    "failedSearches": [
+      {"searchKind": "unmatched_private_query", "searches": 37},
+      {"searchKind": "empty", "searches": 9}
+    ],
+    "didYouMeanUsed": [
+      {"resultSelected": "44626", "events": 18},
+      {"resultSelected": "49593", "events": 11},
+      {"resultSelected": "44140", "events": 8}
+    ]
+  },
+  "commonWorkflows": [
+    {"workflow": "Hernia + component separation", "representativeCombination": "49593+15734", "sessions": 118},
+    {"workflow": "Colectomy + enterolysis", "representativeCombination": "44140+44005", "sessions": 94},
+    {"workflow": "Colectomy + laparoscopic adhesiolysis", "representativeCombination": "44207+44180", "sessions": 76},
+    {"workflow": "Ostomy reversal + enterolysis", "representativeCombination": "44620+44005", "sessions": 61},
+    {"workflow": "Splenectomy + exploratory laparotomy", "representativeCombination": "38100+49000", "sessions": 33}
+  ]
+}
