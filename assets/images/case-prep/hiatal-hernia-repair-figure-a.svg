@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+  <title id="title">Hiatal Hernia Repair Figure A: Normal laparoscopic hiatus anatomy</title>
+  <desc id="desc">Operative laparoscopic view of the esophageal hiatus with right crus, left crus, GE junction, anterior and posterior vagus nerves, aorta, pleura, and type I-IV hernia classification cues.</desc>
+  <defs>
+    <radialGradient id="field" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#3b211c"/>
+      <stop offset="60%" stop-color="#20110f"/>
+      <stop offset="100%" stop-color="#0c0808"/>
+    </radialGradient>
+    <linearGradient id="muscle" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#8b3d35"/>
+      <stop offset="55%" stop-color="#c86d58"/>
+      <stop offset="100%" stop-color="#672c29"/>
+    </linearGradient>
+    <linearGradient id="esophagus" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#d9a06f"/>
+      <stop offset="50%" stop-color="#f0c28f"/>
+      <stop offset="100%" stop-color="#a85f43"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <style>
+      .label{font:700 28px Arial,sans-serif;fill:#f8fafc}
+      .small{font:600 21px Arial,sans-serif;fill:#e5e7eb}
+      .tiny{font:600 18px Arial,sans-serif;fill:#e5e7eb}
+      .callout{font:800 25px Arial,sans-serif;fill:#fff7ed}
+      .line{stroke:#f8fafc;stroke-width:5;fill:none;stroke-linecap:round}
+      .danger{stroke:#93c5fd;stroke-width:4;stroke-dasharray:12 10;fill:none}
+      .vagus{stroke:#facc15;stroke-width:9;fill:none;stroke-linecap:round}
+      .aorta{fill:#7f1d1d;stroke:#fecaca;stroke-width:5}
+      .note{fill:#111827;stroke:#fb923c;stroke-width:4;rx:18}
+    </style>
+  </defs>
+  <rect width="1440" height="980" fill="url(#field)"/>
+  <text x="52" y="62" class="label">Figure A - Normal Hiatus Anatomy, Laparoscopic View</text>
+  <g transform="translate(1146 42)">
+    <rect width="242" height="144" rx="14" fill="#111827" stroke="#64748b" stroke-width="3"/>
+    <text x="22" y="34" class="tiny">OPERATIVE ORIENTATION</text>
+    <text x="24" y="72" class="small">Anterior / liver: top</text>
+    <text x="24" y="102" class="small">Posterior / aorta: deep</text>
+    <text x="24" y="132" class="small">Patient R &lt;-  -&gt; Patient L</text>
+  </g>
+  <ellipse cx="720" cy="526" rx="522" ry="316" fill="#2a1512" opacity=".72"/>
+  <path d="M322 804 C470 566 560 416 650 250 C616 474 632 612 704 744 C594 820 454 842 322 804Z" fill="url(#muscle)" filter="url(#shadow)" opacity=".97"/>
+  <path d="M1118 802 C968 566 880 416 790 250 C824 474 808 612 736 744 C846 820 986 842 1118 802Z" fill="url(#muscle)" filter="url(#shadow)" opacity=".97"/>
+  <path d="M546 272 C620 236 818 236 894 272 C866 348 830 404 786 440 C748 472 692 472 654 440 C610 404 574 348 546 272Z" fill="#160b0a" stroke="#fca5a5" stroke-width="8"/>
+  <path d="M673 92 C676 230 674 360 680 482 C684 570 716 620 748 662 C780 622 794 562 790 486 C784 350 776 226 778 92Z" fill="url(#esophagus)" stroke="#fcd34d" stroke-width="5" filter="url(#shadow)"/>
+  <path d="M610 608 C690 570 812 580 890 644 C916 696 860 766 742 774 C616 780 500 718 480 652 C500 622 546 612 610 608Z" fill="#b45309" stroke="#fed7aa" stroke-width="6" filter="url(#shadow)"/>
+  <path d="M706 114 C706 220 696 374 708 530" class="vagus"/>
+  <path d="M756 120 C746 236 744 380 760 536" class="vagus" opacity=".72"/>
+  <path d="M690 798 C720 748 744 704 760 642" class="aorta" opacity=".96"/>
+  <ellipse cx="212" cy="468" rx="164" ry="238" fill="#dbeafe" opacity=".16" stroke="#93c5fd" stroke-width="4" stroke-dasharray="14 10"/>
+  <ellipse cx="1230" cy="468" rx="164" ry="238" fill="#dbeafe" opacity=".16" stroke="#93c5fd" stroke-width="4" stroke-dasharray="14 10"/>
+  <path d="M540 276 C470 190 390 154 300 162" class="danger"/>
+  <path d="M900 276 C970 190 1050 154 1140 162" class="danger"/>
+  <text x="214" y="178" class="small">Pleural danger zone</text>
+  <text x="1012" y="178" class="small">Pleural danger zone</text>
+  <path d="M514 540 L392 502" class="line"/><text x="112" y="510" class="label">Right crus</text>
+  <path d="M926 540 L1048 502" class="line"/><text x="1070" y="510" class="label">Left crus</text>
+  <path d="M748 650 L910 704" class="line"/><text x="930" y="714" class="label">GE junction</text>
+  <path d="M704 246 L540 150" class="line"/><text x="232" y="134" class="label">Anterior vagus</text>
+  <path d="M760 300 L940 230" class="line"/><text x="962" y="238" class="label">Posterior vagus</text>
+  <path d="M728 806 L844 858" class="line"/><text x="864" y="870" class="label">Aorta deep/posterior</text>
+  <g transform="translate(64 648)">
+    <rect width="410" height="230" rx="18" fill="#111827" stroke="#475569" stroke-width="3"/>
+    <text x="24" y="40" class="small">Type I-IV hernia distinction</text>
+    <text x="24" y="78" class="tiny">I: GEJ migrates cephalad</text>
+    <text x="24" y="112" class="tiny">II: fundus herniates, GEJ stays</text>
+    <text x="24" y="146" class="tiny">III: mixed GEJ + stomach</text>
+    <text x="24" y="180" class="tiny">IV: stomach + other viscera</text>
+    <text x="24" y="214" class="tiny">Classification drives strategy, not ego.</text>
+  </g>
+  <g transform="translate(872 648)">
+    <rect class="note" width="470" height="122"/>
+    <text x="24" y="44" class="callout">Operative judgment</text>
+    <text x="24" y="82" class="small">Know the hiatus before you dissect it.</text>
+  </g>
+</svg>

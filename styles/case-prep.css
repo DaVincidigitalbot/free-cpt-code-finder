@@ -112,3 +112,7 @@
 .case-prep-atlas{margin:18px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--white);overflow:hidden}
 .case-prep-atlas img{display:block;width:100%;height:auto}
 .case-prep-atlas figcaption{padding:10px 12px;border-top:1px solid var(--line);color:var(--ink2);font-size:.9rem;background:var(--paper)}
+body[data-procedure-slug] .site-shell,body[data-procedure-slug] .site-content-wrap{max-width:100%;overflow-x:hidden}
+body[data-procedure-slug] .container,body[data-procedure-slug] .case-prep-panel,body[data-procedure-slug] .step-card,body[data-procedure-slug] .case-prep-visual{min-width:0;overflow-wrap:anywhere}
+body[data-procedure-slug] .case-prep-visual-grid{grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+@media(max-width:700px){body[data-procedure-slug] .site-content-wrap{padding-bottom:5.5rem}body[data-procedure-slug] .fccf-report-launch{left:auto!important;right:12px!important;bottom:12px!important;width:auto!important;max-width:160px!important;padding:9px 11px!important;font-size:12px!important;white-space:normal!important}}

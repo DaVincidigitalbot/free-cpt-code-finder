@@ -32,6 +32,13 @@
         "Open Abdomen",
         "Damage Control Laparotomy"
       ]
+    },
+    {
+      "name": "Foregut Surgery",
+      "description": "Hiatal hernia, reflux, foregut anatomy, operative judgment, documentation, and CPT education.",
+      "procedures": [
+        "Hiatal Hernia Repair"
+      ]
     }
   ],
   "procedures": [
@@ -565,6 +572,41 @@
       "mostViewedScore": 88,
       "cptCodes": [
         "49000"
+      ]
+    },
+    {
+      "slug": "hiatal-hernia-repair",
+      "title": "Hiatal Hernia Repair",
+      "summary": "Type I-IV hiatal hernias, paraesophageal hernia strategy, mediastinal dissection, esophageal length, cruroplasty, mesh reinforcement, recurrence, volvulus, gastropexy, documentation, CPT, and wRVUs.",
+      "category": "Foregut Surgery",
+      "status": "live",
+      "recentlyAdded": true,
+      "mostViewedScore": 90,
+      "recentlyUpdatedScore": 100,
+      "cptCodes": [
+        "43281",
+        "43332",
+        "43333",
+        "43999"
+      ],
+      "relatedProcedures": [],
+      "relatedGuides": [
+        {
+          "title": "Fundoplication CPT Code 43280",
+          "url": "/codes/43280.html"
+        },
+        {
+          "title": "Paraesophageal Hernia Repair CPT Code 43281",
+          "url": "/codes/43281.html"
+        },
+        {
+          "title": "Modifier 22 Explained",
+          "url": "/blog/modifiers/modifier-22-explained.html"
+        },
+        {
+          "title": "Global Surgical Package Explained",
+          "url": "/blog/guides/global-surgical-package-explained.html"
+        }
       ]
     }
   ],
@@ -3733,6 +3775,548 @@
         ],
         "bottomLine": "Once the physiology confirms cure, more dissection can become harm."
       }
+    ],
+    "hiatal-hernia-repair": [
+      {
+        "level": "student",
+        "question": "What are the four types of hiatal hernia?",
+        "answer": "Type I is sliding GE junction migration, type II is true paraesophageal herniation, type III is mixed, and type IV includes other viscera in the chest.",
+        "bullets": [
+          "Type I is usually reflux anatomy.",
+          "Type II-IV are paraesophageal patterns.",
+          "Type IV can contain colon, spleen, small bowel, or pancreas."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-01"
+      },
+      {
+        "level": "student",
+        "question": "What is the phrenoesophageal membrane?",
+        "answer": "It is the fascial attachment that helps anchor the esophagus and GE junction to the diaphragm and is attenuated in hiatal hernia.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-02"
+      },
+      {
+        "level": "student",
+        "question": "Which crus usually forms the dominant sling of the hiatus?",
+        "answer": "The right crus usually forms the dominant posterior sling around the esophageal hiatus.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-03"
+      },
+      {
+        "level": "student",
+        "question": "Where are the anterior and posterior vagus nerves?",
+        "answer": "They travel on the distal esophagus and stomach and must be protected during sac dissection, esophageal mobilization, and wrap construction.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-04"
+      },
+      {
+        "level": "student",
+        "question": "Why can paraesophageal hernias cause anemia?",
+        "answer": "Cameron lesions can develop where the stomach is mechanically compressed at the diaphragm.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-05"
+      },
+      {
+        "level": "student",
+        "question": "What is gastric volvulus?",
+        "answer": "Rotation of the stomach, often organoaxial in a paraesophageal hernia, causing obstruction and possible ischemia.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-06"
+      },
+      {
+        "level": "student",
+        "question": "What does short esophagus mean?",
+        "answer": "After adequate mediastinal mobilization, the GE junction still will not rest 2 to 3 cm below the hiatus without tension.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-07"
+      },
+      {
+        "level": "student",
+        "question": "Why is pleural violation common?",
+        "answer": "The hernia sac dissection runs immediately adjacent to both pleural spaces in large paraesophageal hernias.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-08"
+      },
+      {
+        "level": "student",
+        "question": "What is the goal of cruroplasty?",
+        "answer": "Close the hiatus enough to prevent migration while avoiding esophageal obstruction.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-09"
+      },
+      {
+        "level": "student",
+        "question": "Why is mesh controversial at the hiatus?",
+        "answer": "Mesh may reduce tension or reinforce weak crura, but erosion, stricture, infection, and difficult redo surgery are real concerns.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-10"
+      },
+      {
+        "level": "student",
+        "question": "What is gastropexy?",
+        "answer": "Fixation of the stomach to reduce volvulus or recurrent migration risk, either adjunctively or as a limited operation in frail patients.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-11"
+      },
+      {
+        "level": "student",
+        "question": "What is the danger of aggressive stomach traction?",
+        "answer": "It can injure stomach, spleen, short gastrics, vagus nerves, or esophagus before the anatomy is controlled.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-12"
+      },
+      {
+        "level": "student",
+        "question": "What preop tests matter before elective PEH repair?",
+        "answer": "EGD, barium swallow or CT anatomy, reflux/dysphagia history, anemia evaluation, and manometry when a wrap is planned.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-13"
+      },
+      {
+        "level": "student",
+        "question": "What must be true before closing the hiatus?",
+        "answer": "The stomach is reduced, esophagus is adequately mobilized, GE junction length is acceptable, and the stomach is viable.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-14"
+      },
+      {
+        "level": "student",
+        "question": "Why does recurrence happen?",
+        "answer": "Recurrence usually reflects short esophagus, failed cruroplasty, poor tissue, tension, vomiting/coughing, or a wrap/GE junction pulled into the chest.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-15"
+      },
+      {
+        "level": "resident",
+        "question": "How do you start mediastinal sac dissection?",
+        "answer": "Open the sac at the hiatus, find the sac-mediastinum plane, reduce stomach gradually, and keep esophagus and vagus nerves in view.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-16"
+      },
+      {
+        "level": "resident",
+        "question": "How do you judge adequate esophageal length?",
+        "answer": "After circumferential mediastinal mobilization, the GE junction rests below the diaphragm without traction.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-17"
+      },
+      {
+        "level": "resident",
+        "question": "When do you consider Collis gastroplasty?",
+        "answer": "When a true short esophagus persists after real mediastinal mobilization and a tension-free intraabdominal GE junction is impossible.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-18"
+      },
+      {
+        "level": "resident",
+        "question": "What is the sequence for acute volvulus?",
+        "answer": "Resuscitate, decompress if possible, reduce, assess viability, control ischemia/perforation, then choose definitive repair, gastropexy, or damage control.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-19"
+      },
+      {
+        "level": "resident",
+        "question": "How do you manage pleural entry?",
+        "answer": "Tell anesthesia, assess ventilation and hemodynamics, lower insufflation if needed, evacuate CO2, and place a chest tube only when clinically needed.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-20"
+      },
+      {
+        "level": "resident",
+        "question": "Why is recurrent PEH harder?",
+        "answer": "Scarred planes, prior mesh, distorted crura, shortened esophagus, vagus risk, and higher perforation risk.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-21"
+      },
+      {
+        "level": "resident",
+        "question": "When do short gastrics matter?",
+        "answer": "When fundus mobility is inadequate for a tension-free wrap or the wrap is being built from stretched stomach body instead of fundus.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-22"
+      },
+      {
+        "level": "resident",
+        "question": "What are signs the crura will not hold?",
+        "answer": "Wide hiatus, shredded bites, attenuated muscle, tension despite mobilization, redo anatomy, and cough/obesity risk.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-23"
+      },
+      {
+        "level": "resident",
+        "question": "How do you choose mesh type?",
+        "answer": "Based on hiatus size, tension, tissue quality, contamination, recurrence risk, and willingness to accept erosion or durability tradeoffs.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-24"
+      },
+      {
+        "level": "resident",
+        "question": "When is gastropexy enough?",
+        "answer": "When frailty, shock, volvulus, or hostile anatomy makes definitive repair unsafe but stomach fixation reduces immediate risk.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-25"
+      },
+      {
+        "level": "resident",
+        "question": "What documentation supports PEH repair coding?",
+        "answer": "Hernia type, contents, sac dissection, mediastinal mobilization, cruroplasty, wrap/gastropexy, mesh, and recurrent/complex findings.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-26"
+      },
+      {
+        "level": "resident",
+        "question": "How do you prevent postoperative dysphagia?",
+        "answer": "Ensure length, avoid tight crura, tailor wrap to motility, build a short floppy wrap, and avoid twisting fundus.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-27"
+      },
+      {
+        "level": "resident",
+        "question": "What do you do with an esophageal injury?",
+        "answer": "Recognize it, repair or control it, drain, consider endoscopy/stent strategy, antibiotics, and change the reconstruction plan.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-28"
+      },
+      {
+        "level": "resident",
+        "question": "What do you inspect after reducing volvulus?",
+        "answer": "Fundus viability, serosal tears, perforation, short gastric bleeding, orientation, and whether tissue is safe for wrap.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-29"
+      },
+      {
+        "level": "resident",
+        "question": "What makes a wrap migrate?",
+        "answer": "Short esophagus, inadequate mediastinal mobilization, failed cruroplasty, tension, vomiting, and poor tissue.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-30"
+      },
+      {
+        "level": "oral_boards",
+        "question": "A giant PEH reduces but the GE junction springs back to the hiatus. What now?",
+        "answer": "Mobilize more mediastinal esophagus; if true short esophagus persists, consider Collis or a different strategy rather than tensioned wrap.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-31"
+      },
+      {
+        "level": "oral_boards",
+        "question": "An 86-year-old with volvulus is septic on pressors. What operation are you offering?",
+        "answer": "A survivable source-control operation: reduce, assess viability, control contamination, and consider gastropexy/gastrostomy fixation or staged repair.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-32"
+      },
+      {
+        "level": "oral_boards",
+        "question": "You enter the pleura and peak pressures rise. What is your next move?",
+        "answer": "Stop, tell anesthesia, lower insufflation, assess for tension physiology, evacuate CO2, and place chest tube only if needed.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-33"
+      },
+      {
+        "level": "oral_boards",
+        "question": "The crura shred with each stitch. What are your options?",
+        "answer": "Reassess tension and length, improve mobilization, use pledgets or altered closure, consider mesh selectively, add gastropexy, or stage.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-34"
+      },
+      {
+        "level": "oral_boards",
+        "question": "Prior mesh is plastered to the esophagus. What is the safe redo strategy?",
+        "answer": "Use endoscopy, dissect only in known planes, remove only safe mesh, call help or convert early, and prioritize avoiding esophageal injury.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-35"
+      },
+      {
+        "level": "oral_boards",
+        "question": "POD1 severe dysphagia after PEH repair. What are you thinking?",
+        "answer": "Tight crura, tight/twisted wrap, edema, hematoma, slipped wrap, or esophageal injury depending on severity and physiology.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-36"
+      },
+      {
+        "level": "oral_boards",
+        "question": "You find ischemic fundus after volvulus reduction. What changes?",
+        "answer": "Stop elective reconstruction thinking; resect or control ischemic tissue, drain if needed, and avoid wrapping compromised stomach.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-37"
+      },
+      {
+        "level": "oral_boards",
+        "question": "Manometry shows severe ineffective motility. Does that change PEH repair?",
+        "answer": "It changes the antireflux reconstruction, not necessarily the need to reduce a dangerous hernia. Tailor partial wrap, gastropexy, or no wrap.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-38"
+      },
+      {
+        "level": "oral_boards",
+        "question": "Large PEH with anemia but no heartburn. Why operate?",
+        "answer": "Mechanical symptoms, Cameron lesions, obstruction, aspiration, chest pressure, and volvulus risk can justify repair.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-39"
+      },
+      {
+        "level": "oral_boards",
+        "question": "When should you avoid mesh?",
+        "answer": "When contamination, esophageal/gastric injury, high erosion risk, or adequate low-tension crura make mesh risk exceed benefit.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-40"
+      },
+      {
+        "level": "oral_boards",
+        "question": "The wrap looks good but sits in the chest. Is that acceptable?",
+        "answer": "No. A wrap above the diaphragm is failed anatomy and needs length, hiatus, or strategy correction.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-41"
+      },
+      {
+        "level": "oral_boards",
+        "question": "How do you dictate esophageal length?",
+        "answer": "Describe circumferential mediastinal mobilization and whether the GE junction achieved a tension-free intraabdominal position.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-42"
+      },
+      {
+        "level": "oral_boards",
+        "question": "Reduction of a giant hernia worsens ventilation. What is the bailout?",
+        "answer": "Stop escalation, reassess physiology, consider decompression, gastropexy, staged repair, or abort definitive reconstruction.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-43"
+      },
+      {
+        "level": "oral_boards",
+        "question": "Small gastric perforation during sac reduction. What now?",
+        "answer": "Repair it, control contamination, reassess mesh/wrap plan, drain/antibiotics as needed, and document wound class change.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-44"
+      },
+      {
+        "level": "oral_boards",
+        "question": "Give the attending-level summary of PEH repair.",
+        "answer": "Reduce stomach, restore length, close hiatus without obstruction, tailor reflux strategy, and avoid turning anatomy into physiology disaster.",
+        "bullets": [
+          "Know the anatomy before the move.",
+          "Tie the answer to patient selection and operative strategy.",
+          "Document the decision in the operative note."
+        ],
+        "bottomLine": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "id": "hiatal-hernia-repair-45"
+      }
     ]
   },
   "caseChallenges": {
@@ -5253,6 +5837,236 @@
         },
         "codingPearl": "Document the planned approach, localization confidence, use of intraoperative PTH, and conversion criteria from focused to bilateral exploration."
       }
+    ],
+    "hiatal-hernia-repair": [
+      {
+        "title": "True short esophagus after mediastinal mobilization",
+        "focus": "Short esophagus / Collis decision",
+        "history": "A 68-year-old with recurrent type III PEH and Barrett’s undergoes repair.",
+        "physical": "Stable, chronic dysphagia and anemia.",
+        "vitals": [
+          "T 36.8 C",
+          "HR 82",
+          "BP 136/74",
+          "SpO2 97%"
+        ],
+        "labs": [
+          "Hgb 10.2",
+          "Albumin 3.6",
+          "Lactate normal",
+          "Creatinine 0.9"
+        ],
+        "imaging": "Barium swallow shows large intrathoracic stomach and foreshortened esophagus.",
+        "intraoperative": "After complete sac reduction and high mediastinal mobilization, the GE junction still sits at the hiatus under tension.",
+        "decisionPoint": "Do you close crura and build the wrap anyway?",
+        "discussion": "No. If true short esophagus persists after complete mobilization, consider Collis or an alternate strategy rather than tensioned repair.",
+        "expertDiscussion": {
+          "correctAnswer": "No. If true short esophagus persists after complete mobilization, consider Collis or an alternate strategy rather than tensioned repair.",
+          "whyCorrect": "It changes the operation based on anatomy and physiology rather than forcing the original plan.",
+          "whyAlternativesWrong": [
+            "Forcing the planned operation ignores the failure mechanism.",
+            "Continuing without anatomy increases preventable injury.",
+            "A hiatal op note that omits length, sac reduction, pleural entry, mesh/gastropexy rationale, or wrap geometry does not explain the operative decision."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bailout as failure.",
+            "Not saying out loud that the case changed.",
+            "Failing to document the anatomy and rationale."
+          ],
+          "attendingPearl": "The operation is usually won in the mediastinum, not at the hiatus.",
+          "codingDocumentationPearl": "Document hernia type, approach, sac reduction, mediastinal mobilization, intraabdominal esophageal length, crural repair, mesh/gastropexy rationale, wrap choice, complications, and CPT-relevant additional work."
+        }
+      },
+      {
+        "title": "Acute organoaxial volvulus in a frail patient",
+        "focus": "Volvulus / damage-control foregut",
+        "history": "An 86-year-old presents with retching, chest pain, leukocytosis, and intrathoracic stomach.",
+        "physical": "Frail, upper abdominal distention, respiratory distress.",
+        "vitals": [
+          "T 38.1 C",
+          "HR 118",
+          "BP 94/52",
+          "SpO2 93%"
+        ],
+        "labs": [
+          "WBC 18.5",
+          "Lactate 3.8",
+          "Creatinine 1.6",
+          "Hgb 11.0"
+        ],
+        "imaging": "CT shows organoaxial volvulus with gastric wall thickening.",
+        "intraoperative": "Stomach reduces but appears threatened; patient remains on pressors.",
+        "decisionPoint": "Do you perform full elective-style PEH repair?",
+        "discussion": "No. Reduce, assess viability, control ischemia/perforation, decompress, and consider gastropexy/gastrostomy fixation or staged repair.",
+        "expertDiscussion": {
+          "correctAnswer": "No. Reduce, assess viability, control ischemia/perforation, decompress, and consider gastropexy/gastrostomy fixation or staged repair.",
+          "whyCorrect": "It changes the operation based on anatomy and physiology rather than forcing the original plan.",
+          "whyAlternativesWrong": [
+            "Forcing the planned operation ignores the failure mechanism.",
+            "Continuing without anatomy increases preventable injury.",
+            "A hiatal op note that omits length, sac reduction, pleural entry, mesh/gastropexy rationale, or wrap geometry does not explain the operative decision."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bailout as failure.",
+            "Not saying out loud that the case changed.",
+            "Failing to document the anatomy and rationale."
+          ],
+          "attendingPearl": "The operation is usually won in the mediastinum, not at the hiatus.",
+          "codingDocumentationPearl": "Document hernia type, approach, sac reduction, mediastinal mobilization, intraabdominal esophageal length, crural repair, mesh/gastropexy rationale, wrap choice, complications, and CPT-relevant additional work."
+        }
+      },
+      {
+        "title": "Pleural violation during mediastinal dissection",
+        "focus": "Pleura / capnothorax",
+        "history": "A 59-year-old undergoes laparoscopic repair of a large type IV hernia.",
+        "physical": "Stable at baseline.",
+        "vitals": [
+          "HR 88 then 112",
+          "BP 128/76",
+          "SpO2 99% then 93%",
+          "Peak pressures rise"
+        ],
+        "labs": [
+          "Hgb stable",
+          "ABG pending",
+          "Lactate normal",
+          "Type and screen active"
+        ],
+        "imaging": "CT shows colon and stomach in the chest with sac abutting pleura.",
+        "intraoperative": "Left pleura opens during sac dissection and ventilation changes.",
+        "decisionPoint": "What is your immediate management?",
+        "discussion": "Stop, tell anesthesia, lower insufflation, assess tension physiology, evacuate CO2, and place chest tube only if clinically needed.",
+        "expertDiscussion": {
+          "correctAnswer": "Stop, tell anesthesia, lower insufflation, assess tension physiology, evacuate CO2, and place chest tube only if clinically needed.",
+          "whyCorrect": "It changes the operation based on anatomy and physiology rather than forcing the original plan.",
+          "whyAlternativesWrong": [
+            "Forcing the planned operation ignores the failure mechanism.",
+            "Continuing without anatomy increases preventable injury.",
+            "A hiatal op note that omits length, sac reduction, pleural entry, mesh/gastropexy rationale, or wrap geometry does not explain the operative decision."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bailout as failure.",
+            "Not saying out loud that the case changed.",
+            "Failing to document the anatomy and rationale."
+          ],
+          "attendingPearl": "The operation is usually won in the mediastinum, not at the hiatus.",
+          "codingDocumentationPearl": "Document hernia type, approach, sac reduction, mediastinal mobilization, intraabdominal esophageal length, crural repair, mesh/gastropexy rationale, wrap choice, complications, and CPT-relevant additional work."
+        }
+      },
+      {
+        "title": "Recurrent PEH with prior mesh",
+        "focus": "Redo hernia / hostile mediastinum",
+        "history": "A 72-year-old had prior PEH repair with mesh and Nissen, now dysphagia and recurrent intrathoracic wrap.",
+        "physical": "Thin, symptomatic, no peritonitis.",
+        "vitals": [
+          "T 36.7 C",
+          "HR 76",
+          "BP 142/80",
+          "SpO2 98%"
+        ],
+        "labs": [
+          "Hgb 12.6",
+          "Albumin 3.9",
+          "WBC 7.2",
+          "Creatinine 1.0"
+        ],
+        "imaging": "EGD shows angulated wrap; CT shows mesh near esophagus.",
+        "intraoperative": "Mesh is densely adherent to esophagus and crura.",
+        "decisionPoint": "Do you remove all mesh and recreate a primary repair?",
+        "discussion": "No. Define anatomy, use endoscopy, remove only safe/necessary mesh, call help or convert early, and avoid esophageal injury.",
+        "expertDiscussion": {
+          "correctAnswer": "No. Define anatomy, use endoscopy, remove only safe/necessary mesh, call help or convert early, and avoid esophageal injury.",
+          "whyCorrect": "It changes the operation based on anatomy and physiology rather than forcing the original plan.",
+          "whyAlternativesWrong": [
+            "Forcing the planned operation ignores the failure mechanism.",
+            "Continuing without anatomy increases preventable injury.",
+            "A hiatal op note that omits length, sac reduction, pleural entry, mesh/gastropexy rationale, or wrap geometry does not explain the operative decision."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bailout as failure.",
+            "Not saying out loud that the case changed.",
+            "Failing to document the anatomy and rationale."
+          ],
+          "attendingPearl": "The operation is usually won in the mediastinum, not at the hiatus.",
+          "codingDocumentationPearl": "Document hernia type, approach, sac reduction, mediastinal mobilization, intraabdominal esophageal length, crural repair, mesh/gastropexy rationale, wrap choice, complications, and CPT-relevant additional work."
+        }
+      },
+      {
+        "title": "Crura will not hold sutures",
+        "focus": "Crural failure / mesh judgment",
+        "history": "A 64-year-old with giant type IV hernia has weak crura after reduction.",
+        "physical": "Stable, BMI 34, chronic cough.",
+        "vitals": [
+          "T 36.9 C",
+          "HR 84",
+          "BP 130/78",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "Albumin 3.4",
+          "Hgb 11.8",
+          "WBC 8.9",
+          "A1c 7.1"
+        ],
+        "imaging": "CT shows very wide hiatus and most stomach in chest.",
+        "intraoperative": "Posterior crural sutures cheese-wire despite mobilization.",
+        "decisionPoint": "What are your options?",
+        "discussion": "Reassess tension/length, improve mobilization, use pledgets or altered closure, consider mesh selectively, add gastropexy, or modify/stage repair.",
+        "expertDiscussion": {
+          "correctAnswer": "Reassess tension/length, improve mobilization, use pledgets or altered closure, consider mesh selectively, add gastropexy, or modify/stage repair.",
+          "whyCorrect": "It changes the operation based on anatomy and physiology rather than forcing the original plan.",
+          "whyAlternativesWrong": [
+            "Forcing the planned operation ignores the failure mechanism.",
+            "Continuing without anatomy increases preventable injury.",
+            "A hiatal op note that omits length, sac reduction, pleural entry, mesh/gastropexy rationale, or wrap geometry does not explain the operative decision."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bailout as failure.",
+            "Not saying out loud that the case changed.",
+            "Failing to document the anatomy and rationale."
+          ],
+          "attendingPearl": "The operation is usually won in the mediastinum, not at the hiatus.",
+          "codingDocumentationPearl": "Document hernia type, approach, sac reduction, mediastinal mobilization, intraabdominal esophageal length, crural repair, mesh/gastropexy rationale, wrap choice, complications, and CPT-relevant additional work."
+        }
+      },
+      {
+        "title": "Postoperative severe dysphagia",
+        "focus": "Early obstruction / wrap-hiatus problem",
+        "history": "POD1 after PEH repair with Toupet and cruroplasty, patient cannot tolerate liquids.",
+        "physical": "Uncomfortable, spitting secretions.",
+        "vitals": [
+          "T 37.4 C",
+          "HR 104",
+          "BP 126/72",
+          "SpO2 96%"
+        ],
+        "labs": [
+          "WBC 13.2",
+          "Hgb stable",
+          "Lactate 1.1",
+          "Creatinine 0.8"
+        ],
+        "imaging": "No imaging yet.",
+        "intraoperative": "Operation included difficult crural closure and extensive mediastinal dissection.",
+        "decisionPoint": "Is this just expected edema?",
+        "discussion": "Maybe, but severe dysphagia requires evaluation for tight crura, tight/twisted wrap, slipped wrap, hematoma, edema, or injury.",
+        "expertDiscussion": {
+          "correctAnswer": "Maybe, but severe dysphagia requires evaluation for tight crura, tight/twisted wrap, slipped wrap, hematoma, edema, or injury.",
+          "whyCorrect": "It changes the operation based on anatomy and physiology rather than forcing the original plan.",
+          "whyAlternativesWrong": [
+            "Forcing the planned operation ignores the failure mechanism.",
+            "Continuing without anatomy increases preventable injury.",
+            "A hiatal op note that omits length, sac reduction, pleural entry, mesh/gastropexy rationale, or wrap geometry does not explain the operative decision."
+          ],
+          "commonTraineeMistakes": [
+            "Treating bailout as failure.",
+            "Not saying out loud that the case changed.",
+            "Failing to document the anatomy and rationale."
+          ],
+          "attendingPearl": "The operation is usually won in the mediastinum, not at the hiatus.",
+          "codingDocumentationPearl": "Document hernia type, approach, sac reduction, mediastinal mobilization, intraabdominal esophageal length, crural repair, mesh/gastropexy rationale, wrap choice, complications, and CPT-relevant additional work."
+        }
+      }
     ]
   },
   "graydonPearls": {
@@ -5374,6 +6188,26 @@
         "context": "PTH monitoring",
         "title": "The lab is feedback, not autopilot.",
         "text": "A PTH drop can confirm judgment, but it cannot rescue sloppy anatomy or justify closing when the story does not fit."
+      }
+    ],
+    "hiatal-hernia-repair": [
+      {
+        "title": "Win the case above the diaphragm",
+        "text": "The operation is usually won in the mediastinum, not at the hiatus.",
+        "context": "Judgment",
+        "severity": "senior"
+      },
+      {
+        "title": "Do not wrap tension",
+        "text": "If the GE junction will not sit below the diaphragm after real mobilization, the answer is not tighter crura. Solve the length problem.",
+        "context": "Short esophagus",
+        "severity": "warning"
+      },
+      {
+        "title": "Gastropexy is a strategy",
+        "text": "In a frail volvulus patient, gastropexy may be the right operation. Just do not pretend it is the same as definitive paraesophageal hernia repair.",
+        "context": "Bailout",
+        "severity": "senior"
       }
     ]
   }

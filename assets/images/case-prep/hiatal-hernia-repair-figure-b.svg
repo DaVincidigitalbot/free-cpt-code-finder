@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+  <title id="title">Hiatal Hernia Repair Figure B: Circumferential mediastinal dissection</title>
+  <desc id="desc">Operative laparoscopic view of hernia sac reduction, circumferential mediastinal dissection, Penrose around the esophagus, pleural danger zones, and esophageal length assessment.</desc>
+  <defs>
+    <radialGradient id="field" cx="50%" cy="42%" r="72%"><stop offset="0%" stop-color="#3a211d"/><stop offset="64%" stop-color="#1c100f"/><stop offset="100%" stop-color="#090707"/></radialGradient>
+    <linearGradient id="sac" x1="0%" x2="100%"><stop offset="0%" stop-color="#d6d3d1"/><stop offset="50%" stop-color="#f5f5f4"/><stop offset="100%" stop-color="#a8a29e"/></linearGradient>
+    <linearGradient id="eso" x1="0%" x2="100%"><stop offset="0%" stop-color="#b96d4d"/><stop offset="50%" stop-color="#f0c28f"/><stop offset="100%" stop-color="#9a4f3d"/></linearGradient>
+    <style>.label{font:700 28px Arial,sans-serif;fill:#f8fafc}.small{font:600 21px Arial,sans-serif;fill:#e5e7eb}.tiny{font:600 18px Arial,sans-serif;fill:#e5e7eb}.callout{font:800 25px Arial,sans-serif;fill:#fff7ed}.line{stroke:#f8fafc;stroke-width:5;fill:none;stroke-linecap:round}.vagus{stroke:#facc15;stroke-width:8;fill:none;stroke-linecap:round}.danger{stroke:#93c5fd;stroke-width:5;stroke-dasharray:13 10;fill:none}.plane{stroke:#38bdf8;stroke-width:7;stroke-dasharray:18 12;fill:none}.note{fill:#111827;stroke:#fb923c;stroke-width:4;rx:18}</style>
+  </defs>
+  <rect width="1440" height="980" fill="url(#field)"/>
+  <text x="52" y="62" class="label">Figure B - Circumferential Mediastinal Dissection</text>
+  <g transform="translate(1146 42)"><rect width="242" height="144" rx="14" fill="#111827" stroke="#64748b" stroke-width="3"/><text x="22" y="34" class="tiny">OPERATIVE ORIENTATION</text><text x="24" y="72" class="small">Anterior: top</text><text x="24" y="102" class="small">Posterior: deep</text><text x="24" y="132" class="small">Patient R &lt;-  -&gt; Patient L</text></g>
+  <ellipse cx="720" cy="512" rx="496" ry="336" fill="#291512" opacity=".8"/>
+  <path d="M358 816 C472 600 562 426 648 260 C620 488 632 650 704 776 C586 846 456 850 358 816Z" fill="#9f4a3d"/>
+  <path d="M1082 816 C968 600 878 426 792 260 C820 488 808 650 736 776 C854 846 984 850 1082 816Z" fill="#9f4a3d"/>
+  <path d="M552 286 C626 234 814 234 888 286 C860 374 826 434 786 466 C748 498 692 498 654 466 C614 434 580 374 552 286Z" fill="#120909" stroke="#fca5a5" stroke-width="8"/>
+  <path d="M672 96 C676 228 678 358 684 480 C688 568 710 628 744 674 C782 620 792 558 786 482 C778 348 774 222 778 96Z" fill="url(#eso)" stroke="#fcd34d" stroke-width="5"/>
+  <path d="M500 318 C618 200 824 198 944 318 C912 432 856 510 792 548 C744 578 694 574 650 548 C586 510 532 432 500 318Z" fill="url(#sac)" opacity=".52" stroke="#f8fafc" stroke-width="5"/>
+  <path d="M508 320 C600 398 834 398 932 320" class="plane"/>
+  <path d="M538 426 C612 512 816 518 900 426" class="plane"/>
+  <ellipse cx="735" cy="568" rx="172" ry="54" fill="none" stroke="#fde68a" stroke-width="16"/>
+  <text x="650" y="578" class="tiny" fill="#111827">PENROSE</text>
+  <path d="M706 126 C702 260 698 400 710 546" class="vagus"/>
+  <path d="M760 130 C746 272 746 404 760 546" class="vagus" opacity=".72"/>
+  <ellipse cx="230" cy="474" rx="170" ry="250" fill="#dbeafe" opacity=".15" stroke="#93c5fd" stroke-width="4" stroke-dasharray="14 10"/>
+  <ellipse cx="1210" cy="474" rx="170" ry="250" fill="#dbeafe" opacity=".15" stroke="#93c5fd" stroke-width="4" stroke-dasharray="14 10"/>
+  <path d="M506 310 L286 220" class="danger"/><text x="112" y="210" class="small">Right pleura danger</text>
+  <path d="M934 310 L1154 220" class="danger"/><text x="1058" y="210" class="small">Left pleura danger</text>
+  <path d="M738 672 L738 802" stroke="#22c55e" stroke-width="8" marker-end="url(#none)"/><text x="768" y="750" class="small">2.5-3 cm tension-free intraabdominal esophagus</text>
+  <path d="M620 360 L406 390" class="line"/><text x="114" y="398" class="label">Hernia sac reduced off mediastinum</text>
+  <path d="M590 468 L366 558" class="line"/><text x="78" y="572" class="label">Circumferential dissection plane</text>
+  <g transform="translate(858 654)"><rect class="note" width="500" height="146"/><text x="24" y="44" class="callout">Operative judgment</text><text x="24" y="82" class="small">Pleural violation changes the operation</text><text x="24" y="114" class="small">but not necessarily the outcome.</text></g>
+</svg>
