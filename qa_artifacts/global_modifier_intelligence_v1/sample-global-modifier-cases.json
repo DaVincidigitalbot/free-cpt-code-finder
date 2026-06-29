@@ -1,0 +1,85 @@
+{
+  "colorectal": [
+    {
+      "name": "Staged colectomy after diagnostic colonoscopy",
+      "previousOperation": { "cpt": "45378", "date": "2026-06-01" },
+      "today": ["44140"],
+      "answers": { "inGlobalPeriod": true, "therapyAfterDiagnostic": true },
+      "expectedModifier": "58"
+    },
+    {
+      "name": "Return to OR for anastomotic leak",
+      "previousOperation": { "cpt": "44140", "date": "2026-06-10" },
+      "today": ["49000", "44143"],
+      "answers": { "inGlobalPeriod": true, "complicationReturnToOR": true },
+      "expectedModifier": "78"
+    }
+  ],
+  "trauma": [
+    {
+      "name": "Planned second-look laparotomy after damage control",
+      "previousOperation": { "cpt": "49000", "date": "2026-06-20" },
+      "today": ["49002"],
+      "answers": { "inGlobalPeriod": true, "planned": true },
+      "expectedModifier": "58"
+    },
+    {
+      "name": "Unplanned postoperative bleeding control",
+      "previousOperation": { "cpt": "49000", "date": "2026-06-21" },
+      "today": ["49000"],
+      "answers": { "inGlobalPeriod": true, "complicationReturnToOR": true },
+      "expectedModifier": "78"
+    }
+  ],
+  "hernia": [
+    {
+      "name": "More extensive abdominal wall reconstruction after prior hernia repair",
+      "previousOperation": { "cpt": "49593", "date": "2026-05-30" },
+      "today": ["49596", "15734"],
+      "answers": { "inGlobalPeriod": true, "moreExtensive": true },
+      "expectedModifier": "58",
+      "modifier22Facts": {
+        "actualMinutes": 240,
+        "expectedMinutes": 120,
+        "adhesiolysisMinutes": 90,
+        "objectiveFindings": ["mesh explantation", "large abdominal wall reconstruction", "reoperative field"]
+      }
+    }
+  ],
+  "vascular": [
+    {
+      "name": "Unrelated upper extremity artery repair during prior abdominal global period",
+      "previousOperation": { "cpt": "44140", "date": "2026-06-12" },
+      "today": ["35206"],
+      "answers": { "inGlobalPeriod": true, "unrelated": true },
+      "expectedModifier": "79"
+    }
+  ],
+  "orthopaedic": [
+    {
+      "name": "Unrelated distal radius fixation during postop ankle global",
+      "previousOperation": { "cpt": "27814", "date": "2026-06-05" },
+      "today": ["25607"],
+      "answers": { "inGlobalPeriod": true, "unrelated": true },
+      "expectedModifier": "79"
+    }
+  ],
+  "ent": [
+    {
+      "name": "Planned second-stage sinus procedure",
+      "previousOperation": { "cpt": "31256", "date": "2026-06-08" },
+      "today": ["31276"],
+      "answers": { "inGlobalPeriod": true, "planned": true },
+      "expectedModifier": "58"
+    }
+  ],
+  "neurosurgery": [
+    {
+      "name": "Return to OR for postoperative cranial wound washout",
+      "previousOperation": { "cpt": "61510", "date": "2026-06-17" },
+      "today": ["61315"],
+      "answers": { "inGlobalPeriod": true, "complicationReturnToOR": true },
+      "expectedModifier": "78"
+    }
+  ]
+}

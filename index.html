@@ -458,6 +458,16 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 </div>
 <label class="app-case-toggle"><input type="checkbox" id="appCaseToggle"> <span><strong>Calculate APP Productivity</strong><br>Educational estimate only. Uses physician wRVUs as the source value.</span></label>
 <div class="app-case-summary" id="appCaseSummary"></div>
+<div class="global-card" id="globalModifierCard">
+ <div class="global-card__head">
+  <div>
+   <div class="tl">Global Surgery Review</div>
+   <div class="global-card__status" id="globalStatus">Not reviewed</div>
+  </div>
+  <button type="button" onclick="openGlobalAssistant()">Finish case</button>
+ </div>
+ <div class="global-card__body" id="globalSummary">Ask after the case is built: did this operation occur during the postoperative global period of a previous surgery?</div>
+</div>
 <div class="lns" id="lns"><div class="lns-empty">Click any procedure or code to add it here. The system will auto-assign primary/secondary and apply modifiers.</div></div>
 <div class="tl">Suggested ICD-10</div>
 <div class="lns" id="dxs"><div class="lns-empty">Select a surgery to surface diagnosis codes.</div></div>
@@ -468,6 +478,64 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 <div class="rf"><button onclick="openAuditReport()">Audit report</button><button onclick="exportAuditJSON()">Export JSON</button><button class="danger" onclick="clearCase()">Clear</button></div>
 </aside>
 
+</div>
+
+<style>
+.global-card{margin:10px 12px 12px;padding:12px;border:1px solid var(--line2);border-radius:8px;background:var(--paper)}
+.global-card__head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.global-card__head button,.global-action,.global-secondary{border:1px solid var(--ox);background:var(--ox);color:var(--white);border-radius:6px;padding:8px 10px;font-weight:650;cursor:pointer}
+.global-secondary{background:var(--white);color:var(--ox);border-color:var(--line2)}
+.global-card__status{font-size:12px;color:var(--ink2);margin-top:2px}
+.global-card__body{font-size:12px;line-height:1.45;color:var(--ink2);margin-top:10px}
+.global-assistant{position:fixed;inset:0;display:none;align-items:flex-start;justify-content:center;background:rgba(5,15,30,.55);z-index:80;padding:28px 14px;overflow:auto}
+.global-assistant.open{display:flex}
+.global-assistant__box{width:min(880px,100%);background:var(--white);border:1px solid var(--line2);border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.28);overflow:hidden}
+.global-assistant__top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);background:var(--paper)}
+.global-assistant__eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);font-weight:750}
+.global-assistant__title{font-size:20px;font-weight:750;color:var(--ink);margin-top:2px}
+.global-assistant__close{border:0;background:transparent;font-size:24px;line-height:1;cursor:pointer;color:var(--ink2)}
+.global-assistant__content{padding:18px}
+.global-step{display:grid;gap:14px}
+.global-question{font-size:18px;font-weight:750;color:var(--ink);line-height:1.25}
+.global-help{font-size:13px;color:var(--ink2);line-height:1.5}
+.global-choice-row,.global-actions{display:flex;flex-wrap:wrap;gap:10px}
+.global-choice{border:1px solid var(--line2);background:var(--white);border-radius:8px;padding:12px 14px;cursor:pointer;min-width:120px;text-align:left}
+.global-choice strong{display:block;font-size:15px;color:var(--ink)}
+.global-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.global-form label{display:grid;gap:5px;font-size:12px;font-weight:700;color:var(--ink2)}
+.global-form input,.global-form select,.global-form textarea{width:100%;border:1px solid var(--line2);border-radius:6px;padding:9px 10px;background:var(--white);color:var(--ink);font:inherit}
+.global-form textarea{min-height:96px;grid-column:1/-1;resize:vertical}
+.global-radio-grid{display:grid;gap:10px}
+.global-radio-item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.global-radio-item span{font-size:14px;color:var(--ink)}
+.global-result{border:1px solid var(--line2);border-radius:8px;padding:14px;background:var(--paper)}
+.global-result.good{border-color:#2D5A3D;background:#EAF3ED}
+.global-result.warn{border-color:#B45309;background:#FFF7ED}
+.global-mod-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid currentColor;border-radius:999px;padding:3px 9px;font-weight:800;color:var(--ox);background:var(--white);margin-bottom:8px}
+.global-education{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.global-edu-card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--white);font-size:12px;line-height:1.45}
+.global-edu-card strong{display:block;font-size:14px;color:var(--ink);margin-bottom:5px}
+.global-timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px}
+.global-timeline div{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--white);font-size:12px}
+.global-timeline strong{display:block;color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.mod22-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
+.mod22-finding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mod22-finding-grid label{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:7px;background:var(--white)}
+.copybox{white-space:pre-wrap;border:1px solid var(--line2);background:var(--white);border-radius:8px;padding:12px;font-size:13px;line-height:1.5}
+@media(max-width:760px){.global-form,.mod22-grid,.global-education,.global-timeline{grid-template-columns:1fr}.global-radio-item{grid-template-columns:1fr auto auto}.mod22-finding-grid{grid-template-columns:1fr}}
+</style>
+
+<div class="global-assistant" id="globalAssistant" aria-hidden="true">
+ <div class="global-assistant__box">
+  <div class="global-assistant__top">
+   <div>
+    <div class="global-assistant__eyebrow">Global Surgery Modifier Assistant</div>
+    <div class="global-assistant__title">Postoperative modifier review</div>
+   </div>
+   <button type="button" class="global-assistant__close" onclick="closeGlobalAssistant()">×</button>
+  </div>
+  <div class="global-assistant__content" id="globalAssistantContent"></div>
+ </div>
 </div>
 
 <div class="mpick" id="mpick">
@@ -485,6 +553,7 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
  </div>
 </div>
 
+<script src="global_modifier_engine.js"></script>
 <script>
 const MEDICARE_CONVERSION_FACTOR=33.4009;
 const CF=MEDICARE_CONVERSION_FACTOR;
@@ -615,6 +684,16 @@ const SPECS={"Anesthesia":[["00100","Anesthesia for procedures on salivary gland
 let caseLines=[],audit=[],payer='medicare',setting='facility';
 let alifAssistantSelected=false;
 let nextLineId=1;
+let globalAssistantStep='screen';
+let globalModifierState={
+ reviewed:false,
+ inGlobalPeriod:null,
+ previous:{code:'',date:'',surgeon:'',sameSurgeon:'yes',sameGroup:'yes'},
+ answers:{},
+ recommendation:null,
+ selectedModifier:'',
+ mod22:{analysis:null,selected:false,targetLineId:null,justification:''}
+};
 
 const NCCI={
  // "49593|15734": {modAllowed:true, note:"Component separation bundled with complex hernia repair; modifier 59 allowed when performed on separate anatomic site."},
@@ -1345,6 +1424,18 @@ function computeMods(){
     l.rationale.push({mod:'—',reason:'No distinct-service modifier applied. If this procedure is on a separate site or encounter from the primary, coder should review and add -59, -XS, -XE, -XP, or -XU via the line editor.',cite:RULES.MOD_59});
    }
   }
+  if(l.globalModifier&&['58','78','79'].includes(String(l.globalModifier))&&!l.mods.includes(l.globalModifier)){
+   l.mods.push(l.globalModifier);
+   const edu=GlobalModifierEngine.CMS_LOGIC[l.globalModifier];
+   const reasonText=('Global period modifier selected: '+edu.summary+' '+(globalModifierState.recommendation&&globalModifierState.recommendation.reason?globalModifierState.recommendation.reason:'')).trim();
+   l.rationale.push({mod:l.globalModifier,reason:reasonText,cite:RULES['MOD_'+l.globalModifier]});
+   l.engineState=l.engineState==='BLOCKED'?'BLOCKED':'WARNING';
+  }
+  if(l.modifier22Selected&&!l.mods.includes('22')){
+   l.mods.push('22');
+   l.rationale.push({mod:'22',reason:'Surgeon-selected modifier 22 candidate. Do not submit unless the operative report contains objective facts supporting substantially greater work.',cite:RULES.MOD_22});
+   l.engineState=l.engineState==='BLOCKED'?'BLOCKED':'WARNING';
+  }
   if(l.conflicts.length){
    l.engineState='BLOCKED';
    l.warnings.push(...l.conflicts);
@@ -1520,6 +1611,10 @@ const RULES={
  MOD_25:"CPT 2026 Appendix A — modifier 25 indicates significant, separately identifiable E/M on same day as a procedure",
  MOD_57:"CPT 2026 Appendix A — modifier 57 indicates the decision for major surgery was made during the E/M service",
  MOD_24:"CPT 2026 Appendix A — modifier 24 indicates an unrelated E/M service during a postoperative period",
+ MOD_58:"CMS Medicare Claims Processing Manual — modifier 58 identifies a staged, more extensive, or therapeutic procedure during the postoperative period and starts a new global period",
+ MOD_78:"CMS Medicare Claims Processing Manual — modifier 78 identifies an unplanned return to the operating/procedure room for a related complication during the postoperative period and does not start a new global period",
+ MOD_79:"CMS Medicare Claims Processing Manual — modifier 79 identifies an unrelated procedure during the postoperative period and starts a new global period",
+ MOD_22:"CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work",
  MOD_50:"CPT 2026 Appendix A — modifier 50 for bilateral procedures; paid at 150% of base",
  MOD_RT_LT:"HCPCS Level II — anatomic laterality modifiers",
  MOD_50_ALT:"Payer variation note — some payers require bilateral split billing with RT/LT instead of modifier 50",
@@ -1528,6 +1623,201 @@ const RULES={
  MPPR:"CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting",
  CF_2026:"CMS PFS RVU26C July 2026 non-QPP — national conversion factor $33.4009"
 };
+
+function h(value){
+ return String(value==null?'':value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+function getProcedureLines(){return caseLines.filter(l=>l.kind==='proc'&&l.payable!==false)}
+function getGlobalCandidateLines(){return getProcedureLines().filter(l=>!isAddonCode(l.cpt))}
+function setGlobalStep(step){globalAssistantStep=step;renderGlobalAssistant()}
+function openGlobalAssistant(){
+ if(!caseLines.length){alert('Add procedures to the case first.');return}
+ document.getElementById('globalAssistant').classList.add('open');
+ document.getElementById('globalAssistant').setAttribute('aria-hidden','false');
+ if(!globalAssistantStep)globalAssistantStep='screen';
+ renderGlobalAssistant();
+}
+function closeGlobalAssistant(){
+ document.getElementById('globalAssistant').classList.remove('open');
+ document.getElementById('globalAssistant').setAttribute('aria-hidden','true');
+}
+function setGlobalPeriodAnswer(value){
+ globalModifierState.reviewed=true;
+ globalModifierState.inGlobalPeriod=value==='yes';
+ globalModifierState.answers.inGlobalPeriod=value==='yes';
+ if(value==='no'){
+  globalModifierState.recommendation=GlobalModifierEngine.evaluateGlobalPeriod({inGlobalPeriod:false});
+  globalModifierState.selectedModifier='';
+  caseLines.forEach(l=>{delete l.globalModifier});
+  recalc('global period reviewed: no');
+  updateGlobalSummary();
+  setGlobalStep('mod22');
+  return;
+ }
+ setGlobalStep('previous');
+}
+function savePreviousOperation(){
+ const previous=globalModifierState.previous;
+ previous.code=document.getElementById('globalPrevCode').value.trim();
+ previous.date=document.getElementById('globalPrevDate').value;
+ previous.surgeon=document.getElementById('globalPrevSurgeon').value.trim();
+ previous.sameSurgeon=document.getElementById('globalSameSurgeon').value;
+ previous.sameGroup=document.getElementById('globalSameGroup').value;
+ setGlobalStep('decision');
+}
+function setDecisionAnswer(key,value){
+ globalModifierState.answers[key]=value;
+ renderGlobalAssistant();
+}
+function evaluateGlobalDecision(){
+ globalModifierState.answers.inGlobalPeriod=true;
+ globalModifierState.recommendation=GlobalModifierEngine.evaluateGlobalPeriod(globalModifierState.answers);
+ globalModifierState.selectedModifier=globalModifierState.recommendation.modifier||'';
+ updateGlobalSummary();
+ setGlobalStep('result');
+}
+function applyGlobalModifier(modifier){
+ const mod=String(modifier||'');
+ globalModifierState.selectedModifier=mod;
+ getGlobalCandidateLines().forEach(l=>{l.globalModifier=mod});
+ log('GLOBAL MODIFIER SET all applicable CPT lines -> '+(mod?'-'+mod:'none'));
+ recalc('global modifier applied');
+ updateGlobalSummary();
+ renderGlobalAssistant();
+}
+function clearGlobalModifiers(){
+ globalModifierState.selectedModifier='';
+ caseLines.forEach(l=>{delete l.globalModifier});
+ recalc('global modifiers cleared');
+ updateGlobalSummary();
+ renderGlobalAssistant();
+}
+function selectManualGlobalModifier(value){
+ const mod=String(value||'');
+ if(mod)applyGlobalModifier(mod);
+ else clearGlobalModifiers();
+}
+function updateGlobalSummary(){
+ const status=document.getElementById('globalStatus');
+ const summary=document.getElementById('globalSummary');
+ if(!status||!summary)return;
+ if(!globalModifierState.reviewed){
+  status.textContent='Not reviewed';
+  summary.textContent='Ask after the case is built: did this operation occur during the postoperative global period of a previous surgery?';
+  return;
+ }
+ if(globalModifierState.inGlobalPeriod===false){
+  status.textContent='Reviewed: no global period';
+  summary.textContent='Standard NCCI, MPPR, modifier 51/59/80, and APP mode logic continues normally.';
+  return;
+ }
+ const rec=globalModifierState.recommendation;
+ if(rec&&rec.modifier){
+  status.textContent='Recommended -'+rec.modifier;
+  summary.innerHTML='<strong>'+h(rec.education.label)+':</strong> '+h(rec.reason)+' '+(globalModifierState.selectedModifier?'<span class="global-mod-badge">Applied -'+h(globalModifierState.selectedModifier)+'</span>':'');
+ }else{
+  status.textContent='Reviewed: no supported postoperative modifier';
+  summary.textContent=(rec&&rec.warning)||'Documentation may not support 58, 78, or 79.';
+ }
+}
+function renderEducationCards(){
+ return '<div class="global-education">'+Object.entries(GlobalModifierEngine.CMS_LOGIC).map(([mod,edu])=>'<div class="global-edu-card"><strong>-'+mod+' '+h(edu.summary)+'</strong><ul>'+edu.bullets.map(b=>'<li>'+h(b)+'</li>').join('')+'</ul></div>').join('')+'</div>';
+}
+function renderDecisionQuestion(key,text,examples){
+ const value=globalModifierState.answers[key]||'';
+ return '<div class="global-radio-item"><span>'+h(text)+(examples?'<br><small>'+h(examples)+'</small>':'')+'</span><label><input type="radio" name="'+h(key)+'" '+(value==='yes'?'checked':'')+' onchange="setDecisionAnswer(\''+key+'\',\'yes\')"> Yes</label><label><input type="radio" name="'+h(key)+'" '+(value==='no'?'checked':'')+' onchange="setDecisionAnswer(\''+key+'\',\'no\')"> No</label></div>';
+}
+function renderGlobalTimeline(){
+ const rec=globalModifierState.recommendation||{};
+ const timeline=GlobalModifierEngine.buildTimeline(globalModifierState.previous,{codes:getProcedureLines().map(l=>l.cpt)},globalModifierState.selectedModifier||rec.modifier);
+ return '<div class="global-timeline">'+timeline.map(item=>'<div><strong>'+h(item.label)+'</strong>'+h(item.value)+'</div>').join('')+'</div>';
+}
+function collectMod22Input(){
+ const findings=[...document.querySelectorAll('[data-mod22-finding]:checked')].map(el=>el.dataset.mod22Finding);
+ return {
+  operativeReport:document.getElementById('mod22Report')?.value||'',
+  expectedMinutes:document.getElementById('mod22Expected')?.value||'',
+  actualMinutes:document.getElementById('mod22Actual')?.value||'',
+  adhesiolysisMinutes:document.getElementById('mod22Adhesiolysis')?.value||'',
+  totalOperativeMinutes:document.getElementById('mod22Total')?.value||'',
+  bloodLossMl:document.getElementById('mod22BloodLoss')?.value||'',
+  objectiveFindings:findings
+ };
+}
+function analyzeMod22(){
+ const input=collectMod22Input();
+ const analysis=GlobalModifierEngine.analyzeModifier22(input);
+ globalModifierState.mod22.analysis=analysis;
+ const targetId=Number(document.getElementById('mod22Target')?.value||0);
+ globalModifierState.mod22.targetLineId=targetId||getProcedureLines()[0]?.id||null;
+ const target=caseLines.find(l=>l.id===globalModifierState.mod22.targetLineId)||getProcedureLines()[0];
+ globalModifierState.mod22.justification=GlobalModifierEngine.generateModifier22Justification({...input,analysis,cptCode:target?.cpt});
+ renderGlobalAssistant();
+}
+function selectMod22Candidate(checked){
+ globalModifierState.mod22.selected=!!checked;
+ const targetId=Number(document.getElementById('mod22Target')?.value||globalModifierState.mod22.targetLineId||0);
+ globalModifierState.mod22.targetLineId=targetId;
+ caseLines.forEach(l=>{l.modifier22Selected=false});
+ if(checked){
+  const target=caseLines.find(l=>l.id===targetId)||getProcedureLines()[0];
+  if(target)target.modifier22Selected=true;
+ }
+ recalc('modifier 22 selection changed');
+ renderGlobalAssistant();
+}
+function copyMod22Justification(){
+ const text=globalModifierState.mod22.justification||'';
+ if(!text)return;
+ navigator.clipboard?.writeText(text);
+ log('Modifier 22 justification copied');
+}
+function renderMod22Panel(){
+ const lines=getProcedureLines();
+ const analysis=globalModifierState.mod22.analysis;
+ const target=caseLines.find(l=>l.id===globalModifierState.mod22.targetLineId)||lines[0];
+ const impact=target?GlobalModifierEngine.estimateModifier22Impact(target.pay||adjustedPaymentForLine(target),20):null;
+ const findingLabels=GlobalModifierEngine.MOD22_PATTERNS.map(p=>({key:p.key,label:p.label}));
+ return '<div class="global-step"><div class="global-question">Modifier 22 objective work review</div><div class="global-help">Paste the operative report or enter objective facts. The engine flags candidates only when documented facts suggest substantially greater work. It does not automatically apply -22.</div><div class="mod22-grid"><div class="global-form"><label>Target CPT<select id="mod22Target">'+lines.map(l=>'<option value="'+l.id+'" '+(target&&target.id===l.id?'selected':'')+'>'+h(l.cpt+' '+l.desc)+'</option>').join('')+'</select></label><label>Expected minutes<input id="mod22Expected" type="number" min="0" placeholder="90"></label><label>Actual minutes<input id="mod22Actual" type="number" min="0" placeholder="150"></label><label>Total operative minutes<input id="mod22Total" type="number" min="0" placeholder="180"></label><label>Adhesiolysis minutes<input id="mod22Adhesiolysis" type="number" min="0" placeholder="75"></label><label>Blood loss mL<input id="mod22BloodLoss" type="number" min="0" placeholder="800"></label><label>Operative report<textarea id="mod22Report" placeholder="Paste objective operative findings here"></textarea></label></div><div><div class="global-help" style="font-weight:750;margin-bottom:8px">Objective findings</div><div class="mod22-finding-grid">'+findingLabels.map(f=>'<label><input type="checkbox" data-mod22-finding="'+h(f.key)+'"> '+h(f.label)+'</label>').join('')+'</div></div></div><div class="global-actions"><button class="global-action" onclick="analyzeMod22()">Analyze modifier 22</button><button class="global-secondary" onclick="setGlobalStep(\'result\')">Back to 58/78/79</button><button class="global-secondary" onclick="closeGlobalAssistant()">Done</button></div>'+(analysis?renderMod22Result(analysis,impact):'')+'</div>';
+}
+function renderMod22Result(analysis,impact){
+ const reasons=analysis.reasons.length?analysis.reasons.map(r=>'<li>'+h(r)+'</li>').join(''):'<li>No strong objective criteria detected from the entered facts.</li>';
+ const selected=globalModifierState.mod22.selected?'checked':'';
+ return '<div class="global-result '+(analysis.candidate?'good':'warn')+'"><div class="global-mod-badge">'+h(analysis.title)+'</div><ul>'+reasons+'</ul><label style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" '+selected+' onchange="selectMod22Candidate(this.checked)"> Surgeon selected modifier 22 for the target CPT</label><div class="global-help" style="margin-top:10px"><strong>Documentation generator</strong></div><div class="copybox" id="mod22Justification">'+h(globalModifierState.mod22.justification)+'</div><div class="global-actions" style="margin-top:10px"><button class="global-action" onclick="copyMod22Justification()">Copy justification</button></div>'+(impact?'<div class="global-result" style="margin-top:10px"><strong>Payment impact estimate</strong><br>Without modifier 22: $'+impact.withoutModifier22.toFixed(2)+'<br>With successful modifier 22 appeal: $'+impact.successfulAppealEstimate.toFixed(2)+'<br>Estimated increase: $'+impact.estimatedIncrease.toFixed(2)+'<br><small>'+h(impact.label)+'</small></div>':'')+'</div>';
+}
+function renderGlobalAssistant(){
+ const el=document.getElementById('globalAssistantContent');
+ if(!el)return;
+ if(globalAssistantStep==='screen'){
+  el.innerHTML='<div class="global-step"><div class="global-question">Did this operation occur during the postoperative global period of a previous surgery?</div><div class="global-choice-row"><button class="global-choice" onclick="setGlobalPeriodAnswer(\'no\')"><strong>No</strong><span>Continue normal case-builder logic.</span></button><button class="global-choice" onclick="setGlobalPeriodAnswer(\'yes\')"><strong>Yes</strong><span>Launch CMS global modifier workflow.</span></button></div>'+renderEducationCards()+'</div>';
+  return;
+ }
+ if(globalAssistantStep==='previous'){
+  el.innerHTML='<div class="global-step"><div class="global-question">Previous operation</div><div class="global-form"><label>Previous CPT code<input id="globalPrevCode" list="globalCptOptions" value="'+h(globalModifierState.previous.code)+'" placeholder="Search CPT code"></label><label>Previous operation date<input id="globalPrevDate" type="date" value="'+h(globalModifierState.previous.date)+'"></label><label>Previous surgeon<input id="globalPrevSurgeon" value="'+h(globalModifierState.previous.surgeon)+'" placeholder="Name"></label><label>Same surgeon?<select id="globalSameSurgeon"><option value="yes" '+(globalModifierState.previous.sameSurgeon==='yes'?'selected':'')+'>Yes</option><option value="no" '+(globalModifierState.previous.sameSurgeon==='no'?'selected':'')+'>No</option></select></label><label>Same group?<select id="globalSameGroup"><option value="yes" '+(globalModifierState.previous.sameGroup==='yes'?'selected':'')+'>Yes</option><option value="no" '+(globalModifierState.previous.sameGroup==='no'?'selected':'')+'>No</option></select></label></div><datalist id="globalCptOptions">'+buildSearchIndexFromSpecs().slice(0,600).map(i=>'<option value="'+h(i.code)+'">'+h(i.description)+'</option>').join('')+'</datalist><div class="global-actions"><button class="global-action" onclick="savePreviousOperation()">Continue</button><button class="global-secondary" onclick="setGlobalStep(\'screen\')">Back</button></div></div>';
+  return;
+ }
+ if(globalAssistantStep==='decision'){
+  el.innerHTML='<div class="global-step"><div class="global-question">CMS decision tree</div><div class="global-radio-grid">'+
+   renderDecisionQuestion('planned','Was this operation planned or anticipated at the time of the original operation?')+
+   renderDecisionQuestion('moreExtensive',"Is today's operation more extensive than the original procedure?")+
+   renderDecisionQuestion('therapyAfterDiagnostic',"Is today's operation therapy following a diagnostic procedure?")+
+   renderDecisionQuestion('complicationReturnToOR','Did the patient return to the operating room because of a complication?','Examples: postoperative bleeding, fascial dehiscence, anastomotic leak, bowel injury, infected hematoma, wound washout.')+
+   renderDecisionQuestion('unrelated',"Is today's procedure completely unrelated to the prior operation?")+
+   '</div><div class="global-actions"><button class="global-action" onclick="evaluateGlobalDecision()">Evaluate modifier</button><button class="global-secondary" onclick="setGlobalStep(\'previous\')">Back</button></div>'+renderEducationCards()+'</div>';
+  return;
+ }
+ if(globalAssistantStep==='result'){
+  const rec=globalModifierState.recommendation||{};
+  const cls=rec.modifier?'good':'warn';
+  const title=rec.modifier?'Recommended Modifier -'+rec.modifier:'No supported postoperative modifier';
+  const body=rec.modifier?h(rec.reason):h(rec.warning||'Documentation may not support postoperative modifiers 58, 78, or 79.');
+  el.innerHTML='<div class="global-step"><div class="global-result '+cls+'"><div class="global-mod-badge">'+title+'</div><div>'+body+'</div>'+(rec.education?'<ul>'+rec.education.bullets.map(b=>'<li>'+h(b)+'</li>').join('')+'</ul>':'')+'</div>'+renderGlobalTimeline()+'<div class="global-actions">'+(rec.modifier?'<button class="global-action" onclick="applyGlobalModifier(\''+rec.modifier+'\')">Apply -'+rec.modifier+' to applicable CPT codes</button>':'')+'<select onchange="selectManualGlobalModifier(this.value)"><option value="">Manual override</option><option value="58">Apply -58</option><option value="78">Apply -78</option><option value="79">Apply -79</option></select><button class="global-secondary" onclick="clearGlobalModifiers()">Clear global modifiers</button><button class="global-secondary" onclick="setGlobalStep(\'mod22\')">Modifier 22 review</button><button class="global-secondary" onclick="setGlobalStep(\'decision\')">Back</button></div>'+renderEducationCards()+'</div>';
+  return;
+ }
+ if(globalAssistantStep==='mod22'){
+  el.innerHTML=renderMod22Panel();
+ }
+}
 
 function openAuditReport(){
  if(!caseLines.length){alert('Add procedures to the case first.');return}
@@ -1557,6 +1847,13 @@ function openAuditReport(){
    ${rationaleHTML}
   </td></tr>`;
  }).join('');
+ const globalReportStatus=globalModifierState.inGlobalPeriod===false?'No postoperative global period reported':(globalModifierState.recommendation&&globalModifierState.recommendation.modifier?'Recommended modifier -'+globalModifierState.recommendation.modifier:'No supported postoperative modifier');
+ let globalReportBlock='';
+ if(globalModifierState.reviewed){
+  globalReportBlock='<h2>Global Surgery Modifier Review</h2><div class="rank-reason"><strong>Status:</strong> '+globalReportStatus+'</div>';
+  globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Previous operation</div><div class="rationale-text">CPT '+h(globalModifierState.previous.code||'not entered')+' '+(globalModifierState.previous.date?'on '+h(globalModifierState.previous.date):'')+'; same surgeon: '+h(globalModifierState.previous.sameSurgeon||'not entered')+'; same group: '+h(globalModifierState.previous.sameGroup||'not entered')+'</div><div class="rationale-cite">'+(globalModifierState.recommendation&&globalModifierState.recommendation.reason?h(globalModifierState.recommendation.reason):h(globalModifierState.recommendation&&globalModifierState.recommendation.warning||'Standard case-builder logic continues.'))+'</div></div>';
+  if(globalModifierState.mod22.justification)globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Modifier 22 review</div><div class="rationale-text">'+h(globalModifierState.mod22.justification)+'</div><div class="rationale-cite">'+RULES.MOD_22+'</div></div>';
+ }
 
  const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
 <style>
@@ -1625,6 +1922,8 @@ table{width:100%;border-collapse:collapse;font-size:10pt}
 <div><div class="lbl">Est. payment</div><div class="val money">${formatCurrency(totalPay)}</div></div>
 </div>
 
+${globalReportBlock}
+
 <h2>Line items with coding rationale</h2>
 <table>
 <tr style="font-size:8.5pt;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
@@ -1679,6 +1978,20 @@ function exportAuditJSON(){
    procedures:caseLines.filter(l=>l.kind==='proc').length,
    em:caseLines.filter(l=>l.kind==='em').length
   },
+  globalReview:{
+   reviewed:globalModifierState.reviewed,
+   inGlobalPeriod:globalModifierState.inGlobalPeriod,
+   previousOperation:globalModifierState.previous,
+   answers:globalModifierState.answers,
+   recommendation:globalModifierState.recommendation,
+   selectedModifier:globalModifierState.selectedModifier,
+   modifier22:{
+    selected:globalModifierState.mod22.selected,
+    targetLineId:globalModifierState.mod22.targetLineId,
+    analysis:globalModifierState.mod22.analysis,
+    justification:globalModifierState.mod22.justification
+   }
+  },
   lines:caseLines.map((l,i)=>({
    order:i+1,
    cpt:l.cpt,
@@ -1695,6 +2008,10 @@ function exportAuditJSON(){
    payableWrvu:+Number(l.payableWrvu||0).toFixed(2),
    payableExclusionReason:l.payableExclusionReason||null,
    payableExclusionEdit:l.payableExclusionEdit||null,
+   globalModifier:l.globalModifier||null,
+   modifier22Selected:!!l.modifier22Selected,
+   suppressedBy:l.suppressedBy||null,
+   bundleRule:l.bundleRule||null,
    payment:+l.pay.toFixed(2),
    rationale:l.rationale
   })),
@@ -2652,6 +2969,7 @@ document.getElementById('themeToggle').addEventListener('click',e=>{
 bindDescriptionTooltips();
 renderSpecs();
 renderGuidedCards();
+updateGlobalSummary();
 </script><style>.site-footer{margin-top:36px;background:var(--ink);color:#D7DFEA}.site-footer-inner{max-width:1200px;margin:0 auto;padding:32px 40px}.site-footer-brand{font-size:14px;font-weight:700;color:var(--white)}.site-footer-copy{margin-top:10px;font-size:14px;line-height:1.7;color:#D7DFEA;max-width:980px}.site-footer-copy strong{color:var(--white)}.site-footer-nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.site-footer-nav a{color:#8ec5ff;text-decoration:none;font-size:14px}@media(max-width:1000px){.site-footer-inner{padding:24px 20px}}</style><footer class="site-footer">
   <div class="site-footer-inner">
     <div class="site-footer-brand">FreeCPTCodeFinder.com</div>
