@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "results": {
+    "medicaid_modifier_22": {
+      "lineWarnings": [
+        {
+          "cpt": "44625",
+          "engineState": "WARNING",
+          "medicaidWarnings": [
+            {
+              "lastReviewed": "2026-06-29",
+              "modifier": "22",
+              "payer": "Medicaid",
+              "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+              "state": "default",
+              "status": "caution",
+              "warning": "Modifier 22 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+            }
+          ],
+          "mods": [
+            "22"
+          ],
+          "payable": 16.85
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": true,
+      "payer": "medicaid",
+      "state": "WARNING",
+      "totalText": "$933.56",
+      "totalWrvu": "16.85",
+      "warningsRendered": true
+    },
+    "medicaid_lt_rt": {
+      "lineWarnings": [
+        {
+          "cpt": "49505",
+          "engineState": "WARNING",
+          "medicaidWarnings": [
+            {
+              "lastReviewed": "2026-06-29",
+              "modifier": "LT",
+              "payer": "Medicaid",
+              "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+              "state": "default",
+              "status": "caution",
+              "warning": "Modifier LT may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+            }
+          ],
+          "mods": [
+            "LT"
+          ],
+          "payable": 7.76
+        },
+        {
+          "cpt": "49505",
+          "engineState": "WARNING",
+          "medicaidWarnings": [
+            {
+              "lastReviewed": "2026-06-29",
+              "modifier": "RT",
+              "payer": "Medicaid",
+              "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+              "state": "default",
+              "status": "caution",
+              "warning": "Modifier RT may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+            }
+          ],
+          "mods": [
+            "RT"
+          ],
+          "payable": 3.88
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": true,
+      "payer": "medicaid",
+      "state": "WARNING",
+      "totalText": "$762.05 \u00b7 MPPR applied \u00b7 selected 15.52 wRVU",
+      "totalWrvu": "11.64",
+      "warningsRendered": true
+    },
+    "medicaid_modifier_52": {
+      "lineWarnings": [
+        {
+          "cpt": "44625",
+          "engineState": "CLEAN",
+          "medicaidWarnings": [],
+          "mods": [],
+          "payable": 16.85
+        },
+        {
+          "cpt": "49402",
+          "engineState": "WARNING",
+          "medicaidWarnings": [
+            {
+              "lastReviewed": "2026-06-29",
+              "modifier": "52",
+              "payer": "Medicaid",
+              "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+              "state": "default",
+              "status": "caution",
+              "warning": "Modifier 52 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+            }
+          ],
+          "mods": [
+            "52"
+          ],
+          "payable": 6.87
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": true,
+      "payer": "medicaid",
+      "state": "WARNING",
+      "totalText": "$1,333.37 \u00b7 MPPR applied \u00b7 selected 30.59 wRVU",
+      "totalWrvu": "23.72",
+      "warningsRendered": true
+    },
+    "medicaid_modifier_53": {
+      "lineWarnings": [
+        {
+          "cpt": "44625",
+          "engineState": "CLEAN",
+          "medicaidWarnings": [],
+          "mods": [],
+          "payable": 16.85
+        },
+        {
+          "cpt": "49402",
+          "engineState": "WARNING",
+          "medicaidWarnings": [
+            {
+              "lastReviewed": "2026-06-29",
+              "modifier": "53",
+              "payer": "Medicaid",
+              "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+              "state": "default",
+              "status": "caution",
+              "warning": "Modifier 53 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+            }
+          ],
+          "mods": [
+            "53"
+          ],
+          "payable": 6.87
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": true,
+      "payer": "medicaid",
+      "state": "WARNING",
+      "totalText": "$1,333.37 \u00b7 MPPR applied \u00b7 selected 30.59 wRVU",
+      "totalWrvu": "23.72",
+      "warningsRendered": true
+    },
+    "medicaid_modifier_58": {
+      "lineWarnings": [
+        {
+          "cpt": "44625",
+          "engineState": "WARNING",
+          "medicaidWarnings": [],
+          "mods": [
+            "58"
+          ],
+          "payable": 16.85
+        },
+        {
+          "cpt": "49402",
+          "engineState": "WARNING",
+          "medicaidWarnings": [],
+          "mods": [
+            "58"
+          ],
+          "payable": 6.87
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": true,
+      "payer": "medicaid",
+      "state": "WARNING",
+      "totalText": "$1,333.37 \u00b7 MPPR applied \u00b7 selected 30.59 wRVU",
+      "totalWrvu": "23.72",
+      "warningsRendered": true
+    },
+    "medicare_unchanged": {
+      "lineWarnings": [
+        {
+          "cpt": "44625",
+          "engineState": "WARNING",
+          "medicaidWarnings": [],
+          "mods": [
+            "22"
+          ],
+          "payable": 16.85
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": false,
+      "payer": "medicare",
+      "state": "WARNING",
+      "totalText": "$933.56",
+      "totalWrvu": "16.85",
+      "warningsRendered": true
+    },
+    "commercial_unchanged": {
+      "lineWarnings": [
+        {
+          "cpt": "49505",
+          "engineState": "CLEAN",
+          "medicaidWarnings": [],
+          "mods": [
+            "LT"
+          ],
+          "payable": 7.76
+        }
+      ],
+      "panelText": "Medicaid modifier reviewMedicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.",
+      "panelVisible": false,
+      "payer": "commercial",
+      "state": "CLEAN",
+      "totalText": "$508.03",
+      "totalWrvu": "7.76",
+      "warningsRendered": true
+    },
+    "export_validation": {
+      "lineWarnings": [
+        [
+          {
+            "lastReviewed": "2026-06-29",
+            "modifier": "22",
+            "payer": "Medicaid",
+            "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+            "state": "default",
+            "status": "caution",
+            "warning": "Modifier 22 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+          }
+        ]
+      ],
+      "medicaidReview": {
+        "behavior": "Default Medicaid behavior is caution, not hard denial, unless a verified state or payer-specific rules table says a modifier is not accepted.",
+        "rulesDataStructure": {
+          "default": {
+            "modifiers": {
+              "22": {
+                "lastReviewed": "2026-06-29",
+                "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+                "status": "caution",
+                "warning": "Modifier 22 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+              },
+              "52": {
+                "lastReviewed": "2026-06-29",
+                "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+                "status": "caution",
+                "warning": "Modifier 52 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+              },
+              "53": {
+                "lastReviewed": "2026-06-29",
+                "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+                "status": "caution",
+                "warning": "Modifier 53 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+              },
+              "LT": {
+                "lastReviewed": "2026-06-29",
+                "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+                "status": "caution",
+                "warning": "Modifier LT may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+              },
+              "RT": {
+                "lastReviewed": "2026-06-29",
+                "sourceNote": "Default caution pending verified state Medicaid or managed-care policy.",
+                "status": "caution",
+                "warning": "Modifier RT may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy."
+              }
+            },
+            "payer": "Medicaid",
+            "state": "default"
+          },
+          "states": {
+            "NC": {
+              "modifiers": {
+                "22": {
+                  "lastReviewed": "2026-06-29",
+                  "sourceNote": "Placeholder for verified NC Medicaid and managed-care policy table. Default is caution until payer-specific policy is reviewed.",
+                  "status": "caution",
+                  "warning": "North Carolina Medicaid / managed-care Modifier 22 handling requires payer-policy confirmation before submission."
+                }
+              },
+              "payer": "Medicaid",
+              "state": "NC"
+            }
+          }
+        },
+        "warning": "Medicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting."
+      }
+    }
+  }
+}

@@ -221,6 +221,7 @@ a{color:inherit;text-decoration:none}
 .warning-card--ncci .warning-card__title{color:#B42318}
 .warning-card--separate{border-color:#F4C27A;background:#FFF9ED;color:#6B3A00}
 .warning-card--separate .warning-card__title{color:#B45309}
+.warning-card--medicaid .warning-card__title{color:#1D4E89}
 .warning-card--doc{border-color:#BFD7FF;background:#F4F8FF;color:#123A67}
 .warning-card--doc .warning-card__title{color:#1D4E89}
 .warning-card__learn{font-weight:800;color:inherit}
@@ -242,6 +243,9 @@ a{color:inherit;text-decoration:none}
 .mpick-opt .ml{font-size:12px;font-weight:500;color:var(--ink)}
 .mpick-opt .md{font-size:11px;color:var(--ink2);margin-top:1px;line-height:1.35}
 .mpick-warn{font-size:11px;color:var(--ink2);background:var(--paper);border-left:2px solid var(--warn);padding:8px 10px;margin-bottom:14px;line-height:1.5}
+.medicaid-case-panel{display:none;margin:8px 12px 12px;padding:10px 12px;border:1px solid #BFD7FF;border-left:3px solid #1D4E89;border-radius:8px;background:#F4F8FF;color:#123A67;font-size:12px;line-height:1.45}
+.medicaid-case-panel.show{display:block}
+.medicaid-case-panel strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;color:#1D4E89}
 .mpick-foot{display:flex;justify-content:space-between;align-items:center}
 .mpick-cancel{font-size:11px;color:var(--ink3);background:none;border:0;cursor:pointer;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace}
 .mpick-cancel:hover{color:var(--ox)}
@@ -484,9 +488,10 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 <div class="tl">Suggested ICD-10</div>
 <div class="lns" id="dxs"><div class="lns-empty">Select a surgery to surface diagnosis codes.</div></div>
 <div class="ctrls">
-<div class="seg" id="payer-seg"><button class="on" data-v="medicare">medicare</button><button data-v="commercial">commercial</button></div>
+<div class="seg" id="payer-seg"><button class="on" data-v="medicare">medicare</button><button data-v="commercial">commercial</button><button data-v="medicaid">medicaid</button></div>
 <div class="seg" id="setting-seg"><button class="on" data-v="facility">facility</button><button data-v="nonfac">non-fac</button></div>
 </div>
+<div class="medicaid-case-panel" id="medicaidCasePanel"><strong>Medicaid modifier review</strong>Medicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.</div>
 <div class="rf"><button onclick="openAuditReport()">Audit report</button><button onclick="exportAuditJSON()">Export JSON</button><button class="danger" onclick="clearCase()">Clear</button></div>
 </aside>
 
@@ -571,6 +576,28 @@ const MEDICARE_CONVERSION_FACTOR=33.4009;
 const CF=MEDICARE_CONVERSION_FACTOR;
 const CPT_PAYMENT_INDEX=new Map();
 const CPT_GLOBAL_PERIOD_INDEX=new Map();
+const MEDICAID_MODIFIER_RULES={
+ default:{
+  payer:'Medicaid',
+  state:'default',
+  modifiers:{
+   LT:{status:'caution',warning:'Modifier LT may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy.',sourceNote:'Default caution pending verified state Medicaid or managed-care policy.',lastReviewed:'2026-06-29'},
+   RT:{status:'caution',warning:'Modifier RT may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy.',sourceNote:'Default caution pending verified state Medicaid or managed-care policy.',lastReviewed:'2026-06-29'},
+   '22':{status:'caution',warning:'Modifier 22 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy.',sourceNote:'Default caution pending verified state Medicaid or managed-care policy.',lastReviewed:'2026-06-29'},
+   '52':{status:'caution',warning:'Modifier 52 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy.',sourceNote:'Default caution pending verified state Medicaid or managed-care policy.',lastReviewed:'2026-06-29'},
+   '53':{status:'caution',warning:'Modifier 53 may not be accepted, recognized, or reimbursed the same way as Medicare/commercial payers depending on state Medicaid and managed-care policy.',sourceNote:'Default caution pending verified state Medicaid or managed-care policy.',lastReviewed:'2026-06-29'}
+  }
+ },
+ states:{
+  NC:{
+   payer:'Medicaid',
+   state:'NC',
+   modifiers:{
+    '22':{status:'caution',warning:'North Carolina Medicaid / managed-care Modifier 22 handling requires payer-policy confirmation before submission.',sourceNote:'Placeholder for verified NC Medicaid and managed-care policy table. Default is caution until payer-specific policy is reviewed.',lastReviewed:'2026-06-29'}
+   }
+  }
+ }
+};
 
 function formatCurrency(value){
  const amount=Number(value||0);
@@ -996,6 +1023,35 @@ function modifierCautionEducation(type,ctx={}){
 }
 function addModifierCaution(line,type,ctx={}){const caution=modifierCautionEducation(type,{...ctx,line});line.modifierCautions=line.modifierCautions||[];line.modifierCautions.push(caution)}
 function renderModifierCautions(line){if(!line.modifierCautions||!line.modifierCautions.length)return '';return line.modifierCautions.map(d=>'<details class="modifier-denial caution"><summary>'+escText(d.title||'Documentation required')+'</summary><div class="modifier-denial-body"><div class="modifier-denial-grid"><div class="modifier-denial-item"><strong>What happened</strong>'+escText(d.what)+'</div><div class="modifier-denial-item"><strong>Why it matters</strong>'+escText(d.why)+'</div><div class="modifier-denial-item"><strong>Modifiers affected</strong>'+escText(d.affected)+'</div><div class="modifier-denial-item"><strong>What to document</strong>'+escText(d.next)+'</div></div><div class="modifier-denial-disclaimer">Educational coding support only. Modifier use depends on documentation and payer policy.</div></div></details>').join('')}
+function getMedicaidModifierRule(modifier,state='default'){
+ const key=String(modifier||'').replace(/^-+/,'').toUpperCase();
+ const stateRules=MEDICAID_MODIFIER_RULES.states?.[String(state||'').toUpperCase()]?.modifiers||{};
+ return stateRules[key]||MEDICAID_MODIFIER_RULES.default.modifiers[key]||null;
+}
+function medicaidWarningsForLine(line,state='default'){
+ if(payer!=='medicaid'||!line)return [];
+ return (line.mods||[]).map(mod=>{
+  const rule=getMedicaidModifierRule(mod,state);
+  if(!rule)return null;
+  return {
+   payer:'Medicaid',
+   state:String(state||'default').toUpperCase()==='DEFAULT'?'default':String(state||'').toUpperCase(),
+   modifier:String(mod).replace(/^-+/,'').toUpperCase(),
+   status:rule.status||'unknown',
+   warning:rule.warning,
+   sourceNote:rule.sourceNote||'State-specific Medicaid policy not yet verified.',
+   lastReviewed:rule.lastReviewed||null
+  };
+ }).filter(Boolean);
+}
+function medicaidCaseWarningText(){
+ return 'Medicaid modifier rules vary by state and Medicaid managed-care plan. Confirm state Medicaid and payer-specific policy before submitting.';
+}
+function updateMedicaidCasePanel(){
+ const el=document.getElementById('medicaidCasePanel');
+ if(!el)return;
+ el.classList.toggle('show',payer==='medicaid');
+}
 function uniqueStrings(items){return [...new Set((items||[]).map(v=>String(v||'').trim()).filter(Boolean))]}
 function warningCard(kind,title,summary,details=[]){
  const body=uniqueStrings(details).map(item=>'<p>'+escText(item)+'</p>').join('');
@@ -1035,6 +1091,17 @@ function lineWarningCards(line){
  if(!line.payableExcluded&&docWarnings.length){
   cards.push(warningCard('doc','Documentation Opportunity','Documentation may support additional review.',docWarnings));
  }
+ const medicaidWarnings=medicaidWarningsForLine(line);
+ if(medicaidWarnings.length){
+  medicaidWarnings.forEach(item=>{
+   cards.push(warningCard('medicaid','Medicaid Modifier Warning','Modifier '+item.modifier+' requires Medicaid payer-policy review.',[
+    item.warning,
+    'Status: '+item.status+'. Default Medicaid behavior is caution, not hard denial, unless a verified state or payer rules table says the modifier is not accepted.',
+    'Source note: '+item.sourceNote,
+    item.lastReviewed?'Last reviewed: '+item.lastReviewed:''
+   ]));
+  });
+ }
  return cards.join('');
 }
 
@@ -1044,7 +1111,9 @@ const MOD_OPTS=[
  {v:'XS',code:'-XS',label:'Separate structure / site',desc:'Procedure performed on separate organ or anatomic site. Most common X-modifier for paired structures.'},
  {v:'XE',code:'-XE',label:'Separate encounter',desc:'Procedure performed in a separate operative session same day.'},
  {v:'XP',code:'-XP',label:'Separate practitioner',desc:'Procedure performed by a different practitioner.'},
- {v:'XU',code:'-XU',label:'Unusual non-overlapping service',desc:'Does not overlap usual components of the primary service.'}
+ {v:'XU',code:'-XU',label:'Unusual non-overlapping service',desc:'Does not overlap usual components of the primary service.'},
+ {v:'52',code:'-52',label:'Reduced services',desc:'Reduced service modifier. Documentation and payer policy must support use; this tool does not automatically reduce payment for Medicaid.'},
+ {v:'53',code:'-53',label:'Discontinued procedure',desc:'Discontinued procedure modifier. Documentation and payer policy must support use; this tool does not automatically reduce payment for Medicaid.'}
 ];
 const EM_MOD_OPTS=[
  {v:'',code:'none',label:'No modifier',desc:'Use when no same-day procedure or global-period modifier is needed.'},
@@ -1470,7 +1539,8 @@ function computeMods(){
     else{
      l.mods.push(l.userMod);
      const opt=MOD_OPTS.find(o=>o.v===l.userMod);
-     l.rationale.push({mod:l.userMod,reason:`Coder-affirmed: ${opt.label}. ${opt.desc} Documentation must support this selection.`,cite:RULES.MOD_59});
+     const modRule=RULES['MOD_'+String(l.userMod).replace(/^-/,'')]||RULES.MOD_59;
+     l.rationale.push({mod:l.userMod,reason:`Coder-affirmed: ${opt?opt.label:'modifier '+l.userMod}. ${opt?opt.desc:'Documentation must support this selection.'} Documentation must support this selection.`,cite:modRule});
      if(edit&&edit.modAllowed&&(l.userMod==='59'||String(l.userMod||'').startsWith('X')))addModifierCaution(l,'ncci_modifier_allowed',{primary:primaryProc,edit,selected:l.userMod});
      if(l.userMod==='59'||String(l.userMod||'').startsWith('X'))l.engineState='WARNING';
     }
@@ -1602,6 +1672,11 @@ function setLineLaterality(lineId,lat){
 
 function recalc(why){
  if(caseLines.length)computeMods();
+ updateMedicaidCasePanel();
+ caseLines.forEach(l=>{
+  l.medicaidWarnings=medicaidWarningsForLine(l);
+  if(l.medicaidWarnings.length&&l.engineState!=='BLOCKED')l.engineState='WARNING';
+ });
  let twrvu=0,selectedWrvu=0,rank=0;
  caseLines.forEach(l=>{
   selectedWrvu+=l.effWrvu;
@@ -1672,6 +1747,8 @@ const RULES={
  MOD_78:"CMS Medicare Claims Processing Manual — modifier 78 may be considered for a documented unplanned return to the operating/procedure room for a related complication during the postoperative period and does not start a new global period when payer policy and full documentation agree",
  MOD_79:"CMS Medicare Claims Processing Manual — modifier 79 may be considered for a documented unrelated procedure during the postoperative period and starts a new global period when payer policy and full documentation agree",
  MOD_22:"CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed",
+ MOD_52:"CPT 2026 Appendix A — modifier 52 identifies reduced services when documentation supports partial reduction or elimination of a service",
+ MOD_53:"CPT 2026 Appendix A — modifier 53 identifies a discontinued procedure when documentation supports discontinuation after initiation",
  MOD_50:"CPT 2026 Appendix A — modifier 50 for bilateral procedures; paid at 150% of base",
  MOD_RT_LT:"HCPCS Level II — anatomic laterality modifiers",
  MOD_50_ALT:"Payer variation note — some payers require bilateral split billing with RT/LT instead of modifier 50",
@@ -1920,11 +1997,17 @@ function openAuditReport(){
  caseLines.forEach(l=>{selectedWrvu+=l.effWrvu;totalWrvu+=Number(l.payableWrvu||0);totalPay+=l.pay});
 
  const rows=caseLines.map((l,i)=>{
-  const rationaleHTML=l.rationale.map(r=>`
+ const rationaleHTML=l.rationale.map(r=>`
    <div class="rationale-item">
     <div class="rationale-mod">${r.mod==='—'?'Ranking':'Modifier -'+r.mod}</div>
     <div class="rationale-text">${r.reason}</div>
     <div class="rationale-cite">${r.cite}</div>
+   </div>`).join('');
+  const medicaidHTML=(l.medicaidWarnings||[]).map(w=>`
+   <div class="rationale-item">
+    <div class="rationale-mod">Medicaid modifier warning -${h(w.modifier)}</div>
+    <div class="rationale-text">${h(w.warning)} Default Medicaid behavior is caution, not hard denial, unless a verified state or payer rules table says the modifier is not accepted.</div>
+    <div class="rationale-cite">${h(w.sourceNote)}${w.lastReviewed?' Last reviewed: '+h(w.lastReviewed):''}</div>
    </div>`).join('');
   return `
   <tr class="line-row">
@@ -1938,6 +2021,7 @@ function openAuditReport(){
   <tr class="rationale-row"><td></td><td colspan="5">
    <div class="rank-reason"><strong>Ranking basis:</strong> ${l.rankReason}</div>
    ${rationaleHTML}
+   ${medicaidHTML}
   </td></tr>`;
  }).join('');
  const globalReportStatus=globalModifierState.inGlobalPeriod===false?'No postoperative global period reported':(globalModifierState.recommendation&&globalModifierState.recommendation.modifier?'Modifier -'+globalModifierState.recommendation.modifier+' to consider':'No postoperative modifier to consider from current documentation');
@@ -1946,8 +2030,9 @@ function openAuditReport(){
  globalReportBlock='<h2>Global Surgery Modifier Review</h2><div class="rank-reason"><strong>Status:</strong> '+globalReportStatus+'</div>';
   if(globalModifierState.globalStatus)globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Automatic global period calculation</div><div class="rationale-text">'+h(globalModifierState.globalStatus.label)+'</div><div class="rationale-cite">Global period days sourced from CPT metadata when available; otherwise inferred by code class.</div></div>';
   globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Previous operation</div><div class="rationale-text">CPT '+h(globalModifierState.previous.code||'not entered')+' '+(globalModifierState.previous.date?'on '+h(globalModifierState.previous.date):'')+'; same surgeon: '+h(globalModifierState.previous.sameSurgeon||'not entered')+'; same group: '+h(globalModifierState.previous.sameGroup||'not entered')+'</div><div class="rationale-cite">'+(globalModifierState.recommendation&&globalModifierState.recommendation.reason?h(globalModifierState.recommendation.reason):h(globalModifierState.recommendation&&globalModifierState.recommendation.warning||'Standard case-builder logic continues.'))+'</div></div>';
-  if(globalModifierState.mod22.justification)globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Modifier 22 review</div><div class="rationale-text">'+h(globalModifierState.mod22.justification)+'</div><div class="rationale-cite">'+RULES.MOD_22+'</div></div>';
+ if(globalModifierState.mod22.justification)globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Modifier 22 review</div><div class="rationale-text">'+h(globalModifierState.mod22.justification)+'</div><div class="rationale-cite">'+RULES.MOD_22+'</div></div>';
  }
+ const medicaidReportBlock=payer==='medicaid'?'<h2>Medicaid modifier review</h2><div class="rank-reason"><strong>Warning:</strong> '+h(medicaidCaseWarningText())+'</div>':'';
 
  const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
 <style>
@@ -2017,6 +2102,7 @@ table{width:100%;border-collapse:collapse;font-size:10pt}
 </div>
 
 ${globalReportBlock}
+${medicaidReportBlock}
 
 <h2>Line items with coding rationale</h2>
 <table>
@@ -2063,6 +2149,11 @@ function exportAuditJSON(){
   cmsQuarter:'2026',
   paymentFormula:'Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.',
   payer,setting,
+  medicaidReview:payer==='medicaid'?{
+   warning:medicaidCaseWarningText(),
+   behavior:'Default Medicaid behavior is caution, not hard denial, unless a verified state or payer-specific rules table says a modifier is not accepted.',
+   rulesDataStructure:MEDICAID_MODIFIER_RULES
+  }:null,
   totals:{
    selectedWrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
    payableWrvu:+(caseLines.reduce((s,l)=>s+Number(l.payableWrvu||0),0).toFixed(2)),
@@ -2105,6 +2196,7 @@ function exportAuditJSON(){
    payableExclusionEdit:l.payableExclusionEdit||null,
    globalModifier:l.globalModifier||null,
    modifier22Selected:!!l.modifier22Selected,
+   medicaidWarnings:l.medicaidWarnings||[],
    suppressedBy:l.suppressedBy||null,
    bundleRule:l.bundleRule||null,
    payment:+l.pay.toFixed(2),
