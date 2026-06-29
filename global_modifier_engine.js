@@ -54,7 +54,9 @@
     { key: 'large abdominal wall reconstruction', label: 'Large abdominal wall reconstruction', re: /large\s+abdominal\s+wall\s+reconstruction|complex\s+abdominal\s+wall/i },
     { key: 'difficult exposure', label: 'Difficult exposure', re: /difficult\s+exposure|exposure\s+was\s+difficult/i },
     { key: 'unexpected anatomy', label: 'Unexpected anatomy', re: /unexpected\s+anatomy|aberrant\s+anatomy|distorted\s+anatomy/i },
-    { key: 'major blood loss', label: 'Major blood loss', re: /major\s+blood\s+loss|ebl\s*(>|greater than|of)?\s*(750|800|900|1000|1,000)/i }
+    { key: 'major blood loss', label: 'Major blood loss', re: /major\s+blood\s+loss|ebl\s*(>|greater than|of)?\s*(750|800|900|1000|1,000)/i },
+    { key: 'debridement depth and size', label: 'Debridement depth and size', re: /debridement[^.]{0,80}(skin|subcutaneous|fascia|muscle|bone)[^.]{0,80}(\d+(\.\d+)?\s*(sq\s*cm|cm2|cm\^2)|\d+\s*x\s*\d+\s*cm)/i },
+    { key: 'bowel injury risk', label: 'Bowel injury risk', re: /bowel\s+injury\s+risk|risk\s+of\s+enterotomy|serosal\s+injur|enterotomy/i }
   ];
 
   function yes(value){
@@ -73,57 +75,183 @@
     return Math.round((p / w) * 100);
   }
 
+  function parseDate(value){
+    if (!value) return null;
+    const date = new Date(String(value) + (/^\d{4}-\d{2}-\d{2}$/.test(String(value)) ? 'T00:00:00' : ''));
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function daysBetween(start, end){
+    const s = parseDate(start);
+    const e = parseDate(end);
+    if (!s || !e) return null;
+    const dayMs = 24 * 60 * 60 * 1000;
+    return Math.floor((Date.UTC(e.getFullYear(), e.getMonth(), e.getDate()) - Date.UTC(s.getFullYear(), s.getMonth(), s.getDate())) / dayMs);
+  }
+
+  function inferGlobalPeriodDays(code, metadata){
+    const explicit = Number(metadata && (metadata.global_period_days ?? metadata.globalPeriodDays ?? metadata.globalPeriod));
+    if ([0, 10, 90].includes(explicit)) return explicit;
+    const c = String(code || '');
+    if (!/^\d{5}$/.test(c)) return 0;
+    if (/^99/.test(c)) return 0;
+    const n = Number(c);
+    if (n >= 10000 && n <= 19999) return 10;
+    if (n >= 20000 && n <= 69999) return 90;
+    return 0;
+  }
+
+  function determineGlobalPeriod(input){
+    const i = input || {};
+    const globalPeriodDays = inferGlobalPeriodDays(i.previousCode, i.metadata || i.previousMetadata || {});
+    const postoperativeDay = daysBetween(i.previousDate, i.currentDate);
+    const missing = [];
+    if (!i.previousCode) missing.push('Previous CPT code');
+    if (!i.previousDate) missing.push('Previous operation date');
+    if (!i.currentDate) missing.push('Today operation date');
+    const calculable = missing.length === 0 && postoperativeDay !== null;
+    const inGlobalPeriod = calculable ? postoperativeDay >= 0 && postoperativeDay <= globalPeriodDays : null;
+    return {
+      previousCode: String(i.previousCode || ''),
+      previousDate: i.previousDate || '',
+      currentDate: i.currentDate || '',
+      globalPeriodDays,
+      postoperativeDay,
+      inGlobalPeriod,
+      calculable,
+      missing,
+      label: calculable
+        ? ('Postoperative day ' + postoperativeDay + ' of a ' + globalPeriodDays + '-day global period. ' + (inGlobalPeriod ? 'Patient is still in the global period.' : 'Patient is outside the global period.'))
+        : 'Global period cannot be calculated until the missing fields are documented.'
+    };
+  }
+
+  function confidenceFromFacts(facts, missing, base){
+    if ((missing || []).length) return 'Low';
+    const count = (facts || []).length;
+    if (base === 'high' && count >= 2) return 'High';
+    if (count >= 2) return 'High';
+    if (count === 1) return base === 'low' ? 'Moderate' : 'High';
+    return 'Low';
+  }
+
   function evaluateGlobalPeriod(answers){
     const a = answers || {};
+    const facts = [];
+    const educational = [];
+    const missing = [];
+    const globalStatus = a.globalStatus || null;
+    if (globalStatus && globalStatus.calculable && globalStatus.inGlobalPeriod === false) {
+      return {
+        inGlobalPeriod: false,
+        modifier: null,
+        confidence: 'High',
+        facts: [globalStatus.label],
+        educationalGuidance: ['Postoperative modifiers 58, 78, and 79 are used when the current service occurs during the postoperative global period.'],
+        documentationGaps: [],
+        label: 'Outside postoperative global period',
+        explanation: 'The calculated postoperative day is outside the previous CPT global period.'
+      };
+    }
     if (!yes(a.inGlobalPeriod)) {
       return {
         inGlobalPeriod: false,
         modifier: null,
+        confidence: 'High',
+        facts: globalStatus && globalStatus.calculable ? [globalStatus.label] : [],
+        educationalGuidance: ['Standard Case Builder NCCI, MPPR, and multiple-procedure logic still applies.'],
+        documentationGaps: [],
         label: 'No postoperative global modifier indicated',
         explanation: 'Case continues through standard NCCI, MPPR, and multiple-procedure logic.'
       };
     }
+    if (!globalStatus || !globalStatus.calculable) missing.push('Previous CPT code, previous operation date, and today operation date are required to calculate global-period status.');
+    else facts.push(globalStatus.label);
+    if (a.sameSurgeon) facts.push('Same surgeon: ' + String(a.sameSurgeon) + '.');
+    if (a.sameGroup) facts.push('Same group: ' + String(a.sameGroup) + '.');
+
     if (yes(a.planned) || yes(a.moreExtensive) || yes(a.therapyAfterDiagnostic)) {
+      if (yes(a.planned)) facts.push('Documented as planned or anticipated at the original operation.');
+      if (yes(a.moreExtensive)) facts.push('Documented as more extensive than the original procedure.');
+      if (yes(a.therapyAfterDiagnostic)) facts.push('Documented as therapy following a diagnostic procedure.');
+      educational.push('Modifier 58 applies to staged, more extensive, or therapeutic procedures during the postoperative period and begins a new global period.');
       return {
         inGlobalPeriod: true,
         modifier: '58',
-        confidence: 'high',
+        confidence: confidenceFromFacts(facts, missing, 'high'),
+        facts,
+        educationalGuidance: educational,
+        documentationGaps: missing,
         reason: yes(a.planned) ? 'Planned or anticipated at the original operation.' :
           (yes(a.moreExtensive) ? 'More extensive than the original procedure.' : 'Therapy following a diagnostic procedure.'),
         education: CMS_LOGIC['58']
       };
     }
     if (yes(a.complicationReturnToOR)) {
+      facts.push('Documented unplanned return to the operating room for a related postoperative complication.');
+      if (a.complicationType) facts.push('Complication documented: ' + String(a.complicationType) + '.');
+      educational.push('Modifier 78 applies to an unplanned return to the OR/procedure room for a related complication and does not begin a new global period.');
       return {
         inGlobalPeriod: true,
         modifier: '78',
-        confidence: 'high',
+        confidence: confidenceFromFacts(facts, missing, 'high'),
+        facts,
+        educationalGuidance: educational,
+        documentationGaps: missing,
         reason: 'Unplanned return to the operating room for a related postoperative complication.',
         education: CMS_LOGIC['78']
       };
     }
     if (yes(a.unrelated)) {
+      facts.push('Documented as unrelated to the prior operation.');
+      if (a.unrelatedReason) facts.push('Unrelated rationale documented: ' + String(a.unrelatedReason) + '.');
+      else missing.push('Specific unrelated diagnosis, site, or clinical problem.');
+      educational.push('Modifier 79 applies to an unrelated procedure during the postoperative period and begins a new global period.');
       return {
         inGlobalPeriod: true,
         modifier: '79',
-        confidence: 'high',
+        confidence: confidenceFromFacts(facts, missing, 'moderate'),
+        facts,
+        educationalGuidance: educational,
+        documentationGaps: missing,
         reason: 'Procedure is unrelated to the prior operation.',
         education: CMS_LOGIC['79']
       };
     }
+    missing.push('Document whether the procedure was planned/staged, more extensive, therapy after diagnostic procedure, complication-related return to OR, or unrelated to the prior operation.');
     return {
       inGlobalPeriod: true,
       modifier: null,
-      confidence: 'low',
+      confidence: 'Low',
+      facts,
+      educationalGuidance: ['CMS postoperative modifiers require documented relationship to the prior operation.'],
+      documentationGaps: missing,
       warning: 'Documentation may not support modifiers 58, 78, or 79 based on the selected answers.',
       education: null
     };
+  }
+
+  function extractOperativeNoteFindings(note){
+    const report = String(note || '');
+    const findings = [];
+    const add = (key, label, value) => findings.push({ key, label, value: value || label });
+    const time = report.match(/(?:operative|procedure|case)\s+time\s*(?:was|:)?\s*(\d{2,4})\s*(?:minutes|min)/i) || report.match(/(\d{2,4})\s*(?:minutes|min)\s+(?:of\s+)?(?:total\s+)?(?:operative|procedure|case)\s+time/i);
+    if (time) add('operative time', 'Operative time', time[1] + ' minutes');
+    const adhesiolysis = report.match(/(?:adhesiolysis|lysis of adhesions)[^.]{0,50}?(\d{2,4})\s*(?:minutes|min)/i) || report.match(/(\d{2,4})\s*(?:minutes|min)[^.]{0,50}?(?:adhesiolysis|lysis of adhesions)/i);
+    if (adhesiolysis) add('adhesiolysis duration', 'Adhesiolysis duration', adhesiolysis[1] + ' minutes');
+    const debridement = report.match(/debridement[^.]{0,120}?((?:skin|subcutaneous|fascia|muscle|bone)[^.]{0,80}?(?:\d+(?:\.\d+)?\s*(?:sq\s*cm|cm2|cm\^2)|\d+\s*x\s*\d+\s*cm))/i);
+    if (debridement) add('debridement depth and size', 'Debridement depth and size', debridement[1].trim());
+    MOD22_PATTERNS.forEach(pattern => {
+      if (pattern.re.test(report) && !findings.some(f => f.key === pattern.key)) add(pattern.key, pattern.label);
+    });
+    return findings;
   }
 
   function analyzeModifier22(input){
     const i = input || {};
     const report = String(i.operativeReport || '');
     const findings = Array.isArray(i.objectiveFindings) ? i.objectiveFindings.filter(Boolean) : [];
+    const extractedFindings = extractOperativeNoteFindings(report);
     const reasons = [];
     const seen = new Set();
     const add = (key, text) => {
@@ -136,8 +264,10 @@
       if (pattern.re.test(report) || findings.includes(pattern.key)) add(pattern.key, pattern.label + ' documented.');
     });
 
-    const adhesiolysis = Number(i.adhesiolysisMinutes || 0);
-    const total = Number(i.totalOperativeMinutes || i.actualMinutes || 0);
+    const extractedAdhesiolysis = extractedFindings.find(f => f.key === 'adhesiolysis duration');
+    const extractedTime = extractedFindings.find(f => f.key === 'operative time');
+    const adhesiolysis = Number(i.adhesiolysisMinutes || (extractedAdhesiolysis && String(extractedAdhesiolysis.value).match(/\d+/)?.[0]) || 0);
+    const total = Number(i.totalOperativeMinutes || i.actualMinutes || (extractedTime && String(extractedTime.value).match(/\d+/)?.[0]) || 0);
     if (adhesiolysis > 60) add('adhesiolysis_minutes', adhesiolysis + ' minutes of adhesiolysis documented.');
     const adhesiolysisPercent = percent(adhesiolysis, total);
     if (adhesiolysisPercent >= 30) add('adhesiolysis_percent', adhesiolysisPercent + '% of operative time devoted to adhesiolysis.');
@@ -151,10 +281,20 @@
     if (bloodLoss >= 750) add('blood_loss', bloodLoss + ' mL estimated blood loss documented.');
 
     const candidate = reasons.length >= 2 || adhesiolysis > 60 || timePercent > 150;
+    const confidence = candidate ? (reasons.length >= 3 ? 'High' : 'Moderate') : (reasons.length === 1 ? 'Low' : 'Low');
+    const documentationGaps = [];
+    if (!report && findings.length === 0) documentationGaps.push('Operative note or objective findings.');
+    if (!adhesiolysis && /adhesiolysis|lysis of adhesions/i.test(report)) documentationGaps.push('Duration of adhesiolysis.');
+    if (!actual && !total) documentationGaps.push('Total operative time.');
+    if (!expected) documentationGaps.push('Expected or typical operative time for comparison.');
     return {
       candidate,
+      confidence,
       title: candidate ? 'Possible Modifier 22 Candidate' : 'Modifier 22 not strongly supported by objective criteria entered',
       reasons,
+      extractedFindings,
+      documentationGaps,
+      educationalGuidance: ['Modifier 22 should be reviewed only when objective documentation supports substantially greater work than typical for the CPT code.'],
       metrics: {
         adhesiolysisMinutes: adhesiolysis,
         totalOperativeMinutes: total,
@@ -219,6 +359,9 @@
     analyzeModifier22,
     generateModifier22Justification,
     estimateModifier22Impact,
+    determineGlobalPeriod,
+    inferGlobalPeriodDays,
+    extractOperativeNoteFindings,
     buildTimeline
   };
 

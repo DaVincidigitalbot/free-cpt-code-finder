@@ -12,9 +12,38 @@ function test(name, fn) {
 }
 
 test('modifier 58 for planned staged procedure', () => {
-  const result = engine.evaluateGlobalPeriod({ inGlobalPeriod: true, planned: 'yes' });
+  const globalStatus = engine.determineGlobalPeriod({
+    previousCode: '44140',
+    previousDate: '2026-06-01',
+    currentDate: '2026-06-15',
+    metadata: { global_period_days: 90 }
+  });
+  const result = engine.evaluateGlobalPeriod({ inGlobalPeriod: true, planned: 'yes', globalStatus });
   assert.strictEqual(result.modifier, '58');
   assert.strictEqual(result.education.newGlobalPeriod, true);
+  assert.strictEqual(result.confidence, 'High');
+});
+
+test('automatic global period detection calculates postoperative day', () => {
+  const result = engine.determineGlobalPeriod({
+    previousCode: '10060',
+    previousDate: '2026-06-01',
+    currentDate: '2026-06-08',
+    metadata: { global_period_days: 10 }
+  });
+  assert.strictEqual(result.globalPeriodDays, 10);
+  assert.strictEqual(result.postoperativeDay, 7);
+  assert.strictEqual(result.inGlobalPeriod, true);
+});
+
+test('automatic global period detection identifies outside global', () => {
+  const result = engine.determineGlobalPeriod({
+    previousCode: '44140',
+    previousDate: '2026-01-01',
+    currentDate: '2026-06-01',
+    metadata: { global_period_days: 90 }
+  });
+  assert.strictEqual(result.inGlobalPeriod, false);
 });
 
 test('modifier 58 for more extensive procedure', () => {
@@ -50,6 +79,7 @@ test('warn when no postoperative modifier criteria fit', () => {
   });
   assert.strictEqual(result.modifier, null);
   assert.match(result.warning, /may not support/);
+  assert(result.documentationGaps.length > 0);
 });
 
 test('modifier 22 candidate from objective time and hostile abdomen facts', () => {
@@ -61,10 +91,20 @@ test('modifier 22 candidate from objective time and hostile abdomen facts', () =
     operativeReport: 'Hostile reoperative abdomen with diffuse feculent peritonitis and mesh explantation.'
   });
   assert.strictEqual(result.candidate, true);
+  assert.strictEqual(result.confidence, 'High');
   assert(result.reasons.some(reason => reason.includes('129 minutes')));
   assert(result.reasons.some(reason => reason.includes('65%')));
   assert(result.reasons.some(reason => reason.includes('Feculent peritonitis')));
   assert(result.reasons.some(reason => reason.includes('Mesh explantation')));
+});
+
+test('operative note intelligence extracts objective features', () => {
+  const findings = engine.extractOperativeNoteFindings('Operative time was 180 minutes. Adhesiolysis required 75 minutes. Debridement included fascia 8 x 6 cm. Hostile reoperative abdomen with mesh explantation and feculent peritonitis.');
+  assert(findings.some(f => f.key === 'operative time'));
+  assert(findings.some(f => f.key === 'adhesiolysis duration'));
+  assert(findings.some(f => f.key === 'debridement depth and size'));
+  assert(findings.some(f => f.key === 'mesh explantation'));
+  assert(findings.some(f => f.key === 'feculent peritonitis'));
 });
 
 test('modifier 22 justification uses objective findings only', () => {
