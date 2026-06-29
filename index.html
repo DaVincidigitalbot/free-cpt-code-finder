@@ -620,6 +620,13 @@ function adjustedPaymentForLine(line){
  return base*modifierFactor;
 }
 
+function sameSessionMpprFactorForLine(line,payableProcIndex){
+ if(!line||line.kind==='em'||line.payableExcluded)return 1;
+ if(setting==='nonfac'||lineIsAddon(line))return 1;
+ if(line.preAppliedMppr)return 1;
+ return payableProcIndex===0?1:0.5;
+}
+
 const ROBOTIC_ALLOWED=[
  '47562','47563','47564','44970','49650','49623','43280','43644','44202','38120','49320',
  '44204','44205','44207','44208','44211','45395','60650','58570','58571','58572','58573','58575','58661',
@@ -1326,6 +1333,8 @@ function computeMods(){
   l.payableExclusionClass='';
   l.payableExcludedBy='';
   l.documentationOpportunity='';
+  l.sameSessionMpprFactor=1;
+  l.preAppliedMppr=false;
   l.engineState='CLEAN';
   if(l.kind==='em'){
    if(procs.length>0){
@@ -1444,10 +1453,12 @@ function computeMods(){
    l.rank=`Secondary #${pIdx}`;
    l.rankReason=`Secondary procedure, ranked below primary ${procs[0].cpt}.`;
    if(hasRepeated15734&&l.cpt==='15734'&&payer!=='commercial'){
-    repeated15734Rank++;
-    const factor=repeated15734Rank<=2?0.5:0.25;
-    l.effWrvu=l.baseWrvu*factor;
-    l.rationale.push({mod:'Rank',reason:`Repeated 15734 component separation ranked at ${factor===0.5?'50%':'25%'} per current site rule for multiple myofascial releases.`,cite:'FreeCPTCodeFinder component separation rule'});
+   repeated15734Rank++;
+   const factor=repeated15734Rank<=2?0.5:0.25;
+   l.effWrvu=l.baseWrvu*factor;
+   l.preAppliedMppr=true;
+   l.sameSessionMpprFactor=1;
+   l.rationale.push({mod:'Rank',reason:`Repeated 15734 component separation ranked at ${factor===0.5?'50%':'25%'} per current site rule for multiple myofascial releases.`,cite:'FreeCPTCodeFinder component separation rule'});
    }else if(payer==='commercial'){l.mods.push('51');l.rationale.push({mod:'51',reason:'Commercial payer multi-procedure marker.',cite:RULES.MOD_51})}
    else l.rationale.push({mod:'Rank',reason:'Medicare MPPR applied automatically; -51 omitted.',cite:RULES.MPPR});
    if(l.userMod){
@@ -1597,12 +1608,15 @@ function recalc(why){
   if(l.payableExcluded){
    l.payableWrvu=0;
    l.pay=0;
+   l.sameSessionMpprFactor=0;
   }else{
-   l.payableWrvu=l.effWrvu;
+   const sameSessionFactor=sameSessionMpprFactorForLine(l,rank);
+   l.sameSessionMpprFactor=sameSessionFactor;
+   l.payableWrvu=Number((l.effWrvu*sameSessionFactor).toFixed(6));
    twrvu+=l.payableWrvu;
    const base=adjustedPaymentForLine(l);
    if(l.kind==='em'){l.pay=base}
-   else{l.pay=(rank===0||setting==='nonfac'||lineIsAddon(l))?base:base*0.5;rank++}
+   else{l.pay=base*sameSessionFactor;rank++}
   }
  });
  const tpay=caseLines.reduce((s,l)=>s+l.pay,0);
@@ -1619,7 +1633,7 @@ function recalc(why){
    return `<div class="rl">
     <div class="rlt">${label}<span class="rcpt">${l.cpt}</span>${l.mods.length?`<span class="rmd">-${l.mods.join('-')}</span>`:''}${canEditModifier?`<span class="mod-edit" onclick="event.stopPropagation();openMpick(${l.id})">edit</span>`:''}<span class="rx" onclick="removeLine(${i})">×</span></div>
     <div class="rd"${tooltipAttrs(l.desc)}>${l.desc}${l.approach?` · ${l.approach==='robotic'?'Robotic':(l.approach==='thora'?'Thora':'Lap')}`:''}${l.technicalComponent?' · Technical/monitoring service: 0.00 physician work RVU':''}</div>
-    <div class="rw"><span class="rwl">${l.payableExcluded?`Selected wRVU ${l.effWrvu.toFixed(2)} · Payable wRVU 0.00`:`Physician wRVU ${l.effWrvu.toFixed(2)}`}</span><span>${l.payableExcluded?'Not included':formatCurrency(l.pay)}</span></div>
+    <div class="rw"><span class="rwl">${l.payableExcluded?`Selected wRVU ${l.effWrvu.toFixed(2)} · Payable wRVU 0.00`:(Number(l.sameSessionMpprFactor||1)<1?`Selected wRVU ${l.effWrvu.toFixed(2)} · MPPR payable wRVU ${Number(l.payableWrvu||0).toFixed(2)}`:`Physician wRVU ${l.effWrvu.toFixed(2)}`)}</span><span>${l.payableExcluded?'Not included':formatCurrency(l.pay)}</span></div>
     ${renderLateralitySelector(l)}
     ${lineWarningCards(l)}
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>

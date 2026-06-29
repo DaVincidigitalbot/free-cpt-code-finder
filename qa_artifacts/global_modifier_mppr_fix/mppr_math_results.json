@@ -1,0 +1,215 @@
+{
+  "status": "pass",
+  "url": "file:///home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/index.html",
+  "cases": {
+    "Case A - all lines marked Modifier 58": {
+      "lines": [
+        {
+          "addon": false,
+          "baseWrvu": 16.85,
+          "cpt": "44625",
+          "denials": [],
+          "effectiveWrvu": 16.85,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 1,
+          "pay": 933.56,
+          "payableExcluded": false,
+          "payableWrvu": 16.85,
+          "rank": "Primary",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 13.74,
+          "cpt": "49402",
+          "denials": [],
+          "effectiveWrvu": 13.74,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 0.5,
+          "pay": 399.81,
+          "payableExcluded": false,
+          "payableWrvu": 6.87,
+          "rank": "Secondary #1",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 11.74,
+          "cpt": "13160",
+          "denials": [],
+          "effectiveWrvu": 11.74,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 0.5,
+          "pay": 370.415,
+          "payableExcluded": false,
+          "payableWrvu": 5.87,
+          "rank": "Secondary #2",
+          "warnings": []
+        }
+      ],
+      "totalPayableWrvu": 29.59,
+      "totalText": "$1,703.78 \u00b7 MPPR applied \u00b7 selected 42.33 wRVU"
+    },
+    "Case B - same lines without Modifier 58": {
+      "lines": [
+        {
+          "addon": false,
+          "baseWrvu": 16.85,
+          "cpt": "44625",
+          "denials": [],
+          "effectiveWrvu": 16.85,
+          "mods": [],
+          "mpprFactor": 1,
+          "pay": 933.56,
+          "payableExcluded": false,
+          "payableWrvu": 16.85,
+          "rank": "Primary",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 13.74,
+          "cpt": "49402",
+          "denials": [],
+          "effectiveWrvu": 13.74,
+          "mods": [],
+          "mpprFactor": 0.5,
+          "pay": 399.81,
+          "payableExcluded": false,
+          "payableWrvu": 6.87,
+          "rank": "Secondary #1",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 11.74,
+          "cpt": "13160",
+          "denials": [],
+          "effectiveWrvu": 11.74,
+          "mods": [],
+          "mpprFactor": 0.5,
+          "pay": 370.415,
+          "payableExcluded": false,
+          "payableWrvu": 5.87,
+          "rank": "Secondary #2",
+          "warnings": []
+        }
+      ],
+      "totalPayableWrvu": 29.59,
+      "totalText": "$1,703.78 \u00b7 MPPR applied \u00b7 selected 42.33 wRVU"
+    },
+    "Case C - Modifier 58 with Modifier 22 candidate and add-on debridement": {
+      "lines": [
+        {
+          "addon": false,
+          "baseWrvu": 16.85,
+          "cpt": "44625",
+          "denials": [],
+          "effectiveWrvu": 16.85,
+          "mods": [
+            "58",
+            "22"
+          ],
+          "mpprFactor": 1,
+          "pay": 933.56,
+          "payableExcluded": false,
+          "payableWrvu": 16.85,
+          "rank": "Primary",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 13.74,
+          "cpt": "49402",
+          "denials": [],
+          "effectiveWrvu": 13.74,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 0.5,
+          "pay": 399.81,
+          "payableExcluded": false,
+          "payableWrvu": 6.87,
+          "rank": "Secondary #1",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 2.63,
+          "cpt": "11043",
+          "denials": [],
+          "effectiveWrvu": 2.63,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 0.5,
+          "pay": 119.74,
+          "payableExcluded": false,
+          "payableWrvu": 1.315,
+          "rank": "Secondary #2",
+          "warnings": []
+        },
+        {
+          "addon": true,
+          "baseWrvu": 1,
+          "cpt": "11046",
+          "denials": [],
+          "effectiveWrvu": 1,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 1,
+          "pay": 76.49,
+          "payableExcluded": false,
+          "payableWrvu": 1,
+          "rank": "Add-on",
+          "warnings": []
+        }
+      ],
+      "totalPayableWrvu": 26.04,
+      "totalText": "$1,529.60 \u00b7 MPPR applied \u00b7 selected 34.22 wRVU"
+    },
+    "Case D - NCCI bundled line with Modifier 58": {
+      "lines": [
+        {
+          "addon": false,
+          "baseWrvu": 18,
+          "cpt": "44005",
+          "denials": [],
+          "effectiveWrvu": 18,
+          "mods": [
+            "58"
+          ],
+          "mpprFactor": 1,
+          "pay": 1020.4,
+          "payableExcluded": false,
+          "payableWrvu": 18,
+          "rank": "Primary",
+          "warnings": []
+        },
+        {
+          "addon": false,
+          "baseWrvu": 12.23,
+          "cpt": "49000",
+          "denials": [],
+          "effectiveWrvu": 12.23,
+          "mods": [],
+          "mpprFactor": 0,
+          "pay": 0,
+          "payableExcluded": true,
+          "payableWrvu": 0,
+          "rank": "Bundled",
+          "warnings": []
+        }
+      ],
+      "totalPayableWrvu": 18,
+      "totalText": "$1,020.40 \u00b7 selected 30.23 wRVU"
+    }
+  }
+}
