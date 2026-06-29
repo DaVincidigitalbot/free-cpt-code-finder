@@ -221,6 +221,8 @@ a{color:inherit;text-decoration:none}
 .warning-card--ncci .warning-card__title{color:#B42318}
 .warning-card--separate{border-color:#F4C27A;background:#FFF9ED;color:#6B3A00}
 .warning-card--separate .warning-card__title{color:#B45309}
+.warning-card--inpatient{border-color:#F4C27A;background:#FFF9ED;color:#6B3A00}
+.warning-card--inpatient .warning-card__title{color:#B45309}
 .warning-card--medicaid .warning-card__title{color:#1D4E89}
 .warning-card--doc{border-color:#BFD7FF;background:#F4F8FF;color:#123A67}
 .warning-card--doc .warning-card__title{color:#1D4E89}
@@ -246,6 +248,27 @@ a{color:inherit;text-decoration:none}
 .medicaid-case-panel{display:none;margin:8px 12px 12px;padding:10px 12px;border:1px solid #BFD7FF;border-left:3px solid #1D4E89;border-radius:8px;background:#F4F8FF;color:#123A67;font-size:12px;line-height:1.45}
 .medicaid-case-panel.show{display:block}
 .medicaid-case-panel strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;color:#1D4E89}
+.ipo-case-panel{display:none;margin:8px 12px 12px;padding:10px 12px;border:1px solid #F4C27A;border-left:3px solid #B45309;border-radius:8px;background:#FFF9ED;color:#6B3A00;font-size:12px;line-height:1.45}
+.ipo-case-panel.show{display:block}
+.ipo-case-panel strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;color:#B45309}
+.dx-search{position:relative;margin:8px 0 10px}
+.dx-search input{width:100%;border:1px solid var(--line2);border-radius:7px;padding:9px 10px;font:inherit;background:var(--white);color:var(--ink)}
+.dx-results{display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:50;max-height:260px;overflow:auto;border:1px solid var(--line2);border-radius:8px;background:var(--white);box-shadow:0 14px 38px rgba(10,10,10,.14)}
+.dx-results.show{display:block}
+.dx-result{display:grid;grid-template-columns:72px 1fr auto;gap:8px;align-items:start;width:100%;padding:9px 10px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;color:var(--ink);cursor:pointer}
+.dx-result:hover,.dx-result.active{background:var(--paper)}
+.dx-code{font-family:ui-monospace,monospace;font-weight:750;color:var(--ox)}
+.dx-desc{font-size:12px;line-height:1.35}
+.dx-meta{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
+.dx-chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.dx-chip{border:1px solid var(--line2);border-radius:999px;background:var(--white);padding:5px 8px;font-size:11px;cursor:pointer;color:var(--ink2)}
+.dx-chip:hover{border-color:var(--ox);color:var(--ox)}
+.dx-selected{display:grid;gap:6px}
+.dx-selected-item{border:1px solid var(--line);border-radius:7px;background:var(--paper);padding:8px}
+.dx-letter{display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;background:var(--ox);color:var(--white);font-weight:750;font-size:11px;margin-right:6px}
+.dx-pointer-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.dx-pointer{border:1px solid var(--line2);border-radius:4px;background:var(--white);padding:2px 6px;font-size:10px;cursor:pointer}
+.dx-pointer.on{border-color:var(--ox);background:var(--ox2);color:var(--ox);font-weight:750}
 .mpick-foot{display:flex;justify-content:space-between;align-items:center}
 .mpick-cancel{font-size:11px;color:var(--ink3);background:none;border:0;cursor:pointer;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace}
 .mpick-cancel:hover{color:var(--ox)}
@@ -484,6 +507,7 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
  </div>
  <div class="global-card__body" id="globalSummary">Ask after the case is built: did this operation occur during the postoperative global period of a previous surgery?</div>
 </div>
+<div class="ipo-case-panel" id="ipoCasePanel"><strong>Inpatient-only procedure in case</strong>One or more CPT codes in this case are designated as inpatient-only under current CMS policy. Verify patient status before scheduling or billing.</div>
 <div class="lns" id="lns"><div class="lns-empty">Click any procedure or code to add it here. The system will auto-assign primary/secondary and apply modifiers.</div></div>
 <div class="tl">Suggested ICD-10</div>
 <div class="lns" id="dxs"><div class="lns-empty">Select a surgery to surface diagnosis codes.</div></div>
@@ -570,6 +594,8 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
  </div>
 </div>
 
+<script src="icd10cm_2026_data.js"></script>
+<script src="inpatient_only_2026_data.js"></script>
 <script src="global_modifier_engine.js"></script>
 <script>
 const MEDICARE_CONVERSION_FACTOR=33.4009;
@@ -732,6 +758,24 @@ const SPECS={"Anesthesia":[["00100","Anesthesia for procedures on salivary gland
 
 // ===== STATE =====
 let caseLines=[],audit=[],payer='medicare',setting='facility';
+let caseDiagnoses=[],nextDxId=1,dxSearchState={query:'',results:[],activeIndex:0};
+const ICD10_DATASET_META={version:window.ICD10_DATA_VERSION?.version||'FY2026',effectiveDate:window.ICD10_DATA_VERSION?.effectiveDate||'2025-10-01',source:window.ICD10_DATA_VERSION?.source||'CMS ICD-10-CM'};
+const INPATIENT_ONLY_META={version:window.INPATIENT_ONLY_VERSION?.version||'CY2026',effectiveDate:window.INPATIENT_ONLY_VERSION?.effectiveDate||'2026-01-01',source:window.INPATIENT_ONLY_VERSION?.source||'CMS OPPS Addendum E'};
+const ICD10_ROWS=(window.ICD10_CM_2026||[]).map(r=>({code:r[0],description:r[1],billable:r[2]===1,parent:r[3]||null,effectiveDate:r[4],retired:r[5]===1,replacedBy:r[6]||null,haystack:(r[0]+' '+r[1]).toLowerCase()}));
+const ICD10_BY_CODE=new Map(ICD10_ROWS.map(r=>[r.code,r]));
+const INPATIENT_ONLY_BY_CPT=new Map((window.INPATIENT_ONLY_2026||[]).map(r=>[String(r[0]),{cpt:String(r[0]),inpatientOnly:true,effectiveDate:r[1],source:r[2],sourceNote:r[3]}]));
+const ICD10_SYNONYMS={
+ sbo:'small bowel obstruction bowel obstruction intestinal obstruction',
+ 'bowel obstruction':'small bowel obstruction intestinal obstruction sbo',
+ gallstones:'cholelithiasis gallbladder calculus biliary colic',
+ diverticulitis:'diverticulitis colon sigmoid perforation abscess',
+ hernia:'ventral incisional inguinal umbilical femoral abdominal wall hernia',
+ abscess:'abscess infection intra-abdominal wound skin soft tissue',
+ trauma:'injury fracture laceration hemorrhage open wound',
+ peritonitis:'peritonitis feculent contamination perforation',
+ appendicitis:'appendicitis appendix',
+ cholecystitis:'cholecystitis gallbladder gallstones'
+};
 let alifAssistantSelected=false;
 let nextLineId=1;
 let globalAssistantStep='screen';
@@ -1052,6 +1096,17 @@ function updateMedicaidCasePanel(){
  if(!el)return;
  el.classList.toggle('show',payer==='medicaid');
 }
+function inpatientOnlyInfoForLine(line){return INPATIENT_ONLY_BY_CPT.get(String(line&&line.cpt||''))||null}
+function inpatientOnlyCaseLines(){return caseLines.filter(l=>inpatientOnlyInfoForLine(l))}
+function inpatientOnlyWarningText(){
+ return 'This CPT is designated as an Inpatient-Only procedure under current CMS policy. It will generally only be reimbursed by Medicare when performed in the inpatient hospital setting. Commercial payer policies may differ. Please notify the surgeon and verify patient status before scheduling or billing.';
+}
+function updateInpatientOnlyCasePanel(){
+ const el=document.getElementById('ipoCasePanel');if(!el)return;
+ const lines=inpatientOnlyCaseLines();
+ el.classList.toggle('show',lines.length>0);
+ if(lines.length)el.innerHTML='<strong>Inpatient-only procedure in case</strong>'+h(lines.map(l=>l.cpt).join(', '))+' flagged. Verify inpatient status before scheduling or billing.';
+}
 function uniqueStrings(items){return [...new Set((items||[]).map(v=>String(v||'').trim()).filter(Boolean))]}
 function warningCard(kind,title,summary,details=[]){
  const body=uniqueStrings(details).map(item=>'<p>'+escText(item)+'</p>').join('');
@@ -1088,8 +1143,20 @@ function lineWarningCards(line){
   ]));
  }
  const docWarnings=uniqueStrings([...(line.documentationWarnings||[]),...(line.modifierCautions||[]).map(d=>[d.what,d.why,d.next].filter(Boolean).join(' '))]);
- if(!line.payableExcluded&&docWarnings.length){
+  if(!line.payableExcluded&&docWarnings.length){
   cards.push(warningCard('doc','Documentation Opportunity','Documentation may support additional review.',docWarnings));
+ }
+ const dxWarnings=validateDiagnosesForLine(line);
+ if(dxWarnings.length){
+  cards.push(warningCard('doc','Diagnosis Validation','Diagnosis coding needs coder review.',dxWarnings));
+ }
+ const ipo=inpatientOnlyInfoForLine(line);
+ if(ipo){
+  cards.push(warningCard('inpatient','Inpatient-Only Procedure',inpatientOnlyWarningText(),[
+   'CMS inpatient-only status effective '+ipo.effectiveDate+'.',
+   'Source: '+ipo.source+'.',
+   'This warning is educational and does not block the case.'
+  ]));
  }
  const medicaidWarnings=medicaidWarningsForLine(line);
  if(medicaidWarnings.length){
@@ -1281,7 +1348,7 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const normalizedDesc=String(desc||'');
  const inferredMidline=/\b(ventral|umbilical|epigastric|incisional|abdominal wall|midline)\b/i.test(normalizedDesc);
  const payment=paymentSnapshotForCode(cpt,wrvu,meta);
- const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source,addonCode:payment.addonCode,clinicalContext:{...(meta.clinicalContext||{})}};
+ const line={id:nextLineId++,cpt,desc,baseWrvu:wrvu,laterality:lateralToken,biIndicator:bi||0,kind:'proc',mods:[],userMod:'',dxPointers:[],isMidline:inferredMidline,technicalComponent:!!meta.technicalComponent||isTechnicalCode(cpt),basePayment:payment.basePayment,totalRvu:payment.totalRvu,paymentSource:payment.source,addonCode:payment.addonCode,clinicalContext:{...(meta.clinicalContext||{})}};
   if(dx&&dx.length)line.dx=[...dx];
  if(approach)line.approach=approach;
  if(existing.length>0&&(payment.addonCode||isAddonCode(cpt))){
@@ -1311,7 +1378,7 @@ function addEM(cpt,desc,wrvu){
  openMpick(line.id,{suggestion:'57',reason:'Select the E/M modifier for this service. For same-day decision for major surgery, choose -57. Modifier choice does not change wRVU; it changes claim context.'});
 }
 function removeLine(i){log(`REMOVE ${caseLines[i].cpt}`);caseLines.splice(i,1);recalc('line removed')}
-function clearCase(){caseLines=[];log('CASE CLEARED');recalc('cleared')}
+function clearCase(){caseLines=[];caseDiagnoses=[];nextDxId=1;log('CASE CLEARED');recalc('cleared')}
 function setCaseBuilderUserModifier(target,modifier=''){
  const key=String(target||'');
  const line=caseLines.find(l=>String(l.id)===key)||caseLines.find(l=>String(l.cpt)===key);
@@ -1637,7 +1704,98 @@ document.addEventListener('keydown',e=>{
  if(e.key==='Enter'){commitMpick(opts[mpickIndex].v);e.preventDefault()}
 });
 
+ function icdMeta(code){
+ const raw=String(code||'').replace(/\./g,'').toUpperCase();
+ return ICD10_BY_CODE.get(raw)||{code:raw,description:'Manual diagnosis entry',billable:true,parent:null,effectiveDate:ICD10_DATASET_META.effectiveDate,retired:false,replacedBy:null,manual:true};
+}
+function displayIcd(code){const raw=String(code||'').replace(/\./g,'').toUpperCase();return raw.length>3?raw.slice(0,3)+'.'+raw.slice(3):raw}
+function diagnosisLetter(index){return String.fromCharCode(65+index)}
+function searchIcd10(query,limit=12){
+ const q=String(query||'').trim().toLowerCase();if(!q)return [];
+ const expanded=(q+' '+(ICD10_SYNONYMS[q]||'')).toLowerCase();
+ const terms=[...new Set(expanded.split(/\s+/).filter(Boolean))];
+ const codeQ=q.replace(/\./g,'').toUpperCase();
+ const scored=[];
+ for(const row of ICD10_ROWS){
+  let score=0;
+  if(row.code===codeQ)score+=120;
+  else if(row.code.startsWith(codeQ)&&codeQ.length>=2)score+=70;
+  if(row.description.toLowerCase().includes(q))score+=60;
+  for(const term of terms){if(term.length>2&&row.haystack.includes(term))score+=8}
+  if(row.billable)score+=4;
+  if(score>0)scored.push({...row,score});
+  if(scored.length>limit*80)break;
+ }
+ return scored.sort((a,b)=>b.score-a.score||Number(b.billable)-Number(a.billable)||a.code.localeCompare(b.code)).slice(0,limit);
+}
+function commonDxForCpt(line){
+ const code=String(line&&line.cpt||'');
+ const desc=String(line&&line.desc||'').toLowerCase();
+ let dx=[...((line&&line.dx)||[]),...(DX_BY_CPT[code]||[])];
+ const add=arr=>{dx.push(...arr)};
+ if(/diverticul|colectomy|colon|colostomy|enterostomy|bowel|intestin/.test(desc))add(['K57.20','K57.32','K56.609','K63.1','Z43.3']);
+ if(/hernia|abdominal wall|myofascial|component/.test(desc))add(['K43.2','K43.0','K42.9','K40.90']);
+ if(/gallbladder|chole|bile|biliary/.test(desc))add(['K80.20','K80.00','K81.0','K82.8']);
+ if(/abscess|drainage|debridement|wound|infection/.test(desc))add(['L02.211','T81.49XA','K65.1','S31.109A']);
+ if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
+ if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
+ if(/hip|knee|femur|tibia|radius|fracture|arthro/.test(desc))add(['S72.001A','S82.201A','M17.11','M16.11']);
+ return [...new Set(dx.map(c=>String(c).replace(/\./g,'').toUpperCase()))].map(icdMeta).sort((a,b)=>Number(b.billable)-Number(a.billable)).slice(0,8);
+}
+function addDiagnosis(code,opts={}){
+ const meta=icdMeta(code);if(!meta.code)return;
+ let existing=caseDiagnoses.find(d=>d.code===meta.code);
+ if(!existing){existing={id:nextDxId++,code:meta.code,description:meta.description,billable:meta.billable,parent:meta.parent,effectiveDate:meta.effectiveDate,retired:meta.retired,replacedBy:meta.replacedBy,manual:!!opts.manual};caseDiagnoses.push(existing)}
+ if(opts.lineId){const line=caseLines.find(l=>l.id===opts.lineId);if(line){line.dxPointers=line.dxPointers||[];const letter=diagnosisLetter(caseDiagnoses.indexOf(existing));if(!line.dxPointers.includes(letter))line.dxPointers.push(letter)}}
+ recalc('diagnosis selected');
+}
+function removeDiagnosis(id){
+ const idx=caseDiagnoses.findIndex(d=>d.id===id);if(idx<0)return;
+ const oldLetter=diagnosisLetter(idx);caseDiagnoses.splice(idx,1);
+ caseLines.forEach(l=>{l.dxPointers=(l.dxPointers||[]).filter(x=>x!==oldLetter)});
+ recalc('diagnosis removed');
+}
+function toggleDxPointer(lineId,letter){
+ const line=caseLines.find(l=>l.id===lineId);if(!line)return;
+ line.dxPointers=line.dxPointers||[];
+ if(line.dxPointers.includes(letter))line.dxPointers=line.dxPointers.filter(x=>x!==letter);
+ else line.dxPointers.push(letter);
+ recalc('diagnosis pointer updated');
+}
+function validateDiagnosesForLine(line){
+ const warnings=[];
+ if(line.kind==='proc'&&!line.payableExcluded&&!(line.dxPointers||[]).length)warnings.push('No diagnosis pointer selected for CPT '+line.cpt+'.');
+ (line.dxPointers||[]).forEach(letter=>{
+  const dx=caseDiagnoses[letter.charCodeAt(0)-65];if(!dx)return;
+  if(!dx.billable)warnings.push(displayIcd(dx.code)+' is non-billable; select a billable child diagnosis when documentation supports it.');
+  if(dx.retired)warnings.push(displayIcd(dx.code)+' is retired/replaced; verify current ICD-10-CM code.');
+  const suggested=commonDxForCpt(line).map(d=>d.code);
+  if(suggested.length&&!suggested.includes(dx.code))warnings.push(displayIcd(dx.code)+' is not in the common diagnosis set for CPT '+line.cpt+'; confirm documentation supports the diagnosis pointer.');
+ });
+ return warnings;
+}
+function updateDxSearch(){
+ const input=document.getElementById('dxSearchInput');const box=document.getElementById('dxSearchResults');if(!input||!box)return;
+ dxSearchState.query=input.value;dxSearchState.results=searchIcd10(input.value);
+ if(!dxSearchState.results.length){box.classList.remove('show');box.innerHTML='';return}
+ box.innerHTML=dxSearchState.results.map((d,i)=>'<button type="button" class="dx-result '+(i===dxSearchState.activeIndex?'active':'')+'" onclick="addDiagnosis(\''+h(d.code)+'\')"><span class="dx-code">'+h(displayIcd(d.code))+'</span><span><span class="dx-desc">'+h(d.description)+'</span></span><span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span></button>').join('');
+ box.classList.add('show');
+}
+function addManualDiagnosis(){const v=window.prompt('Enter ICD-10-CM diagnosis code');if(v)addDiagnosis(v,{manual:true})}
+function renderDxIntelligence(){
+ const el=document.getElementById('dxs');if(!el)return;
+ if(!caseLines.length){el.innerHTML='<div class="lns-empty">Select a surgery to surface diagnosis codes.</div>';return}
+ const suggestions=[...new Map(caseLines.flatMap(commonDxForCpt).map(d=>[d.code,d])).values()].slice(0,10);
+ const selected=caseDiagnoses.map((d,i)=>'<div class="dx-selected-item"><span class="dx-letter">'+diagnosisLetter(i)+'</span><strong>'+h(displayIcd(d.code))+'</strong> '+h(d.description)+' <span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span><button class="dx-chip" style="float:right" onclick="removeDiagnosis('+d.id+')">remove</button></div>').join('');
+ const pointerRows=caseLines.filter(l=>l.kind==='proc').map(l=>{
+  const buttons=caseDiagnoses.map((d,i)=>{const letter=diagnosisLetter(i);return '<button class="dx-pointer '+((l.dxPointers||[]).includes(letter)?'on':'')+'" onclick="toggleDxPointer('+l.id+',\''+letter+'\')">'+letter+'</button>'}).join('');
+  const warnings=validateDiagnosesForLine(l).map(w=>'<div class="warning-card warning-card--doc"><div class="warning-card__summary">'+h(w)+'</div></div>').join('');
+  return '<div class="dx-selected-item"><strong>'+h(l.cpt)+'</strong> diagnosis pointers <div class="dx-pointer-row">'+(buttons||'<span class="dx-meta">Add a diagnosis first</span>')+'</div>'+warnings+'</div>';
+ }).join('');
+ el.innerHTML='<div class="dx-search"><input id="dxSearchInput" placeholder="Search ICD-10: diverticulitis, hernia, gallstones, SBO, abscess..." oninput="dxSearchState.activeIndex=0;updateDxSearch()" onfocus="updateDxSearch()" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxSearchResults\').classList.remove(\'show\')}"><div class="dx-results" id="dxSearchResults"></div></div><div class="dx-chiprow">'+suggestions.map(d=>'<button class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\')">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('')+'<button class="dx-chip" onclick="addManualDiagnosis()">Manual ICD-10 entry</button></div><div class="dx-selected">'+(selected||'<div class="lns-empty">Add one or more diagnoses. Suggested diagnoses are ranked first; search covers the full ICD-10-CM database.</div>')+'</div>'+pointerRows;
+}
 function renderDxList(){
+ return renderDxIntelligence();
  const el=document.getElementById('dxs');
  if(!el)return;
  const dx=[...new Set(caseLines.flatMap(l=>(Array.isArray(l.dx)&&l.dx.length?l.dx:(DX_BY_CPT[String(l.cpt||'')]||[]))))];
@@ -1673,6 +1831,7 @@ function setLineLaterality(lineId,lat){
 function recalc(why){
  if(caseLines.length)computeMods();
  updateMedicaidCasePanel();
+ updateInpatientOnlyCasePanel();
  caseLines.forEach(l=>{
   l.medicaidWarnings=medicaidWarningsForLine(l);
   if(l.medicaidWarnings.length&&l.engineState!=='BLOCKED')l.engineState='WARNING';
@@ -2009,6 +2168,13 @@ function openAuditReport(){
     <div class="rationale-text">${h(w.warning)} Default Medicaid behavior is caution, not hard denial, unless a verified state or payer rules table says the modifier is not accepted.</div>
     <div class="rationale-cite">${h(w.sourceNote)}${w.lastReviewed?' Last reviewed: '+h(w.lastReviewed):''}</div>
    </div>`).join('');
+  const dxPointers=(l.dxPointers||[]).map(letter=>{
+   const dx=caseDiagnoses[letter.charCodeAt(0)-65];
+   return dx?letter+': '+displayIcd(dx.code)+' '+dx.description:letter+': missing diagnosis';
+  });
+  const dxHTML='<div class="rationale-item"><div class="rationale-mod">Diagnosis pointers</div><div class="rationale-text">'+h(dxPointers.join('; ')||'No diagnosis pointer selected')+'</div><div class="rationale-cite">CMS-1500 pointer format preserved as '+h((l.dxPointers||[]).join(',')||'blank')+'</div></div>'+validateDiagnosesForLine(l).map(w=>'<div class="rationale-item"><div class="rationale-mod">Diagnosis warning</div><div class="rationale-text">'+h(w)+'</div><div class="rationale-cite">ICD-10-CM validation: billable, retired/replaced, and CPT consistency checks.</div></div>').join('');
+  const ipo=inpatientOnlyInfoForLine(l);
+  const ipoHTML=ipo?'<div class="rationale-item"><div class="rationale-mod">Inpatient-only warning</div><div class="rationale-text">'+h(inpatientOnlyWarningText())+'</div><div class="rationale-cite">'+h(ipo.source)+' effective '+h(ipo.effectiveDate)+'</div></div>':'';
   return `
   <tr class="line-row">
    <td class="num">${i+1}</td>
@@ -2021,6 +2187,8 @@ function openAuditReport(){
   <tr class="rationale-row"><td></td><td colspan="5">
    <div class="rank-reason"><strong>Ranking basis:</strong> ${l.rankReason}</div>
    ${rationaleHTML}
+   ${dxHTML}
+   ${ipoHTML}
    ${medicaidHTML}
   </td></tr>`;
  }).join('');
@@ -2033,6 +2201,8 @@ function openAuditReport(){
  if(globalModifierState.mod22.justification)globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Modifier 22 review</div><div class="rationale-text">'+h(globalModifierState.mod22.justification)+'</div><div class="rationale-cite">'+RULES.MOD_22+'</div></div>';
  }
  const medicaidReportBlock=payer==='medicaid'?'<h2>Medicaid modifier review</h2><div class="rank-reason"><strong>Warning:</strong> '+h(medicaidCaseWarningText())+'</div>':'';
+ const diagnosisReportBlock='<h2>Selected ICD-10 diagnoses</h2>'+(caseDiagnoses.length?caseDiagnoses.map((d,i)=>'<div class="rationale-item"><div class="rationale-mod">'+diagnosisLetter(i)+' · '+h(displayIcd(d.code))+'</div><div class="rationale-text">'+h(d.description)+'</div><div class="rationale-cite">'+(d.billable?'Billable':'Non-billable')+' · Effective '+h(d.effectiveDate||ICD10_DATASET_META.effectiveDate)+' · '+h(ICD10_DATASET_META.version)+'</div></div>').join(''):'<div class="rank-reason"><strong>Missing diagnoses:</strong> No ICD-10 diagnoses selected.</div>');
+ const ipoReportBlock=inpatientOnlyCaseLines().length?'<h2>Inpatient-only compliance</h2><div class="rank-reason"><strong>Warning:</strong> '+h(inpatientOnlyWarningText())+'</div>':'';
 
  const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
 <style>
@@ -2103,6 +2273,8 @@ table{width:100%;border-collapse:collapse;font-size:10pt}
 
 ${globalReportBlock}
 ${medicaidReportBlock}
+${diagnosisReportBlock}
+${ipoReportBlock}
 
 <h2>Line items with coding rationale</h2>
 <table>
@@ -2154,6 +2326,20 @@ function exportAuditJSON(){
    behavior:'Default Medicaid behavior is caution, not hard denial, unless a verified state or payer-specific rules table says a modifier is not accepted.',
    rulesDataStructure:MEDICAID_MODIFIER_RULES
   }:null,
+  diagnosisDataset:ICD10_DATASET_META,
+  inpatientOnlyDataset:INPATIENT_ONLY_META,
+  diagnoses:caseDiagnoses.map((d,i)=>({
+   pointer:diagnosisLetter(i),
+   code:displayIcd(d.code),
+   rawCode:d.code,
+   description:d.description,
+   billable:!!d.billable,
+   parent:d.parent||null,
+   effectiveDate:d.effectiveDate,
+   retired:!!d.retired,
+   replacedBy:d.replacedBy||null
+  })),
+  inpatientOnlyWarnings:inpatientOnlyCaseLines().map(l=>({cpt:l.cpt,warning:inpatientOnlyWarningText(),info:inpatientOnlyInfoForLine(l)})),
   totals:{
    selectedWrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
    payableWrvu:+(caseLines.reduce((s,l)=>s+Number(l.payableWrvu||0),0).toFixed(2)),
@@ -2197,6 +2383,10 @@ function exportAuditJSON(){
    globalModifier:l.globalModifier||null,
    modifier22Selected:!!l.modifier22Selected,
    medicaidWarnings:l.medicaidWarnings||[],
+   diagnosisPointers:l.dxPointers||[],
+   diagnosisValidationWarnings:validateDiagnosesForLine(l),
+   inpatientOnly:!!inpatientOnlyInfoForLine(l),
+   inpatientOnlyInfo:inpatientOnlyInfoForLine(l),
    suppressedBy:l.suppressedBy||null,
    bundleRule:l.bundleRule||null,
    payment:+l.pay.toFixed(2),

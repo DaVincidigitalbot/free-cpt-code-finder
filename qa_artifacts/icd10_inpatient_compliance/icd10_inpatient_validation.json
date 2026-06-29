@@ -1,0 +1,169 @@
+{
+  "status": "pass",
+  "stats": {
+    "billable": 74719,
+    "icd": 98186,
+    "ipo": 1438,
+    "ipoVersion": "CY2026",
+    "version": "FY2026"
+  },
+  "results": {
+    "colorectal": {
+      "dx": [
+        {
+          "billable": true,
+          "code": "K5720",
+          "description": "Diverticulitis of large intestine with perforation and abscess without bleeding",
+          "effectiveDate": "2025-10-01",
+          "id": 1,
+          "manual": false,
+          "parent": "K572",
+          "replacedBy": null,
+          "retired": false
+        }
+      ],
+      "ptr": [
+        "A"
+      ],
+      "suggestions": [
+        "K5720",
+        "K5732",
+        "K56609",
+        "K631",
+        "Z433"
+      ],
+      "warnings": []
+    },
+    "search": {
+      "abscess": [
+        "A541",
+        "A540",
+        "A064",
+        "A065",
+        "A066"
+      ],
+      "bowel": [
+        "A044",
+        "A048",
+        "A049",
+        "A061",
+        "A078"
+      ],
+      "diverticulitis": [
+        "A064",
+        "A065",
+        "A066",
+        "A541",
+        "A5482"
+      ],
+      "gallstones": [
+        "A000",
+        "A001",
+        "A009",
+        "A0100",
+        "A0101"
+      ],
+      "hernia": [
+        "A421",
+        "A000",
+        "A001",
+        "A009",
+        "A0100"
+      ],
+      "sbo": [
+        "A044",
+        "A048",
+        "A049",
+        "A061",
+        "A078"
+      ]
+    },
+    "ipo": {
+      "body": true,
+      "ipo": true,
+      "line": "32096",
+      "panel": true
+    },
+    "manyToMany": {
+      "diagnoses": [
+        {
+          "code": "K5720",
+          "letter": "A"
+        },
+        {
+          "code": "K651",
+          "letter": "B"
+        }
+      ],
+      "pointers": [
+        {
+          "cpt": "44625",
+          "ptr": [
+            "A"
+          ]
+        },
+        {
+          "cpt": "49402",
+          "ptr": [
+            "B"
+          ]
+        },
+        {
+          "cpt": "11043",
+          "ptr": [
+            "B"
+          ]
+        }
+      ],
+      "total": "25.04"
+    },
+    "nonBillable": {
+      "dx": {
+        "billable": false,
+        "code": "K57",
+        "description": "Diverticular disease of intestine",
+        "effectiveDate": "2025-10-01",
+        "id": 1,
+        "manual": false,
+        "parent": null,
+        "replacedBy": null,
+        "retired": false
+      },
+      "warnings": [
+        "K57 is non-billable; select a billable child diagnosis when documentation supports it.",
+        "K57 is not in the common diagnosis set for CPT 44625; confirm documentation supports the diagnosis pointer."
+      ]
+    },
+    "exportShape": {
+      "diagnoses": [
+        {
+          "code": "K57",
+          "pointer": "A"
+        }
+      ],
+      "diagnosisDataset": {
+        "effectiveDate": "2025-10-01",
+        "source": "CMS 2026 Code Descriptions in Tabular Order",
+        "version": "FY2026"
+      },
+      "inpatientOnlyDataset": {
+        "effectiveDate": "2026-01-01",
+        "source": "CY2026 OPPS Addendum E",
+        "version": "CY2026"
+      },
+      "lines": [
+        {
+          "cpt": "44625",
+          "diagnosisPointers": [
+            "A"
+          ],
+          "diagnosisValidationWarnings": [
+            "K57 is non-billable; select a billable child diagnosis when documentation supports it.",
+            "K57 is not in the common diagnosis set for CPT 44625; confirm documentation supports the diagnosis pointer."
+          ],
+          "inpatientOnly": true
+        }
+      ]
+    }
+  }
+}

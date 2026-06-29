@@ -1,0 +1,119 @@
+{
+  "version": "FY2026/CY2026",
+  "cases": [
+    {
+      "specialty": "colorectal",
+      "cpts": [
+        "44625",
+        "49402",
+        "11043"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "K57.20",
+          "description": "Diverticulitis with perforation and abscess"
+        },
+        {
+          "pointer": "B",
+          "code": "K65.1",
+          "description": "Peritoneal abscess"
+        }
+      ],
+      "pointers": {
+        "11043": [
+          "B"
+        ],
+        "44625": [
+          "A"
+        ],
+        "49402": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "specialty": "trauma",
+      "cpts": [
+        "49000",
+        "44120"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "S36.509A",
+          "description": "Injury of unspecified part of colon, initial encounter"
+        },
+        {
+          "pointer": "B",
+          "code": "S31.109A",
+          "description": "Unspecified open wound of abdominal wall, initial encounter"
+        }
+      ],
+      "pointers": {
+        "44120": [
+          "A"
+        ],
+        "49000": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "specialty": "orthopaedic",
+      "cpts": [
+        "27215"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "S32.309A",
+          "description": "Unspecified fracture of ilium, initial encounter for closed fracture"
+        }
+      ],
+      "pointers": {
+        "27215": [
+          "A"
+        ]
+      }
+    },
+    {
+      "specialty": "vascular",
+      "cpts": [
+        "35301"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "I65.29",
+          "description": "Occlusion and stenosis of unspecified carotid artery"
+        }
+      ],
+      "pointers": {
+        "35301": [
+          "A"
+        ]
+      }
+    },
+    {
+      "specialty": "general surgery",
+      "cpts": [
+        "47562"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "K80.20",
+          "description": "Calculus of gallbladder without cholecystitis without obstruction"
+        }
+      ],
+      "pointers": {
+        "47562": [
+          "A"
+        ]
+      }
+    }
+  ]
+}
