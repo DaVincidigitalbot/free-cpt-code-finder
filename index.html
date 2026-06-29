@@ -115,6 +115,33 @@ a{color:inherit;text-decoration:none}
 .alif-builder-suggestion{margin:10px 0 0;padding:12px 14px;border:1px solid var(--line2);border-radius:10px;background:var(--bg2);font-size:12px;color:var(--ink)}
 .alif-builder-title{font-weight:700;margin-bottom:6px}.alif-builder-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.alif-builder-actions button{border:1px solid var(--line2);border-radius:8px;background:var(--white);padding:7px 10px;font-size:11px;font-weight:700;color:var(--ink);cursor:pointer}.alif-assistant-example{margin-top:8px;color:var(--ink2);line-height:1.45}.alif-assistant-example code{font-family:'SFMono-Regular',Consolas,monospace;color:var(--ink)}
 @media(max-width:520px){.alif-example-grid{grid-template-columns:1fr}}
+.dx-engine{display:grid;gap:12px}
+.dx-engine-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dx-engine-title{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.dx-search{position:relative;display:grid;gap:6px}
+.dx-search input{width:100%;border:1px solid var(--line2);border-radius:8px;background:var(--white);padding:9px 10px;font-size:13px;color:var(--ink)}
+.dx-results{display:none;position:absolute;left:0;right:0;top:100%;z-index:40;background:var(--white);border:1px solid var(--line2);border-radius:8px;box-shadow:0 12px 32px rgba(10,10,10,.12);max-height:260px;overflow:auto}
+.dx-results.show{display:block}
+.dx-result{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;width:100%;border:0;border-top:1px solid var(--line);background:var(--white);padding:9px 10px;text-align:left;cursor:pointer;color:var(--ink)}
+.dx-result:first-child{border-top:0}.dx-result:hover,.dx-result.active{background:var(--ox2)}
+.dx-code,.dx-letter{font-family:'SFMono-Regular',Consolas,monospace;font-weight:800;color:var(--ox)}
+.dx-desc{font-size:12px;font-weight:650}.dx-meta{font-size:10px;color:var(--ink3);font-family:'SFMono-Regular',Consolas,monospace}
+.dx-list,.dx-line-list{display:grid;gap:8px}
+.dx-selected-item,.dx-line-card{border:1px solid var(--line2);border-radius:8px;background:var(--white);padding:10px;font-size:12px;color:var(--ink)}
+.dx-line-head{display:flex;justify-content:space-between;gap:10px;align-items:start;margin-bottom:8px}
+.dx-line-rank{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);font-weight:800}
+.dx-line-cpt{font-family:'SFMono-Regular',Consolas,monospace;font-weight:900;color:var(--ink)}
+.dx-pointer-summary{font-family:'SFMono-Regular',Consolas,monospace;color:var(--ox);font-weight:800;font-size:11px}
+.dx-checks{display:grid;gap:6px;margin-top:8px}
+.dx-check{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:start;border:1px solid var(--line);border-radius:7px;padding:8px;background:var(--paper);cursor:pointer}
+.dx-check input{margin-top:2px}.dx-check.on{border-color:var(--ox);background:var(--ox2)}
+.dx-suggested{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.dx-chip{border:1px solid var(--line2);border-radius:999px;background:var(--white);padding:6px 9px;font-size:11px;color:var(--ink);cursor:pointer;line-height:1.25}
+.dx-chip:hover,.dx-chip:focus{border-color:var(--ox);outline:0}
+.dx-add-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.dx-add-row input{flex:1;min-width:120px;border:1px solid var(--line2);border-radius:8px;padding:8px;font-size:12px}
+.dx-add-row button{border:1px solid var(--line2);border-radius:8px;background:var(--white);padding:8px 10px;font-size:11px;font-weight:800;cursor:pointer}
+.dx-map{border:1px dashed var(--line2);border-radius:8px;padding:9px;background:var(--paper);font-family:'SFMono-Regular',Consolas,monospace;font-size:11px;color:var(--ink2);display:grid;gap:4px}
 
 /* SECTIONS */
 .sections{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
@@ -509,7 +536,7 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 </div>
 <div class="ipo-case-panel" id="ipoCasePanel"><strong>Inpatient-only procedure in case</strong>One or more CPT codes in this case are designated as inpatient-only under current CMS policy. Verify patient status before scheduling or billing.</div>
 <div class="lns" id="lns"><div class="lns-empty">Click any procedure or code to add it here. The system will auto-assign primary/secondary and apply modifiers.</div></div>
-<div class="tl">Suggested ICD-10</div>
+<div class="tl">Diagnosis Pointer Engine</div>
 <div class="lns" id="dxs"><div class="lns-empty">Select a surgery to surface diagnosis codes.</div></div>
 <div class="ctrls">
 <div class="seg" id="payer-seg"><button class="on" data-v="medicare">medicare</button><button data-v="commercial">commercial</button><button data-v="medicaid">medicaid</button></div>
@@ -1728,6 +1755,19 @@ function searchIcd10(query,limit=12){
  }
  return scored.sort((a,b)=>b.score-a.score||Number(b.billable)-Number(a.billable)||a.code.localeCompare(b.code)).slice(0,limit);
 }
+function normalizeDxCode(code){return String(code||'').replace(/\./g,'').toUpperCase()}
+const LATERALITY_DX_PRIORITY={
+ '49507':{RT:['K4030','K4090'],LT:['K4031','K4090'],50:['K4030','K4031','K4090']},
+ '49505':{RT:['K4090','K4030'],LT:['K4090','K4031'],50:['K4090','K4030','K4031']},
+ '49520':{RT:['K4091','K4031'],LT:['K4091','K4031'],50:['K4091','K4030','K4031']},
+ '49650':{RT:['K4090','K4030'],LT:['K4090','K4031'],50:['K4090','K4030','K4031']},
+ '49651':{RT:['K4091','K4031'],LT:['K4091','K4031'],50:['K4091','K4030','K4031']}
+};
+function dxLateralityPriorityForLine(line){
+ const code=String(line&&line.cpt||'');
+ const lat=String(line&&line.laterality||'').toUpperCase();
+ return (LATERALITY_DX_PRIORITY[code]&&LATERALITY_DX_PRIORITY[code][lat])||[];
+}
 function commonDxForCpt(line){
  const code=String(line&&line.cpt||'');
  const desc=String(line&&line.desc||'').toLowerCase();
@@ -1740,7 +1780,13 @@ function commonDxForCpt(line){
  if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
  if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
  if(/hip|knee|femur|tibia|radius|fracture|arthro/.test(desc))add(['S72.001A','S82.201A','M17.11','M16.11']);
- return [...new Set(dx.map(c=>String(c).replace(/\./g,'').toUpperCase()))].map(icdMeta).sort((a,b)=>Number(b.billable)-Number(a.billable)).slice(0,8);
+ const priority=dxLateralityPriorityForLine(line);
+ dx=[...priority,...dx];
+ return [...new Set(dx.map(normalizeDxCode))].map(icdMeta).sort((a,b)=>{
+  const ai=priority.indexOf(a.code),bi=priority.indexOf(b.code);
+  if(ai!==bi)return (ai<0?99:ai)-(bi<0?99:bi);
+  return Number(b.billable)-Number(a.billable)||a.code.localeCompare(b.code);
+ }).slice(0,8);
 }
 function addDiagnosis(code,opts={}){
  const meta=icdMeta(code);if(!meta.code)return;
@@ -1748,11 +1794,20 @@ function addDiagnosis(code,opts={}){
  if(!existing){existing={id:nextDxId++,code:meta.code,description:meta.description,billable:meta.billable,parent:meta.parent,effectiveDate:meta.effectiveDate,retired:meta.retired,replacedBy:meta.replacedBy,manual:!!opts.manual};caseDiagnoses.push(existing)}
  if(opts.lineId){const line=caseLines.find(l=>l.id===opts.lineId);if(line){line.dxPointers=line.dxPointers||[];const letter=diagnosisLetter(caseDiagnoses.indexOf(existing));if(!line.dxPointers.includes(letter))line.dxPointers.push(letter)}}
  recalc('diagnosis selected');
+ return existing;
 }
 function removeDiagnosis(id){
  const idx=caseDiagnoses.findIndex(d=>d.id===id);if(idx<0)return;
- const oldLetter=diagnosisLetter(idx);caseDiagnoses.splice(idx,1);
- caseLines.forEach(l=>{l.dxPointers=(l.dxPointers||[]).filter(x=>x!==oldLetter)});
+ const removedLetter=diagnosisLetter(idx);
+ const remap=new Map();
+ caseDiagnoses.forEach((d,i)=>{
+  if(i<idx)remap.set(diagnosisLetter(i),diagnosisLetter(i));
+  if(i>idx)remap.set(diagnosisLetter(i),diagnosisLetter(i-1));
+ });
+ caseDiagnoses.splice(idx,1);
+ caseLines.forEach(l=>{
+  l.dxPointers=(l.dxPointers||[]).filter(x=>x!==removedLetter&&remap.has(x)).map(x=>remap.get(x));
+ });
  recalc('diagnosis removed');
 }
 function toggleDxPointer(lineId,letter){
@@ -1761,6 +1816,25 @@ function toggleDxPointer(lineId,letter){
  if(line.dxPointers.includes(letter))line.dxPointers=line.dxPointers.filter(x=>x!==letter);
  else line.dxPointers.push(letter);
  recalc('diagnosis pointer updated');
+}
+function addDiagnosisToLine(lineId,code){
+ const value=String(code||'').trim();
+ if(!value)return;
+ addDiagnosis(value,{lineId,manual:true});
+ const input=document.getElementById('dxAdd_'+lineId);
+ if(input)input.value='';
+}
+function addDxSearchResult(code,lineId){
+ addDiagnosis(code,lineId?{lineId}:{});
+ const global=document.getElementById('dxSearchInput');if(global)global.value='';
+ const lineInput=lineId?document.getElementById('dxLineSearch_'+lineId):null;if(lineInput)lineInput.value='';
+ document.querySelectorAll('.dx-results').forEach(el=>{el.classList.remove('show');el.innerHTML=''});
+}
+function diagnosisPointerSummaryForLine(line){
+ return (line.dxPointers||[]).filter(letter=>caseDiagnoses[letter.charCodeAt(0)-65]).join(',');
+}
+function diagnosisPointerMap(){
+ return caseLines.filter(l=>l.kind==='proc').map(l=>({cpt:l.cpt,pointers:[...(l.dxPointers||[])],pointerString:diagnosisPointerSummaryForLine(l)}));
 }
 function validateDiagnosesForLine(line){
  const warnings=[];
@@ -1774,25 +1848,36 @@ function validateDiagnosesForLine(line){
  });
  return warnings;
 }
-function updateDxSearch(){
- const input=document.getElementById('dxSearchInput');const box=document.getElementById('dxSearchResults');if(!input||!box)return;
+function updateDxSearch(lineId){
+ const suffix=lineId?'_'+lineId:'';
+ const input=document.getElementById(lineId?'dxLineSearch_'+lineId:'dxSearchInput');const box=document.getElementById(lineId?'dxLineSearchResults_'+lineId:'dxSearchResults');if(!input||!box)return;
  dxSearchState.query=input.value;dxSearchState.results=searchIcd10(input.value);
  if(!dxSearchState.results.length){box.classList.remove('show');box.innerHTML='';return}
- box.innerHTML=dxSearchState.results.map((d,i)=>'<button type="button" class="dx-result '+(i===dxSearchState.activeIndex?'active':'')+'" onclick="addDiagnosis(\''+h(d.code)+'\')"><span class="dx-code">'+h(displayIcd(d.code))+'</span><span><span class="dx-desc">'+h(d.description)+'</span></span><span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span></button>').join('');
+ box.innerHTML=dxSearchState.results.map((d,i)=>'<button type="button" class="dx-result '+(i===dxSearchState.activeIndex?'active':'')+'" onclick="addDxSearchResult(\''+h(d.code)+'\','+(lineId||0)+')"><span class="dx-code">'+h(displayIcd(d.code))+'</span><span><span class="dx-desc">'+h(d.description)+'</span></span><span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span></button>').join('');
  box.classList.add('show');
 }
 function addManualDiagnosis(){const v=window.prompt('Enter ICD-10-CM diagnosis code');if(v)addDiagnosis(v,{manual:true})}
+function addManualDiagnosisForLine(lineId){const v=window.prompt('Enter ICD-10-CM diagnosis code for this CPT line');if(v)addDiagnosis(v,{lineId,manual:true})}
+function lineDxRoleLabel(line){
+ if(line.kind==='em')return 'E/M';
+ if(line.payableExcluded)return 'Bundled';
+ if(line.rank==='Primary')return 'Primary';
+ return /^Secondary/i.test(String(line.rank||''))?'Secondary':(line.rank||'Procedure');
+}
 function renderDxIntelligence(){
  const el=document.getElementById('dxs');if(!el)return;
  if(!caseLines.length){el.innerHTML='<div class="lns-empty">Select a surgery to surface diagnosis codes.</div>';return}
  const suggestions=[...new Map(caseLines.flatMap(commonDxForCpt).map(d=>[d.code,d])).values()].slice(0,10);
- const selected=caseDiagnoses.map((d,i)=>'<div class="dx-selected-item"><span class="dx-letter">'+diagnosisLetter(i)+'</span><strong>'+h(displayIcd(d.code))+'</strong> '+h(d.description)+' <span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span><button class="dx-chip" style="float:right" onclick="removeDiagnosis('+d.id+')">remove</button></div>').join('');
- const pointerRows=caseLines.filter(l=>l.kind==='proc').map(l=>{
-  const buttons=caseDiagnoses.map((d,i)=>{const letter=diagnosisLetter(i);return '<button class="dx-pointer '+((l.dxPointers||[]).includes(letter)?'on':'')+'" onclick="toggleDxPointer('+l.id+',\''+letter+'\')">'+letter+'</button>'}).join('');
+ const selected=caseDiagnoses.map((d,i)=>'<div class="dx-selected-item"><span class="dx-letter">'+diagnosisLetter(i)+'</span> <strong>'+h(displayIcd(d.code))+'</strong> '+h(d.description)+' <span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span><button class="dx-chip" style="float:right" onclick="removeDiagnosis('+d.id+')">remove</button></div>').join('');
+ const pointerMap=diagnosisPointerMap();
+ const mapHTML='<div class="dx-map">'+(pointerMap.length?pointerMap.map(row=>'<div>'+h(row.cpt)+' → '+h(row.pointerString||'none')+'</div>').join(''):'<div>No CPT diagnosis pointers yet.</div>')+'</div>';
+ const lineCards=caseLines.filter(l=>l.kind==='proc').map(l=>{
+  const lineSuggestions=commonDxForCpt(l).slice(0,8);
+  const checks=caseDiagnoses.map((d,i)=>{const letter=diagnosisLetter(i);const on=(l.dxPointers||[]).includes(letter);return '<label class="dx-check '+(on?'on':'')+'"><input type="checkbox" '+(on?'checked':'')+' onchange="toggleDxPointer('+l.id+',\''+letter+'\')"><span><span class="dx-letter">'+letter+'</span> <strong>'+h(displayIcd(d.code))+'</strong> '+h(d.description)+' <span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span></span></label>'}).join('');
   const warnings=validateDiagnosesForLine(l).map(w=>'<div class="warning-card warning-card--doc"><div class="warning-card__summary">'+h(w)+'</div></div>').join('');
-  return '<div class="dx-selected-item"><strong>'+h(l.cpt)+'</strong> diagnosis pointers <div class="dx-pointer-row">'+(buttons||'<span class="dx-meta">Add a diagnosis first</span>')+'</div>'+warnings+'</div>';
+  return '<div class="dx-line-card"><div class="dx-line-head"><div><div class="dx-line-rank">'+h(lineDxRoleLabel(l))+'</div><div class="dx-line-cpt">'+h(l.cpt)+'</div></div><div class="dx-pointer-summary">'+h(l.cpt+' → '+(diagnosisPointerSummaryForLine(l)||'none'))+'</div></div><div class="dx-meta">'+h(l.desc)+(l.laterality?' · '+h(l.laterality):'')+'</div><div class="dx-suggested">'+lineSuggestions.map(d=>'<button class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\',{lineId:'+l.id+'})">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('')+'<button class="dx-chip" onclick="addManualDiagnosisForLine('+l.id+')">Add Diagnosis</button></div><div class="dx-search" style="margin-top:8px"><input id="dxLineSearch_'+l.id+'" placeholder="Search ICD-10 for CPT '+h(l.cpt)+'" oninput="dxSearchState.activeIndex=0;updateDxSearch('+l.id+')" onfocus="updateDxSearch('+l.id+')" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxLineSearchResults_'+l.id+'\').classList.remove(\'show\')}"><div class="dx-results" id="dxLineSearchResults_'+l.id+'"></div></div><div class="dx-add-row"><input id="dxAdd_'+l.id+'" placeholder="Enter ICD-10 code"><button onclick="addDiagnosisToLine('+l.id+',document.getElementById(\'dxAdd_'+l.id+'\').value)">Add to '+h(l.cpt)+'</button></div><div class="dx-checks">'+(checks||'<div class="lns-empty">No diagnoses in the case yet. Add one above or use a suggested diagnosis.</div>')+'</div>'+warnings+'</div>';
  }).join('');
- el.innerHTML='<div class="dx-search"><input id="dxSearchInput" placeholder="Search ICD-10: diverticulitis, hernia, gallstones, SBO, abscess..." oninput="dxSearchState.activeIndex=0;updateDxSearch()" onfocus="updateDxSearch()" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxSearchResults\').classList.remove(\'show\')}"><div class="dx-results" id="dxSearchResults"></div></div><div class="dx-chiprow">'+suggestions.map(d=>'<button class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\')">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('')+'<button class="dx-chip" onclick="addManualDiagnosis()">Manual ICD-10 entry</button></div><div class="dx-selected">'+(selected||'<div class="lns-empty">Add one or more diagnoses. Suggested diagnoses are ranked first; search covers the full ICD-10-CM database.</div>')+'</div>'+pointerRows;
+ el.innerHTML='<div class="dx-engine"><div class="dx-engine-head"><div class="dx-engine-title">Diagnosis List</div><button class="dx-chip" onclick="addManualDiagnosis()">Manual ICD-10 entry</button></div><div class="dx-search"><input id="dxSearchInput" placeholder="Search ICD-10: diverticulitis, hernia, gallstones, SBO, abscess..." oninput="dxSearchState.activeIndex=0;updateDxSearch()" onfocus="updateDxSearch()" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxSearchResults\').classList.remove(\'show\')}"><div class="dx-results" id="dxSearchResults"></div></div><div class="dx-suggested">'+suggestions.map(d=>'<button class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\')">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('')+'</div><div class="dx-list">'+(selected||'<div class="lns-empty">Add one or more diagnoses. Each selected diagnosis receives a CMS-1500 pointer letter.</div>')+'</div><div class="dx-engine-title">Claim pointer map</div>'+mapHTML+'<div class="dx-engine-title">CPT diagnosis pointers</div><div class="dx-line-list">'+lineCards+'</div></div>';
 }
 function renderDxList(){
  return renderDxIntelligence();
@@ -2201,7 +2286,7 @@ function openAuditReport(){
  if(globalModifierState.mod22.justification)globalReportBlock+='<div class="rationale-item"><div class="rationale-mod">Modifier 22 review</div><div class="rationale-text">'+h(globalModifierState.mod22.justification)+'</div><div class="rationale-cite">'+RULES.MOD_22+'</div></div>';
  }
  const medicaidReportBlock=payer==='medicaid'?'<h2>Medicaid modifier review</h2><div class="rank-reason"><strong>Warning:</strong> '+h(medicaidCaseWarningText())+'</div>':'';
- const diagnosisReportBlock='<h2>Selected ICD-10 diagnoses</h2>'+(caseDiagnoses.length?caseDiagnoses.map((d,i)=>'<div class="rationale-item"><div class="rationale-mod">'+diagnosisLetter(i)+' · '+h(displayIcd(d.code))+'</div><div class="rationale-text">'+h(d.description)+'</div><div class="rationale-cite">'+(d.billable?'Billable':'Non-billable')+' · Effective '+h(d.effectiveDate||ICD10_DATASET_META.effectiveDate)+' · '+h(ICD10_DATASET_META.version)+'</div></div>').join(''):'<div class="rank-reason"><strong>Missing diagnoses:</strong> No ICD-10 diagnoses selected.</div>');
+ const diagnosisReportBlock='<h2>Selected ICD-10 diagnoses</h2>'+(caseDiagnoses.length?caseDiagnoses.map((d,i)=>'<div class="rationale-item"><div class="rationale-mod">'+diagnosisLetter(i)+' · '+h(displayIcd(d.code))+'</div><div class="rationale-text">'+h(d.description)+'</div><div class="rationale-cite">'+(d.billable?'Billable':'Non-billable')+' · Effective '+h(d.effectiveDate||ICD10_DATASET_META.effectiveDate)+' · '+h(ICD10_DATASET_META.version)+'</div></div>').join(''):'<div class="rank-reason"><strong>Missing diagnoses:</strong> No ICD-10 diagnoses selected.</div>')+'<h2>CMS-1500 diagnosis pointer map</h2>'+(diagnosisPointerMap().length?diagnosisPointerMap().map(row=>'<div class="rationale-item"><div class="rationale-mod">CPT '+h(row.cpt)+'</div><div class="rationale-text">'+h(row.cpt+' → '+(row.pointerString||'none'))+'</div><div class="rationale-cite">Future CMS-1500 export pointer string: '+h(row.pointerString||'blank')+'</div></div>').join(''):'<div class="rank-reason"><strong>No CPT lines:</strong> No diagnosis pointer map available.</div>');
  const ipoReportBlock=inpatientOnlyCaseLines().length?'<h2>Inpatient-only compliance</h2><div class="rank-reason"><strong>Warning:</strong> '+h(inpatientOnlyWarningText())+'</div>':'';
 
  const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
@@ -2339,6 +2424,8 @@ function exportAuditJSON(){
    retired:!!d.retired,
    replacedBy:d.replacedBy||null
   })),
+  diagnosisPointerMap:diagnosisPointerMap(),
+  futureCms1500DiagnosisPointers:diagnosisPointerMap().map(row=>({cpt:row.cpt,diagnosisPointerField:row.pointerString})),
   inpatientOnlyWarnings:inpatientOnlyCaseLines().map(l=>({cpt:l.cpt,warning:inpatientOnlyWarningText(),info:inpatientOnlyInfoForLine(l)})),
   totals:{
    selectedWrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),

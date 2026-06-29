@@ -1,0 +1,193 @@
+{
+  "status": "pass",
+  "branch": "review/icd10-diagnosis-pointer-engine",
+  "screenshots": [
+    "/home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/qa_artifacts/icd10_diagnosis_pointer_engine/01_one_cpt_multiple_diagnoses.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/qa_artifacts/icd10_diagnosis_pointer_engine/02_multiple_cpts_shared_diagnosis.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/qa_artifacts/icd10_diagnosis_pointer_engine/03_laterality_smart_suggestions.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/qa_artifacts/icd10_diagnosis_pointer_engine/04_export_pointer_shape.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/qa_artifacts/icd10_diagnosis_pointer_engine/05_mobile_diagnosis_pointer_engine.png"
+  ],
+  "browserVideo": "/home/setup/Desktop/FreeCPTCodeFinder-global-modifier-v1/qa_artifacts/icd10_diagnosis_pointer_engine/diagnosis_pointer_workflow.mp4",
+  "results": {
+    "dataset": {
+      "billable": 74719,
+      "icd": 98186,
+      "ipo": 1438
+    },
+    "oneCptMultipleDiagnoses": {
+      "diagnoses": [
+        {
+          "code": "K56.609",
+          "description": "Unspecified intestinal obstruction, unspecified as to partial versus complete obstruction",
+          "letter": "A"
+        },
+        {
+          "code": "K65.1",
+          "description": "Peritoneal abscess",
+          "letter": "B"
+        }
+      ],
+      "html": "Diagnosis ListManual ICD-10 entryK56.609 Unspecified intestinal obstruction, unspecified as to partial versus complete obstructionK57.20 Diverticulitis of large intestine with perforation and abscess without bleedingK57.32 Diverticulitis of large intestine without perforation or abscess without bleedingK63.1 Perforation of intestine (nontraumatic)Z43.3 Encounter for attention to colostomyA K56.609 Unspecified intestinal obstruction, unspecified as to partial versus complete obstruction billableremoveB K65.1 Peritoneal abscess billableremoveClaim pointer map44120 \u2192 A,BCPT diagnosis pointersPrimary4412044120 \u2192 A,BEnterectomy, resection of small intestine; single resection and anastomosisK56.609 Unspecified intestinal obstruction, unspecified as to partial versus complete obstructionK57.20 Diverticulitis of large intestine with perforation and abscess without bleedingK57.32 Diverticulitis of large intestine without perforation or abscess without bleedingK63.1 Perforation of intestine (nontraumatic)Z43.3 Encounter for attention to colostomyAdd DiagnosisAdd to 44120A K56.609 Unspecified intestinal obstruction, unspecified as to partial versus complete obstruction billableB K65.1 Peritoneal abscess billableK65.1 is not in the common diagnosis set for CPT 44120; confirm documentation supports the diagnosis pointer.",
+      "map": [
+        {
+          "cpt": "44120",
+          "pointerString": "A,B",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "warnings": [
+        "K65.1 is not in the common diagnosis set for CPT 44120; confirm documentation supports the diagnosis pointer."
+      ]
+    },
+    "multipleCptsSharedDiagnosis": {
+      "diagnoses": [
+        {
+          "code": "K56.609",
+          "letter": "A"
+        },
+        {
+          "code": "K65.1",
+          "letter": "B"
+        },
+        {
+          "code": "K40.30",
+          "letter": "C"
+        }
+      ],
+      "lines": [
+        {
+          "cpt": "44120",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "cpt": "49507",
+          "pointers": [
+            "C",
+            "B"
+          ]
+        }
+      ],
+      "map": [
+        {
+          "cpt": "44120",
+          "pointerString": "A,B",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "cpt": "49507",
+          "pointerString": "C,B",
+          "pointers": [
+            "C",
+            "B"
+          ]
+        }
+      ]
+    },
+    "letterReassignmentAfterRemoval": {
+      "diagnoses": [
+        {
+          "code": "K56.609",
+          "letter": "A"
+        },
+        {
+          "code": "K40.30",
+          "letter": "B"
+        }
+      ],
+      "lines": [
+        {
+          "cpt": "44120",
+          "pointers": [
+            "A"
+          ]
+        },
+        {
+          "cpt": "49507",
+          "pointers": [
+            "B"
+          ]
+        }
+      ],
+      "map": [
+        {
+          "cpt": "44120",
+          "pointerString": "A",
+          "pointers": [
+            "A"
+          ]
+        },
+        {
+          "cpt": "49507",
+          "pointerString": "B",
+          "pointers": [
+            "B"
+          ]
+        }
+      ]
+    },
+    "zeroDiagnosisWarning": [
+      "No diagnosis pointer selected for CPT 44120."
+    ],
+    "laterality": {
+      "bilateral": [
+        "K4030",
+        "K4031",
+        "K4090",
+        "K429"
+      ],
+      "html": "Diagnosis ListManual ICD-10 entryK40.30 Unilateral inguinal hernia, with obstruction, without gangrene, not specified as recurrentK40.31 Unilateral inguinal hernia, with obstruction, without gangrene, recurrentK40.90 Unilateral inguinal hernia, without obstruction or gangrene, not specified as recurrentK42.9 Umbilical hernia without obstruction or gangreneK43.0 Incisional hernia with obstruction, without gangreneK43.2 Incisional hernia without obstruction or gangreneAdd one or more diagnoses. Each selected diagnosis receives a CMS-1500 pointer letter.Claim pointer map49507 \u2192 noneCPT diagnosis pointersPrimary4950749507 \u2192 noneRepair initial inguinal hernia, age 5 years or older; incarcerated or strangulated \u00b7 50K40.30 Unilateral inguinal hernia, with obstruction, without gangrene, not specified as recurrentK40.31 Unilateral inguinal hernia, with obstruction, without gangrene, recurrentK40.90 Unilateral inguinal hernia, without obstruction or gangrene, not specified as recurrentK42.9 Umbilical hernia without obstruction or gangreneK43.0 Incisional hernia with obstruction, without gangreneK43.2 Incisional hernia without obstruction or gangreneAdd DiagnosisAdd to 49507No diagnoses in the case yet. Add one above or use a suggested diagnosis.No diagnosis pointer selected for CPT 49507.",
+      "left": [
+        "K4031",
+        "K4090",
+        "K4030"
+      ],
+      "right": [
+        "K4030",
+        "K4090",
+        "K4031"
+      ]
+    },
+    "exportShape": {
+      "auditContainsPointerMap": true,
+      "diagnosisPointerMap": [
+        {
+          "cpt": "49507",
+          "pointerString": "A",
+          "pointers": [
+            "A"
+          ]
+        }
+      ],
+      "futureCms1500DiagnosisPointers": [
+        {
+          "cpt": "49507",
+          "diagnosisPointerField": "A"
+        }
+      ]
+    },
+    "mobile": {
+      "innerWidth": 500,
+      "map": "A",
+      "scrollWidth": 485
+    }
+  },
+  "regression": {
+    "oneCpt": "pass",
+    "multipleCpts": "pass",
+    "sharedDiagnosis": "pass",
+    "multipleDiagnoses": "pass",
+    "laterality": "pass",
+    "mobile": "pass",
+    "desktop": "pass"
+  }
+}
