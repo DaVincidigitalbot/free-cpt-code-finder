@@ -8,21 +8,21 @@
   const CMS_LOGIC = {
     '58': {
       label: 'Modifier 58',
-      summary: 'Staged or related procedure during the postoperative period.',
+      summary: 'Modifier 58 may be considered for a staged or related procedure during the postoperative period when payer policy and full documentation agree.',
       bullets: [
-        'Planned or anticipated procedure',
-        'More extensive procedure than the original operation',
-        'Therapy following a diagnostic procedure',
+        'Documented planned or anticipated procedure',
+        'Documented more extensive procedure than the original operation',
+        'Documented therapy following a diagnostic procedure',
         'Begins a new postoperative global period'
       ],
       newGlobalPeriod: true
     },
     '78': {
       label: 'Modifier 78',
-      summary: 'Unplanned return to the operating room for a related complication.',
+      summary: 'Modifier 78 may be considered for an unplanned return to the operating room for a related complication when payer policy and full documentation agree.',
       bullets: [
-        'Unplanned return to OR or procedure room',
-        'Related to the original procedure',
+        'Documented unplanned return to OR or procedure room',
+        'Documented relationship to the original procedure',
         'Used for complications such as bleeding, dehiscence, leak, injury, infected hematoma, or washout',
         'Does not begin a new postoperative global period'
       ],
@@ -30,10 +30,10 @@
     },
     '79': {
       label: 'Modifier 79',
-      summary: 'Unrelated procedure during the postoperative period.',
+      summary: 'Modifier 79 may be considered for an unrelated procedure during the postoperative period when payer policy and full documentation agree.',
       bullets: [
-        'Procedure is unrelated to the previous operation',
-        'Requires a separate diagnosis, site, or clinical problem',
+        'Documented procedure is unrelated to the previous operation',
+        'Requires documented separate diagnosis, site, or clinical problem',
         'Begins a new postoperative global period'
       ],
       newGlobalPeriod: true
@@ -161,7 +161,7 @@
         facts: globalStatus && globalStatus.calculable ? [globalStatus.label] : [],
         educationalGuidance: ['Standard Case Builder NCCI, MPPR, and multiple-procedure logic still applies.'],
         documentationGaps: [],
-        label: 'No postoperative global modifier indicated',
+        label: 'No postoperative global modifier to consider',
         explanation: 'Case continues through standard NCCI, MPPR, and multiple-procedure logic.'
       };
     }
@@ -174,7 +174,7 @@
       if (yes(a.planned)) facts.push('Documented as planned or anticipated at the original operation.');
       if (yes(a.moreExtensive)) facts.push('Documented as more extensive than the original procedure.');
       if (yes(a.therapyAfterDiagnostic)) facts.push('Documented as therapy following a diagnostic procedure.');
-      educational.push('Modifier 58 applies to staged, more extensive, or therapeutic procedures during the postoperative period and begins a new global period.');
+      educational.push('Documentation appears to support consideration of Modifier 58 when the current procedure is staged, more extensive, or therapeutic during the postoperative period. Final use depends on the prior procedure, timing, surgeon/group relationship, payer policy, and documented reason for the return.');
       return {
         inGlobalPeriod: true,
         modifier: '58',
@@ -182,15 +182,15 @@
         facts,
         educationalGuidance: educational,
         documentationGaps: missing,
-        reason: yes(a.planned) ? 'Planned or anticipated at the original operation.' :
-          (yes(a.moreExtensive) ? 'More extensive than the original procedure.' : 'Therapy following a diagnostic procedure.'),
+        reason: yes(a.planned) ? 'Documentation appears to support consideration of Modifier 58 because the procedure was planned or anticipated at the original operation.' :
+          (yes(a.moreExtensive) ? 'Documentation appears to support consideration of Modifier 58 because the procedure is documented as more extensive than the original procedure.' : 'Documentation appears to support consideration of Modifier 58 because the procedure is documented as therapy following a diagnostic procedure.'),
         education: CMS_LOGIC['58']
       };
     }
     if (yes(a.complicationReturnToOR)) {
       facts.push('Documented unplanned return to the operating room for a related postoperative complication.');
       if (a.complicationType) facts.push('Complication documented: ' + String(a.complicationType) + '.');
-      educational.push('Modifier 78 applies to an unplanned return to the OR/procedure room for a related complication and does not begin a new global period.');
+      educational.push('Documentation appears to support consideration of Modifier 78 for a documented unplanned return to the OR/procedure room for a related complication. Final use depends on the prior procedure, timing, surgeon/group relationship, payer policy, and documented reason for the return.');
       return {
         inGlobalPeriod: true,
         modifier: '78',
@@ -198,7 +198,7 @@
         facts,
         educationalGuidance: educational,
         documentationGaps: missing,
-        reason: 'Unplanned return to the operating room for a related postoperative complication.',
+        reason: 'Documentation appears to support consideration of Modifier 78 because the case is documented as an unplanned return to the operating room for a related postoperative complication.',
         education: CMS_LOGIC['78']
       };
     }
@@ -206,7 +206,7 @@
       facts.push('Documented as unrelated to the prior operation.');
       if (a.unrelatedReason) facts.push('Unrelated rationale documented: ' + String(a.unrelatedReason) + '.');
       else missing.push('Specific unrelated diagnosis, site, or clinical problem.');
-      educational.push('Modifier 79 applies to an unrelated procedure during the postoperative period and begins a new global period.');
+      educational.push('Documentation appears to support consideration of Modifier 79 for a documented unrelated procedure during the postoperative period. Final use depends on the prior procedure, timing, surgeon/group relationship, payer policy, and documented unrelated diagnosis, site, or clinical problem.');
       return {
         inGlobalPeriod: true,
         modifier: '79',
@@ -214,7 +214,7 @@
         facts,
         educationalGuidance: educational,
         documentationGaps: missing,
-        reason: 'Procedure is unrelated to the prior operation.',
+        reason: 'Documentation appears to support consideration of Modifier 79 because the procedure is documented as unrelated to the prior operation.',
         education: CMS_LOGIC['79']
       };
     }
@@ -224,9 +224,9 @@
       modifier: null,
       confidence: 'Low',
       facts,
-      educationalGuidance: ['CMS postoperative modifiers require documented relationship to the prior operation.'],
+      educationalGuidance: ['CMS postoperative modifier consideration requires a documented relationship to the prior operation and confirmation against payer policy.'],
       documentationGaps: missing,
-      warning: 'Documentation may not support modifiers 58, 78, or 79 based on the selected answers.',
+      warning: 'Current documentation is incomplete for confident consideration of modifiers 58, 78, or 79 based on the selected answers.',
       education: null
     };
   }
@@ -290,11 +290,11 @@
     return {
       candidate,
       confidence,
-      title: candidate ? 'Possible Modifier 22 Candidate' : 'Modifier 22 not strongly supported by objective criteria entered',
+      title: candidate ? 'Possible Modifier 22 Candidate' : 'Modifier 22 lacks enough objective documentation for confident consideration',
       reasons,
       extractedFindings,
       documentationGaps,
-      educationalGuidance: ['Modifier 22 should be reviewed only when objective documentation supports substantially greater work than typical for the CPT code.'],
+      educationalGuidance: ['Documented objective findings may support consideration of Modifier 22 only if payer policy and full documentation agree. Surgeon/coder review is required, and Modifier 22 is never applied automatically.'],
       metrics: {
         adhesiolysisMinutes: adhesiolysis,
         totalOperativeMinutes: total,
@@ -325,19 +325,19 @@
     return 'This procedure required substantially greater work than typically required for CPT ' + code +
       ' because the documented operative findings increased technical difficulty, operative time, and operative risk.' +
       metricSentence + factSentence +
-      ' These objective findings support surgeon review for modifier 22.';
+      ' These documented findings may support consideration of Modifier 22 after surgeon/coder review and payer-policy review. Review and edit before use.';
   }
 
   function estimateModifier22Impact(basePayment, appealIncreasePercent){
     const base = money(basePayment);
     const pct = Number(appealIncreasePercent || 20);
-    const withAppeal = money(base * (1 + pct / 100));
+    const withPayerAcceptedModifier22 = money(base * (1 + pct / 100));
     return {
       withoutModifier22: base,
-      successfulAppealEstimate: withAppeal,
-      estimatedIncrease: money(withAppeal - base),
+      withPayerAcceptedModifier22Estimate: withPayerAcceptedModifier22,
+      estimatedIncrease: money(withPayerAcceptedModifier22 - base),
       increasePercent: pct,
-      label: 'Educational estimate only. Actual payer allowance depends on documentation, contract, and appeal review.'
+      label: 'Educational estimate only. Actual payment depends on payer rules, documentation review, modifier acceptance, contract terms, and claim adjudication.'
     };
   }
 
@@ -347,7 +347,7 @@
       { label: 'Original operation', value: previous && previous.code ? previous.code + (previous.date ? ' on ' + previous.date : '') : 'Previous surgery' },
       { label: 'Global period', value: 'Postoperative global period active' },
       { label: "Today's operation", value: today && today.codes ? today.codes.join(', ') : 'Current case' },
-      { label: 'Recommended modifier', value: modifier ? '-' + modifier : 'No supported postoperative modifier' },
+      { label: 'Modifier to consider', value: modifier ? '-' + modifier : 'No postoperative modifier to consider from current documentation' },
       { label: 'New global period', value: edu ? (edu.newGlobalPeriod ? 'Yes' : 'No') : 'Not applicable' }
     ];
   }

@@ -1432,13 +1432,13 @@ function computeMods(){
   if(l.globalModifier&&['58','78','79'].includes(String(l.globalModifier))&&!l.mods.includes(l.globalModifier)){
    l.mods.push(l.globalModifier);
    const edu=GlobalModifierEngine.CMS_LOGIC[l.globalModifier];
-   const reasonText=('Global period modifier selected: '+edu.summary+' '+(globalModifierState.recommendation&&globalModifierState.recommendation.reason?globalModifierState.recommendation.reason:'')).trim();
+   const reasonText=('Global period modifier marked for coder review: '+edu.summary+' '+(globalModifierState.recommendation&&globalModifierState.recommendation.reason?globalModifierState.recommendation.reason:'')).trim();
    l.rationale.push({mod:l.globalModifier,reason:reasonText,cite:RULES['MOD_'+l.globalModifier]});
    l.engineState=l.engineState==='BLOCKED'?'BLOCKED':'WARNING';
   }
   if(l.modifier22Selected&&!l.mods.includes('22')){
    l.mods.push('22');
-   l.rationale.push({mod:'22',reason:'Surgeon-selected modifier 22 candidate. Do not submit unless the operative report contains objective facts supporting substantially greater work.',cite:RULES.MOD_22});
+   l.rationale.push({mod:'22',reason:'Surgeon marked Modifier 22 for review. Submit only after surgeon/coder review confirms payer policy and full documentation, including objective facts that may support consideration of substantially greater work.',cite:RULES.MOD_22});
    l.engineState=l.engineState==='BLOCKED'?'BLOCKED':'WARNING';
   }
   if(l.conflicts.length){
@@ -1616,10 +1616,10 @@ const RULES={
  MOD_25:"CPT 2026 Appendix A — modifier 25 indicates significant, separately identifiable E/M on same day as a procedure",
  MOD_57:"CPT 2026 Appendix A — modifier 57 indicates the decision for major surgery was made during the E/M service",
  MOD_24:"CPT 2026 Appendix A — modifier 24 indicates an unrelated E/M service during a postoperative period",
- MOD_58:"CMS Medicare Claims Processing Manual — modifier 58 identifies a staged, more extensive, or therapeutic procedure during the postoperative period and starts a new global period",
- MOD_78:"CMS Medicare Claims Processing Manual — modifier 78 identifies an unplanned return to the operating/procedure room for a related complication during the postoperative period and does not start a new global period",
- MOD_79:"CMS Medicare Claims Processing Manual — modifier 79 identifies an unrelated procedure during the postoperative period and starts a new global period",
- MOD_22:"CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work",
+ MOD_58:"CMS Medicare Claims Processing Manual — modifier 58 may be considered for a documented staged, more extensive, or therapeutic procedure during the postoperative period and starts a new global period when payer policy and full documentation agree",
+ MOD_78:"CMS Medicare Claims Processing Manual — modifier 78 may be considered for a documented unplanned return to the operating/procedure room for a related complication during the postoperative period and does not start a new global period when payer policy and full documentation agree",
+ MOD_79:"CMS Medicare Claims Processing Manual — modifier 79 may be considered for a documented unrelated procedure during the postoperative period and starts a new global period when payer policy and full documentation agree",
+ MOD_22:"CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed",
  MOD_50:"CPT 2026 Appendix A — modifier 50 for bilateral procedures; paid at 150% of base",
  MOD_RT_LT:"HCPCS Level II — anatomic laterality modifiers",
  MOD_50_ALT:"Payer variation note — some payers require bilateral split billing with RT/LT instead of modifier 50",
@@ -1707,8 +1707,8 @@ function applyGlobalModifier(modifier){
  const mod=String(modifier||'');
  globalModifierState.selectedModifier=mod;
  getGlobalCandidateLines().forEach(l=>{l.globalModifier=mod});
- log('GLOBAL MODIFIER SET all applicable CPT lines -> '+(mod?'-'+mod:'none'));
- recalc('global modifier applied');
+ log('GLOBAL MODIFIER MARKED FOR REVIEW all applicable CPT lines -> '+(mod?'-'+mod:'none'));
+ recalc('global modifier marked for review');
  updateGlobalSummary();
  renderGlobalAssistant();
 }
@@ -1740,11 +1740,11 @@ function updateGlobalSummary(){
  }
  const rec=globalModifierState.recommendation;
  if(rec&&rec.modifier){
-  status.textContent='Recommended -'+rec.modifier+' · '+(rec.confidence||'Low')+' confidence';
-  summary.innerHTML='<strong>'+h(rec.education.label)+':</strong> '+h(rec.reason)+' <span class="global-mod-badge">'+h(rec.confidence||'Low')+'</span> '+(globalModifierState.selectedModifier?'<span class="global-mod-badge">Applied -'+h(globalModifierState.selectedModifier)+'</span>':'');
- }else{
-  status.textContent='Reviewed: no supported postoperative modifier';
-  summary.textContent=(rec&&rec.warning)||'Documentation may not support 58, 78, or 79.';
+  status.textContent='Modifier -'+rec.modifier+' to consider · '+(rec.confidence||'Low')+' confidence';
+  summary.innerHTML='<strong>'+h(rec.education.label)+' to consider:</strong> '+h(rec.reason)+' <span class="global-mod-badge">'+h(rec.confidence||'Low')+'</span> '+(globalModifierState.selectedModifier?'<span class="global-mod-badge">Marked for review -'+h(globalModifierState.selectedModifier)+'</span>':'');
+}else{
+  status.textContent='Reviewed: no postoperative modifier to consider';
+  summary.textContent=(rec&&rec.warning)||'Current documentation is incomplete for confident consideration of 58, 78, or 79.';
  }
 }
 function renderEducationCards(){
@@ -1755,7 +1755,7 @@ function renderWhyPanel(result){
  const facts=result.facts||[];
  const guidance=result.educationalGuidance||[];
  const gaps=result.documentationGaps||[];
- return '<div class="global-result"><div class="global-mod-badge">Confidence: '+h(result.confidence||'Low')+'</div><div class="global-help"><strong>Why this modifier is recommended</strong></div><div class="global-help" style="margin-top:8px"><strong>Facts extracted from the case</strong></div><ul>'+(facts.length?facts.map(f=>'<li>'+h(f)+'</li>').join(''):'<li>No objective case facts documented yet.</li>')+'</ul><div class="global-help"><strong>Educational guidance</strong></div><ul>'+(guidance.length?guidance.map(g=>'<li>'+h(g)+'</li>').join(''):'<li>No additional guidance.</li>')+'</ul>'+(gaps.length?'<div class="global-help"><strong>Documentation gaps</strong></div><ul>'+gaps.map(g=>'<li>'+h(g)+'</li>').join('')+'</ul>':'')+'</div>';
+ return '<div class="global-result"><div class="global-mod-badge">Confidence: '+h(result.confidence||'Low')+'</div><div class="global-help"><strong>Why this modifier may be considered</strong></div><div class="global-help" style="margin-top:8px"><strong>Facts extracted from the case</strong></div><ul>'+(facts.length?facts.map(f=>'<li>'+h(f)+'</li>').join(''):'<li>No objective case facts documented yet.</li>')+'</ul><div class="global-help"><strong>Educational guidance</strong></div><ul>'+(guidance.length?guidance.map(g=>'<li>'+h(g)+'</li>').join(''):'<li>No additional guidance.</li>')+'</ul>'+(gaps.length?'<div class="global-help"><strong>Documentation gaps</strong></div><ul>'+gaps.map(g=>'<li>'+h(g)+'</li>').join('')+'</ul>':'')+'</div>';
 }
 function renderGlobalStatusPanel(){
  const status=globalModifierState.globalStatus;
@@ -1809,7 +1809,7 @@ function copyMod22Justification(){
  const text=globalModifierState.mod22.justification||'';
  if(!text)return;
  navigator.clipboard?.writeText(text);
- log('Modifier 22 justification copied');
+ log('Modifier 22 draft copied for review');
 }
 function renderMod22Panel(){
  const lines=getProcedureLines();
@@ -1817,14 +1817,14 @@ function renderMod22Panel(){
  const target=caseLines.find(l=>l.id===globalModifierState.mod22.targetLineId)||lines[0];
  const impact=target?GlobalModifierEngine.estimateModifier22Impact(target.pay||adjustedPaymentForLine(target),20):null;
  const findingLabels=GlobalModifierEngine.MOD22_PATTERNS.map(p=>({key:p.key,label:p.label}));
- return '<div class="global-step"><div class="global-question">Modifier 22 objective work review</div><div class="global-help">Paste the operative report or enter objective facts. The engine flags candidates only when documented facts suggest substantially greater work. It does not automatically apply -22.</div><div class="mod22-grid"><div class="global-form"><label>Target CPT<select id="mod22Target">'+lines.map(l=>'<option value="'+l.id+'" '+(target&&target.id===l.id?'selected':'')+'>'+h(l.cpt+' '+l.desc)+'</option>').join('')+'</select></label><label>Expected minutes<input id="mod22Expected" type="number" min="0" placeholder="90"></label><label>Actual minutes<input id="mod22Actual" type="number" min="0" placeholder="150"></label><label>Total operative minutes<input id="mod22Total" type="number" min="0" placeholder="180"></label><label>Adhesiolysis minutes<input id="mod22Adhesiolysis" type="number" min="0" placeholder="75"></label><label>Blood loss mL<input id="mod22BloodLoss" type="number" min="0" placeholder="800"></label><label>Operative report<textarea id="mod22Report" placeholder="Paste objective operative findings here"></textarea></label></div><div><div class="global-help" style="font-weight:750;margin-bottom:8px">Objective findings</div><div class="mod22-finding-grid">'+findingLabels.map(f=>'<label><input type="checkbox" data-mod22-finding="'+h(f.key)+'"> '+h(f.label)+'</label>').join('')+'</div></div></div><div class="global-actions"><button class="global-action" onclick="analyzeMod22()">Analyze modifier 22</button><button class="global-secondary" onclick="setGlobalStep(\'result\')">Back to 58/78/79</button><button class="global-secondary" onclick="closeGlobalAssistant()">Done</button></div>'+(analysis?renderMod22Result(analysis,impact):'')+'</div>';
+ return '<div class="global-step"><div class="global-question">Modifier 22 objective work review</div><div class="global-help">Paste the operative report or enter objective facts. The engine flags possible consideration only when documented facts suggest substantially greater work. It does not automatically apply -22; surgeon/coder review and payer-policy review are required.</div><div class="mod22-grid"><div class="global-form"><label>Target CPT<select id="mod22Target">'+lines.map(l=>'<option value="'+l.id+'" '+(target&&target.id===l.id?'selected':'')+'>'+h(l.cpt+' '+l.desc)+'</option>').join('')+'</select></label><label>Expected minutes<input id="mod22Expected" type="number" min="0" placeholder="90"></label><label>Actual minutes<input id="mod22Actual" type="number" min="0" placeholder="150"></label><label>Total operative minutes<input id="mod22Total" type="number" min="0" placeholder="180"></label><label>Adhesiolysis minutes<input id="mod22Adhesiolysis" type="number" min="0" placeholder="75"></label><label>Blood loss mL<input id="mod22BloodLoss" type="number" min="0" placeholder="800"></label><label>Operative report<textarea id="mod22Report" placeholder="Paste objective operative findings here"></textarea></label></div><div><div class="global-help" style="font-weight:750;margin-bottom:8px">Objective findings</div><div class="mod22-finding-grid">'+findingLabels.map(f=>'<label><input type="checkbox" data-mod22-finding="'+h(f.key)+'"> '+h(f.label)+'</label>').join('')+'</div></div></div><div class="global-actions"><button class="global-action" onclick="analyzeMod22()">Analyze modifier 22</button><button class="global-secondary" onclick="setGlobalStep(\'result\')">Back to 58/78/79</button><button class="global-secondary" onclick="closeGlobalAssistant()">Done</button></div>'+(analysis?renderMod22Result(analysis,impact):'')+'</div>';
 }
 function renderMod22Result(analysis,impact){
  const reasons=analysis.reasons.length?analysis.reasons.map(r=>'<li>'+h(r)+'</li>').join(''):'<li>No strong objective criteria detected from the entered facts.</li>';
  const extracted=(analysis.extractedFindings||[]).length?analysis.extractedFindings.map(f=>'<li>'+h(f.label+': '+f.value)+'</li>').join(''):'<li>No operative-note features extracted.</li>';
  const gaps=(analysis.documentationGaps||[]).length?'<div class="global-help"><strong>Documentation gaps</strong></div><ul>'+analysis.documentationGaps.map(g=>'<li>'+h(g)+'</li>').join('')+'</ul>':'';
  const selected=globalModifierState.mod22.selected?'checked':'';
- return '<div class="global-result '+(analysis.candidate?'good':'warn')+'"><div class="global-mod-badge">'+h(analysis.title)+'</div><div class="global-mod-badge">Confidence: '+h(analysis.confidence||'Low')+'</div><div class="global-help"><strong>Facts extracted from the operative note / responses</strong></div><ul>'+extracted+'</ul><div class="global-help"><strong>Objective criteria supporting review</strong></div><ul>'+reasons+'</ul><div class="global-help"><strong>Educational guidance</strong></div><ul>'+analysis.educationalGuidance.map(g=>'<li>'+h(g)+'</li>').join('')+'</ul>'+gaps+'<label style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" '+selected+' onchange="selectMod22Candidate(this.checked)"> Surgeon selected modifier 22 for the target CPT</label><div class="global-help" style="margin-top:10px"><strong>Documentation generator</strong></div><div class="copybox" id="mod22Justification">'+h(globalModifierState.mod22.justification)+'</div><div class="global-actions" style="margin-top:10px"><button class="global-action" onclick="copyMod22Justification()">Copy justification</button></div>'+(impact?'<div class="global-result" style="margin-top:10px"><strong>Payment impact estimate</strong><br>Without modifier 22: $'+impact.withoutModifier22.toFixed(2)+'<br>With successful modifier 22 appeal: $'+impact.successfulAppealEstimate.toFixed(2)+'<br>Estimated increase: $'+impact.estimatedIncrease.toFixed(2)+'<br><small>'+h(impact.label)+'</small></div>':'')+'</div>';
+ return '<div class="global-result '+(analysis.candidate?'good':'warn')+'"><div class="global-mod-badge">'+h(analysis.title)+'</div><div class="global-mod-badge">Confidence: '+h(analysis.confidence||'Low')+'</div><div class="global-help"><strong>Facts extracted from the operative note / responses</strong></div><ul>'+extracted+'</ul><div class="global-help"><strong>Objective criteria that may support consideration</strong></div><ul>'+reasons+'</ul><div class="global-help"><strong>Educational guidance</strong></div><ul>'+analysis.educationalGuidance.map(g=>'<li>'+h(g)+'</li>').join('')+'</ul>'+gaps+'<label style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" '+selected+' onchange="selectMod22Candidate(this.checked)"> Surgeon marked Modifier 22 for review for the target CPT</label><div class="global-help" style="margin-top:10px"><strong>Documentation generator</strong></div><div class="global-help">Draft uses only documented facts. Review and edit before use; do not paste blindly into the operative note or appeal letter.</div><div class="copybox" id="mod22Justification">'+h(globalModifierState.mod22.justification)+'</div><div class="global-actions" style="margin-top:10px"><button class="global-action" onclick="copyMod22Justification()">Copy draft for review</button></div>'+(impact?'<div class="global-result" style="margin-top:10px"><strong>Payment impact estimate</strong><br>Without modifier 22: $'+impact.withoutModifier22.toFixed(2)+'<br>Potential allowance if payer accepts Modifier 22 after review: $'+impact.withPayerAcceptedModifier22Estimate.toFixed(2)+'<br>Estimated increase: $'+impact.estimatedIncrease.toFixed(2)+'<br><small>'+h(impact.label)+'</small></div>':'')+'</div>';
 }
 function renderGlobalAssistant(){
  const el=document.getElementById('globalAssistantContent');
@@ -1850,9 +1850,9 @@ function renderGlobalAssistant(){
  if(globalAssistantStep==='result'){
   const rec=globalModifierState.recommendation||{};
   const cls=rec.modifier?'good':'warn';
-  const title=rec.modifier?'Recommended Modifier -'+rec.modifier:'No supported postoperative modifier';
-  const body=rec.modifier?h(rec.reason):h(rec.warning||'Documentation may not support postoperative modifiers 58, 78, or 79.');
-  el.innerHTML='<div class="global-step"><div class="global-result '+cls+'"><div class="global-mod-badge">'+title+'</div><div>'+body+'</div>'+(rec.education?'<ul>'+rec.education.bullets.map(b=>'<li>'+h(b)+'</li>').join('')+'</ul>':'')+'</div>'+renderWhyPanel(rec)+renderGlobalTimeline()+'<div class="global-actions">'+(rec.modifier?'<button class="global-action" onclick="applyGlobalModifier(\''+rec.modifier+'\')">Apply -'+rec.modifier+' to applicable CPT codes</button>':'')+'<select onchange="selectManualGlobalModifier(this.value)"><option value="">Manual override</option><option value="58">Apply -58</option><option value="78">Apply -78</option><option value="79">Apply -79</option></select><button class="global-secondary" onclick="clearGlobalModifiers()">Clear global modifiers</button><button class="global-secondary" onclick="setGlobalStep(\'mod22\')">Modifier 22 review</button><button class="global-secondary" onclick="setGlobalStep(\'decision\')">Back</button></div>'+renderEducationCards()+'</div>';
+  const title=rec.modifier?'Modifier -'+rec.modifier+' to consider':'No postoperative modifier to consider from current documentation';
+  const body=rec.modifier?h(rec.reason):h(rec.warning||'Current documentation is incomplete for confident consideration of postoperative modifiers 58, 78, or 79.');
+  el.innerHTML='<div class="global-step"><div class="global-result '+cls+'"><div class="global-mod-badge">'+title+'</div><div>'+body+'</div>'+(rec.education?'<ul>'+rec.education.bullets.map(b=>'<li>'+h(b)+'</li>').join('')+'</ul>':'')+'</div>'+renderWhyPanel(rec)+renderGlobalTimeline()+'<div class="global-actions">'+(rec.modifier?'<button class="global-action" onclick="applyGlobalModifier(\''+rec.modifier+'\')">Mark -'+rec.modifier+' for coder review on applicable CPT codes</button>':'')+'<select onchange="selectManualGlobalModifier(this.value)"><option value="">Manual override</option><option value="58">Mark -58 for review</option><option value="78">Mark -78 for review</option><option value="79">Mark -79 for review</option></select><button class="global-secondary" onclick="clearGlobalModifiers()">Clear global modifiers</button><button class="global-secondary" onclick="setGlobalStep(\'mod22\')">Modifier 22 review</button><button class="global-secondary" onclick="setGlobalStep(\'decision\')">Back</button></div>'+renderEducationCards()+'</div>';
   return;
  }
  if(globalAssistantStep==='mod22'){
@@ -1888,7 +1888,7 @@ function openAuditReport(){
    ${rationaleHTML}
   </td></tr>`;
  }).join('');
- const globalReportStatus=globalModifierState.inGlobalPeriod===false?'No postoperative global period reported':(globalModifierState.recommendation&&globalModifierState.recommendation.modifier?'Recommended modifier -'+globalModifierState.recommendation.modifier:'No supported postoperative modifier');
+ const globalReportStatus=globalModifierState.inGlobalPeriod===false?'No postoperative global period reported':(globalModifierState.recommendation&&globalModifierState.recommendation.modifier?'Modifier -'+globalModifierState.recommendation.modifier+' to consider':'No postoperative modifier to consider from current documentation');
  let globalReportBlock='';
  if(globalModifierState.reviewed){
  globalReportBlock='<h2>Global Surgery Modifier Review</h2><div class="rank-reason"><strong>Status:</strong> '+globalReportStatus+'</div>';
@@ -1989,7 +1989,7 @@ ${rows}
 
 <div class="footer">
 <p><strong>Regulatory basis:</strong> This report reflects coding logic applied per current CMS and AMA guidelines. Conversion factor ${CF} per ${RULES.CF_2026}. MPPR reductions applied per ${RULES.MPPR}.</p>
-<p style="margin-top:8px"><strong>Disclaimer:</strong> This audit is a coding support document, not a substitute for professional medical coder review. All codes and modifiers should be verified against current AMA CPT Professional Edition, CMS Physician Fee Schedule, and NCCI edit files before claim submission. Rationale reflects automated rule application based on wRVU ranking, payer, and setting, coder must confirm that documentation supports each modifier, particularly modifier 59 (distinct procedural service).</p>
+<p style="margin-top:8px"><strong>Disclaimer:</strong> This audit is an educational coding support document, not final billing authority and not a substitute for surgeon/coder judgment or payer policy. All codes and modifiers should be verified against current AMA CPT Professional Edition, CMS Physician Fee Schedule, NCCI edit files, payer rules, full documentation, and claim-adjudication requirements before submission. Automated rationale identifies documentation that may support consideration of modifiers; it does not guarantee payment, modifier acceptance, or payer approval.</p>
 <p style="margin-top:8px"><strong>Not for submission without coder review.</strong> CPT® © American Medical Association. All rights reserved.</p>
 </div>
 

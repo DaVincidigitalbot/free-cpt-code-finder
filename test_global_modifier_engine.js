@@ -78,7 +78,7 @@ test('warn when no postoperative modifier criteria fit', () => {
     unrelated: 'no'
   });
   assert.strictEqual(result.modifier, null);
-  assert.match(result.warning, /may not support/);
+  assert.match(result.warning, /incomplete for confident consideration/);
   assert(result.documentationGaps.length > 0);
 });
 
@@ -119,15 +119,18 @@ test('modifier 22 justification uses objective findings only', () => {
   assert.match(text, /CPT 44140/);
   assert.match(text, /170 minutes/);
   assert.match(text, /70 minutes/);
+  assert.match(text, /may support consideration of Modifier 22/);
+  assert.match(text, /Review and edit before use/);
   assert(!/AI|algorithm|buzzword/i.test(text));
 });
 
 test('payment impact is educational estimate', () => {
   const result = engine.estimateModifier22Impact(1000, 20);
   assert.strictEqual(result.withoutModifier22, 1000);
-  assert.strictEqual(result.successfulAppealEstimate, 1200);
+  assert.strictEqual(result.withPayerAcceptedModifier22Estimate, 1200);
   assert.strictEqual(result.estimatedIncrease, 200);
   assert.match(result.label, /Educational estimate/);
+  assert.match(result.label, /claim adjudication/);
 });
 
 console.log('Global modifier engine unit tests complete.');
