@@ -65,6 +65,13 @@ a{color:inherit;text-decoration:none}
 .kbd{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:10px;color:var(--ink2);border:1px solid var(--line2);border-radius:3px;padding:2px 6px;background:var(--paper)}
 .autocomplete-results{display:none;position:absolute;left:0;right:0;top:100%;margin-top:8px;background:var(--white);border:1px solid var(--line2);border-radius:12px;box-shadow:0 18px 48px rgba(10,10,10,.12);z-index:999;max-height:420px;overflow:auto;isolation:isolate}
 .autocomplete-results.show{display:block}
+.viewing-cpt{display:none;margin:0 0 12px;padding:10px 12px;border:1px solid var(--line2);border-radius:8px;background:var(--ox2);color:var(--ink2);font-size:12px;font-weight:600;letter-spacing:.02em}
+.viewing-cpt.show{display:block}
+.selected-procedure-view .spec{border-bottom:0}
+.selected-procedure-view .spec-body{display:block;padding-bottom:0}
+.selected-procedure-view .proc{background:var(--white);border:1px solid var(--line2);border-radius:8px;padding:12px}
+.selected-procedure-view .proc:hover{background:var(--ox2)}
+.selected-procedure-view .autocomplete-action{font-size:11px;color:var(--ox);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .autocomplete-empty{padding:16px 18px;color:var(--ink2);font-size:13px}
 .autocomplete-group{padding:8px 0}
 .autocomplete-item{padding:12px 18px;border-top:1px solid var(--line);cursor:pointer;display:flex;gap:12px;align-items:flex-start}
@@ -352,10 +359,10 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 <div class="search-label">Search for your surgery or encounter</div>
 <div class="search" onclick="document.getElementById('q').focus()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
-<input id="q" placeholder="Try: lap chole · 44970 · thyroidectomy · 99233 · rib fixation" autocomplete="off">
+<input id="q" placeholder="Try: lap chole · 44970 · thyroidectomy · 99233 · rib fixation" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="autocompleteResults">
 <span class="kbd">⌘K</span>
 </div>
-<div id="autocompleteResults" class="autocomplete-results"></div>
+<div id="autocompleteResults" class="autocomplete-results" role="listbox" aria-label="CPT search results"></div>
 </div>
 
 <div class="sec" id="guided-workflows">
@@ -369,6 +376,7 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 <!-- ========== SURGICAL SPECIALTIES ========== -->
 <div class="sec">
 <div class="sec-h surg"><span class="bdot"></span>Surgical Specialties</div>
+<div id="selectedCptIndicator" class="viewing-cpt" aria-live="polite"></div>
 <div id="specs"></div>
 </div>
 
@@ -1073,6 +1081,16 @@ function specMetaFromRow(row){
 
 function renderSpecs(){
  const c=document.getElementById('specs');
+ if(searchState.selectedCptItem){
+  renderSelectedCptView(searchState.selectedCptItem);
+  return;
+ }
+ const indicator=document.getElementById('selectedCptIndicator');
+ if(indicator){
+  indicator.classList.remove('show');
+  indicator.textContent='';
+ }
+ c.classList.remove('selected-procedure-view');
  const specialtyNotes={
   'Vascular Surgery':'<div class="spec-note"><strong>Duplicate-code note:</strong> Some vascular and endovascular CPT codes may also appear under <strong>Interventional Radiology</strong>. If a duplicate or expected vascular code is not obvious here, check both sections.</div>',
   'Interventional Radiology':'<div class="spec-note"><strong>Duplicate-code note:</strong> Some endovascular, access, and vascular-related CPT codes may also appear under <strong>Vascular Surgery</strong>. For duplicate or hard-to-locate codes, check both sections.</div>',
@@ -1112,6 +1130,22 @@ function renderSpecs(){
   </div>`).join('');
 }
 function toggleSpec(i){document.getElementById('sp'+i).classList.toggle('open')}
+
+function renderSelectedCptView(item){
+ const c=document.getElementById('specs');
+ const indicator=document.getElementById('selectedCptIndicator');
+ if(!c||!item)return;
+ if(indicator){
+  indicator.textContent='Viewing CPT '+String(item.code||'');
+  indicator.classList.add('show');
+ }
+ c.classList.add('selected-procedure-view');
+ const desc=h(item.description||'Selected procedure');
+ const specialty=h(item.specialty||'CPT');
+ const wrvu=Number(item.wrvu||0).toFixed(2);
+ const payment=Number(item.estimatedPayment||0);
+ c.innerHTML='<div class="spec open" id="selectedCptView"><div class="spec-body"><div class="proc" role="button" tabindex="0" onclick="addAutocompleteResultToCase(searchState.selectedCptItem)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();addAutocompleteResultToCase(searchState.selectedCptItem)}"><div class="proc-n"'+tooltipAttrs(item.description||'')+'>'+desc+'</div><div class="proc-c">'+h(item.code||'')+'</div><div class="proc-w">'+wrvu+'</div><div class="autocomplete-meta" style="grid-column:1/-1"><span>'+specialty+'</span><span>wRVU '+wrvu+'</span>'+(payment?'<span>$'+payment.toFixed(2)+'</span>':'')+'</div><div class="autocomplete-action" style="grid-column:1/-1">Add to active case</div></div></div></div>';
+}
 
 function onProcClick(si,pi,e){
  if(e&&(e.target.closest('.lat-tray')||e.target.closest('.approach-tray')))return;
@@ -2093,7 +2127,8 @@ const searchState={
  activeResultIndex:-1,
  suppressTypeahead:false,
  zeroResultLogged:new Set(),
- suggestionShownLogged:new Set()
+ suggestionShownLogged:new Set(),
+ selectedCptItem:null
 };
 const REPORT_BACKEND_URL=location.hostname==='free-cpt-code-finder-staging.onrender.com'
  ? 'https://free-cpt-code-finder-staging.onrender.com'
@@ -2731,6 +2766,7 @@ function scoreSearchResult(item,query){
  if(priorityIndex>=0)return 96-priorityIndex;
  if(item.code===raw)return 100;
  if(item.code.startsWith(raw))return 80;
+ if(item.code==='15734'&&['tar','component separation','abdominal wall reconstruction','retrorectus release','transversus abdominis release'].includes(q))return 79;
  if(item.specialty==='Cardiac Electrophysiology'&&['ep','cardiac ep','electrophysiology'].includes(q))return 77;
  if(desc===q)return 76;
  if(desc.startsWith(q))return 74;
@@ -2804,6 +2840,7 @@ function appendEnterostomyClosureHelper(){
 }
 function renderAutocompleteResults(){
  const box=document.getElementById('autocompleteResults');
+ const input=document.getElementById('q');
  const results=searchState.searchResults;
  const procedureCard=renderProcedureIntelligenceCard();
  const suggestionCard=renderSuggestedCptCard();
@@ -2811,14 +2848,29 @@ function renderAutocompleteResults(){
   if(searchState.searchQuery&&searchState.searchQuery.length>=2){
    box.innerHTML=procedureCard+suggestionCard||'<div class="autocomplete-empty">No CPT matches. Try procedure name, CPT code, or specialty.</div>';
    box.classList.add('show');
+   if(input)input.setAttribute('aria-expanded','true');
    return;
   }
   box.innerHTML='';
   box.classList.remove('show');
+  if(input)input.setAttribute('aria-expanded','false');
   return;
  }
- box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title"${tooltipAttrs(item.description||item.specialty)}>${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>${formatCurrency(item.estimatedPayment)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
+ box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" role="option" aria-selected="${index===searchState.activeResultIndex?'true':'false'}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title"${tooltipAttrs(item.description||item.specialty)}>${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>${formatCurrency(item.estimatedPayment)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
  box.classList.add('show');
+ if(input)input.setAttribute('aria-expanded','true');
+}
+
+function closeAutocompleteResults(){
+ searchState.searchResults=[];
+ searchState.activeResultIndex=-1;
+ const box=document.getElementById('autocompleteResults');
+ const input=document.getElementById('q');
+ if(box){
+  box.innerHTML='';
+  box.classList.remove('show');
+ }
+ if(input)input.setAttribute('aria-expanded','false');
 }
 
 function applyTypeaheadSuggestion(rawQuery){
@@ -2838,6 +2890,10 @@ function applyTypeaheadSuggestion(rawQuery){
 }
 
 async function filterSearchExperience(query){
+ if(searchState.selectedCptItem){
+  searchState.selectedCptItem=null;
+  renderSpecs();
+ }
  searchState.searchQuery=query;
  searchState.specialtyFilter=query.toLowerCase().trim();
  searchState.activeResultIndex=-1;
@@ -2864,9 +2920,117 @@ async function filterSearchExperience(query){
  applyTypeaheadSuggestion(query);
 }
 
+function setSelectedCptView(item,options){
+ options=options||{};
+ const pushHistory=options.pushHistory!==false;
+ const scroll=options.scroll!==false;
+ if(!item)return;
+ const input=document.getElementById('q');
+ const displayValue=(String(item.code||'')+' '+String(item.description||'')).trim();
+ searchState.selectedCptItem=item;
+ searchState.searchQuery=displayValue;
+ searchState.specialtyFilter='';
+ searchState.suppressTypeahead=true;
+ closeAutocompleteResults();
+ if(input){
+  searchState.suppressNextInput=true;
+  input.value=displayValue;
+  input.setAttribute('aria-expanded','false');
+  const pos=input.value.length;
+  requestAnimationFrame(()=>input.setSelectionRange(pos,pos));
+ }
+ renderSpecs();
+ filterSpecialtyCards();
+ if(pushHistory&&window.history&&window.history.pushState){
+  const url=new URL(window.location.href);
+  url.searchParams.set('q',displayValue);
+  url.searchParams.delete('case');
+  window.history.pushState({q:displayValue,selectedCpt:String(item.code||'')},'',url);
+ }
+ if(scroll){
+  const target=document.getElementById('selectedCptIndicator')||document.getElementById('specs');
+  target?.scrollIntoView({block:'start',behavior:'auto'});
+ }
+}
+
+const HERNIA_WIZARD_OPTIONS={
+ '49591':[
+  {label:'<3 cm reducible',code:'49591',desc:'Repair initial incisional/ventral hernia, reducible; <3 cm',wrvu:5.81},
+  {label:'3-10 cm reducible',code:'49593',desc:'Repair initial incisional/ventral hernia, reducible; 3-10 cm',wrvu:10.00},
+  {label:'>10 cm reducible',code:'49595',desc:'Repair initial incisional/ventral hernia, reducible; >10 cm',wrvu:13.59}
+ ],
+ '49613':[
+  {label:'<3 cm recurrent',code:'49613',desc:'Repair recurrent incisional/ventral hernia, reducible; <3 cm',wrvu:7.23},
+  {label:'3-10 cm recurrent',code:'49615',desc:'Repair recurrent incisional/ventral hernia, reducible; 3-10 cm',wrvu:11.17},
+  {label:'>10 cm recurrent',code:'49617',desc:'Repair recurrent incisional/ventral hernia, reducible; >10 cm',wrvu:15.63}
+ ]
+};
+
+function promptHerniaComponentSeparation(base){
+ const releaseType=window.prompt(`Component separation performed for ${base.label}?\n\nType one:\n- none\n- rectus left\n- rectus right\n- rectus bilateral\n- tar left\n- tar right\n- tar bilateral`,`none`);
+ if(releaseType===null)return;
+ addProc(base.code,base.desc,base.wrvu,'',0,'robotic');
+ const normalized=String(releaseType||'').trim().toLowerCase();
+ if(!normalized||normalized==='none')return;
+ const isTar=normalized.includes('tar');
+ const descBase=isTar?'Myofascial flap, trunk - TAR':'Myofascial flap, trunk - rectus myofascial release';
+ if(normalized.includes('bilateral')){
+  addProc('15734',`${descBase}, bilateral`,22.43,'50',1);
+  return;
+ }
+ if(normalized.includes('right')){addProc('15734',`${descBase}, right`,22.43,'RT',1);return}
+ if(normalized.includes('left')){addProc('15734',`${descBase}, left`,22.43,'LT',1);return}
+}
+
+function promptLapRoboticAnteriorHernia(item){
+ const opts=HERNIA_WIZARD_OPTIONS[item.code]||HERNIA_WIZARD_OPTIONS['49591'];
+ const picked=window.prompt(`Select anterior abdominal wall hernia size:\n\n1 = <3 cm\n2 = 3-10 cm\n3 = >10 cm`,`2`);
+ if(picked===null)return true;
+ const chosen=opts[{ '1':0,'2':1,'3':2 }[String(picked).trim()] ?? 1];
+ promptHerniaComponentSeparation({label:chosen.label,code:chosen.code,desc:chosen.desc,wrvu:chosen.wrvu});
+ return true;
+}
+
+function shouldPromptLaterality({cpt,desc,bi}){
+ const normalizedDesc=String(desc||'').toLowerCase();
+ if(bi!==1)return false;
+ if(/bilateral|inherently bilateral/.test(normalizedDesc))return false;
+ if(/^15734$/.test(String(cpt||'')))return false;
+ return true;
+}
+
+function promptUnilateralBilateralCase({cpt,desc,wrvu,bi,approach,dx}){
+ if(!shouldPromptLaterality({cpt,desc,bi}))return false;
+ const normalizedDesc=String(desc||'').toLowerCase();
+ const promptFamily = normalizedDesc.includes('hernia') ? 'repair' : 'procedure';
+ const sideChoice=window.prompt(`Is this ${promptFamily} unilateral or bilateral?\n\nType one:\n- unilateral\n- bilateral`,`unilateral`);
+ if(sideChoice===null)return true;
+ const normalizedChoice=String(sideChoice).trim().toLowerCase();
+ if(normalizedChoice.startsWith('b')){
+  addProc(cpt,`${desc} (bilateral)`,wrvu,'50',1,approach,dx);
+  return true;
+ }
+ const lateralityPrompt=window.prompt(`Which side?\n\nType one:\n- right\n- left`,`right`);
+ if(lateralityPrompt===null)return true;
+ const normalizedLaterality=String(lateralityPrompt).trim().toLowerCase();
+ const laterality=normalizedLaterality.startsWith('l')?'LT':'RT';
+ addProc(cpt,`${desc} (${laterality==='RT'?'right':'left'})`,wrvu,laterality,1,approach,dx);
+ return true;
+}
+
 function getCptSearchEntry(code){
  const c=String(code||'');
  return searchState.cptSearchIndex.find(item=>String(item.code||'')===c)||buildSearchIndexFromSpecs().find(item=>String(item.code||'')===c);
+}
+function codeFromSearchDisplay(value){
+ const match=String(value||'').trim().match(/^(\d{5}|\d{4}T)\b/i);
+ return match?match[1].toUpperCase():'';
+}
+async function findSearchItemForDisplay(value){
+ const code=codeFromSearchDisplay(value);
+ if(!code)return null;
+ await loadCptSearchIndex();
+ return getCptSearchEntry(code)||null;
 }
 function addCptDirectly(code){const item=getCptSearchEntry(code);if(item)addAutocompleteResultToCase(item)}
 function toggleAlifAssistantSuggestion(checked){alifAssistantSelected=!!checked;recalc('ALIF assistant surgeon suggestion toggled')}
@@ -2902,10 +3066,7 @@ function selectAutocompleteResult(index){
  const item=searchState.searchResults[index];
  if(!item)return;
  addAutocompleteResultToCase(item);
- document.getElementById('q').value=`${item.code} ${item.description}`.trim();
- searchState.searchResults=[];
- searchState.activeResultIndex=-1;
- renderAutocompleteResults();
+ setSelectedCptView(item,{pushHistory:true,scroll:true});
 }
 
 function selectSuggestedCptResult(index){
@@ -2921,6 +3082,10 @@ function selectSuggestedCptResult(index){
 }
 
 document.getElementById('q').addEventListener('input',e=>{
+ if(searchState.suppressNextInput){
+  searchState.suppressNextInput=false;
+  return;
+ }
  searchState.suppressTypeahead=false;
  filterSearchExperience(e.target.value);
 });
@@ -2953,6 +3118,12 @@ document.getElementById('q').addEventListener('keydown',e=>{
   return;
  }
  if(['Backspace','Delete','ArrowLeft','Home','End'].includes(e.key))searchState.suppressTypeahead=true;
+ if(e.key==='ArrowDown'&&searchState.selectedCptItem){
+  e.preventDefault();
+  searchState.selectedCptItem=null;
+  filterSearchExperience(input.value).then(()=>{searchState.activeResultIndex=0;renderAutocompleteResults();});
+  return;
+ }
  if(e.key==='ArrowDown'&&max>=0){e.preventDefault();searchState.activeResultIndex=Math.min(searchState.activeResultIndex+1,max);renderAutocompleteResults();return}
  if(e.key==='ArrowUp'&&max>=0){e.preventDefault();searchState.activeResultIndex=Math.max(searchState.activeResultIndex-1,0);renderAutocompleteResults();return}
  if(e.key==='Enter'&&searchState.activeResultIndex>=0){e.preventDefault();selectAutocompleteResult(searchState.activeResultIndex);return}
@@ -2966,19 +3137,44 @@ document.getElementById('q').addEventListener('click',e=>{
 
 document.addEventListener('click',e=>{
  if(!e.target.closest('.search-wrap')){
-  searchState.activeResultIndex=-1;
-  searchState.searchResults=[];
-  renderAutocompleteResults();
+  closeAutocompleteResults();
  }
 });
 
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('q').focus()}});
 
+async function restoreSearchFromLocation({scroll=false}={}){
+ const params=new URLSearchParams(window.location.search);
+ const q=params.get('q')||'';
+ const input=document.getElementById('q');
+ closeAutocompleteResults();
+ if(!q){
+  searchState.selectedCptItem=null;
+  searchState.searchQuery='';
+  searchState.specialtyFilter='';
+  if(input)input.value='';
+  renderSpecs();
+  filterSpecialtyCards();
+  return;
+ }
+ if(input)input.value=q;
+ const selected=await findSearchItemForDisplay(q);
+ if(selected){
+  setSelectedCptView(selected,{pushHistory:false,scroll});
+  return;
+ }
+ searchState.selectedCptItem=null;
+ await filterSearchExperience(q);
+}
+
+if(window.history&&window.history.replaceState){
+ window.history.replaceState({q:new URLSearchParams(window.location.search).get('q')||'',selectedCpt:codeFromSearchDisplay(new URLSearchParams(window.location.search).get('q')||'')||null},'',window.location.href);
+}
+window.addEventListener('popstate',()=>restoreSearchFromLocation({scroll:false}));
+
 const initialSearchQuery=new URLSearchParams(window.location.search).get('q');
 if(initialSearchQuery){
- const input=document.getElementById('q');
- input.value=initialSearchQuery;
- filterSearchExperience(initialSearchQuery);
+ restoreSearchFromLocation({scroll:false});
 }
 const initialCaseCode=new URLSearchParams(window.location.search).get('case');
 if(initialCaseCode){
