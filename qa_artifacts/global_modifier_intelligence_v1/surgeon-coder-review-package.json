@@ -1,0 +1,213 @@
+{
+  "branch": "review/global-modifier-intelligence-v1",
+  "production_deployment": false,
+  "review_purpose": "Surgeon/coder approval of user-facing language, coding logic, payer-risk framing, and production readiness.",
+  "exact_user_facing_language": {
+    "workflow_and_global_period": [
+      "Global Surgery Review",
+      "Not reviewed",
+      "Ask after the case is built: did this operation occur during the postoperative global period of a previous surgery?",
+      "Finish case",
+      "Global Surgery Modifier Assistant",
+      "Postoperative modifier review",
+      "Did this operation occur during the postoperative global period of a previous surgery?",
+      "No",
+      "Continue normal case-builder logic.",
+      "Yes",
+      "Launch CMS global modifier workflow.",
+      "Previous operation",
+      "Previous CPT code",
+      "Previous operation date",
+      "Today operation date",
+      "Previous surgeon",
+      "Same surgeon?",
+      "Same group?",
+      "Calculate global period",
+      "Automatic global-period calculation",
+      "Postoperative day {N} of a {0|10|90}-day global period. Patient is still in the global period.",
+      "Postoperative day {N} of a {0|10|90}-day global period. Patient is outside the global period.",
+      "Global period cannot be calculated until the missing fields are documented.",
+      "Reviewed: no global period",
+      "Standard NCCI, MPPR, modifier 51/59/80, and APP mode logic continues normally.",
+      "Reviewed: no supported postoperative modifier",
+      "Documentation may not support 58, 78, or 79."
+    ],
+    "modifier_58": [
+      "Modifier 58",
+      "Staged or related procedure during the postoperative period.",
+      "Planned or anticipated procedure",
+      "More extensive procedure than the original operation",
+      "Therapy following a diagnostic procedure",
+      "Begins a new postoperative global period",
+      "Modifier 58 applies to staged, more extensive, or therapeutic procedures during the postoperative period and begins a new global period.",
+      "Planned or anticipated at the original operation.",
+      "More extensive than the original procedure.",
+      "Therapy following a diagnostic procedure.",
+      "CMS Medicare Claims Processing Manual — modifier 58 identifies a staged, more extensive, or therapeutic procedure during the postoperative period and starts a new global period"
+    ],
+    "modifier_78": [
+      "Modifier 78",
+      "Unplanned return to the operating room for a related complication.",
+      "Unplanned return to OR or procedure room",
+      "Related to the original procedure",
+      "Used for complications such as bleeding, dehiscence, leak, injury, infected hematoma, or washout",
+      "Does not begin a new postoperative global period",
+      "Modifier 78 applies to an unplanned return to the OR/procedure room for a related complication and does not begin a new global period.",
+      "Unplanned return to the operating room for a related postoperative complication.",
+      "CMS Medicare Claims Processing Manual — modifier 78 identifies an unplanned return to the operating/procedure room for a related complication during the postoperative period and does not start a new global period"
+    ],
+    "modifier_79": [
+      "Modifier 79",
+      "Unrelated procedure during the postoperative period.",
+      "Procedure is unrelated to the previous operation",
+      "Requires a separate diagnosis, site, or clinical problem",
+      "Begins a new postoperative global period",
+      "Modifier 79 applies to an unrelated procedure during the postoperative period and begins a new global period.",
+      "Procedure is unrelated to the prior operation.",
+      "CMS Medicare Claims Processing Manual — modifier 79 identifies an unrelated procedure during the postoperative period and starts a new global period"
+    ],
+    "modifier_22": [
+      "Modifier 22 objective work review",
+      "Paste the operative report or enter objective facts. The engine flags candidates only when documented facts suggest substantially greater work. It does not automatically apply -22.",
+      "Possible Modifier 22 Candidate",
+      "Modifier 22 not strongly supported by objective criteria entered",
+      "Surgeon selected modifier 22 for the target CPT",
+      "Documentation generator",
+      "Copy justification",
+      "Modifier 22 justification copied",
+      "CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work",
+      "Surgeon-selected modifier 22 candidate. Do not submit unless the operative report contains objective facts supporting substantially greater work.",
+      "Modifier 22 should be reviewed only when objective documentation supports substantially greater work than typical for the CPT code.",
+      "This procedure required substantially greater work than typically required for CPT XXXXX because the documented operative findings increased technical difficulty, operative time, and operative risk.",
+      "These objective findings support surgeon review for modifier 22."
+    ],
+    "payment_impact_disclaimers": [
+      "Payment impact estimate",
+      "Without modifier 22: {amount}",
+      "With successful modifier 22 appeal: {amount}",
+      "Estimated increase: {amount}",
+      "Educational estimate only. Actual payer allowance depends on documentation, contract, and appeal review.",
+      "Estimated APP Productivity is not the same as compensation, reimbursement, or guaranteed employer wRVU credit. Actual attribution depends on payer rules, documentation, modifier acceptance, scope of practice, supervision requirements, and employer compensation policy.",
+      "Educational estimate only. Not legal or billing advice.",
+      "Automated coding support. Requires coder review prior to claim submission. CPT © AMA."
+    ],
+    "documentation_gap_warnings": [
+      "Previous CPT code, previous operation date, and today operation date are required to calculate global-period status.",
+      "Specific unrelated diagnosis, site, or clinical problem.",
+      "Document whether the procedure was planned/staged, more extensive, therapy after diagnostic procedure, complication-related return to OR, or unrelated to the prior operation.",
+      "Operative note or objective findings.",
+      "Duration of adhesiolysis.",
+      "Total operative time.",
+      "Expected or typical operative time for comparison.",
+      "Documentation may not support modifiers 58, 78, or 79 based on the selected answers."
+    ]
+  },
+  "clinical_coding_review_table": [
+    {
+      "recommendation_type": "No global modifier",
+      "triggering_criteria": "Current case is outside prior CPT global period, or user reports no global-period context.",
+      "user_facing_recommendation": "No postoperative global modifier indicated; standard NCCI/MPPR logic continues.",
+      "confidence_level_logic": "High when dates/code allow calculation outside global; otherwise Low if missing required fields.",
+      "documentation_required": ["prior CPT code", "prior operation date", "current operation date"],
+      "known_payer_risk_denial_risk_language": "Avoids unnecessary postop modifier. Still requires payer-specific review."
+    },
+    {
+      "recommendation_type": "Modifier 58",
+      "triggering_criteria": "In global period plus documented planned/staged operation, more extensive procedure, or therapy after diagnostic procedure.",
+      "user_facing_recommendation": "Recommended Modifier -58; staged/related procedure; begins new global period.",
+      "confidence_level_logic": "High when global-period calculation and at least one 58 criterion are documented; Low if dates/code missing.",
+      "documentation_required": ["original plan or anticipation", "staged intent", "more-extensive rationale", "diagnostic-to-therapeutic relationship"],
+      "known_payer_risk_denial_risk_language": "Risk if used for a complication return to OR, or if staged intent is not documented."
+    },
+    {
+      "recommendation_type": "Modifier 78",
+      "triggering_criteria": "In global period plus documented unplanned return to OR/procedure room for related complication.",
+      "user_facing_recommendation": "Recommended Modifier -78; unplanned related complication; does not begin new global period.",
+      "confidence_level_logic": "High when global-period calculation, return-to-OR status, related complication, and complication type are documented.",
+      "documentation_required": ["prior CPT/date", "current date", "return to OR/procedure room", "related complication", "same/same-group context when relevant"],
+      "known_payer_risk_denial_risk_language": "Risk if the case is planned/staged, unrelated, or not clearly in OR/procedure-room setting."
+    },
+    {
+      "recommendation_type": "Modifier 79",
+      "triggering_criteria": "In global period plus documented unrelated procedure.",
+      "user_facing_recommendation": "Recommended Modifier -79; unrelated procedure; begins new global period.",
+      "confidence_level_logic": "High/Moderate when unrelated relationship and separate diagnosis/site/problem are documented; gap if unrelated rationale missing.",
+      "documentation_required": ["prior CPT/date", "current date", "unrelated diagnosis/site/problem", "relationship to prior operation"],
+      "known_payer_risk_denial_risk_language": "Risk if diagnosis/site/problem is not distinct or payer considers the procedure related to prior surgery."
+    },
+    {
+      "recommendation_type": "Modifier 22 candidate",
+      "triggering_criteria": "Multiple objective unusual-work criteria, adhesiolysis >60 min, or operative time >150% expected.",
+      "user_facing_recommendation": "Possible Modifier 22 Candidate; surgeon review only.",
+      "confidence_level_logic": "High with 3+ objective criteria; Moderate with fewer but meaningful objective metrics; Low when objective support is absent/incomplete.",
+      "documentation_required": ["operative time", "expected time", "adhesiolysis duration", "objective findings", "increased technical difficulty/risk", "no embellishment"],
+      "known_payer_risk_denial_risk_language": "High denial risk if documentation is subjective, unsupported, missing expected-time comparison, or payer rejects increased-work appeal."
+    }
+  ],
+  "representative_case_walkthrough": {
+    "case_facts_entered": [
+      "Return to OR during global period",
+      "Colostomy/mucous fistula takedown",
+      "Extended right hemicolectomy with ileocolonic anastomosis",
+      "129 minutes adhesiolysis of 201 total operative minutes",
+      "Mesh explantation",
+      "36 cm2 excisional debridement including skin, subcutaneous tissue, fascia, and muscle",
+      "Feculent peritonitis",
+      "Complex abdominal wall closure"
+    ],
+    "global_status": {
+      "previous_code_assumption": "44140",
+      "previous_operation_date": "2026-06-10",
+      "current_operation_date": "2026-06-29",
+      "global_period_days": 90,
+      "postoperative_day": 19,
+      "in_global_period": true,
+      "label": "Postoperative day 19 of a 90-day global period. Patient is still in the global period."
+    },
+    "engine_recommends": {
+      "global_modifier": "78",
+      "global_modifier_confidence": "High",
+      "global_modifier_reason": "Unplanned return to the operating room for a related postoperative complication.",
+      "modifier_22": "Possible Modifier 22 Candidate",
+      "modifier_22_confidence": "High",
+      "modifier_22_auto_applied": false
+    },
+    "modifier_22_objective_criteria": [
+      "Feculent peritonitis documented.",
+      "Major contamination documented.",
+      "Mesh explantation documented.",
+      "Large abdominal wall reconstruction documented.",
+      "Difficult exposure documented.",
+      "Debridement depth and size documented.",
+      "129 minutes of adhesiolysis documented.",
+      "64% of operative time devoted to adhesiolysis.",
+      "Operative time was 168% of expected."
+    ],
+    "engine_does_not_recommend": [
+      "Does not recommend 58 unless planned/staged, more extensive, or therapy-after-diagnostic criteria are documented.",
+      "Does not recommend 79 unless unrelated diagnosis, site, or clinical problem is documented.",
+      "Does not auto-apply 22.",
+      "Does not treat 58, 78, and 79 as interchangeable.",
+      "Does not suppress NCCI/MPPR/multiple-procedure logic."
+    ]
+  },
+  "safety_checks": {
+    "does_not_guarantee_payment": true,
+    "does_not_override_payer_policy": true,
+    "does_not_fabricate_documentation": true,
+    "does_not_auto_apply_modifier_22": true,
+    "does_not_treat_58_78_79_as_interchangeable": true,
+    "does_not_ignore_ncci_edits": true,
+    "does_not_expand_cpt_descriptor_use_beyond_current_site_behavior": true
+  },
+  "validation_evidence": [
+    "Refined unit tests: PASS 12/12",
+    "Specialty case validation: PASS 9/9",
+    "Existing kill suite: PASS 54/54",
+    "Validation evidence: PASS 10/10 high-risk scenarios",
+    "Browser smoke: PASS MPPR, APP mode, modifier 80, NCCI/modifier 59",
+    "Browser workflow: PASS auto global detection, confidence panel, documentation gaps, operative-note extraction"
+  ],
+  "deployment_recommendation": "Ready after language edits",
+  "deployment_recommendation_reason": "The deterministic logic and regression gates are clean, but surgeon/coder review should approve or edit exact wording before production deployment, especially modifier 22 justification wording, expected-time comparison language, payer-risk language, modifier 78 wording, and modifier 79 documentation requirements."
+}
