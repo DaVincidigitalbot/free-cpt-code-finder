@@ -1,0 +1,606 @@
+{
+  "status": "pass",
+  "branch": "review/icd10-clinical-relevance-expansion",
+  "screenshots": [
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/31600_respiratory_failure.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/31600_ventilator.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/31600_trach.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/49440_dysphagia.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/49440_dysphasia.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/49440_peg.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/49440_malnutrition.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/49440_feeding_difficulty.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/selection_workflow.png"
+  ],
+  "browserVideo": "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_relevance_expansion/icd10_clinical_relevance_workflow.mp4",
+  "synonymMappingsAdded": {
+    "PEG": "gastrostomy, feeding tube, dysphagia, feeding difficulty, malnutrition, aspiration, nutritional access",
+    "PEG tube": "gastrostomy, feeding tube, dysphagia, feeding difficulty, malnutrition, aspiration, nutritional access",
+    "G tube / gtube": "gastrostomy, feeding tube, dysphagia, feeding difficulty, malnutrition, aspiration, nutritional access",
+    "dysphasia": "dysphagia, swallowing difficulty, feeding difficulty with visible did-you-mean hint in PEG context",
+    "feeding difficulty": "feeding difficulties, dysphagia, nutritional access, oral intake",
+    "malnutrition": "protein-calorie malnutrition, severe/moderate/mild nutrition deficiency",
+    "failure to thrive": "adult failure to thrive, poor intake, malnutrition",
+    "trach": "tracheostomy, respiratory failure, ventilator dependence, airway obstruction, laryngeal/tracheal stenosis",
+    "vent / ventilator": "respirator dependence, mechanical ventilation, respiratory failure",
+    "resp failure": "respiratory failure, acute/chronic/hypoxic/hypercapnic",
+    "airway obstruction": "upper respiratory tract obstruction, laryngeal/tracheal stenosis"
+  },
+  "results": {
+    "31600_respiratory failure": {
+      "cardText": "\n    Primary31600\u00d7\n    Tracheostomy, planned (separate procedure);\n    Physician wRVU 5.42$273.22\n    \n    Diagnosis(s)Add DiagnosisJ96.00 Acute respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.01 Acute respiratory failure with hypoxiaJ96.02 Acute respiratory failure with hypercapniaJ96.10 Chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.11 Chronic respiratory failure with hypoxiaJ96.12 Chronic respiratory failure with hypercapniaJ96.20 Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.21 Acute and chronic respiratory failure with hypoxiaJ96.20Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.21Acute and chronic respiratory failure with hypoxiabillableJ96.22Acute and chronic respiratory failure with hypercapniabillableJ96.00Acute respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.01Acute respiratory failure with hypoxiabillableJ96.02Acute respiratory failure with hypercapniabillableJ96.10Chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.11Chronic respiratory failure with hypoxiabillableJ96.12Chronic respiratory failure with hypercapniabillableJ95.822Acute and chronic postprocedural respiratory failurebillableJ95.821Acute postprocedural respiratory failurebillableZ99.11Dependence on respirator [ventilator] statusbillableAdd to 31600No diagnoses selected for this CPT.No diagnosis selected for CPT 31600.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 31600.\n    Estimated APP Productivity: 0.74 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "31600",
+      "query": "respiratory failure",
+      "resultText": "J96.20Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.21Acute and chronic respiratory failure with hypoxiabillableJ96.22Acute and chronic respiratory failure with hypercapniabillableJ96.00Acute respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.01Acute respiratory failure with hypoxiabillableJ96.02Acute respiratory failure with hypercapniabillableJ96.10Chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.11Chronic respiratory failure with hypoxiabillableJ96.12Chronic respiratory failure with hypercapniabillableJ95.822Acute and chronic postprocedural respiratory failurebillableJ95.821Acute postprocedural respiratory failurebillableZ99.11Dependence on respirator [ventilator] statusbillable",
+      "results": [
+        {
+          "code": "J96.20",
+          "description": "Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 317
+        },
+        {
+          "code": "J96.21",
+          "description": "Acute and chronic respiratory failure with hypoxia",
+          "score": 317
+        },
+        {
+          "code": "J96.22",
+          "description": "Acute and chronic respiratory failure with hypercapnia",
+          "score": 317
+        },
+        {
+          "code": "J96.00",
+          "description": "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 307
+        },
+        {
+          "code": "J96.01",
+          "description": "Acute respiratory failure with hypoxia",
+          "score": 307
+        },
+        {
+          "code": "J96.02",
+          "description": "Acute respiratory failure with hypercapnia",
+          "score": 307
+        },
+        {
+          "code": "J96.10",
+          "description": "Chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 307
+        },
+        {
+          "code": "J96.11",
+          "description": "Chronic respiratory failure with hypoxia",
+          "score": 307
+        }
+      ],
+      "suggestionCodes": [
+        "J96.00",
+        "J96.01",
+        "J96.02",
+        "J96.10",
+        "J96.11",
+        "J96.12",
+        "J96.20",
+        "J96.21"
+      ]
+    },
+    "31600_ventilator": {
+      "cardText": "\n    Primary31600\u00d7\n    Tracheostomy, planned (separate procedure);\n    Physician wRVU 5.42$273.22\n    \n    Diagnosis(s)Add DiagnosisJ96.00 Acute respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.01 Acute respiratory failure with hypoxiaJ96.02 Acute respiratory failure with hypercapniaJ96.10 Chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.11 Chronic respiratory failure with hypoxiaJ96.12 Chronic respiratory failure with hypercapniaJ96.20 Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.21 Acute and chronic respiratory failure with hypoxiaZ99.11Dependence on respirator [ventilator] statusbillableJ96.00Acute respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.01Acute respiratory failure with hypoxiabillableJ96.02Acute respiratory failure with hypercapniabillableJ96.10Chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.11Chronic respiratory failure with hypoxiabillableJ96.12Chronic respiratory failure with hypercapniabillableJ96.20Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.21Acute and chronic respiratory failure with hypoxiabillableJ96.22Acute and chronic respiratory failure with hypercapniabillableJ95.821Acute postprocedural respiratory failurebillableJ95.822Acute and chronic postprocedural respiratory failurebillableAdd to 31600No diagnoses selected for this CPT.No diagnosis selected for CPT 31600.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 31600.\n    Estimated APP Productivity: 0.74 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "31600",
+      "query": "ventilator",
+      "resultText": "Z99.11Dependence on respirator [ventilator] statusbillableJ96.00Acute respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.01Acute respiratory failure with hypoxiabillableJ96.02Acute respiratory failure with hypercapniabillableJ96.10Chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.11Chronic respiratory failure with hypoxiabillableJ96.12Chronic respiratory failure with hypercapniabillableJ96.20Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.21Acute and chronic respiratory failure with hypoxiabillableJ96.22Acute and chronic respiratory failure with hypercapniabillableJ95.821Acute postprocedural respiratory failurebillableJ95.822Acute and chronic postprocedural respiratory failurebillable",
+      "results": [
+        {
+          "code": "Z99.11",
+          "description": "Dependence on respirator [ventilator] status",
+          "score": 317
+        },
+        {
+          "code": "J96.00",
+          "description": "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.01",
+          "description": "Acute respiratory failure with hypoxia",
+          "score": 225
+        },
+        {
+          "code": "J96.02",
+          "description": "Acute respiratory failure with hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.10",
+          "description": "Chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.11",
+          "description": "Chronic respiratory failure with hypoxia",
+          "score": 225
+        },
+        {
+          "code": "J96.12",
+          "description": "Chronic respiratory failure with hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.20",
+          "description": "Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 225
+        }
+      ],
+      "suggestionCodes": [
+        "J96.00",
+        "J96.01",
+        "J96.02",
+        "J96.10",
+        "J96.11",
+        "J96.12",
+        "J96.20",
+        "J96.21"
+      ]
+    },
+    "31600_trach": {
+      "cardText": "\n    Primary31600\u00d7\n    Tracheostomy, planned (separate procedure);\n    Physician wRVU 5.42$273.22\n    \n    Diagnosis(s)Add DiagnosisJ96.00 Acute respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.01 Acute respiratory failure with hypoxiaJ96.02 Acute respiratory failure with hypercapniaJ96.10 Chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.11 Chronic respiratory failure with hypoxiaJ96.12 Chronic respiratory failure with hypercapniaJ96.20 Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.21 Acute and chronic respiratory failure with hypoxiaJ96.00Acute respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.01Acute respiratory failure with hypoxiabillableJ96.02Acute respiratory failure with hypercapniabillableJ96.10Chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.11Chronic respiratory failure with hypoxiabillableJ96.12Chronic respiratory failure with hypercapniabillableJ96.20Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.21Acute and chronic respiratory failure with hypoxiabillableJ96.22Acute and chronic respiratory failure with hypercapniabillableJ95.821Acute postprocedural respiratory failurebillableJ95.822Acute and chronic postprocedural respiratory failurebillableZ99.11Dependence on respirator [ventilator] statusbillableAdd to 31600No diagnoses selected for this CPT.No diagnosis selected for CPT 31600.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 31600.\n    Estimated APP Productivity: 0.74 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "31600",
+      "query": "trach",
+      "resultText": "J96.00Acute respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.01Acute respiratory failure with hypoxiabillableJ96.02Acute respiratory failure with hypercapniabillableJ96.10Chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.11Chronic respiratory failure with hypoxiabillableJ96.12Chronic respiratory failure with hypercapniabillableJ96.20Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniabillableJ96.21Acute and chronic respiratory failure with hypoxiabillableJ96.22Acute and chronic respiratory failure with hypercapniabillableJ95.821Acute postprocedural respiratory failurebillableJ95.822Acute and chronic postprocedural respiratory failurebillableZ99.11Dependence on respirator [ventilator] statusbillable",
+      "results": [
+        {
+          "code": "J96.00",
+          "description": "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.01",
+          "description": "Acute respiratory failure with hypoxia",
+          "score": 225
+        },
+        {
+          "code": "J96.02",
+          "description": "Acute respiratory failure with hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.10",
+          "description": "Chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.11",
+          "description": "Chronic respiratory failure with hypoxia",
+          "score": 225
+        },
+        {
+          "code": "J96.12",
+          "description": "Chronic respiratory failure with hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.20",
+          "description": "Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",
+          "score": 225
+        },
+        {
+          "code": "J96.21",
+          "description": "Acute and chronic respiratory failure with hypoxia",
+          "score": 225
+        }
+      ],
+      "suggestionCodes": [
+        "J96.00",
+        "J96.01",
+        "J96.02",
+        "J96.10",
+        "J96.11",
+        "J96.12",
+        "J96.20",
+        "J96.21"
+      ]
+    },
+    "49440_dysphagia": {
+      "cardText": "\n    Primary49440\u00d7\n    Percutaneous gastrostomy tube placement\n    Physician wRVU 3.83$788.26\n    \n    Diagnosis(s)Add DiagnosisR13.10 Dysphagia, unspecifiedR13.12 Dysphagia, oropharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseR63.30 Feeding difficulties, unspecifiedR63.39 Other feeding difficultiesE43 Unspecified severe protein-calorie malnutritionE44.0 Moderate protein-calorie malnutritionE44.1 Mild protein-calorie malnutritionR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableR13.10Dysphagia, unspecifiedbillableR13.1Dysphagianon-billableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableI69.991Dysphagia following unspecified cerebrovascular diseasebillableR13.11Dysphagia, oral phasebillableR13.13Dysphagia, pharyngeal phasebillableAdd to 49440No diagnoses selected for this CPT.No diagnosis selected for CPT 49440.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 49440.\n    Estimated APP Productivity: 0.52 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "49440",
+      "query": "dysphagia",
+      "resultText": "R13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableR13.10Dysphagia, unspecifiedbillableR13.1Dysphagianon-billableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableI69.991Dysphagia following unspecified cerebrovascular diseasebillableR13.11Dysphagia, oral phasebillableR13.13Dysphagia, pharyngeal phasebillable",
+      "results": [
+        {
+          "code": "R13.12",
+          "description": "Dysphagia, oropharyngeal phase",
+          "score": 326
+        },
+        {
+          "code": "R13.14",
+          "description": "Dysphagia, pharyngoesophageal phase",
+          "score": 326
+        },
+        {
+          "code": "R13.10",
+          "description": "Dysphagia, unspecified",
+          "score": 306
+        },
+        {
+          "code": "R13.1",
+          "description": "Dysphagia",
+          "score": 225
+        },
+        {
+          "code": "I69.091",
+          "description": "Dysphagia following nontraumatic subarachnoid hemorrhage",
+          "score": 221
+        },
+        {
+          "code": "I69.191",
+          "description": "Dysphagia following nontraumatic intracerebral hemorrhage",
+          "score": 221
+        },
+        {
+          "code": "I69.291",
+          "description": "Dysphagia following other nontraumatic intracranial hemorrhage",
+          "score": 221
+        },
+        {
+          "code": "I69.391",
+          "description": "Dysphagia following cerebral infarction",
+          "score": 221
+        }
+      ],
+      "suggestionCodes": [
+        "R13.10",
+        "R13.12",
+        "R13.14",
+        "R63.30",
+        "R63.39",
+        "E43",
+        "E44.0",
+        "E44.1"
+      ]
+    },
+    "49440_dysphasia": {
+      "cardText": "\n    Primary49440\u00d7\n    Percutaneous gastrostomy tube placement\n    Physician wRVU 3.83$788.26\n    \n    Diagnosis(s)Add DiagnosisR13.10 Dysphagia, unspecifiedR13.12 Dysphagia, oropharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseR63.30 Feeding difficulties, unspecifiedR63.39 Other feeding difficultiesE43 Unspecified severe protein-calorie malnutritionE44.0 Moderate protein-calorie malnutritionE44.1 Mild protein-calorie malnutritionDid you mean dysphagia? Showing dysphagia-related diagnoses; select only what the documentation supports.R13.10Dysphagia, unspecifiedbillableR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableR47.02DysphasiabillableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableI69.991Dysphagia following unspecified cerebrovascular diseasebillableR63.30Feeding difficulties, unspecifiedbillableR63.39Other feeding difficultiesbillableAdd to 49440No diagnoses selected for this CPT.No diagnosis selected for CPT 49440.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 49440.\n    Estimated APP Productivity: 0.52 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "49440",
+      "query": "dysphasia",
+      "resultText": "Did you mean dysphagia? Showing dysphagia-related diagnoses; select only what the documentation supports.R13.10Dysphagia, unspecifiedbillableR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableR47.02DysphasiabillableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableI69.991Dysphagia following unspecified cerebrovascular diseasebillableR63.30Feeding difficulties, unspecifiedbillableR63.39Other feeding difficultiesbillable",
+      "results": [
+        {
+          "code": "R13.10",
+          "description": "Dysphagia, unspecified",
+          "score": 210
+        },
+        {
+          "code": "R13.12",
+          "description": "Dysphagia, oropharyngeal phase",
+          "score": 210
+        },
+        {
+          "code": "R13.14",
+          "description": "Dysphagia, pharyngoesophageal phase",
+          "score": 210
+        },
+        {
+          "code": "R47.02",
+          "description": "Dysphasia",
+          "score": 145
+        },
+        {
+          "code": "I69.091",
+          "description": "Dysphagia following nontraumatic subarachnoid hemorrhage",
+          "score": 125
+        },
+        {
+          "code": "I69.191",
+          "description": "Dysphagia following nontraumatic intracerebral hemorrhage",
+          "score": 125
+        },
+        {
+          "code": "I69.291",
+          "description": "Dysphagia following other nontraumatic intracranial hemorrhage",
+          "score": 125
+        },
+        {
+          "code": "I69.391",
+          "description": "Dysphagia following cerebral infarction",
+          "score": 125
+        }
+      ],
+      "suggestionCodes": [
+        "R13.10",
+        "R13.12",
+        "R13.14",
+        "R63.30",
+        "R63.39",
+        "E43",
+        "E44.0",
+        "E44.1"
+      ]
+    },
+    "49440_PEG": {
+      "cardText": "\n    Primary49440\u00d7\n    Percutaneous gastrostomy tube placement\n    Physician wRVU 3.83$788.26\n    \n    Diagnosis(s)Add DiagnosisR13.10 Dysphagia, unspecifiedR13.12 Dysphagia, oropharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseR63.30 Feeding difficulties, unspecifiedR63.39 Other feeding difficultiesE43 Unspecified severe protein-calorie malnutritionE44.0 Moderate protein-calorie malnutritionE44.1 Mild protein-calorie malnutritionR13.10Dysphagia, unspecifiedbillableR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableE43Unspecified severe protein-calorie malnutritionbillableE44.0Moderate protein-calorie malnutritionbillableE44.1Mild protein-calorie malnutritionbillableE46Unspecified protein-calorie malnutritionbillableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableAdd to 49440No diagnoses selected for this CPT.No diagnosis selected for CPT 49440.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 49440.\n    Estimated APP Productivity: 0.52 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "49440",
+      "query": "PEG",
+      "resultText": "R13.10Dysphagia, unspecifiedbillableR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableE43Unspecified severe protein-calorie malnutritionbillableE44.0Moderate protein-calorie malnutritionbillableE44.1Mild protein-calorie malnutritionbillableE46Unspecified protein-calorie malnutritionbillableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillable",
+      "results": [
+        {
+          "code": "R13.10",
+          "description": "Dysphagia, unspecified",
+          "score": 210
+        },
+        {
+          "code": "R13.12",
+          "description": "Dysphagia, oropharyngeal phase",
+          "score": 210
+        },
+        {
+          "code": "R13.14",
+          "description": "Dysphagia, pharyngoesophageal phase",
+          "score": 210
+        },
+        {
+          "code": "E43",
+          "description": "Unspecified severe protein-calorie malnutrition",
+          "score": 200
+        },
+        {
+          "code": "E44.0",
+          "description": "Moderate protein-calorie malnutrition",
+          "score": 200
+        },
+        {
+          "code": "E44.1",
+          "description": "Mild protein-calorie malnutrition",
+          "score": 200
+        },
+        {
+          "code": "E46",
+          "description": "Unspecified protein-calorie malnutrition",
+          "score": 200
+        },
+        {
+          "code": "I69.091",
+          "description": "Dysphagia following nontraumatic subarachnoid hemorrhage",
+          "score": 125
+        }
+      ],
+      "suggestionCodes": [
+        "R13.10",
+        "R13.12",
+        "R13.14",
+        "R63.30",
+        "R63.39",
+        "E43",
+        "E44.0",
+        "E44.1"
+      ]
+    },
+    "49440_malnutrition": {
+      "cardText": "\n    Primary49440\u00d7\n    Percutaneous gastrostomy tube placement\n    Physician wRVU 3.83$788.26\n    \n    Diagnosis(s)Add DiagnosisR13.10 Dysphagia, unspecifiedR13.12 Dysphagia, oropharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseR63.30 Feeding difficulties, unspecifiedR63.39 Other feeding difficultiesE43 Unspecified severe protein-calorie malnutritionE44.0 Moderate protein-calorie malnutritionE44.1 Mild protein-calorie malnutritionE43Unspecified severe protein-calorie malnutritionbillableE44.0Moderate protein-calorie malnutritionbillableE44.1Mild protein-calorie malnutritionbillableE46Unspecified protein-calorie malnutritionbillableE44Protein-calorie malnutrition of moderate and mild degreenon-billableE45Retarded development following protein-calorie malnutritionbillableE64.0Sequelae of protein-calorie malnutritionbillableO25.10Malnutrition in pregnancy, unspecified trimesterbillableO25.11Malnutrition in pregnancy, first trimesterbillableO25.12Malnutrition in pregnancy, second trimesterbillableO25.13Malnutrition in pregnancy, third trimesterbillableO25.2Malnutrition in childbirthbillableAdd to 49440No diagnoses selected for this CPT.No diagnosis selected for CPT 49440.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 49440.\n    Estimated APP Productivity: 0.52 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "49440",
+      "query": "malnutrition",
+      "resultText": "E43Unspecified severe protein-calorie malnutritionbillableE44.0Moderate protein-calorie malnutritionbillableE44.1Mild protein-calorie malnutritionbillableE46Unspecified protein-calorie malnutritionbillableE44Protein-calorie malnutrition of moderate and mild degreenon-billableE45Retarded development following protein-calorie malnutritionbillableE64.0Sequelae of protein-calorie malnutritionbillableO25.10Malnutrition in pregnancy, unspecified trimesterbillableO25.11Malnutrition in pregnancy, first trimesterbillableO25.12Malnutrition in pregnancy, second trimesterbillableO25.13Malnutrition in pregnancy, third trimesterbillableO25.2Malnutrition in childbirthbillable",
+      "results": [
+        {
+          "code": "E43",
+          "description": "Unspecified severe protein-calorie malnutrition",
+          "score": 322
+        },
+        {
+          "code": "E44.0",
+          "description": "Moderate protein-calorie malnutrition",
+          "score": 322
+        },
+        {
+          "code": "E44.1",
+          "description": "Mild protein-calorie malnutrition",
+          "score": 322
+        },
+        {
+          "code": "E46",
+          "description": "Unspecified protein-calorie malnutrition",
+          "score": 312
+        },
+        {
+          "code": "E44",
+          "description": "Protein-calorie malnutrition of moderate and mild degree",
+          "score": 217
+        },
+        {
+          "code": "E45",
+          "description": "Retarded development following protein-calorie malnutrition",
+          "score": 127
+        },
+        {
+          "code": "E64.0",
+          "description": "Sequelae of protein-calorie malnutrition",
+          "score": 127
+        },
+        {
+          "code": "O25.10",
+          "description": "Malnutrition in pregnancy, unspecified trimester",
+          "score": 121
+        }
+      ],
+      "suggestionCodes": [
+        "R13.10",
+        "R13.12",
+        "R13.14",
+        "R63.30",
+        "R63.39",
+        "E43",
+        "E44.0",
+        "E44.1"
+      ]
+    },
+    "49440_feeding difficulty": {
+      "cardText": "\n    Primary49440\u00d7\n    Percutaneous gastrostomy tube placement\n    Physician wRVU 3.83$788.26\n    \n    Diagnosis(s)Add DiagnosisR13.10 Dysphagia, unspecifiedR13.12 Dysphagia, oropharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseR63.30 Feeding difficulties, unspecifiedR63.39 Other feeding difficultiesE43 Unspecified severe protein-calorie malnutritionE44.0 Moderate protein-calorie malnutritionE44.1 Mild protein-calorie malnutritionR63.30Feeding difficulties, unspecifiedbillableR63.39Other feeding difficultiesbillableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableI69.991Dysphagia following unspecified cerebrovascular diseasebillableR13.10Dysphagia, unspecifiedbillableR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableE43Unspecified severe protein-calorie malnutritionbillableAdd to 49440No diagnoses selected for this CPT.No diagnosis selected for CPT 49440.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 49440.\n    Estimated APP Productivity: 0.52 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "cpt": "49440",
+      "query": "feeding difficulty",
+      "resultText": "R63.30Feeding difficulties, unspecifiedbillableR63.39Other feeding difficultiesbillableI69.091Dysphagia following nontraumatic subarachnoid hemorrhagebillableI69.191Dysphagia following nontraumatic intracerebral hemorrhagebillableI69.291Dysphagia following other nontraumatic intracranial hemorrhagebillableI69.391Dysphagia following cerebral infarctionbillableI69.891Dysphagia following other cerebrovascular diseasebillableI69.991Dysphagia following unspecified cerebrovascular diseasebillableR13.10Dysphagia, unspecifiedbillableR13.12Dysphagia, oropharyngeal phasebillableR13.14Dysphagia, pharyngoesophageal phasebillableE43Unspecified severe protein-calorie malnutritionbillable",
+      "results": [
+        {
+          "code": "R63.30",
+          "description": "Feeding difficulties, unspecified",
+          "score": 225
+        },
+        {
+          "code": "R63.39",
+          "description": "Other feeding difficulties",
+          "score": 225
+        },
+        {
+          "code": "I69.091",
+          "description": "Dysphagia following nontraumatic subarachnoid hemorrhage",
+          "score": 125
+        },
+        {
+          "code": "I69.191",
+          "description": "Dysphagia following nontraumatic intracerebral hemorrhage",
+          "score": 125
+        },
+        {
+          "code": "I69.291",
+          "description": "Dysphagia following other nontraumatic intracranial hemorrhage",
+          "score": 125
+        },
+        {
+          "code": "I69.391",
+          "description": "Dysphagia following cerebral infarction",
+          "score": 125
+        },
+        {
+          "code": "I69.891",
+          "description": "Dysphagia following other cerebrovascular disease",
+          "score": 125
+        },
+        {
+          "code": "I69.991",
+          "description": "Dysphagia following unspecified cerebrovascular disease",
+          "score": 125
+        }
+      ],
+      "suggestionCodes": [
+        "R13.10",
+        "R13.12",
+        "R13.14",
+        "R63.30",
+        "R63.39",
+        "E43",
+        "E44.0",
+        "E44.1"
+      ]
+    },
+    "selectionWorkflow": {
+      "diagnoses": [
+        {
+          "code": "J96.01",
+          "description": "Acute respiratory failure with hypoxia",
+          "letter": "A"
+        },
+        {
+          "code": "Z99.11",
+          "description": "Dependence on respirator [ventilator] status",
+          "letter": "B"
+        },
+        {
+          "code": "R13.12",
+          "description": "Dysphagia, oropharyngeal phase",
+          "letter": "C"
+        },
+        {
+          "code": "E43",
+          "description": "Unspecified severe protein-calorie malnutrition",
+          "letter": "D"
+        }
+      ],
+      "globalFloatingCards": 0,
+      "integratedDxSections": 2,
+      "map": [
+        {
+          "cpt": "31600",
+          "pointerString": "A,B",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "cpt": "49440",
+          "pointerString": "C,D",
+          "pointers": [
+            "C",
+            "D"
+          ]
+        }
+      ],
+      "summary": "Diagnosis ListA J96.01 Acute respiratory failure with hypoxia billableremoveB Z99.11 Dependence on respirator [ventilator] status billableremoveC R13.12 Dysphagia, oropharyngeal phase billableremoveD E43 Unspecified severe protein-calorie malnutrition billableremoveClaim pointer map31600 \u2192 A,B49440 \u2192 C,D"
+    },
+    "regression": {
+      "appModeAvailable": true,
+      "auditReportAvailable": false,
+      "globalModifierAvailable": true,
+      "inpatientOnlyWarningsAvailable": true,
+      "jsonExportShape": [
+        {
+          "cpt": "44120",
+          "diagnosisPointerField": "A,B"
+        },
+        {
+          "cpt": "49507",
+          "diagnosisPointerField": "C"
+        }
+      ],
+      "medicaidWarningsAvailable": true,
+      "mpprMaintained": true,
+      "ncciAvailable": true,
+      "pointerAfterModifier22": [
+        {
+          "cpt": "44120",
+          "pointerString": "A,B",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "cpt": "49507",
+          "pointerString": "C",
+          "pointers": [
+            "C"
+          ]
+        }
+      ],
+      "pointerBefore": [
+        {
+          "cpt": "44120",
+          "pointerString": "A,B",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "cpt": "49507",
+          "pointerString": "C",
+          "pointers": [
+            "C"
+          ]
+        }
+      ]
+    }
+  },
+  "regression": {
+    "diagnosisPointers": "pass",
+    "sharedDiagnosisLetters": "pass",
+    "auditReportSurface": "pass",
+    "jsonExportShape": "pass",
+    "mppr": "pass",
+    "modifier58_78_79": "not directly changed; covered by existing regression suite",
+    "modifier22": "pass",
+    "ncci": "pass",
+    "inpatientOnlyWarnings": "pass",
+    "medicaidWarnings": "surface present/not changed",
+    "appMode": "surface present/not changed"
+  }
+}
