@@ -137,6 +137,13 @@ a{color:inherit;text-decoration:none}
 .dx-check{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:start;border:1px solid var(--line);border-radius:7px;padding:8px;background:var(--paper);cursor:pointer}
 .dx-check input{margin-top:2px}.dx-check.on{border-color:var(--ox);background:var(--ox2)}
 .dx-suggested{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.dx-indications{display:grid;gap:7px;margin-top:8px}
+.dx-indication{border:1px solid var(--line2);border-radius:8px;background:var(--white);overflow:hidden}
+.dx-indication summary{list-style:none;cursor:pointer;padding:8px 10px;font-size:12px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+.dx-indication summary::-webkit-details-marker{display:none}
+.dx-indication summary::before{content:'□';font-family:'SFMono-Regular',Consolas,monospace;color:var(--ox);font-weight:900}
+.dx-indication[open] summary::before{content:'☑'}
+.dx-indication-codes{display:flex;flex-wrap:wrap;gap:6px;padding:0 10px 10px}
 .dx-chip{border:1px solid var(--line2);border-radius:999px;background:var(--white);padding:6px 9px;font-size:11px;color:var(--ink);cursor:pointer;line-height:1.25}
 .dx-chip:hover,.dx-chip:focus{border-color:var(--ox);outline:0}
 .dx-add-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
@@ -840,17 +847,42 @@ const ICD10_SYNONYMS={
  'laryngeal obstruction':'laryngeal stenosis airway obstruction',
  'tracheal obstruction':'tracheal stenosis airway obstruction upper respiratory tract disease'
 };
-const CPT_ICD10_CLINICAL_SUGGESTIONS={
- '31600':{
-  title:'Tracheostomy',
-  codes:['J9600','J9601','J9602','J9610','J9611','J9612','J9620','J9621','J9622','Z9911','J95821','J95822','J386','J398'],
-  terms:['trach','tracheostomy','respiratory failure','resp failure','acute respiratory failure','chronic respiratory failure','acute on chronic respiratory failure','hypoxic respiratory failure','hypercapnic respiratory failure','vent','ventilator','mechanical ventilation','prolonged mechanical ventilation','respirator dependence','dependence on respirator','airway obstruction','upper airway obstruction','laryngeal obstruction','laryngeal stenosis','tracheal obstruction','tracheal stenosis']
- },
- '49440':{
-  title:'Percutaneous gastrostomy tube placement',
-  codes:['R1310','R1312','R1314','R6330','R6339','E43','E440','E441','E46','R627','J690','I69091','I69191','I69291','I69391','I69891','I69991'],
-  terms:['peg','peg tube','g tube','gtube','gastrostomy','feeding tube','dysphagia','dysphasia','oropharyngeal dysphagia','pharyngoesophageal dysphagia','neurologic dysphagia','feeding difficulty','feeding difficulties','malnutrition','protein calorie malnutrition','failure to thrive','aspiration','aspiration risk','inability to maintain oral intake','oral nutrition','nutritional access']
- }
+const CLINICAL_INDICATION_GROUPS={
+ respiratory_failure:{label:'Respiratory failure',codes:['J9600','J9601','J9602','J9610','J9611','J9612','J9620','J9621','J9622','J9690','J9691','J9692','J95821','J95822'],terms:['respiratory failure','resp failure','acute respiratory failure','chronic respiratory failure','acute on chronic respiratory failure','hypoxic respiratory failure','hypercapnic respiratory failure']},
+ ventilator_dependence:{label:'Ventilator dependence',codes:['Z9911','Z9912','Z9981'],terms:['vent','ventilator','mechanical ventilation','prolonged mechanical ventilation','respirator dependence','dependence on respirator']},
+ airway_obstruction:{label:'Airway obstruction',codes:['J386','J385','J398','J399','J0411','J0431','J0511'],terms:['airway obstruction','upper airway obstruction','laryngeal obstruction','laryngeal stenosis','tracheal obstruction','tracheal stenosis']},
+ tracheal_obstruction:{label:'Tracheal obstruction',codes:['J398','J0411','Q321','S11021A','S1982XA'],terms:['tracheal obstruction','tracheal stenosis','trachea obstruction','tracheal disease']},
+ dysphagia:{label:'Dysphagia',codes:['R1310','R1311','R1312','R1313','R1314','R1319','I69091','I69191','I69291','I69391','I69891','I69991'],terms:['dysphagia','dysphasia','swallowing difficulty','oropharyngeal dysphagia','pharyngoesophageal dysphagia','neurologic dysphagia']},
+ malnutrition:{label:'Malnutrition',codes:['E43','E440','E441','E46','E640'],terms:['malnutrition','protein calorie malnutrition','severe malnutrition','moderate malnutrition','mild malnutrition']},
+ feeding_difficulty:{label:'Feeding difficulty',codes:['R6330','R6339','R627','R6251'],terms:['feeding difficulty','feeding difficulties','failure to thrive','poor oral intake','inability to maintain oral intake','nutritional access']},
+ aspiration_risk:{label:'Aspiration risk',codes:['J690','J691','J698','R1312','R1314'],terms:['aspiration','aspiration risk','aspiration pneumonitis','inhalation of food','inhalation of vomit']},
+ diverticulitis:{label:'Diverticulitis',codes:['K5720','K5721','K5732','K5733','K5740','K5741','K5752','K5753','K5780','K5781','K5792','K5793'],terms:['diverticulitis','perforated diverticulitis','diverticular abscess']},
+ colon_cancer:{label:'Colon cancer',codes:['C180','C181','C182','C183','C184','C185','C186','C187','C188','C189','C19','C20'],terms:['colon cancer','colorectal cancer','malignant neoplasm colon','sigmoid cancer','cecal cancer']},
+ volvulus:{label:'Volvulus',codes:['K562'],terms:['volvulus','sigmoid volvulus','cecal volvulus']},
+ ischemic_bowel:{label:'Ischemic bowel',codes:['K55011','K55012','K55019','K55021','K55022','K55029','K551','K558','K559'],terms:['ischemic bowel','bowel ischemia','ischemic colitis','mesenteric ischemia']},
+ perforation:{label:'Perforation',codes:['K631','K650','K651','K659'],terms:['perforation','intestinal perforation','peritonitis','peritoneal abscess']},
+ obstruction:{label:'Obstruction',codes:['K56600','K56601','K56609','K56690','K56691','K56699','K5650','K5651','K5652'],terms:['obstruction','bowel obstruction','intestinal obstruction','small bowel obstruction','large bowel obstruction','sbo']},
+ inguinal_hernia:{label:'Inguinal hernia',codes:['K4000','K4001','K4020','K4021','K4030','K4031','K4090','K4091'],terms:['inguinal hernia','groin hernia']},
+ femoral_hernia:{label:'Femoral hernia',codes:['K4100','K4101','K4120','K4121','K4130','K4131','K4190','K4191'],terms:['femoral hernia']},
+ ventral_hernia:{label:'Ventral hernia',codes:['K430','K431','K432','K433','K434','K435','K436','K437','K439','K429'],terms:['ventral hernia','incisional hernia','umbilical hernia','abdominal wall hernia']},
+ incarcerated_hernia:{label:'Incarcerated hernia',codes:['K4000','K4001','K4030','K4031','K4100','K4101','K4130','K4131','K430','K433','K436','K420'],terms:['incarcerated','incarcerated hernia','obstructed hernia','hernia with obstruction']},
+ strangulated_hernia:{label:'Strangulated hernia',codes:['K4010','K4011','K4040','K4041','K4110','K4111','K4140','K4141'],terms:['strangulated','strangulated hernia','hernia with gangrene']}
+};
+const PROCEDURE_FAMILIES={
+ tracheostomy:{label:'Tracheostomy Family',indications:['respiratory_failure','ventilator_dependence','airway_obstruction','tracheal_obstruction']},
+ gastrostomy:{label:'Gastrostomy Family',indications:['dysphagia','malnutrition','feeding_difficulty','aspiration_risk']},
+ colectomy:{label:'Colectomy Family',indications:['diverticulitis','colon_cancer','volvulus','ischemic_bowel','perforation','obstruction']},
+ hernia:{label:'Hernia Family',indications:['inguinal_hernia','femoral_hernia','ventral_hernia','incarcerated_hernia','strangulated_hernia']}
+};
+const CPT_PROCEDURE_FAMILY={
+ '31600':'tracheostomy','31601':'tracheostomy','31603':'tracheostomy',
+ '49440':'gastrostomy','43246':'gastrostomy','49446':'gastrostomy','49450':'gastrostomy',
+ '44120':'colectomy','44121':'colectomy','44140':'colectomy','44143':'colectomy','44145':'colectomy','44146':'colectomy','44155':'colectomy','44202':'colectomy','44203':'colectomy','44204':'colectomy','44205':'colectomy','44207':'colectomy','44208':'colectomy','44625':'colectomy',
+ '49500':'hernia','49501':'hernia','49505':'hernia','49507':'hernia','49520':'hernia','49521':'hernia','49525':'hernia','49550':'hernia','49553':'hernia','49555':'hernia','49591':'hernia','49592':'hernia','49593':'hernia','49594':'hernia','49595':'hernia','49596':'hernia','49613':'hernia','49614':'hernia','49615':'hernia','49616':'hernia','49617':'hernia','49618':'hernia','49650':'hernia','49651':'hernia'
+};
+const CPT_ICD10_ADDITIONS={
+ '31600':{label:'CPT-specific additions',indications:[]},
+ '49440':{label:'CPT-specific additions',indications:[]}
 };
 let alifAssistantSelected=false;
 let nextLineId=1;
@@ -1786,9 +1818,30 @@ document.addEventListener('keydown',e=>{
 }
 function displayIcd(code){const raw=String(code||'').replace(/\./g,'').toUpperCase();return raw.length>3?raw.slice(0,3)+'.'+raw.slice(3):raw}
 function diagnosisLetter(index){return String.fromCharCode(65+index)}
-function cptClinicalDxConfig(line){
+function indicationGroup(key){return CLINICAL_INDICATION_GROUPS[key]||null}
+function procedureFamilyForLine(line){
  const code=String(line&&line.cpt||'');
- return CPT_ICD10_CLINICAL_SUGGESTIONS[code]||null;
+ return PROCEDURE_FAMILIES[CPT_PROCEDURE_FAMILY[code]]||null;
+}
+function clinicalIndicationKeysForLine(line){
+ const code=String(line&&line.cpt||'');
+ const family=procedureFamilyForLine(line);
+ const additions=CPT_ICD10_ADDITIONS[code]||{};
+ return [...new Set([...(family&&family.indications||[]),...(additions.indications||[])])];
+}
+function clinicalIndicationsForLine(line){
+ return clinicalIndicationKeysForLine(line).map(key=>({key,...indicationGroup(key)})).filter(g=>g&&g.codes);
+}
+function cptClinicalDxConfig(line){
+ const family=procedureFamilyForLine(line);
+ const groups=clinicalIndicationsForLine(line);
+ if(!family&&!groups.length)return null;
+ return {
+  title:family?family.label:'CPT-specific indications',
+  groups,
+  codes:[...new Set(groups.flatMap(g=>g.codes||[]))],
+  terms:[...new Set(groups.flatMap(g=>g.terms||[]))]
+ };
 }
 function expandIcd10Query(query,line){
  const q=String(query||'').trim().toLowerCase();
@@ -1796,13 +1849,13 @@ function expandIcd10Query(query,line){
  return [...new Set(expansions.join(' ').toLowerCase().split(/\s+/).map(t=>t.replace(/[^a-z0-9]/g,'')).filter(t=>t.length>2))];
 }
 function cptQueryDxPriority(code,q,rowCode){
- if(code==='31600'){
+ if(CPT_PROCEDURE_FAMILY[code]==='tracheostomy'){
   if(/vent|respirator|mechanical ventilation/.test(q)&&rowCode==='Z9911')return 90;
   if(/resp|trach|hypox|hypercap|vent/.test(q)&&/^J96/.test(rowCode))return 80;
   if(/laryng|airway/.test(q)&&rowCode==='J386')return 70;
   if(/trache|airway/.test(q)&&rowCode==='J398')return 60;
  }
- if(code==='49440'){
+ if(CPT_PROCEDURE_FAMILY[code]==='gastrostomy'){
   if(/feeding difficult/.test(q)&&/^R633/.test(rowCode))return 90;
   if(/dysphag|dysphas|peg|g tube|gtube|gastrostomy/.test(q)&&/^R13/.test(rowCode))return 85;
   if(/malnutrition|peg|g tube|gtube|gastrostomy/.test(q)&&/^E4[346]|^E44/.test(rowCode))return 75;
@@ -1810,6 +1863,13 @@ function cptQueryDxPriority(code,q,rowCode){
   if(/aspirat/.test(q)&&rowCode==='J690')return 90;
   if(/neurologic|stroke|cva/.test(q)&&/^I69/.test(rowCode))return 80;
  }
+ const config=cptClinicalDxConfig({cpt:code});
+ let generic=0;
+ (config&&config.groups||[]).forEach((group,index)=>{
+  const match=(group.terms||[]).some(term=>term===q||term.includes(q)||q.includes(term));
+  if(match&&(group.codes||[]).map(normalizeDxCode).includes(rowCode))generic=Math.max(generic,70-index);
+ });
+ if(generic)return generic;
  return 0;
 }
 function searchIcd10(query,limit=12,line=null){
@@ -1862,9 +1922,9 @@ function commonDxForCpt(line){
  if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
  if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
  if(/hip|knee|femur|tibia|radius|fracture|arthro/.test(desc))add(['S72.001A','S82.201A','M17.11','M16.11']);
- const clinical=CPT_ICD10_CLINICAL_SUGGESTIONS[code];
+ const clinical=cptClinicalDxConfig(line);
  if(clinical)add(clinical.codes);
-  const priority=dxLateralityPriorityForLine(line);
+ const priority=dxLateralityPriorityForLine(line);
  const clinicalPriority=clinical?(clinical.codes||[]).map(normalizeDxCode):[];
  dx=[...priority,...dx];
  return [...new Set(dx.map(normalizeDxCode))].map(icdMeta).sort((a,b)=>{
@@ -1874,6 +1934,23 @@ function commonDxForCpt(line){
   if(ac!==bc)return (ac<0?999:ac)-(bc<0?999:bc);
   return Number(b.billable)-Number(a.billable)||a.code.localeCompare(b.code);
  }).slice(0,8);
+}
+function commonDxCodeSetForLine(line){
+ const code=String(line&&line.cpt||'');
+ const desc=String(line&&line.desc||'').toLowerCase();
+ let dx=[...((line&&line.dx)||[]),...(DX_BY_CPT[code]||[])];
+ const add=arr=>{dx.push(...arr)};
+ if(/diverticul|colectomy|colon|colostomy|enterostomy|bowel|intestin/.test(desc))add(['K57.20','K57.32','K56.609','K63.1','Z43.3']);
+ if(/hernia|abdominal wall|myofascial|component/.test(desc))add(['K43.2','K43.0','K42.9','K40.90']);
+ if(/gallbladder|chole|bile|biliary/.test(desc))add(['K80.20','K80.00','K81.0','K82.8']);
+ if(/abscess|drainage|debridement|wound|infection/.test(desc))add(['L02.211','T81.49XA','K65.1','S31.109A']);
+ if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
+ if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
+ if(/hip|knee|femur|tibia|radius|fracture|arthro/.test(desc))add(['S72.001A','S82.201A','M17.11','M16.11']);
+ const clinical=cptClinicalDxConfig(line);
+ if(clinical)add(clinical.codes);
+ dx.push(...dxLateralityPriorityForLine(line));
+ return new Set(dx.map(normalizeDxCode));
 }
 function addDiagnosis(code,opts={}){
  const meta=icdMeta(code);if(!meta.code)return;
@@ -1930,8 +2007,8 @@ function validateDiagnosesForLine(line){
   const dx=caseDiagnoses[letter.charCodeAt(0)-65];if(!dx)return;
   if(!dx.billable)warnings.push(displayIcd(dx.code)+' is non-billable; select a billable child diagnosis when documentation supports it.');
   if(dx.retired)warnings.push(displayIcd(dx.code)+' is retired/replaced; verify current ICD-10-CM code.');
-  const suggested=commonDxForCpt(line).map(d=>d.code);
-  if(suggested.length&&!suggested.includes(dx.code))warnings.push(displayIcd(dx.code)+' is not in the common diagnosis set for CPT '+line.cpt+'; confirm documentation supports linking this diagnosis to the procedure.');
+  const suggested=commonDxCodeSetForLine(line);
+  if(suggested.size&&!suggested.has(dx.code))warnings.push(displayIcd(dx.code)+' is not in the common diagnosis set for CPT '+line.cpt+'; confirm documentation supports linking this diagnosis to the procedure.');
  });
  return warnings;
 }
@@ -1954,16 +2031,29 @@ function lineDxRoleLabel(line){
  if(line.rank==='Primary')return 'Primary';
  return /^Secondary/i.test(String(line.rank||''))?'Secondary':(line.rank||'Procedure');
 }
+function renderLineIndicationGroups(line){
+ const groups=clinicalIndicationsForLine(line);
+ if(!groups.length){
+  const lineSuggestions=commonDxForCpt(line).slice(0,8);
+  return '<div class="dx-suggested">'+lineSuggestions.map(d=>'<button type="button" class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\',{lineId:'+line.id+'})">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('')+'</div>';
+ }
+ return '<div class="dx-indications">'+groups.map((group,index)=>{
+  const codes=[...new Set((group.codes||[]).map(normalizeDxCode))].map(icdMeta).filter(d=>d&&d.code).slice(0,10);
+  const open=index===0?' open':'';
+  const codeButtons=codes.map(d=>'<button type="button" class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\',{lineId:'+line.id+'})">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('');
+  return '<details class="dx-indication"'+open+'><summary>'+h(group.label)+'</summary><div class="dx-indication-codes">'+codeButtons+'</div></details>';
+ }).join('')+'</div>';
+}
 function renderLineDiagnosisSection(line){
  if(!line||line.kind!=='proc')return '';
- const lineSuggestions=commonDxForCpt(line).slice(0,8);
+ const indicationHTML=renderLineIndicationGroups(line);
  const selectedChecks=caseDiagnoses.map((d,i)=>{
   const letter=diagnosisLetter(i);
   const on=(line.dxPointers||[]).includes(letter);
   return '<label class="line-dx-check '+(on?'on':'')+'"><input type="checkbox" '+(on?'checked':'')+' onchange="toggleDxPointer('+line.id+',\''+letter+'\')"><span><strong>'+h(displayIcd(d.code))+'</strong> '+h(d.description)+' <span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span></span></label>';
  }).join('');
  const warnings=validateDiagnosesForLine(line).map(w=>'<div class="warning-card warning-card--doc"><div class="warning-card__summary">'+h(w)+'</div></div>').join('');
- return '<div class="line-dx" data-cpt="'+h(line.cpt)+'"><div class="line-dx-head"><div class="line-dx-title">Diagnosis(s)</div><button type="button" class="dx-chip" onclick="addManualDiagnosisForLine('+line.id+')">Add Diagnosis</button></div><div class="dx-suggested">'+lineSuggestions.map(d=>'<button type="button" class="dx-chip" onclick="addDiagnosis(\''+h(d.code)+'\',{lineId:'+line.id+'})">'+h(displayIcd(d.code))+' '+h(d.description)+'</button>').join('')+'</div><div class="dx-search"><input id="dxLineSearch_'+line.id+'" placeholder="Search ICD-10 for CPT '+h(line.cpt)+'" oninput="dxSearchState.activeIndex=0;updateDxSearch('+line.id+')" onfocus="updateDxSearch('+line.id+')" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxLineSearchResults_'+line.id+'\').classList.remove(\'show\')}"><div class="dx-results" id="dxLineSearchResults_'+line.id+'"></div></div><div class="dx-add-row"><input id="dxAdd_'+line.id+'" placeholder="Enter ICD-10 code"><button type="button" onclick="addDiagnosisToLine('+line.id+',document.getElementById(\'dxAdd_'+line.id+'\').value)">Add to '+h(line.cpt)+'</button></div><div class="line-dx-list">'+(selectedChecks||'<div class="line-dx-empty">No diagnoses selected for this CPT.</div>')+'</div>'+warnings+'</div>';
+ return '<div class="line-dx" data-cpt="'+h(line.cpt)+'"><div class="line-dx-head"><div class="line-dx-title">Diagnosis(s)</div><button type="button" class="dx-chip" onclick="addManualDiagnosisForLine('+line.id+')">Add Diagnosis</button></div><div class="line-dx-title">Common indications</div>'+indicationHTML+'<div class="dx-search"><input id="dxLineSearch_'+line.id+'" placeholder="Search ICD-10 for CPT '+h(line.cpt)+'" oninput="dxSearchState.activeIndex=0;updateDxSearch('+line.id+')" onfocus="updateDxSearch('+line.id+')" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxLineSearchResults_'+line.id+'\').classList.remove(\'show\')}"><div class="dx-results" id="dxLineSearchResults_'+line.id+'"></div></div><div class="dx-add-row"><input id="dxAdd_'+line.id+'" placeholder="Enter ICD-10 code"><button type="button" onclick="addDiagnosisToLine('+line.id+',document.getElementById(\'dxAdd_'+line.id+'\').value)">Add to '+h(line.cpt)+'</button></div><div class="line-dx-list">'+(selectedChecks||'<div class="line-dx-empty">No diagnoses selected for this CPT.</div>')+'</div>'+warnings+'</div>';
 }
 function renderDxIntelligence(){
  const el=document.getElementById('dxs');if(!el)return;

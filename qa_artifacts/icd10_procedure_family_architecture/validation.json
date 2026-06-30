@@ -1,0 +1,220 @@
+{
+  "status": "pass",
+  "branch": "review/icd10-procedure-family-architecture",
+  "architectureDiagrams": "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_procedure_family_architecture/architecture-diagrams.md",
+  "screenshots": [
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_procedure_family_architecture/01_inherited_indication_ui.png",
+    "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_procedure_family_architecture/02_pointer_export_validation.png"
+  ],
+  "browserVideo": "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_procedure_family_architecture/procedure_family_architecture_workflow.mp4",
+  "results": {
+    "architecture": {
+      "cptFamilies": {
+        "31600": "tracheostomy",
+        "31601": "tracheostomy",
+        "43246": "gastrostomy",
+        "44140": "colectomy",
+        "49440": "gastrostomy",
+        "49507": "hernia"
+      },
+      "families": {
+        "colectomy": {
+          "indications": [
+            "diverticulitis",
+            "colon_cancer",
+            "volvulus",
+            "ischemic_bowel",
+            "perforation",
+            "obstruction"
+          ],
+          "label": "Colectomy Family"
+        },
+        "gastrostomy": {
+          "indications": [
+            "dysphagia",
+            "malnutrition",
+            "feeding_difficulty",
+            "aspiration_risk"
+          ],
+          "label": "Gastrostomy Family"
+        },
+        "hernia": {
+          "indications": [
+            "inguinal_hernia",
+            "femoral_hernia",
+            "ventral_hernia",
+            "incarcerated_hernia",
+            "strangulated_hernia"
+          ],
+          "label": "Hernia Family"
+        },
+        "tracheostomy": {
+          "indications": [
+            "respiratory_failure",
+            "ventilator_dependence",
+            "airway_obstruction",
+            "tracheal_obstruction"
+          ],
+          "label": "Tracheostomy Family"
+        }
+      }
+    },
+    "inheritance": {
+      "colectomyIndications": [
+        "Diverticulitis",
+        "Colon cancer",
+        "Volvulus",
+        "Ischemic bowel",
+        "Perforation",
+        "Obstruction"
+      ],
+      "herniaIndications": [
+        "Inguinal hernia",
+        "Femoral hernia",
+        "Ventral hernia",
+        "Incarcerated hernia",
+        "Strangulated hernia"
+      ],
+      "pegCard": "\n    Primary49440\u00d7\n    Percutaneous gastrostomy tube placement\n    Physician wRVU 3.83$788.26\n    \n    Diagnosis(s)Add DiagnosisCommon indicationsDysphagiaR13.10 Dysphagia, unspecifiedR13.11 Dysphagia, oral phaseR13.12 Dysphagia, oropharyngeal phaseR13.13 Dysphagia, pharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseR13.19 Other dysphagiaI69.091 Dysphagia following nontraumatic subarachnoid hemorrhageI69.191 Dysphagia following nontraumatic intracerebral hemorrhageI69.291 Dysphagia following other nontraumatic intracranial hemorrhageI69.391 Dysphagia following cerebral infarctionMalnutritionE43 Unspecified severe protein-calorie malnutritionE44.0 Moderate protein-calorie malnutritionE44.1 Mild protein-calorie malnutritionE46 Unspecified protein-calorie malnutritionE64.0 Sequelae of protein-calorie malnutritionFeeding difficultyR63.30 Feeding difficulties, unspecifiedR63.39 Other feeding difficultiesR62.7 Adult failure to thriveR62.51 Failure to thrive (child)Aspiration riskJ69.0 Pneumonitis due to inhalation of food and vomitJ69.1 Pneumonitis due to inhalation of oils and essencesJ69.8 Pneumonitis due to inhalation of other solids and liquidsR13.12 Dysphagia, oropharyngeal phaseR13.14 Dysphagia, pharyngoesophageal phaseAdd to 49440No diagnoses selected for this CPT.No diagnosis selected for CPT 49440.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 49440.\n    Estimated APP Productivity: 0.52 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "pegIndications": [
+        "Dysphagia",
+        "Malnutrition",
+        "Feeding difficulty",
+        "Aspiration risk"
+      ],
+      "trachCard": "\n    Primary31600\u00d7\n    Tracheostomy, planned (separate procedure);\n    Physician wRVU 5.42$273.22\n    \n    Diagnosis(s)Add DiagnosisCommon indicationsRespiratory failureJ96.00 Acute respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.01 Acute respiratory failure with hypoxiaJ96.02 Acute respiratory failure with hypercapniaJ96.10 Chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.11 Chronic respiratory failure with hypoxiaJ96.12 Chronic respiratory failure with hypercapniaJ96.20 Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapniaJ96.21 Acute and chronic respiratory failure with hypoxiaJ96.22 Acute and chronic respiratory failure with hypercapniaJ96.90 Respiratory failure, unspecified, unspecified whether with hypoxia or hypercapniaVentilator dependenceZ99.11 Dependence on respirator [ventilator] statusZ99.12 Encounter for respirator [ventilator] dependence during power failureZ99.81 Dependence on supplemental oxygenAirway obstructionJ38.6 Stenosis of larynxJ38.5 Laryngeal spasmJ39.8 Other specified diseases of upper respiratory tractJ39.9 Disease of upper respiratory tract, unspecifiedJ04.11 Acute tracheitis with obstructionJ04.31 Supraglottitis, unspecified, with obstructionJ05.11 Acute epiglottitis with obstructionTracheal obstructionJ39.8 Other specified diseases of upper respiratory tractJ04.11 Acute tracheitis with obstructionQ32.1 Other congenital malformations of tracheaS11.021A Laceration without foreign body of trachea, initial encounterS19.82XA Other specified injuries of cervical trachea, initial encounterAdd to 31600No diagnoses selected for this CPT.No diagnosis selected for CPT 31600.\n    Diagnosis ValidationDiagnosis coding needs coder review.Learn More \u25beNo diagnosis selected for CPT 31600.\n    Estimated APP Productivity: 0.74 \u00b7 13.6% assistant-at-surgery equivalent\n   ",
+      "trachIndications": [
+        "Respiratory failure",
+        "Ventilator dependence",
+        "Airway obstruction",
+        "Tracheal obstruction"
+      ]
+    },
+    "ranking": {
+      "dysphagia": [
+        "R13.11",
+        "R13.12",
+        "R13.14",
+        "R13.13",
+        "R13.10",
+        "R13.19",
+        "I69.091",
+        "I69.191"
+      ],
+      "feeding": [
+        "R63.30",
+        "R63.39",
+        "R62.51",
+        "R62.7",
+        "R13.11",
+        "I69.091",
+        "I69.191",
+        "I69.291"
+      ],
+      "incarcerated": [
+        "K40.00",
+        "K40.01",
+        "K40.30",
+        "K40.31",
+        "K41.00",
+        "K41.01",
+        "K41.30",
+        "K41.31"
+      ],
+      "obstruction": [
+        "K56.50",
+        "K56.51",
+        "K56.52",
+        "K56.600",
+        "K56.601",
+        "K56.609",
+        "K56.690",
+        "K56.691"
+      ],
+      "respiratory": [
+        "J96.20",
+        "J96.21",
+        "J96.22",
+        "J96.90",
+        "J96.91",
+        "J96.92",
+        "J95.822",
+        "J96.00"
+      ],
+      "ventilator": [
+        "Z99.11",
+        "Z99.12",
+        "J96.00",
+        "J96.01",
+        "J96.02",
+        "J96.10",
+        "J96.11",
+        "J96.12"
+      ]
+    },
+    "pointersAndExport": {
+      "diagnoses": [
+        {
+          "code": "J96.01",
+          "description": "Acute respiratory failure with hypoxia",
+          "letter": "A"
+        },
+        {
+          "code": "Z99.11",
+          "description": "Dependence on respirator [ventilator] status",
+          "letter": "B"
+        },
+        {
+          "code": "R13.12",
+          "description": "Dysphagia, oropharyngeal phase",
+          "letter": "C"
+        },
+        {
+          "code": "E43",
+          "description": "Unspecified severe protein-calorie malnutrition",
+          "letter": "D"
+        }
+      ],
+      "exportShape": [
+        {
+          "cpt": "31600",
+          "diagnosisPointerField": "A,B"
+        },
+        {
+          "cpt": "49440",
+          "diagnosisPointerField": "C,D"
+        }
+      ],
+      "globalFloatingCards": 0,
+      "integratedDxSections": 2,
+      "map": [
+        {
+          "cpt": "31600",
+          "pointerString": "A,B",
+          "pointers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "cpt": "49440",
+          "pointerString": "C,D",
+          "pointers": [
+            "C",
+            "D"
+          ]
+        }
+      ]
+    },
+    "regression": {
+      "appModeTextPresent": true,
+      "billable": 74719,
+      "datasetSize": 98186,
+      "globalModifierAvailable": true,
+      "inpatientOnlyWarningsAvailable": true,
+      "medicaidPolicyAvailable": true,
+      "ncciAvailable": true
+    }
+  },
+  "productionReadinessRecommendation": "Ready for review, not production deploy. Architecture is cleaner and regression gates passed; final approval should focus on clinical completeness of each indication group's ICD-10 list before deployment."
+}
