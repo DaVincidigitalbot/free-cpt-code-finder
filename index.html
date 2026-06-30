@@ -813,11 +813,16 @@ const ICD10_SYNONYMS={
  gallstones:'cholelithiasis gallbladder calculus biliary colic',
  diverticulitis:'diverticulitis colon sigmoid perforation abscess',
  hernia:'ventral incisional inguinal umbilical femoral abdominal wall hernia',
- abscess:'abscess infection intra-abdominal wound skin soft tissue',
+ abscess:'abscess infection intra-abdominal wound skin soft tissue perirectal perianal drainage',
  trauma:'injury fracture laceration hemorrhage open wound',
  peritonitis:'peritonitis feculent contamination perforation',
  appendicitis:'appendicitis appendix',
- cholecystitis:'cholecystitis gallbladder gallstones',
+ cholecystitis:'cholecystitis gallbladder gallstones acute cholecystitis chronic cholecystitis',
+ cholelithiasis:'gallstones biliary colic symptomatic gallstones calculus gallbladder',
+ 'biliary colic':'symptomatic cholelithiasis gallstones calculus gallbladder',
+ choledocholithiasis:'common bile duct stone bile duct calculus obstructive jaundice cholangitis',
+ cholangitis:'bile duct infection choledocholithiasis biliary obstruction',
+ 'gallstone pancreatitis':'biliary pancreatitis cholelithiasis choledocholithiasis gallstones',
  peg:'gastrostomy gastrostomy tube feeding tube dysphagia feeding difficulty malnutrition aspiration oral intake nutritional access',
  'peg tube':'gastrostomy feeding tube dysphagia feeding difficulty malnutrition aspiration nutritional access',
  'g tube':'gastrostomy feeding tube dysphagia feeding difficulty malnutrition aspiration nutritional access',
@@ -845,8 +850,30 @@ const ICD10_SYNONYMS={
  'hypercapnic respiratory failure':'acute respiratory failure hypercapnia chronic respiratory failure',
  'airway obstruction':'upper respiratory tract obstruction laryngeal stenosis tracheal obstruction tracheal stenosis',
  'laryngeal obstruction':'laryngeal stenosis airway obstruction',
- 'tracheal obstruction':'tracheal stenosis airway obstruction upper respiratory tract disease'
-};
+ 'tracheal obstruction':'tracheal stenosis airway obstruction upper respiratory tract disease',
+ debridement:'wound ulcer infection necrotizing fasciitis diabetic foot pressure ulcer surgical site infection nonhealing wound',
+ 'diabetic foot':'diabetic foot ulcer gangrene osteomyelitis peripheral angiopathy',
+ 'pressure ulcer':'decubitus ulcer sacral ulcer stage ulcer wound debridement',
+ 'necrotizing infection':'necrotizing fasciitis soft tissue infection gas gangrene',
+ 'surgical site infection':'postoperative wound infection wound disruption nonhealing wound',
+ 'wound dehiscence':'surgical wound disruption postoperative wound complication',
+ 'intra-abdominal abscess':'peritoneal abscess abdominal abscess organ space surgical site infection',
+ 'perirectal abscess':'anal abscess rectal abscess anorectal abscess ischiorectal abscess',
+ gangrene:'critical limb ischemia diabetic gangrene peripheral artery disease amputation',
+ 'critical limb ischemia':'pad peripheral artery disease rest pain gangrene limb ischemia amputation',
+ osteomyelitis:'bone infection diabetic foot infection chronic osteomyelitis amputation',
+ bka:'below knee amputation transtibial amputation gangrene critical limb ischemia diabetic foot',
+ aka:'above knee amputation transfemoral amputation gangrene critical limb ischemia diabetic foot',
+ tma:'transmetatarsal amputation forefoot amputation diabetic foot gangrene osteomyelitis',
+ ostomy:'colostomy ileostomy stoma enterostomy fecal diversion ostomy creation ostomy closure ostomy reversal',
+ 'ostomy reversal':'colostomy reversal ileostomy closure stoma closure enterostomy closure attention to ostomy',
+ 'hartmann reversal':'colostomy closure ostomy reversal restore bowel continuity diverticulitis colon resection',
+ 'stoma complication':'colostomy complication ileostomy complication stoma malfunction ostomy infection',
+ laparotomy:'exploratory laparotomy acute abdomen peritonitis perforation pneumoperitoneum trauma hemorrhage',
+ pneumoperitoneum:'free air perforated viscus intestinal perforation peritonitis',
+ 'acute abdomen':'peritonitis perforation obstruction ischemic bowel hemorrhage abdominal pain',
+ 'abdominal sepsis':'peritonitis perforation intra-abdominal abscess ischemic bowel'
+ };
 const CLINICAL_INDICATION_GROUPS={
  respiratory_failure:{label:'Respiratory failure',codes:['J9600','J9601','J9602','J9610','J9611','J9612','J9620','J9621','J9622','J9690','J9691','J9692','J95821','J95822'],terms:['respiratory failure','resp failure','acute respiratory failure','chronic respiratory failure','acute on chronic respiratory failure','hypoxic respiratory failure','hypercapnic respiratory failure']},
  ventilator_dependence:{label:'Ventilator dependence',codes:['Z9911','Z9912','Z9981'],terms:['vent','ventilator','mechanical ventilation','prolonged mechanical ventilation','respirator dependence','dependence on respirator']},
@@ -866,20 +893,54 @@ const CLINICAL_INDICATION_GROUPS={
  femoral_hernia:{label:'Femoral hernia',codes:['K4100','K4101','K4120','K4121','K4130','K4131','K4190','K4191'],terms:['femoral hernia']},
  ventral_hernia:{label:'Ventral hernia',codes:['K430','K431','K432','K433','K434','K435','K436','K437','K439','K429'],terms:['ventral hernia','incisional hernia','umbilical hernia','abdominal wall hernia']},
  incarcerated_hernia:{label:'Incarcerated hernia',codes:['K4000','K4001','K4030','K4031','K4100','K4101','K4130','K4131','K430','K433','K436','K420'],terms:['incarcerated','incarcerated hernia','obstructed hernia','hernia with obstruction']},
- strangulated_hernia:{label:'Strangulated hernia',codes:['K4010','K4011','K4040','K4041','K4110','K4111','K4140','K4141'],terms:['strangulated','strangulated hernia','hernia with gangrene']}
-};
+ strangulated_hernia:{label:'Strangulated hernia',codes:['K4010','K4011','K4040','K4041','K4110','K4111','K4140','K4141'],terms:['strangulated','strangulated hernia','hernia with gangrene']},
+ hiatal_parastomal_hernia:{label:'Hiatal / parastomal hernia',codes:['K440','K449','K433','K435','K437'],terms:['hiatal hernia','paraesophageal hernia','parastomal hernia','ostomy hernia']},
+ biliary_colic:{label:'Biliary colic / cholelithiasis',codes:['K8020','K8021'],terms:['biliary colic','symptomatic cholelithiasis','gallstones','cholelithiasis']},
+ acute_cholecystitis:{label:'Acute cholecystitis',codes:['K8000','K8001','K810'],terms:['acute cholecystitis','empyema gallbladder','gangrenous cholecystitis']},
+ chronic_cholecystitis:{label:'Chronic cholecystitis',codes:['K8010','K8011','K811'],terms:['chronic cholecystitis','recurrent biliary colic']},
+ choledocholithiasis_cholangitis:{label:'Choledocholithiasis / cholangitis',codes:['K8030','K8031','K8032','K8033','K8040','K8041','K8042','K8043','K8309'],terms:['choledocholithiasis','common bile duct stone','cholangitis','biliary obstruction','obstructive jaundice']},
+ gallstone_pancreatitis:{label:'Gallstone pancreatitis',codes:['K8510','K8511','K8512'],terms:['gallstone pancreatitis','biliary pancreatitis','pancreatitis due to gallstones']},
+ diabetic_wound:{label:'Diabetic foot / chronic ulcer',codes:['E11621','E1152','L97909','L97809','I96'],terms:['diabetic foot','diabetic foot ulcer','chronic ulcer','non-pressure ulcer','gangrene']},
+ pressure_ulcer:{label:'Pressure ulcer',codes:['L89154','L89159'],terms:['pressure ulcer','decubitus ulcer','sacral ulcer','stage 4 pressure ulcer']},
+ necrotizing_soft_tissue_infection:{label:'Necrotizing / soft tissue infection',codes:['M726','L089','T8149XA'],terms:['necrotizing fasciitis','necrotizing infection','soft tissue infection','surgical site infection']},
+ open_wound_complication:{label:'Open wound / wound complication',codes:['S31109A','S81809A','T8131XA','T8189XA'],terms:['open wound','traumatic wound','wound dehiscence','nonhealing wound','postoperative wound complication']},
+ cutaneous_abscess:{label:'Cutaneous abscess',codes:['L02211','L0231','L0291'],terms:['cutaneous abscess','skin abscess','abdominal wall abscess','buttock abscess']},
+ intra_abdominal_abscess:{label:'Intra-abdominal abscess',codes:['K651','T8143XA','T8149XA'],terms:['intra-abdominal abscess','peritoneal abscess','organ space infection','postoperative abscess']},
+ anorectal_abscess:{label:'Anorectal abscess',codes:['K610','K611','K612','K614','K615'],terms:['perirectal abscess','perianal abscess','anal abscess','rectal abscess','anorectal abscess']},
+ peripheral_artery_disease:{label:'PAD / critical limb ischemia',codes:['I70221','I70222','I70223','I70228','I70229','I70261','I70262','I70263','I70268','I70269'],terms:['peripheral artery disease','critical limb ischemia','rest pain','gangrene','pad','cli']},
+ osteomyelitis:{label:'Osteomyelitis',codes:['M86671','M86672','M86679'],terms:['osteomyelitis','bone infection','diabetic foot osteomyelitis']},
+ traumatic_nonviable_limb:{label:'Traumatic / nonviable limb',codes:['S81809A','I96','T8189XA'],terms:['traumatic amputation','nonviable limb','crush injury','mangled extremity']},
+ ostomy_status_attention:{label:'Ostomy status / attention',codes:['Z432','Z433','Z932','Z933'],terms:['ostomy closure','ostomy reversal','colostomy reversal','ileostomy closure','attention to colostomy','attention to ileostomy','stoma status']},
+ ostomy_complication:{label:'Ostomy complication',codes:['K9400','K9401','K9402','K9413'],terms:['ostomy complication','stoma complication','colostomy complication','ileostomy complication','stoma malfunction']},
+ fecal_diversion_indication:{label:'Fecal diversion indication',codes:['K56609','K5720','K631','K651','C20'],terms:['fecal diversion','diverting colostomy','diverting ileostomy','obstruction','perforation','rectal cancer','intra-abdominal sepsis']},
+ acute_abdomen:{label:'Acute abdomen',codes:['R100','R1084','R109','R198'],terms:['acute abdomen','generalized abdominal pain','peritonitis signs','surgical abdomen']},
+ pneumoperitoneum_peritonitis:{label:'Pneumoperitoneum / peritonitis',codes:['K631','K650','K651','K659','K668'],terms:['pneumoperitoneum','free air','perforated viscus','peritonitis','peritoneal abscess']},
+ abdominal_trauma_hemorrhage:{label:'Trauma / hemorrhage',codes:['S36899A','S31109A','R58'],terms:['abdominal trauma','hemoperitoneum','intra-abdominal injury','hemorrhage','open abdominal wound']}
+ };
 const PROCEDURE_FAMILIES={
  tracheostomy:{label:'Tracheostomy Family',indications:['respiratory_failure','ventilator_dependence','airway_obstruction','tracheal_obstruction']},
  gastrostomy:{label:'Gastrostomy Family',indications:['dysphagia','malnutrition','feeding_difficulty','aspiration_risk']},
  colectomy:{label:'Colectomy Family',indications:['diverticulitis','colon_cancer','volvulus','ischemic_bowel','perforation','obstruction']},
- hernia:{label:'Hernia Family',indications:['inguinal_hernia','femoral_hernia','ventral_hernia','incarcerated_hernia','strangulated_hernia']}
+ hernia:{label:'Hernia Family',indications:['inguinal_hernia','femoral_hernia','ventral_hernia','hiatal_parastomal_hernia','incarcerated_hernia','strangulated_hernia']},
+ cholecystectomy:{label:'Cholecystectomy Family',indications:['biliary_colic','acute_cholecystitis','chronic_cholecystitis','choledocholithiasis_cholangitis','gallstone_pancreatitis']},
+ debridement:{label:'Debridement Family',indications:['diabetic_wound','pressure_ulcer','necrotizing_soft_tissue_infection','open_wound_complication']},
+ abscess_drainage:{label:'Abscess / Drainage Family',indications:['cutaneous_abscess','intra_abdominal_abscess','anorectal_abscess']},
+ amputation:{label:'Amputation Family',indications:['diabetic_wound','peripheral_artery_disease','osteomyelitis','necrotizing_soft_tissue_infection','traumatic_nonviable_limb']},
+ ostomy:{label:'Ostomy Creation / Closure Family',indications:['fecal_diversion_indication','diverticulitis','obstruction','colon_cancer','ostomy_status_attention','ostomy_complication']},
+ exploratory_laparotomy:{label:'Exploratory Laparotomy Family',indications:['acute_abdomen','pneumoperitoneum_peritonitis','abdominal_trauma_hemorrhage','obstruction','ischemic_bowel']}
 };
 const CPT_PROCEDURE_FAMILY={
  '31600':'tracheostomy','31601':'tracheostomy','31603':'tracheostomy',
  '49440':'gastrostomy','43246':'gastrostomy','49446':'gastrostomy','49450':'gastrostomy',
  '44120':'colectomy','44121':'colectomy','44140':'colectomy','44143':'colectomy','44145':'colectomy','44146':'colectomy','44155':'colectomy','44202':'colectomy','44203':'colectomy','44204':'colectomy','44205':'colectomy','44207':'colectomy','44208':'colectomy','44625':'colectomy',
- '49500':'hernia','49501':'hernia','49505':'hernia','49507':'hernia','49520':'hernia','49521':'hernia','49525':'hernia','49550':'hernia','49553':'hernia','49555':'hernia','49591':'hernia','49592':'hernia','49593':'hernia','49594':'hernia','49595':'hernia','49596':'hernia','49613':'hernia','49614':'hernia','49615':'hernia','49616':'hernia','49617':'hernia','49618':'hernia','49650':'hernia','49651':'hernia'
-};
+ '49500':'hernia','49501':'hernia','49505':'hernia','49507':'hernia','49520':'hernia','49521':'hernia','49525':'hernia','49550':'hernia','49553':'hernia','49555':'hernia','49591':'hernia','49592':'hernia','49593':'hernia','49594':'hernia','49595':'hernia','49596':'hernia','49613':'hernia','49614':'hernia','49615':'hernia','49616':'hernia','49617':'hernia','49618':'hernia','49621':'hernia','49622':'hernia','49650':'hernia','49651':'hernia','43280':'hernia','43281':'hernia','43282':'hernia','43324':'hernia',
+ '47562':'cholecystectomy','47563':'cholecystectomy','47564':'cholecystectomy','47600':'cholecystectomy','47605':'cholecystectomy','47610':'cholecystectomy',
+ '11042':'debridement','11043':'debridement','11044':'debridement','11045':'debridement','11046':'debridement','11047':'debridement','97605':'debridement','97606':'debridement',
+ '10060':'abscess_drainage','10061':'abscess_drainage','10160':'abscess_drainage','46050':'abscess_drainage','46060':'abscess_drainage','49020':'abscess_drainage','49060':'abscess_drainage','49405':'abscess_drainage','49406':'abscess_drainage',
+ '27590':'amputation','27591':'amputation','27592':'amputation','27594':'amputation','27596':'amputation','27880':'amputation','27881':'amputation','27882':'amputation','27884':'amputation','27886':'amputation','27888':'amputation','27889':'amputation','28800':'amputation','28805':'amputation','28810':'amputation','28820':'amputation','28825':'amputation',
+ '44300':'ostomy','44310':'ostomy','44312':'ostomy','44314':'ostomy','44316':'ostomy','44320':'ostomy','44322':'ostomy','44340':'ostomy','44345':'ostomy','44346':'ostomy','44620':'ostomy','44625':'ostomy','44626':'ostomy','44227':'ostomy',
+ '49000':'exploratory_laparotomy','49002':'exploratory_laparotomy'
+ };
 const CPT_ICD10_ADDITIONS={
  '31600':{label:'CPT-specific additions',indications:[]},
  '49440':{label:'CPT-specific additions',indications:[]}
@@ -1911,9 +1972,10 @@ function dxLateralityPriorityForLine(line){
  return (LATERALITY_DX_PRIORITY[code]&&LATERALITY_DX_PRIORITY[code][lat])||[];
 }
 function commonDxForCpt(line){
- const code=String(line&&line.cpt||'');
- const desc=String(line&&line.desc||'').toLowerCase();
- let dx=[...((line&&line.dx)||[]),...(DX_BY_CPT[code]||[])];
+ const source=(typeof line==='string'||typeof line==='number')?{cpt:String(line)}:(line||{});
+ const code=String(source.cpt||'');
+ const desc=String(source.desc||'').toLowerCase();
+ let dx=[...((source&&source.dx)||[]),...(DX_BY_CPT[code]||[])];
  const add=arr=>{dx.push(...arr)};
  if(/diverticul|colectomy|colon|colostomy|enterostomy|bowel|intestin/.test(desc))add(['K57.20','K57.32','K56.609','K63.1','Z43.3']);
  if(/hernia|abdominal wall|myofascial|component/.test(desc))add(['K43.2','K43.0','K42.9','K40.90']);
@@ -1922,9 +1984,9 @@ function commonDxForCpt(line){
  if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
  if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
  if(/hip|knee|femur|tibia|radius|fracture|arthro/.test(desc))add(['S72.001A','S82.201A','M17.11','M16.11']);
- const clinical=cptClinicalDxConfig(line);
+ const clinical=cptClinicalDxConfig(source);
  if(clinical)add(clinical.codes);
- const priority=dxLateralityPriorityForLine(line);
+ const priority=dxLateralityPriorityForLine(source);
  const clinicalPriority=clinical?(clinical.codes||[]).map(normalizeDxCode):[];
  dx=[...priority,...dx];
  return [...new Set(dx.map(normalizeDxCode))].map(icdMeta).sort((a,b)=>{

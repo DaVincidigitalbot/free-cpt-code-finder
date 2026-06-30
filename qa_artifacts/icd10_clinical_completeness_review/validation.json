@@ -1,0 +1,726 @@
+{
+  "table": [
+    {
+      "Procedure family": "Tracheostomy",
+      "CPT codes included": "31600, 31601, 31603",
+      "Common clinical indications": "Acute/chronic respiratory failure, ventilator dependence, prolonged mechanical ventilation, upper-airway obstruction, laryngeal/tracheal stenosis",
+      "ICD-10 groups mapped": "Respiratory failure; ventilator dependence; airway obstruction; tracheal obstruction",
+      "Missing likely diagnoses": "Airway protection for major neurologic injury/head-neck cancer remains intentionally broad-search rather than a default group",
+      "Laterality needs": "None for the core ICD-10 indications",
+      "High-risk payer/medical-necessity concerns": "Planned trach should be supported by respiratory failure, ventilator dependence, or obstructing airway pathology; Z99.11 alone is weak without the clinical condition",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Gastrostomy / PEG",
+      "CPT codes included": "43246, 49440, 49446, 49450",
+      "Common clinical indications": "Dysphagia, neurologic dysphagia, feeding difficulty, malnutrition, adult failure to thrive, aspiration risk",
+      "ICD-10 groups mapped": "Dysphagia; malnutrition; feeding difficulty; aspiration risk",
+      "Missing likely diagnoses": "Cancer/cachexia and ALS/parkinsonism could be added later, but current groups cover most coder workflows",
+      "Laterality needs": "None",
+      "High-risk payer/medical-necessity concerns": "PEG for convenience or vague poor intake is vulnerable; pair R13/R63/E43-E46 with objective inability to maintain nutrition",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Colectomy / bowel resection",
+      "CPT codes included": "44120, 44121, 44140, 44143, 44145, 44146, 44155, 44202, 44203, 44204, 44205, 44207, 44208",
+      "Common clinical indications": "Diverticulitis, colon/rectal cancer, volvulus, ischemic bowel, perforation/peritonitis, bowel obstruction",
+      "ICD-10 groups mapped": "Diverticulitis; colon cancer; volvulus; ischemic bowel; perforation; obstruction",
+      "Missing likely diagnoses": "Crohn/UC and benign colon polyp are not yet family defaults",
+      "Laterality needs": "Cancer site specificity matters by colon segment; not left/right laterality",
+      "High-risk payer/medical-necessity concerns": "Elective benign disease needs diagnostic specificity; obstruction/perforation/ischemia support urgency",
+      "Recommendation": "acceptable, with future IBD/polyp expansion"
+    },
+    {
+      "Procedure family": "Hernia repair",
+      "CPT codes included": "43280, 43281, 43282, 43324, 49500-49555, 49591-49596, 49613-49618, 49621, 49622, 49650, 49651",
+      "Common clinical indications": "Inguinal, femoral, ventral/incisional/umbilical, hiatal/paraesophageal, parastomal, incarcerated, strangulated",
+      "ICD-10 groups mapped": "Inguinal hernia; femoral hernia; ventral hernia; hiatal/parastomal hernia; incarcerated hernia; strangulated hernia",
+      "Missing likely diagnoses": "Spigelian and rare internal hernias still rely on global ICD search",
+      "Laterality needs": "High for inguinal/femoral codes; recurrent/obstruction/gangrene status must match documentation",
+      "High-risk payer/medical-necessity concerns": "Size, recurrence, incarceration/strangulation, mesh, and approach drive CPT; ICD must not overstate strangulation/gangrene",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Cholecystectomy",
+      "CPT codes included": "47562, 47563, 47564, 47600, 47605, 47610",
+      "Common clinical indications": "Biliary colic, symptomatic cholelithiasis, acute/chronic cholecystitis, choledocholithiasis/cholangitis, gallstone pancreatitis",
+      "ICD-10 groups mapped": "Biliary colic/cholelithiasis; acute cholecystitis; chronic cholecystitis; choledocholithiasis/cholangitis; gallstone pancreatitis",
+      "Missing likely diagnoses": "Gallbladder polyp/dyskinesia not yet included",
+      "Laterality needs": "None",
+      "High-risk payer/medical-necessity concerns": "Uncomplicated gallstones need symptoms; IOC/duct exploration CPTs should match CBD stone/cholangitis/obstruction documentation",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Debridement",
+      "CPT codes included": "11042, 11043, 11044, 11045, 11046, 11047, 97605, 97606",
+      "Common clinical indications": "Diabetic foot/chronic ulcer, pressure ulcer, necrotizing soft tissue infection, open wound, wound dehiscence, postop wound complication",
+      "ICD-10 groups mapped": "Diabetic foot/chronic ulcer; pressure ulcer; necrotizing/soft tissue infection; open wound/wound complication",
+      "Missing likely diagnoses": "Burn debridement and hidradenitis are not family defaults",
+      "Laterality needs": "High for extremity ulcers/wounds; site and stage/severity drive medical necessity",
+      "High-risk payer/medical-necessity concerns": "Depth, tissue type, wound size, excisional/non-excisional wording, and active wound diagnosis are critical",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Abscess / drainage",
+      "CPT codes included": "10060, 10061, 10160, 46050, 46060, 49020, 49060, 49405, 49406",
+      "Common clinical indications": "Cutaneous abscess, abdominal wall/buttock abscess, anorectal abscess, intra-abdominal/peritoneal abscess, postop organ-space infection",
+      "ICD-10 groups mapped": "Cutaneous abscess; intra-abdominal abscess; anorectal abscess",
+      "Missing likely diagnoses": "Breast, pilonidal, Bartholin, and deep neck abscesses are outside this first surgical-family pass",
+      "Laterality needs": "Usually site-specific rather than laterality; breast/extremity abscesses would need side if later added",
+      "High-risk payer/medical-necessity concerns": "Percutaneous drainage should map to intra-abdominal/organ-space diagnosis and imaging/approach; simple skin abscess should not drive deep drainage CPTs",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Amputation",
+      "CPT codes included": "27590-27596, 27880-27889, 28800, 28805, 28810, 28820, 28825",
+      "Common clinical indications": "Diabetic foot ulcer/gangrene, PAD/critical limb ischemia, osteomyelitis, necrotizing infection, nonviable traumatic limb",
+      "ICD-10 groups mapped": "Diabetic foot/chronic ulcer; PAD/critical limb ischemia; osteomyelitis; necrotizing infection; traumatic/nonviable limb",
+      "Missing likely diagnoses": "Cancer-related amputation not included in the first pass",
+      "Laterality needs": "Very high: right/left/bilateral lower extremity PAD, ulcer site, osteomyelitis site, and toe/foot level must align",
+      "High-risk payer/medical-necessity concerns": "Amputation requires clear non-salvageable limb, gangrene, infection, ischemia, or trauma; unspecified ulcer codes are weaker than site/laterality-specific codes",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Ostomy creation / closure",
+      "CPT codes included": "44227, 44300, 44310, 44312, 44314, 44316, 44320, 44322, 44340, 44345, 44346, 44620, 44625, 44626",
+      "Common clinical indications": "Fecal diversion for obstruction/perforation/cancer/sepsis, attention to ileostomy/colostomy, ostomy status, ostomy complication, Hartmann reversal",
+      "ICD-10 groups mapped": "Fecal diversion indication; diverticulitis; obstruction; colon cancer; ostomy status/attention; ostomy complication",
+      "Missing likely diagnoses": "Crohn/UC diversion and anastomotic leak can be added later",
+      "Laterality needs": "None; anatomy/type of stoma matters more than side",
+      "High-risk payer/medical-necessity concerns": "Closure/reversal should use Z43.2/Z43.3 or status/complication plus original disease when relevant; creation needs active diversion indication",
+      "Recommendation": "acceptable"
+    },
+    {
+      "Procedure family": "Exploratory laparotomy",
+      "CPT codes included": "49000, 49002",
+      "Common clinical indications": "Acute abdomen, pneumoperitoneum/free air, peritonitis, perforated viscus, abdominal trauma/hemorrhage, obstruction, ischemic bowel",
+      "ICD-10 groups mapped": "Acute abdomen; pneumoperitoneum/peritonitis; trauma/hemorrhage; obstruction; ischemic bowel",
+      "Missing likely diagnoses": "Negative exploration remains hard to code and should rely on symptoms/findings",
+      "Laterality needs": "None for core exploratory indications",
+      "High-risk payer/medical-necessity concerns": "49000 is a separate procedure and often bundled when exploration is integral to definitive abdominal surgery; diagnosis alone cannot justify separate reporting",
+      "Recommendation": "acceptable with bundling caution"
+    }
+  ],
+  "architecture": {
+    "cptFamilies": {
+      "10060": "abscess_drainage",
+      "10061": "abscess_drainage",
+      "10160": "abscess_drainage",
+      "11042": "debridement",
+      "11043": "debridement",
+      "11044": "debridement",
+      "11045": "debridement",
+      "11046": "debridement",
+      "11047": "debridement",
+      "27590": "amputation",
+      "27591": "amputation",
+      "27592": "amputation",
+      "27594": "amputation",
+      "27596": "amputation",
+      "27880": "amputation",
+      "27881": "amputation",
+      "27882": "amputation",
+      "27884": "amputation",
+      "27886": "amputation",
+      "27888": "amputation",
+      "27889": "amputation",
+      "28800": "amputation",
+      "28805": "amputation",
+      "28810": "amputation",
+      "28820": "amputation",
+      "28825": "amputation",
+      "31600": "tracheostomy",
+      "31601": "tracheostomy",
+      "31603": "tracheostomy",
+      "43246": "gastrostomy",
+      "43280": "hernia",
+      "43281": "hernia",
+      "43282": "hernia",
+      "43324": "hernia",
+      "44120": "colectomy",
+      "44121": "colectomy",
+      "44140": "colectomy",
+      "44143": "colectomy",
+      "44145": "colectomy",
+      "44146": "colectomy",
+      "44155": "colectomy",
+      "44202": "colectomy",
+      "44203": "colectomy",
+      "44204": "colectomy",
+      "44205": "colectomy",
+      "44207": "colectomy",
+      "44208": "colectomy",
+      "44227": "ostomy",
+      "44300": "ostomy",
+      "44310": "ostomy",
+      "44312": "ostomy",
+      "44314": "ostomy",
+      "44316": "ostomy",
+      "44320": "ostomy",
+      "44322": "ostomy",
+      "44340": "ostomy",
+      "44345": "ostomy",
+      "44346": "ostomy",
+      "44620": "ostomy",
+      "44625": "ostomy",
+      "44626": "ostomy",
+      "46050": "abscess_drainage",
+      "46060": "abscess_drainage",
+      "47562": "cholecystectomy",
+      "47563": "cholecystectomy",
+      "47564": "cholecystectomy",
+      "47600": "cholecystectomy",
+      "47605": "cholecystectomy",
+      "47610": "cholecystectomy",
+      "49000": "exploratory_laparotomy",
+      "49002": "exploratory_laparotomy",
+      "49020": "abscess_drainage",
+      "49060": "abscess_drainage",
+      "49405": "abscess_drainage",
+      "49406": "abscess_drainage",
+      "49440": "gastrostomy",
+      "49446": "gastrostomy",
+      "49450": "gastrostomy",
+      "49500": "hernia",
+      "49501": "hernia",
+      "49505": "hernia",
+      "49507": "hernia",
+      "49520": "hernia",
+      "49521": "hernia",
+      "49525": "hernia",
+      "49550": "hernia",
+      "49553": "hernia",
+      "49555": "hernia",
+      "49591": "hernia",
+      "49592": "hernia",
+      "49593": "hernia",
+      "49594": "hernia",
+      "49595": "hernia",
+      "49596": "hernia",
+      "49613": "hernia",
+      "49614": "hernia",
+      "49615": "hernia",
+      "49616": "hernia",
+      "49617": "hernia",
+      "49618": "hernia",
+      "49621": "hernia",
+      "49622": "hernia",
+      "49650": "hernia",
+      "49651": "hernia",
+      "97605": "debridement",
+      "97606": "debridement"
+    },
+    "families": {
+      "abscess_drainage": {
+        "indications": [
+          "Cutaneous abscess",
+          "Intra-abdominal abscess",
+          "Anorectal abscess"
+        ],
+        "label": "Abscess / Drainage Family"
+      },
+      "amputation": {
+        "indications": [
+          "Diabetic foot / chronic ulcer",
+          "PAD / critical limb ischemia",
+          "Osteomyelitis",
+          "Necrotizing / soft tissue infection",
+          "Traumatic / nonviable limb"
+        ],
+        "label": "Amputation Family"
+      },
+      "cholecystectomy": {
+        "indications": [
+          "Biliary colic / cholelithiasis",
+          "Acute cholecystitis",
+          "Chronic cholecystitis",
+          "Choledocholithiasis / cholangitis",
+          "Gallstone pancreatitis"
+        ],
+        "label": "Cholecystectomy Family"
+      },
+      "colectomy": {
+        "indications": [
+          "Diverticulitis",
+          "Colon cancer",
+          "Volvulus",
+          "Ischemic bowel",
+          "Perforation",
+          "Obstruction"
+        ],
+        "label": "Colectomy Family"
+      },
+      "debridement": {
+        "indications": [
+          "Diabetic foot / chronic ulcer",
+          "Pressure ulcer",
+          "Necrotizing / soft tissue infection",
+          "Open wound / wound complication"
+        ],
+        "label": "Debridement Family"
+      },
+      "exploratory_laparotomy": {
+        "indications": [
+          "Acute abdomen",
+          "Pneumoperitoneum / peritonitis",
+          "Trauma / hemorrhage",
+          "Obstruction",
+          "Ischemic bowel"
+        ],
+        "label": "Exploratory Laparotomy Family"
+      },
+      "gastrostomy": {
+        "indications": [
+          "Dysphagia",
+          "Malnutrition",
+          "Feeding difficulty",
+          "Aspiration risk"
+        ],
+        "label": "Gastrostomy Family"
+      },
+      "hernia": {
+        "indications": [
+          "Inguinal hernia",
+          "Femoral hernia",
+          "Ventral hernia",
+          "Hiatal / parastomal hernia",
+          "Incarcerated hernia",
+          "Strangulated hernia"
+        ],
+        "label": "Hernia Family"
+      },
+      "ostomy": {
+        "indications": [
+          "Fecal diversion indication",
+          "Diverticulitis",
+          "Obstruction",
+          "Colon cancer",
+          "Ostomy status / attention",
+          "Ostomy complication"
+        ],
+        "label": "Ostomy Creation / Closure Family"
+      },
+      "tracheostomy": {
+        "indications": [
+          "Respiratory failure",
+          "Ventilator dependence",
+          "Airway obstruction",
+          "Tracheal obstruction"
+        ],
+        "label": "Tracheostomy Family"
+      }
+    },
+    "missingCodes": [],
+    "totalGroups": 41
+  },
+  "realisticCaseSearches": [
+    {
+      "cpt": "31600",
+      "family": "Tracheostomy",
+      "labels": [
+        "Respiratory failure",
+        "Ventilator dependence",
+        "Airway obstruction",
+        "Tracheal obstruction"
+      ],
+      "matched": true,
+      "must": [
+        "J96.01",
+        "J96.00"
+      ],
+      "query": "respiratory failure",
+      "results": [
+        "J96.20",
+        "J96.21",
+        "J96.22",
+        "J96.90",
+        "J96.91",
+        "J96.92",
+        "J95.822",
+        "J96.00",
+        "J96.01",
+        "J96.02"
+      ]
+    },
+    {
+      "cpt": "31600",
+      "family": "Tracheostomy",
+      "labels": [
+        "Respiratory failure",
+        "Ventilator dependence",
+        "Airway obstruction",
+        "Tracheal obstruction"
+      ],
+      "matched": true,
+      "must": [
+        "Z99.11"
+      ],
+      "query": "ventilator",
+      "results": [
+        "Z99.11",
+        "Z99.12",
+        "J96.00",
+        "J96.01",
+        "J96.02",
+        "J96.10",
+        "J96.11",
+        "J96.12",
+        "J96.20",
+        "J96.21"
+      ]
+    },
+    {
+      "cpt": "49440",
+      "family": "Gastrostomy / PEG",
+      "labels": [
+        "Dysphagia",
+        "Malnutrition",
+        "Feeding difficulty",
+        "Aspiration risk"
+      ],
+      "matched": true,
+      "must": [
+        "R13.12",
+        "R13.10"
+      ],
+      "query": "dysphagia",
+      "results": [
+        "R13.11",
+        "R13.12",
+        "R13.14",
+        "R13.13",
+        "R13.10",
+        "R13.19",
+        "I69.091",
+        "I69.191",
+        "I69.291",
+        "I69.391"
+      ]
+    },
+    {
+      "cpt": "49440",
+      "family": "Gastrostomy / PEG",
+      "labels": [
+        "Dysphagia",
+        "Malnutrition",
+        "Feeding difficulty",
+        "Aspiration risk"
+      ],
+      "matched": true,
+      "must": [
+        "E43",
+        "E44.0"
+      ],
+      "query": "malnutrition",
+      "results": [
+        "E43",
+        "E44.0",
+        "E44.1",
+        "E46",
+        "E64.0",
+        "E44",
+        "E45",
+        "O25.10",
+        "O25.11",
+        "O25.12"
+      ]
+    },
+    {
+      "cpt": "44140",
+      "family": "Colectomy / bowel resection",
+      "labels": [
+        "Diverticulitis",
+        "Colon cancer",
+        "Volvulus",
+        "Ischemic bowel",
+        "Perforation",
+        "Obstruction"
+      ],
+      "matched": true,
+      "must": [
+        "K57.20",
+        "K63.1"
+      ],
+      "query": "perforated diverticulitis",
+      "results": [
+        "K57.20",
+        "K57.21",
+        "K57.32",
+        "K57.33",
+        "K57.40",
+        "K57.41",
+        "K57.52",
+        "K57.53",
+        "K57.80",
+        "K57.81"
+      ]
+    },
+    {
+      "cpt": "49507",
+      "family": "Hernia repair",
+      "labels": [
+        "Inguinal hernia",
+        "Femoral hernia",
+        "Ventral hernia",
+        "Hiatal / parastomal hernia",
+        "Incarcerated hernia",
+        "Strangulated hernia"
+      ],
+      "matched": true,
+      "must": [
+        "K40.30"
+      ],
+      "query": "incarcerated inguinal hernia",
+      "results": [
+        "K40.00",
+        "K40.01",
+        "K40.20",
+        "K40.21",
+        "K40.30",
+        "K40.31",
+        "K40.90",
+        "K40.91",
+        "K41.00",
+        "K41.01"
+      ]
+    },
+    {
+      "cpt": "47563",
+      "family": "Cholecystectomy",
+      "labels": [
+        "Biliary colic / cholelithiasis",
+        "Acute cholecystitis",
+        "Chronic cholecystitis",
+        "Choledocholithiasis / cholangitis",
+        "Gallstone pancreatitis"
+      ],
+      "matched": true,
+      "must": [
+        "K80.31",
+        "K80.43"
+      ],
+      "query": "choledocholithiasis",
+      "results": [
+        "K80.30",
+        "K80.31",
+        "K80.32",
+        "K80.33",
+        "K80.40",
+        "K80.41",
+        "K80.42",
+        "K80.43",
+        "K83.09",
+        "K80.00"
+      ]
+    },
+    {
+      "cpt": "11044",
+      "family": "Debridement",
+      "labels": [
+        "Diabetic foot / chronic ulcer",
+        "Pressure ulcer",
+        "Necrotizing / soft tissue infection",
+        "Open wound / wound complication"
+      ],
+      "matched": true,
+      "must": [
+        "E11.621",
+        "M86.671"
+      ],
+      "query": "diabetic foot osteomyelitis",
+      "results": [
+        "E11.52",
+        "E11.621",
+        "I96",
+        "L97.809",
+        "L97.909",
+        "L08.9",
+        "L89.154",
+        "L89.159",
+        "M72.6",
+        "S31.109A"
+      ]
+    },
+    {
+      "cpt": "49406",
+      "family": "Abscess / drainage",
+      "labels": [
+        "Cutaneous abscess",
+        "Intra-abdominal abscess",
+        "Anorectal abscess"
+      ],
+      "matched": true,
+      "must": [
+        "K65.1",
+        "T81.43XA"
+      ],
+      "query": "intra-abdominal abscess",
+      "results": [
+        "T81.43XA",
+        "T81.49XA",
+        "K65.1",
+        "L02.211",
+        "K61.0",
+        "K61.1",
+        "K61.2",
+        "K61.4",
+        "K61.5",
+        "L02.31"
+      ]
+    },
+    {
+      "cpt": "27880",
+      "family": "Amputation",
+      "labels": [
+        "Diabetic foot / chronic ulcer",
+        "PAD / critical limb ischemia",
+        "Osteomyelitis",
+        "Necrotizing / soft tissue infection",
+        "Traumatic / nonviable limb"
+      ],
+      "matched": true,
+      "must": [
+        "I70.261",
+        "E11.52"
+      ],
+      "query": "critical limb ischemia gangrene",
+      "results": [
+        "E11.52",
+        "I96",
+        "I70.261",
+        "I70.262",
+        "I70.263",
+        "I70.268",
+        "I70.269",
+        "E11.621",
+        "L97.809",
+        "L97.909"
+      ]
+    },
+    {
+      "cpt": "44626",
+      "family": "Ostomy creation / closure",
+      "labels": [
+        "Fecal diversion indication",
+        "Diverticulitis",
+        "Obstruction",
+        "Colon cancer",
+        "Ostomy status / attention",
+        "Ostomy complication"
+      ],
+      "matched": true,
+      "must": [
+        "Z43.3",
+        "Z93.3"
+      ],
+      "query": "colostomy reversal",
+      "results": [
+        "Z43.3",
+        "Z93.3",
+        "Z43.2",
+        "Z93.2",
+        "K94.00",
+        "K94.01",
+        "K94.02",
+        "C18.0",
+        "C18.1",
+        "C18.2"
+      ]
+    },
+    {
+      "cpt": "49000",
+      "family": "Exploratory laparotomy",
+      "labels": [
+        "Acute abdomen",
+        "Pneumoperitoneum / peritonitis",
+        "Trauma / hemorrhage",
+        "Obstruction",
+        "Ischemic bowel"
+      ],
+      "matched": true,
+      "must": [
+        "K63.1",
+        "K65.0"
+      ],
+      "query": "pneumoperitoneum peritonitis",
+      "results": [
+        "K65.0",
+        "K65.9",
+        "K63.1",
+        "K65.1",
+        "K66.8",
+        "K55.011",
+        "K55.012",
+        "K55.019",
+        "K55.021",
+        "K55.022"
+      ]
+    }
+  ],
+  "pointerExportRegression": {
+    "diagnoses": [
+      {
+        "code": "K80.31",
+        "description": "Calculus of bile duct with cholangitis, unspecified, with obstruction",
+        "letter": "A"
+      },
+      {
+        "code": "I70.261",
+        "description": "Atherosclerosis of native arteries of extremities with gangrene, right leg",
+        "letter": "B"
+      },
+      {
+        "code": "E11.52",
+        "description": "Type 2 diabetes mellitus with diabetic peripheral angiopathy with gangrene",
+        "letter": "C"
+      }
+    ],
+    "exportRows": [
+      {
+        "cpt": "27880",
+        "pointers": "A"
+      },
+      {
+        "cpt": "47563",
+        "pointers": "B,C"
+      }
+    ],
+    "floatingDxPanels": 0,
+    "integratedDxSections": 2,
+    "pointerMap": [
+      {
+        "cpt": "27880",
+        "pointerString": "A",
+        "pointers": [
+          "A"
+        ]
+      },
+      {
+        "cpt": "47563",
+        "pointerString": "B,C",
+        "pointers": [
+          "B",
+          "C"
+        ]
+      }
+    ]
+  },
+  "regression": {
+    "appModePresent": true,
+    "billable": 74719,
+    "datasetSize": 98186,
+    "inpatientOnlyWarningsAvailable": true,
+    "medicaidPolicyAvailable": true,
+    "modifier22Available": true,
+    "modifier58_78_79Available": true,
+    "ncciAvailable": true
+  },
+  "artifacts": {
+    "clinicalCompletenessTable": "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_completeness_review/clinical-completeness-table.md",
+    "screenshots": [
+      "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_completeness_review/01_clinical_indication_ui.png",
+      "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_completeness_review/02_pointer_export_regression.png"
+    ],
+    "video": "/home/setup/Desktop/FreeCPTCodeFinder-icd10-clinical/qa_artifacts/icd10_clinical_completeness_review/clinical_completeness_workflow.mp4"
+  }
+}
