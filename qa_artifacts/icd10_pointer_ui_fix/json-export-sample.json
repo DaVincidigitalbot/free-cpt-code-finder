@@ -1,0 +1,46 @@
+{
+  "diagnoses": [
+    {
+      "code": "K56.609",
+      "description": "Unspecified intestinal obstruction, unspecified as to partial versus complete obstruction",
+      "letter": "A"
+    },
+    {
+      "code": "K65.1",
+      "description": "Peritoneal abscess",
+      "letter": "B"
+    },
+    {
+      "code": "K40.30",
+      "description": "Unilateral inguinal hernia, with obstruction, without gangrene, not specified as recurrent",
+      "letter": "C"
+    }
+  ],
+  "diagnosisPointerMap": [
+    {
+      "cpt": "44120",
+      "pointerString": "A,B",
+      "pointers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "cpt": "49507",
+      "pointerString": "C",
+      "pointers": [
+        "C"
+      ]
+    }
+  ],
+  "futureCms1500": [
+    {
+      "cpt": "44120",
+      "diagnosisPointerField": "A,B"
+    },
+    {
+      "cpt": "49507",
+      "diagnosisPointerField": "C"
+    }
+  ]
+}

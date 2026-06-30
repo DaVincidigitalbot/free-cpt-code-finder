@@ -127,7 +127,7 @@ def main():
 
         # Zero diagnosis warning.
         zero = js(d, "clearCase(); addCptDirectly('44120'); return validateDiagnosesForLine(caseLines[0]);")
-        require(any("No diagnosis pointer" in w for w in zero), "missing diagnosis warning absent")
+        require(any("No diagnosis selected" in w for w in zero), "missing diagnosis warning absent")
         results["zeroDiagnosisWarning"] = zero
 
         # Laterality-aware suggestions.
@@ -140,7 +140,7 @@ def main():
         const left=commonDxForCpt(caseLines[0]).slice(0,3).map(x=>x.code);
         setLineLaterality(caseLines[0].id,'50');
         const bilateral=commonDxForCpt(caseLines[0]).slice(0,4).map(x=>x.code);
-        return {right,left,bilateral,html:document.getElementById('dxs').textContent};
+        return {right,left,bilateral,html:document.querySelector('#lns .rl').textContent};
         """)
         require(laterality["right"][0] == "K4030", "right laterality did not reprioritize ICD suggestions")
         require(laterality["left"][0] == "K4031", "left laterality did not reprioritize ICD suggestions")
