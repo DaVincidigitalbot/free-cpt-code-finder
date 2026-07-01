@@ -1594,8 +1594,21 @@ function renderAppCaseSummary(){
  const equivalence=hasProc&&hasEM?'13.6% surgical assistant equivalent; 85% Medicare NPP equivalent for E/M':(hasEM?'85% Medicare NPP equivalent':'13.6% assistant-at-surgery equivalent');
  el.innerHTML='<div class="app-case-summary__label">APP Productivity Summary</div><div class="app-case-summary__value">'+total.toFixed(2)+'</div><div class="app-case-summary__note"><strong>Estimated APP Productivity</strong><br>'+equivalence+'<br>Estimated APP Productivity is not the same as compensation, reimbursement, or guaranteed employer wRVU credit. Actual attribution depends on payer rules, documentation, modifier acceptance, scope of practice, supervision requirements, and employer compensation policy.<br>Educational estimate only. Not legal or billing advice.</div>';
 }
-function isAddonCode(cpt){return ['22585','33225','93655','93657'].includes(String(cpt||''))}
+const SPLENIC_FLEXURE_OPEN_PARENTS=new Set(['44140','44141','44143','44144','44145','44146','44147']);
+const SPLENIC_FLEXURE_LAP_PARENTS=new Set(['44204','44205','44206','44207','44208']);
+function isAddonCode(cpt){return ['22585','33225','93655','93657','44139','44213'].includes(String(cpt||''))}
 function lineIsAddon(line){return !!(line&&line.addonCode)||isAddonCode(line&&line.cpt)}
+function getSplenicFlexureAddonForCase(){
+ const codes=new Set(caseLines.filter(l=>l.kind==='proc').map(l=>String(l.cpt||'')));
+ if([...SPLENIC_FLEXURE_OPEN_PARENTS].some(code=>codes.has(code)))return '44139';
+ if([...SPLENIC_FLEXURE_LAP_PARENTS].some(code=>codes.has(code)))return '44213';
+ return '';
+}
+function hasEligibleSplenicFlexureParent(code){
+ if(code==='44139')return caseLines.some(l=>l.kind==='proc'&&SPLENIC_FLEXURE_OPEN_PARENTS.has(String(l.cpt||'')));
+ if(code==='44213')return caseLines.some(l=>l.kind==='proc'&&SPLENIC_FLEXURE_LAP_PARENTS.has(String(l.cpt||'')));
+ return true;
+}
 function isTechnicalCode(cpt){return ['93229','93296'].includes(String(cpt||''))}
 function isMajorSurgeryCode(cpt){
  const code=String(cpt||'');
@@ -1743,7 +1756,15 @@ function computeMods(){
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
    addModifierDenial(l,'same_side_ncci',{primary:primaryProc,edit:pairEdit});
   }
-  if(lineIsAddon(l)&&pIdx===0){
+  if((l.cpt==='44139'||l.cpt==='44213')&&!hasEligibleSplenicFlexureParent(l.cpt)){
+   const parentMsg=l.cpt==='44139'
+    ? 'Open splenic flexure mobilization add-on requires an eligible open partial colectomy parent code.'
+    : 'Laparoscopic/robotic splenic flexure mobilization add-on requires an eligible laparoscopic partial colectomy parent code.';
+   l.conflicts.push('Add-on code cannot be reported standalone. '+parentMsg);
+   l.payableExcluded=true;
+   l.payableExclusionReason='Add-on parent code required';
+   l.payableExclusionClass='add_on_parent_required';
+  }else if(lineIsAddon(l)&&pIdx===0){
    l.conflicts.push('Add-on code cannot be ranked as primary. Parent/base code required.');
   }
   if(pIdx===0){
@@ -2192,7 +2213,9 @@ function recalc(why){
   lns.innerHTML=caseLines.map((l,i)=>{
    let label;
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
+   else if(l.engineState==='BLOCKED'){label='<span class="rk">Blocked</span>'}
    else if(l.payableExcluded){label='<span class="rk">Bundled</span>'}
+   else if(lineIsAddon(l)){label='<span class="rk">Add-on</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
    const canEditModifier=l.kind==='em'||(l.kind==='proc'&&(rk>1||l.payableExcluded)&&!lineIsAddon(l));
    return `<div class="rl">
@@ -2203,7 +2226,7 @@ function recalc(why){
     ${renderLineDiagnosisSection(l)}
     ${lineWarningCards(l)}
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
-   </div>`}).join('')+renderAlifBuilderSuggestion();
+   </div>`}).join('')+renderAlifBuilderSuggestion()+renderSplenicFlexureSuggestion();
  }
  document.getElementById('tn').textContent=twrvu.toFixed(2);
  const mppr=caseLines.some(l=>l.kind==='proc'&&!l.payableExcluded&&/^Secondary/.test(String(l.rank||''))&&!lineIsAddon(l))&&setting==='facility';
@@ -3713,6 +3736,13 @@ function renderAlifBuilderSuggestion(){
  return out+'</div>';
 }
 
+function renderSplenicFlexureSuggestion(){
+ const addon=getSplenicFlexureAddonForCase();
+ if(!addon||hasCaseCode(addon))return '';
+ const isOpen=addon==='44139';
+ return '<div class="alif-builder-suggestion"><div class="alif-builder-title">Splenic flexure mobilization add-on</div><div>'+(isOpen?'Open partial colectomy workflow: consider <strong>44139</strong>.':'Laparoscopic/robotic colectomy workflow: consider <strong>44213</strong>.')+' Report only when the operative note documents actual mobilization/take-down of the splenic flexure to obtain bowel length or facilitate a tension-free anastomosis.</div><div class="alif-builder-actions"><button onclick="addCptDirectly(\''+addon+'\')">Add '+addon+'</button></div><div class="alif-assistant-example">Educational suggestion only. This is an add-on procedure and is not appropriate as a standalone CPT line.</div></div>';
+}
+
 function addAutocompleteResultToCase(item){
  if(item.si!==null&&item.pi!==null){
   const p=SPECS[item.specialty][item.pi];
@@ -3834,7 +3864,9 @@ if(initialSearchQuery){
 const initialCaseCode=new URLSearchParams(window.location.search).get('case');
 if(initialCaseCode){
  alifAssistantSelected=new URLSearchParams(window.location.search).get('assistant')==='1';
- loadCptSearchIndex().then(()=>addCptDirectly(initialCaseCode));
+ loadCptSearchIndex().then(()=>{
+  String(initialCaseCode).split(',').map(code=>code.trim()).filter(Boolean).forEach(code=>addCptDirectly(code));
+ });
 }
 
 const THEME_KEY='fccf-theme';

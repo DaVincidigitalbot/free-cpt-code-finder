@@ -94,7 +94,17 @@ class CaseBuilder {
       laterality_applicable: meta.laterality_applicable || false,
       bilateral_method: meta.bilateral_method || null,
       duplicateModifier: options.duplicateModifier || null,
+      addon_code: !!(item.addon_code || item.addonCode),
+      parent_codes: Array.isArray(item.parent_codes) ? item.parent_codes : [],
     };
+
+    if (proc.addon_code && proc.parent_codes.length) {
+      const hasParent = this.procedures.some(p => proc.parent_codes.includes(p.code));
+      if (!hasParent) {
+        console.warn('[CaseBuilder] Add-on blocked without parent: '+proc.code);
+        return false;
+      }
+    }
 
     // Check duplicate rules
     const dupCheck = this._checkDuplicateAllowed(proc);
