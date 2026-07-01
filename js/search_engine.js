@@ -66,6 +66,9 @@ class UnifiedSearchEngine {
         peRVU: d.pe_rvu || 0,
         mpRVU: d.mp_rvu || 0,
         globalPeriod: d.global_period || 0,
+        global_period_days: d.global_period_days || d.global_period || 0,
+        addon_code: !!d.addon_code,
+        parent_codes: Array.isArray(d.parent_codes) ? d.parent_codes : [],
         category: cat,
         specialty,
         _search: [

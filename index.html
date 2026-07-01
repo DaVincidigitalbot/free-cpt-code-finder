@@ -767,7 +767,22 @@ function renderAppCaseSummary(){
  const equivalence=hasProc&&hasEM?'13.6% surgical assistant equivalent; 85% Medicare NPP equivalent for E/M':(hasEM?'85% Medicare NPP equivalent':'13.6% assistant-at-surgery equivalent');
  el.innerHTML='<div class="app-case-summary__label">APP Productivity Summary</div><div class="app-case-summary__value">'+total.toFixed(2)+'</div><div class="app-case-summary__note"><strong>Estimated APP Productivity</strong><br>'+equivalence+'<br>Estimated APP Productivity is not the same as compensation, reimbursement, or guaranteed employer wRVU credit. Actual attribution depends on payer rules, documentation, modifier acceptance, scope of practice, supervision requirements, and employer compensation policy.<br>Educational estimate only. Not legal or billing advice.</div>';
 }
-function isAddonCode(cpt){return ['22585','33225','93655','93657'].includes(String(cpt||''))}
+const ADDON_CODE_SET=new Set(['22585','33225','93655','93657','44139','44213']);
+const SPLENIC_FLEXURE_OPEN_PARENTS=new Set(['44140','44141','44143','44144','44145','44146','44147']);
+const SPLENIC_FLEXURE_LAP_PARENTS=new Set(['44204','44205','44206','44207','44208']);
+function isAddonCode(cpt){return ADDON_CODE_SET.has(String(cpt||''))}
+function getSplenicFlexureAddonForCase(){
+ const codes=new Set(caseLines.filter(l=>l.kind==='proc').map(l=>String(l.cpt||'')));
+ if([...SPLENIC_FLEXURE_OPEN_PARENTS].some(code=>codes.has(code)))return '44139';
+ if([...SPLENIC_FLEXURE_LAP_PARENTS].some(code=>codes.has(code)))return '44213';
+ return '';
+}
+function hasEligibleAddonParent(cpt){
+ const code=String(cpt||'');
+ if(code==='44139')return caseLines.some(l=>l.kind==='proc'&&SPLENIC_FLEXURE_OPEN_PARENTS.has(String(l.cpt||'')));
+ if(code==='44213')return caseLines.some(l=>l.kind==='proc'&&SPLENIC_FLEXURE_LAP_PARENTS.has(String(l.cpt||'')));
+ return true;
+}
 function isTechnicalCode(cpt){return ['93229','93296'].includes(String(cpt||''))}
 function isMajorSurgeryCode(cpt){
  const code=String(cpt||'');
@@ -876,8 +891,11 @@ function computeMods(){
   if(pairEdit&&pairEdit.note&&pairEdit.modAllowed&&(l.laterality==='RT'||l.laterality==='LT')&&(primaryProc?.laterality===l.laterality)){
    l.conflicts.push('Conditional NCCI pair remains conflicted because both procedures are on the same side. Laterality alone does not establish distinctness.');
   }
-  if(isAddonCode(l.cpt)&&pIdx===0){
-   l.conflicts.push('Add-on code cannot be ranked as primary. Parent/base code required.');
+  if(isAddonCode(l.cpt)&&!hasEligibleAddonParent(l.cpt)){
+   const parentMsg=l.cpt==='44139'
+    ? 'Open splenic flexure mobilization add-on requires an eligible open partial colectomy parent code.'
+    : (l.cpt==='44213'?'Laparoscopic/robotic splenic flexure mobilization add-on requires an eligible laparoscopic partial colectomy parent code.':'Parent/base code required.');
+   l.conflicts.push('Add-on code cannot be reported standalone. '+parentMsg);
   }
   if(pIdx===0){
    l.rank=isAddonCode(l.cpt)?'Add-on':'Primary';l.rankReason=`Highest wRVU (${l.effWrvu.toFixed(2)}). Billed 100%.`;
@@ -887,6 +905,9 @@ function computeMods(){
    l.rankReason=`Add-on code reported with primary ${procs[0].cpt}; physician work RVU counted at 100%.`;
    l.effWrvu=l.baseWrvu;
    l.rationale.push({mod:'Rank',reason:'Add-on code - full physician work RVU, no MPPR reduction. Repeated add-on units do not require modifier 59 or X-modifiers solely because the add-on code is reported more than once.',cite:'CMS Physician Fee Schedule add-on code logic'});
+   if(l.cpt==='44139'||l.cpt==='44213'){
+    l.rationale.push({mod:'Doc',reason:'Report splenic flexure mobilization only when documented as performed with an eligible partial colectomy to gain bowel length or support a tension-free anastomosis.',cite:'FreeCPTCodeFinder splenic flexure add-on guidance'});
+   }
   }else{
    l.rank=`Secondary #${pIdx}`;
    l.rankReason=`Secondary procedure, ranked below primary ${procs[0].cpt}.`;
@@ -913,9 +934,10 @@ function computeMods(){
     l.rationale.push({mod:'—',reason:'No distinct-service modifier applied. If this procedure is on a separate site or encounter from the primary, coder should review and add -59, -XS, -XE, -XP, or -XU via the line editor.',cite:RULES.MOD_59});
    }
   }
-  if(l.conflicts.length){
-   l.engineState='BLOCKED';
-   l.warnings.push(...l.conflicts);
+ if(l.conflicts.length){
+  l.engineState='BLOCKED';
+   l.payable=false;
+  l.warnings.push(...l.conflicts);
    l.mods=[];
    l.rationale.push({mod:'Blocked',reason:l.conflicts.join(' '),cite:RULES.CONFLICT});
   }
@@ -1024,7 +1046,9 @@ function recalc(why){
   lns.innerHTML=caseLines.map((l,i)=>{
    let label;
    if(l.kind==='em'){label='<span class="rk em">E/M</span>'}
+   else if(l.engineState==='BLOCKED'){label='<span class="rk">Blocked</span>'}
    else if(l.payable===false){label='<span class="rk">Bundled</span>'}
+   else if(isAddonCode(l.cpt)){label='<span class="rk">Add-on</span>'}
    else{label=`<span class="rk ${rk===0?'p':''}">${rk===0?'Primary':'Sec '+rk}</span>`;rk++}
    const canEditModifier=l.kind==='em'||(l.kind==='proc'&&rk>1&&!isAddonCode(l.cpt)&&l.payable!==false);
    return `<div class="rl">
@@ -1033,10 +1057,10 @@ function recalc(why){
     <div class="rw"><span class="rwl">Physician wRVU ${l.effWrvu.toFixed(2)}</span><span>$${l.pay.toFixed(2)}</span></div>
     <div class="app-line-estimate">Estimated APP Productivity: ${appEstimateForLine(l).value.toFixed(2)} · ${appEstimateForLine(l).label}</div>
     ${l.warnings&&l.warnings.length?`<div class="md" style="margin-top:6px;color:#92400e">${l.warnings.join(' ')}</div>`:''}
-   </div>`}).join('')+renderAlifBuilderSuggestion();
- }
+   </div>`}).join('')+renderAlifBuilderSuggestion()+renderSplenicFlexureSuggestion();
+}
  document.getElementById('tn').textContent=payableWrvu.toFixed(2);
- const mppr=caseLines.filter(l=>l.kind==='proc').length>1&&setting==='facility';
+ const mppr=caseLines.filter(l=>l.kind==='proc'&&!isAddonCode(l.cpt)).length>1&&setting==='facility';
  const hasBundled=caseLines.some(l=>l.payable===false);
  document.getElementById('ts').textContent=hasBundled?`Payable $${tpay.toFixed(2)} · selected ${selectedWrvu.toFixed(2)} wRVU`:`$${tpay.toFixed(2)}${mppr?' · MPPR applied':''}`;
  document.getElementById('rm').textContent=`${caseLines.length} line${caseLines.length!==1?'s':''} · ${payer} · ${getModifierConflictState()}`;
@@ -1812,6 +1836,13 @@ function renderAlifBuilderSuggestion(){
  return out+'</div>';
 }
 
+function renderSplenicFlexureSuggestion(){
+ const addon=getSplenicFlexureAddonForCase();
+ if(!addon||hasCaseCode(addon))return '';
+ const isOpen=addon==='44139';
+ return '<div class="alif-builder-suggestion"><div class="alif-builder-title">Splenic flexure mobilization add-on</div><div>'+(isOpen?'Open partial colectomy workflow: consider <strong>44139</strong>.':'Laparoscopic/robotic colectomy workflow: consider <strong>44213</strong>.')+' Report only when the operative note documents actual mobilization/take-down of the splenic flexure to obtain bowel length or facilitate a tension-free anastomosis.</div><div class="alif-builder-actions"><button onclick="addCptDirectly(\''+addon+'\')">Add '+addon+'</button></div><div class="alif-assistant-example">Educational suggestion only. This is an add-on procedure and is not appropriate as a standalone CPT line.</div></div>';
+}
+
 function addAutocompleteResultToCase(item){
  if(['49591','49593','49595','49613','49615','49617'].includes(String(item.code||''))&&/anterior abd hernia|ventral hernia/i.test(String(item.description||''))){
   if(promptLapRoboticAnteriorHernia(item))return;
@@ -1905,7 +1936,9 @@ if(initialSearchQuery){
 const initialCaseCode=new URLSearchParams(window.location.search).get('case');
 if(initialCaseCode){
  alifAssistantSelected=new URLSearchParams(window.location.search).get('assistant')==='1';
- loadCptSearchIndex().then(()=>addCptDirectly(initialCaseCode));
+ loadCptSearchIndex().then(()=>{
+  String(initialCaseCode).split(',').map(code=>code.trim()).filter(Boolean).forEach(code=>addCptDirectly(code));
+ });
 }
 
 const THEME_KEY='fccf-theme';
