@@ -25,7 +25,7 @@ class UnifiedSearchEngine {
     const [rvuDb, icd10Common, cptExtra, icd10Extra] = await Promise.all([
       safe('./rvu_database.json'),
       safe('./icd10_common.json'),
-      safe('./cpt_database.json'),
+      safe('./cpt_database.json?v=20260701-splenic-flexure-44213'),
       safe('./icd10_database.json'),
     ]);
 

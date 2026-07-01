@@ -640,6 +640,7 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 <script src="global_modifier_engine.js"></script>
 <script>
 const MEDICARE_CONVERSION_FACTOR=33.4009;
+const SEARCH_DATA_VERSION='20260701-splenic-flexure-44213';
 const CF=MEDICARE_CONVERSION_FACTOR;
 const CPT_PAYMENT_INDEX=new Map();
 const CPT_GLOBAL_PERIOD_INDEX=new Map();
@@ -3186,7 +3187,7 @@ async function loadCptSearchIndex(){
  if(searchState.cptSearchIndexLoading)return searchState.cptSearchIndexLoading;
  searchState.cptSearchIndexLoading=(async()=>{
  try{
-  const res=await fetch('cpt_database.json');
+  const res=await fetch('cpt_database.json?v='+encodeURIComponent(SEARCH_DATA_VERSION),{cache:'no-store'});
   if(!res.ok)throw new Error(`HTTP ${res.status}`);
   const data=await res.json();
 	  const external=normalizeCptDatabaseRows(data);
@@ -3638,6 +3639,18 @@ function setSelectedCptView(item,options){
  }
 }
 
+function showExactCodeSearchResult(item,query){
+ if(!item)return;
+ searchState.searchQuery=String(query||item.code||'');
+ searchState.searchResults=[item];
+ searchState.suggestedCptResults=[];
+ searchState.procedureIntelligenceGroup=null;
+ searchState.activeResultIndex=0;
+ renderAutocompleteResults();
+ const input=document.getElementById('q');
+ if(input)input.setAttribute('aria-expanded','true');
+}
+
 const HERNIA_WIZARD_OPTIONS={
  '49591':[
   {label:'<3 cm reducible',code:'49591',desc:'Repair initial incisional/ventral hernia, reducible; <3 cm',wrvu:5.81},
@@ -3846,6 +3859,7 @@ async function restoreSearchFromLocation({scroll=false}={}){
  const selected=await findSearchItemForDisplay(q);
  if(selected){
   setSelectedCptView(selected,{pushHistory:false,scroll});
+  if(/^\d{5}$/.test(q.trim()))showExactCodeSearchResult(selected,q);
   return;
  }
  searchState.selectedCptItem=null;
