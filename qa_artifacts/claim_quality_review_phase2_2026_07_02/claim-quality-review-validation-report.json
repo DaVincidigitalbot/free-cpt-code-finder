@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-07-02T20:57:38.186Z",
+  "caseCount": 26,
+  "edgeCaseCount": 7,
+  "totalCases": 33,
+  "results": [
+    {
+      "name": "Clean inguinal hernia",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Missing diagnosis",
+      "status": "pass",
+      "score": 41,
+      "findings": 4
+    },
+    {
+      "name": "Missing pointer",
+      "status": "pass",
+      "score": 49,
+      "findings": 4
+    },
+    {
+      "name": "Non-billable diagnosis",
+      "status": "pass",
+      "score": 59,
+      "findings": 3
+    },
+    {
+      "name": "Uncommon diagnosis",
+      "status": "pass",
+      "score": 85,
+      "findings": 2
+    },
+    {
+      "name": "NCCI separate procedure",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Modifier conflict",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "MPPR",
+      "status": "pass",
+      "score": 95,
+      "findings": 2
+    },
+    {
+      "name": "Inpatient-only",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Medicaid",
+      "status": "pass",
+      "score": 90,
+      "findings": 2
+    },
+    {
+      "name": "Laterality",
+      "status": "pass",
+      "score": 90,
+      "findings": 1
+    },
+    {
+      "name": "Debridement depth",
+      "status": "pass",
+      "score": 90,
+      "findings": 1
+    },
+    {
+      "name": "Excision size",
+      "status": "pass",
+      "score": 85,
+      "findings": 2
+    },
+    {
+      "name": "Adhesiolysis duration",
+      "status": "pass",
+      "score": 77,
+      "findings": 2
+    },
+    {
+      "name": "Mesh explantation",
+      "status": "pass",
+      "score": 77,
+      "findings": 2
+    },
+    {
+      "name": "Global 58",
+      "status": "pass",
+      "score": 95,
+      "findings": 1
+    },
+    {
+      "name": "Global 78",
+      "status": "pass",
+      "score": 77,
+      "findings": 2
+    },
+    {
+      "name": "Global 79",
+      "status": "pass",
+      "score": 90,
+      "findings": 2
+    },
+    {
+      "name": "Modifier 22 incomplete",
+      "status": "pass",
+      "score": 80,
+      "findings": 2
+    },
+    {
+      "name": "Modifier 22 complete",
+      "status": "pass",
+      "score": 95,
+      "findings": 1
+    },
+    {
+      "name": "Trauma rib fixation",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Colorectal colectomy",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Hernia AWR",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Thoracic chest tube",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Endocrine thyroidectomy",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "APP mode",
+      "status": "pass",
+      "score": 64,
+      "findings": 2
+    },
+    {
+      "name": "Transparent score arithmetic",
+      "status": "pass",
+      "score": 29,
+      "findings": 7
+    },
+    {
+      "name": "Required category taxonomy",
+      "status": "pass",
+      "score": 75,
+      "findings": 3
+    },
+    {
+      "name": "Finding detail completeness",
+      "status": "pass",
+      "score": 49,
+      "findings": 4
+    },
+    {
+      "name": "Improve action aggregation",
+      "status": "pass",
+      "score": 16,
+      "findings": 6
+    },
+    {
+      "name": "Audit report transparency",
+      "status": "pass",
+      "score": 16,
+      "findings": 6
+    },
+    {
+      "name": "JSON export quality review",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "No payment-prediction implication",
+      "status": "pass",
+      "score": 41,
+      "findings": 4
+    }
+  ],
+  "phase2Checks": {
+    "renamedToClaimQualityReview": true,
+    "everyFindingIncludes": [
+      "what was detected",
+      "evidence used",
+      "why it matters",
+      "suggested user review",
+      "educational references",
+      "quality score impact"
+    ],
+    "improveThisClaimActionsValidated": [
+      "Add diagnosis",
+      "Add diagnosis pointer",
+      "Review Modifier 22 documentation",
+      "Review laterality"
+    ],
+    "categories": [
+      "Coding",
+      "Documentation",
+      "Medical Necessity",
+      "Payer",
+      "Compliance",
+      "Informational"
+    ],
+    "transparentScoreArithmetic": true,
+    "auditReportIncludesQualityReview": true,
+    "jsonExportIncludesQualityReview": true,
+    "oldClaimReadinessScoreRemoved": true
+  },
+  "productionReadinessRecommendation": "Ready for review branch QA. Do not deploy until reviewed and approved."
+}

@@ -1,0 +1,147 @@
+{
+  "caseId": "CASE-20260702-8M2L",
+  "generatedAt": "2026-07-02T20:56:51.597Z",
+  "conversionFactor": 33.4009,
+  "cmsQuarter": "2026",
+  "paymentFormula": "Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.",
+  "payer": "medicare",
+  "setting": "facility",
+  "medicaidReview": null,
+  "diagnosisDataset": {
+    "version": "FY2026",
+    "effectiveDate": "2025-10-01",
+    "source": "CMS 2026 Code Descriptions in Tabular Order"
+  },
+  "inpatientOnlyDataset": {
+    "version": "CY2026",
+    "effectiveDate": "2026-01-01",
+    "source": "CY2026 OPPS Addendum E"
+  },
+  "diagnoses": [
+    {
+      "pointer": "A",
+      "code": "S22.42XA",
+      "rawCode": "S2242XA",
+      "description": "Multiple fractures of ribs, left side, initial encounter for closed fracture",
+      "billable": true,
+      "parent": "S2242",
+      "effectiveDate": "2025-10-01",
+      "retired": false,
+      "replacedBy": null
+    }
+  ],
+  "diagnosisPointerMap": [
+    {
+      "cpt": "21812",
+      "pointers": [
+        "A"
+      ],
+      "pointerString": "A"
+    }
+  ],
+  "futureCms1500DiagnosisPointers": [
+    {
+      "cpt": "21812",
+      "diagnosisPointerField": "A"
+    }
+  ],
+  "inpatientOnlyWarnings": [],
+  "claimQualityReview": {
+    "score": 100,
+    "qualityLevel": "Low",
+    "startingScore": 100,
+    "totalDeduction": 0,
+    "scoreFormula": "100 - sum(weighted quality findings)",
+    "scoreBreakdown": [],
+    "riskCounts": {
+      "High": 0,
+      "Moderate": 0,
+      "Low": 0,
+      "Informational": 0
+    },
+    "potentialImprovementActions": [],
+    "disclaimer": "Educational claim-quality indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.",
+    "findings": []
+  },
+  "totals": {
+    "selectedWrvu": 10,
+    "payableWrvu": 10,
+    "wrvu": 10,
+    "payment": 334.01,
+    "lines": 1,
+    "procedures": 1,
+    "em": 0
+  },
+  "globalReview": {
+    "reviewed": false,
+    "inGlobalPeriod": false,
+    "globalStatus": null,
+    "previousOperation": {},
+    "answers": {},
+    "recommendation": null,
+    "selectedModifier": null,
+    "modifier22": {
+      "selected": false,
+      "targetLineId": null,
+      "analysis": null,
+      "justification": ""
+    }
+  },
+  "lines": [
+    {
+      "order": 1,
+      "cpt": "21812",
+      "description": "Each additional rib fixation",
+      "rank": "Add-on",
+      "rankReason": "Highest wRVU (10.00). Billed 100%.",
+      "modifiers": [],
+      "baseWrvu": 10,
+      "effectiveWrvu": 10,
+      "totalRvu": 0,
+      "baseMedicarePayment": 334.01,
+      "paymentSource": "fallback",
+      "payable": true,
+      "payableWrvu": 10,
+      "payableExclusionReason": null,
+      "payableExclusionEdit": null,
+      "globalModifier": null,
+      "modifier22Selected": false,
+      "medicaidWarnings": [],
+      "diagnosisPointers": [
+        "A"
+      ],
+      "diagnosisValidationWarnings": [],
+      "inpatientOnly": false,
+      "inpatientOnlyInfo": null,
+      "suppressedBy": null,
+      "bundleRule": null,
+      "payment": 334.01,
+      "rationale": [
+        {
+          "mod": "Rank",
+          "reason": "Add-on code detected. Primary ranking blocked until parent code is present.",
+          "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+        },
+        {
+          "mod": "Blocked",
+          "reason": "Add-on code cannot be ranked as primary. Parent/base code required.",
+          "cite": "FreeCPT modifier conflict engine — invalid modifier structures are blocked until corrected"
+        }
+      ]
+    }
+  ],
+  "activityLog": [
+    "[4:56:50 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[4:56:50 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[4:56:51 PM] CASE CLEARED",
+    "[4:56:51 PM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+    "[4:56:51 PM] ADD 21812 \"Each additional rib fixation\" wRVU=10",
+    "[4:56:51 PM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=BLOCKED",
+    "[4:56:51 PM] TOTALS wRVU=10.00 pay=$334.01 (procedure added)",
+    "[4:56:51 PM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=BLOCKED",
+    "[4:56:51 PM] TOTALS wRVU=10.00 pay=$334.01 (diagnosis selected)",
+    "[4:56:51 PM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=BLOCKED",
+    "[4:56:51 PM] TOTALS wRVU=10.00 pay=$334.01 (artifact seed)"
+  ],
+  "disclaimer": "Automated coding support. Requires coder review prior to claim submission. CPT © AMA."
+}
