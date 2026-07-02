@@ -13709,7 +13709,13 @@
               "description": "Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs",
               "icd10": [
                 "S22.41XA",
-                "S22.42XA"
+                "S22.42XA",
+                "S22.49XA",
+                "S22.5XXA",
+                "S27.0XXA",
+                "S27.1XXA",
+                "S27.2XXA",
+                "S29.8XXA"
               ],
               "label": "Rib fixation, first 3 ribs",
               "modifiers": [],
@@ -13720,7 +13726,13 @@
               "description": "Open treatment of rib fracture(s), each additional 3 ribs (add-on)",
               "icd10": [
                 "S22.41XA",
-                "S22.42XA"
+                "S22.42XA",
+                "S22.49XA",
+                "S22.5XXA",
+                "S27.0XXA",
+                "S27.1XXA",
+                "S27.2XXA",
+                "S29.8XXA"
               ],
               "label": "Rib fixation, each additional 3 ribs",
               "modifiers": [],
@@ -32085,8 +32097,13 @@
               "cpt_code": "21811",
               "description": "Open treatment rib fracture fixation unilateral 1-3 ribs",
               "icd10": [
-                "S42.90XA",
-                "S52.90XA"
+                "S22.31XA",
+                "S22.32XA",
+                "S22.39XA",
+                "S22.41XA",
+                "S22.42XA",
+                "S22.49XA",
+                "S22.5XXA"
               ],
               "label": "Open treatment rib fracture fixation unilateral 1-3 ribs",
               "modifiers": [],
@@ -32096,8 +32113,13 @@
               "cpt_code": "21812",
               "description": "Open treatment rib fracture fixation unilateral 4-6 ribs",
               "icd10": [
-                "S42.90XA",
-                "S52.90XA"
+                "S22.41XA",
+                "S22.42XA",
+                "S22.49XA",
+                "S22.5XXA",
+                "S27.0XXA",
+                "S27.1XXA",
+                "S27.2XXA"
               ],
               "label": "Open treatment rib fracture fixation unilateral 4-6 ribs",
               "modifiers": [],
@@ -32107,8 +32129,13 @@
               "cpt_code": "21813",
               "description": "Open treatment rib fracture fixation unilateral 7 or more ribs",
               "icd10": [
-                "S42.90XA",
-                "S52.90XA"
+                "S22.41XA",
+                "S22.42XA",
+                "S22.49XA",
+                "S22.5XXA",
+                "S27.0XXA",
+                "S27.1XXA",
+                "S27.2XXA"
               ],
               "label": "Open treatment rib fracture fixation unilateral 7 or more ribs",
               "modifiers": [],

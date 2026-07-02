@@ -144,6 +144,7 @@ a{color:inherit;text-decoration:none}
 .dx-indication summary::before{content:'□';font-family:'SFMono-Regular',Consolas,monospace;color:var(--ox);font-weight:900}
 .dx-indication[open] summary::before{content:'☑'}
 .dx-indication-codes{display:flex;flex-wrap:wrap;gap:6px;padding:0 10px 10px}
+.dx-family-label{display:inline-flex;align-items:center;width:max-content;max-width:100%;margin:2px 0 8px;padding:4px 8px;border:1px solid var(--line2);border-radius:6px;background:var(--paper);font-size:11px;font-weight:800;color:var(--ink);line-height:1.25}
 .dx-chip{border:1px solid var(--line2);border-radius:999px;background:var(--white);padding:6px 9px;font-size:11px;color:var(--ink);cursor:pointer;line-height:1.25}
 .dx-chip:hover,.dx-chip:focus{border-color:var(--ox);outline:0}
 .dx-add-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
@@ -731,6 +732,9 @@ const ROBOTIC_ALLOWED=[
 
 // ===== TOP 20 PROCEDURES PER SPECIALTY (seed — expand from CMS Addendum B) =====
 const DX_BY_CPT={
+ '21811':['S22.31XA','S22.32XA','S22.39XA','S22.41XA','S22.42XA','S22.49XA','S22.5XXA','S27.0XXA','S27.1XXA','S27.2XXA','S29.8XXA','S29.9XXA','S22.31XD','S22.32XD','S22.39XD','S22.41XD','S22.42XD','S22.49XD','S22.5XXD','S27.0XXD','S27.1XXD','S27.2XXD','S29.8XXD','S29.9XXD','S22.31XS','S22.32XS','S22.39XS','S22.41XS','S22.42XS','S22.49XS','S22.5XXS','S27.0XXS','S27.1XXS','S27.2XXS','S29.8XXS','S29.9XXS'],
+ '21812':['S22.41XA','S22.42XA','S22.49XA','S22.5XXA','S27.0XXA','S27.1XXA','S27.2XXA','S29.8XXA','S29.9XXA','S22.31XA','S22.32XA','S22.39XA','S22.41XD','S22.42XD','S22.49XD','S22.5XXD','S27.0XXD','S27.1XXD','S27.2XXD','S29.8XXD','S29.9XXD','S22.41XS','S22.42XS','S22.49XS','S22.5XXS','S27.0XXS','S27.1XXS','S27.2XXS','S29.8XXS','S29.9XXS'],
+ '21813':['S22.41XA','S22.42XA','S22.49XA','S22.5XXA','S27.0XXA','S27.1XXA','S27.2XXA','S29.8XXA','S29.9XXA','S22.41XD','S22.42XD','S22.49XD','S22.5XXD','S27.0XXD','S27.1XXD','S27.2XXD','S29.8XXD','S29.9XXD','S22.41XS','S22.42XS','S22.49XS','S22.5XXS','S27.0XXS','S27.1XXS','S27.2XXS','S29.8XXS','S29.9XXS'],
  '49421':['Z49.02','N18.6'],
  '49422':['Z49.02','N18.6'],
  '49324':['Z49.02','N18.6'],
@@ -816,6 +820,15 @@ const ICD10_SYNONYMS={
  hernia:'ventral incisional inguinal umbilical femoral abdominal wall hernia',
  abscess:'abscess infection intra-abdominal wound skin soft tissue perirectal perianal drainage',
  trauma:'injury fracture laceration hemorrhage open wound',
+ 'rib fracture':'rib fractures multiple rib fractures broken ribs flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures',
+ 'rib fractures':'rib fracture multiple rib fractures broken ribs flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures',
+ 'multiple rib fractures':'rib fracture rib fractures broken ribs flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures',
+ 'broken ribs':'rib fracture rib fractures multiple rib fractures flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures',
+ 'flail chest':'rib fracture rib fractures multiple rib fractures broken ribs chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures',
+ ssrf:'surgical stabilization of rib fractures rib fixation rib fracture rib fractures multiple rib fractures broken ribs flail chest chest trauma',
+ 'surgical stabilization of rib fractures':'ssrf rib fixation rib fracture rib fractures multiple rib fractures broken ribs flail chest chest trauma',
+ 'chest trauma':'rib fracture rib fractures multiple rib fractures broken ribs flail chest blunt chest trauma traumatic pneumothorax traumatic hemothorax',
+ 'blunt chest trauma':'rib fracture rib fractures multiple rib fractures broken ribs flail chest chest trauma traumatic pneumothorax traumatic hemothorax',
  peritonitis:'peritonitis feculent contamination perforation',
  appendicitis:'appendicitis appendix',
  cholecystitis:'cholecystitis gallbladder gallstones acute cholecystitis chronic cholecystitis',
@@ -916,7 +929,12 @@ const CLINICAL_INDICATION_GROUPS={
  fecal_diversion_indication:{label:'Fecal diversion indication',codes:['K56609','K5720','K631','K651','C20'],terms:['fecal diversion','diverting colostomy','diverting ileostomy','obstruction','perforation','rectal cancer','intra-abdominal sepsis']},
  acute_abdomen:{label:'Acute abdomen',codes:['R100','R1084','R109','R198'],terms:['acute abdomen','generalized abdominal pain','peritonitis signs','surgical abdomen']},
  pneumoperitoneum_peritonitis:{label:'Pneumoperitoneum / peritonitis',codes:['K631','K650','K651','K659','K668'],terms:['pneumoperitoneum','free air','perforated viscus','peritonitis','peritoneal abscess']},
- abdominal_trauma_hemorrhage:{label:'Trauma / hemorrhage',codes:['S36899A','S31109A','R58'],terms:['abdominal trauma','hemoperitoneum','intra-abdominal injury','hemorrhage','open abdominal wound']}
+ abdominal_trauma_hemorrhage:{label:'Trauma / hemorrhage',codes:['S36899A','S31109A','R58'],terms:['abdominal trauma','hemoperitoneum','intra-abdominal injury','hemorrhage','open abdominal wound']},
+ single_rib_fracture:{label:'Single rib fracture',codes:['S2231XA','S2232XA','S2239XA','S2231XD','S2232XD','S2239XD','S2231XS','S2232XS','S2239XS'],terms:['rib fracture','single rib fracture','fracture of one rib','broken rib','broken ribs']},
+ multiple_rib_fractures:{label:'Multiple rib fractures',codes:['S2241XA','S2242XA','S2249XA','S2241XD','S2242XD','S2249XD','S2241XS','S2242XS','S2249XS'],terms:['multiple rib fractures','rib fractures','broken ribs','multiple broken ribs']},
+ flail_chest:{label:'Flail chest',codes:['S225XXA','S225XXD','S225XXS'],terms:['flail chest','flail segment','flail ribs']},
+ traumatic_pneumo_hemo:{label:'Traumatic pneumothorax / hemothorax',codes:['S270XXA','S271XXA','S272XXA','S270XXD','S271XXD','S272XXD','S270XXS','S271XXS','S272XXS'],terms:['traumatic pneumothorax','traumatic hemothorax','traumatic hemopneumothorax','pneumothorax','hemothorax','hemopneumothorax']},
+ chest_wall_trauma:{label:'Chest wall injury / blunt chest trauma',codes:['S298XXA','S299XXA','S298XXD','S299XXD','S298XXS','S299XXS'],terms:['chest wall injury','blunt chest trauma','chest trauma','thorax injury']}
  };
 const PROCEDURE_FAMILIES={
  tracheostomy:{label:'Tracheostomy Family',indications:['respiratory_failure','ventilator_dependence','airway_obstruction','tracheal_obstruction']},
@@ -928,7 +946,8 @@ const PROCEDURE_FAMILIES={
  abscess_drainage:{label:'Abscess / Drainage Family',indications:['cutaneous_abscess','intra_abdominal_abscess','anorectal_abscess']},
  amputation:{label:'Amputation Family',indications:['diabetic_wound','peripheral_artery_disease','osteomyelitis','necrotizing_soft_tissue_infection','traumatic_nonviable_limb']},
  ostomy:{label:'Ostomy Creation / Closure Family',indications:['fecal_diversion_indication','diverticulitis','obstruction','colon_cancer','ostomy_status_attention','ostomy_complication']},
- exploratory_laparotomy:{label:'Exploratory Laparotomy Family',indications:['acute_abdomen','pneumoperitoneum_peritonitis','abdominal_trauma_hemorrhage','obstruction','ischemic_bowel']}
+ exploratory_laparotomy:{label:'Exploratory Laparotomy Family',indications:['acute_abdomen','pneumoperitoneum_peritonitis','abdominal_trauma_hemorrhage','obstruction','ischemic_bowel']},
+ rib_chest_wall_trauma:{label:'Rib fracture / chest wall trauma',indications:['single_rib_fracture','multiple_rib_fractures','flail_chest','traumatic_pneumo_hemo','chest_wall_trauma']}
 };
 const CPT_PROCEDURE_FAMILY={
  '31600':'tracheostomy','31601':'tracheostomy','31603':'tracheostomy',
@@ -940,7 +959,8 @@ const CPT_PROCEDURE_FAMILY={
  '10060':'abscess_drainage','10061':'abscess_drainage','10160':'abscess_drainage','46050':'abscess_drainage','46060':'abscess_drainage','49020':'abscess_drainage','49060':'abscess_drainage','49405':'abscess_drainage','49406':'abscess_drainage',
  '27590':'amputation','27591':'amputation','27592':'amputation','27594':'amputation','27596':'amputation','27880':'amputation','27881':'amputation','27882':'amputation','27884':'amputation','27886':'amputation','27888':'amputation','27889':'amputation','28800':'amputation','28805':'amputation','28810':'amputation','28820':'amputation','28825':'amputation',
  '44300':'ostomy','44310':'ostomy','44312':'ostomy','44314':'ostomy','44316':'ostomy','44320':'ostomy','44322':'ostomy','44340':'ostomy','44345':'ostomy','44346':'ostomy','44620':'ostomy','44625':'ostomy','44626':'ostomy','44227':'ostomy',
- '49000':'exploratory_laparotomy','49002':'exploratory_laparotomy'
+ '49000':'exploratory_laparotomy','49002':'exploratory_laparotomy',
+ '21811':'rib_chest_wall_trauma','21812':'rib_chest_wall_trauma','21813':'rib_chest_wall_trauma'
  };
 const CPT_ICD10_ADDITIONS={
  '31600':{label:'CPT-specific additions',indications:[]},
@@ -1597,7 +1617,7 @@ function renderAppCaseSummary(){
 }
 const SPLENIC_FLEXURE_OPEN_PARENTS=new Set(['44140','44141','44143','44144','44145','44146','44147']);
 const SPLENIC_FLEXURE_LAP_PARENTS=new Set(['44204','44205','44206','44207','44208']);
-function isAddonCode(cpt){return ['22585','33225','93655','93657','44139','44213'].includes(String(cpt||''))}
+function isAddonCode(cpt){return ['21812','22585','33225','93655','93657','44139','44213'].includes(String(cpt||''))}
 function lineIsAddon(line){return !!(line&&line.addonCode)||isAddonCode(line&&line.cpt)}
 function getSplenicFlexureAddonForCase(){
  const codes=new Set(caseLines.filter(l=>l.kind==='proc').map(l=>String(l.cpt||'')));
@@ -2131,13 +2151,15 @@ function renderLineIndicationGroups(line){
 function renderLineDiagnosisSection(line){
  if(!line||line.kind!=='proc')return '';
  const indicationHTML=renderLineIndicationGroups(line);
+ const family=procedureFamilyForLine(line);
+ const familyHTML=family?'<div class="dx-family-label">'+h(family.label)+'</div>':'';
  const selectedChecks=caseDiagnoses.map((d,i)=>{
   const letter=diagnosisLetter(i);
   const on=(line.dxPointers||[]).includes(letter);
   return '<label class="line-dx-check '+(on?'on':'')+'"><input type="checkbox" '+(on?'checked':'')+' onchange="toggleDxPointer('+line.id+',\''+letter+'\')"><span><strong>'+h(displayIcd(d.code))+'</strong> '+h(d.description)+' <span class="dx-meta">'+(d.billable?'billable':'non-billable')+'</span></span></label>';
  }).join('');
  const warnings=validateDiagnosesForLine(line).map(w=>'<div class="warning-card warning-card--doc"><div class="warning-card__summary">'+h(w)+'</div></div>').join('');
- return '<div class="line-dx" data-cpt="'+h(line.cpt)+'"><div class="line-dx-head"><div class="line-dx-title">Diagnosis(s)</div><button type="button" class="dx-chip" onclick="addManualDiagnosisForLine('+line.id+')">Add Diagnosis</button></div><div class="line-dx-title">Common indications</div>'+indicationHTML+'<div class="dx-search"><input id="dxLineSearch_'+line.id+'" placeholder="Search ICD-10 for CPT '+h(line.cpt)+'" oninput="dxSearchState.activeIndex=0;updateDxSearch('+line.id+')" onfocus="updateDxSearch('+line.id+')" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxLineSearchResults_'+line.id+'\').classList.remove(\'show\')}"><div class="dx-results" id="dxLineSearchResults_'+line.id+'"></div></div><div class="dx-add-row"><input id="dxAdd_'+line.id+'" placeholder="Enter ICD-10 code"><button type="button" onclick="addDiagnosisToLine('+line.id+',document.getElementById(\'dxAdd_'+line.id+'\').value)">Add to '+h(line.cpt)+'</button></div><div class="line-dx-list">'+(selectedChecks||'<div class="line-dx-empty">No diagnoses selected for this CPT.</div>')+'</div>'+warnings+'</div>';
+ return '<div class="line-dx" data-cpt="'+h(line.cpt)+'"><div class="line-dx-head"><div class="line-dx-title">Diagnosis(s)</div><button type="button" class="dx-chip" onclick="addManualDiagnosisForLine('+line.id+')">Add Diagnosis</button></div>'+familyHTML+'<div class="line-dx-title">Common indications</div>'+indicationHTML+'<div class="dx-search"><input id="dxLineSearch_'+line.id+'" placeholder="Search ICD-10 for CPT '+h(line.cpt)+'" oninput="dxSearchState.activeIndex=0;updateDxSearch('+line.id+')" onfocus="updateDxSearch('+line.id+')" onkeydown="if(event.key===\'Escape\'){document.getElementById(\'dxLineSearchResults_'+line.id+'\').classList.remove(\'show\')}"><div class="dx-results" id="dxLineSearchResults_'+line.id+'"></div></div><div class="dx-add-row"><input id="dxAdd_'+line.id+'" placeholder="Enter ICD-10 code"><button type="button" onclick="addDiagnosisToLine('+line.id+',document.getElementById(\'dxAdd_'+line.id+'\').value)">Add to '+h(line.cpt)+'</button></div><div class="line-dx-list">'+(selectedChecks||'<div class="line-dx-empty">No diagnoses selected for this CPT.</div>')+'</div>'+warnings+'</div>';
 }
 function renderDxIntelligence(){
  const el=document.getElementById('dxs');if(!el)return;
@@ -2841,7 +2863,7 @@ const DEFAULT_PROCEDURE_INTELLIGENCE=[
  {id:'robotic-colectomy',title:'Robotic colectomy / colon resection',terms:['robotic colectomy','robotic sigmoid colectomy','colon resection','sigmoid colectomy','low anterior resection','laparoscopic colectomy','robotic colon resection'],considerations:['Which segment of colon was resected?','Was an anastomosis created?','Was a colostomy or ileostomy created?','Was splenic flexure mobilization documented separately?','Was the operation converted to open?','Was another organ resected?'],cpts:['44204','44205','44207','44208','44140','44143','44145','44146'],note:'Educational checklist only; robotic work usually follows laparoscopic CPT families.'},
  {id:'thyroidectomy',title:'Thyroidectomy',terms:['thyroidectomy','thyroid removal','total thyroidectomy','thyroid lobectomy','hemithyroidectomy'],considerations:['Was the procedure total thyroidectomy or lobectomy?','Was completion thyroidectomy performed?','Was central neck dissection performed?','Was modified radical neck dissection performed?','Was substernal thyroid work documented?','Was this reoperative neck surgery?'],cpts:['60220','60240','60252','60254'],note:'Educational checklist only; extent of thyroid and nodal work drives CPT review.'},
  {id:'parathyroidectomy',title:'Parathyroidectomy',terms:['parathyroidectomy','parathyroid removal','parathyroid exploration','reoperative parathyroidectomy'],considerations:['Was this initial exploration or re-exploration?','Was mediastinal parathyroid tissue addressed?','Was thymectomy or another neck procedure performed?','Was intraoperative localization or monitoring documented?','Were multiple glands removed?'],cpts:['60500','60502','60505'],note:'Educational checklist only; confirm initial versus reoperative work.'},
- {id:'rib-fixation',title:'Rib fixation / rib fracture plating',terms:['rib fixation','rib fracture fixation','rib plating','surgical stabilization of rib fractures','ssrf'],considerations:['How many ribs were treated?','Was fixation open or thoracoscopic assisted?','Were flail chest segments documented?','Was tube thoracostomy or thoracoscopy also performed?','Were both sides treated?'],cpts:['21811','21812'],note:'Educational checklist only; number of ribs and approach affect CPT review.'},
+ {id:'rib-fixation',title:'Rib fixation / rib fracture plating',terms:['rib fixation','rib fracture fixation','rib plating','surgical stabilization of rib fractures','ssrf','rib fracture','rib fractures','multiple rib fractures','broken ribs','flail chest','chest trauma','blunt chest trauma'],considerations:['How many ribs were treated?','Was fixation open or thoracoscopic assisted?','Were flail chest segments documented?','Was tube thoracostomy or thoracoscopy also performed?','Were both sides treated?'],cpts:['21811','21812','21813'],note:'Educational checklist only; number of ribs and approach affect CPT review.'},
  {id:'above-knee-amputation',title:'Above-knee amputation',terms:['aka','above knee amputation','above-knee amputation','transfemoral amputation','aka revision','revision aka'],considerations:['Was this a primary amputation or revision?','Was immediate fitting technique performed?','Was secondary closure or scar revision performed?','Was re-amputation performed at a higher level?','Was another vascular or wound procedure performed?'],cpts:['27590','27591','27592','27594'],note:'Educational checklist only; level and revision status matter.'},
  {id:'below-knee-amputation',title:'Below-knee amputation',terms:['bka','below knee amputation','below-knee amputation','transtibial amputation','bka revision','revision bka'],considerations:['Was this a primary amputation or revision?','Was immediate fitting technique performed?','Was secondary closure or scar revision performed?','Was re-amputation performed?','Was another vascular or wound procedure performed?'],cpts:['27880','27881','27882','27884'],note:'Educational checklist only; level and revision status matter.'}
 ];
@@ -3132,7 +3154,10 @@ function buildSearchIndexFromSpecs(){
    '27881':'BKA revision revision BKA below knee amputation revision secondary closure BKA scar revision BKA transtibial amputation revision',
    '27882':'BKA below knee amputation guillotine BKA open circular BKA transtibial amputation staged BKA',
    '27884':'BKA revision revision BKA below knee amputation revision re-amputation BKA transtibial amputation revision amputation stump revision',
-   '15734':'myocutaneous flap myofascial flap muscle flap fasciocutaneous flap component separation retrorectus release transversus abdominis release tar abdominal wall reconstruction',
+	   '15734':'myocutaneous flap myofascial flap muscle flap fasciocutaneous flap component separation retrorectus release transversus abdominis release tar abdominal wall reconstruction',
+	   '21811':'rib fracture rib fractures multiple rib fractures broken ribs flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures chest wall trauma',
+	   '21812':'rib fracture rib fractures multiple rib fractures broken ribs flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures chest wall trauma additional ribs',
+	   '21813':'rib fracture rib fractures multiple rib fractures broken ribs flail chest chest trauma blunt chest trauma rib fixation ssrf surgical stabilization of rib fractures chest wall trauma seven or more ribs',
    '15738':'myodesis lower extremity flap reconstruction lower extremity myocutaneous flap fasciocutaneous flap muscle flap bka myodesis below knee amputation myodesis transtibial amputation stump reconstruction residual limb reconstruction prosthetic ready residual limb bone coverage',
    '31256':'maxillary antrostomy fess sinus surgery maxillary sinusotomy',
    '31267':'maxillary antrostomy tissue removal fess polyp sinus surgery',
