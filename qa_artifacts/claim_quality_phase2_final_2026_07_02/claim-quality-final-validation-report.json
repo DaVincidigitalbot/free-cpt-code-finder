@@ -1,0 +1,202 @@
+{
+  "generatedAt": "2026-07-02T21:11:29.948Z",
+  "caseCount": 26,
+  "edgeCaseCount": 5,
+  "totalCases": 31,
+  "results": [
+    {
+      "name": "Clean inguinal hernia",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Missing diagnosis",
+      "status": "pass",
+      "score": 41,
+      "findings": 4
+    },
+    {
+      "name": "Missing pointer",
+      "status": "pass",
+      "score": 49,
+      "findings": 4
+    },
+    {
+      "name": "Non-billable diagnosis",
+      "status": "pass",
+      "score": 59,
+      "findings": 3
+    },
+    {
+      "name": "Uncommon diagnosis",
+      "status": "pass",
+      "score": 85,
+      "findings": 2
+    },
+    {
+      "name": "NCCI separate procedure",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Modifier conflict",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "MPPR",
+      "status": "pass",
+      "score": 95,
+      "findings": 2
+    },
+    {
+      "name": "Inpatient-only",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Medicaid",
+      "status": "pass",
+      "score": 90,
+      "findings": 2
+    },
+    {
+      "name": "Laterality",
+      "status": "pass",
+      "score": 90,
+      "findings": 1
+    },
+    {
+      "name": "Debridement depth",
+      "status": "pass",
+      "score": 90,
+      "findings": 1
+    },
+    {
+      "name": "Excision size",
+      "status": "pass",
+      "score": 85,
+      "findings": 2
+    },
+    {
+      "name": "Adhesiolysis duration",
+      "status": "pass",
+      "score": 77,
+      "findings": 2
+    },
+    {
+      "name": "Mesh explantation",
+      "status": "pass",
+      "score": 77,
+      "findings": 2
+    },
+    {
+      "name": "Global 58",
+      "status": "pass",
+      "score": 95,
+      "findings": 1
+    },
+    {
+      "name": "Global 78",
+      "status": "pass",
+      "score": 77,
+      "findings": 2
+    },
+    {
+      "name": "Global 79",
+      "status": "pass",
+      "score": 90,
+      "findings": 2
+    },
+    {
+      "name": "Modifier 22 incomplete",
+      "status": "pass",
+      "score": 80,
+      "findings": 2
+    },
+    {
+      "name": "Modifier 22 complete",
+      "status": "pass",
+      "score": 95,
+      "findings": 1
+    },
+    {
+      "name": "Trauma rib fixation",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Colorectal colectomy",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Hernia AWR",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Thoracic chest tube",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "Endocrine thyroidectomy",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "APP mode",
+      "status": "pass",
+      "score": 64,
+      "findings": 2
+    },
+    {
+      "name": "Potential consequences detail",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "Final claim summary complete",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "Audit report consequences summary",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "JSON export final summary",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "No payment prediction language",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    }
+  ],
+  "finalEnhancementChecks": {
+    "potentialConsequencesOnEveryFinding": true,
+    "finalClaimSummary": true,
+    "auditReportIncludesConsequencesAndSummary": true,
+    "jsonExportIncludesConsequencesAndSummary": true,
+    "noPaymentPredictionLanguage": true
+  },
+  "productionReadinessRecommendation": "Ready for review branch QA. Do not deploy until reviewed and approved."
+}
