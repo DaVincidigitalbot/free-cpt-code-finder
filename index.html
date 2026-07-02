@@ -545,7 +545,7 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
    <div class="tl">Global Surgery Review</div>
    <div class="global-card__status" id="globalStatus">Not reviewed</div>
   </div>
-  <button type="button" onclick="openGlobalAssistant()">Finish case</button>
+  <button type="button" onclick="openClaimReadiness()">Review & Finalize Case</button>
  </div>
  <div class="global-card__body" id="globalSummary">Ask after the case is built: did this operation occur during the postoperative global period of a previous surgery?</div>
 </div>
@@ -604,16 +604,38 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 .mod22-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
 .mod22-finding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .mod22-finding-grid label{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:7px;background:var(--white)}
+.claim-readiness-head{display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:center;border:1px solid var(--line2);border-radius:8px;padding:16px;background:var(--paper)}
+.claim-score{display:grid;place-items:center;width:132px;height:132px;border-radius:50%;border:10px solid var(--ox);background:var(--white);color:var(--ink)}
+.claim-score strong{display:block;font-size:34px;line-height:1;font-family:ui-monospace,monospace}
+.claim-score span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);font-weight:800}
+.claim-readiness-note{font-size:12px;line-height:1.45;color:var(--ink2);margin-top:8px}
+.claim-risk-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+.claim-risk-pill{border:1px solid var(--line);border-radius:7px;padding:9px;background:var(--white);font-size:12px}
+.claim-risk-pill strong{display:block;font-size:17px;color:var(--ink)}
+.claim-finding-group{border:1px solid var(--line);border-radius:8px;background:var(--white);overflow:hidden}
+.claim-finding-group h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2);padding:10px 12px;border-bottom:1px solid var(--line);background:var(--paper)}
+.claim-finding{padding:10px 12px;border-top:1px solid var(--line);font-size:12px;line-height:1.45}
+.claim-finding:first-of-type{border-top:0}
+.claim-finding__top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:6px}
+.claim-risk{display:inline-flex;border-radius:999px;padding:2px 8px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border:1px solid currentColor;white-space:nowrap}
+.claim-risk.high{color:#991B1B;background:#FEF2F2}
+.claim-risk.moderate{color:#92400E;background:#FFFBEB}
+.claim-risk.low{color:#1D4E89;background:#EFF6FF}
+.claim-risk.informational{color:#374151;background:#F9FAFB}
+.claim-finding dl{display:grid;grid-template-columns:110px 1fr;gap:4px 10px;margin:0}
+.claim-finding dt{font-weight:800;color:var(--ink3)}
+.claim-finding dd{margin:0;color:var(--ink)}
+.claim-empty{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:14px;color:var(--ink2);font-size:13px}
 .copybox{white-space:pre-wrap;border:1px solid var(--line2);background:var(--white);border-radius:8px;padding:12px;font-size:13px;line-height:1.5}
-@media(max-width:760px){.global-form,.mod22-grid,.global-education,.global-timeline{grid-template-columns:1fr}.global-radio-item{grid-template-columns:1fr auto auto}.mod22-finding-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.global-form,.mod22-grid,.global-education,.global-timeline,.claim-readiness-head,.claim-risk-grid{grid-template-columns:1fr}.global-radio-item{grid-template-columns:1fr auto auto}.mod22-finding-grid{grid-template-columns:1fr}.claim-score{width:112px;height:112px}}
 </style>
 
 <div class="global-assistant" id="globalAssistant" aria-hidden="true">
  <div class="global-assistant__box">
   <div class="global-assistant__top">
    <div>
-    <div class="global-assistant__eyebrow">Global Surgery Modifier Assistant</div>
-    <div class="global-assistant__title">Postoperative modifier review</div>
+    <div class="global-assistant__eyebrow" id="globalAssistantEyebrow">Claim Readiness Engine</div>
+    <div class="global-assistant__title" id="globalAssistantTitle">Claim quality review</div>
    </div>
    <button type="button" class="global-assistant__close" onclick="closeGlobalAssistant()">×</button>
   </div>
@@ -1589,6 +1611,10 @@ function setCaseBuilderClinicalContext(target,context={}){
  return true;
 }
 window.setCaseBuilderClinicalContext=setCaseBuilderClinicalContext;
+function getCaseBuilderLineSnapshot(){
+ return caseLines.map(l=>({id:l.id,cpt:l.cpt,kind:l.kind,rank:l.rank,modifiers:[...(l.mods||[])],diagnosisPointers:[...(l.dxPointers||[])]}));
+}
+window.getCaseBuilderLineSnapshot=getCaseBuilderLineSnapshot;
 
 function isEMCode(cpt){const n=Number(cpt);return (n>=99202&&n<=99205)||(n>=99211&&n<=99215)||(n>=99221&&n<=99223)||(n>=99231&&n<=99233)||(n>=99242&&n<=99245)||(n>=99252&&n<=99255)||n===99238||n===99239||n===99291||n===99292}
 function getProductivityMode(){return window.FreeCPTAppMode&&window.FreeCPTAppMode.isAppMode&&window.FreeCPTAppMode.isAppMode()?'app':'physician'}
@@ -2298,9 +2324,143 @@ const RULES={
 function h(value){
  return String(value==null?'':value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
+function setAssistantHeader(eyebrow,title){
+ const e=document.getElementById('globalAssistantEyebrow');
+ const t=document.getElementById('globalAssistantTitle');
+ if(e)e.textContent=eyebrow;
+ if(t)t.textContent=title;
+}
 function getProcedureLines(){return caseLines.filter(l=>l.kind==='proc'&&l.payable!==false)}
 function getGlobalCandidateLines(){return getProcedureLines().filter(l=>!isAddonCode(l.cpt))}
 function setGlobalStep(step){globalAssistantStep=step;renderGlobalAssistant()}
+const CLAIM_RISK_WEIGHTS={High:18,Moderate:10,Low:5,Informational:0};
+const CLAIM_RISK_ORDER={High:0,Moderate:1,Low:2,Informational:3};
+function claimFinding(category,risk,what,why,review,reference,extra={}){
+ return {category,risk,weight:CLAIM_RISK_WEIGHTS[risk]||0,what,why,review,reference,...extra};
+}
+function selectedDiagnosisForLetter(letter){
+ return caseDiagnoses[letter.charCodeAt(0)-65]||null;
+}
+function lineDiagnosisPointers(line){
+ return (line.dxPointers||[]).map(letter=>({letter,diagnosis:selectedDiagnosisForLetter(letter)})).filter(item=>item.diagnosis);
+}
+function hasDocumentationFact(line,key){
+ const ctx=line&&line.clinicalContext||{};
+ return !!(ctx[key]||ctx.documentationComplete&&ctx.documentationComplete[key]||ctx.documentation&&ctx.documentation[key]);
+}
+function documentationCompletenessFindings(line){
+ const findings=[];
+ const code=String(line.cpt||'');
+ const desc=String(line.desc||'').toLowerCase();
+ if(needsInlineLaterality(line)){
+  findings.push(claimFinding('Documentation Completeness','Moderate','Laterality is missing for CPT '+code+'.','Side-specific CPTs and HCPCS laterality modifiers need documentation support so the claim line matches the operative note.','Confirm right, left, bilateral, or midline/inherently bilateral status before final coding.',RULES.MOD_RT_LT,{cpt:code,lineId:line.id}));
+ }
+ if(/^1104[2-7]$/.test(code)&&!hasDocumentationFact(line,'debridementDepth')){
+  findings.push(claimFinding('Documentation Completeness','Moderate','Debridement depth is not documented in the Case Builder context for CPT '+code+'.','Debridement code selection depends on deepest tissue level and whether add-on area codes are supported.','Review the operative note for skin/subcutaneous tissue, muscle/fascia, or bone depth and total surface area.', 'CPT debridement code family documentation requirements',{cpt:code,lineId:line.id}));
+ }
+ if((/^11[46]/.test(code)||/excision|lesion|mass|lipoma|cyst/.test(desc))&&!hasDocumentationFact(line,'excisionSize')){
+  findings.push(claimFinding('Documentation Completeness','Low','Excision size is not documented in the Case Builder context for CPT '+code+'.','Lesion excision families commonly depend on lesion diameter plus margins or specimen size.','Verify documented size, location, benign/malignant status, and closure type before final code selection.','CPT integumentary lesion excision documentation guidance',{cpt:code,lineId:line.id}));
+ }
+ if((line.modifier22Selected||globalModifierState.mod22.selected)&&!hasDocumentationFact(line,'operativeTime')&&!globalModifierState.mod22.justification){
+  findings.push(claimFinding('Documentation Completeness','Moderate','Modifier 22 review is marked but objective operative time/facts are incomplete.','Modifier 22 requires objective documentation of substantially greater work; a claim-quality score should not treat the modifier as complete without support.','Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.','CMS/AMA modifier 22 guidance',{cpt:code,lineId:line.id}));
+ }
+ if((code==='44005'||/adhesiolysis|enterolysis|lysis of adhesions/.test(desc))&&!hasDocumentationFact(line,'adhesiolysisDuration')){
+  findings.push(claimFinding('Documentation Completeness','Low','Adhesiolysis duration is not documented for CPT '+code+'.','Adhesiolysis-heavy cases often require duration and complexity details to support code selection or modifier review.','Review whether the operative note states adhesiolysis time, density, location, and relation to the primary procedure.','CPT enterolysis and modifier 22 documentation guidance',{cpt:code,lineId:line.id}));
+ }
+ if(/mesh/.test(desc)&&/explant|removal|remove/.test(desc)&&!hasDocumentationFact(line,'meshExplantation')){
+  findings.push(claimFinding('Documentation Completeness','Low','Mesh explantation documentation is not marked complete for CPT '+code+'.','Mesh removal can affect code selection and medical-necessity review depending on infection, erosion, recurrence, or reconstruction details.','Confirm explanted mesh type, reason for removal, extent of removal, contamination/infection, and reconstruction performed.','CPT hernia and abdominal wall documentation guidance',{cpt:code,lineId:line.id}));
+ }
+ return findings;
+}
+function evaluateClaimReadiness(){
+ const findings=[];
+ const procLines=caseLines.filter(l=>l.kind==='proc');
+ if(!caseLines.length){
+  findings.push(claimFinding('Claim Construction','High','No CPT lines have been added.','Claim readiness cannot be reviewed without selected services.','Add procedure or E/M lines before final review.','FreeCPTCodeFinder Claim Readiness Engine'));
+ }
+ if(!caseDiagnoses.length&&procLines.length){
+  findings.push(claimFinding('ICD-10','High','No ICD-10 diagnoses are selected.','Most surgical claims require diagnosis support and CMS-1500 pointer mapping from diagnosis to CPT line.','Select billable ICD-10-CM diagnoses supported by the operative documentation.','ICD-10-CM diagnosis reporting and CMS-1500 pointer requirements'));
+ }
+ caseDiagnoses.forEach((dx,i)=>{
+  const letter=diagnosisLetter(i);
+  if(!dx.billable) findings.push(claimFinding('ICD-10','High',displayIcd(dx.code)+' is non-billable.','Non-billable parent diagnoses commonly delay or prevent claim acceptance when a billable child code is required.','Select the most specific billable ICD-10-CM child code supported by documentation.','ICD-10-CM billable specificity rules',{diagnosis:dx.code,pointer:letter}));
+  if(dx.retired) findings.push(claimFinding('ICD-10','High',displayIcd(dx.code)+' is retired or replaced.','Retired ICD-10-CM codes may fail current-year claim edits.','Verify the current ICD-10-CM replacement code before submission.','ICD-10-CM annual code update',{diagnosis:dx.code,pointer:letter}));
+ });
+ const usedLetters=new Set(caseLines.flatMap(l=>l.dxPointers||[]));
+ caseDiagnoses.forEach((dx,i)=>{
+  const letter=diagnosisLetter(i);
+  if(!usedLetters.has(letter))findings.push(claimFinding('Claim Construction','Moderate',displayIcd(dx.code)+' is selected but not linked to any CPT.','Unlinked diagnoses can create a mismatch between the diagnosis list and claim-line pointer fields.','Assign the diagnosis pointer to each CPT it supports or remove it from the case.','CMS-1500 diagnosis pointer mapping',{diagnosis:dx.code,pointer:letter}));
+ });
+ const dxCounts=new Map();
+ caseDiagnoses.forEach(dx=>dxCounts.set(dx.code,(dxCounts.get(dx.code)||0)+1));
+ dxCounts.forEach((count,code)=>{if(count>1)findings.push(claimFinding('Claim Construction','Low',displayIcd(code)+' appears more than once in the diagnosis list.','Duplicate diagnoses can confuse pointer review and claim documentation.','Keep one diagnosis entry and map it to all supported CPT lines.','CMS-1500 diagnosis pointer mapping',{diagnosis:code}))});
+ procLines.forEach(line=>{
+  const pointers=line.dxPointers||[];
+  if(!pointers.length) findings.push(claimFinding('ICD-10','High','CPT '+line.cpt+' has no diagnosis pointer.','A CPT line without a diagnosis pointer may fail claim construction review or require manual correction.','Assign one or more diagnosis pointer letters supported by documentation.','CMS-1500 diagnosis pointer requirements',{cpt:line.cpt,lineId:line.id}));
+  validateDiagnosesForLine(line).forEach(w=>{
+   const risk=/non-billable|retired|No diagnosis/i.test(w)?'High':'Moderate';
+   const category=/common diagnosis set|confirm documentation/i.test(w)?'Medical Necessity':'ICD-10';
+   findings.push(claimFinding(category,risk,w,category==='Medical Necessity'?'The selected diagnosis appears uncommon for the chosen CPT based on this tool\'s clinical indication groups. Medical necessity depends on documentation and payer policy.':'The selected diagnosis may not satisfy claim-quality or ICD-10 specificity checks.','Review the operative indication, diagnosis specificity, and payer policy before final coding.',category==='Medical Necessity'?'FreeCPTCodeFinder clinical indication groups; payer medical policy controls final medical necessity.':'ICD-10-CM validation checks',{cpt:line.cpt,lineId:line.id}));
+  });
+  if(line.payableExcluded){
+   const risk=line.payableExclusionClass==='ncci_hard_stop'?'High':'Moderate';
+   findings.push(claimFinding('NCCI',risk,'CPT '+line.cpt+' is marked bundled or not separately payable.','Bundled or separate-procedure relationships can reduce, delay, or prevent separate reimbursement for the selected line.','Review Column 1/Column 2 relationship, separate-procedure documentation, and whether the selected CPT should remain on the claim.','CMS NCCI PTP edits and CPT separate-procedure rules',{cpt:line.cpt,lineId:line.id}));
+  }
+  (line.modifierDenials||[]).forEach(d=>findings.push(claimFinding('NCCI','High',d.what||('Modifier conflict on CPT '+line.cpt),d.why||'The modifier conflicts with the current NCCI or modifier logic.',d.next||'Review modifier selection and supporting documentation.',RULES.CONFLICT,{cpt:line.cpt,lineId:line.id})));
+  (line.modifierCautions||[]).forEach(d=>findings.push(claimFinding('NCCI','Moderate',d.what||('Modifier documentation caution on CPT '+line.cpt),d.why||'Modifier use is documentation-dependent.',d.next||'Confirm distinct procedural service documentation before final coding.',RULES.MOD_59,{cpt:line.cpt,lineId:line.id})));
+  if(line.globalModifier&&['58','78','79'].includes(String(line.globalModifier))){
+   findings.push(claimFinding('Global Surgery','Low','Modifier '+line.globalModifier+' is marked for CPT '+line.cpt+'.','Postoperative global modifiers are timing- and fact-dependent. Incorrect timing can cause denial or manual review.','Confirm prior CPT, prior surgery date, same surgeon/group, relationship to prior procedure, and OR/procedure-room status.',RULES['MOD_'+line.globalModifier],{cpt:line.cpt,lineId:line.id}));
+  }
+  if(line.modifier22Selected){
+   const analysis=globalModifierState.mod22.analysis;
+   if(!analysis||!globalModifierState.mod22.justification) findings.push(claimFinding('Modifier 22','Moderate','Modifier 22 is selected for CPT '+line.cpt+' but the documentation generator is incomplete.','Modifier 22 usually needs objective facts, not a conclusory statement of complexity.','Complete the Modifier 22 review and preserve objective supporting facts before final coding.',RULES.MOD_22,{cpt:line.cpt,lineId:line.id}));
+   else findings.push(claimFinding('Modifier 22','Low','Modifier 22 review is documented for CPT '+line.cpt+'.','The engine found supporting documentation, but payer acceptance is not guaranteed.','Surgeon/coder should review the generated language and payer policy before submission.',RULES.MOD_22,{cpt:line.cpt,lineId:line.id}));
+  }
+  if(Number(line.sameSessionMpprFactor||1)<1&&!lineIsAddon(line)){
+   findings.push(claimFinding('MPPR','Informational','MPPR reduction applied to CPT '+line.cpt+'.','Secondary procedures in the same facility session commonly receive reduced payment under Medicare MPPR logic; this confirms the calculator applied the reduction.','Verify procedure ranking and whether any service is separately reportable or bundled before final coding.',RULES.MPPR,{cpt:line.cpt,lineId:line.id}));
+  }
+  const ipo=inpatientOnlyInfoForLine(line);
+  if(ipo) findings.push(claimFinding('Inpatient-only','High','CPT '+line.cpt+' is flagged as inpatient-only.','Medicare inpatient-only procedures generally create outpatient reimbursement risk and require status review.','Verify inpatient status, site of service, payer policy, and scheduling/billing workflow before submission.',(ipo.source||'CMS inpatient-only list')+(ipo.effectiveDate?' effective '+ipo.effectiveDate:''),{cpt:line.cpt,lineId:line.id}));
+  (line.medicaidWarnings||[]).forEach(w=>findings.push(claimFinding('Medicaid','Moderate','Medicaid caution for modifier '+w.modifier+' on CPT '+line.cpt+'.','Medicaid and managed-care plans may handle modifiers differently than Medicare or commercial payers.','Confirm state Medicaid and plan-specific policy before submitting.','Medicaid payer-specific policy review; '+(w.sourceNote||'state policy not verified'),{cpt:line.cpt,lineId:line.id})));
+  documentationCompletenessFindings(line).forEach(f=>findings.push(f));
+ });
+ if(payer==='medicaid')findings.push(claimFinding('Medicaid','Low','Medicaid payer mode is selected.','Medicaid modifier and coverage rules vary by state and managed-care plan.','Confirm payer-specific modifier, coverage, and documentation policy before submission.', 'Medicaid payer-specific policy review'));
+ if(globalModifierState.reviewed){
+  if(globalModifierState.inGlobalPeriod&&!(globalModifierState.recommendation&&globalModifierState.recommendation.modifier)){
+   findings.push(claimFinding('Global Surgery','Moderate','Case is in a postoperative global period but no postoperative modifier is recommended from current facts.','Modifier 58, 78, or 79 decisions depend on planned/staged status, related complications, unrelated diagnoses, and timing.','Review the global-period workflow answers and documentation before final coding.',RULES.MOD_58+'; '+RULES.MOD_78+'; '+RULES.MOD_79));
+  }else if(globalModifierState.recommendation&&globalModifierState.recommendation.modifier){
+   findings.push(claimFinding('Global Surgery','Low','Global Surgery workflow recommends review of modifier '+globalModifierState.recommendation.modifier+'.','The recommendation is educational and depends on documented timing and relationship to the prior procedure.','Confirm facts and payer policy before appending modifier '+globalModifierState.recommendation.modifier+'.',RULES['MOD_'+globalModifierState.recommendation.modifier]));
+  }
+ }else if(procLines.some(l=>Number(CPT_GLOBAL_PERIOD_INDEX.get(String(l.cpt))?.global_period_days||0)>=90)){
+  findings.push(claimFinding('Global Surgery','Low','Global Surgery review has not been completed for a major procedure case.','Prior surgery timing can affect modifiers 58, 78, and 79.','Use Review & Finalize Case to document whether this procedure occurred in a postoperative global period.',RULES.MOD_58+'; '+RULES.MOD_78+'; '+RULES.MOD_79));
+ }
+ const pointerUse=new Map();
+ procLines.forEach(line=>(line.dxPointers||[]).forEach(letter=>pointerUse.set(letter,[...(pointerUse.get(letter)||[]),line.cpt])));
+ pointerUse.forEach((cpts,letter)=>{if(cpts.length>1)findings.push(claimFinding('Claim Construction','Informational','Diagnosis pointer '+letter+' is shared across CPTs '+cpts.join(', ')+'.','Shared diagnosis mapping is valid when the diagnosis supports each claim line, but it should be intentional.','Confirm the shared diagnosis supports every linked CPT.', 'CMS-1500 diagnosis pointer mapping',{pointer:letter}))});
+ const penalty=findings.reduce((sum,f)=>sum+(f.weight||0),0);
+ const score=Math.max(0,Math.min(100,100-penalty));
+ const counts={High:0,Moderate:0,Low:0,Informational:0};
+ findings.forEach(f=>{counts[f.risk]=(counts[f.risk]||0)+1});
+ const scoreBand=score>=85?'Low':(score>=70?'Moderate':'High');
+ return {score,scoreBand,counts,findings:findings.sort((a,b)=>(CLAIM_RISK_ORDER[a.risk]??9)-(CLAIM_RISK_ORDER[b.risk]??9)||a.category.localeCompare(b.category)),disclaimer:'Educational claim-quality indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.'};
+}
+function renderClaimFinding(f){
+ return '<div class="claim-finding"><div class="claim-finding__top"><strong>'+h(f.what)+'</strong><span class="claim-risk '+h(f.risk.toLowerCase())+'">'+h(f.risk)+'</span></div><dl><dt>Why</dt><dd>'+h(f.why)+'</dd><dt>Review</dt><dd>'+h(f.review)+'</dd><dt>Reference</dt><dd>'+h(f.reference||'FreeCPTCodeFinder educational coding support')+'</dd></dl></div>';
+}
+function renderClaimReadinessScreen(){
+ const review=evaluateClaimReadiness();
+ const groups={};
+ review.findings.forEach(f=>{groups[f.category]=groups[f.category]||[];groups[f.category].push(f)});
+ const groupHTML=Object.entries(groups).map(([category,items])=>'<div class="claim-finding-group"><h4>'+h(category)+'</h4>'+items.map(renderClaimFinding).join('')+'</div>').join('');
+ return '<div class="global-step"><div class="claim-readiness-head"><div class="claim-score"><div><strong>'+review.score+'</strong><span>Readiness</span></div></div><div><div class="global-question">Claim Readiness Score: '+h(review.scoreBand)+' risk</div><div class="claim-readiness-note">'+h(review.disclaimer)+'</div><div class="claim-risk-grid"><div class="claim-risk-pill"><strong>'+review.counts.High+'</strong>High</div><div class="claim-risk-pill"><strong>'+review.counts.Moderate+'</strong>Moderate</div><div class="claim-risk-pill"><strong>'+review.counts.Low+'</strong>Low</div><div class="claim-risk-pill"><strong>'+review.counts.Informational+'</strong>Informational</div></div></div></div>'+(groupHTML||'<div class="claim-empty">No claim-readiness issues detected by the Phase 1 rules. Continue coder and payer-policy review before submission.</div>')+'<div class="global-actions"><button class="global-secondary" onclick="setGlobalStep(\'screen\')">Global Surgery Review</button><button class="global-secondary" onclick="setGlobalStep(\'mod22\')">Modifier 22 Review</button><button class="global-action" onclick="openAuditReport()">Audit report</button><button class="global-action" onclick="exportAuditJSON()">Export JSON</button><button class="global-secondary" onclick="closeGlobalAssistant()">Done</button></div></div>';
+}
+function openClaimReadiness(){
+ if(!caseLines.length){alert('Add procedures to the case first.');return}
+ globalAssistantStep='claim-readiness';
+ document.getElementById('globalAssistant').classList.add('open');
+ document.getElementById('globalAssistant').setAttribute('aria-hidden','false');
+ renderGlobalAssistant();
+}
 function openGlobalAssistant(){
  if(!caseLines.length){alert('Add procedures to the case first.');return}
  document.getElementById('globalAssistant').classList.add('open');
@@ -2495,6 +2655,12 @@ function renderMod22Result(analysis,impact){
 function renderGlobalAssistant(){
  const el=document.getElementById('globalAssistantContent');
  if(!el)return;
+ if(globalAssistantStep==='claim-readiness'){
+  setAssistantHeader('Claim Readiness Engine','Claim quality review');
+  el.innerHTML=renderClaimReadinessScreen();
+  return;
+ }
+ setAssistantHeader('Global Surgery Modifier Assistant','Postoperative modifier review');
  if(globalAssistantStep==='screen'){
   el.innerHTML='<div class="global-step"><div class="global-question">Did this operation occur during the postoperative global period of a previous surgery?</div><div class="global-choice-row"><button class="global-choice" onclick="setGlobalPeriodAnswer(\'no\')"><strong>No</strong><span>Continue normal case-builder logic.</span></button><button class="global-choice" onclick="setGlobalPeriodAnswer(\'yes\')"><strong>Yes</strong><span>Launch CMS global modifier workflow.</span></button></div>'+renderEducationCards()+'</div>';
   return;
@@ -2581,6 +2747,8 @@ function openAuditReport(){
  const medicaidReportBlock=payer==='medicaid'?'<h2>Medicaid modifier review</h2><div class="rank-reason"><strong>Warning:</strong> '+h(medicaidCaseWarningText())+'</div>':'';
  const diagnosisReportBlock='<h2>Selected ICD-10 diagnoses</h2>'+(caseDiagnoses.length?caseDiagnoses.map((d,i)=>'<div class="rationale-item"><div class="rationale-mod">'+diagnosisLetter(i)+' · '+h(displayIcd(d.code))+'</div><div class="rationale-text">'+h(d.description)+'</div><div class="rationale-cite">'+(d.billable?'Billable':'Non-billable')+' · Effective '+h(d.effectiveDate||ICD10_DATASET_META.effectiveDate)+' · '+h(ICD10_DATASET_META.version)+'</div></div>').join(''):'<div class="rank-reason"><strong>Missing diagnoses:</strong> No ICD-10 diagnoses selected.</div>')+'<h2>CMS-1500 diagnosis pointer map</h2>'+(diagnosisPointerMap().length?diagnosisPointerMap().map(row=>'<div class="rationale-item"><div class="rationale-mod">CPT '+h(row.cpt)+'</div><div class="rationale-text">'+h(row.cpt+' → '+(row.pointerString||'none'))+'</div><div class="rationale-cite">Future CMS-1500 export pointer string: '+h(row.pointerString||'blank')+'</div></div>').join(''):'<div class="rank-reason"><strong>No CPT lines:</strong> No diagnosis pointer map available.</div>');
  const ipoReportBlock=inpatientOnlyCaseLines().length?'<h2>Inpatient-only compliance</h2><div class="rank-reason"><strong>Warning:</strong> '+h(inpatientOnlyWarningText())+'</div>':'';
+ const claimReadiness=evaluateClaimReadiness();
+ const claimReadinessReportBlock='<h2>Claim Readiness Review</h2><div class="rank-reason"><strong>Overall Claim Readiness Score:</strong> '+claimReadiness.score+'/100 · '+h(claimReadiness.scoreBand)+' risk<br><strong>Educational indicator only:</strong> '+h(claimReadiness.disclaimer)+'</div>'+(claimReadiness.findings.length?claimReadiness.findings.map(f=>'<div class="rationale-item"><div class="rationale-mod">'+h(f.risk+' · '+f.category)+'</div><div class="rationale-text"><strong>Detected:</strong> '+h(f.what)+'<br><strong>Why it matters:</strong> '+h(f.why)+'<br><strong>Review:</strong> '+h(f.review)+'</div><div class="rationale-cite">'+h(f.reference||'FreeCPTCodeFinder Claim Readiness Engine')+'</div></div>').join(''):'<div class="rank-reason"><strong>No readiness issues detected:</strong> Phase 1 rules did not detect claim-quality warnings. Coder and payer-policy review still required.</div>');
 
  const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
 <style>
@@ -2653,6 +2821,7 @@ ${globalReportBlock}
 ${medicaidReportBlock}
 ${diagnosisReportBlock}
 ${ipoReportBlock}
+${claimReadinessReportBlock}
 
 <h2>Line items with coding rationale</h2>
 <table>
@@ -2692,6 +2861,7 @@ ${rows}
 function exportAuditJSON(){
  if(!caseLines.length){alert('Add procedures to the case first.');return}
  const now=new Date();
+ const claimReadiness=evaluateClaimReadiness();
  const report={
   caseId:'CASE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase(),
   generatedAt:now.toISOString(),
@@ -2720,6 +2890,13 @@ function exportAuditJSON(){
   diagnosisPointerMap:diagnosisPointerMap(),
   futureCms1500DiagnosisPointers:diagnosisPointerMap().map(row=>({cpt:row.cpt,diagnosisPointerField:row.pointerString})),
   inpatientOnlyWarnings:inpatientOnlyCaseLines().map(l=>({cpt:l.cpt,warning:inpatientOnlyWarningText(),info:inpatientOnlyInfoForLine(l)})),
+  claimReadiness:{
+   score:claimReadiness.score,
+   scoreBand:claimReadiness.scoreBand,
+   riskCounts:claimReadiness.counts,
+   disclaimer:claimReadiness.disclaimer,
+   findings:claimReadiness.findings
+  },
   totals:{
    selectedWrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
    payableWrvu:+(caseLines.reduce((s,l)=>s+Number(l.payableWrvu||0),0).toFixed(2)),

@@ -1,0 +1,320 @@
+{
+  "caseId": "CASE-20260702-ZYU6",
+  "generatedAt": "2026-07-02T17:16:01.470Z",
+  "conversionFactor": 33.4009,
+  "cmsQuarter": "2026",
+  "paymentFormula": "Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.",
+  "payer": "medicare",
+  "setting": "facility",
+  "medicaidReview": null,
+  "diagnosisDataset": {
+    "version": "FY2026",
+    "effectiveDate": "2025-10-01",
+    "source": "CMS 2026 Code Descriptions in Tabular Order"
+  },
+  "inpatientOnlyDataset": {
+    "version": "CY2026",
+    "effectiveDate": "2026-01-01",
+    "source": "CY2026 OPPS Addendum E"
+  },
+  "diagnoses": [
+    {
+      "pointer": "A",
+      "code": "S22.31XA",
+      "rawCode": "S2231XA",
+      "description": "Fracture of one rib, right side, initial encounter for closed fracture",
+      "billable": true,
+      "parent": "S2231",
+      "effectiveDate": "2025-10-01",
+      "retired": false,
+      "replacedBy": null
+    },
+    {
+      "pointer": "B",
+      "code": "S22.41XA",
+      "rawCode": "S2241XA",
+      "description": "Multiple fractures of ribs, right side, initial encounter for closed fracture",
+      "billable": true,
+      "parent": "S2241",
+      "effectiveDate": "2025-10-01",
+      "retired": false,
+      "replacedBy": null
+    },
+    {
+      "pointer": "C",
+      "code": "S22.5XXA",
+      "rawCode": "S225XXA",
+      "description": "Flail chest, initial encounter for closed fracture",
+      "billable": true,
+      "parent": "S225",
+      "effectiveDate": "2025-10-01",
+      "retired": false,
+      "replacedBy": null
+    }
+  ],
+  "diagnosisPointerMap": [
+    {
+      "cpt": "21813",
+      "pointers": [
+        "A"
+      ],
+      "pointerString": "A"
+    },
+    {
+      "cpt": "21812",
+      "pointers": [
+        "B"
+      ],
+      "pointerString": "B"
+    },
+    {
+      "cpt": "21811",
+      "pointers": [
+        "C"
+      ],
+      "pointerString": "C"
+    }
+  ],
+  "futureCms1500DiagnosisPointers": [
+    {
+      "cpt": "21813",
+      "diagnosisPointerField": "A"
+    },
+    {
+      "cpt": "21812",
+      "diagnosisPointerField": "B"
+    },
+    {
+      "cpt": "21811",
+      "diagnosisPointerField": "C"
+    }
+  ],
+  "inpatientOnlyWarnings": [],
+  "claimReadiness": {
+    "score": 100,
+    "scoreBand": "Low",
+    "riskCounts": {
+      "High": 0,
+      "Moderate": 0,
+      "Low": 0,
+      "Informational": 1
+    },
+    "disclaimer": "Educational claim-quality indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.",
+    "findings": [
+      {
+        "category": "MPPR",
+        "risk": "Informational",
+        "weight": 0,
+        "what": "MPPR reduction applied to CPT 21811.",
+        "why": "Secondary procedures in the same facility session commonly receive reduced payment under Medicare MPPR logic; this confirms the calculator applied the reduction.",
+        "review": "Verify procedure ranking and whether any service is separately reportable or bundled before final coding.",
+        "reference": "CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting",
+        "cpt": "21811",
+        "lineId": 1
+      }
+    ]
+  },
+  "totals": {
+    "selectedWrvu": 40.37,
+    "payableWrvu": 35.11,
+    "wrvu": 35.11,
+    "payment": 1501.21,
+    "lines": 3,
+    "procedures": 3,
+    "em": 0
+  },
+  "globalReview": {
+    "reviewed": true,
+    "inGlobalPeriod": false,
+    "globalStatus": null,
+    "previousOperation": {
+      "code": "",
+      "date": "",
+      "currentDate": "2026-07-02",
+      "surgeon": "",
+      "sameSurgeon": "yes",
+      "sameGroup": "yes"
+    },
+    "answers": {
+      "inGlobalPeriod": false
+    },
+    "recommendation": {
+      "inGlobalPeriod": false,
+      "modifier": null,
+      "confidence": "High",
+      "facts": [],
+      "educationalGuidance": [
+        "Standard Case Builder NCCI, MPPR, and multiple-procedure logic still applies."
+      ],
+      "documentationGaps": [],
+      "label": "No postoperative global modifier to consider",
+      "explanation": "Case continues through standard NCCI, MPPR, and multiple-procedure logic."
+    },
+    "selectedModifier": "",
+    "modifier22": {
+      "selected": false,
+      "targetLineId": null,
+      "analysis": null,
+      "justification": ""
+    }
+  },
+  "lines": [
+    {
+      "order": 1,
+      "cpt": "21813",
+      "description": "Open treatment of rib fracture(s) with internal fixation, 7 or more ribs",
+      "rank": "Primary",
+      "rankReason": "Highest wRVU (17.17). Billed 100%.",
+      "modifiers": [
+        "LT"
+      ],
+      "baseWrvu": 17.17,
+      "effectiveWrvu": 17.17,
+      "totalRvu": 0,
+      "baseMedicarePayment": 573.49,
+      "paymentSource": "cpt_database.json",
+      "payable": true,
+      "payableWrvu": 17.17,
+      "payableExclusionReason": null,
+      "payableExclusionEdit": null,
+      "globalModifier": null,
+      "modifier22Selected": false,
+      "medicaidWarnings": [],
+      "diagnosisPointers": [
+        "A"
+      ],
+      "diagnosisValidationWarnings": [],
+      "inpatientOnly": false,
+      "inpatientOnlyInfo": null,
+      "suppressedBy": null,
+      "bundleRule": null,
+      "payment": 573.49,
+      "rationale": [
+        {
+          "mod": "Rank",
+          "reason": "Primary procedure — no MPPR reduction.",
+          "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+        },
+        {
+          "mod": "LT",
+          "reason": "Left-side anatomic modifier appended for unilateral or side-specific procedure.",
+          "cite": "HCPCS Level II — anatomic laterality modifiers"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "cpt": "21812",
+      "description": "Open treatment of rib fracture(s), each additional 3 ribs (add-on)",
+      "rank": "Add-on",
+      "rankReason": "Add-on code reported with primary 21813; physician work RVU counted at 100%.",
+      "modifiers": [
+        "RT"
+      ],
+      "baseWrvu": 12.68,
+      "effectiveWrvu": 12.68,
+      "totalRvu": 19.62,
+      "baseMedicarePayment": 655.33,
+      "paymentSource": "cpt_database.json",
+      "payable": true,
+      "payableWrvu": 12.68,
+      "payableExclusionReason": null,
+      "payableExclusionEdit": null,
+      "globalModifier": null,
+      "modifier22Selected": false,
+      "medicaidWarnings": [],
+      "diagnosisPointers": [
+        "B"
+      ],
+      "diagnosisValidationWarnings": [],
+      "inpatientOnly": false,
+      "inpatientOnlyInfo": null,
+      "suppressedBy": null,
+      "bundleRule": null,
+      "payment": 655.33,
+      "rationale": [
+        {
+          "mod": "RT",
+          "reason": "Right-side anatomic modifier appended for unilateral or side-specific procedure.",
+          "cite": "HCPCS Level II — anatomic laterality modifiers"
+        },
+        {
+          "mod": "Rank",
+          "reason": "Add-on code - full physician work RVU, no MPPR reduction. Repeated add-on units do not require modifier 59 or X-modifiers solely because the add-on code is reported more than once.",
+          "cite": "CMS Physician Fee Schedule add-on code logic"
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "cpt": "21811",
+      "description": "Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs",
+      "rank": "Secondary #2",
+      "rankReason": "Secondary procedure, ranked below primary 21813.",
+      "modifiers": [
+        "RT"
+      ],
+      "baseWrvu": 10.52,
+      "effectiveWrvu": 10.52,
+      "totalRvu": 16.31,
+      "baseMedicarePayment": 544.77,
+      "paymentSource": "cpt_database.json",
+      "payable": true,
+      "payableWrvu": 5.26,
+      "payableExclusionReason": null,
+      "payableExclusionEdit": null,
+      "globalModifier": null,
+      "modifier22Selected": false,
+      "medicaidWarnings": [],
+      "diagnosisPointers": [
+        "C"
+      ],
+      "diagnosisValidationWarnings": [],
+      "inpatientOnly": false,
+      "inpatientOnlyInfo": null,
+      "suppressedBy": null,
+      "bundleRule": null,
+      "payment": 272.38,
+      "rationale": [
+        {
+          "mod": "RT",
+          "reason": "Right-side anatomic modifier appended for unilateral or side-specific procedure.",
+          "cite": "HCPCS Level II — anatomic laterality modifiers"
+        },
+        {
+          "mod": "Rank",
+          "reason": "Medicare MPPR applied automatically; -51 omitted.",
+          "cite": "CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting"
+        },
+        {
+          "mod": "—",
+          "reason": "No distinct-service modifier applied. If this procedure is on a separate site or encounter from the primary, coder should review and add -59, -XS, -XE, -XP, or -XU via the line editor.",
+          "cite": "CMS NCCI Policy Manual Ch. 1 §E — modifier 59 indicates distinct procedural service when procedures would otherwise be bundled"
+        }
+      ]
+    }
+  ],
+  "activityLog": [
+    "[1:16:00 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[1:16:00 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[1:16:01 PM] ADD 21811 \"Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\" [RT] wRVU=10.52",
+    "[1:16:01 PM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[1:16:01 PM] TOTALS wRVU=10.52 pay=$544.77 (procedure added)",
+    "[1:16:01 PM] ADD 21812 \"Open treatment of rib fracture(s), each additional 3 ribs (add-on)\" [RT] wRVU=12.68",
+    "[1:16:01 PM] RECALC primary=21812 · 2 proc + 0 E/M · medicare · state=BLOCKED",
+    "[1:16:01 PM] TOTALS wRVU=17.94 pay=$927.72 (procedure added)",
+    "[1:16:01 PM] ADD 21813 \"Open treatment of rib fracture(s) with internal fixation, 7 or more ribs\" [LT] wRVU=17.17",
+    "[1:16:01 PM] RECALC primary=21813 · 3 proc + 0 E/M · medicare · state=CLEAN",
+    "[1:16:01 PM] TOTALS wRVU=35.11 pay=$1,501.21 (procedure added)",
+    "[1:16:01 PM] RECALC primary=21813 · 3 proc + 0 E/M · medicare · state=CLEAN",
+    "[1:16:01 PM] TOTALS wRVU=35.11 pay=$1,501.21 (diagnosis selected)",
+    "[1:16:01 PM] RECALC primary=21813 · 3 proc + 0 E/M · medicare · state=CLEAN",
+    "[1:16:01 PM] TOTALS wRVU=35.11 pay=$1,501.21 (diagnosis selected)",
+    "[1:16:01 PM] RECALC primary=21813 · 3 proc + 0 E/M · medicare · state=CLEAN",
+    "[1:16:01 PM] TOTALS wRVU=35.11 pay=$1,501.21 (diagnosis selected)",
+    "[1:16:01 PM] RECALC primary=21813 · 3 proc + 0 E/M · medicare · state=CLEAN",
+    "[1:16:01 PM] TOTALS wRVU=35.11 pay=$1,501.21 (global period reviewed: no)",
+    "[1:16:01 PM] AUDIT REPORT generated · CASE-20260702-EHAG"
+  ],
+  "disclaimer": "Automated coding support. Requires coder review prior to claim submission. CPT © AMA."
+}
