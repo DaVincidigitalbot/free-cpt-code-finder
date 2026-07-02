@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-07-02T21:47:14.009Z",
+  "totalCases": 10,
+  "results": [
+    {
+      "name": "Button label",
+      "status": "pass"
+    },
+    {
+      "name": "Animated review sequence",
+      "status": "pass"
+    },
+    {
+      "name": "Dashboard copy",
+      "status": "pass"
+    },
+    {
+      "name": "Desktop artifacts",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile artifacts",
+      "status": "pass"
+    },
+    {
+      "name": "Dark/light artifacts",
+      "status": "pass"
+    },
+    {
+      "name": "Audit report",
+      "status": "pass"
+    },
+    {
+      "name": "JSON export",
+      "status": "pass"
+    },
+    {
+      "name": "Accessibility smoke",
+      "status": "pass"
+    },
+    {
+      "name": "No predictive language",
+      "status": "pass"
+    }
+  ],
+  "coverage": [
+    "desktop",
+    "mobile",
+    "light theme",
+    "dark theme",
+    "accessibility smoke",
+    "audit report",
+    "JSON export"
+  ],
+  "productionReadinessRecommendation": "Ready for review branch QA. Do not deploy until reviewed and approved."
+}

@@ -1,0 +1,657 @@
+{
+  "caseId": "CASE-20260702-CH4C",
+  "generatedAt": "2026-07-02T21:45:59.398Z",
+  "conversionFactor": 33.4009,
+  "cmsQuarter": "2026",
+  "paymentFormula": "Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.",
+  "payer": "medicare",
+  "setting": "facility",
+  "medicaidReview": null,
+  "diagnosisDataset": {
+    "version": "FY2026",
+    "effectiveDate": "2025-10-01",
+    "source": "CMS 2026 Code Descriptions in Tabular Order"
+  },
+  "inpatientOnlyDataset": {
+    "version": "CY2026",
+    "effectiveDate": "2026-01-01",
+    "source": "CY2026 OPPS Addendum E"
+  },
+  "diagnoses": [
+    {
+      "pointer": "A",
+      "code": "C50.911",
+      "rawCode": "C50911",
+      "description": "Malignant neoplasm of unspecified site of right female breast",
+      "billable": true,
+      "parent": "C5091",
+      "effectiveDate": "2025-10-01",
+      "retired": false,
+      "replacedBy": null
+    }
+  ],
+  "diagnosisPointerMap": [
+    {
+      "cpt": "19303",
+      "pointers": [],
+      "pointerString": ""
+    }
+  ],
+  "futureCms1500DiagnosisPointers": [
+    {
+      "cpt": "19303",
+      "diagnosisPointerField": ""
+    }
+  ],
+  "inpatientOnlyWarnings": [],
+  "claimIQ": {
+    "label": "ClaimIQ™",
+    "score": 24,
+    "qualityLevel": "High",
+    "startingScore": 100,
+    "totalDeduction": 76,
+    "scoreFormula": "100 - sum(weighted quality findings)",
+    "scoreBreakdown": [
+      {
+        "finding": "CPT 19303 has no diagnosis pointer.",
+        "category": "Coding",
+        "risk": "High",
+        "deduction": 18,
+        "explanation": "-18 points for High Coding finding"
+      },
+      {
+        "finding": "No diagnosis selected for CPT 19303.",
+        "category": "Coding",
+        "risk": "High",
+        "deduction": 18,
+        "explanation": "-18 points for High Coding finding"
+      },
+      {
+        "finding": "C50.911 is selected but not linked to any CPT.",
+        "category": "Coding",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Coding finding"
+      },
+      {
+        "finding": "Modifier 22 is selected for CPT 19303 but the documentation generator is incomplete.",
+        "category": "Documentation",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Documentation finding"
+      },
+      {
+        "finding": "Laterality is missing for CPT 19303.",
+        "category": "Documentation",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Documentation finding"
+      },
+      {
+        "finding": "Modifier 22 review is marked but objective operative time/facts are incomplete.",
+        "category": "Documentation",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Documentation finding"
+      }
+    ],
+    "riskCounts": {
+      "High": 2,
+      "Moderate": 4,
+      "Low": 0,
+      "Informational": 0
+    },
+    "potentialImprovementActions": [
+      "Add diagnosis",
+      "Add diagnosis pointer",
+      "Review Modifier 22 documentation",
+      "Review laterality",
+      "Document adhesiolysis duration"
+    ],
+    "finalClaimSummary": {
+      "cptCodes": [
+        "19303"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "C50.911",
+          "description": "Malignant neoplasm of unspecified site of right female breast"
+        }
+      ],
+      "diagnosisPointers": [
+        {
+          "cpt": "19303",
+          "pointers": [],
+          "pointerString": ""
+        }
+      ],
+      "selectedModifiers": [
+        {
+          "cpt": "19303",
+          "modifiers": [
+            "22"
+          ]
+        }
+      ],
+      "findingsByRisk": {
+        "High": 2,
+        "Moderate": 4,
+        "Low": 0
+      },
+      "score": 24,
+      "qualityLevel": "High",
+      "suggestedReviewPriorities": [
+        "Resolve high-risk ClaimIQ™ findings first.",
+        "Confirm ICD-10 diagnoses and CMS-1500 pointer mapping.",
+        "Complete documentation elements before final coding review."
+      ]
+    },
+    "tagline": "An intelligent educational review of your surgical claim before submission.",
+    "disclaimer": "ClaimIQ™ is an educational claim review indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.",
+    "findings": [
+      {
+        "category": "Coding",
+        "sourceCategory": "ICD-10",
+        "risk": "High",
+        "weight": 18,
+        "deduction": 18,
+        "qualityScoreImpact": "-18 points",
+        "what": "CPT 19303 has no diagnosis pointer.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "A CPT line without a diagnosis pointer may fail claim construction review or require manual correction.",
+        "review": "Assign one or more diagnosis pointer letters supported by documentation.",
+        "suggestedReview": "Assign one or more diagnosis pointer letters supported by documentation.",
+        "reference": "CMS-1500 diagnosis pointer requirements",
+        "improvementActions": [
+          "Add diagnosis",
+          "Add diagnosis pointer"
+        ],
+        "potentialConsequences": [
+          "May result in claim rejection, line-item denial, or manual payer review."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Coding",
+        "sourceCategory": "ICD-10",
+        "risk": "High",
+        "weight": 18,
+        "deduction": 18,
+        "qualityScoreImpact": "-18 points",
+        "what": "No diagnosis selected for CPT 19303.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "The selected diagnosis may not satisfy ClaimIQ™ or ICD-10 specificity checks.",
+        "review": "Review the operative indication, diagnosis specificity, and payer policy before final coding.",
+        "suggestedReview": "Review the operative indication, diagnosis specificity, and payer policy before final coding.",
+        "reference": "ICD-10-CM validation checks",
+        "improvementActions": [
+          "Add diagnosis"
+        ],
+        "potentialConsequences": [
+          "May result in delayed reimbursement or manual payer review if not reviewed."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Coding",
+        "sourceCategory": "Claim Construction",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "C50.911 is selected but not linked to any CPT.",
+        "evidence": [
+          "ICD-10 C50.911",
+          "Diagnosis pointer A"
+        ],
+        "why": "Unlinked diagnoses can create a mismatch between the diagnosis list and claim-line pointer fields.",
+        "review": "Assign the diagnosis pointer to each CPT it supports or remove it from the case.",
+        "suggestedReview": "Assign the diagnosis pointer to each CPT it supports or remove it from the case.",
+        "reference": "CMS-1500 diagnosis pointer mapping",
+        "improvementActions": [
+          "Add diagnosis pointer"
+        ],
+        "potentialConsequences": [
+          "May result in claim rejection, line-item denial, or manual payer review."
+        ],
+        "diagnosis": "C50911",
+        "pointer": "A"
+      },
+      {
+        "category": "Documentation",
+        "sourceCategory": "Modifier 22",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "Modifier 22 is selected for CPT 19303 but the documentation generator is incomplete.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "Modifier 22 usually needs objective facts, not a conclusory statement of complexity.",
+        "review": "Complete the Modifier 22 review and preserve objective supporting facts before final coding.",
+        "suggestedReview": "Complete the Modifier 22 review and preserve objective supporting facts before final coding.",
+        "reference": "CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed",
+        "improvementActions": [
+          "Review Modifier 22 documentation"
+        ],
+        "potentialConsequences": [
+          "Could lead to downcoding risk, additional documentation request, or manual payer review."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Documentation",
+        "sourceCategory": "Documentation Completeness",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "Laterality is missing for CPT 19303.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "Side-specific CPTs and HCPCS laterality modifiers need documentation support so the claim line matches the operative note.",
+        "review": "Confirm right, left, bilateral, or midline/inherently bilateral status before final coding.",
+        "suggestedReview": "Confirm right, left, bilateral, or midline/inherently bilateral status before final coding.",
+        "reference": "HCPCS Level II — anatomic laterality modifiers",
+        "improvementActions": [
+          "Review laterality"
+        ],
+        "potentialConsequences": [
+          "May result in claim rejection, line-item denial, or additional documentation request."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Documentation",
+        "sourceCategory": "Documentation Completeness",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "Modifier 22 review is marked but objective operative time/facts are incomplete.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "Modifier 22 requires objective documentation of substantially greater work; ClaimIQ™ should not treat the modifier as complete without support.",
+        "review": "Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.",
+        "suggestedReview": "Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.",
+        "reference": "CMS/AMA modifier 22 guidance",
+        "improvementActions": [
+          "Review Modifier 22 documentation",
+          "Document adhesiolysis duration"
+        ],
+        "potentialConsequences": [
+          "Could lead to downcoding risk, additional documentation request, or manual payer review."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      }
+    ]
+  },
+  "claimQualityReview": {
+    "label": "ClaimIQ™",
+    "score": 24,
+    "qualityLevel": "High",
+    "startingScore": 100,
+    "totalDeduction": 76,
+    "scoreFormula": "100 - sum(weighted quality findings)",
+    "scoreBreakdown": [
+      {
+        "finding": "CPT 19303 has no diagnosis pointer.",
+        "category": "Coding",
+        "risk": "High",
+        "deduction": 18,
+        "explanation": "-18 points for High Coding finding"
+      },
+      {
+        "finding": "No diagnosis selected for CPT 19303.",
+        "category": "Coding",
+        "risk": "High",
+        "deduction": 18,
+        "explanation": "-18 points for High Coding finding"
+      },
+      {
+        "finding": "C50.911 is selected but not linked to any CPT.",
+        "category": "Coding",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Coding finding"
+      },
+      {
+        "finding": "Modifier 22 is selected for CPT 19303 but the documentation generator is incomplete.",
+        "category": "Documentation",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Documentation finding"
+      },
+      {
+        "finding": "Laterality is missing for CPT 19303.",
+        "category": "Documentation",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Documentation finding"
+      },
+      {
+        "finding": "Modifier 22 review is marked but objective operative time/facts are incomplete.",
+        "category": "Documentation",
+        "risk": "Moderate",
+        "deduction": 10,
+        "explanation": "-10 points for Moderate Documentation finding"
+      }
+    ],
+    "riskCounts": {
+      "High": 2,
+      "Moderate": 4,
+      "Low": 0,
+      "Informational": 0
+    },
+    "potentialImprovementActions": [
+      "Add diagnosis",
+      "Add diagnosis pointer",
+      "Review Modifier 22 documentation",
+      "Review laterality",
+      "Document adhesiolysis duration"
+    ],
+    "finalClaimSummary": {
+      "cptCodes": [
+        "19303"
+      ],
+      "diagnoses": [
+        {
+          "pointer": "A",
+          "code": "C50.911",
+          "description": "Malignant neoplasm of unspecified site of right female breast"
+        }
+      ],
+      "diagnosisPointers": [
+        {
+          "cpt": "19303",
+          "pointers": [],
+          "pointerString": ""
+        }
+      ],
+      "selectedModifiers": [
+        {
+          "cpt": "19303",
+          "modifiers": [
+            "22"
+          ]
+        }
+      ],
+      "findingsByRisk": {
+        "High": 2,
+        "Moderate": 4,
+        "Low": 0
+      },
+      "score": 24,
+      "qualityLevel": "High",
+      "suggestedReviewPriorities": [
+        "Resolve high-risk ClaimIQ™ findings first.",
+        "Confirm ICD-10 diagnoses and CMS-1500 pointer mapping.",
+        "Complete documentation elements before final coding review."
+      ]
+    },
+    "tagline": "An intelligent educational review of your surgical claim before submission.",
+    "disclaimer": "ClaimIQ™ is an educational claim review indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.",
+    "findings": [
+      {
+        "category": "Coding",
+        "sourceCategory": "ICD-10",
+        "risk": "High",
+        "weight": 18,
+        "deduction": 18,
+        "qualityScoreImpact": "-18 points",
+        "what": "CPT 19303 has no diagnosis pointer.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "A CPT line without a diagnosis pointer may fail claim construction review or require manual correction.",
+        "review": "Assign one or more diagnosis pointer letters supported by documentation.",
+        "suggestedReview": "Assign one or more diagnosis pointer letters supported by documentation.",
+        "reference": "CMS-1500 diagnosis pointer requirements",
+        "improvementActions": [
+          "Add diagnosis",
+          "Add diagnosis pointer"
+        ],
+        "potentialConsequences": [
+          "May result in claim rejection, line-item denial, or manual payer review."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Coding",
+        "sourceCategory": "ICD-10",
+        "risk": "High",
+        "weight": 18,
+        "deduction": 18,
+        "qualityScoreImpact": "-18 points",
+        "what": "No diagnosis selected for CPT 19303.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "The selected diagnosis may not satisfy ClaimIQ™ or ICD-10 specificity checks.",
+        "review": "Review the operative indication, diagnosis specificity, and payer policy before final coding.",
+        "suggestedReview": "Review the operative indication, diagnosis specificity, and payer policy before final coding.",
+        "reference": "ICD-10-CM validation checks",
+        "improvementActions": [
+          "Add diagnosis"
+        ],
+        "potentialConsequences": [
+          "May result in delayed reimbursement or manual payer review if not reviewed."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Coding",
+        "sourceCategory": "Claim Construction",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "C50.911 is selected but not linked to any CPT.",
+        "evidence": [
+          "ICD-10 C50.911",
+          "Diagnosis pointer A"
+        ],
+        "why": "Unlinked diagnoses can create a mismatch between the diagnosis list and claim-line pointer fields.",
+        "review": "Assign the diagnosis pointer to each CPT it supports or remove it from the case.",
+        "suggestedReview": "Assign the diagnosis pointer to each CPT it supports or remove it from the case.",
+        "reference": "CMS-1500 diagnosis pointer mapping",
+        "improvementActions": [
+          "Add diagnosis pointer"
+        ],
+        "potentialConsequences": [
+          "May result in claim rejection, line-item denial, or manual payer review."
+        ],
+        "diagnosis": "C50911",
+        "pointer": "A"
+      },
+      {
+        "category": "Documentation",
+        "sourceCategory": "Modifier 22",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "Modifier 22 is selected for CPT 19303 but the documentation generator is incomplete.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "Modifier 22 usually needs objective facts, not a conclusory statement of complexity.",
+        "review": "Complete the Modifier 22 review and preserve objective supporting facts before final coding.",
+        "suggestedReview": "Complete the Modifier 22 review and preserve objective supporting facts before final coding.",
+        "reference": "CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed",
+        "improvementActions": [
+          "Review Modifier 22 documentation"
+        ],
+        "potentialConsequences": [
+          "Could lead to downcoding risk, additional documentation request, or manual payer review."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Documentation",
+        "sourceCategory": "Documentation Completeness",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "Laterality is missing for CPT 19303.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "Side-specific CPTs and HCPCS laterality modifiers need documentation support so the claim line matches the operative note.",
+        "review": "Confirm right, left, bilateral, or midline/inherently bilateral status before final coding.",
+        "suggestedReview": "Confirm right, left, bilateral, or midline/inherently bilateral status before final coding.",
+        "reference": "HCPCS Level II — anatomic laterality modifiers",
+        "improvementActions": [
+          "Review laterality"
+        ],
+        "potentialConsequences": [
+          "May result in claim rejection, line-item denial, or additional documentation request."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      },
+      {
+        "category": "Documentation",
+        "sourceCategory": "Documentation Completeness",
+        "risk": "Moderate",
+        "weight": 10,
+        "deduction": 10,
+        "qualityScoreImpact": "-10 points",
+        "what": "Modifier 22 review is marked but objective operative time/facts are incomplete.",
+        "evidence": [
+          "CPT 19303",
+          "Case line 1"
+        ],
+        "why": "Modifier 22 requires objective documentation of substantially greater work; ClaimIQ™ should not treat the modifier as complete without support.",
+        "review": "Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.",
+        "suggestedReview": "Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.",
+        "reference": "CMS/AMA modifier 22 guidance",
+        "improvementActions": [
+          "Review Modifier 22 documentation",
+          "Document adhesiolysis duration"
+        ],
+        "potentialConsequences": [
+          "Could lead to downcoding risk, additional documentation request, or manual payer review."
+        ],
+        "cpt": "19303",
+        "lineId": 1
+      }
+    ]
+  },
+  "totals": {
+    "selectedWrvu": 10,
+    "payableWrvu": 10,
+    "wrvu": 10,
+    "payment": 334.01,
+    "lines": 1,
+    "procedures": 1,
+    "em": 0
+  },
+  "globalReview": {
+    "reviewed": false,
+    "inGlobalPeriod": null,
+    "globalStatus": null,
+    "previousOperation": {
+      "code": "",
+      "date": "",
+      "currentDate": "2026-07-02",
+      "surgeon": "",
+      "sameSurgeon": "yes",
+      "sameGroup": "yes"
+    },
+    "answers": {},
+    "recommendation": null,
+    "selectedModifier": "",
+    "modifier22": {
+      "selected": true,
+      "targetLineId": null,
+      "analysis": null,
+      "justification": ""
+    }
+  },
+  "lines": [
+    {
+      "order": 1,
+      "cpt": "19303",
+      "description": "Mastectomy",
+      "rank": "Primary",
+      "rankReason": "Highest wRVU (10.00). Billed 100%.",
+      "modifiers": [
+        "22"
+      ],
+      "baseWrvu": 10,
+      "effectiveWrvu": 10,
+      "totalRvu": 0,
+      "baseMedicarePayment": 334.01,
+      "paymentSource": "fallback",
+      "payable": true,
+      "payableWrvu": 10,
+      "payableExclusionReason": null,
+      "payableExclusionEdit": null,
+      "globalModifier": null,
+      "modifier22Selected": true,
+      "medicaidWarnings": [],
+      "diagnosisPointers": [],
+      "diagnosisValidationWarnings": [
+        "No diagnosis selected for CPT 19303."
+      ],
+      "inpatientOnly": false,
+      "inpatientOnlyInfo": null,
+      "suppressedBy": null,
+      "bundleRule": null,
+      "payment": 334.01,
+      "rationale": [
+        {
+          "mod": "Rank",
+          "reason": "Primary procedure — no MPPR reduction.",
+          "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+        },
+        {
+          "mod": "22",
+          "reason": "Surgeon marked Modifier 22 for review. Submit only after surgeon/coder review confirms payer policy and full documentation, including objective facts that may support consideration of substantially greater work.",
+          "cite": "CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed"
+        }
+      ]
+    }
+  ],
+  "activityLog": [
+    "[5:45:58 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[5:45:58 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[5:45:59 PM] CASE CLEARED",
+    "[5:45:59 PM] TOTALS wRVU=0.00 pay=$0.00 (cleared)",
+    "[5:45:59 PM] ADD 19303 \"Mastectomy\" wRVU=10",
+    "[5:45:59 PM] RECALC primary=19303 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[5:45:59 PM] TOTALS wRVU=10.00 pay=$334.01 (procedure added)",
+    "[5:45:59 PM] RECALC primary=19303 · 1 proc + 0 E/M · medicare · state=WARNING",
+    "[5:45:59 PM] TOTALS wRVU=10.00 pay=$334.01 (diagnosis selected)",
+    "[5:45:59 PM] RECALC primary=19303 · 1 proc + 0 E/M · medicare · state=WARNING",
+    "[5:45:59 PM] TOTALS wRVU=10.00 pay=$334.01 (export seed)"
+  ],
+  "disclaimer": "Automated coding support. Requires coder review prior to claim submission. CPT © AMA."
+}
