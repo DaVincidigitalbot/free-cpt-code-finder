@@ -1,0 +1,127 @@
+{
+  "caseId": "CASE-20260702-WUXX",
+  "generatedAt": "2026-07-02T14:32:29.280Z",
+  "conversionFactor": 33.4009,
+  "cmsQuarter": "2026",
+  "payer": "medicare",
+  "setting": "facility",
+  "totals": {
+    "selectedWrvu": 17.17,
+    "payableWrvu": 17.17,
+    "wrvu": 17.17,
+    "payment": 573.49,
+    "lines": 1,
+    "procedures": 1,
+    "em": 0
+  },
+  "diagnoses": [
+    {
+      "pointer": "A",
+      "code": "S22.5XXA",
+      "family": "Rib fracture / chest wall trauma",
+      "group": "Flail chest",
+      "label": "Flail chest, initial encounter for closed fracture"
+    },
+    {
+      "pointer": "B",
+      "code": "S27.2XXA",
+      "family": "Rib fracture / chest wall trauma",
+      "group": "Traumatic pneumothorax / hemothorax",
+      "label": "Traumatic hemopneumothorax, initial encounter"
+    }
+  ],
+  "lines": [
+    {
+      "order": 1,
+      "cpt": "21813",
+      "description": "Open treatment of rib fracture(s) with internal fixation, 7 or more ribs",
+      "rank": "Primary",
+      "rankReason": "Highest wRVU (17.17). Billed 100%.",
+      "modifiers": [],
+      "baseWrvu": 17.17,
+      "totalRvu": 0,
+      "baseMedicarePayment": 573.49,
+      "paymentSource": "cpt_database.json",
+      "effectiveWrvu": 17.17,
+      "payable": true,
+      "diagnosisPointers": [
+        "A",
+        "B"
+      ],
+      "suggestedDiagnoses": [
+        "S22.41XA",
+        "S22.42XA",
+        "S22.49XA",
+        "S22.5XXA",
+        "S27.0XXA",
+        "S27.1XXA",
+        "S27.2XXA",
+        "S29.8XXA",
+        "S29.9XXA",
+        "S22.41XD",
+        "S22.42XD",
+        "S22.49XD",
+        "S22.5XXD",
+        "S27.0XXD",
+        "S27.1XXD",
+        "S27.2XXD",
+        "S29.8XXD",
+        "S29.9XXD",
+        "S22.41XS",
+        "S22.42XS",
+        "S22.49XS",
+        "S22.5XXS",
+        "S27.0XXS",
+        "S27.1XXS",
+        "S27.2XXS",
+        "S29.8XXS",
+        "S29.9XXS"
+      ],
+      "suppressedBy": null,
+      "bundleRule": null,
+      "payment": 573.49,
+      "rationale": [
+        {
+          "mod": "Rank",
+          "reason": "Primary procedure — no MPPR reduction.",
+          "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+        }
+      ]
+    }
+  ],
+  "activityLog": [
+    "[10:32:24 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[10:32:24 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+    "[10:32:26 AM] ADD 21811 \"Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\" wRVU=10.52",
+    "[10:32:26 AM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:26 AM] TOTALS selected wRVU=10.52 payable wRVU=10.52 pay=$544.77 (procedure added)",
+    "[10:32:26 AM] DX SELECT S22.31XA",
+    "[10:32:26 AM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:26 AM] TOTALS selected wRVU=10.52 payable wRVU=10.52 pay=$544.77 (diagnosis pointer updated)",
+    "[10:32:27 AM] CASE CLEARED",
+    "[10:32:27 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (cleared)",
+    "[10:32:27 AM] ADD 21812 \"Open treatment of rib fracture(s), each additional 3 ribs (add-on)\" wRVU=12.68",
+    "[10:32:27 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:27 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (procedure added)",
+    "[10:32:28 AM] DX SELECT S22.41XA",
+    "[10:32:28 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:28 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (diagnosis pointer updated)",
+    "[10:32:28 AM] DX SELECT S22.42XA",
+    "[10:32:28 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:28 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (diagnosis pointer updated)",
+    "[10:32:28 AM] CASE CLEARED",
+    "[10:32:28 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (cleared)",
+    "[10:32:28 AM] ADD 21813 \"Open treatment of rib fracture(s) with internal fixation, 7 or more ribs\" wRVU=17.17",
+    "[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (procedure added)",
+    "[10:32:28 AM] DX SELECT S22.5XXA",
+    "[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (diagnosis pointer updated)",
+    "[10:32:28 AM] DX SELECT S27.2XXA",
+    "[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN",
+    "[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (diagnosis pointer updated)",
+    "[10:32:28 AM] AUDIT REPORT generated · CASE-20260702-BZF2"
+  ],
+  "paymentFormula": "Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.",
+  "disclaimer": "Automated coding support. Requires coder review prior to claim submission. CPT © AMA."
+}

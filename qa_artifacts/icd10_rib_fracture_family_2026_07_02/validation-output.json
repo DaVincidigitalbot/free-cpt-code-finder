@@ -1,0 +1,243 @@
+{
+  "baseUrl": "http://127.0.0.1:8787",
+  "searches": [
+    {
+      "query": "rib fracture",
+      "expectedCodes": [
+        "21811",
+        "21812",
+        "21813"
+      ],
+      "visible": "21812\nOpen treatment of rib fracture(s), each additional 3 ribs (add-on)\nTrauma & Acute Care Surgery\nwRVU 12.68\n$655.33\nadd\n21813\nOpen treatment of rib fracture(s) with internal fixation, 7 or more ribs\nTrauma & Acute Care Surgery\nwRVU 17.17\nadd\n21811\nOpen treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\nTrauma & Acute Care Surgery\nwRVU 10.52\n$544.77\nadd"
+    },
+    {
+      "query": "multiple rib fractures",
+      "expectedCodes": [
+        "21811",
+        "21812",
+        "21813"
+      ],
+      "visible": "21812\nOpen treatment of rib fracture(s), each additional 3 ribs (add-on)\nTrauma & Acute Care Surgery\nwRVU 12.68\n$655.33\nadd\n21813\nOpen treatment of rib fracture(s) with internal fixation, 7 or more ribs\nTrauma & Acute Care Surgery\nwRVU 17.17\nadd\n21811\nOpen treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\nTrauma & Acute Care Surgery\nwRVU 10.52\n$544.77\nadd"
+    },
+    {
+      "query": "flail chest",
+      "expectedCodes": [
+        "21811",
+        "21812",
+        "21813"
+      ],
+      "visible": "21812\nOpen treatment of rib fracture(s), each additional 3 ribs (add-on)\nTrauma & Acute Care Surgery\nwRVU 12.68\n$655.33\nadd\n21813\nOpen treatment of rib fracture(s) with internal fixation, 7 or more ribs\nTrauma & Acute Care Surgery\nwRVU 17.17\nadd\n21811\nOpen treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\nTrauma & Acute Care Surgery\nwRVU 10.52\n$544.77\nadd"
+    },
+    {
+      "query": "broken ribs",
+      "expectedCodes": [
+        "21811",
+        "21812",
+        "21813"
+      ],
+      "visible": "21812\nOpen treatment of rib fracture(s), each additional 3 ribs (add-on)\nTrauma & Acute Care Surgery\nwRVU 12.68\n$655.33\nadd\n21813\nOpen treatment of rib fracture(s) with internal fixation, 7 or more ribs\nTrauma & Acute Care Surgery\nwRVU 17.17\nadd\n21811\nOpen treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\nTrauma & Acute Care Surgery\nwRVU 10.52\n$544.77\nadd"
+    },
+    {
+      "query": "SSRF",
+      "expectedCodes": [
+        "21811",
+        "21812",
+        "21813"
+      ],
+      "visible": "21812\nOpen treatment of rib fracture(s), each additional 3 ribs (add-on)\nTrauma & Acute Care Surgery\nwRVU 12.68\n$655.33\nadd\n21813\nOpen treatment of rib fracture(s) with internal fixation, 7 or more ribs\nTrauma & Acute Care Surgery\nwRVU 17.17\nadd\n21811\nOpen treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\nTrauma & Acute Care Surgery\nwRVU 10.52\n$544.77\nadd"
+    }
+  ],
+  "cases": [
+    {
+      "cpt": "21811",
+      "selectedDx": "S22.31XA",
+      "dxPanel": "Rib fracture / chest wall trauma\nS22.31XA\nA\nSingle rib fracture - Fracture of one right rib, initial encounter for closed fracture\nS22.32XA\nSingle rib fracture - Fracture of one left rib, initial encounter for closed fracture\nS22.39XA\nSingle rib fracture - Fracture of one rib, unspecified side, initial encounter for closed fracture\nS22.41XA\nMultiple rib fractures - Multiple fractures of ribs, right side, initial encounter for closed fracture\nS22.42XA\nMultiple rib fractures - Multiple fractures of ribs, left side, initial encounter for closed fracture\nS22.49XA\nMultiple rib fractures - Multiple fractures of ribs, unspecified side, initial encounter for closed fracture\nS22.5XXA\nFlail chest - Flail chest, initial encounter for closed fracture\nS27.0XXA\nTraumatic pneumothorax / hemothorax - Traumatic pneumothorax, initial encounter\nS27.1XXA\nTraumatic pneumothorax / hemothorax - Traumatic hemothorax, initial encounter\nS27.2XXA\nTraumatic pneumothorax / hemothorax - Traumatic hemopneumothorax, initial encounter\nS29.8XXA\nChest wall injury / blunt chest trauma - Other specified injuries of thorax, initial encounter\nS29.9XXA\nChest wall injury / blunt chest trauma - Unspecified injury of thorax, initial encounter\nS22.31XD\nSingle rib fracture - Fracture of one right rib, subsequent encounter for fracture with routine healing\nS22.32XD\nSingle rib fracture - Fracture of one left rib, subsequent encounter for fracture with routine healing\nS22.39XD\nSingle rib fracture - Fracture of one rib, unspecified side, subsequent encounter for fracture with routine healing\nS22.41XD\nMultiple rib fractures - Multiple fractures of ribs, right side, subsequent encounter for fracture with routine healing\nS22.42XD\nMultiple rib fractures - Multiple fractures of ribs, left side, subsequent encounter for fracture with routine healing\nS22.49XD\nMultiple rib fractures - Multiple fractures of ribs, unspecified side, subsequent encounter for fracture with routine healing\nS22.5XXD\nFlail chest - Flail chest, subsequent encounter for fracture with routine healing\nS27.0XXD\nTraumatic pneumothorax / hemothorax - Traumatic pneumothorax, subsequent encounter\nS27.1XXD\nTraumatic pneumothorax / hemothorax - Traumatic hemothorax, subsequent encounter\nS27.2XXD\nTraumatic pneumothorax / hemothorax - Traumatic hemopneumothorax, subsequent encounter\nS29.8XXD\nChest wall injury / blunt chest trauma - Other specified injuries of thorax, subsequent encounter\nS29.9XXD\nChest wall injury / blunt chest trauma - Unspecified injury of thorax, subsequent encounter\nS22.31XS\nSingle rib fracture - Fracture of one right rib, sequela\nS22.32XS\nSingle rib fracture - Fracture of one left rib, sequela\nS22.39XS\nSingle rib fracture - Fracture of one rib, unspecified side, sequela\nS22.41XS\nMultiple rib fractures - Multiple fractures of ribs, right side, sequela\nS22.42XS\nMultiple rib fractures - Multiple fractures of ribs, left side, sequela\nS22.49XS\nMultiple rib fractures - Multiple fractures of ribs, unspecified side, sequela\nS22.5XXS\nFlail chest - Flail chest, sequela\nS27.0XXS\nTraumatic pneumothorax / hemothorax - Traumatic pneumothorax, sequela\nS27.1XXS\nTraumatic pneumothorax / hemothorax - Traumatic hemothorax, sequela\nS27.2XXS\nTraumatic pneumothorax / hemothorax - Traumatic hemopneumothorax, sequela\nS29.8XXS\nChest wall injury / blunt chest trauma - Other specified injuries of thorax, sequela\nS29.9XXS\nChest wall injury / blunt chest trauma - Unspecified injury of thorax, sequela\nSelect one or more diagnoses. Pointer letters are assigned A, B, C in selected order and shared across CPT lines when the diagnosis applies.",
+      "activeCase": "PRIMARY\n21811\n×\nOpen treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\nPhysician wRVU 10.52\n$544.77"
+    },
+    {
+      "cpt": "21812",
+      "selectedDx": [
+        "S22.41XA",
+        "S22.42XA"
+      ],
+      "dxPanel": "Rib fracture / chest wall trauma\nS22.41XA\nA\nMultiple rib fractures - Multiple fractures of ribs, right side, initial encounter for closed fracture\nS22.42XA\nB\nMultiple rib fractures - Multiple fractures of ribs, left side, initial encounter for closed fracture\nS22.49XA\nMultiple rib fractures - Multiple fractures of ribs, unspecified side, initial encounter for closed fracture\nS22.5XXA\nFlail chest - Flail chest, initial encounter for closed fracture\nS27.0XXA\nTraumatic pneumothorax / hemothorax - Traumatic pneumothorax, initial encounter\nS27.1XXA\nTraumatic pneumothorax / hemothorax - Traumatic hemothorax, initial encounter\nS27.2XXA\nTraumatic pneumothorax / hemothorax - Traumatic hemopneumothorax, initial encounter\nS29.8XXA\nChest wall injury / blunt chest trauma - Other specified injuries of thorax, initial encounter\nS29.9XXA\nChest wall injury / blunt chest trauma - Unspecified injury of thorax, initial encounter\nS22.31XA\nSingle rib fracture - Fracture of one right rib, initial encounter for closed fracture\nS22.32XA\nSingle rib fracture - Fracture of one left rib, initial encounter for closed fracture\nS22.39XA\nSingle rib fracture - Fracture of one rib, unspecified side, initial encounter for closed fracture\nS22.41XD\nMultiple rib fractures - Multiple fractures of ribs, right side, subsequent encounter for fracture with routine healing\nS22.42XD\nMultiple rib fractures - Multiple fractures of ribs, left side, subsequent encounter for fracture with routine healing\nS22.49XD\nMultiple rib fractures - Multiple fractures of ribs, unspecified side, subsequent encounter for fracture with routine healing\nS22.5XXD\nFlail chest - Flail chest, subsequent encounter for fracture with routine healing\nS27.0XXD\nTraumatic pneumothorax / hemothorax - Traumatic pneumothorax, subsequent encounter\nS27.1XXD\nTraumatic pneumothorax / hemothorax - Traumatic hemothorax, subsequent encounter\nS27.2XXD\nTraumatic pneumothorax / hemothorax - Traumatic hemopneumothorax, subsequent encounter\nS29.8XXD\nChest wall injury / blunt chest trauma - Other specified injuries of thorax, subsequent encounter\nS29.9XXD\nChest wall injury / blunt chest trauma - Unspecified injury of thorax, subsequent encounter\nS22.41XS\nMultiple rib fractures - Multiple fractures of ribs, right side, sequela\nS22.42XS\nMultiple rib fractures - Multiple fractures of ribs, left side, sequela\nS22.49XS\nMultiple rib fractures - Multiple fractures of ribs, unspecified side, sequela\nS22.5XXS\nFlail chest - Flail chest, sequela\nS27.0XXS\nTraumatic pneumothorax / hemothorax - Traumatic pneumothorax, sequela\nS27.1XXS\nTraumatic pneumothorax / hemothorax - Traumatic hemothorax, sequela\nS27.2XXS\nTraumatic pneumothorax / hemothorax - Traumatic hemopneumothorax, sequela\nS29.8XXS\nChest wall injury / blunt chest trauma - Other specified injuries of thorax, sequela\nS29.9XXS\nChest wall injury / blunt chest trauma - Unspecified injury of thorax, sequela\nSelect one or more diagnoses. Pointer letters are assigned A, B, C in selected order and shared across CPT lines when the diagnosis applies.",
+      "activeCase": "ADD-ON\n21812\n×\nOpen treatment of rib fracture(s), each additional 3 ribs (add-on)\nPhysician wRVU 12.68\n$655.33"
+    }
+  ],
+  "regressions": [
+    {
+      "name": "MPPR",
+      "checks": [
+        "44140",
+        "44120"
+      ]
+    },
+    {
+      "name": "Modifier 58/78/79 search",
+      "checks": [
+        "modifier 58",
+        "modifier 78",
+        "modifier 79"
+      ]
+    },
+    {
+      "name": "Modifier 22 search",
+      "checks": [
+        "modifier 22"
+      ]
+    },
+    {
+      "name": "NCCI",
+      "checks": [
+        "44005",
+        "49000"
+      ]
+    },
+    {
+      "name": "inpatient-only warnings",
+      "checks": [
+        "33533"
+      ]
+    },
+    {
+      "name": "Medicaid warnings",
+      "checks": [
+        "medicaid"
+      ]
+    },
+    {
+      "name": "APP mode",
+      "checks": [
+        "99214"
+      ]
+    }
+  ],
+  "auditText": "Print / Save as PDF\nSURGICAL CODING AUDIT REPORT\nCase rationale and modifier justification — prepared for medical billing review\nCASE-20260702-BZF2\n7/2/2026 10:32:28 AM\nFreeCPTCodeFinder\nPAYER\nmedicare\nSETTING\nFacility\nSELECTED WRVU\n17.17\nPAYABLE WRVU\n17.17\nEST. PAYMENT\n$573.49\nLINE ITEMS WITH CODING RATIONALE\n\tRANK\tCPT / MODIFIERS\tDESCRIPTION\tWRVU\tPAYMENT\n1\tPRIMARY\t21813\tOpen treatment of rib fracture(s) with internal fixation, 7 or more ribs\t17.17\t$573.49\n\t\nRanking basis: Highest wRVU (17.17). Billed 100%.\nDiagnosis pointer: A, B\nMODIFIER -RANK\nPrimary procedure — no MPPR reduction.\nCMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%\nDIAGNOSIS POINTERS\nA: S22.5XXA - Flail chest, initial encounter for closed fracture\nB: S27.2XXA - Traumatic hemopneumothorax, initial encounter\nCase totals · 1 line · 1 procedure\n17.17 payable wRVU · $573.49\nACTIVITY LOG\n[10:32:24 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (APP productivity mode changed)\n[10:32:24 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (APP productivity mode changed)\n[10:32:26 AM] ADD 21811 \"Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\" wRVU=10.52\n[10:32:26 AM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:26 AM] TOTALS selected wRVU=10.52 payable wRVU=10.52 pay=$544.77 (procedure added)\n[10:32:26 AM] DX SELECT S22.31XA\n[10:32:26 AM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:26 AM] TOTALS selected wRVU=10.52 payable wRVU=10.52 pay=$544.77 (diagnosis pointer updated)\n[10:32:27 AM] CASE CLEARED\n[10:32:27 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (cleared)\n[10:32:27 AM] ADD 21812 \"Open treatment of rib fracture(s), each additional 3 ribs (add-on)\" wRVU=12.68\n[10:32:27 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:27 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (procedure added)\n[10:32:28 AM] DX SELECT S22.41XA\n[10:32:28 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:28 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (diagnosis pointer updated)\n[10:32:28 AM] DX SELECT S22.42XA\n[10:32:28 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:28 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (diagnosis pointer updated)\n[10:32:28 AM] CASE CLEARED\n[10:32:28 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (cleared)\n[10:32:28 AM] ADD 21813 \"Open treatment of rib fracture(s) with internal fixation, 7 or more ribs\" wRVU=17.17\n[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (procedure added)\n[10:32:28 AM] DX SELECT S22.5XXA\n[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (diagnosis pointer updated)\n[10:32:28 AM] DX SELECT S27.2XXA\n[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN\n[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (diagnosis pointer updated)\nCoder signature  ·  date\nProvider signature  ·  date\n\nRegulatory basis: This report reflects coding logic applied per current CMS and AMA guidelines. Conversion factor 33.4009 per CMS 2026 Physician Fee Schedule Final Rule — national conversion factor $32.3465. MPPR reductions applied per CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting.\n\nDisclaimer: This audit is a coding support document, not a substitute for professional medical coder review. All codes and modifiers should be verified against current AMA CPT Professional Edition, CMS Physician Fee Schedule, and NCCI edit files before claim submission. Rationale reflects automated rule application based on wRVU ranking, payer, and setting, coder must confirm that documentation supports each modifier, particularly modifier 59 (distinct procedural service).\n\nNot for submission without coder review. CPT® © American Medical Association. All rights reserved.",
+  "export": {
+    "caseId": "CASE-20260702-WUXX",
+    "generatedAt": "2026-07-02T14:32:29.280Z",
+    "conversionFactor": 33.4009,
+    "cmsQuarter": "2026",
+    "payer": "medicare",
+    "setting": "facility",
+    "totals": {
+      "selectedWrvu": 17.17,
+      "payableWrvu": 17.17,
+      "wrvu": 17.17,
+      "payment": 573.49,
+      "lines": 1,
+      "procedures": 1,
+      "em": 0
+    },
+    "diagnoses": [
+      {
+        "pointer": "A",
+        "code": "S22.5XXA",
+        "family": "Rib fracture / chest wall trauma",
+        "group": "Flail chest",
+        "label": "Flail chest, initial encounter for closed fracture"
+      },
+      {
+        "pointer": "B",
+        "code": "S27.2XXA",
+        "family": "Rib fracture / chest wall trauma",
+        "group": "Traumatic pneumothorax / hemothorax",
+        "label": "Traumatic hemopneumothorax, initial encounter"
+      }
+    ],
+    "lines": [
+      {
+        "order": 1,
+        "cpt": "21813",
+        "description": "Open treatment of rib fracture(s) with internal fixation, 7 or more ribs",
+        "rank": "Primary",
+        "rankReason": "Highest wRVU (17.17). Billed 100%.",
+        "modifiers": [],
+        "baseWrvu": 17.17,
+        "totalRvu": 0,
+        "baseMedicarePayment": 573.49,
+        "paymentSource": "cpt_database.json",
+        "effectiveWrvu": 17.17,
+        "payable": true,
+        "diagnosisPointers": [
+          "A",
+          "B"
+        ],
+        "suggestedDiagnoses": [
+          "S22.41XA",
+          "S22.42XA",
+          "S22.49XA",
+          "S22.5XXA",
+          "S27.0XXA",
+          "S27.1XXA",
+          "S27.2XXA",
+          "S29.8XXA",
+          "S29.9XXA",
+          "S22.41XD",
+          "S22.42XD",
+          "S22.49XD",
+          "S22.5XXD",
+          "S27.0XXD",
+          "S27.1XXD",
+          "S27.2XXD",
+          "S29.8XXD",
+          "S29.9XXD",
+          "S22.41XS",
+          "S22.42XS",
+          "S22.49XS",
+          "S22.5XXS",
+          "S27.0XXS",
+          "S27.1XXS",
+          "S27.2XXS",
+          "S29.8XXS",
+          "S29.9XXS"
+        ],
+        "suppressedBy": null,
+        "bundleRule": null,
+        "payment": 573.49,
+        "rationale": [
+          {
+            "mod": "Rank",
+            "reason": "Primary procedure — no MPPR reduction.",
+            "cite": "CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%"
+          }
+        ]
+      }
+    ],
+    "activityLog": [
+      "[10:32:24 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+      "[10:32:24 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (APP productivity mode changed)",
+      "[10:32:26 AM] ADD 21811 \"Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs\" wRVU=10.52",
+      "[10:32:26 AM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:26 AM] TOTALS selected wRVU=10.52 payable wRVU=10.52 pay=$544.77 (procedure added)",
+      "[10:32:26 AM] DX SELECT S22.31XA",
+      "[10:32:26 AM] RECALC primary=21811 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:26 AM] TOTALS selected wRVU=10.52 payable wRVU=10.52 pay=$544.77 (diagnosis pointer updated)",
+      "[10:32:27 AM] CASE CLEARED",
+      "[10:32:27 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (cleared)",
+      "[10:32:27 AM] ADD 21812 \"Open treatment of rib fracture(s), each additional 3 ribs (add-on)\" wRVU=12.68",
+      "[10:32:27 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:27 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (procedure added)",
+      "[10:32:28 AM] DX SELECT S22.41XA",
+      "[10:32:28 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:28 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (diagnosis pointer updated)",
+      "[10:32:28 AM] DX SELECT S22.42XA",
+      "[10:32:28 AM] RECALC primary=21812 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:28 AM] TOTALS selected wRVU=12.68 payable wRVU=12.68 pay=$655.33 (diagnosis pointer updated)",
+      "[10:32:28 AM] CASE CLEARED",
+      "[10:32:28 AM] TOTALS selected wRVU=0.00 payable wRVU=0.00 pay=$0.00 (cleared)",
+      "[10:32:28 AM] ADD 21813 \"Open treatment of rib fracture(s) with internal fixation, 7 or more ribs\" wRVU=17.17",
+      "[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (procedure added)",
+      "[10:32:28 AM] DX SELECT S22.5XXA",
+      "[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (diagnosis pointer updated)",
+      "[10:32:28 AM] DX SELECT S27.2XXA",
+      "[10:32:28 AM] RECALC primary=21813 · 1 proc + 0 E/M · medicare · state=CLEAN",
+      "[10:32:28 AM] TOTALS selected wRVU=17.17 payable wRVU=17.17 pay=$573.49 (diagnosis pointer updated)",
+      "[10:32:28 AM] AUDIT REPORT generated · CASE-20260702-BZF2"
+    ],
+    "paymentFormula": "Base Medicare estimate comes from cpt_database.json estimated_medicare_payment (total RVU × CMS conversion factor). Case-level modifiers and MPPR are applied after that base estimate.",
+    "disclaimer": "Automated coding support. Requires coder review prior to claim submission. CPT © AMA."
+  }
+}
