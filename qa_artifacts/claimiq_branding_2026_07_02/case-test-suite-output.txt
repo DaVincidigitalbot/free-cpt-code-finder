@@ -1,0 +1,474 @@
+═══════════════════════════════════════════════════════════════
+  CASE TEST SUITE — 110+ Real-World Surgical Cases
+═══════════════════════════════════════════════════════════════
+📊 Loaded 3881 CPT rules
+📊 Loaded 83 NCCI bundles
+
+🧪 Running 110 surgical case scenarios...
+
+
+── GenSurg 1 ───────────────────────────────────────────────────
+  ✅ GenSurg 1: Laparoscopic cholecystectomy (simple)
+
+── GenSurg 2 ───────────────────────────────────────────────────
+  ✅ GenSurg 2: Lap chole with cholangiography
+
+── GenSurg 3 ───────────────────────────────────────────────────
+  ✅ GenSurg 3: Open cholecystectomy
+
+── GenSurg 4 ───────────────────────────────────────────────────
+  ✅ GenSurg 4: Colon resection with anastomosis
+
+── GenSurg 5 ───────────────────────────────────────────────────
+  ✅ GenSurg 5: Hartmann procedure (colon resection + colostomy)
+
+── GenSurg 6 ───────────────────────────────────────────────────
+  ✅ GenSurg 6: Colon resection + colostomy (separate codes, NCCI bundle)
+
+── GenSurg 7 ───────────────────────────────────────────────────
+  ✅ GenSurg 7: Open appendectomy (simple)
+
+── GenSurg 8 ───────────────────────────────────────────────────
+  ✅ GenSurg 8: Lap appendectomy (suppresses diagnostic laparoscopy)
+
+── GenSurg 9 ───────────────────────────────────────────────────
+  ✅ GenSurg 9: Total thyroidectomy
+
+── GenSurg 10 ──────────────────────────────────────────────────
+  ✅ GenSurg 10: Bilateral inguinal hernia repair
+
+── GenSurg 11 ──────────────────────────────────────────────────
+  ✅ GenSurg 11: Bilateral mastectomy
+
+── GenSurg 12 ──────────────────────────────────────────────────
+  ✅ GenSurg 12: Partial mastectomy with axillary dissection
+
+── Trauma 1 ────────────────────────────────────────────────────
+  ✅ Trauma 1: Ex lap + splenectomy + small bowel resection
+
+── Trauma 2 ────────────────────────────────────────────────────
+  ✅ Trauma 2: Damage control laparotomy, abbreviated (reduced service)
+
+── Trauma 3 ────────────────────────────────────────────────────
+  ✅ Trauma 3: Negative exploratory laparotomy
+
+── Trauma 4 ────────────────────────────────────────────────────
+  ✅ Trauma 4: Ex lap + liver repair + diaphragm repair
+
+── Trauma 5 ────────────────────────────────────────────────────
+  ✅ Trauma 5: Bilateral fasciotomy (both legs)
+
+── Trauma 6 ────────────────────────────────────────────────────
+  ✅ Trauma 6: Chest tube + exploratory thoracotomy (suppression)
+
+── Trauma 7 ────────────────────────────────────────────────────
+  ✅ Trauma 7: Splenectomy + distal pancreatectomy
+
+── Trauma 8 ────────────────────────────────────────────────────
+  ✅ Trauma 8: Negative ex lap + wound closure (suppression)
+
+── Trauma 9 ────────────────────────────────────────────────────
+  ✅ Trauma 9: Return to OR day 5 for hemorrhage (-78)
+
+── Trauma 10 ───────────────────────────────────────────────────
+  ✅ Trauma 10: Unrelated procedure during global period (-79)
+
+── Trauma 11 ───────────────────────────────────────────────────
+  ✅ Trauma 11: Lap chole + diagnostic lap (suppression)
+
+── Trauma 12 ───────────────────────────────────────────────────
+  ✅ Trauma 12: Open chole with cholangiography + wound repair
+
+── Ortho 1 ─────────────────────────────────────────────────────
+  ✅ Ortho 1: Posterior lumbar fusion single level (22633)
+
+── Ortho 2 ─────────────────────────────────────────────────────
+  ✅ Ortho 2: Hip revision arthroplasty — acetabular + femoral
+
+── Ortho 3 ─────────────────────────────────────────────────────
+  ✅ Ortho 3: Shoulder revision arthroplasty (humeral + glenoid)
+
+── Ortho 4 ─────────────────────────────────────────────────────
+  ✅ Ortho 4: Intertrochanteric fracture ORIF
+
+── Ortho 5 ─────────────────────────────────────────────────────
+  ❌ Ortho 5: Knee arthroscopy meniscectomy bilateral
+     ⚠️  Total wRVU: got 9.06, expected 6.04 (±0.5)
+
+── Ortho 6 ─────────────────────────────────────────────────────
+  ✅ Ortho 6: Knee arthroscopy meniscus repair (medial)
+
+── Ortho 7 ─────────────────────────────────────────────────────
+  ❌ Ortho 7: Spine fusion with posterior instrumentation (2 codes, no rules)
+     ⚠️  22842 missing modifier -51, has []
+     ⚠️  Total wRVU: got 42.77, expected 35.7 (±0.5)
+     ⚠️  Expected blocking issues but none found
+
+── Ortho 8 ─────────────────────────────────────────────────────
+  ✅ Ortho 8: Carpal tunnel release (wrist)
+
+── Ortho 9 ─────────────────────────────────────────────────────
+  ✅ Ortho 9: Wrist fracture treatment (radius)
+
+── Ortho 10 ────────────────────────────────────────────────────
+  ✅ Ortho 10: Hip conversion arthroplasty
+
+── Ortho 11 ────────────────────────────────────────────────────
+  ✅ Ortho 11: Hip revision femoral only
+
+── ENT 1 ───────────────────────────────────────────────────────
+  ✅ ENT 1: T&A (tonsillectomy + adenoidectomy, <12yo)
+
+── ENT 2 ───────────────────────────────────────────────────────
+  ✅ ENT 2: T&A adult (>=12yo)
+
+── ENT 3 ───────────────────────────────────────────────────────
+  ✅ ENT 3: T&A suppresses adenoidectomy (42820 inclusive_of 42830)
+
+── ENT 4 ───────────────────────────────────────────────────────
+  ✅ ENT 4: Endoscopic ethmoidectomy + maxillary antrostomy
+
+── ENT 5 ───────────────────────────────────────────────────────
+  ✅ ENT 5: Full sinus surgery (ethmoidectomy + maxillary + frontal + sphenoidotomy)
+
+── ENT 6 ───────────────────────────────────────────────────────
+  ✅ ENT 6: Septoplasty alone
+
+── ENT 7 ───────────────────────────────────────────────────────
+  ✅ ENT 7: Tympanoplasty with mastoidectomy
+
+── ENT 8 ───────────────────────────────────────────────────────
+  ✅ ENT 8: Complete mastoidectomy
+
+── ENT 9 ───────────────────────────────────────────────────────
+  ✅ ENT 9: Tonsillectomy (child, no adenoids)
+
+── ENT 10 ──────────────────────────────────────────────────────
+  ✅ ENT 10: Bilateral maxillary antrostomy
+
+── ENT 11 ──────────────────────────────────────────────────────
+  ✅ ENT 11: Adenoidectomy (secondary, >=12) alone
+
+── ENT 12 ──────────────────────────────────────────────────────
+  ❌ ENT 12: Ethmoidectomy + sphenoidotomy bilateral
+     ⚠️  Total wRVU: got 13.44, expected 8.96 (±0.5)
+
+── Vascular 1 ──────────────────────────────────────────────────
+  ✅ Vascular 1: CABG x3 venous grafts
+
+── Vascular 2 ──────────────────────────────────────────────────
+  ✅ Vascular 2: CABG x4+ venous grafts (most complex)
+
+── Vascular 3 ──────────────────────────────────────────────────
+  ✅ Vascular 3: Open AAA repair (abdominal aorta)
+
+── Vascular 4 ──────────────────────────────────────────────────
+  ✅ Vascular 4: Ruptured AAA repair
+
+── Vascular 5 ──────────────────────────────────────────────────
+  ✅ Vascular 5: EVAR (endovascular AAA repair, aorto-bi-iliac)
+
+── Vascular 6 ──────────────────────────────────────────────────
+  ✅ Vascular 6: Carotid bypass graft
+
+── Vascular 7 ──────────────────────────────────────────────────
+  ✅ Vascular 7: AV fistula creation (upper arm)
+
+── Vascular 8 ──────────────────────────────────────────────────
+  ✅ Vascular 8: AV fistula transposition
+
+── Vascular 9 ──────────────────────────────────────────────────
+  ❌ Vascular 9: AV anastomosis (with rules, bilateral eligible)
+     ⚠️  36821 missing modifier -50, has []
+     ⚠️  Total wRVU: got 11.85, expected 17.78 (±0.5)
+
+── Vascular 10 ─────────────────────────────────────────────────
+  ✅ Vascular 10: Aorto-iliac aneurysm repair
+
+── Vascular 11 ─────────────────────────────────────────────────
+  ✅ Vascular 11: AV fistula (other type, reconstructive family)
+
+── Neuro 1 ─────────────────────────────────────────────────────
+  ✅ Neuro 1: Craniotomy for brain tumor (supratentorial)
+
+── Neuro 2 ─────────────────────────────────────────────────────
+  ✅ Neuro 2: Craniotomy for brain tumor (infratentorial)
+
+── Neuro 3 ─────────────────────────────────────────────────────
+  ✅ Neuro 3: Laminectomy cervical 1-2 segments
+
+── Neuro 4 ─────────────────────────────────────────────────────
+  ✅ Neuro 4: Laminectomy lumbar 1-2 segments
+
+── Neuro 5 ─────────────────────────────────────────────────────
+  ✅ Neuro 5: Laminectomy with facet removal (lumbar)
+
+── Neuro 6 ─────────────────────────────────────────────────────
+  ✅ Neuro 6: VP shunt creation
+
+── Neuro 7 ─────────────────────────────────────────────────────
+  ✅ Neuro 7: CSF shunt replacement
+
+── Neuro 8 ─────────────────────────────────────────────────────
+  ✅ Neuro 8: Spinal cord stimulator electrode implantation
+
+── Neuro 9 ─────────────────────────────────────────────────────
+  ✅ Neuro 9: Epidural hematoma evacuation
+
+── Neuro 10 ────────────────────────────────────────────────────
+  ✅ Neuro 10: Subdural hematoma evacuation
+
+── Neuro 11 ────────────────────────────────────────────────────
+  ✅ Neuro 11: Laminotomy re-exploration lumbar
+
+── OB/GYN 1 ────────────────────────────────────────────────────
+  ✅ OB/GYN 1: Total abdominal hysterectomy
+
+── OB/GYN 2 ────────────────────────────────────────────────────
+  ✅ OB/GYN 2: Vaginal hysterectomy with tube/ovary removal
+
+── OB/GYN 3 ────────────────────────────────────────────────────
+  ✅ OB/GYN 3: Laparoscopic hysterectomy
+
+── OB/GYN 4 ────────────────────────────────────────────────────
+  ✅ OB/GYN 4: Cesarean delivery
+
+── OB/GYN 5 ────────────────────────────────────────────────────
+  ✅ OB/GYN 5: Cesarean with postpartum care
+
+── OB/GYN 6 ────────────────────────────────────────────────────
+  ✅ OB/GYN 6: Vaginal delivery (total care)
+
+── OB/GYN 7 ────────────────────────────────────────────────────
+  ✅ OB/GYN 7: Diagnostic laparoscopy + hysteroscopy
+
+── OB/GYN 8 ────────────────────────────────────────────────────
+  ✅ OB/GYN 8: Ovarian mass excision
+
+── OB/GYN 9 ────────────────────────────────────────────────────
+  ✅ OB/GYN 9: Laparoscopic myomectomy
+
+── OB/GYN 10 ───────────────────────────────────────────────────
+  ✅ OB/GYN 10: VBAC (vaginal birth after cesarean)
+
+── Urology 1 ───────────────────────────────────────────────────
+  ✅ Urology 1: TURP (complete)
+
+── Urology 2 ───────────────────────────────────────────────────
+  ✅ Urology 2: Radical prostatectomy (retropubic)
+
+── Urology 3 ───────────────────────────────────────────────────
+  ✅ Urology 3: Radical prostatectomy with lymph node dissection
+
+── Urology 4 ───────────────────────────────────────────────────
+  ✅ Urology 4: Laparoscopic radical prostatectomy
+
+── Urology 5 ───────────────────────────────────────────────────
+  ✅ Urology 5: Laparoscopic partial nephrectomy
+
+── Urology 6 ───────────────────────────────────────────────────
+  ✅ Urology 6: Laparoscopic radical nephrectomy
+
+── Urology 7 ───────────────────────────────────────────────────
+  ✅ Urology 7: Cystoscopy (diagnostic)
+
+── Urology 8 ───────────────────────────────────────────────────
+  ✅ Urology 8: Cystoscopy with bladder tumor resection (medium)
+
+── Urology 9 ───────────────────────────────────────────────────
+  ✅ Urology 9: Cystoscopy with large tumor resection
+
+── Urology 10 ──────────────────────────────────────────────────
+  ✅ Urology 10: TURP residual tissue
+
+── Cardiac 1 ───────────────────────────────────────────────────
+  ✅ Cardiac 1: CABG x1 venous graft
+
+── Cardiac 2 ───────────────────────────────────────────────────
+  ✅ Cardiac 2: CABG x2 venous grafts
+
+── Cardiac 3 ───────────────────────────────────────────────────
+  ✅ Cardiac 3: Aortic valve replacement (open)
+
+── Cardiac 4 ───────────────────────────────────────────────────
+  ✅ Cardiac 4: TAVR (transcatheter aortic valve)
+
+── Cardiac 5 ───────────────────────────────────────────────────
+  ✅ Cardiac 5: Mitral valve replacement
+
+── Cardiac 6 ───────────────────────────────────────────────────
+  ✅ Cardiac 6: Mitral valve repair
+
+── Cardiac 7 ───────────────────────────────────────────────────
+  ✅ Cardiac 7: Pacemaker/ICD insertion
+
+── Cardiac 8 ───────────────────────────────────────────────────
+  ✅ Cardiac 8: PCI for acute MI
+
+── Cardiac 9 ───────────────────────────────────────────────────
+  ✅ Cardiac 9: PCI chronic total occlusion
+
+── Cardiac 10 ──────────────────────────────────────────────────
+  ✅ Cardiac 10: CABG x4 as assistant surgeon (-80)
+
+── Complex 1 ───────────────────────────────────────────────────
+  ✅ Complex 1: Trauma — ex lap + splenectomy + colon resection + colostomy
+
+── Complex 2 ───────────────────────────────────────────────────
+  ✅ Complex 2: Staged abdominal wall reconstruction (-58)
+
+── Complex 3 ───────────────────────────────────────────────────
+  ✅ Complex 3: Global period — no modifier specified (should block)
+
+── Complex 4 ───────────────────────────────────────────────────
+  ✅ Complex 4: Co-surgeon on cholecystectomy (not eligible → block)
+
+── Complex 5 ───────────────────────────────────────────────────
+  ✅ Complex 5: Assistant surgeon on open cholecystectomy
+
+── Complex 6 ───────────────────────────────────────────────────
+  ✅ Complex 6: Repeat procedure same physician (-76)
+
+── Complex 7 ───────────────────────────────────────────────────
+  ✅ Complex 7: Repeat procedure different physician (-77)
+
+── Complex 8 ───────────────────────────────────────────────────
+  ✅ Complex 8: Incomplete procedure (-52)
+
+── Complex 9 ───────────────────────────────────────────────────
+  ✅ Complex 9: Empty case (no procedures)
+
+── Complex 10 ──────────────────────────────────────────────────
+  ✅ Complex 10: Laterality — right side hernia repair
+
+── Complex 11 ──────────────────────────────────────────────────
+  ✅ Complex 11: Multi-procedure NCCI bundle (44120 + 44604 + 49000)
+
+═══════════════════════════════════════════════════════════════
+  RESULTS: 106/110 passed, 4 failed
+═══════════════════════════════════════════════════════════════
+
+❌ FAILED CASES:
+  • Ortho 5: Knee arthroscopy meniscectomy bilateral
+    → Total wRVU: got 9.06, expected 6.04 (±0.5)
+  • Ortho 7: Spine fusion with posterior instrumentation (2 codes, no rules)
+    → 22842 missing modifier -51, has []
+    → Total wRVU: got 42.77, expected 35.7 (±0.5)
+    → Expected blocking issues but none found
+  • ENT 12: Ethmoidectomy + sphenoidotomy bilateral
+    → Total wRVU: got 13.44, expected 8.96 (±0.5)
+  • Vascular 9: AV anastomosis (with rules, bilateral eligible)
+    → 36821 missing modifier -50, has []
+    → Total wRVU: got 11.85, expected 17.78 (±0.5)
+
+📊 Specialty Breakdown:
+  ✅ GenSurg 1: 1/1
+  ✅ GenSurg 2: 1/1
+  ✅ GenSurg 3: 1/1
+  ✅ GenSurg 4: 1/1
+  ✅ GenSurg 5: 1/1
+  ✅ GenSurg 6: 1/1
+  ✅ GenSurg 7: 1/1
+  ✅ GenSurg 8: 1/1
+  ✅ GenSurg 9: 1/1
+  ✅ GenSurg 10: 1/1
+  ✅ GenSurg 11: 1/1
+  ✅ GenSurg 12: 1/1
+  ✅ Trauma 1: 1/1
+  ✅ Trauma 2: 1/1
+  ✅ Trauma 3: 1/1
+  ✅ Trauma 4: 1/1
+  ✅ Trauma 5: 1/1
+  ✅ Trauma 6: 1/1
+  ✅ Trauma 7: 1/1
+  ✅ Trauma 8: 1/1
+  ✅ Trauma 9: 1/1
+  ✅ Trauma 10: 1/1
+  ✅ Trauma 11: 1/1
+  ✅ Trauma 12: 1/1
+  ✅ Ortho 1: 1/1
+  ✅ Ortho 2: 1/1
+  ✅ Ortho 3: 1/1
+  ✅ Ortho 4: 1/1
+  ❌ Ortho 5: 0/1
+  ✅ Ortho 6: 1/1
+  ❌ Ortho 7: 0/1
+  ✅ Ortho 8: 1/1
+  ✅ Ortho 9: 1/1
+  ✅ Ortho 10: 1/1
+  ✅ Ortho 11: 1/1
+  ✅ ENT 1: 1/1
+  ✅ ENT 2: 1/1
+  ✅ ENT 3: 1/1
+  ✅ ENT 4: 1/1
+  ✅ ENT 5: 1/1
+  ✅ ENT 6: 1/1
+  ✅ ENT 7: 1/1
+  ✅ ENT 8: 1/1
+  ✅ ENT 9: 1/1
+  ✅ ENT 10: 1/1
+  ✅ ENT 11: 1/1
+  ❌ ENT 12: 0/1
+  ✅ Vascular 1: 1/1
+  ✅ Vascular 2: 1/1
+  ✅ Vascular 3: 1/1
+  ✅ Vascular 4: 1/1
+  ✅ Vascular 5: 1/1
+  ✅ Vascular 6: 1/1
+  ✅ Vascular 7: 1/1
+  ✅ Vascular 8: 1/1
+  ❌ Vascular 9: 0/1
+  ✅ Vascular 10: 1/1
+  ✅ Vascular 11: 1/1
+  ✅ Neuro 1: 1/1
+  ✅ Neuro 2: 1/1
+  ✅ Neuro 3: 1/1
+  ✅ Neuro 4: 1/1
+  ✅ Neuro 5: 1/1
+  ✅ Neuro 6: 1/1
+  ✅ Neuro 7: 1/1
+  ✅ Neuro 8: 1/1
+  ✅ Neuro 9: 1/1
+  ✅ Neuro 10: 1/1
+  ✅ Neuro 11: 1/1
+  ✅ OB/GYN 1: 1/1
+  ✅ OB/GYN 2: 1/1
+  ✅ OB/GYN 3: 1/1
+  ✅ OB/GYN 4: 1/1
+  ✅ OB/GYN 5: 1/1
+  ✅ OB/GYN 6: 1/1
+  ✅ OB/GYN 7: 1/1
+  ✅ OB/GYN 8: 1/1
+  ✅ OB/GYN 9: 1/1
+  ✅ OB/GYN 10: 1/1
+  ✅ Urology 1: 1/1
+  ✅ Urology 2: 1/1
+  ✅ Urology 3: 1/1
+  ✅ Urology 4: 1/1
+  ✅ Urology 5: 1/1
+  ✅ Urology 6: 1/1
+  ✅ Urology 7: 1/1
+  ✅ Urology 8: 1/1
+  ✅ Urology 9: 1/1
+  ✅ Urology 10: 1/1
+  ✅ Cardiac 1: 1/1
+  ✅ Cardiac 2: 1/1
+  ✅ Cardiac 3: 1/1
+  ✅ Cardiac 4: 1/1
+  ✅ Cardiac 5: 1/1
+  ✅ Cardiac 6: 1/1
+  ✅ Cardiac 7: 1/1
+  ✅ Cardiac 8: 1/1
+  ✅ Cardiac 9: 1/1
+  ✅ Cardiac 10: 1/1
+  ✅ Complex 1: 1/1
+  ✅ Complex 2: 1/1
+  ✅ Complex 3: 1/1
+  ✅ Complex 4: 1/1
+  ✅ Complex 5: 1/1
+  ✅ Complex 6: 1/1
+  ✅ Complex 7: 1/1
+  ✅ Complex 8: 1/1
+  ✅ Complex 9: 1/1
+  ✅ Complex 10: 1/1
+  ✅ Complex 11: 1/1

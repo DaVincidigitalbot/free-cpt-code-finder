@@ -604,6 +604,14 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 .mod22-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
 .mod22-finding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .mod22-finding-grid label{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:7px;background:var(--white)}
+.claimiq-hero{border:1px solid var(--line2);border-radius:8px;padding:16px;background:var(--white);box-shadow:0 8px 24px rgba(15,23,42,.06)}
+.claimiq-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);font-weight:900;margin-bottom:3px}
+.claimiq-title{font-size:28px;line-height:1.1;font-weight:900;color:var(--ink);letter-spacing:0}
+.claimiq-tagline{font-size:14px;color:var(--ink2);margin-top:5px;line-height:1.45}
+.claimiq-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;margin-top:12px;font-size:12px;color:var(--ink)}
+.claimiq-checks span::before{content:'✓ ';font-weight:900;color:var(--ox)}
+.claimiq-about{border:1px solid var(--line);border-radius:8px;background:var(--paper);padding:12px;font-size:12px;line-height:1.5;color:var(--ink2)}
+.claimiq-about strong{display:block;color:var(--ink);font-size:13px;margin-bottom:4px}
 .claim-readiness-head{display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:center;border:1px solid var(--line2);border-radius:8px;padding:16px;background:var(--paper)}
 .claim-score{display:grid;place-items:center;width:132px;height:132px;border-radius:50%;border:10px solid var(--ox);background:var(--white);color:var(--ink)}
 .claim-score strong{display:block;font-size:34px;line-height:1;font-family:ui-monospace,monospace}
@@ -627,15 +635,15 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 .claim-finding dd{margin:0;color:var(--ink)}
 .claim-empty{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:14px;color:var(--ink2);font-size:13px}
 .copybox{white-space:pre-wrap;border:1px solid var(--line2);background:var(--white);border-radius:8px;padding:12px;font-size:13px;line-height:1.5}
-@media(max-width:760px){.global-form,.mod22-grid,.global-education,.global-timeline,.claim-readiness-head,.claim-risk-grid{grid-template-columns:1fr}.global-radio-item{grid-template-columns:1fr auto auto}.mod22-finding-grid{grid-template-columns:1fr}.claim-score{width:112px;height:112px}}
+@media(max-width:760px){.global-form,.mod22-grid,.global-education,.global-timeline,.claim-readiness-head,.claim-risk-grid,.claimiq-checks{grid-template-columns:1fr}.global-radio-item{grid-template-columns:1fr auto auto}.mod22-finding-grid{grid-template-columns:1fr}.claim-score{width:112px;height:112px}}
 </style>
 
 <div class="global-assistant" id="globalAssistant" aria-hidden="true">
  <div class="global-assistant__box">
   <div class="global-assistant__top">
    <div>
-    <div class="global-assistant__eyebrow" id="globalAssistantEyebrow">Claim Quality Review</div>
-    <div class="global-assistant__title" id="globalAssistantTitle">Claim quality review</div>
+    <div class="global-assistant__eyebrow" id="globalAssistantEyebrow">ClaimIQ™</div>
+    <div class="global-assistant__title" id="globalAssistantTitle">Educational claim review</div>
    </div>
    <button type="button" class="global-assistant__close" onclick="closeGlobalAssistant()">×</button>
   </div>
@@ -2336,6 +2344,7 @@ function setGlobalStep(step){globalAssistantStep=step;renderGlobalAssistant()}
 const CLAIM_RISK_WEIGHTS={High:18,Moderate:10,Low:5,Informational:0};
 const CLAIM_RISK_ORDER={High:0,Moderate:1,Low:2,Informational:3};
 const CLAIM_QUALITY_CATEGORIES=['Coding','Documentation','Medical Necessity','Payer','Compliance','Informational'];
+const CLAIMIQ_TAGLINE='An intelligent educational review of your surgical claim before submission.';
 const CLAIM_CATEGORY_MAP={
  'ICD-10':'Coding',
  'Claim Construction':'Coding',
@@ -2426,7 +2435,7 @@ function selectedModifiersForLine(line){
 function finalClaimSummary(findings,score,qualityLevel,improvementActions){
  const procLines=caseLines.filter(l=>l.kind==='proc');
  const priorities=[];
- if(findings.some(f=>f.risk==='High'))priorities.push('Resolve high-risk claim quality findings first.');
+ if(findings.some(f=>f.risk==='High'))priorities.push('Resolve high-risk ClaimIQ™ findings first.');
  if(findings.some(f=>/diagnosis|pointer|ICD-10/i.test(f.what+' '+f.sourceCategory)))priorities.push('Confirm ICD-10 diagnoses and CMS-1500 pointer mapping.');
  if(findings.some(f=>f.category==='Documentation'))priorities.push('Complete documentation elements before final coding review.');
  if(findings.some(f=>f.category==='Medical Necessity'))priorities.push('Review operative indication against common diagnosis groups and payer policy.');
@@ -2458,7 +2467,7 @@ function documentationCompletenessFindings(line){
   findings.push(claimFinding('Documentation Completeness','Low','Excision size is not documented in the Case Builder context for CPT '+code+'.','Lesion excision families commonly depend on lesion diameter plus margins or specimen size.','Verify documented size, location, benign/malignant status, and closure type before final code selection.','CPT integumentary lesion excision documentation guidance',{cpt:code,lineId:line.id}));
  }
  if((line.modifier22Selected||globalModifierState.mod22.selected)&&!hasDocumentationFact(line,'operativeTime')&&!globalModifierState.mod22.justification){
-  findings.push(claimFinding('Documentation Completeness','Moderate','Modifier 22 review is marked but objective operative time/facts are incomplete.','Modifier 22 requires objective documentation of substantially greater work; a claim-quality score should not treat the modifier as complete without support.','Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.','CMS/AMA modifier 22 guidance',{cpt:code,lineId:line.id}));
+  findings.push(claimFinding('Documentation Completeness','Moderate','Modifier 22 review is marked but objective operative time/facts are incomplete.','Modifier 22 requires objective documentation of substantially greater work; ClaimIQ™ should not treat the modifier as complete without support.','Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.','CMS/AMA modifier 22 guidance',{cpt:code,lineId:line.id}));
  }
  if((code==='44005'||/adhesiolysis|enterolysis|lysis of adhesions/.test(desc))&&!hasDocumentationFact(line,'adhesiolysisDuration')){
   findings.push(claimFinding('Documentation Completeness','Low','Adhesiolysis duration is not documented for CPT '+code+'.','Adhesiolysis-heavy cases often require duration and complexity details to support code selection or modifier review.','Review whether the operative note states adhesiolysis time, density, location, and relation to the primary procedure.','CPT enterolysis and modifier 22 documentation guidance',{cpt:code,lineId:line.id}));
@@ -2472,7 +2481,7 @@ function evaluateClaimReadiness(){
  const findings=[];
  const procLines=caseLines.filter(l=>l.kind==='proc');
  if(!caseLines.length){
-  findings.push(claimFinding('Claim Construction','High','No CPT lines have been added.','Claim quality cannot be reviewed without selected services.','Add procedure or E/M lines before final review.','FreeCPTCodeFinder Claim Quality Review'));
+  findings.push(claimFinding('Claim Construction','High','No CPT lines have been added.','ClaimIQ™ cannot review the case without selected services.','Add procedure or E/M lines before final review.','FreeCPTCodeFinder ClaimIQ™'));
  }
  if(!caseDiagnoses.length&&procLines.length){
   findings.push(claimFinding('ICD-10','High','No ICD-10 diagnoses are selected.','Most surgical claims require diagnosis support and CMS-1500 pointer mapping from diagnosis to CPT line.','Select billable ICD-10-CM diagnoses supported by the operative documentation.','ICD-10-CM diagnosis reporting and CMS-1500 pointer requirements'));
@@ -2496,7 +2505,7 @@ function evaluateClaimReadiness(){
   validateDiagnosesForLine(line).forEach(w=>{
    const risk=/non-billable|retired|No diagnosis/i.test(w)?'High':'Moderate';
    const category=/common diagnosis set|confirm documentation/i.test(w)?'Medical Necessity':'ICD-10';
-   findings.push(claimFinding(category,risk,w,category==='Medical Necessity'?'The selected diagnosis appears uncommon for the chosen CPT based on this tool\'s clinical indication groups. Medical necessity depends on documentation and payer policy.':'The selected diagnosis may not satisfy claim-quality or ICD-10 specificity checks.','Review the operative indication, diagnosis specificity, and payer policy before final coding.',category==='Medical Necessity'?'FreeCPTCodeFinder clinical indication groups; payer medical policy controls final medical necessity.':'ICD-10-CM validation checks',{cpt:line.cpt,lineId:line.id}));
+   findings.push(claimFinding(category,risk,w,category==='Medical Necessity'?'The selected diagnosis appears uncommon for the chosen CPT based on this tool\'s clinical indication groups. Medical necessity depends on documentation and payer policy.':'The selected diagnosis may not satisfy ClaimIQ™ or ICD-10 specificity checks.','Review the operative indication, diagnosis specificity, and payer policy before final coding.',category==='Medical Necessity'?'FreeCPTCodeFinder clinical indication groups; payer medical policy controls final medical necessity.':'ICD-10-CM validation checks',{cpt:line.cpt,lineId:line.id}));
   });
   if(line.payableExcluded){
    const risk=line.payableExclusionClass==='ncci_hard_stop'?'High':'Moderate';
@@ -2543,7 +2552,7 @@ function evaluateClaimReadiness(){
  const scoreBreakdown=sortedFindings.filter(f=>f.deduction>0).map(f=>({finding:f.what,category:f.category,risk:f.risk,deduction:f.deduction,explanation:f.qualityScoreImpact+' for '+f.risk+' '+f.category+' finding'}));
  const summary=finalClaimSummary(sortedFindings,score,qualityLevel,improvementActions);
  return {
-  label:'Claim Quality Review',
+  label:'ClaimIQ™',
   score,
   qualityLevel,
   scoreBand:qualityLevel,
@@ -2555,7 +2564,8 @@ function evaluateClaimReadiness(){
   scoreBreakdown,
   finalClaimSummary:summary,
   findings:sortedFindings,
-  disclaimer:'Educational claim-quality indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.'
+  tagline:CLAIMIQ_TAGLINE,
+  disclaimer:'ClaimIQ™ is an educational claim review indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.'
  };
 }
 function renderClaimFinding(f){
@@ -2568,16 +2578,22 @@ function renderFinalClaimSummary(summary){
  const dx=summary.diagnoses.length?summary.diagnoses.map(d=>d.pointer+' '+displayIcd(d.code)+' '+d.description).join('; '):'None selected';
  const pointers=summary.diagnosisPointers.length?summary.diagnosisPointers.map(row=>'CPT '+row.cpt+' -> '+(row.pointerString||'none')).join('; '):'No CPT pointer map';
  const mods=summary.selectedModifiers.length?summary.selectedModifiers.map(row=>'CPT '+row.cpt+' -'+row.modifiers.join('/-')).join('; '):'None selected';
- return '<div class="claim-finding-group"><h4>Final Claim Summary</h4><dl><dt>CPT codes</dt><dd>'+h(summary.cptCodes.join(', ')||'None')+'</dd><dt>ICD-10 diagnoses</dt><dd>'+h(dx)+'</dd><dt>Diagnosis pointers</dt><dd>'+h(pointers)+'</dd><dt>Selected modifiers</dt><dd>'+h(mods)+'</dd><dt>Findings</dt><dd>'+h('High '+summary.findingsByRisk.High+' · Moderate '+summary.findingsByRisk.Moderate+' · Low '+summary.findingsByRisk.Low)+'</dd><dt>Overall Claim Quality Review score</dt><dd>'+h(summary.score+'/100 · '+summary.qualityLevel+' risk')+'</dd><dt>Suggested review priorities</dt><dd>'+h(summary.suggestedReviewPriorities.join('; '))+'</dd></dl></div>';
+ return '<div class="claim-finding-group"><h4>Final Claim Summary</h4><dl><dt>CPT codes</dt><dd>'+h(summary.cptCodes.join(', ')||'None')+'</dd><dt>ICD-10 diagnoses</dt><dd>'+h(dx)+'</dd><dt>Diagnosis pointers</dt><dd>'+h(pointers)+'</dd><dt>Selected modifiers</dt><dd>'+h(mods)+'</dd><dt>Findings</dt><dd>'+h('High '+summary.findingsByRisk.High+' · Moderate '+summary.findingsByRisk.Moderate+' · Low '+summary.findingsByRisk.Low)+'</dd><dt>Overall Claim Quality Score</dt><dd>'+h(summary.score+'/100 · '+summary.qualityLevel+' risk')+'</dd><dt>Suggested review priorities</dt><dd>'+h(summary.suggestedReviewPriorities.join('; '))+'</dd></dl></div>';
+}
+function renderClaimIQHero(){
+ return '<div class="claimiq-hero"><div class="claimiq-kicker">Educational Claim Review</div><div class="claimiq-title">ClaimIQ™</div><div class="claimiq-tagline">Review your claim before you submit it.</div><div class="claimiq-checks"><span>CPT coding</span><span>ICD-10 diagnosis selection</span><span>Diagnosis pointers</span><span>NCCI edits</span><span>Global surgery modifiers</span><span>Modifier 22 documentation</span><span>MPPR adjustments</span><span>Inpatient-only procedures</span><span>Medicaid considerations</span><span>Documentation completeness</span><span>Claim construction quality</span></div><div class="claim-readiness-note">This review is educational and is intended to help identify items that may warrant additional review before claim submission.</div></div>';
+}
+function renderClaimIQAbout(){
+ return '<div class="claimiq-about"><strong>About ClaimIQ™</strong>ClaimIQ is FreeCPTCodeFinder’s educational claim review engine. It evaluates coding relationships, documentation completeness, diagnosis linkage, modifier considerations, and claim construction to help identify areas that may benefit from additional review before submission. ClaimIQ is an educational decision-support tool and does not guarantee reimbursement or replace professional coding judgment, payer policy, or claim adjudication.</div>';
 }
 function renderClaimReadinessScreen(){
  const review=evaluateClaimReadiness();
  const groups={};
  review.findings.forEach(f=>{groups[f.category]=groups[f.category]||[];groups[f.category].push(f)});
  const groupHTML=CLAIM_QUALITY_CATEGORIES.filter(category=>groups[category]).map(category=>'<div class="claim-finding-group"><h4>'+h(category)+'</h4>'+groups[category].map(renderClaimFinding).join('')+'</div>').join('');
- const actionHTML=review.improvementActions.length?'<div class="claim-finding-group"><h4>Improve this claim</h4><ul>'+review.improvementActions.map(action=>'<li>'+h(action)+'</li>').join('')+'</ul></div>':'';
+ const actionHTML=review.improvementActions.length?'<div class="claim-finding-group"><h4>Improve This Claim</h4><ul>'+review.improvementActions.map(action=>'<li>'+h(action)+'</li>').join('')+'</ul></div>':'';
  const scoreHTML='<div class="claim-finding-group"><h4>Score transparency</h4><dl><dt>Formula</dt><dd>'+h(review.scoreFormula)+'</dd><dt>Starting score</dt><dd>'+review.startingScore+'</dd><dt>Total deductions</dt><dd>'+review.totalDeduction+'</dd></dl>'+(review.scoreBreakdown.length?'<ul>'+review.scoreBreakdown.map(item=>'<li>'+h(item.explanation+': '+item.finding)+'</li>').join('')+'</ul>':'<div class="claim-empty">No weighted deductions detected.</div>')+'</div>';
- return '<div class="global-step"><div class="claim-readiness-head"><div class="claim-score"><div><strong>'+review.score+'</strong><span>Quality</span></div></div><div><div class="global-question">Claim Quality Review: '+h(review.qualityLevel)+' risk</div><div class="claim-readiness-note">'+h(review.disclaimer)+'</div><div class="claim-risk-grid"><div class="claim-risk-pill"><strong>'+review.counts.High+'</strong>High</div><div class="claim-risk-pill"><strong>'+review.counts.Moderate+'</strong>Moderate</div><div class="claim-risk-pill"><strong>'+review.counts.Low+'</strong>Low</div><div class="claim-risk-pill"><strong>'+review.counts.Informational+'</strong>Informational</div></div></div></div>'+actionHTML+scoreHTML+(groupHTML||'<div class="claim-empty">No claim-quality issues detected by the current rules. Continue coder and payer-policy review before submission.</div>')+renderFinalClaimSummary(review.finalClaimSummary)+'<div class="global-actions"><button class="global-secondary" onclick="setGlobalStep(\'screen\')">Global Surgery Review</button><button class="global-secondary" onclick="setGlobalStep(\'mod22\')">Modifier 22 Review</button><button class="global-action" onclick="openAuditReport()">Audit report</button><button class="global-action" onclick="exportAuditJSON()">Export JSON</button><button class="global-secondary" onclick="closeGlobalAssistant()">Done</button></div></div>';
+ return '<div class="global-step">'+renderClaimIQHero()+'<div class="claim-readiness-head"><div class="claim-score"><div><strong>'+review.score+'</strong><span>Quality</span></div></div><div><div class="global-question">ClaimIQ™ · Overall Claim Quality Score</div><div class="claim-readiness-note">'+h(review.tagline)+' '+h(review.disclaimer)+'</div><div class="claim-risk-grid"><div class="claim-risk-pill"><strong>'+review.counts.High+'</strong>High findings</div><div class="claim-risk-pill"><strong>'+review.counts.Moderate+'</strong>Moderate findings</div><div class="claim-risk-pill"><strong>'+review.counts.Low+'</strong>Low findings</div><div class="claim-risk-pill"><strong>'+review.counts.Informational+'</strong>Informational findings</div></div></div></div>'+actionHTML+scoreHTML+(groupHTML||'<div class="claim-empty">No ClaimIQ™ findings detected by the current rules. Continue coder and payer-policy review before submission.</div>')+renderFinalClaimSummary(review.finalClaimSummary)+renderClaimIQAbout()+'<div class="global-actions"><button class="global-secondary" onclick="setGlobalStep(\'screen\')">Global Surgery Review</button><button class="global-secondary" onclick="setGlobalStep(\'mod22\')">Modifier 22 Review</button><button class="global-action" onclick="openAuditReport()">Audit report</button><button class="global-action" onclick="exportAuditJSON()">Export JSON</button><button class="global-secondary" onclick="closeGlobalAssistant()">Done</button></div></div>';
 }
 function openClaimReadiness(){
  if(!caseLines.length){alert('Add procedures to the case first.');return}
@@ -2781,7 +2797,7 @@ function renderGlobalAssistant(){
  const el=document.getElementById('globalAssistantContent');
  if(!el)return;
  if(globalAssistantStep==='claim-readiness'){
-  setAssistantHeader('Claim Quality Review','Claim quality check');
+  setAssistantHeader('ClaimIQ™','Educational claim review');
   el.innerHTML=renderClaimReadinessScreen();
   return;
  }
@@ -2872,12 +2888,13 @@ function openAuditReport(){
  const medicaidReportBlock=payer==='medicaid'?'<h2>Medicaid modifier review</h2><div class="rank-reason"><strong>Warning:</strong> '+h(medicaidCaseWarningText())+'</div>':'';
  const diagnosisReportBlock='<h2>Selected ICD-10 diagnoses</h2>'+(caseDiagnoses.length?caseDiagnoses.map((d,i)=>'<div class="rationale-item"><div class="rationale-mod">'+diagnosisLetter(i)+' · '+h(displayIcd(d.code))+'</div><div class="rationale-text">'+h(d.description)+'</div><div class="rationale-cite">'+(d.billable?'Billable':'Non-billable')+' · Effective '+h(d.effectiveDate||ICD10_DATASET_META.effectiveDate)+' · '+h(ICD10_DATASET_META.version)+'</div></div>').join(''):'<div class="rank-reason"><strong>Missing diagnoses:</strong> No ICD-10 diagnoses selected.</div>')+'<h2>CMS-1500 diagnosis pointer map</h2>'+(diagnosisPointerMap().length?diagnosisPointerMap().map(row=>'<div class="rationale-item"><div class="rationale-mod">CPT '+h(row.cpt)+'</div><div class="rationale-text">'+h(row.cpt+' → '+(row.pointerString||'none'))+'</div><div class="rationale-cite">Future CMS-1500 export pointer string: '+h(row.pointerString||'blank')+'</div></div>').join(''):'<div class="rank-reason"><strong>No CPT lines:</strong> No diagnosis pointer map available.</div>');
  const ipoReportBlock=inpatientOnlyCaseLines().length?'<h2>Inpatient-only compliance</h2><div class="rank-reason"><strong>Warning:</strong> '+h(inpatientOnlyWarningText())+'</div>':'';
- const claimQualityReview=evaluateClaimReadiness();
- const claimQualityActions=claimQualityReview.improvementActions.length?'<div class="rank-reason"><strong>Improve this claim:</strong> '+claimQualityReview.improvementActions.map(h).join('; ')+'</div>':'';
- const claimQualityBreakdown=claimQualityReview.scoreBreakdown.length?'<div class="rank-reason"><strong>Score transparency:</strong> '+h(claimQualityReview.scoreFormula)+' · starting score '+claimQualityReview.startingScore+' · total deductions '+claimQualityReview.totalDeduction+'<br>'+claimQualityReview.scoreBreakdown.map(item=>h(item.explanation+': '+item.finding)).join('<br>')+'</div>':'<div class="rank-reason"><strong>Score transparency:</strong> No weighted deductions detected.</div>';
- const finalSummary=claimQualityReview.finalClaimSummary;
- const finalSummaryBlock='<div class="rank-reason"><strong>Final Claim Summary:</strong><br><strong>CPT codes:</strong> '+h(finalSummary.cptCodes.join(', ')||'None')+'<br><strong>ICD-10 diagnoses:</strong> '+h(finalSummary.diagnoses.length?finalSummary.diagnoses.map(d=>d.pointer+' '+displayIcd(d.code)+' '+d.description).join('; '):'None selected')+'<br><strong>Diagnosis pointers:</strong> '+h(finalSummary.diagnosisPointers.length?finalSummary.diagnosisPointers.map(row=>'CPT '+row.cpt+' -> '+(row.pointerString||'none')).join('; '):'No CPT pointer map')+'<br><strong>Selected modifiers:</strong> '+h(finalSummary.selectedModifiers.length?finalSummary.selectedModifiers.map(row=>'CPT '+row.cpt+' -'+row.modifiers.join('/-')).join('; '):'None selected')+'<br><strong>Findings:</strong> '+h('High '+finalSummary.findingsByRisk.High+' · Moderate '+finalSummary.findingsByRisk.Moderate+' · Low '+finalSummary.findingsByRisk.Low)+'<br><strong>Overall Claim Quality Review score:</strong> '+h(finalSummary.score+'/100 · '+finalSummary.qualityLevel+' risk')+'<br><strong>Suggested review priorities:</strong> '+h(finalSummary.suggestedReviewPriorities.join('; '))+'</div>';
- const claimQualityReportBlock='<h2>Claim Quality Review</h2><div class="rank-reason"><strong>Claim Quality Review:</strong> '+claimQualityReview.score+'/100 · '+h(claimQualityReview.qualityLevel)+' risk<br><strong>Educational indicator only:</strong> '+h(claimQualityReview.disclaimer)+'</div>'+claimQualityActions+claimQualityBreakdown+(claimQualityReview.findings.length?claimQualityReview.findings.map(f=>'<div class="rationale-item"><div class="rationale-mod">'+h(f.risk+' · '+f.category)+'</div><div class="rationale-text"><strong>Detected:</strong> '+h(f.what)+'<br><strong>Evidence used:</strong> '+h((f.evidence&&f.evidence.length)?f.evidence.join('; '):'Case Builder state and selected CPT/diagnosis metadata')+'<br><strong>Why it matters:</strong> '+h(f.why)+'<br><strong>Potential consequences:</strong> '+h((f.potentialConsequences&&f.potentialConsequences.length)?f.potentialConsequences.join('; '):'Coding review recommended.')+'<br><strong>Suggested review:</strong> '+h(f.suggestedReview||f.review)+'<br><strong>Improve this claim:</strong> '+h((f.improvementActions&&f.improvementActions.length)?f.improvementActions.join('; '):'Coder review')+'<br><strong>Quality score impact:</strong> '+h(f.qualityScoreImpact)+'</div><div class="rationale-cite">'+h(f.reference||'FreeCPTCodeFinder Claim Quality Review')+'</div></div>').join(''):'<div class="rank-reason"><strong>No claim-quality issues detected:</strong> Current rules did not detect claim-quality warnings. Coder and payer-policy review still required.</div>')+finalSummaryBlock;
+ const claimIQ=evaluateClaimReadiness();
+ const claimIQActions=claimIQ.improvementActions.length?'<div class="rank-reason"><strong>Improve This Claim:</strong> '+claimIQ.improvementActions.map(h).join('; ')+'</div>':'';
+ const claimIQBreakdown=claimIQ.scoreBreakdown.length?'<div class="rank-reason"><strong>Score transparency:</strong> '+h(claimIQ.scoreFormula)+' · starting score '+claimIQ.startingScore+' · total deductions '+claimIQ.totalDeduction+'<br>'+claimIQ.scoreBreakdown.map(item=>h(item.explanation+': '+item.finding)).join('<br>')+'</div>':'<div class="rank-reason"><strong>Score transparency:</strong> No weighted deductions detected.</div>';
+ const finalSummary=claimIQ.finalClaimSummary;
+ const finalSummaryBlock='<div class="rank-reason"><strong>Final Claim Summary:</strong><br><strong>CPT codes:</strong> '+h(finalSummary.cptCodes.join(', ')||'None')+'<br><strong>ICD-10 diagnoses:</strong> '+h(finalSummary.diagnoses.length?finalSummary.diagnoses.map(d=>d.pointer+' '+displayIcd(d.code)+' '+d.description).join('; '):'None selected')+'<br><strong>Diagnosis pointers:</strong> '+h(finalSummary.diagnosisPointers.length?finalSummary.diagnosisPointers.map(row=>'CPT '+row.cpt+' -> '+(row.pointerString||'none')).join('; '):'No CPT pointer map')+'<br><strong>Selected modifiers:</strong> '+h(finalSummary.selectedModifiers.length?finalSummary.selectedModifiers.map(row=>'CPT '+row.cpt+' -'+row.modifiers.join('/-')).join('; '):'None selected')+'<br><strong>Findings:</strong> '+h('High '+finalSummary.findingsByRisk.High+' · Moderate '+finalSummary.findingsByRisk.Moderate+' · Low '+finalSummary.findingsByRisk.Low)+'<br><strong>Overall Claim Quality Score:</strong> '+h(finalSummary.score+'/100 · '+finalSummary.qualityLevel+' risk')+'<br><strong>Suggested review priorities:</strong> '+h(finalSummary.suggestedReviewPriorities.join('; '))+'</div>';
+ const claimIQAbout='<div class="rank-reason"><strong>About ClaimIQ™:</strong> ClaimIQ is FreeCPTCodeFinder’s educational claim review engine. It evaluates coding relationships, documentation completeness, diagnosis linkage, modifier considerations, and claim construction to help identify areas that may benefit from additional review before submission. ClaimIQ is an educational decision-support tool and does not guarantee reimbursement or replace professional coding judgment, payer policy, or claim adjudication.</div>';
+ const claimQualityReportBlock='<h2>ClaimIQ™ Review</h2><div class="rank-reason"><strong>ClaimIQ™:</strong> '+claimIQ.score+'/100 · '+h(claimIQ.qualityLevel)+' risk<br><strong>Tagline:</strong> '+h(claimIQ.tagline)+'<br><strong>Educational indicator only:</strong> '+h(claimIQ.disclaimer)+'</div>'+claimIQActions+claimIQBreakdown+(claimIQ.findings.length?claimIQ.findings.map(f=>'<div class="rationale-item"><div class="rationale-mod">'+h(f.risk+' · '+f.category)+'</div><div class="rationale-text"><strong>Detected:</strong> '+h(f.what)+'<br><strong>Evidence used:</strong> '+h((f.evidence&&f.evidence.length)?f.evidence.join('; '):'Case Builder state and selected CPT/diagnosis metadata')+'<br><strong>Why it matters:</strong> '+h(f.why)+'<br><strong>Potential consequences:</strong> '+h((f.potentialConsequences&&f.potentialConsequences.length)?f.potentialConsequences.join('; '):'Coding review recommended.')+'<br><strong>Suggested review:</strong> '+h(f.suggestedReview||f.review)+'<br><strong>Improve This Claim:</strong> '+h((f.improvementActions&&f.improvementActions.length)?f.improvementActions.join('; '):'Coder review')+'<br><strong>Quality score impact:</strong> '+h(f.qualityScoreImpact)+'</div><div class="rationale-cite">'+h(f.reference||'FreeCPTCodeFinder ClaimIQ™')+'</div></div>').join(''):'<div class="rank-reason"><strong>No ClaimIQ™ findings detected:</strong> Current rules did not detect claim-quality warnings. Coder and payer-policy review still required.</div>')+finalSummaryBlock+claimIQAbout;
 
  const html=`<!doctype html><html><head><meta charset="utf-8"><title>${caseId} — Coding Audit Report</title>
 <style>
@@ -2990,7 +3007,22 @@ ${rows}
 function exportAuditJSON(){
  if(!caseLines.length){alert('Add procedures to the case first.');return}
  const now=new Date();
- const claimQualityReview=evaluateClaimReadiness();
+ const claimIQ=evaluateClaimReadiness();
+ const claimIQPayload={
+  label:claimIQ.label,
+  score:claimIQ.score,
+  qualityLevel:claimIQ.qualityLevel,
+  startingScore:claimIQ.startingScore,
+  totalDeduction:claimIQ.totalDeduction,
+  scoreFormula:claimIQ.scoreFormula,
+  scoreBreakdown:claimIQ.scoreBreakdown,
+  riskCounts:claimIQ.counts,
+  potentialImprovementActions:claimIQ.improvementActions,
+  finalClaimSummary:claimIQ.finalClaimSummary,
+  tagline:claimIQ.tagline,
+  disclaimer:claimIQ.disclaimer,
+  findings:claimIQ.findings
+ };
  const report={
   caseId:'CASE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase(),
   generatedAt:now.toISOString(),
@@ -3019,19 +3051,8 @@ function exportAuditJSON(){
   diagnosisPointerMap:diagnosisPointerMap(),
   futureCms1500DiagnosisPointers:diagnosisPointerMap().map(row=>({cpt:row.cpt,diagnosisPointerField:row.pointerString})),
   inpatientOnlyWarnings:inpatientOnlyCaseLines().map(l=>({cpt:l.cpt,warning:inpatientOnlyWarningText(),info:inpatientOnlyInfoForLine(l)})),
-  claimQualityReview:{
-   score:claimQualityReview.score,
-   qualityLevel:claimQualityReview.qualityLevel,
-   startingScore:claimQualityReview.startingScore,
-   totalDeduction:claimQualityReview.totalDeduction,
-   scoreFormula:claimQualityReview.scoreFormula,
-   scoreBreakdown:claimQualityReview.scoreBreakdown,
-   riskCounts:claimQualityReview.counts,
-   potentialImprovementActions:claimQualityReview.improvementActions,
-   finalClaimSummary:claimQualityReview.finalClaimSummary,
-   disclaimer:claimQualityReview.disclaimer,
-   findings:claimQualityReview.findings
-  },
+  claimIQ:claimIQPayload,
+  claimQualityReview:claimIQPayload,
   totals:{
    selectedWrvu:+(caseLines.reduce((s,l)=>s+l.effWrvu,0).toFixed(2)),
    payableWrvu:+(caseLines.reduce((s,l)=>s+Number(l.payableWrvu||0),0).toFixed(2)),

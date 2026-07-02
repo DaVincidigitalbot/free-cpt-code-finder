@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-07-02T21:27:26.584Z",
+  "caseCount": 12,
+  "edgeCaseCount": 6,
+  "totalCases": 18,
+  "results": [
+    {
+      "name": "Missing diagnosis",
+      "status": "pass",
+      "score": 41,
+      "findings": 4
+    },
+    {
+      "name": "Missing pointer",
+      "status": "pass",
+      "score": 49,
+      "findings": 4
+    },
+    {
+      "name": "Non-billable diagnosis",
+      "status": "pass",
+      "score": 59,
+      "findings": 3
+    },
+    {
+      "name": "Uncommon diagnosis",
+      "status": "pass",
+      "score": 85,
+      "findings": 2
+    },
+    {
+      "name": "NCCI separate procedure",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "MPPR",
+      "status": "pass",
+      "score": 95,
+      "findings": 2
+    },
+    {
+      "name": "Inpatient-only",
+      "status": "pass",
+      "score": 82,
+      "findings": 1
+    },
+    {
+      "name": "Medicaid",
+      "status": "pass",
+      "score": 90,
+      "findings": 2
+    },
+    {
+      "name": "Laterality",
+      "status": "pass",
+      "score": 90,
+      "findings": 1
+    },
+    {
+      "name": "Modifier 22 incomplete",
+      "status": "pass",
+      "score": 80,
+      "findings": 2
+    },
+    {
+      "name": "Trauma rib fixation",
+      "status": "pass",
+      "score": 100,
+      "findings": 0
+    },
+    {
+      "name": "APP mode",
+      "status": "pass",
+      "score": 64,
+      "findings": 2
+    },
+    {
+      "name": "ClaimIQ hero branding",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "ClaimIQ dashboard labels",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "ClaimIQ audit report",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "ClaimIQ JSON export",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "Legacy JSON compatibility",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    },
+    {
+      "name": "No predictive language",
+      "status": "pass",
+      "score": 24,
+      "findings": 6
+    }
+  ],
+  "claimIQChecks": {
+    "heroBranding": true,
+    "tagline": true,
+    "dashboardLabels": true,
+    "auditReportRenamed": true,
+    "jsonPrimaryKey": "claimIQ",
+    "legacyJsonFieldPreserved": true,
+    "noPaymentPrediction": true
+  },
+  "productionReadinessRecommendation": "Ready for review branch QA. Do not deploy until reviewed and approved."
+}
