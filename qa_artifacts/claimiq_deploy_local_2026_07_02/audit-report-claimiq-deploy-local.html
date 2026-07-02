@@ -1,0 +1,136 @@
+<!doctype html><html><head><meta charset="utf-8"><title>CASE-20260702-Z51Q — Coding Audit Report</title>
+<style>
+@page{size:letter;margin:0.6in}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:11pt;line-height:1.5;color:#0a0a0a;background:var(--white);padding:40px;max-width:8.5in;margin:auto}
+.header{border-bottom:2px solid var(--ox);padding-bottom:14px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:flex-start}
+.header h1{font-size:18pt;font-weight:600;letter-spacing:-.01em;color:var(--ox)}
+.header .sub{font-size:10pt;color:var(--ink2);margin-top:2px}
+.header .meta{text-align:right;font-size:9pt;color:var(--ink2);font-family:ui-monospace,Menlo,monospace;line-height:1.7}
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:6px;margin-bottom:22px}
+.summary>div{padding:12px 14px;border-right:1px solid var(--line)}
+.summary>div:last-child{border-right:0}
+.summary .lbl{font-size:8pt;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:4px;font-weight:600}
+.summary .val{font-size:14pt;font-weight:500;font-family:ui-monospace,monospace}
+.summary .val.money{color:#2D5A3D}
+h2{font-size:11pt;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);margin:22px 0 10px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:10pt}
+.line-row td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+.line-row .num{text-align:right;color:var(--ink3);font-family:ui-monospace,monospace;width:28px}
+.line-row .rank-cell{width:80px}
+.line-row .cpt-cell{width:130px;font-family:ui-monospace,monospace;font-weight:500}
+.line-row .mono{font-family:ui-monospace,monospace;width:60px}
+.rank-badge{display:inline-block;font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border:1px solid var(--line2);border-radius:3px;color:var(--ink2)}
+.rank-badge.p{color:var(--ox);border-color:var(--ox);background:var(--ox2)}
+.rank-badge.em{color:#2D5A3D;border-color:#2D5A3D;background:#EAF3ED}
+.rank-badge.s{color:var(--ink2)}
+.mod-tag{font-family:ui-monospace,monospace;color:var(--ox);font-weight:500;margin-left:4px;font-size:9pt}
+.rationale-row td{padding:4px 8px 14px;border-top:0;background:var(--paper)}
+.rank-reason{font-size:9.5pt;color:#0a0a0a;margin-bottom:8px;padding:8px 10px;background:var(--white);border-left:3px solid var(--ox)}
+.rationale-item{padding:6px 10px;margin-top:4px;background:var(--white);border:1px solid var(--line);border-radius:4px;font-size:9pt}
+.rationale-mod{font-weight:600;color:var(--ox);font-size:8.5pt;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.rationale-text{color:#0a0a0a;margin-bottom:4px}
+.rationale-cite{font-size:8pt;color:var(--ink3);font-style:italic;font-family:ui-monospace,monospace}
+.totals{margin-top:20px;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.totals .left{font-size:10pt;color:var(--ink2)}
+.totals .right{font-size:16pt;font-weight:500;font-family:ui-monospace,monospace}
+.totals .right .money{color:#2D5A3D}
+.footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:8pt;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.sig{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.sig-line{border-top:1px solid #0a0a0a;padding-top:6px;font-size:8.5pt;color:var(--ink2)}
+.print-btn{position:fixed;top:14px;right:14px;background:var(--ox);color:var(--white);border:0;padding:10px 18px;border-radius:5px;font-size:11pt;font-weight:500;cursor:pointer}
+@media print{.print-btn{display:none}}
+</style></head><body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="header">
+<div>
+<h2>Surgical Coding Audit Report</h2>
+<div class="sub">Case rationale and modifier justification — prepared for medical billing review</div>
+</div>
+<div class="meta">
+<div><strong>CASE-20260702-Z51Q</strong></div>
+<div>7/2/2026 5:58:57 PM</div>
+<div>FreeCPTCodeFinder</div>
+</div>
+</div>
+
+<div class="summary">
+<div><div class="lbl">Payer</div><div class="val">medicare</div></div>
+<div><div class="lbl">Setting</div><div class="val">Facility</div></div>
+<div><div class="lbl">Selected wRVU</div><div class="val">10.00</div></div>
+<div><div class="lbl">Payable wRVU</div><div class="val">10.00</div></div>
+<div><div class="lbl">Est. payment</div><div class="val money">$334.01</div></div>
+</div>
+
+
+
+<h2>Selected ICD-10 diagnoses</h2><div class="rationale-item"><div class="rationale-mod">A · C50.911</div><div class="rationale-text">Malignant neoplasm of unspecified site of right female breast</div><div class="rationale-cite">Billable · Effective 2025-10-01 · FY2026</div></div><h2>CMS-1500 diagnosis pointer map</h2><div class="rationale-item"><div class="rationale-mod">CPT 19303</div><div class="rationale-text">19303 → none</div><div class="rationale-cite">Future CMS-1500 export pointer string: blank</div></div>
+
+<h2>ClaimIQ™ Review</h2><div class="rank-reason"><strong>ClaimIQ™:</strong> 24/100 · High risk<br><strong>Tagline:</strong> An intelligent educational review of your surgical claim before submission.<br><strong>Educational indicator only:</strong> ClaimIQ™ is an educational claim review indicator only. This score reflects completeness and coding-quality signals; it does not predict payment, coverage, or payer acceptance.</div><div class="rank-reason"><strong>Improve This Claim:</strong> Add diagnosis; Add diagnosis pointer; Review Modifier 22 documentation; Review laterality; Document adhesiolysis duration</div><div class="rank-reason"><strong>Score transparency:</strong> 100 - sum(weighted quality findings) · starting score 100 · total deductions 76<br>-18 points for High Coding finding: CPT 19303 has no diagnosis pointer.<br>-18 points for High Coding finding: No diagnosis selected for CPT 19303.<br>-10 points for Moderate Coding finding: C50.911 is selected but not linked to any CPT.<br>-10 points for Moderate Documentation finding: Modifier 22 is selected for CPT 19303 but the documentation generator is incomplete.<br>-10 points for Moderate Documentation finding: Laterality is missing for CPT 19303.<br>-10 points for Moderate Documentation finding: Modifier 22 review is marked but objective operative time/facts are incomplete.</div><div class="rationale-item"><div class="rationale-mod">High · Coding</div><div class="rationale-text"><strong>Detected:</strong> CPT 19303 has no diagnosis pointer.<br><strong>Evidence used:</strong> CPT 19303; Case line 1<br><strong>Why it matters:</strong> A CPT line without a diagnosis pointer may fail claim construction review or require manual correction.<br><strong>Potential consequences:</strong> May result in claim rejection, line-item denial, or manual payer review.<br><strong>Suggested review:</strong> Assign one or more diagnosis pointer letters supported by documentation.<br><strong>Improve This Claim:</strong> Add diagnosis; Add diagnosis pointer<br><strong>Quality score impact:</strong> -18 points</div><div class="rationale-cite">CMS-1500 diagnosis pointer requirements</div></div><div class="rationale-item"><div class="rationale-mod">High · Coding</div><div class="rationale-text"><strong>Detected:</strong> No diagnosis selected for CPT 19303.<br><strong>Evidence used:</strong> CPT 19303; Case line 1<br><strong>Why it matters:</strong> The selected diagnosis may not satisfy ClaimIQ™ or ICD-10 specificity checks.<br><strong>Potential consequences:</strong> May result in delayed reimbursement or manual payer review if not reviewed.<br><strong>Suggested review:</strong> Review the operative indication, diagnosis specificity, and payer policy before final coding.<br><strong>Improve This Claim:</strong> Add diagnosis<br><strong>Quality score impact:</strong> -18 points</div><div class="rationale-cite">ICD-10-CM validation checks</div></div><div class="rationale-item"><div class="rationale-mod">Moderate · Coding</div><div class="rationale-text"><strong>Detected:</strong> C50.911 is selected but not linked to any CPT.<br><strong>Evidence used:</strong> ICD-10 C50.911; Diagnosis pointer A<br><strong>Why it matters:</strong> Unlinked diagnoses can create a mismatch between the diagnosis list and claim-line pointer fields.<br><strong>Potential consequences:</strong> May result in claim rejection, line-item denial, or manual payer review.<br><strong>Suggested review:</strong> Assign the diagnosis pointer to each CPT it supports or remove it from the case.<br><strong>Improve This Claim:</strong> Add diagnosis pointer<br><strong>Quality score impact:</strong> -10 points</div><div class="rationale-cite">CMS-1500 diagnosis pointer mapping</div></div><div class="rationale-item"><div class="rationale-mod">Moderate · Documentation</div><div class="rationale-text"><strong>Detected:</strong> Modifier 22 is selected for CPT 19303 but the documentation generator is incomplete.<br><strong>Evidence used:</strong> CPT 19303; Case line 1<br><strong>Why it matters:</strong> Modifier 22 usually needs objective facts, not a conclusory statement of complexity.<br><strong>Potential consequences:</strong> Could lead to downcoding risk, additional documentation request, or manual payer review.<br><strong>Suggested review:</strong> Complete the Modifier 22 review and preserve objective supporting facts before final coding.<br><strong>Improve This Claim:</strong> Review Modifier 22 documentation<br><strong>Quality score impact:</strong> -10 points</div><div class="rationale-cite">CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed</div></div><div class="rationale-item"><div class="rationale-mod">Moderate · Documentation</div><div class="rationale-text"><strong>Detected:</strong> Laterality is missing for CPT 19303.<br><strong>Evidence used:</strong> CPT 19303; Case line 1<br><strong>Why it matters:</strong> Side-specific CPTs and HCPCS laterality modifiers need documentation support so the claim line matches the operative note.<br><strong>Potential consequences:</strong> May result in claim rejection, line-item denial, or additional documentation request.<br><strong>Suggested review:</strong> Confirm right, left, bilateral, or midline/inherently bilateral status before final coding.<br><strong>Improve This Claim:</strong> Review laterality<br><strong>Quality score impact:</strong> -10 points</div><div class="rationale-cite">HCPCS Level II — anatomic laterality modifiers</div></div><div class="rationale-item"><div class="rationale-mod">Moderate · Documentation</div><div class="rationale-text"><strong>Detected:</strong> Modifier 22 review is marked but objective operative time/facts are incomplete.<br><strong>Evidence used:</strong> CPT 19303; Case line 1<br><strong>Why it matters:</strong> Modifier 22 requires objective documentation of substantially greater work; ClaimIQ™ should not treat the modifier as complete without support.<br><strong>Potential consequences:</strong> Could lead to downcoding risk, additional documentation request, or manual payer review.<br><strong>Suggested review:</strong> Complete the Modifier 22 documentation generator or record objective facts such as time, adhesiolysis, altered anatomy, blood loss, or complexity.<br><strong>Improve This Claim:</strong> Review Modifier 22 documentation; Document adhesiolysis duration<br><strong>Quality score impact:</strong> -10 points</div><div class="rationale-cite">CMS/AMA modifier 22 guidance</div></div><div class="rank-reason"><strong>ClaimIQ™ Summary:</strong><br><strong>CPT codes:</strong> 19303<br><strong>ICD-10 diagnoses:</strong> A C50.911 Malignant neoplasm of unspecified site of right female breast<br><strong>Diagnosis pointers:</strong> CPT 19303 -&gt; none<br><strong>Selected modifiers:</strong> CPT 19303 -22<br><strong>Findings:</strong> High 2 · Moderate 4 · Low 0<br><strong>Overall ClaimIQ™ Score:</strong> 24/100 · High risk<br><strong>Recommendations:</strong> Resolve high-risk ClaimIQ™ findings first.; Confirm ICD-10 diagnoses and CMS-1500 pointer mapping.; Complete documentation elements before final coding review.</div><div class="rank-reason"><strong>About ClaimIQ™:</strong> ClaimIQ™ is FreeCPTCodeFinder’s educational claim review engine. It evaluates coding relationships, documentation completeness, diagnosis linkage, modifier considerations, payer-specific issues, and claim construction to help identify items that may benefit from additional review before claim submission. ClaimIQ™ is an educational decision-support tool. It does not replace professional coding judgment, payer policy, or claim adjudication and does not guarantee reimbursement.</div>
+
+<h2>Line items with coding rationale</h2>
+<table>
+<tr style="font-size:8.5pt;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
+<td></td><td>Rank</td><td>CPT / modifiers</td><td>Description</td><td style="text-align:right">wRVU</td><td style="text-align:right">Payment</td>
+</tr>
+
+  <tr class="line-row">
+   <td class="num">1</td>
+   <td class="rank-cell"><span class="rank-badge p">Primary</span></td>
+   <td class="cpt-cell">19303<span class="mod-tag">-22</span></td>
+   <td class="desc-cell">Mastectomy</td>
+   <td class="num mono">10.00</td>
+   <td class="num mono">$334.01</td>
+  </tr>
+  <tr class="rationale-row"><td></td><td colspan="5">
+   <div class="rank-reason"><strong>Ranking basis:</strong> Highest wRVU (10.00). Billed 100%.</div>
+   
+   <div class="rationale-item">
+    <div class="rationale-mod">Modifier -Rank</div>
+    <div class="rationale-text">Primary procedure — no MPPR reduction.</div>
+    <div class="rationale-cite">CMS Pub. 100-04, Ch. 12 §40.6.B — highest wRVU procedure billed at 100%</div>
+   </div>
+   <div class="rationale-item">
+    <div class="rationale-mod">Modifier -22</div>
+    <div class="rationale-text">Surgeon marked Modifier 22 for review. Submit only after surgeon/coder review confirms payer policy and full documentation, including objective facts that may support consideration of substantially greater work.</div>
+    <div class="rationale-cite">CMS/AMA modifier 22 guidance — increased procedural services require objective documentation of substantially greater work; payer acceptance is not guaranteed</div>
+   </div>
+   <div class="rationale-item"><div class="rationale-mod">Diagnosis pointers</div><div class="rationale-text">No diagnosis pointer selected</div><div class="rationale-cite">CMS-1500 pointer format preserved as blank</div></div><div class="rationale-item"><div class="rationale-mod">Diagnosis warning</div><div class="rationale-text">No diagnosis selected for CPT 19303.</div><div class="rationale-cite">ICD-10-CM validation: billable, retired/replaced, and CPT consistency checks.</div></div>
+   
+   
+  </td></tr>
+</table>
+
+<div class="totals">
+<div class="left">Case totals · 1 line · 1 procedure</div>
+<div class="right">10.00 payable wRVU · <span class="money">$334.01</span></div>
+</div>
+
+<h2>Activity log</h2>
+<div style="font-family:ui-monospace,monospace;font-size:8.5pt;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px;line-height:1.6;white-space:pre-wrap">[5:58:53 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)
+[5:58:53 PM] TOTALS wRVU=0.00 pay=$0.00 (APP productivity mode changed)
+[5:58:54 PM] CASE CLEARED
+[5:58:54 PM] TOTALS wRVU=0.00 pay=$0.00 (cleared)
+[5:58:54 PM] ADD 19303 "Mastectomy" wRVU=10
+[5:58:54 PM] RECALC primary=19303 · 1 proc + 0 E/M · medicare · state=CLEAN
+[5:58:54 PM] TOTALS wRVU=10.00 pay=$334.01 (procedure added)
+[5:58:54 PM] RECALC primary=19303 · 1 proc + 0 E/M · medicare · state=WARNING
+[5:58:54 PM] TOTALS wRVU=10.00 pay=$334.01 (diagnosis selected)
+[5:58:54 PM] RECALC primary=19303 · 1 proc + 0 E/M · medicare · state=WARNING
+[5:58:54 PM] TOTALS wRVU=10.00 pay=$334.01 (deploy local seed)</div>
+
+<div class="sig">
+<div class="sig-line">Coder signature &nbsp;·&nbsp; date</div>
+<div class="sig-line">Provider signature &nbsp;·&nbsp; date</div>
+</div>
+
+<div class="footer">
+<p><strong>Regulatory basis:</strong> This report reflects coding logic applied per current CMS and AMA guidelines. Conversion factor 33.4009 per CMS PFS RVU26C July 2026 non-QPP — national conversion factor $33.4009. MPPR reductions applied per CMS Physician Fee Schedule — Multiple Procedure Payment Reduction: primary paid 100%, secondary procedures paid 50% in facility setting.</p>
+<p style="margin-top:8px"><strong>Disclaimer:</strong> This audit is an educational coding support document, not final billing authority and not a substitute for surgeon/coder judgment or payer policy. All codes and modifiers should be verified against current AMA CPT Professional Edition, CMS Physician Fee Schedule, NCCI edit files, payer rules, full documentation, and claim-adjudication requirements before submission. Automated rationale identifies documentation that may support consideration of modifiers; it does not guarantee payment, modifier acceptance, or payer approval.</p>
+<p style="margin-top:8px"><strong>Not for submission without coder review.</strong> CPT® © American Medical Association. All rights reserved.</p>
+</div>
+
+</body></html>
