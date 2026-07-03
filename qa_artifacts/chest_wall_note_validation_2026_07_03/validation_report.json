@@ -140,18 +140,17 @@
     "payable_cpts": [
       "21811",
       "64420",
-      "64620"
-    ],
-    "excluded_cpts": [
+      "64620",
       "32551"
     ],
+    "excluded_cpts": [],
     "selected_work_rvu": 17.35,
-    "expected_payable_work_rvu": 12.46,
-    "expected_medicare_payment_total_rvu_basis": 876.44
+    "expected_payable_work_rvu": 13.94,
+    "expected_medicare_payment_total_rvu_basis": 1019.4
   },
   "case_results": [
     {
-      "name": "reference_left_10th_rib_nonunion_with_cryo_and_port_chest_tube",
+      "name": "reference_left_10th_rib_nonunion_with_cryo_and_chest_tube_documentation_review",
       "supported": [
         "21811",
         "32551",
@@ -172,7 +171,7 @@
         "S22.32XK"
       ],
       "flags": [
-        "32551_routine_drainage_bundle_risk",
+        "32551_distinct_tube_thoracostomy_documentation_needed",
         "additional_intercostal_block_levels_require_64421_review",
         "arterial_line_not_supported_by_surgeon_narrative",
         "cryoablation_maps_to_64620_not_64421"
@@ -272,7 +271,7 @@
       ],
       "icd10": [],
       "flags": [
-        "32551_routine_drainage_bundle_risk"
+        "32551_distinct_tube_thoracostomy_documentation_needed"
       ],
       "errors": []
     },

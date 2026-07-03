@@ -141,7 +141,7 @@ def classify_narrative(text: str) -> Dict[str, Set[str]]:
     if re.search(r"chest tube|tube thoracostomy", t):
         supported.add("32551")
         if re.search(r"through[^.]{0,80}(?:trocar|port|incision)|routine drainage|placed .* at the end", t):
-            flags.add("32551_routine_drainage_bundle_risk")
+            flags.add("32551_distinct_tube_thoracostomy_documentation_needed")
 
     if re.search(r"cryoablation|cryoablated|frozen|freezing|atricure", t):
         supported.add("64620")
@@ -205,9 +205,10 @@ AtriCure of left 7th, 8th, and 9th intercostal nerves, each nerve frozen for 1
 minute then defrosted. Chemical nerve block with Exparel of 10th intercostal
 nerve under direct thoracoscopic visualization. Three-cm incision over fracture,
 fracture ends freshened, drill holes made, Titan EXT 60 plate secured to left
-10th rib with approximation. Chest irrigated and suctioned. 28 Fr chest tube
-inserted through the 11 mm balloon trocar incision under direct visualization
-and placed posteriorly to apex. Prior chest tube incision sharply debrided and
+10th rib with approximation. Chest irrigated and suctioned. After the 11 mm
+balloon trocar was removed, a 28 Fr chest tube was inserted "through this
+incision" under direct visualization and placed posteriorly to apex. Prior chest
+tube incision sharply debrided and
 packed. Left radial arterial line placement was listed, but the surgeon
 narrative does not document percutaneous arterial catheter placement. PA assisted
 with port placement, camera, retracting, and closure.
@@ -216,12 +217,12 @@ with port placement, camera, retracting, and closure.
 
 CASES = [
     CasePattern(
-        name="reference_left_10th_rib_nonunion_with_cryo_and_port_chest_tube",
+        name="reference_left_10th_rib_nonunion_with_cryo_and_chest_tube_documentation_review",
         narrative=REFERENCE_NOTE,
         expected_supported=["21811", "32551", "64620", "64420"],
         expected_unsupported=["21812", "21813", "32110", "32320", "32651", "64421", "64461", "36620"],
         expected_icd10=["S22.32XK"],
-        expected_flags=["32551_routine_drainage_bundle_risk", "cryoablation_maps_to_64620_not_64421"],
+        expected_flags=["32551_distinct_tube_thoracostomy_documentation_needed", "cryoablation_maps_to_64620_not_64421"],
     ),
     CasePattern(
         name="simple_rib_plating",
@@ -269,7 +270,7 @@ CASES = [
         expected_supported=["32551"],
         expected_unsupported=["32320", "32651"],
         expected_icd10=[],
-        expected_flags=["32551_routine_drainage_bundle_risk"],
+        expected_flags=["32551_distinct_tube_thoracostomy_documentation_needed"],
     ),
     CasePattern(
         name="multiple_intercostal_nerve_blocks",
@@ -362,7 +363,7 @@ def main() -> int:
         errors.extend([f"{case['name']}: {err}" for err in case["errors"]])
 
     reference_selected = ["21811", "64420", "64620", "32551"]
-    reference_excluded = ["32551"]
+    reference_excluded = []
     reference_rvus = selected_payable_rvus(cpt_db, reference_selected, reference_excluded)
 
     report = {

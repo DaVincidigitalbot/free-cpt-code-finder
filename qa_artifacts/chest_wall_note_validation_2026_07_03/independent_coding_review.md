@@ -19,7 +19,7 @@ Supported by the narrative:
 - 21811 - Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs. Evidence: displaced left 10th rib nonunion, thoracoscopic visualization, open exposure over fracture, fracture-end preparation, drill holes, Titan plate fixation, reduction/apposition.
 - 64620 - Intercostal nerve destruction/cryoablation review. Evidence: AtriCure cryoablation of left 7th, 8th, and 9th intercostal nerves; each frozen for 1 minute then defrosted.
 - 64420 - Single intercostal nerve block review, not 64461 on the current narrative. Evidence: Exparel chemical block of the left 10th intercostal nerve under direct thoracoscopic visualization.
-- 32551 - Performed/documented, but separate reportability is high-risk. Evidence: 28 Fr tube inserted through the 11 mm trocar incision under direct camera visualization and connected to suction. Because it was placed through the operative port at case end, separate payment support is weak unless documented as a distinct therapeutic tube thoracostomy.
+- 32551 - Performed/documented, but separate reportability needs documentation review. Evidence from the image: "The balloon of the 11 mm ballooned trocar was deflated and the trocar was removed. At that time a 28 Fr chest tube was inserted through this incision..." If that is not clinically accurate, the note should be corrected because the current wording can be read as same-incision placement after trocar removal. Separate payment support is stronger when the note clearly documents a distinct therapeutic tube thoracostomy indication and site.
 
 Not supported by the narrative:
 
@@ -50,18 +50,18 @@ Not supported in this reference note:
 Reference-case selected review set:
 
 - Selected CPTs: 21811, 64420, 64620, 32551.
-- Expected payable CPTs for conservative review: 21811, 64420, 64620.
-- Excluded/high-risk payable line: 32551 when placed through operative port as routine drainage.
+- Expected payable CPTs if 32551 distinct-service documentation is clarified: 21811, 64420, 64620, 32551.
+- Documentation-review line: 32551. It should remain potentially payable if the note clearly supports a distinct therapeutic tube thoracostomy indication and site.
 - Selected work RVU: 17.35.
-- Expected payable work RVU after MPPR and excluding routine-drainage 32551: 12.46.
-- Expected Medicare payment, total-RVU basis for payable CPTs: $876.44.
+- Expected payable work RVU after MPPR with 32551 included: 13.94.
+- Expected Medicare payment, total-RVU basis for payable CPTs: $1,019.40.
 
 Conservative payable logic:
 
 - 21811 is primary and paid at 100% work RVU.
 - 64620 is secondary and subject to MPPR review in facility setting.
 - 64420 is secondary and subject to MPPR review unless payer/anesthesia policy says otherwise.
-- 32551 is documented but treated as high-risk/not expected payable when placed through the operative port for routine drainage.
+- 32551 remains payable in the model if the note clearly documents distinct therapeutic indication and site/incision.
 
 ## CPT Validation Matrix
 
@@ -106,7 +106,7 @@ Weak or missing documentation:
 
 - Procedure list uses 64421 for cryoablation; this conflicts with the narrative.
 - Procedure list uses 64461 for the Exparel block, but the narrative describes intercostal nerve block, not paravertebral block.
-- 32551 is listed separately, but the narrative makes it look like routine drainage through the operative trocar site.
+- 32551 is listed separately, but the current wording says the trocar was removed and the chest tube was inserted "through this incision." If the tube was not placed through that operative incision, the note should be clarified.
 - Arterial line is listed, but surgeon placement is not described.
 - Debridement of prior chest tube site lacks size, depth, tissue type, and medical necessity for separate debridement coding.
 - Phrase "Once all ribs reduced and plated" is imprecise because only the left 10th rib is otherwise documented.
@@ -144,7 +144,7 @@ Added: tools/validate_chest_wall_reconstruction_suite.py
 
 The suite validates:
 
-- Reference left 10th rib nonunion with cryoablation and port-site chest tube.
+- Reference left 10th rib nonunion with cryoablation and chest tube documentation review.
 - Simple rib plating.
 - Flail chest/seven-rib fixation.
 - Lung laceration repair.
@@ -169,7 +169,7 @@ Result: PASS.
 
 - Whether 64620 should be reported per nerve/level or per session under the target payer policy.
 - Whether the single Exparel intercostal block should be separately billed when performed by the surgeon during the operation versus treated as bundled/anesthesia-related by payer policy.
-- Whether 32551 has any defensible separate therapeutic indication beyond routine post-thoracoscopy drainage in this case.
+- Whether 32551 has a defensible separate therapeutic indication and separately documented site/incision in this case.
 - Whether symptom/pain diagnoses should be added secondary to S22.32XK.
 - Whether any facility/anesthesia documentation separately supports 36620.
 
