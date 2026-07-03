@@ -2548,6 +2548,64 @@ function selectedModifiersForLine(line){
  return mods;
 }
 const CHEST_WALL_CPT_SET=new Set(['21811','21812','21813','32110','32320','32551','32651','64420','64421','64461','64462','64463','64620']);
+const CHEST_WALL_DOCUMENTATION_REQUIREMENTS={
+ '21811':{
+  title:'CPT 21811 documentation check',
+  requirement:'21811 requires open treatment of rib fracture(s) with internal fixation for the first 1-3 ribs and includes thoracoscopy when performed.',
+  action:'Document the rib numbers, side, fracture/nonunion status, fixation device, reduction, and whether thoracoscopy was used.'
+ },
+ '21812':{
+  title:'CPT 21812 requires additional ribs beyond 21811',
+  requirement:'21812 is an add-on for each additional 3 ribs after the first 1-3 ribs represented by 21811.',
+  action:'Use 21812 only when the note documents at least 4 ribs fixed. Document each rib level fixed and the total rib count.'
+ },
+ '21813':{
+  title:'CPT 21813 requires 7 or more ribs',
+  requirement:'21813 represents open treatment with internal fixation of 7 or more ribs and should not be selected for a single-rib nonunion repair.',
+  action:'Use 21813 only when the operative note documents fixation of 7 or more ribs. Do not stack it with 21811/21812 for the same construct.'
+ },
+ '32110':{
+  title:'CPT 32110 requires traumatic hemorrhage control',
+  requirement:'32110 requires thoracotomy with control of traumatic hemorrhage. Thoracoscopic inspection or rib fixation exposure alone does not support it.',
+  action:'Document formal thoracotomy, hemorrhage source, active traumatic bleeding, and the operative maneuver used to control hemorrhage before selecting 32110.'
+ },
+ '32320':{
+  title:'CPT 32320 requires decortication and parietal pleurectomy',
+  requirement:'32320 requires decortication and parietal pleurectomy. Pleural entry, irrigation, suctioning, or absence of adhesions does not support it.',
+  action:'Document pleural peel/fibrothorax/empyema, decortication planes, pleurectomy extent, and clinical indication before selecting 32320.'
+ },
+ '32551':{
+  title:'CPT 32551 separate-reportability check',
+  requirement:'32551 may be bundled when the chest tube is routine drainage through the operative field or port at the end of thoracoscopy/thoracotomy.',
+  action:'Separate reporting generally requires documentation that tube thoracostomy was a distinct therapeutic procedure, not only routine drainage after thoracic entry.'
+ },
+ '32651':{
+  title:'CPT 32651 requires VATS pulmonary decortication',
+  requirement:'32651 requires thoracoscopic partial pulmonary decortication. Diagnostic thoracoscopy without decortication does not support it.',
+  action:'Document pulmonary decortication target, peel removal, trapped lung/fibrothorax/empyema findings, and extent of work before selecting 32651.'
+ },
+ '64420':{
+  title:'CPT 64420 supports a single intercostal nerve injection',
+  requirement:'64420 describes injection of anesthetic agent for a single intercostal nerve.',
+  action:'Document level, laterality, injectate, imaging/direct visualization, and whether the block is separately reportable from anesthesia or the primary operation.'
+ },
+ '64421':{
+  title:'CPT 64421 is injection, not cryoablation',
+  requirement:'64421 describes additional/multiple intercostal nerve injection regional block service. It does not describe cryoablation or nerve destruction.',
+  action:'Use 64421 only with documented additional intercostal nerve injection/block levels and an appropriate base block. Use nerve destruction code review for documented cryoablation.'
+ },
+ '64461':{
+  title:'CPT 64461 requires thoracic paravertebral block documentation',
+  requirement:'64461 describes thoracic paravertebral block single injection site. An intercostal Exparel injection alone does not support paravertebral block coding.',
+  action:'Document paravertebral/paraspinal target, thoracic level, side, injectate, and technique if selecting 64461.'
+ },
+ '64620':{
+  title:'CPT 64620 supports intercostal nerve destruction/cryoablation review',
+  requirement:'64620 describes destruction by neurolytic agent of an intercostal nerve and is the relevant review target when the narrative documents AtriCure cryoablation/freezing of intercostal nerves.',
+  action:'Document nerve levels, laterality, cryoablation device/technique, lesion time, and medical necessity. Confirm payer policy for units/levels and separate reporting.'
+ }
+};
+function chestWallDocumentationRequirement(code){return CHEST_WALL_DOCUMENTATION_REQUIREMENTS[String(code)]||null}
 function chestWallClaimIQFindings(procLines){
  const lines=procLines.filter(line=>CHEST_WALL_CPT_SET.has(String(line.cpt)));
  if(!lines.length)return [];
@@ -2564,8 +2622,33 @@ function chestWallClaimIQFindings(procLines){
  if(codes.has('21812')&&!codes.has('21811')){
   findings.push(claimFinding('Chest Wall Reconstruction','High','CPT 21812 is selected without CPT 21811.','21812 is an additional rib fixation code and generally requires the base rib fixation code for the first 3 ribs.','Add 21811 when the first 3 ribs were fixed, or remove 21812 if 21813 better matches fixation of 7 or more ribs.','CPT rib fixation add-on structure',{cpt:'21812',improvementActions:['Add base code 21811 or use 21813 when appropriate'],potentialConsequences:['May result in claim rejection or line-item denial for missing parent/base service.']}));
  }
+ if(codes.has('21812')&&codes.has('21811')){
+  findings.push(claimFinding('Chest Wall Reconstruction','Moderate','CPT 21812 requires documentation of additional ribs beyond the first 1-3 ribs.','21812 is not a generic rib-fixation companion code. It represents each additional 3 ribs after the first 1-3 ribs captured by 21811. A one-rib fixation or single-rib nonunion repair does not support 21812.','Confirm the operative note documents at least 4 ribs fixed, with rib levels and side. Remove 21812 when only 1-3 ribs were fixed.','CPT rib fixation add-on structure',{cpt:'21812',evidence:['Selected CPTs include 21811 and 21812'],improvementActions:['Document fixed rib count and rib levels','Remove 21812 if only 1-3 ribs were fixed'],potentialConsequences:['May result in line-item denial, downcoding risk, or manual payer review if additional rib fixation is not documented.']}));
+ }
+ if(codes.has('21813')){
+  findings.push(claimFinding('Chest Wall Reconstruction','Moderate','CPT 21813 requires documentation of fixation of 7 or more ribs.','21813 is only supported when the operative note documents internal fixation of 7 or more ribs. It is not supported by thoracoscopy, rib exposure, or single-rib repair alone.','Confirm the operative note lists at least 7 fixed ribs and the fixation construct. Use 21811/21812 logic instead when fewer than 7 ribs were fixed.','CPT rib fixation code descriptor logic',{cpt:'21813',improvementActions:['Confirm 7 or more ribs fixed','Remove 21813 if fewer than 7 ribs were fixed'],potentialConsequences:['May result in line-item denial, downcoding risk, or medical record request.']}));
+ }
  if((codes.has('32551')||codes.has('32651')||codes.has('32320'))&&(codes.has('21811')||codes.has('21812')||codes.has('21813'))){
   findings.push(claimFinding('Chest Wall Reconstruction','Moderate','Adjunct thoracic procedures are selected with rib fixation.','Tube thoracostomy, thoracoscopy/decortication, and pleural work may be separately supportable only when the operative note documents distinct work beyond exposure, access, or routine drainage inherent to the primary trauma procedure.','Confirm separate indications, operative steps, and documentation for each adjunct CPT before final claim submission. Do not add modifier 59/X modifiers unless NCCI/payer policy and documentation support a distinct procedural service.','CMS NCCI policy; CPT separate-procedure documentation principles',{evidence:['Adjunct CPTs '+['32551','32651','32320'].filter(c=>codes.has(c)).join(', '),'Rib fixation CPTs '+['21811','21812','21813'].filter(c=>codes.has(c)).join(', ')],improvementActions:['Review adjunct thoracic procedure documentation','Check NCCI edits before modifier use'],potentialConsequences:['May result in bundling denial, line-item denial, additional documentation request, or manual payer review.']}));
+ }
+ if(codes.has('32551')&&(codes.has('21811')||codes.has('21812')||codes.has('21813')||codes.has('32110')||codes.has('32651'))){
+  findings.push(claimFinding('Chest Wall Reconstruction','High','CPT 32551 requires distinct tube thoracostomy documentation when selected with thoracic operative work.','Tube thoracostomy is commonly considered integral when the chest tube is placed through an operative port or thoracotomy field for routine postoperative drainage. Separate reporting generally requires documentation that the tube thoracostomy represented a distinct therapeutic procedure rather than routine drainage after thoracic entry.','Confirm whether the tube was placed for a separate indication such as pneumothorax, hemothorax, or independent tube management, and document a distinct incision/site/therapeutic purpose before reporting separately.','CMS NCCI policy; CPT separate-procedure documentation principles',{cpt:'32551',evidence:['32551 selected with thoracic/chest wall operative CPTs'],improvementActions:['Document distinct therapeutic indication for tube thoracostomy','Remove separate 32551 when it is routine drainage through the operative field'],potentialConsequences:['May result in bundling denial, line-item denial, additional documentation request, or manual payer review.']}));
+ }
+ ['32110','32320','32651'].forEach(code=>{
+  if(codes.has(code)){
+   const req=chestWallDocumentationRequirement(code);
+   findings.push(claimFinding('Chest Wall Reconstruction','High',req.title+'.',req.requirement,req.action,'CMS PFS CPT descriptor logic; CMS NCCI documentation principles',{cpt:code,evidence:['CPT '+code+' selected in a chest wall reconstruction case'],improvementActions:[req.action],potentialConsequences:['May result in line-item denial, downcoding risk, additional documentation request, or manual payer review if the operative narrative does not support the selected CPT.']}));
+  }
+ });
+ if(codes.has('64421')&&!codes.has('64420')){
+  findings.push(claimFinding('Chest Wall Reconstruction','High','CPT 64421 is selected without CPT 64420.','64421 describes additional intercostal nerve injection/block work and should not be used as a standalone code or as a substitute for cryoablation.','Add the documented base intercostal nerve block code when additional injection levels were performed, or remove 64421 if the note documents cryoablation rather than injection/block.','CMS PFS add-on/global indicator ZZZ; CPT intercostal nerve block descriptor logic',{cpt:'64421',evidence:['64421 selected without 64420'],improvementActions:['Use 64420 for a single documented intercostal nerve block','Use 64620 review for documented cryoablation/destruction','Remove standalone 64421'],potentialConsequences:['May result in claim rejection, line-item denial, or coder query for missing parent/base service.']}));
+ }
+ if(codes.has('64421')&&codes.has('64620')){
+  findings.push(claimFinding('Chest Wall Reconstruction','High','Intercostal nerve injection and cryoablation codes are both selected.','64421 describes intercostal nerve injection/block, while 64620 describes intercostal nerve destruction. They may both be supportable only when the operative note documents separate nerve levels or separate techniques with medical necessity; 64421 should not be used to describe AtriCure cryoablation/freezing.','Confirm which levels were blocked with anesthetic and which levels were destroyed/cryoablated. Do not map cryoablation narrative to 64421.','CMS PFS CPT descriptor logic; payer policy controls coverage',{evidence:['Selected regional CPTs include 64421 and 64620'],improvementActions:['Separate injection levels from cryoablation levels','Document level, laterality, technique, and medical necessity for each service'],potentialConsequences:['May result in line-item denial, additional documentation request, or manual payer review.']}));
+ }
+ if(codes.has('64461')){
+  const req=chestWallDocumentationRequirement('64461');
+  findings.push(claimFinding('Chest Wall Reconstruction','Moderate',req.title+'.',req.requirement,req.action,'CMS PFS CPT descriptor logic',{cpt:'64461',improvementActions:[req.action],potentialConsequences:['May result in line-item denial or downcoding risk if documentation supports only intercostal injection rather than paravertebral block.']}));
  }
  if((codes.has('64421')||codes.has('64620'))&&(codes.has('21811')||codes.has('21812')||codes.has('21813'))){
   findings.push(claimFinding('Chest Wall Reconstruction','Moderate','Regional anesthesia or intercostal cryoablation is selected with rib fixation.','Intercostal nerve blocks and neurolytic/cryoablation services require clear documentation of levels, laterality, technique, and whether the service is separately reportable under payer policy.','Confirm documented nerve levels, side, technique, medical necessity, and payer/NCCI policy before separate reporting. Avoid distinct-service modifiers unless an edit and documentation support them.','CMS PFS regional anesthesia and intercostal nerve procedure indicators; payer policy controls coverage',{evidence:['Regional/anesthesia CPTs '+['64420','64421','64461','64462','64463','64620'].filter(c=>codes.has(c)).join(', ')],improvementActions:['Document intercostal levels and laterality','Review payer policy for block/cryoablation reporting'],potentialConsequences:['May result in line-item denial, additional documentation request, or manual payer review.']}));

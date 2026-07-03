@@ -1,0 +1,315 @@
+{
+  "status": "pass",
+  "errors": [],
+  "requested_cpt_metadata": {
+    "21811": {
+      "code": "21811",
+      "description": "Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs",
+      "work_rvu": 10.52,
+      "total_rvu": 16.31,
+      "estimated_medicare_payment": 544.77,
+      "global_period_days": 0,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "1",
+      "assistant_surgeon_indicator": "2",
+      "addon_code": false
+    },
+    "21812": {
+      "code": "21812",
+      "description": "Open treatment of rib fracture(s), each additional 3 ribs (add-on)",
+      "work_rvu": 12.68,
+      "total_rvu": 19.62,
+      "estimated_medicare_payment": 655.33,
+      "global_period_days": 0,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "1",
+      "assistant_surgeon_indicator": "2",
+      "addon_code": true
+    },
+    "21813": {
+      "code": "21813",
+      "description": "Open treatment of rib fracture(s) with internal fixation, 7 or more ribs",
+      "work_rvu": 17.17,
+      "total_rvu": 26.69,
+      "estimated_medicare_payment": 891.47,
+      "global_period_days": 0,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "1",
+      "assistant_surgeon_indicator": "2",
+      "addon_code": false
+    },
+    "32110": {
+      "code": "32110",
+      "description": "Thoracotomy, with control of traumatic hemorrhage",
+      "work_rvu": 24.65,
+      "total_rvu": 41.79,
+      "estimated_medicare_payment": 1395.82,
+      "global_period_days": 90,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "0",
+      "assistant_surgeon_indicator": "2",
+      "addon_code": false
+    },
+    "32320": {
+      "code": "32320",
+      "description": "Decortication and parietal pleurectomy",
+      "work_rvu": 26.57,
+      "total_rvu": 45.89,
+      "estimated_medicare_payment": 1532.77,
+      "global_period_days": 90,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "0",
+      "assistant_surgeon_indicator": "2",
+      "addon_code": false
+    },
+    "32551": {
+      "code": "32551",
+      "description": "Tube thoracostomy, includes connection to drainage system",
+      "work_rvu": 2.96,
+      "total_rvu": 4.28,
+      "estimated_medicare_payment": 142.96,
+      "global_period_days": 0,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "1",
+      "assistant_surgeon_indicator": "1",
+      "addon_code": false
+    },
+    "32651": {
+      "code": "32651",
+      "description": "VATS with partial pulmonary decortication",
+      "work_rvu": 18.31,
+      "total_rvu": 31.13,
+      "estimated_medicare_payment": 1039.77,
+      "global_period_days": 90,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "1",
+      "assistant_surgeon_indicator": "2",
+      "addon_code": false
+    },
+    "64421": {
+      "code": "64421",
+      "description": "Injection anesthetic agent intercostal nerves multiple regional block",
+      "work_rvu": 0.49,
+      "total_rvu": 1.05,
+      "estimated_medicare_payment": 35.07,
+      "global_period_days": 0,
+      "multiple_procedure_indicator": "0",
+      "bilateral_indicator": "1",
+      "assistant_surgeon_indicator": "1",
+      "addon_code": true
+    },
+    "64620": {
+      "code": "64620",
+      "description": "Destruction by neurolytic agent intercostal nerve",
+      "work_rvu": 2.82,
+      "total_rvu": 6.76,
+      "estimated_medicare_payment": 225.79,
+      "global_period_days": 10,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "0",
+      "assistant_surgeon_indicator": "1",
+      "addon_code": false
+    }
+  },
+  "s27_33_family_total": 13,
+  "s27_33_billable_total": 9,
+  "s27_33_billable_codes": [
+    "S27331A",
+    "S27331D",
+    "S27331S",
+    "S27332A",
+    "S27332D",
+    "S27332S",
+    "S27339A",
+    "S27339D",
+    "S27339S"
+  ],
+  "specific_icd_search_targets_present": {
+    "S27.331A": true,
+    "S27.331D": true,
+    "S27.331S": true,
+    "S22.32XK": true
+  },
+  "reference_case_selected_vs_payable": {
+    "selected_cpts": [
+      "21811",
+      "64420",
+      "64620",
+      "32551"
+    ],
+    "payable_cpts": [
+      "21811",
+      "64420",
+      "64620"
+    ],
+    "excluded_cpts": [
+      "32551"
+    ],
+    "selected_work_rvu": 17.35,
+    "expected_payable_work_rvu": 12.46,
+    "expected_medicare_payment_total_rvu_basis": 876.44
+  },
+  "case_results": [
+    {
+      "name": "reference_left_10th_rib_nonunion_with_cryo_and_port_chest_tube",
+      "supported": [
+        "21811",
+        "32551",
+        "64420",
+        "64620"
+      ],
+      "unsupported": [
+        "21812",
+        "21813",
+        "32110",
+        "32320",
+        "32651",
+        "36620",
+        "64421",
+        "64461"
+      ],
+      "icd10": [
+        "S22.32XK"
+      ],
+      "flags": [
+        "32551_routine_drainage_bundle_risk",
+        "additional_intercostal_block_levels_require_64421_review",
+        "arterial_line_not_supported_by_surgeon_narrative",
+        "cryoablation_maps_to_64620_not_64421"
+      ],
+      "errors": []
+    },
+    {
+      "name": "simple_rib_plating",
+      "supported": [
+        "21811"
+      ],
+      "unsupported": [
+        "21812",
+        "21813",
+        "32110",
+        "32320",
+        "32651",
+        "64461"
+      ],
+      "icd10": [],
+      "flags": [],
+      "errors": []
+    },
+    {
+      "name": "flail_chest_seven_rib_fixation",
+      "supported": [
+        "21813"
+      ],
+      "unsupported": [
+        "32110",
+        "32320",
+        "32651",
+        "64461"
+      ],
+      "icd10": [
+        "S22.5XXA"
+      ],
+      "flags": [],
+      "errors": []
+    },
+    {
+      "name": "lung_laceration_repair",
+      "supported": [],
+      "unsupported": [
+        "32110",
+        "32320",
+        "32651",
+        "64461"
+      ],
+      "icd10": [
+        "S27.0XXA",
+        "S27.331A"
+      ],
+      "flags": [],
+      "errors": []
+    },
+    {
+      "name": "vats_converted_to_thoracotomy_decortication",
+      "supported": [
+        "32651"
+      ],
+      "unsupported": [
+        "32110",
+        "64461"
+      ],
+      "icd10": [],
+      "flags": [],
+      "errors": []
+    },
+    {
+      "name": "chest_tube_before_thoracotomy",
+      "supported": [
+        "32551"
+      ],
+      "unsupported": [
+        "32110",
+        "32320",
+        "32651",
+        "64461"
+      ],
+      "icd10": [
+        "S27.0XXA"
+      ],
+      "flags": [],
+      "errors": []
+    },
+    {
+      "name": "chest_tube_through_thoracotomy_field",
+      "supported": [
+        "32551"
+      ],
+      "unsupported": [
+        "32110",
+        "32320",
+        "32651",
+        "64461"
+      ],
+      "icd10": [],
+      "flags": [
+        "32551_routine_drainage_bundle_risk"
+      ],
+      "errors": []
+    },
+    {
+      "name": "multiple_intercostal_nerve_blocks",
+      "supported": [
+        "64420"
+      ],
+      "unsupported": [
+        "32110",
+        "32320",
+        "32651",
+        "64461"
+      ],
+      "icd10": [],
+      "flags": [
+        "additional_intercostal_block_levels_require_64421_review"
+      ],
+      "errors": []
+    },
+    {
+      "name": "cryoablation_multiple_intercostal_nerves",
+      "supported": [
+        "64620"
+      ],
+      "unsupported": [
+        "32110",
+        "32320",
+        "32651",
+        "64421",
+        "64461"
+      ],
+      "icd10": [],
+      "flags": [
+        "cryoablation_maps_to_64620_not_64421"
+      ],
+      "errors": []
+    }
+  ]
+}
