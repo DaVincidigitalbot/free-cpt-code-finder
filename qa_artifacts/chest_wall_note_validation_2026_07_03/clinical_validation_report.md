@@ -35,7 +35,7 @@ Billable codes: S27331A, S27331D, S27331S, S27332A, S27332D, S27332S, S27339A, S
 Supported CPTs: 21811, 32551, 64420, 64620
 Unsupported CPTs: 21812, 21813, 32110, 32320, 32651, 36620, 64421, 64461
 ICD-10: S22.32XK
-Flags: 32551_distinct_tube_thoracostomy_documentation_needed, additional_intercostal_block_levels_require_64421_review, arterial_line_not_supported_by_surgeon_narrative, cryoablation_maps_to_64620_not_64421
+Flags: additional_intercostal_block_levels_require_64421_review, arterial_line_not_supported_by_surgeon_narrative, cryoablation_maps_to_64620_not_64421
 
 ### simple_rib_plating
 Supported CPTs: 21811

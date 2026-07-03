@@ -19,7 +19,7 @@ Supported by the narrative:
 - 21811 - Open treatment of rib fracture(s) with internal fixation, includes thoracoscopy, first 3 ribs. Evidence: displaced left 10th rib nonunion, thoracoscopic visualization, open exposure over fracture, fracture-end preparation, drill holes, Titan plate fixation, reduction/apposition.
 - 64620 - Intercostal nerve destruction/cryoablation review. Evidence: AtriCure cryoablation of left 7th, 8th, and 9th intercostal nerves; each frozen for 1 minute then defrosted.
 - 64420 - Single intercostal nerve block review, not 64461 on the current narrative. Evidence: Exparel chemical block of the left 10th intercostal nerve under direct thoracoscopic visualization.
-- 32551 - Performed/documented, but separate reportability needs documentation review. Evidence from the image: "The balloon of the 11 mm ballooned trocar was deflated and the trocar was removed. At that time a 28 Fr chest tube was inserted through this incision..." If that is not clinically accurate, the note should be corrected because the current wording can be read as same-incision placement after trocar removal. Separate payment support is stronger when the note clearly documents a distinct therapeutic tube thoracostomy indication and site.
+- 32551 - Supported when the note is corrected to reflect the actual separate incision. Surgeon clarification: the chest tube was placed through a separate incision. Documentation should explicitly say separate incision, tube size, position, connection to suction/drainage, and therapeutic indication so it is not misread as routine same-incision drainage.
 
 Not supported by the narrative:
 
@@ -51,7 +51,7 @@ Reference-case selected review set:
 
 - Selected CPTs: 21811, 64420, 64620, 32551.
 - Expected payable CPTs if 32551 distinct-service documentation is clarified: 21811, 64420, 64620, 32551.
-- Documentation-review line: 32551. It should remain potentially payable if the note clearly supports a distinct therapeutic tube thoracostomy indication and site.
+- Supported payable line: 32551, assuming the corrected note documents the separate chest tube incision and therapeutic purpose.
 - Selected work RVU: 17.35.
 - Expected payable work RVU after MPPR with 32551 included: 13.94.
 - Expected Medicare payment, total-RVU basis for payable CPTs: $1,019.40.
@@ -61,7 +61,7 @@ Conservative payable logic:
 - 21811 is primary and paid at 100% work RVU.
 - 64620 is secondary and subject to MPPR review in facility setting.
 - 64420 is secondary and subject to MPPR review unless payer/anesthesia policy says otherwise.
-- 32551 remains payable in the model if the note clearly documents distinct therapeutic indication and site/incision.
+- 32551 remains payable in the model because the surgeon clarified that a separate incision was made; the note should explicitly document that fact.
 
 ## CPT Validation Matrix
 
@@ -72,7 +72,7 @@ Conservative payable logic:
 | 21813 | Not supported | 0-day global, work RVU 17.17, total RVU 26.69, assistant allowed | 7 or more ribs fixed; do not stack with 21811/21812 for same construct |
 | 32110 | Not supported | 90-day global, work RVU 24.65, total RVU 41.79, assistant allowed, co-surgeon indicator 1 | Thoracotomy plus control of traumatic hemorrhage |
 | 32320 | Not supported | 90-day global, work RVU 26.57, total RVU 45.89, assistant allowed, co-surgeon indicator 1 | Decortication and parietal pleurectomy with pleural peel/extent |
-| 32551 | Performed, separate reportability high-risk | 0-day global, work RVU 2.96, total RVU 4.28, assistant not allowed | Distinct therapeutic tube thoracostomy, not routine drainage through operative field |
+| 32551 | Supported after note clarification | 0-day global, work RVU 2.96, total RVU 4.28, assistant not allowed | Separate incision/site, therapeutic indication, tube size, placement, drainage connection |
 | 32651 | Not supported | 90-day global, work RVU 18.31, total RVU 31.13, assistant allowed, co-surgeon indicator 1 | VATS partial pulmonary decortication |
 | 64421 | Not supported for cryoablation | Add-on/ZZZ, work RVU 0.49, total RVU 1.05, assistant not allowed | Additional intercostal nerve injection/block levels with base block |
 | 64620 | Supported for review | 10-day global, work RVU 2.82, total RVU 6.76, assistant not allowed | Intercostal nerve destruction/cryoablation levels, laterality, device, lesion time |
@@ -106,7 +106,7 @@ Weak or missing documentation:
 
 - Procedure list uses 64421 for cryoablation; this conflicts with the narrative.
 - Procedure list uses 64461 for the Exparel block, but the narrative describes intercostal nerve block, not paravertebral block.
-- 32551 is listed separately, but the current wording says the trocar was removed and the chest tube was inserted "through this incision." If the tube was not placed through that operative incision, the note should be clarified.
+- 32551 is listed separately, and the surgeon clarified that it was placed through a separate incision. The note should remove the ambiguous "through this incision" wording and explicitly state "a separate incision was made for tube thoracostomy."
 - Arterial line is listed, but surgeon placement is not described.
 - Debridement of prior chest tube site lacks size, depth, tissue type, and medical necessity for separate debridement coding.
 - Phrase "Once all ribs reduced and plated" is imprecise because only the left 10th rib is otherwise documented.
@@ -116,7 +116,7 @@ Suggested wording improvements:
 - "Open treatment of chronic displaced nonunion of the left 10th rib with internal fixation using Titan EXT 60 plate. One rib was repaired."
 - "AtriCure cryoablation was performed on the left 7th, 8th, and 9th intercostal nerves for postoperative analgesia; each nerve underwent a 1-minute freeze followed by thaw."
 - "A single left 10th intercostal nerve block was performed under thoracoscopic visualization with Exparel/saline mixture. This was not a paravertebral block." Or, if it was paravertebral, document the paravertebral target and technique explicitly.
-- For separate 32551 support, add only if true: "A separate therapeutic tube thoracostomy was required for [pneumothorax/hemothorax/ongoing pleural drainage], distinct from routine operative drainage, and was placed through [distinct site] into [position]."
+- For 32551 support: "A separate incision was made for tube thoracostomy. A 28 Fr chest tube was inserted through this separate incision under thoracoscopic visualization and positioned posteriorly to the apex, then connected to suction for [therapeutic indication]."
 - For prior tube site: "Sharp excisional debridement of skin/subcutaneous tissue at the prior chest tube site measured X cm by Y cm by Z cm for devitalized/contaminated tissue."
 
 ## S27.33 Validation
@@ -169,7 +169,7 @@ Result: PASS.
 
 - Whether 64620 should be reported per nerve/level or per session under the target payer policy.
 - Whether the single Exparel intercostal block should be separately billed when performed by the surgeon during the operation versus treated as bundled/anesthesia-related by payer policy.
-- Whether 32551 has a defensible separate therapeutic indication and separately documented site/incision in this case.
+- Whether the final signed note explicitly documents the separate chest tube incision and therapeutic indication for 32551.
 - Whether symptom/pain diagnoses should be added secondary to S22.32XK.
 - Whether any facility/anesthesia documentation separately supports 36620.
 

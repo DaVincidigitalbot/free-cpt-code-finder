@@ -205,10 +205,10 @@ AtriCure of left 7th, 8th, and 9th intercostal nerves, each nerve frozen for 1
 minute then defrosted. Chemical nerve block with Exparel of 10th intercostal
 nerve under direct thoracoscopic visualization. Three-cm incision over fracture,
 fracture ends freshened, drill holes made, Titan EXT 60 plate secured to left
-10th rib with approximation. Chest irrigated and suctioned. After the 11 mm
-balloon trocar was removed, a 28 Fr chest tube was inserted "through this
-incision" under direct visualization and placed posteriorly to apex. Prior chest
-tube incision sharply debrided and
+10th rib with approximation. Chest irrigated and suctioned. A separate skin
+incision was made for a 28 Fr chest tube, which was inserted under direct camera
+visualization and placed posteriorly to the apex. Prior chest tube incision was
+sharply debrided and
 packed. Left radial arterial line placement was listed, but the surgeon
 narrative does not document percutaneous arterial catheter placement. PA assisted
 with port placement, camera, retracting, and closure.
@@ -222,7 +222,7 @@ CASES = [
         expected_supported=["21811", "32551", "64620", "64420"],
         expected_unsupported=["21812", "21813", "32110", "32320", "32651", "64421", "64461", "36620"],
         expected_icd10=["S22.32XK"],
-        expected_flags=["32551_distinct_tube_thoracostomy_documentation_needed", "cryoablation_maps_to_64620_not_64421"],
+        expected_flags=["cryoablation_maps_to_64620_not_64421"],
     ),
     CasePattern(
         name="simple_rib_plating",
