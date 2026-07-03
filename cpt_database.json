@@ -20573,16 +20573,17 @@
     "cosurgeon_indicator": "0",
     "description": "Open treatment of rib fracture(s) with internal fixation, 7 or more ribs",
     "estimated": false,
-    "estimated_medicare_payment": 573.49,
+    "estimated_medicare_payment": 891.47,
     "global_period_days": 0,
-    "global_period_indicator": "0",
-    "hierarchy_tier": 3,
+    "global_period_indicator": "000",
+    "hierarchy_tier": 1,
     "inclusive_of": [],
-    "indicator_source": "cpt_decision_tree.json existing rib fixation entry",
-    "mp_rvu": 0,
+    "indicator_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "indicator_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+    "mp_rvu": 4.6,
     "multiple_procedure_indicator": "2",
     "never_primary_with": [],
-    "pe_rvu": 0,
+    "pe_rvu": 4.92,
     "search_terms": [
       "rib fracture",
       "rib fractures",
@@ -20592,18 +20593,32 @@
       "chest trauma",
       "blunt chest trauma",
       "rib fixation",
-      "SSRF",
+      "ssrf",
       "surgical stabilization of rib fractures",
       "chest wall trauma",
-      "seven or more ribs"
+      "seven or more ribs",
+      "7 or more ribs",
+      "chest wall reconstruction"
     ],
     "specialty": "cardiothoracic_surgery",
-    "subcategory": "surgical",
+    "specialty_aliases": [
+      "cardiothoracic surgery",
+      "thoracic surgery",
+      "trauma surgery",
+      "chest wall reconstruction"
+    ],
+    "subcategory": "rib_fracture_chest_wall_trauma",
     "team_surgeon_indicator": "0",
-    "total_rvu": 0,
-    "typical_modifiers": [],
+    "total_rvu": 26.69,
+    "typical_modifiers": [
+      "RT",
+      "LT",
+      "50"
+    ],
     "work_rvu": 17.17,
-    "wrvu_source": "cpt_decision_tree.json existing rib fixation entry"
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c-updated-06-30-2026.zip"
   },
   "21930": {
     "addon_code": false,
@@ -94489,10 +94504,17 @@
     "work_rvu": 2.17,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c-updated-06-30-2026.zip",
     "cms_short_description": "Mobilization of colon",
     "estimated_medicare_payment": 106.88,
-    "notes": "Add-on procedure. Separately reportable only with an eligible partial colectomy when splenic flexure mobilization is documented to obtain bowel length or facilitate a tension-free anastomosis."
+    "notes": "Add-on procedure. Separately reportable only with an eligible partial colectomy when splenic flexure mobilization is documented to obtain bowel length or facilitate a tension-free anastomosis.",
+    "multiple_procedure_indicator": "0",
+    "bilateral_indicator": "0",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "indicator_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "indicator_source_file": "PPRRVU2026_Jul_nonQPP.csv"
   },
   "44213": {
     "addon_code": true,
@@ -94562,10 +94584,17 @@
     "work_rvu": 3.41,
     "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
     "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
-    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c-updated-06-30-2026.zip",
     "cms_short_description": "Lap mobil splenic fl add-on",
     "estimated_medicare_payment": 165,
-    "notes": "Add-on procedure. Separately reportable only with an eligible partial colectomy when splenic flexure mobilization is documented to obtain bowel length or facilitate a tension-free anastomosis."
+    "notes": "Add-on procedure. Separately reportable only with an eligible partial colectomy when splenic flexure mobilization is documented to obtain bowel length or facilitate a tension-free anastomosis.",
+    "multiple_procedure_indicator": "0",
+    "bilateral_indicator": "0",
+    "assistant_surgeon_indicator": "2",
+    "cosurgeon_indicator": "1",
+    "team_surgeon_indicator": "0",
+    "indicator_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "indicator_source_file": "PPRRVU2026_Jul_nonQPP.csv"
   },
   "44140": {
     "addon_code": false,

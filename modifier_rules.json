@@ -98054,5 +98054,51 @@
     },
     "team_surgeon_eligible": false,
     "x_modifier_eligible": false
+  },
+  "21813": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": true,
+    "laterality_applicable": true,
+    "bilateral_method": "modifier_50_or_rt_lt_by_payer",
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": false,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "rib_fracture_chest_wall_trauma",
+    "category": "rib_fracture_chest_wall_trauma",
+    "inclusive_of": [],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "CMS PFS bilateral indicator 1 and multiple-procedure indicator 2; confirm payer preference for modifier 50 versus RT/LT split billing.",
+      "commercial": "Verify payer-specific laterality, assistant, MPPR, and documentation policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "code_family": "rib_fracture_chest_wall_trauma"
+  },
+  "44213": {
+    "mod51_exempt": true,
+    "addon_code": true,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 0,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "bowel_resection",
+    "category": "bowel_resection",
+    "inclusive_of": [],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "CMS PFS add-on indicator ZZZ; report only with eligible laparoscopic partial colectomy parent code when documentation supports splenic flexure mobilization.",
+      "commercial": "Verify payer-specific add-on parent, modifier, and bundling policy."
+    },
+    "x_modifier_eligible": false,
+    "hierarchy_tier": 3,
+    "code_family": "bowel_resection"
   }
 }

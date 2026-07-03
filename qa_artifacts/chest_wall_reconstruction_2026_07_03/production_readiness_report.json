@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-07-03",
+  "branch": "review/chest-wall-reconstruction-package",
+  "cms_pfs_source": "CMS RVU26C updated 06/30/2026 PPRRVU2026_Jul_nonQPP.csv",
+  "cdc_icd10_source": "CDC/NCHS ICD-10-CM April 1 2026 XML release",
+  "requested_cpt_status": {
+    "21811": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 10.52,
+      "total_rvu": 16.31,
+      "global": 0
+    },
+    "21812": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 12.68,
+      "total_rvu": 19.62,
+      "global": 0
+    },
+    "21813": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 17.17,
+      "total_rvu": 26.69,
+      "global": 0
+    },
+    "32110": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 24.65,
+      "total_rvu": 41.79,
+      "global": 90
+    },
+    "32320": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 26.57,
+      "total_rvu": 45.89,
+      "global": 90
+    },
+    "32551": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 2.96,
+      "total_rvu": 4.28,
+      "global": 0
+    },
+    "32651": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 18.31,
+      "total_rvu": 31.13,
+      "global": 90
+    },
+    "64421": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 0.49,
+      "total_rvu": 1.05,
+      "global": 0
+    },
+    "64620": {
+      "cpt_database": true,
+      "rvu_database": true,
+      "modifier_rules": true,
+      "homepage_search_case_builder_seed": true,
+      "standalone_page": true,
+      "work_rvu": 2.82,
+      "total_rvu": 6.76,
+      "global": 10
+    }
+  },
+  "missing_cpts_identified": [
+    "21813 lacked full RVU database, modifier rules, standalone code page, code index entry, and sitemap entry."
+  ],
+  "cpts_added_or_corrected": [
+    "21813 full CMS RVU/indicator metadata and standalone code page",
+    "stale cpt_decision_tree wRVU/global values corrected for 21811, 21812, 32110, 32551, 32651",
+    "platform integrity gate repair: 44213 RVU/modifier metadata and 44139/44213 CMS indicators added from CMS RVU26C"
+  ],
+  "missing_icd10_diagnoses_identified": [],
+  "icd10_search_terms_added": [
+    "pulmonary contusion",
+    "lung contusion",
+    "hemothorax",
+    "pneumothorax",
+    "hemopneumothorax",
+    "pleural injury",
+    "respiratory failure"
+  ],
+  "claimiq_rule_coverage": [
+    "selected vs expected payable RVU summary",
+    "21813 vs 21811/21812 mutually exclusive warning",
+    "21812 parent/base warning",
+    "adjunct thoracic procedure documentation warning",
+    "intercostal block/cryoablation documentation warning",
+    "NCCI pair evidence when detected",
+    "existing inpatient-only, MPPR, diagnosis pointer, APP mode and modifier checks"
+  ],
+  "validation_screenshots": [
+    "validation/chest_wall_2026_07_03/local_chest_wall_pathway.png",
+    "validation/chest_wall_2026_07_03/local_chest_wall_claimiq.png",
+    "validation/chest_wall_2026_07_03/local_chest_wall_7plus_appmode.png"
+  ],
+  "local_gates": {
+    "json_validation": "passed",
+    "homepage_specs_validation": "passed",
+    "platform_integrity": "0 hard errors, 0 warnings",
+    "source_internal_link_audit": "0 missing internal links, 0 missing source links; pre-existing non-root source-link warning remains for app-productivity.html -> /app-resources.html"
+  }
+}
