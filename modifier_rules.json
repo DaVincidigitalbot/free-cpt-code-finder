@@ -40306,6 +40306,35 @@
     "team_surgeon_eligible": false,
     "x_modifier_eligible": true
   },
+  "32320": {
+    "mod51_exempt": false,
+    "addon_code": false,
+    "bilateral_eligible": false,
+    "laterality_applicable": false,
+    "bilateral_method": null,
+    "global_period": 90,
+    "assistant_allowed": true,
+    "cosurgeon_eligible": true,
+    "team_surgeon_eligible": false,
+    "inherently_bilateral": false,
+    "distinct_procedure_class": "thoracic_surgery",
+    "category": "thoracic_surgery",
+    "inclusive_of": [
+      "12001",
+      "12002",
+      "12003",
+      "12004",
+      "12005"
+    ],
+    "never_primary_with": [],
+    "payer_notes": {
+      "medicare": "Use CMS PFS indicators; apply MPPR only when multiple-procedure rules apply.",
+      "commercial": "Verify payer-specific modifier, assistant, and bundling policy."
+    },
+    "x_modifier_eligible": true,
+    "hierarchy_tier": 1,
+    "code_family": "cardiothoracic_surgery"
+  },
   "32440": {
     "addon_code": false,
     "assistant_allowed": true,
