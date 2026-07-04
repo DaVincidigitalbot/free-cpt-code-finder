@@ -218,7 +218,7 @@ a{color:inherit;text-decoration:none}
 
 /* ===== CASE BUILDER RAIL ===== */
 .rail{background:var(--white);padding:24px 28px;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;min-width:0}
-@media(max-width:1000px){.rail{position:static;height:auto;border-top:1px solid var(--line)}}
+@media(max-width:1000px){.rail{position:static;height:auto;border-top:1px solid var(--line);width:100%;max-width:100%;padding:22px 20px;overflow-x:hidden}.rh,.rlt,.rw,.ctrls,.rf{min-width:0}.rlt{flex-wrap:wrap}.rmd{margin-left:0}.rd{white-space:normal;overflow-wrap:anywhere}.tn{font-size:clamp(38px,13vw,54px)}.rf{flex-wrap:wrap}.rf button{min-width:calc(50% - 4px)}}@media(max-width:430px){.main{padding-left:16px;padding-right:16px}.rail{padding-left:16px;padding-right:16px}.shell,.main,.rail,.sec,.search-wrap,.autocomplete-results{min-width:0;max-width:100%}.proc{grid-template-columns:minmax(0,1fr) auto;align-items:start}.proc-w{grid-column:1/-1;text-align:left}.mpick-box{width:calc(100vw - 24px);padding:20px 18px}.mpick-opt{grid-template-columns:44px minmax(0,1fr)}.mpick-foot{align-items:flex-start;gap:10px;flex-direction:column}.seg{width:100%}.seg button{flex:1}.rf button{min-width:100%}}
 .rh{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .rt{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3)}
 .rm{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:11px;color:var(--ink2)}
@@ -811,6 +811,30 @@ const DX_BY_CPT={
  '49324':['Z49.02','N18.6'],
  '49435':['Z49.02','N18.6'],
  '49436':['Z49.02','N18.6'],
+ '43246':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43653':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43752':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43761':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43762':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43763':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43830':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43831':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43832':['K94.23','K94.29','Z43.1','Z93.1'],
+ '43870':['K94.23','K94.29','Z43.1','Z93.1'],
+ '44015':['K94.23','K94.29','Z43.1','Z93.1'],
+ '44186':['K94.23','K94.29','Z43.1','Z93.1'],
+ '44300':['K94.23','K94.29','Z43.1','Z93.1'],
+ '44310':['K94.23','K94.29','Z43.1','Z93.1'],
+ '44500':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49440':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49441':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49442':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49446':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49450':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49451':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49452':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49460':['K94.23','K94.29','Z43.1','Z93.1'],
+ '49465':['K94.23','K94.29','Z43.1','Z93.1'],
  '10060':['L02.211','L02.31','L02.91'],
  '10061':['L02.211','L02.31','L02.91'],
  '10140':['M79.81','T79.2XXA','L76.34'],
@@ -981,6 +1005,7 @@ const CLINICAL_INDICATION_GROUPS={
  malnutrition:{label:'Malnutrition',codes:['E43','E440','E441','E46','E640'],terms:['malnutrition','protein calorie malnutrition','severe malnutrition','moderate malnutrition','mild malnutrition']},
  feeding_difficulty:{label:'Feeding difficulty',codes:['R6330','R6339','R627','R6251'],terms:['feeding difficulty','feeding difficulties','failure to thrive','poor oral intake','inability to maintain oral intake','nutritional access']},
  aspiration_risk:{label:'Aspiration risk',codes:['J690','J691','J698','R1312','R1314'],terms:['aspiration','aspiration risk','aspiration pneumonitis','inhalation of food','inhalation of vomit']},
+ gastrostomy_management:{label:'Gastrostomy management / complication',codes:['K9420','K9421','K9422','K9423','K9429','Z431','Z931'],terms:['attention to gastrostomy','gastrostomy management','gastrostomy status','peg complication','gastrostomy complication','mechanical complication of gastrostomy','dislodged gastrostomy tube','g tube fell out','peg fell out','accidental peg removal','accidental g tube removal','gastrostomy malfunction','clogged g tube','blocked peg tube','leaking peg','gastrostomy leakage','infected peg','gastrostomy infection']},
  diverticulitis:{label:'Diverticulitis',codes:['K5720','K5721','K5732','K5733','K5740','K5741','K5752','K5753','K5780','K5781','K5792','K5793'],terms:['diverticulitis','perforated diverticulitis','diverticular abscess']},
  colon_cancer:{label:'Colon cancer',codes:['C180','C181','C182','C183','C184','C185','C186','C187','C188','C189','C19','C20'],terms:['colon cancer','colorectal cancer','malignant neoplasm colon','sigmoid cancer','cecal cancer']},
  volvulus:{label:'Volvulus',codes:['K562'],terms:['volvulus','sigmoid volvulus','cecal volvulus']},
@@ -998,6 +1023,7 @@ const CLINICAL_INDICATION_GROUPS={
  chronic_cholecystitis:{label:'Chronic cholecystitis',codes:['K8010','K8011','K811'],terms:['chronic cholecystitis','recurrent biliary colic']},
  choledocholithiasis_cholangitis:{label:'Choledocholithiasis / cholangitis',codes:['K8030','K8031','K8032','K8033','K8040','K8041','K8042','K8043','K8309'],terms:['choledocholithiasis','common bile duct stone','cholangitis','biliary obstruction','obstructive jaundice']},
  gallstone_pancreatitis:{label:'Gallstone pancreatitis',codes:['K8510','K8511','K8512'],terms:['gallstone pancreatitis','biliary pancreatitis','pancreatitis due to gallstones']},
+ appendicitis:{label:'Appendicitis',codes:['K350','K351','K35200','K35201','K35209','K3530','K3531','K3532','K3533','K3539','K3580','K35890','K35891','K3590','K3591','K36','K37'],terms:['appendicitis','acute appendicitis','perforated appendicitis','ruptured appendix','appendiceal abscess','appendix']},
  diabetic_wound:{label:'Diabetic foot / chronic ulcer',codes:['E11621','E1152','L97909','L97809','I96'],terms:['diabetic foot','diabetic foot ulcer','chronic ulcer','non-pressure ulcer','gangrene']},
  pressure_ulcer:{label:'Pressure ulcer',codes:['L89154','L89159'],terms:['pressure ulcer','decubitus ulcer','sacral ulcer','stage 4 pressure ulcer']},
  necrotizing_soft_tissue_infection:{label:'Necrotizing / soft tissue infection',codes:['M726','L089','T8149XA'],terms:['necrotizing fasciitis','necrotizing infection','soft tissue infection','surgical site infection']},
@@ -1025,10 +1051,11 @@ const CLINICAL_INDICATION_GROUPS={
  };
 const PROCEDURE_FAMILIES={
  tracheostomy:{label:'Tracheostomy Family',indications:['respiratory_failure','ventilator_dependence','airway_obstruction','tracheal_obstruction']},
- gastrostomy:{label:'Gastrostomy Family',indications:['dysphagia','malnutrition','feeding_difficulty','aspiration_risk']},
+ gastrostomy:{label:'Gastrostomy Family',indications:['dysphagia','malnutrition','feeding_difficulty','aspiration_risk','gastrostomy_management']},
  colectomy:{label:'Colectomy Family',indications:['diverticulitis','colon_cancer','volvulus','ischemic_bowel','perforation','obstruction']},
  hernia:{label:'Hernia Family',indications:['inguinal_hernia','femoral_hernia','ventral_hernia','hiatal_parastomal_hernia','incarcerated_hernia','strangulated_hernia']},
  cholecystectomy:{label:'Cholecystectomy Family',indications:['biliary_colic','acute_cholecystitis','chronic_cholecystitis','choledocholithiasis_cholangitis','gallstone_pancreatitis']},
+ appendectomy:{label:'Appendectomy Family',indications:['appendicitis','acute_abdomen','perforation','intra_abdominal_abscess']},
  debridement:{label:'Debridement Family',indications:['diabetic_wound','pressure_ulcer','necrotizing_soft_tissue_infection','open_wound_complication']},
  abscess_drainage:{label:'Abscess / Drainage Family',indications:['cutaneous_abscess','intra_abdominal_abscess','anorectal_abscess']},
  amputation:{label:'Amputation Family',indications:['diabetic_wound','peripheral_artery_disease','osteomyelitis','necrotizing_soft_tissue_infection','traumatic_nonviable_limb']},
@@ -1039,10 +1066,11 @@ const PROCEDURE_FAMILIES={
 };
 const CPT_PROCEDURE_FAMILY={
  '31600':'tracheostomy','31601':'tracheostomy','31603':'tracheostomy',
- '49440':'gastrostomy','43246':'gastrostomy','49446':'gastrostomy','49450':'gastrostomy',
+ '43246':'gastrostomy','43653':'gastrostomy','43752':'gastrostomy','43761':'gastrostomy','43762':'gastrostomy','43763':'gastrostomy','43830':'gastrostomy','43831':'gastrostomy','43832':'gastrostomy','43870':'gastrostomy','44015':'gastrostomy','44186':'gastrostomy','44300':'gastrostomy','44310':'gastrostomy','44500':'gastrostomy','49440':'gastrostomy','49441':'gastrostomy','49442':'gastrostomy','49446':'gastrostomy','49450':'gastrostomy','49451':'gastrostomy','49452':'gastrostomy','49460':'gastrostomy','49465':'gastrostomy',
  '44120':'colectomy','44121':'colectomy','44140':'colectomy','44143':'colectomy','44145':'colectomy','44146':'colectomy','44155':'colectomy','44202':'colectomy','44203':'colectomy','44204':'colectomy','44205':'colectomy','44207':'colectomy','44208':'colectomy','44625':'colectomy',
  '49500':'hernia','49501':'hernia','49505':'hernia','49507':'hernia','49520':'hernia','49521':'hernia','49525':'hernia','49550':'hernia','49553':'hernia','49555':'hernia','49591':'hernia','49592':'hernia','49593':'hernia','49594':'hernia','49595':'hernia','49596':'hernia','49613':'hernia','49614':'hernia','49615':'hernia','49616':'hernia','49617':'hernia','49618':'hernia','49621':'hernia','49622':'hernia','49650':'hernia','49651':'hernia','43280':'hernia','43281':'hernia','43282':'hernia','43324':'hernia',
  '47562':'cholecystectomy','47563':'cholecystectomy','47564':'cholecystectomy','47600':'cholecystectomy','47605':'cholecystectomy','47610':'cholecystectomy',
+ '44950':'appendectomy','44960':'appendectomy','44970':'appendectomy',
  '11042':'debridement','11043':'debridement','11044':'debridement','11045':'debridement','11046':'debridement','11047':'debridement','97605':'debridement','97606':'debridement',
  '10060':'abscess_drainage','10061':'abscess_drainage','10160':'abscess_drainage','46050':'abscess_drainage','46060':'abscess_drainage','49020':'abscess_drainage','49060':'abscess_drainage','49405':'abscess_drainage','49406':'abscess_drainage',
  '27590':'amputation','27591':'amputation','27592':'amputation','27594':'amputation','27596':'amputation','27880':'amputation','27881':'amputation','27882':'amputation','27884':'amputation','27886':'amputation','27888':'amputation','27889':'amputation','28800':'amputation','28805':'amputation','28810':'amputation','28820':'amputation','28825':'amputation',
@@ -1621,6 +1649,12 @@ document.addEventListener('keydown',e=>{
 });
 
 // ===== ADD HANDLERS =====
+const GASTROSTOMY_MANAGEMENT_CPTS=new Set(['43761','43762','43763','49446','49450','49451','49452','49460','49465']);
+function seedDefaultDiagnosisForLine(line){
+ if(!line||line.kind!=='proc')return;
+ const code=String(line.cpt||'');
+ if(GASTROSTOMY_MANAGEMENT_CPTS.has(code))addDiagnosis('K94.23',{lineId:line.id});
+}
 function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  const existing=caseLines.filter(l=>l.kind==='proc'&&l.cpt===cpt);
  const lateralToken=String(laterality||'').toUpperCase();
@@ -1632,18 +1666,21 @@ function addProc(cpt,desc,wrvu,laterality,bi,approach,dx,meta={}){
  if(approach)line.approach=approach;
  if(existing.length>0&&(payment.addonCode||isAddonCode(cpt))){
   caseLines.push(line);
+  seedDefaultDiagnosisForLine(line);
   log(`ADD ${cpt} "${desc}" [ADD-ON REPEAT #${existing.length+1}] — no distinct-service modifier prompt`);
   recalc('repeat add-on code added');
   return;
  }
  if(existing.length>0){
   caseLines.push(line);
+  seedDefaultDiagnosisForLine(line);
   log(`ADD ${cpt} "${desc}" [REPEAT #${existing.length+1}] — modifier picker opened`);
   recalc('repeat procedure added');
   openMpick(line.id,{suggestion:'XS',reason:`This is instance ${existing.length+1} of ${cpt}. For a procedure performed on a separate anatomic site (for example contralateral component separation or multiple graft sites), use -XS. For a genuinely separate operative session, use -XE. -59 is the general fallback.`});
   return;
  }
  caseLines.push(line);
+ seedDefaultDiagnosisForLine(line);
  const latStr=laterality==='50'?'BILATERAL':(laterality||'');
  log(`ADD ${cpt} "${desc}"${latStr?' ['+latStr+']':''} wRVU=${wrvu}`);
  recalc('procedure added');
@@ -2103,9 +2140,14 @@ function cptQueryDxPriority(code,q,rowCode){
   if(/feeding difficult/.test(q)&&/^R633/.test(rowCode))return 90;
   if(/dysphag|dysphas|peg|g tube|gtube|gastrostomy/.test(q)&&/^R13/.test(rowCode))return 85;
   if(/malnutrition|peg|g tube|gtube|gastrostomy/.test(q)&&/^E4[346]|^E44/.test(rowCode))return 75;
-  if(/failure to thrive/.test(q)&&rowCode==='R627')return 90;
-  if(/aspirat/.test(q)&&rowCode==='J690')return 90;
-  if(/neurologic|stroke|cva/.test(q)&&/^I69/.test(rowCode))return 80;
+ if(/failure to thrive/.test(q)&&rowCode==='R627')return 90;
+ if(/aspirat/.test(q)&&rowCode==='J690')return 90;
+ if(/neurologic|stroke|cva/.test(q)&&/^I69/.test(rowCode))return 80;
+  if(/fell out|dislodg|accidental.*remov|malfunction|obstruct|clogg|block/.test(q)&&rowCode==='K9423')return 95;
+  if(/leak/.test(q)&&rowCode==='K9429')return 92;
+  if(/infect/.test(q)&&rowCode==='K9422')return 92;
+  if(/attention|management|status/.test(q)&&rowCode==='Z431')return 88;
+  if(/peg|g tube|gtube|gastrostomy/.test(q)&&/^K942/.test(rowCode))return 82;
  }
  const config=cptClinicalDxConfig({cpt:code});
  let generic=0;
@@ -2170,13 +2212,15 @@ function commonDxForCpt(line){
  if(/diverticul|colectomy|colon|colostomy|enterostomy|bowel|intestin/.test(desc))add(['K57.20','K57.32','K56.609','K63.1','Z43.3']);
  if(/hernia|abdominal wall|myofascial|component/.test(desc))add(['K43.2','K43.0','K42.9','K40.90']);
  if(/gallbladder|chole|bile|biliary/.test(desc))add(['K80.20','K80.00','K81.0','K82.8']);
+ if(/appendix|appendectomy|appendicitis/.test(desc)||['44950','44960','44970'].includes(code))add(['K35.80','K35.32','K35.33','K35.890','K35.90']);
+ if(GASTROSTOMY_MANAGEMENT_CPTS.has(code))dx.unshift('K94.23','K94.29','K94.22','Z43.1');
  if(/abscess|drainage|debridement|wound|infection/.test(desc))add(['L02.211','T81.49XA','K65.1','S31.109A']);
  if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
  if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
  if(/hip|knee|femur|tibia|radius|fracture|arthro/.test(desc))add(['S72.001A','S82.201A','M17.11','M16.11']);
  const clinical=cptClinicalDxConfig(source);
  if(clinical)add(clinical.codes);
- const priority=dxLateralityPriorityForLine(source);
+ const priority=[...(GASTROSTOMY_MANAGEMENT_CPTS.has(code)?['K9423','K9429','K9422','Z431']:[]),...dxLateralityPriorityForLine(source)];
  const clinicalPriority=clinical?(clinical.codes||[]).map(normalizeDxCode):[];
  dx=[...priority,...dx];
  return [...new Set(dx.map(normalizeDxCode))].map(icdMeta).sort((a,b)=>{
@@ -2195,6 +2239,8 @@ function commonDxCodeSetForLine(line){
  if(/diverticul|colectomy|colon|colostomy|enterostomy|bowel|intestin/.test(desc))add(['K57.20','K57.32','K56.609','K63.1','Z43.3']);
  if(/hernia|abdominal wall|myofascial|component/.test(desc))add(['K43.2','K43.0','K42.9','K40.90']);
  if(/gallbladder|chole|bile|biliary/.test(desc))add(['K80.20','K80.00','K81.0','K82.8']);
+ if(/appendix|appendectomy|appendicitis/.test(desc)||['44950','44960','44970'].includes(code))add(['K35.80','K35.32','K35.33','K35.890','K35.90']);
+ if(GASTROSTOMY_MANAGEMENT_CPTS.has(code))add(['K94.23','K94.29','K94.22','Z43.1']);
  if(/abscess|drainage|debridement|wound|infection/.test(desc))add(['L02.211','T81.49XA','K65.1','S31.109A']);
  if(/fracture|trauma|injury|laceration|hemorrhage/.test(desc))add(['S31.109A','S36.509A','T79.2XXA','R58']);
  if(/artery|vascular|bypass|aneurysm|thrombectomy|embolectomy/.test(desc))add(['I70.203','I74.3','I71.40','I65.29']);
@@ -3425,7 +3471,8 @@ function bindDescriptionTooltips(){
  document.addEventListener('focusin',e=>{const el=targetFromEvent(e);if(el)place(el)});
 document.addEventListener('click',e=>{
  const el=targetFromEvent(e);
-  if(el){e.preventDefault();e.stopPropagation();place(el);return}
+ if(el&&e.target.closest('.autocomplete-item,.proc')){place(el);return}
+ if(el){e.preventDefault();e.stopPropagation();place(el);return}
  hide();
 },true);
  document.addEventListener('mouseout',e=>{
@@ -3670,6 +3717,30 @@ function buildSearchIndexFromSpecs(){
    '43281':'paraesophageal paraesophageal hernia repair laparoscopic hiatal',
    '43282':'paraesophageal paraesophageal hernia repair mesh laparoscopic hiatal',
    '43324':'open hiatal paraesophageal hernia repair fundoplasty nissen belsey hill',
+   '43246':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy PEG placement endoscopic PEG placement EGD PEG',
+   '43653':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '43752':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '43761':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '43762':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy replace PEG no tract revision simple G-tube replacement bedside gastrostomy tube replacement',
+   '43763':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy replace PEG with tract revision gastrostomy tract revision',
+   '43830':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '43831':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '43832':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '43870':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '44015':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '44186':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '44300':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '44310':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '44500':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '49440':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy IR gastrostomy radiologic G-tube placement',
+   '49441':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy IR jejunostomy J tube placement fluoroscopy',
+   '49442':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy',
+   '49446':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy convert G tube to GJ G to GJ conversion',
+   '49450':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy fluoroscopic G-tube replacement replace G tube with imaging',
+   '49451':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy fluoroscopic J-tube replacement replace jejunostomy tube',
+   '49452':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy fluoroscopic GJ tube replacement',
+   '49460':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy unclog gastrostomy tube declog feeding tube',
+   '49465':'PEG PEG tube percutaneous endoscopic gastrostomy g tube G-tube gtube gastrostomy tube feeding tube enteral access tube feeds replace PEG PEG replacement PEG exchange G-tube exchange G-tube replacement gastrostomy tube replacement gastrostomy tube exchange gastrostomy tract revision gastrostomy revision jejunostomy tube J-tube GJ tube gastrojejunostomy tube feeding tube replacement feeding tube exchange feeding tube revision clogged feeding tube blocked PEG tube tube malfunction tube fell out PEG fell out G-tube fell out dislodged gastrostomy tube accidental tube removal leaking feeding tube leaking PEG infected PEG attention to gastrostomy tube check gastrostomy tube contrast study',
    'cardiac_electrophysiology':'electrophysiology cardiac ep heart rhythm arrhythmia pacemaker icd defibrillator ablation loop recorder rhythm monitoring cardiophysiology'
   };
   const specialtyAliases=specialty==='Cardiac Electrophysiology'?aliasMap.cardiac_electrophysiology:'';
@@ -4123,7 +4194,7 @@ async function filterSearchExperience(query){
  await loadSuggestedMappings();
  await loadProcedureIntelligence();
  await loadSuggestionRankings();
- const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,12).map(entry=>entry.item);
+ const ranked=searchState.cptSearchIndex.map(item=>({item,score:scoreSearchResult(item,query)})).filter(entry=>entry.score>=0).sort((a,b)=>b.score-a.score||a.item.description.length-b.item.description.length).slice(0,24).map(entry=>entry.item);
  searchState.searchResults=ranked;
  searchState.suggestedCptResults=buildSuggestedCptResults(query,ranked);
  searchState.procedureIntelligenceGroup=findProcedureIntelligenceForQuery(query);

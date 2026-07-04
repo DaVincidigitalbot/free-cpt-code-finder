@@ -4420,7 +4420,7 @@
     ],
     [
       "42821",
-      "T&A \u226512 yrs",
+      "T&A ≥12 yrs",
       4.52,
       0
     ],
@@ -5613,7 +5613,7 @@
             },
             {
               "cpt_code": "15734",
-              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk \u2014 unilateral retrorectus myofascial release (1 side)",
+              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk — unilateral retrorectus myofascial release (1 side)",
               "icd10": [
                 "K43.9",
                 "K43.2"
@@ -5628,7 +5628,7 @@
             {
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk \u2014 bilateral retrorectus myofascial release. Bill 15734 \u00d7 2 (one per side with -50 or -LT/-RT)",
+              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk — bilateral retrorectus myofascial release. Bill 15734 × 2 (one per side with -50 or -LT/-RT)",
               "icd10": [
                 "K43.9",
                 "K43.2"
@@ -5642,7 +5642,7 @@
             },
             {
               "cpt_code": "15734",
-              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk \u2014 unilateral transversus abdominis release (TAR). 1 side.",
+              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk — unilateral transversus abdominis release (TAR). 1 side.",
               "icd10": [
                 "K43.9",
                 "K43.2"
@@ -5657,7 +5657,7 @@
             {
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk \u2014 bilateral transversus abdominis release (TAR). Bill 15734 \u00d7 2 (one per side with -50 or -LT/-RT)",
+              "description": "Muscle, myocutaneous, or fasciocutaneous flap; trunk — bilateral transversus abdominis release (TAR). Bill 15734 × 2 (one per side with -50 or -LT/-RT)",
               "icd10": [
                 "K43.9",
                 "K43.2"
@@ -5834,7 +5834,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -5847,7 +5847,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -5860,7 +5860,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -5873,7 +5873,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -5891,19 +5891,19 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "No release \u2014 CPT 49596 only",
+              "label": "No release — CPT 49596 only",
               "modifiers": [],
               "work_rvu": 18.2
             },
             {
               "_also_add": "49596",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49596.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49596.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -5913,12 +5913,12 @@
               "_also_add": "49596",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49596.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49596.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -5928,12 +5928,12 @@
             {
               "_also_add": "49596",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49596.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49596.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -5943,12 +5943,12 @@
               "_also_add": "49596",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49596.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49596.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -5956,7 +5956,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49596 \u2014 Repair initial incisional/ventral hernia, incarcerated/strangulated; >10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49596 — Repair initial incisional/ventral hernia, incarcerated/strangulated; >10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_init_inc_medium": {
           "options": [
@@ -5987,7 +5987,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6000,7 +6000,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6013,7 +6013,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6026,7 +6026,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6044,19 +6044,19 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "No release \u2014 CPT 49594 only",
+              "label": "No release — CPT 49594 only",
               "modifiers": [],
               "work_rvu": 13.12
             },
             {
               "_also_add": "49594",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49594.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49594.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6066,12 +6066,12 @@
               "_also_add": "49594",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49594.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49594.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6081,12 +6081,12 @@
             {
               "_also_add": "49594",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49594.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49594.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6096,12 +6096,12 @@
               "_also_add": "49594",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49594.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49594.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6109,7 +6109,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49594 \u2014 Repair initial incisional/ventral hernia, incarcerated/strangulated; 3-10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49594 — Repair initial incisional/ventral hernia, incarcerated/strangulated; 3-10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_init_inc_small": {
           "options": [
@@ -6140,7 +6140,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6153,7 +6153,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6166,7 +6166,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6179,7 +6179,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6197,19 +6197,19 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "No release \u2014 CPT 49592 only",
+              "label": "No release — CPT 49592 only",
               "modifiers": [],
               "work_rvu": 8.25
             },
             {
               "_also_add": "49592",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49592.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49592.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6219,12 +6219,12 @@
               "_also_add": "49592",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49592.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49592.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6234,12 +6234,12 @@
             {
               "_also_add": "49592",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49592.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49592.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6249,12 +6249,12 @@
               "_also_add": "49592",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49592.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49592.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6262,7 +6262,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49592 \u2014 Repair initial incisional/ventral hernia, incarcerated/strangulated; <3 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49592 — Repair initial incisional/ventral hernia, incarcerated/strangulated; <3 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_init_red_large": {
           "options": [
@@ -6293,7 +6293,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6306,7 +6306,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6319,7 +6319,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6332,7 +6332,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6350,19 +6350,19 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "No release \u2014 CPT 49595 only",
+              "label": "No release — CPT 49595 only",
               "modifiers": [],
               "work_rvu": 13.59
             },
             {
               "_also_add": "49595",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49595.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49595.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6372,12 +6372,12 @@
               "_also_add": "49595",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49595.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49595.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6387,12 +6387,12 @@
             {
               "_also_add": "49595",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49595.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49595.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6402,12 +6402,12 @@
               "_also_add": "49595",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49595.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49595.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6415,7 +6415,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49595 \u2014 Repair initial incisional/ventral hernia, reducible; >10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49595 — Repair initial incisional/ventral hernia, reducible; >10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_init_red_medium": {
           "options": [
@@ -6446,7 +6446,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6459,7 +6459,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6472,7 +6472,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6485,7 +6485,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6503,19 +6503,19 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "No release \u2014 CPT 49593 only",
+              "label": "No release — CPT 49593 only",
               "modifiers": [],
               "work_rvu": 10
             },
             {
               "_also_add": "49593",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49593.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49593.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6525,12 +6525,12 @@
               "_also_add": "49593",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49593.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49593.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6540,12 +6540,12 @@
             {
               "_also_add": "49593",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49593.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49593.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6555,12 +6555,12 @@
               "_also_add": "49593",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49593.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49593.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6568,7 +6568,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49593 \u2014 Repair initial incisional/ventral hernia, reducible; 3-10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49593 — Repair initial incisional/ventral hernia, reducible; 3-10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_init_red_small": {
           "options": [
@@ -6599,7 +6599,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6612,7 +6612,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6625,7 +6625,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6638,7 +6638,7 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6656,19 +6656,19 @@
                 "K43.9",
                 "K43.2"
               ],
-              "label": "No release \u2014 CPT 49591 only",
+              "label": "No release — CPT 49591 only",
               "modifiers": [],
               "work_rvu": 5.81
             },
             {
               "_also_add": "49591",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49591.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49591.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6678,12 +6678,12 @@
               "_also_add": "49591",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49591.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49591.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6693,12 +6693,12 @@
             {
               "_also_add": "49591",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49591.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49591.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6708,12 +6708,12 @@
               "_also_add": "49591",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49591.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49591.",
               "icd10": [
                 "K43.9",
                 "K43.2"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6721,7 +6721,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49591 \u2014 Repair initial incisional/ventral hernia, reducible; <3 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49591 — Repair initial incisional/ventral hernia, reducible; <3 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_initial": {
           "options": [
@@ -6743,7 +6743,7 @@
               "next": "ventral_init_inc_small"
             },
             {
-              "label": "3\u201310 cm",
+              "label": "3–10 cm",
               "next": "ventral_init_inc_medium"
             },
             {
@@ -6760,7 +6760,7 @@
               "next": "ventral_init_red_small"
             },
             {
-              "label": "3\u201310 cm",
+              "label": "3–10 cm",
               "next": "ventral_init_red_medium"
             },
             {
@@ -6781,7 +6781,7 @@
               "next": "ventral_recurrent"
             }
           ],
-          "question": "Ventral / Incisional Hernia \u2014 Initial or Recurrent?"
+          "question": "Ventral / Incisional Hernia — Initial or Recurrent?"
         },
         "ventral_rec_inc_large": {
           "options": [
@@ -6812,7 +6812,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6825,7 +6825,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6838,7 +6838,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6851,7 +6851,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6869,19 +6869,19 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "No release \u2014 CPT 49618 only",
+              "label": "No release — CPT 49618 only",
               "modifiers": [],
               "work_rvu": 22.1
             },
             {
               "_also_add": "49618",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49618.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49618.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6891,12 +6891,12 @@
               "_also_add": "49618",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49618.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49618.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6906,12 +6906,12 @@
             {
               "_also_add": "49618",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49618.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49618.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6921,12 +6921,12 @@
               "_also_add": "49618",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49618.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49618.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6934,7 +6934,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49618 \u2014 Repair recurrent incisional/ventral hernia, incarcerated/strangulated; >10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49618 — Repair recurrent incisional/ventral hernia, incarcerated/strangulated; >10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_rec_inc_medium": {
           "options": [
@@ -6965,7 +6965,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -6978,7 +6978,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -6991,7 +6991,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7004,7 +7004,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7022,19 +7022,19 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "No release \u2014 CPT 49616 only",
+              "label": "No release — CPT 49616 only",
               "modifiers": [],
               "work_rvu": 15.16
             },
             {
               "_also_add": "49616",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49616.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49616.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7044,12 +7044,12 @@
               "_also_add": "49616",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49616.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49616.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7059,12 +7059,12 @@
             {
               "_also_add": "49616",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49616.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49616.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7074,12 +7074,12 @@
               "_also_add": "49616",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49616.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49616.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7087,7 +7087,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49616 \u2014 Repair recurrent incisional/ventral hernia, incarcerated/strangulated; 3-10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49616 — Repair recurrent incisional/ventral hernia, incarcerated/strangulated; 3-10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_rec_inc_small": {
           "options": [
@@ -7118,7 +7118,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7131,7 +7131,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7144,7 +7144,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7157,7 +7157,7 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7175,19 +7175,19 @@
                 "K43.0",
                 "K43.1"
               ],
-              "label": "No release \u2014 CPT 49614 only",
+              "label": "No release — CPT 49614 only",
               "modifiers": [],
               "work_rvu": 9.99
             },
             {
               "_also_add": "49614",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49614.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49614.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7197,12 +7197,12 @@
               "_also_add": "49614",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49614.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49614.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7212,12 +7212,12 @@
             {
               "_also_add": "49614",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49614.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49614.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7227,12 +7227,12 @@
               "_also_add": "49614",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49614.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49614.",
               "icd10": [
                 "K43.0",
                 "K43.1"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7240,7 +7240,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49614 \u2014 Repair recurrent incisional/ventral hernia, incarcerated/strangulated; <3 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49614 — Repair recurrent incisional/ventral hernia, incarcerated/strangulated; <3 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_rec_red_large": {
           "options": [
@@ -7271,7 +7271,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7284,7 +7284,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7297,7 +7297,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7310,7 +7310,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7328,19 +7328,19 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "No release \u2014 CPT 49617 only",
+              "label": "No release — CPT 49617 only",
               "modifiers": [],
               "work_rvu": 15.63
             },
             {
               "_also_add": "49617",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49617.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49617.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7350,12 +7350,12 @@
               "_also_add": "49617",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49617.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49617.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7365,12 +7365,12 @@
             {
               "_also_add": "49617",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49617.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49617.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7380,12 +7380,12 @@
               "_also_add": "49617",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49617.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49617.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7393,7 +7393,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49617 \u2014 Repair recurrent incisional/ventral hernia, reducible; >10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49617 — Repair recurrent incisional/ventral hernia, reducible; >10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_rec_red_medium": {
           "options": [
@@ -7424,7 +7424,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7437,7 +7437,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7450,7 +7450,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7463,7 +7463,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7481,19 +7481,19 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "No release \u2014 CPT 49615 only",
+              "label": "No release — CPT 49615 only",
               "modifiers": [],
               "work_rvu": 11.17
             },
             {
               "_also_add": "49615",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49615.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49615.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7503,12 +7503,12 @@
               "_also_add": "49615",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49615.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49615.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7518,12 +7518,12 @@
             {
               "_also_add": "49615",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49615.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49615.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7533,12 +7533,12 @@
               "_also_add": "49615",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49615.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49615.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7546,7 +7546,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49615 \u2014 Repair recurrent incisional/ventral hernia, reducible; 3-10 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49615 — Repair recurrent incisional/ventral hernia, reducible; 3-10 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_rec_red_small": {
           "options": [
@@ -7577,7 +7577,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7590,7 +7590,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7603,7 +7603,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7616,7 +7616,7 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7634,19 +7634,19 @@
                 "K43.2",
                 "K43.9"
               ],
-              "label": "No release \u2014 CPT 49613 only",
+              "label": "No release — CPT 49613 only",
               "modifiers": [],
               "work_rvu": 7.23
             },
             {
               "_also_add": "49613",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral retrorectus. Bill WITH 49613.",
+              "description": "Myofascial flap, trunk — unilateral retrorectus. Bill WITH 49613.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral retrorectus release (+ 15734 \u00d71)",
+              "label": "Unilateral retrorectus release (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7656,12 +7656,12 @@
               "_also_add": "49613",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral retrorectus. Bill 15734 \u00d72 WITH 49613.",
+              "description": "Myofascial flap, trunk — bilateral retrorectus. Bill 15734 ×2 WITH 49613.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral retrorectus release (+ 15734 \u00d72)",
+              "label": "Bilateral retrorectus release (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7671,12 +7671,12 @@
             {
               "_also_add": "49613",
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 unilateral TAR. Bill WITH 49613.",
+              "description": "Myofascial flap, trunk — unilateral TAR. Bill WITH 49613.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Unilateral TAR (+ 15734 \u00d71)",
+              "label": "Unilateral TAR (+ 15734 ×1)",
               "modifiers": [
                 "-59"
               ],
@@ -7686,12 +7686,12 @@
               "_also_add": "49613",
               "bilateral": true,
               "cpt_code": "15734",
-              "description": "Myofascial flap, trunk \u2014 bilateral TAR. Bill 15734 \u00d72 WITH 49613.",
+              "description": "Myofascial flap, trunk — bilateral TAR. Bill 15734 ×2 WITH 49613.",
               "icd10": [
                 "K43.2",
                 "K43.9"
               ],
-              "label": "Bilateral TAR (+ 15734 \u00d72)",
+              "label": "Bilateral TAR (+ 15734 ×2)",
               "modifiers": [
                 "-50",
                 "-59"
@@ -7699,7 +7699,7 @@
               "work_rvu": 22.43
             }
           ],
-          "question": "CPT 49613 \u2014 Repair recurrent incisional/ventral hernia, reducible; <3 cm\n\nAbdominal wall release / component separation?"
+          "question": "CPT 49613 — Repair recurrent incisional/ventral hernia, reducible; <3 cm\n\nAbdominal wall release / component separation?"
         },
         "ventral_recurrent": {
           "options": [
@@ -7721,7 +7721,7 @@
               "next": "ventral_rec_inc_small"
             },
             {
-              "label": "3\u201310 cm",
+              "label": "3–10 cm",
               "next": "ventral_rec_inc_medium"
             },
             {
@@ -7738,7 +7738,7 @@
               "next": "ventral_rec_red_small"
             },
             {
-              "label": "3\u201310 cm",
+              "label": "3–10 cm",
               "next": "ventral_rec_red_medium"
             },
             {
@@ -12177,7 +12177,7 @@
               "icd10": [
                 "S82.891A"
               ],
-              "label": "Unimalleolar \u2014 closed reduction",
+              "label": "Unimalleolar — closed reduction",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12191,7 +12191,7 @@
                 "S82.61XA",
                 "S82.62XA"
               ],
-              "label": "Unimalleolar \u2014 ORIF",
+              "label": "Unimalleolar — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12205,7 +12205,7 @@
                 "S82.841A",
                 "S82.842A"
               ],
-              "label": "Bimalleolar \u2014 ORIF",
+              "label": "Bimalleolar — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12219,7 +12219,7 @@
                 "S82.851A",
                 "S82.852A"
               ],
-              "label": "Trimalleolar \u2014 ORIF",
+              "label": "Trimalleolar — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12322,7 +12322,7 @@
                 "Z47.2",
                 "T84.199A"
               ],
-              "label": "Hardware removal \u2014 superficial (plate, screws, pins)",
+              "label": "Hardware removal — superficial (plate, screws, pins)",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12379,7 +12379,7 @@
                 "S72.101A",
                 "S72.109A"
               ],
-              "label": "Intertrochanteric fracture \u2014 ORIF with plate/screws",
+              "label": "Intertrochanteric fracture — ORIF with plate/screws",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12393,7 +12393,7 @@
                 "S72.101A",
                 "S72.102A"
               ],
-              "label": "Intertrochanteric fracture \u2014 intramedullary nail",
+              "label": "Intertrochanteric fracture — intramedullary nail",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12407,7 +12407,7 @@
                 "S72.301A",
                 "S72.302A"
               ],
-              "label": "Femoral shaft fracture \u2014 ORIF",
+              "label": "Femoral shaft fracture — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12421,7 +12421,7 @@
                 "S72.301A",
                 "S72.309A"
               ],
-              "label": "Femoral shaft fracture \u2014 intramedullary nail",
+              "label": "Femoral shaft fracture — intramedullary nail",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12468,7 +12468,7 @@
               "icd10": [
                 "S42.201A"
               ],
-              "label": "Proximal humerus \u2014 closed treatment",
+              "label": "Proximal humerus — closed treatment",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12482,7 +12482,7 @@
                 "S42.201A",
                 "S42.202A"
               ],
-              "label": "Proximal humerus \u2014 ORIF",
+              "label": "Proximal humerus — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12496,7 +12496,7 @@
                 "S42.301A",
                 "S42.302A"
               ],
-              "label": "Humeral shaft \u2014 ORIF",
+              "label": "Humeral shaft — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12510,7 +12510,7 @@
                 "S42.401A",
                 "S42.402A"
               ],
-              "label": "Distal humerus (supracondylar) \u2014 ORIF",
+              "label": "Distal humerus (supracondylar) — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12585,7 +12585,7 @@
                 "M23.91",
                 "M23.92"
               ],
-              "label": "Knee arthroscopy \u2014 diagnostic",
+              "label": "Knee arthroscopy — diagnostic",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12599,7 +12599,7 @@
                 "M23.201",
                 "M23.211"
               ],
-              "label": "Knee arthroscopy \u2014 meniscectomy",
+              "label": "Knee arthroscopy — meniscectomy",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12613,7 +12613,7 @@
                 "S83.511A",
                 "S83.512A"
               ],
-              "label": "Knee arthroscopy \u2014 ACL reconstruction",
+              "label": "Knee arthroscopy — ACL reconstruction",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12627,7 +12627,7 @@
                 "M75.111",
                 "M75.121"
               ],
-              "label": "Shoulder arthroscopy \u2014 rotator cuff repair",
+              "label": "Shoulder arthroscopy — rotator cuff repair",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12641,7 +12641,7 @@
                 "S43.401A",
                 "M24.411"
               ],
-              "label": "Shoulder arthroscopy \u2014 Bankart/labral repair",
+              "label": "Shoulder arthroscopy — Bankart/labral repair",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12660,7 +12660,7 @@
                 "S32.10XA",
                 "S32.19XA"
               ],
-              "label": "Pelvic fracture \u2014 closed treatment",
+              "label": "Pelvic fracture — closed treatment",
               "modifiers": [],
               "work_rvu": 3.18
             },
@@ -12671,7 +12671,7 @@
                 "S32.10XA",
                 "S32.19XA"
               ],
-              "label": "Pelvic fracture \u2014 ORIF",
+              "label": "Pelvic fracture — ORIF",
               "modifiers": [],
               "work_rvu": 14.28
             },
@@ -12682,7 +12682,7 @@
                 "S32.401A",
                 "S32.402A"
               ],
-              "label": "Acetabular fracture \u2014 ORIF",
+              "label": "Acetabular fracture — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12726,7 +12726,7 @@
                 "M75.111",
                 "M75.121"
               ],
-              "label": "Rotator cuff repair \u2014 open",
+              "label": "Rotator cuff repair — open",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12740,7 +12740,7 @@
                 "G56.01",
                 "G56.02"
               ],
-              "label": "Carpal tunnel release \u2014 see Neurosurgery",
+              "label": "Carpal tunnel release — see Neurosurgery",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12814,7 +12814,7 @@
               "work_rvu": 8.43
             },
             {
-              "label": "Posterior spinal fusion \u2014 see Neurosurgery category",
+              "label": "Posterior spinal fusion — see Neurosurgery category",
               "next": "spine_note"
             }
           ],
@@ -12843,7 +12843,7 @@
               "icd10": [
                 "S82.201A"
               ],
-              "label": "Tibial shaft \u2014 closed reduction / casting",
+              "label": "Tibial shaft — closed reduction / casting",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12857,7 +12857,7 @@
                 "S82.201A",
                 "S82.202A"
               ],
-              "label": "Tibial shaft \u2014 ORIF (plate/screws)",
+              "label": "Tibial shaft — ORIF (plate/screws)",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12870,7 +12870,7 @@
               "icd10": [
                 "S82.201A"
               ],
-              "label": "Tibial shaft \u2014 intramedullary nail",
+              "label": "Tibial shaft — intramedullary nail",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12884,7 +12884,7 @@
                 "S82.101A",
                 "S82.102A"
               ],
-              "label": "Tibial plateau \u2014 ORIF",
+              "label": "Tibial plateau — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12897,7 +12897,7 @@
               "icd10": [
                 "S82.101A"
               ],
-              "label": "Fibula fracture \u2014 closed reduction",
+              "label": "Fibula fracture — closed reduction",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12911,7 +12911,7 @@
                 "S82.101A",
                 "S82.109A"
               ],
-              "label": "Fibula fracture \u2014 ORIF",
+              "label": "Fibula fracture — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12971,7 +12971,7 @@
               "icd10": [
                 "S62.001A"
               ],
-              "label": "Scaphoid fracture \u2014 closed treatment",
+              "label": "Scaphoid fracture — closed treatment",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -12985,7 +12985,7 @@
                 "S62.001A",
                 "S62.002A"
               ],
-              "label": "Scaphoid fracture \u2014 ORIF",
+              "label": "Scaphoid fracture — ORIF",
               "modifiers": [
                 "-LT",
                 "-RT"
@@ -13247,25 +13247,25 @@
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "label": "Open vein harvest (included in CABG — not billed separately)",
               "modifiers": [],
               "work_rvu": 38.88
             },
             {
               "_also_add": "33534",
               "cpt_code": "33508",
-              "description": "Endoscopic vein harvest for CABG (add-on to 33534). Separately billable. Bill 33534 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33534). Separately billable. Bill 33534 + 33508. EVH is commonly missed — it adds 5.05 wRVU to the case.",
               "icd10": [
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "label": "Endoscopic vein harvest (EVH) — adds CPT 33508",
               "modifiers": [],
               "work_rvu": 0.3
             },
             {
               "cpt_code": "33534",
-              "description": "Coronary artery bypass, using venous graft(s); 2 coronary venous grafts. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "description": "Coronary artery bypass, using venous graft(s); 2 coronary venous grafts. No saphenous vein harvest performed — arterial conduit(s) only.",
               "icd10": [
                 "I25.10",
                 "I25.119"
@@ -13286,7 +13286,7 @@
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "label": "Open vein harvest (included in CABG — not billed separately)",
               "modifiers": [
                 "-22"
               ],
@@ -13295,18 +13295,18 @@
             {
               "_also_add": "33533",
               "cpt_code": "33508",
-              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed — it adds 5.05 wRVU to the case.",
               "icd10": [
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "label": "Endoscopic vein harvest (EVH) — adds CPT 33508",
               "modifiers": [],
               "work_rvu": 0.3
             },
             {
               "cpt_code": "33533",
-              "description": "Coronary artery bypass without cardiopulmonary bypass. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "description": "Coronary artery bypass without cardiopulmonary bypass. No saphenous vein harvest performed — arterial conduit(s) only.",
               "icd10": [
                 "I25.10",
                 "I25.119"
@@ -13329,25 +13329,25 @@
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "label": "Open vein harvest (included in CABG — not billed separately)",
               "modifiers": [],
               "work_rvu": 47.22
             },
             {
               "_also_add": "33536",
               "cpt_code": "33508",
-              "description": "Endoscopic vein harvest for CABG (add-on to 33536). Separately billable. Bill 33536 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33536). Separately billable. Bill 33536 + 33508. EVH is commonly missed — it adds 5.05 wRVU to the case.",
               "icd10": [
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "label": "Endoscopic vein harvest (EVH) — adds CPT 33508",
               "modifiers": [],
               "work_rvu": 0.3
             },
             {
               "cpt_code": "33536",
-              "description": "Coronary artery bypass, using venous graft(s); 4 or more coronary venous grafts. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "description": "Coronary artery bypass, using venous graft(s); 4 or more coronary venous grafts. No saphenous vein harvest performed — arterial conduit(s) only.",
               "icd10": [
                 "I25.10",
                 "I25.119"
@@ -13397,25 +13397,25 @@
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "label": "Open vein harvest (included in CABG — not billed separately)",
               "modifiers": [],
               "work_rvu": 32.91
             },
             {
               "_also_add": "33533",
               "cpt_code": "33508",
-              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed — it adds 5.05 wRVU to the case.",
               "icd10": [
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "label": "Endoscopic vein harvest (EVH) — adds CPT 33508",
               "modifiers": [],
               "work_rvu": 0.3
             },
             {
               "cpt_code": "33533",
-              "description": "Coronary artery bypass, using venous graft(s); single coronary venous graft. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "description": "Coronary artery bypass, using venous graft(s); single coronary venous graft. No saphenous vein harvest performed — arterial conduit(s) only.",
               "icd10": [
                 "I25.10",
                 "I25.119"
@@ -13436,7 +13436,7 @@
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "label": "Open vein harvest (included in CABG — not billed separately)",
               "modifiers": [
                 "-22"
               ],
@@ -13445,18 +13445,18 @@
             {
               "_also_add": "33533",
               "cpt_code": "33508",
-              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33533). Separately billable. Bill 33533 + 33508. EVH is commonly missed — it adds 5.05 wRVU to the case.",
               "icd10": [
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "label": "Endoscopic vein harvest (EVH) — adds CPT 33508",
               "modifiers": [],
               "work_rvu": 0.3
             },
             {
               "cpt_code": "33533",
-              "description": "Coronary artery bypass, using arterial graft(s); single coronary arterial graft. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "description": "Coronary artery bypass, using arterial graft(s); single coronary arterial graft. No saphenous vein harvest performed — arterial conduit(s) only.",
               "icd10": [
                 "I25.10",
                 "I25.119"
@@ -13479,25 +13479,25 @@
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Open vein harvest (included in CABG \u2014 not billed separately)",
+              "label": "Open vein harvest (included in CABG — not billed separately)",
               "modifiers": [],
               "work_rvu": 43.63
             },
             {
               "_also_add": "33535",
               "cpt_code": "33508",
-              "description": "Endoscopic vein harvest for CABG (add-on to 33535). Separately billable. Bill 33535 + 33508. EVH is commonly missed \u2014 it adds 5.05 wRVU to the case.",
+              "description": "Endoscopic vein harvest for CABG (add-on to 33535). Separately billable. Bill 33535 + 33508. EVH is commonly missed — it adds 5.05 wRVU to the case.",
               "icd10": [
                 "I25.10",
                 "I25.119"
               ],
-              "label": "Endoscopic vein harvest (EVH) \u2014 adds CPT 33508",
+              "label": "Endoscopic vein harvest (EVH) — adds CPT 33508",
               "modifiers": [],
               "work_rvu": 0.3
             },
             {
               "cpt_code": "33535",
-              "description": "Coronary artery bypass, using venous graft(s); 3 coronary venous grafts. No saphenous vein harvest performed \u2014 arterial conduit(s) only.",
+              "description": "Coronary artery bypass, using venous graft(s); 3 coronary venous grafts. No saphenous vein harvest performed — arterial conduit(s) only.",
               "icd10": [
                 "I25.10",
                 "I25.119"
@@ -15086,12 +15086,12 @@
             },
             {
               "cpt_code": "97605",
-              "description": "Negative pressure wound therapy (wound VAC) change/management, surface area \u226450 sq cm, per session",
+              "description": "Negative pressure wound therapy (wound VAC) change/management, surface area ≤50 sq cm, per session",
               "icd10": [
                 "T81.31XA",
                 "L89.90"
               ],
-              "label": "Subsequent wound VAC change (\u226450 sq cm)",
+              "label": "Subsequent wound VAC change (≤50 sq cm)",
               "modifiers": [],
               "work_rvu": 0.54
             },
@@ -15109,7 +15109,7 @@
             },
             {
               "cpt_code": "49900",
-              "description": "Suture of secondary wound dehiscence or disruption, abdominal wall \u2014 used for definitive fascial closure after damage control",
+              "description": "Suture of secondary wound dehiscence or disruption, abdominal wall — used for definitive fascial closure after damage control",
               "icd10": [
                 "T81.31XA",
                 "T81.30XA"
@@ -25947,7 +25947,7 @@
               "work_rvu": 3.38
             }
           ],
-          "question": "Septoplasty + Turbinate \u2014 both will be added to your case:"
+          "question": "Septoplasty + Turbinate — both will be added to your case:"
         },
         "ent_septoplasty": {
           "options": [
@@ -26071,7 +26071,7 @@
               "work_rvu": 2.54
             }
           ],
-          "question": "Functional Endoscopic Sinus Surgery \u2014 Select primary sinus procedure:"
+          "question": "Functional Endoscopic Sinus Surgery — Select primary sinus procedure:"
         },
         "ent_sinus_maxillary": {
           "options": [
@@ -26108,7 +26108,7 @@
               "work_rvu": 8.27
             }
           ],
-          "question": "Maxillary antrostomy \u2014 with or without tissue removal?"
+          "question": "Maxillary antrostomy — with or without tissue removal?"
         },
         "ent_tonsil": {
           "options": [
@@ -26121,7 +26121,7 @@
               "next": "ent_tonsil_adult"
             }
           ],
-          "question": "Tonsil / Adenoid procedure \u2014 patient age?"
+          "question": "Tonsil / Adenoid procedure — patient age?"
         },
         "ent_tonsil_adult": {
           "options": [
@@ -26303,7 +26303,7 @@
               "work_rvu": 14.94
             }
           ],
-          "question": "Tympanoplasty \u2014 with or without mastoidectomy?"
+          "question": "Tympanoplasty — with or without mastoidectomy?"
         }
       },
       "name": "Otolaryngology / ENT",
@@ -32426,7 +32426,7 @@
               "label": "Unlisted lap/robotic stomach procedure",
               "cpt_code": "43659",
               "description": "Unlisted laparoscopy procedure, stomach",
-              "work_rvu": 0.0,
+              "work_rvu": 0,
               "modifiers": [],
               "icd10": [
                 "C16.9",
@@ -32802,7 +32802,7 @@
     [
       "44406",
       "Colonoscopy w/ultrasound",
-      4.0,
+      4,
       0
     ],
     [
@@ -33788,6 +33788,152 @@
       "Removal of pancreatic transplant",
       18.98,
       90
+    ]
+  ],
+  "Gastrostomy / PEG / Feeding Tubes": [
+    [
+      "43246",
+      "Esophagogastroduodenoscopy, flexible, transoral; with directed placement of percutaneous gastrostomy tube",
+      3.47,
+      0
+    ],
+    [
+      "43653",
+      "Laparoscopy, surgical; gastrostomy, without construction of gastric tube",
+      8.27,
+      90
+    ],
+    [
+      "43752",
+      "Naso- or orogastric tube placement requiring physician skill and fluoroscopic guidance",
+      0.79,
+      0
+    ],
+    [
+      "43761",
+      "Repositioning of a naso- or orogastric feeding tube, through the duodenum for enteric nutrition",
+      1.96,
+      0
+    ],
+    [
+      "43762",
+      "Replacement of gastrostomy tube, percutaneous, without imaging or endoscopic guidance; without revision of gastrostomy tract",
+      0.73,
+      0
+    ],
+    [
+      "43763",
+      "Replacement of gastrostomy tube, percutaneous, without imaging or endoscopic guidance; requiring revision of gastrostomy tract",
+      1.37,
+      0
+    ],
+    [
+      "43830",
+      "Gastrostomy, open; without construction of gastric tube",
+      10.58,
+      90
+    ],
+    [
+      "43831",
+      "Gastrostomy, open; neonatal, for feeding",
+      8.28,
+      90
+    ],
+    [
+      "43832",
+      "Gastrostomy, open; with construction of gastric tube",
+      16.91,
+      90
+    ],
+    [
+      "43870",
+      "Closure of gastrostomy, surgical",
+      11.15,
+      90
+    ],
+    [
+      "44015",
+      "Tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method",
+      2.55,
+      0
+    ],
+    [
+      "44186",
+      "Laparoscopy, surgical; jejunostomy",
+      10.12,
+      90
+    ],
+    [
+      "44300",
+      "Placement, enterostomy or cecostomy, tube open",
+      13.41,
+      90
+    ],
+    [
+      "44310",
+      "Ileostomy or jejunostomy, non-tube",
+      17.15,
+      90
+    ],
+    [
+      "44500",
+      "Introduction of long gastrointestinal tube",
+      0.38,
+      0
+    ],
+    [
+      "49440",
+      "Percutaneous placement of gastrostomy tube under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      3.83,
+      10
+    ],
+    [
+      "49441",
+      "Percutaneous placement of duodenostomy or jejunostomy tube under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      4.41,
+      10
+    ],
+    [
+      "49442",
+      "Percutaneous placement of cecostomy or other colonic tube under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      3.66,
+      10
+    ],
+    [
+      "49446",
+      "Conversion of gastrostomy tube to gastro-jejunostomy tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      2.98,
+      0
+    ],
+    [
+      "49450",
+      "Replacement of gastrostomy or cecostomy tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      1.33,
+      0
+    ],
+    [
+      "49451",
+      "Replacement of duodenostomy or jejunostomy tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      1.79,
+      0
+    ],
+    [
+      "49452",
+      "Replacement of gastro-jejunostomy tube, percutaneous, under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      2.79,
+      0
+    ],
+    [
+      "49460",
+      "Mechanical removal of obstructive material from gastrostomy or cecostomy tube under fluoroscopic guidance including contrast injection(s), image documentation and report",
+      0.94,
+      0
+    ],
+    [
+      "49465",
+      "Contrast injection for radiological evaluation of existing gastrostomy, duodenostomy, jejunostomy, gastro-jejunostomy, or cecostomy tube",
+      0.6,
+      0
     ]
   ]
 }

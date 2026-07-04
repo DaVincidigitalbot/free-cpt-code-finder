@@ -51,7 +51,7 @@ class ICD10Engine {
           ...item,
           system: sysKey,
           systemLabel: sysData.description || sysKey.replace(/_/g, ' '),
-          _search: `${item.code} ${(item.description || '').toLowerCase()}`,
+          _search: `${item.code} ${(item.description || '').toLowerCase()} ${(Array.isArray(item.synonyms) ? item.synonyms.join(' ') : '').toLowerCase()}`,
         });
       }
     }

@@ -1,315 +1,12 @@
 {
   "bundles": {
-    "49505": {
-      "column2_codes": [],
-      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
-      "modifier59_allowed": false,
-      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
-    },
-    "49507": {
-      "column2_codes": [],
-      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
-      "modifier59_allowed": false,
-      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
-    },
-    "49520": {
-      "column2_codes": [],
-      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
-      "modifier59_allowed": false,
-      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
-    },
-    "49525": {
-      "column2_codes": [],
-      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
-      "modifier59_allowed": false,
-      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
-    },
-    "44140": {
+    "10060": {
       "column2_codes": [
-        "44604",
-        "44320",
-        "49000"
+        "10061"
       ],
-      "description": "Colon resection may bundle with adhesiolysis and stoma creation",
+      "description": "Simple and complex I&D typically bundled",
       "modifier59_allowed": true,
-      "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
-    },
-    "44120": {
-      "column2_codes": [
-        "44604",
-        "44320",
-        "49000"
-      ],
-      "description": "Small bowel resection may bundle with adhesiolysis and stoma creation",
-      "modifier59_allowed": true,
-      "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
-    },
-    "49000": {
-      "column2_codes": [
-        "44604",
-        "97606"
-      ],
-      "description": "Exploratory laparotomy bundles with adhesiolysis and wound VAC",
-      "modifier59_allowed": true,
-      "reason": "Adhesiolysis during exploration typically bundled unless extensive/unrelated"
-    },
-    "38100": {
-      "column2_codes": [
-        "44604",
-        "49000"
-      ],
-      "description": "Splenectomy may bundle with adhesiolysis and exploratory laparotomy",
-      "modifier59_allowed": false,
-      "reason": "49000 is typically bundled with organ-specific procedures"
-    },
-    "47550": {
-      "column2_codes": [
-        "44604",
-        "49000"
-      ],
-      "description": "Laparoscopic cholecystectomy may bundle with adhesiolysis",
-      "modifier59_allowed": true,
-      "reason": "Adhesiolysis for gallbladder exposure typically bundled"
-    },
-    "47562": {
-      "column2_codes": [
-        "49320",
-        "49000"
-      ],
-      "description": "Laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "47563": {
-      "column2_codes": [
-        "49320",
-        "49000"
-      ],
-      "description": "Complex laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "44180": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic enterolysis bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "44202": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic enterectomy bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "44204": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic partial colectomy bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "44205": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic colectomy bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "44207": {
-      "column2_codes": [
-        "44180"
-      ],
-      "description": "Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits",
-      "modifier59_allowed": false,
-      "reason": "CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0"
-    },
-    "44212": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic total proctocolectomy bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "49650": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "49651": {
-      "column2_codes": [
-        "49320"
-      ],
-      "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
-    },
-    "31254": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Partial ethmoidectomy bundles with diagnostic nasal endoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
-    },
-    "31255": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Total ethmoidectomy bundles with diagnostic nasal endoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
-    },
-    "31256": {
-      "column2_codes": [
-        "31231",
-        "31257",
-        "31267"
-      ],
-      "description": "Maxillary antrostomy bundles with diagnostic endoscopy and other sinus procedures",
-      "modifier59_allowed": true,
-      "reason": "Use -59 if performed on different sinus systems or separate sessions"
-    },
-    "31267": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Nasal/sinus endoscopy bundles with diagnostic endoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic endoscopy inherently included in therapeutic procedure"
-    },
-    "31276": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Frontal sinusotomy bundles with diagnostic nasal endoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
-    },
-    "31287": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Sphenoidotomy bundles with diagnostic nasal endoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
-    },
-    "31288": {
-      "column2_codes": [
-        "31231"
-      ],
-      "description": "Sphenoidotomy bundles with diagnostic nasal endoscopy",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
-    },
-    "31253": {
-      "column2_codes": [
-        "31254"
-      ],
-      "description": "Total ethmoidectomy includes partial ethmoidectomy",
-      "modifier59_allowed": false,
-      "reason": "Total ethmoidectomy inherently includes partial ethmoidectomy"
-    },
-    "42820": {
-      "column2_codes": [
-        "42830"
-      ],
-      "description": "Tonsillectomy includes adenoidectomy",
-      "modifier59_allowed": false,
-      "reason": "Adenoidectomy inherently included in T&A"
-    },
-    "42821": {
-      "column2_codes": [
-        "42830"
-      ],
-      "description": "Tonsillectomy includes adenoidectomy",
-      "modifier59_allowed": false,
-      "reason": "Adenoidectomy inherently included in T&A"
-    },
-    "30520": {
-      "column2_codes": [
-        "30140"
-      ],
-      "description": "Septoplasty with turbinate reduction - allowed together with documentation",
-      "modifier59_allowed": true,
-      "reason": "Allowed together if extensive turbinate work documented"
-    },
-    "31525": {
-      "column2_codes": [
-        "31535",
-        "31536",
-        "31541",
-        "31545"
-      ],
-      "description": "Direct laryngoscopy included in therapeutic laryngeal procedures",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic laryngoscopy inherently included in therapeutic procedures"
-    },
-    "99291": {
-      "column2_codes": [
-        "36556",
-        "36620",
-        "31500",
-        "32551",
-        "62270"
-      ],
-      "description": "Critical care includes various procedures",
-      "modifier59_allowed": false,
-      "reason": "These procedures are included in critical care and cannot be billed separately"
-    },
-    "33533": {
-      "column2_codes": [
-        "33508"
-      ],
-      "description": "CABG with vein harvest - 33508 is add-on",
-      "modifier59_allowed": false,
-      "reason": "33508 is add-on code to CABG, not subject to -59"
-    },
-    "33534": {
-      "column2_codes": [
-        "33508"
-      ],
-      "description": "CABG with vein harvest - 33508 is add-on",
-      "modifier59_allowed": false,
-      "reason": "33508 is add-on code to CABG, not subject to -59"
-    },
-    "33535": {
-      "column2_codes": [
-        "33508"
-      ],
-      "description": "CABG with vein harvest - 33508 is add-on",
-      "modifier59_allowed": false,
-      "reason": "33508 is add-on code to CABG, not subject to -59"
-    },
-    "33536": {
-      "column2_codes": [
-        "33508"
-      ],
-      "description": "CABG with vein harvest - 33508 is add-on",
-      "modifier59_allowed": false,
-      "reason": "33508 is add-on code to CABG, not subject to -59"
-    },
-    "36200": {
-      "column2_codes": [
-        "36221",
-        "36222",
-        "36223",
-        "36224",
-        "36225",
-        "36226"
-      ],
-      "description": "Aortography included in endovascular procedures",
-      "modifier59_allowed": false,
-      "reason": "Diagnostic angiography included in therapeutic intervention"
+      "reason": "Use -59 if performed at separate anatomic sites"
     },
     "11042": {
       "column2_codes": [
@@ -327,18 +24,6 @@
       "description": "Muscle debridement includes subcutaneous debridement at same site",
       "modifier59_allowed": true,
       "reason": "Use -59 if performed at separate wounds"
-    },
-    "44005": {
-      "column2_codes": [
-        "44120",
-        "44140",
-        "38100",
-        "47550",
-        "49000"
-      ],
-      "description": "Lysis of adhesions bundled into most abdominal procedures unless extensive",
-      "modifier59_allowed": true,
-      "reason": "Use -59 with -22 if adhesiolysis extensive and unrelated to primary procedure"
     },
     "12001": {
       "column2_codes": [
@@ -400,32 +85,6 @@
       "modifier59_allowed": true,
       "reason": "Separate if performed for different indication"
     },
-    "60240": {
-      "column2_codes": [
-        "60260",
-        "60270"
-      ],
-      "description": "Thyroid lobectomy bundles with total thyroidectomy",
-      "modifier59_allowed": false,
-      "reason": "Cannot bill partial and total thyroidectomy on same side"
-    },
-    "58662": {
-      "column2_codes": [
-        "58670",
-        "58700"
-      ],
-      "description": "Laparoscopic procedures may bundle if performed together",
-      "modifier59_allowed": true,
-      "reason": "May use -59 if procedures are unrelated or at separate sites"
-    },
-    "10060": {
-      "column2_codes": [
-        "10061"
-      ],
-      "description": "Simple and complex I&D typically bundled",
-      "modifier59_allowed": true,
-      "reason": "Use -59 if performed at separate anatomic sites"
-    },
     "19340": {
       "column2_codes": [
         "19342",
@@ -434,6 +93,91 @@
       "description": "Breast reconstruction procedures may bundle",
       "modifier59_allowed": true,
       "reason": "Use -59 if staged procedures or bilateral different techniques"
+    },
+    "30520": {
+      "column2_codes": [
+        "30140"
+      ],
+      "description": "Septoplasty with turbinate reduction - allowed together with documentation",
+      "modifier59_allowed": true,
+      "reason": "Allowed together if extensive turbinate work documented"
+    },
+    "31253": {
+      "column2_codes": [
+        "31254"
+      ],
+      "description": "Total ethmoidectomy includes partial ethmoidectomy",
+      "modifier59_allowed": false,
+      "reason": "Total ethmoidectomy inherently includes partial ethmoidectomy"
+    },
+    "31254": {
+      "column2_codes": [
+        "31231"
+      ],
+      "description": "Partial ethmoidectomy bundles with diagnostic nasal endoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
+    },
+    "31255": {
+      "column2_codes": [
+        "31231"
+      ],
+      "description": "Total ethmoidectomy bundles with diagnostic nasal endoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
+    },
+    "31256": {
+      "column2_codes": [
+        "31231",
+        "31257",
+        "31267"
+      ],
+      "description": "Maxillary antrostomy bundles with diagnostic endoscopy and other sinus procedures",
+      "modifier59_allowed": true,
+      "reason": "Use -59 if performed on different sinus systems or separate sessions"
+    },
+    "31267": {
+      "column2_codes": [
+        "31231"
+      ],
+      "description": "Nasal/sinus endoscopy bundles with diagnostic endoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic endoscopy inherently included in therapeutic procedure"
+    },
+    "31276": {
+      "column2_codes": [
+        "31231"
+      ],
+      "description": "Frontal sinusotomy bundles with diagnostic nasal endoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
+    },
+    "31287": {
+      "column2_codes": [
+        "31231"
+      ],
+      "description": "Sphenoidotomy bundles with diagnostic nasal endoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
+    },
+    "31288": {
+      "column2_codes": [
+        "31231"
+      ],
+      "description": "Sphenoidotomy bundles with diagnostic nasal endoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic endoscopy inherently included in therapeutic sinus procedure"
+    },
+    "31525": {
+      "column2_codes": [
+        "31535",
+        "31536",
+        "31541",
+        "31545"
+      ],
+      "description": "Direct laryngoscopy included in therapeutic laryngeal procedures",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laryngoscopy inherently included in therapeutic procedures"
     },
     "32100": {
       "column2_codes": [
@@ -444,24 +188,115 @@
       "modifier59_allowed": false,
       "reason": "Chest tube is component of thoracotomy approach"
     },
-    "92928": {
+    "33533": {
       "column2_codes": [
-        "93458",
-        "93452",
-        "93454"
+        "33508"
       ],
-      "description": "PCI includes diagnostic catheterization",
+      "description": "CABG with vein harvest - 33508 is add-on",
       "modifier59_allowed": false,
-      "reason": "Diagnostic catheterization is inherent to PCI"
+      "reason": "33508 is add-on code to CABG, not subject to -59"
     },
-    "44970": {
+    "33534": {
       "column2_codes": [
-        "44180",
-        "44005"
+        "33508"
       ],
-      "description": "Appendectomy includes adhesiolysis for exposure",
-      "modifier59_allowed": true,
-      "reason": "Adhesiolysis for appendiceal exposure typically bundled, -59 if extensive/unrelated"
+      "description": "CABG with vein harvest - 33508 is add-on",
+      "modifier59_allowed": false,
+      "reason": "33508 is add-on code to CABG, not subject to -59"
+    },
+    "33535": {
+      "column2_codes": [
+        "33508"
+      ],
+      "description": "CABG with vein harvest - 33508 is add-on",
+      "modifier59_allowed": false,
+      "reason": "33508 is add-on code to CABG, not subject to -59"
+    },
+    "33536": {
+      "column2_codes": [
+        "33508"
+      ],
+      "description": "CABG with vein harvest - 33508 is add-on",
+      "modifier59_allowed": false,
+      "reason": "33508 is add-on code to CABG, not subject to -59"
+    },
+    "35081": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "35081 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "35221": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "35221 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "36200": {
+      "column2_codes": [
+        "36221",
+        "36222",
+        "36223",
+        "36224",
+        "36225",
+        "36226"
+      ],
+      "description": "Aortography included in endovascular procedures",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic angiography included in therapeutic intervention"
+    },
+    "38100": {
+      "column2_codes": [
+        "44604",
+        "49000"
+      ],
+      "description": "Splenectomy may bundle with adhesiolysis and exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "49000 is typically bundled with organ-specific procedures"
+    },
+    "38102": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "38102 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "39501": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "39501 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "39560": {
+      "column2_codes": [
+        "49000"
+      ],
+      "description": "39560 includes exploratory laparotomy",
+      "modifier59_allowed": false,
+      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "42820": {
+      "column2_codes": [
+        "42830"
+      ],
+      "description": "Tonsillectomy includes adenoidectomy",
+      "modifier59_allowed": false,
+      "reason": "Adenoidectomy inherently included in T&A"
+    },
+    "42821": {
+      "column2_codes": [
+        "42830"
+      ],
+      "description": "Tonsillectomy includes adenoidectomy",
+      "modifier59_allowed": false,
+      "reason": "Adenoidectomy inherently included in T&A"
     },
     "42826": {
       "column2_codes": [
@@ -471,13 +306,103 @@
       "modifier59_allowed": false,
       "reason": "Adenoidectomy inherently included in tonsillectomy"
     },
-    "38102": {
+    "43246": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43653": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43752": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43761": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43762": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43763": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43830": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43831": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43832": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "43870": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "44005": {
       "column2_codes": [
+        "44120",
+        "44140",
+        "38100",
+        "47550",
         "49000"
       ],
-      "description": "38102 includes exploratory laparotomy",
-      "modifier59_allowed": false,
-      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+      "description": "Lysis of adhesions bundled into most abdominal procedures unless extensive",
+      "modifier59_allowed": true,
+      "reason": "Use -59 with -22 if adhesiolysis extensive and unrelated to primary procedure"
+    },
+    "44015": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "44120": {
+      "column2_codes": [
+        "44604",
+        "44320",
+        "49000"
+      ],
+      "description": "Small bowel resection may bundle with adhesiolysis and stoma creation",
+      "modifier59_allowed": true,
+      "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
+    },
+    "44140": {
+      "column2_codes": [
+        "44604",
+        "44320",
+        "49000"
+      ],
+      "description": "Colon resection may bundle with adhesiolysis and stoma creation",
+      "modifier59_allowed": true,
+      "reason": "May use -59 if performed at separate site or unrelated to primary procedure"
     },
     "44141": {
       "column2_codes": [
@@ -551,6 +476,78 @@
       "modifier59_allowed": false,
       "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
     },
+    "44180": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic enterolysis bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "44186": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "44202": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic enterectomy bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "44204": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic partial colectomy bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "44205": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic colectomy bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "44207": {
+      "column2_codes": [
+        "44180"
+      ],
+      "description": "Laparoscopic colectomy bundles with laparoscopic enterolysis under CMS NCCI PTP edits",
+      "modifier59_allowed": false,
+      "reason": "CMS NCCI PTP verification: CPT 44207 is Column 1 and CPT 44180 is Column 2 with modifier indicator 0"
+    },
+    "44212": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic total proctocolectomy bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "44300": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "44310": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "44500": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
     "44604": {
       "column2_codes": [
         "49000"
@@ -567,6 +564,15 @@
       "modifier59_allowed": false,
       "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
     },
+    "44970": {
+      "column2_codes": [
+        "44180",
+        "44005"
+      ],
+      "description": "Appendectomy includes adhesiolysis for exposure",
+      "modifier59_allowed": true,
+      "reason": "Adhesiolysis for appendiceal exposure typically bundled, -59 if extensive/unrelated"
+    },
     "47350": {
       "column2_codes": [
         "49000"
@@ -582,6 +588,33 @@
       "description": "47360 includes exploratory laparotomy",
       "modifier59_allowed": false,
       "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "47550": {
+      "column2_codes": [
+        "44604",
+        "49000"
+      ],
+      "description": "Laparoscopic cholecystectomy may bundle with adhesiolysis",
+      "modifier59_allowed": true,
+      "reason": "Adhesiolysis for gallbladder exposure typically bundled"
+    },
+    "47562": {
+      "column2_codes": [
+        "49320",
+        "49000"
+      ],
+      "description": "Laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "47563": {
+      "column2_codes": [
+        "49320",
+        "49000"
+      ],
+      "description": "Complex laparoscopic cholecystectomy bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "47564": {
       "column2_codes": [
@@ -622,6 +655,125 @@
       "description": "48153 includes exploratory laparotomy",
       "modifier59_allowed": false,
       "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+    },
+    "49000": {
+      "column2_codes": [
+        "44604",
+        "97606"
+      ],
+      "description": "Exploratory laparotomy bundles with adhesiolysis and wound VAC",
+      "modifier59_allowed": true,
+      "reason": "Adhesiolysis during exploration typically bundled unless extensive/unrelated"
+    },
+    "49320": {
+      "column2_codes": [
+        "44005",
+        "44120",
+        "44121",
+        "44140",
+        "44143",
+        "44144",
+        "44970",
+        "44950",
+        "47562",
+        "47563",
+        "47564"
+      ],
+      "description": "Diagnostic laparoscopy is not separately billable when a therapeutic abdominal procedure is performed"
+    },
+    "49440": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49441": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49442": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49446": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49450": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49451": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49452": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49460": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49465": {
+      "column2_codes": [],
+      "description": "No local gastrostomy/PEG/feeding tube NCCI bundle override configured; verify against current CMS NCCI PTP edits.",
+      "modifier59_allowed": true,
+      "reason": "Compatibility placeholder for ClaimIQ/Case Builder audit visibility. Does not replace official NCCI lookup."
+    },
+    "49505": {
+      "column2_codes": [],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
+    },
+    "49507": {
+      "column2_codes": [],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
+    },
+    "49520": {
+      "column2_codes": [],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
+    },
+    "49525": {
+      "column2_codes": [],
+      "description": "Inguinal hernia repair bundles with mesh insertion (add-on code)",
+      "modifier59_allowed": false,
+      "reason": "Legacy inactive/deleted add-on code is not separately billable and cannot be bypassed with modifier -59."
+    },
+    "49650": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
+    },
+    "49651": {
+      "column2_codes": [
+        "49320"
+      ],
+      "description": "Laparoscopic hernia repair bundles with diagnostic laparoscopy",
+      "modifier59_allowed": false,
+      "reason": "Diagnostic laparoscopy inherently included in therapeutic procedure"
     },
     "50220": {
       "column2_codes": [
@@ -671,53 +823,45 @@
       "modifier59_allowed": false,
       "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
     },
-    "35221": {
+    "58662": {
       "column2_codes": [
-        "49000"
+        "58670",
+        "58700"
       ],
-      "description": "35221 includes exploratory laparotomy",
-      "modifier59_allowed": false,
-      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+      "description": "Laparoscopic procedures may bundle if performed together",
+      "modifier59_allowed": true,
+      "reason": "May use -59 if procedures are unrelated or at separate sites"
     },
-    "35081": {
+    "60240": {
       "column2_codes": [
-        "49000"
+        "60260",
+        "60270"
       ],
-      "description": "35081 includes exploratory laparotomy",
+      "description": "Thyroid lobectomy bundles with total thyroidectomy",
       "modifier59_allowed": false,
-      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+      "reason": "Cannot bill partial and total thyroidectomy on same side"
     },
-    "39501": {
+    "92928": {
       "column2_codes": [
-        "49000"
+        "93458",
+        "93452",
+        "93454"
       ],
-      "description": "39501 includes exploratory laparotomy",
+      "description": "PCI includes diagnostic catheterization",
       "modifier59_allowed": false,
-      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
+      "reason": "Diagnostic catheterization is inherent to PCI"
     },
-    "39560": {
+    "99291": {
       "column2_codes": [
-        "49000"
+        "36556",
+        "36620",
+        "31500",
+        "32551",
+        "62270"
       ],
-      "description": "39560 includes exploratory laparotomy",
+      "description": "Critical care includes various procedures",
       "modifier59_allowed": false,
-      "reason": "Exploratory laparotomy is inherent to organ-specific abdominal surgery"
-    },
-    "49320": {
-      "column2_codes": [
-        "44005",
-        "44120",
-        "44121",
-        "44140",
-        "44143",
-        "44144",
-        "44970",
-        "44950",
-        "47562",
-        "47563",
-        "47564"
-      ],
-      "description": "Diagnostic laparoscopy is not separately billable when a therapeutic abdominal procedure is performed"
+      "reason": "These procedures are included in critical care and cannot be billed separately"
     }
   },
   "common_pairs": [

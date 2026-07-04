@@ -25,7 +25,7 @@ class UnifiedSearchEngine {
     const [rvuDb, icd10Common, cptExtra, icd10Extra] = await Promise.all([
       safe('./rvu_database.json'),
       safe('./icd10_common.json'),
-      safe('./cpt_database.json?v=20260701-splenic-flexure-44213'),
+      safe('./cpt_database.json'),
       safe('./icd10_database.json'),
     ]);
 
@@ -79,6 +79,7 @@ class UnifiedSearchEngine {
           ...(Array.isArray(d.specialty_aliases) ? d.specialty_aliases : []),
           d.notes || '',
           d.component_type || '',
+          ...(Array.isArray(d.synonyms) ? d.synonyms : []),
         ].join(' ').toLowerCase(),
       });
     }
@@ -94,7 +95,7 @@ class UnifiedSearchEngine {
           description: item.description || '',
           system,
           category: 'ICD-10',
-          _search: `${item.code} ${(item.description || '').toLowerCase()} ${system.toLowerCase()}`,
+          _search: `${item.code} ${(item.description || '').toLowerCase()} ${(Array.isArray(item.synonyms) ? item.synonyms.join(' ') : '').toLowerCase()} ${system.toLowerCase()}`,
         });
       }
     }
@@ -118,7 +119,7 @@ class UnifiedSearchEngine {
     if (n >= 65000 && n <= 68999) return 'Surgery — Eye/Ocular';
     if (n >= 69000 && n <= 69979) return 'Surgery — Auditory';
     if (n >= 70000 && n <= 79999) return 'Radiology';
-    if (n >= 80000 && n <= 89999) return 'Pathology / Lab';
+    if (n >= 80000 && n <= 89999) return 'Pathology';
     if (n >= 90000 && n <= 99199) return 'Medicine';
     return 'Other';
   }
@@ -252,7 +253,7 @@ class UnifiedSearchEngine {
       'Surgery — Endocrine', 'Surgery — Nervous', 'Surgery — Hemic/Lymphatic',
       'Surgery — Male Genital', 'Surgery — Female Genital', 'Surgery — Maternity',
       'Surgery — Eye/Ocular', 'Surgery — Auditory',
-      'E/M', 'Radiology', 'Pathology / Lab', 'Medicine', 'ICD-10', 'Other'
+      'E/M', 'Radiology', 'Pathology', 'Medicine', 'ICD-10', 'Other'
     ];
 
     const sortedKeys = keys.sort((a, b) => {
