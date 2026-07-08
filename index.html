@@ -3795,12 +3795,23 @@ async function loadCptSearchIndex(){
   const paymentByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.estimated_medicare_payment||0)]));
   const totalRvuByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.total_rvu||0)]));
   const addonByCode=new Map(external.map(entry=>[String(entry.code||''),!!entry.addon_code]));
+  const bilateralByCode=new Map(external.map(entry=>[String(entry.code||''),!!entry.bilateral_eligible]));
+  const modifiersByCode=new Map(external.map(entry=>[String(entry.code||''),Array.isArray(entry.typical_modifiers)?entry.typical_modifiers:[]]));
+  const globalByCode=new Map(external.map(entry=>[String(entry.code||''),Number(entry.global_period_days||entry.global_period||0)]));
+  const assistantByCode=new Map(external.map(entry=>[String(entry.code||''),!!entry.assistant_allowed]));
+  const cosurgeonByCode=new Map(external.map(entry=>[String(entry.code||''),!!entry.cosurgeon_eligible]));
   const externalTermsByCode=new Map(external.map(entry=>[String(entry.code||''),normalizeSearchValue(`${(entry.search_terms||[]).join(' ')} ${(entry.specialty_aliases||[]).join(' ')} ${entry.notes||''} ${entry.component_type||''}`)]));
   const specIndex=dedupeSearchIndexByCode(buildSearchIndexFromSpecs().map(item=>({
    ...item,
    estimatedPayment:paymentByCode.get(item.code)||0,
    totalRvu:totalRvuByCode.get(item.code)||0,
    addonCode:addonByCode.get(item.code)||false,
+   globalPeriod:globalByCode.get(item.code)||0,
+   assistantAllowed:assistantByCode.get(item.code)||false,
+   cosurgeonEligible:cosurgeonByCode.get(item.code)||false,
+   bilateralEligible:bilateralByCode.get(item.code)||false,
+   typicalModifiers:modifiersByCode.get(item.code)||[],
+   bi:bilateralByCode.get(item.code)?1:item.bi,
    haystack:normalizeSearchValue(`${item.haystack||''} ${externalTermsByCode.get(item.code)||''}`)
   })));
   const seen=new Set(specIndex.map(item=>item.code));
@@ -3811,7 +3822,12 @@ async function loadCptSearchIndex(){
    estimatedPayment:Number(entry.estimated_medicare_payment||0),
    totalRvu:Number(entry.total_rvu||0),
    addonCode:!!entry.addon_code,
-	   bi:0,
+	   bi:entry.bilateral_eligible?1:0,
+	   globalPeriod:Number(entry.global_period_days||entry.global_period||0),
+	   assistantAllowed:!!entry.assistant_allowed,
+	   cosurgeonEligible:!!entry.cosurgeon_eligible,
+	   bilateralEligible:!!entry.bilateral_eligible,
+	   typicalModifiers:Array.isArray(entry.typical_modifiers)?entry.typical_modifiers:[],
 	   specialty:entry.specialty||'Database',
 	   si:null,
 	   pi:null,
@@ -4022,6 +4038,22 @@ function scoreSearchResult(item,query){
  if(priorityIndex>=0)return 96-priorityIndex;
  if(item.code===raw)return 100;
  if(item.code.startsWith(raw))return 80;
+ if(/^4965[01]$/.test(String(item.code||''))){
+  const inguinalQuery=(q.includes('inguinal')&&q.includes('hernia'))||q==='tapp'||q==='tep';
+  const lapQuery=/\b(lap|laparoscopic|laparoscopy|robotic|tapp|tep)\b/.test(q);
+  const contextQuery=/\b(initial|recurrent|reducible|incarcerated|strangulated|bilateral|unilateral)\b/.test(q);
+  if(q==='tapp'||q==='tep')return item.code==='49650'?86:85;
+  if(inguinalQuery&&lapQuery){
+   if(q.includes('recurrent'))return item.code==='49651'?84:68;
+   if(q.includes('initial'))return item.code==='49650'?84:68;
+   return item.code==='49650'?83:82;
+  }
+  if(inguinalQuery&&contextQuery){
+   if(q.includes('recurrent'))return item.code==='49651'?69:45;
+   if(q.includes('initial'))return item.code==='49650'?69:45;
+   return item.code==='49650'?45:44;
+  }
+ }
  if(item.code==='15734'&&['tar','component separation','abdominal wall reconstruction','retrorectus release','transversus abdominis release'].includes(q))return 79;
  if(item.specialty==='Cardiac Electrophysiology'&&['ep','cardiac ep','electrophysiology'].includes(q))return 77;
  if(desc===q)return 76;
@@ -4033,6 +4065,23 @@ function scoreSearchResult(item,query){
  if(words.length&&words.every(word=>desc.includes(word)))return 46;
  if(words.length&&words.every(word=>item.haystack.includes(word)))return 40;
  return -1;
+}
+
+function searchResultBadges(item){
+ const desc=String(item.description||'');
+ const descLower=desc.toLowerCase();
+ const badges=[];
+ if(/\brecurrent\b/.test(descLower))badges.push('Recurrent');
+ else if(/\binitial\b/.test(descLower))badges.push('Initial');
+ if(/incarcerated|strangulated/.test(descLower))badges.push('Incarcerated/strangulated');
+ else if(/reducible/.test(descLower))badges.push('Reducible');
+ if(item.bilateralEligible||String(item.typicalModifiers||'').includes('-50'))badges.push('Unilateral/bilateral');
+ else if(/\bbilateral\b/.test(descLower))badges.push('Bilateral');
+ else if(/\bunilateral\b|\bLT\b|\bRT\b/i.test(desc))badges.push('Unilateral');
+ if(/preterm|infant|younger than age|pediatric/.test(descLower))badges.push('Pediatric');
+ else if(/adult|age 5 years or older|any age/.test(descLower))badges.push('Adult/older child');
+ if(/^4965[01]$/.test(String(item.code||'')))badges.push('Lap/robotic');
+ return badges.slice(0,4);
 }
 
 function logZeroResultSearch(query,resultCount){
@@ -4112,7 +4161,10 @@ function renderAutocompleteResults(){
   if(input)input.setAttribute('aria-expanded','false');
   return;
  }
- box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>`<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" role="option" aria-selected="${index===searchState.activeResultIndex?'true':'false'}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title"${tooltipAttrs(item.description||item.specialty)}>${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>${formatCurrency(item.estimatedPayment)}</span>`:''}</div></div><div class="autocomplete-action">add</div></div>`).join('')}</div>`;
+ box.innerHTML=procedureCard+suggestionCard+`<div class="autocomplete-group">${results.map((item,index)=>{
+  const badges=searchResultBadges(item).map(label=>`<span>${label}</span>`).join('');
+  return `<div class="autocomplete-item ${index===searchState.activeResultIndex?'active':''}" role="option" aria-selected="${index===searchState.activeResultIndex?'true':'false'}" onclick="selectAutocompleteResult(${index})"><div class="autocomplete-code">${item.code||'search'}</div><div class="autocomplete-main"><div class="autocomplete-title"${tooltipAttrs(item.description||item.specialty)}>${item.description||item.specialty}</div><div class="autocomplete-meta"><span>${item.specialty}</span><span>wRVU ${Number(item.wrvu||0).toFixed(2)}</span>${Number(item.estimatedPayment||0)?`<span>${formatCurrency(item.estimatedPayment)}</span>`:''}${badges}</div></div><div class="autocomplete-action">add</div></div>`;
+ }).join('')}</div>`;
  box.classList.add('show');
  if(input)input.setAttribute('aria-expanded','true');
 }
@@ -4354,15 +4406,46 @@ function renderSplenicFlexureSuggestion(){
  return '<div class="alif-builder-suggestion"><div class="alif-builder-title">Splenic flexure mobilization add-on</div><div>'+(isOpen?'Open partial colectomy workflow: consider <strong>44139</strong>.':'Laparoscopic/robotic colectomy workflow: consider <strong>44213</strong>.')+' Report only when the operative note documents actual mobilization/take-down of the splenic flexure to obtain bowel length or facilitate a tension-free anastomosis.</div><div class="alif-builder-actions"><button onclick="addCptDirectly(\''+addon+'\')">Add '+addon+'</button></div><div class="alif-assistant-example">Educational suggestion only. This is an add-on procedure and is not appropriate as a standalone CPT line.</div></div>';
 }
 
+function shouldPromptUnilateralBilateralCase({cpt,desc,bi}){
+ if(Number(bi)!==1)return false;
+ const normalizedDesc=String(desc||'').toLowerCase();
+ if(/bilateral|inherently bilateral/.test(normalizedDesc))return false;
+ if(/^15734$/.test(String(cpt||'')))return false;
+ return true;
+}
+
+function promptUnilateralBilateralCase({cpt,desc,wrvu,bi,approach,dx,meta={}}){
+ if(!shouldPromptUnilateralBilateralCase({cpt,desc,bi}))return false;
+ const normalizedDesc=String(desc||'').toLowerCase();
+ const promptFamily=normalizedDesc.includes('hernia')?'repair':'procedure';
+ const sideChoice=window.prompt(`Is this ${promptFamily} unilateral or bilateral?\n\nType one:\n- unilateral\n- bilateral`,'unilateral');
+ if(sideChoice===null)return true;
+ const normalizedChoice=String(sideChoice).trim().toLowerCase();
+ if(normalizedChoice.startsWith('b')){
+  addProc(cpt,`${desc} (bilateral)`,wrvu,'50',1,approach,dx,meta);
+  return true;
+ }
+ const lateralityPrompt=window.prompt('Which side?\n\nType one:\n- right\n- left','right');
+ if(lateralityPrompt===null)return true;
+ const normalizedLaterality=String(lateralityPrompt).trim().toLowerCase();
+ const laterality=normalizedLaterality.startsWith('l')?'LT':'RT';
+ addProc(cpt,`${desc} (${laterality==='RT'?'right':'left'})`,wrvu,laterality,1,approach,dx,meta);
+ return true;
+}
+
 function addAutocompleteResultToCase(item){
  if(item.si!==null&&item.pi!==null){
   const p=SPECS[item.specialty][item.pi];
   const [cpt,desc,w,bi]=p;
   const biSeed=(bi===1||bi===2)&&bi!==2?1:(bi||0);
-  addProc(cpt,desc,w,'',biSeed,undefined,undefined,{technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode});
+  const meta={technicalComponent:isTechnicalCode(cpt),estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode};
+  if(promptUnilateralBilateralCase({cpt,desc,wrvu:w,bi:biSeed,approach:undefined,dx:undefined,meta}))return;
+  addProc(cpt,desc,w,'',biSeed,undefined,undefined,meta);
   return;
  }
- addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,{technicalComponent:item.technicalComponent,estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode});
+ const meta={technicalComponent:item.technicalComponent,estimatedPayment:item.estimatedPayment,totalRvu:item.totalRvu,addonCode:item.addonCode};
+ if(promptUnilateralBilateralCase({cpt:item.code,desc:item.description,wrvu:item.wrvu||0,bi:item.bi||0,approach:item.approach,dx:item.dx||[],meta}))return;
+ addProc(item.code,item.description,item.wrvu||0,'',item.bi||0,undefined,undefined,meta);
 }
 
 function selectAutocompleteResult(index){
