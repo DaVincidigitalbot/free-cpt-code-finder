@@ -1,10 +1,10 @@
 {
   "activeVersion": "2026-Q3",
   "activeDataset": "cms_ncci_ptp_active.json",
-  "activatedAt": "2026-06-23T23:47:39.960Z",
-  "activationMode": "phase1_surgical_modifier0_reduced_159",
-  "pairCount": 159,
-  "modifier1Activated": false,
-  "sourceReview": "qa_artifacts/ncci_phase1_clinical_review_2026_06_23/recommended-reduced-activation-set.json",
-  "rollback": "Replace data/ncci/active/cms_ncci_ptp_active.json with an empty ptp_pairs dataset or revert this branch commit, then redeploy."
+  "activatedAt": "2026-07-29T14:35:00Z",
+  "activationMode": "phase1_surgical_modifier0_reduced_159_plus_cpt46505_full_active_q3_review",
+  "pairCount": 395,
+  "modifier1Activated": true,
+  "sourceReview": "qa_artifacts/cpt_46505_production_hardening_2026_07_29/validation_report.json",
+  "rollback": "Revert the CPT 46505 production-hardening commit or restore origin/main baseline 5c35bbf56bb5f0252ea3accdd81e98cfa6e91e73, then redeploy."
 }

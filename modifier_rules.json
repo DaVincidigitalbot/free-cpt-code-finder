@@ -100656,5 +100656,168 @@
     },
     "team_surgeon_eligible": false,
     "x_modifier_eligible": false
+  },
+  "46505": {
+    "addon_code": false,
+    "assistant_allowed": false,
+    "bilateral_eligible": false,
+    "bilateral_method": null,
+    "category": "Surgery",
+    "code_family": "anorectal_sphincter",
+    "cosurgeon_eligible": false,
+    "distinct_procedure_class": "anorectal_sphincter_chemodenervation",
+    "global_period": "010",
+    "global_period_days": 10,
+    "hierarchy_tier": 2,
+    "inclusive_of": [],
+    "inherently_bilateral": false,
+    "laterality_applicable": false,
+    "mod51_exempt": false,
+    "never_primary_with": [],
+    "payer_notes": {
+      "commercial": "Modifier 51 may be payer-required for secondary procedures; verify payer-specific rules for chemodenervation services.",
+      "medicare": "Use CMS PFS RVU26C indicators. Medicare MPPR applies because multiple procedure indicator is 2; do not append modifier 50 because bilateral indicator is 0."
+    },
+    "supported_modifiers": [
+      "22",
+      "51",
+      "52",
+      "53",
+      "58",
+      "59",
+      "76",
+      "77",
+      "78",
+      "79",
+      "XE",
+      "XS",
+      "XP",
+      "XU"
+    ],
+    "unsupported_modifiers": [
+      "24",
+      "25",
+      "50"
+    ],
+    "modifier_applicability": {
+      "22": {
+        "supported": true,
+        "scope": "procedure",
+        "reason": "Supported conditionally when documentation shows substantially increased work beyond typical internal anal sphincter chemodenervation; payer review expected."
+      },
+      "24": {
+        "supported": false,
+        "scope": "E/M only",
+        "reason": "Modifier 24 applies to an unrelated postoperative E/M service, not to CPT 46505 itself."
+      },
+      "25": {
+        "supported": false,
+        "scope": "E/M only",
+        "reason": "Modifier 25 applies to a significant, separately identifiable E/M service, not to CPT 46505 itself."
+      },
+      "50": {
+        "supported": false,
+        "scope": "procedure",
+        "reason": "CMS bilateral indicator is 0; CPT 46505 is treated as non-bilateral/inherent midline sphincter work, so modifier 50 is intentionally excluded."
+      },
+      "51": {
+        "supported": true,
+        "scope": "procedure",
+        "reason": "CMS multiple procedure indicator is 2; commercial payer workflows may use modifier 51 while Medicare MPPR is calculated automatically."
+      },
+      "52": {
+        "supported": true,
+        "scope": "procedure",
+        "reason": "Supported when a reduced chemodenervation service is intentionally performed and documented."
+      },
+      "53": {
+        "supported": true,
+        "scope": "procedure",
+        "reason": "Supported when the procedure is discontinued after initiation because of patient safety or other documented circumstances."
+      },
+      "58": {
+        "supported": true,
+        "scope": "procedure/global",
+        "reason": "Supported when CPT 46505 is staged, planned, or more extensive during a postoperative global period and documentation supports the relationship."
+      },
+      "59": {
+        "supported": true,
+        "scope": "NCCI distinct service",
+        "reason": "Supported only for NCCI modifier-indicator-1 edit pairs when documentation supports a distinct procedural service; forbidden for modifier-indicator-0 pairs."
+      },
+      "76": {
+        "supported": true,
+        "scope": "repeat procedure",
+        "reason": "Supported for repeat CPT 46505 by the same physician or qualified professional when separately medically necessary."
+      },
+      "77": {
+        "supported": true,
+        "scope": "repeat procedure",
+        "reason": "Supported for repeat CPT 46505 by a different physician or qualified professional when separately medically necessary."
+      },
+      "78": {
+        "supported": true,
+        "scope": "procedure/global",
+        "reason": "Supported for unplanned return to the OR/procedure room for a related procedure during a postoperative global period."
+      },
+      "79": {
+        "supported": true,
+        "scope": "procedure/global",
+        "reason": "Supported for unrelated CPT 46505 during another procedure's postoperative global period."
+      },
+      "XE": {
+        "supported": true,
+        "scope": "NCCI distinct service",
+        "reason": "Supported for modifier-indicator-1 NCCI pairs when a separate encounter is documented."
+      },
+      "XS": {
+        "supported": true,
+        "scope": "NCCI distinct service",
+        "reason": "Supported for modifier-indicator-1 NCCI pairs when a separate anatomic site/structure is documented; not a bilateral marker for 46505."
+      },
+      "XP": {
+        "supported": true,
+        "scope": "NCCI distinct service",
+        "reason": "Supported for modifier-indicator-1 NCCI pairs when a separate practitioner performs the distinct service."
+      },
+      "XU": {
+        "supported": true,
+        "scope": "NCCI distinct service",
+        "reason": "Supported for modifier-indicator-1 NCCI pairs when a distinct, non-overlapping service is documented."
+      }
+    },
+    "team_surgeon_eligible": false,
+    "x_modifier_eligible": true,
+    "cms_metadata": {
+      "status_code": "A",
+      "pctc_indicator": "0",
+      "global_period_indicator": "010",
+      "global_period_days": 10,
+      "preoperative_percentage": 0.1,
+      "intraoperative_percentage": 0.8,
+      "postoperative_percentage": 0.1,
+      "multiple_procedure_indicator": "2",
+      "bilateral_indicator": "0",
+      "assistant_surgeon_indicator": "1",
+      "cosurgeon_indicator": "0",
+      "team_surgeon_indicator": "0",
+      "pricing_indicator": "9",
+      "diagnostic_family_indicator": "09",
+      "diagnostic_imaging_family_indicator": "0",
+      "conversion_factor": 33.4009,
+      "work_rvu": 3.1,
+      "pe_rvu": 6.61,
+      "facility_pe_rvu": 3.73,
+      "mp_rvu": 0.55,
+      "total_rvu": 10.26,
+      "facility_total_rvu": 7.38,
+      "non_facility_total_rvu": 10.26,
+      "estimated_medicare_payment": 342.69,
+      "estimated_facility_medicare_payment": 246.5,
+      "source": "CMS PFS RVU26C July 2026 non-QPP",
+      "source_file": "PPRRVU2026_Jul_nonQPP.csv",
+      "source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+      "cms_descriptor": "Chemodenervation anal musc"
+    }
   }
 }

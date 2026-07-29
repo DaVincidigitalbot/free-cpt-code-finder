@@ -1,0 +1,220 @@
+{
+  "cpt": "46505",
+  "status": "prepared",
+  "timestamp": "2026-07-29T14:35:00Z",
+  "rollback_commit": "5c35bbf56bb5f0252ea3accdd81e98cfa6e91e73",
+  "cms_pfs_verification": {
+    "status_code": "A",
+    "pctc_indicator": "0",
+    "global_period_indicator": "010",
+    "global_period_days": 10,
+    "preoperative_percentage": 0.1,
+    "intraoperative_percentage": 0.8,
+    "postoperative_percentage": 0.1,
+    "multiple_procedure_indicator": "2",
+    "bilateral_indicator": "0",
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "pricing_indicator": "9",
+    "diagnostic_family_indicator": "09",
+    "diagnostic_imaging_family_indicator": "0",
+    "conversion_factor": 33.4009,
+    "work_rvu": 3.1,
+    "pe_rvu": 6.61,
+    "facility_pe_rvu": 3.73,
+    "mp_rvu": 0.55,
+    "total_rvu": 10.26,
+    "facility_total_rvu": 7.38,
+    "non_facility_total_rvu": 10.26,
+    "estimated_medicare_payment": 342.69,
+    "estimated_facility_medicare_payment": 246.5,
+    "source": "CMS PFS RVU26C July 2026 non-QPP",
+    "source_file": "PPRRVU2026_Jul_nonQPP.csv",
+    "source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "cms_descriptor": "Chemodenervation anal musc"
+  },
+  "diagnosis_mapping": [
+    {
+      "code": "K60.1",
+      "description": "Chronic anal fissure",
+      "system": "digestive",
+      "common_cpt_associations": [
+        "46505",
+        "46080"
+      ]
+    },
+    {
+      "code": "K60.2",
+      "description": "Anal fissure, unspecified",
+      "system": "digestive",
+      "common_cpt_associations": [
+        "46505",
+        "46080"
+      ]
+    },
+    {
+      "code": "K60.0",
+      "description": "Acute anal fissure",
+      "system": "digestive",
+      "common_cpt_associations": [
+        "46505",
+        "46080"
+      ]
+    },
+    {
+      "code": "K59.4",
+      "description": "Anal spasm",
+      "system": "digestive",
+      "common_cpt_associations": [
+        "46505"
+      ]
+    },
+    {
+      "code": "K62.89",
+      "description": "Other specified diseases of anus and rectum",
+      "system": "digestive",
+      "common_cpt_associations": [
+        "46505"
+      ]
+    }
+  ],
+  "modifier_matrix": {
+    "22": {
+      "supported": true,
+      "scope": "procedure",
+      "reason": "Supported conditionally when documentation shows substantially increased work beyond typical internal anal sphincter chemodenervation; payer review expected."
+    },
+    "24": {
+      "supported": false,
+      "scope": "E/M only",
+      "reason": "Modifier 24 applies to an unrelated postoperative E/M service, not to CPT 46505 itself."
+    },
+    "25": {
+      "supported": false,
+      "scope": "E/M only",
+      "reason": "Modifier 25 applies to a significant, separately identifiable E/M service, not to CPT 46505 itself."
+    },
+    "50": {
+      "supported": false,
+      "scope": "procedure",
+      "reason": "CMS bilateral indicator is 0; CPT 46505 is treated as non-bilateral/inherent midline sphincter work, so modifier 50 is intentionally excluded."
+    },
+    "51": {
+      "supported": true,
+      "scope": "procedure",
+      "reason": "CMS multiple procedure indicator is 2; commercial payer workflows may use modifier 51 while Medicare MPPR is calculated automatically."
+    },
+    "52": {
+      "supported": true,
+      "scope": "procedure",
+      "reason": "Supported when a reduced chemodenervation service is intentionally performed and documented."
+    },
+    "53": {
+      "supported": true,
+      "scope": "procedure",
+      "reason": "Supported when the procedure is discontinued after initiation because of patient safety or other documented circumstances."
+    },
+    "58": {
+      "supported": true,
+      "scope": "procedure/global",
+      "reason": "Supported when CPT 46505 is staged, planned, or more extensive during a postoperative global period and documentation supports the relationship."
+    },
+    "59": {
+      "supported": true,
+      "scope": "NCCI distinct service",
+      "reason": "Supported only for NCCI modifier-indicator-1 edit pairs when documentation supports a distinct procedural service; forbidden for modifier-indicator-0 pairs."
+    },
+    "76": {
+      "supported": true,
+      "scope": "repeat procedure",
+      "reason": "Supported for repeat CPT 46505 by the same physician or qualified professional when separately medically necessary."
+    },
+    "77": {
+      "supported": true,
+      "scope": "repeat procedure",
+      "reason": "Supported for repeat CPT 46505 by a different physician or qualified professional when separately medically necessary."
+    },
+    "78": {
+      "supported": true,
+      "scope": "procedure/global",
+      "reason": "Supported for unplanned return to the OR/procedure room for a related procedure during a postoperative global period."
+    },
+    "79": {
+      "supported": true,
+      "scope": "procedure/global",
+      "reason": "Supported for unrelated CPT 46505 during another procedure's postoperative global period."
+    },
+    "XE": {
+      "supported": true,
+      "scope": "NCCI distinct service",
+      "reason": "Supported for modifier-indicator-1 NCCI pairs when a separate encounter is documented."
+    },
+    "XS": {
+      "supported": true,
+      "scope": "NCCI distinct service",
+      "reason": "Supported for modifier-indicator-1 NCCI pairs when a separate anatomic site/structure is documented; not a bilateral marker for 46505."
+    },
+    "XP": {
+      "supported": true,
+      "scope": "NCCI distinct service",
+      "reason": "Supported for modifier-indicator-1 NCCI pairs when a separate practitioner performs the distinct service."
+    },
+    "XU": {
+      "supported": true,
+      "scope": "NCCI distinct service",
+      "reason": "Supported for modifier-indicator-1 NCCI pairs when a distinct, non-overlapping service is documented."
+    }
+  },
+  "ncci_review": {
+    "source": "CMS NCCI Practitioner PTP 2026-Q3",
+    "active_pairs_added": 236,
+    "modifier_allowed_pairs": 159,
+    "modifier_forbidden_pairs": 77,
+    "mutually_exclusive_active_pairs": 0,
+    "bundled_ptp_pairs": 236,
+    "column1_pairs": 236,
+    "column2_pairs": 0
+  },
+  "search_aliases": [
+    "Botox anal fissure",
+    "Anal fissure Botox",
+    "Anal Botox",
+    "Internal anal sphincter Botox",
+    "Internal anal sphincter injection",
+    "Chemodenervation",
+    "Sphincter injection",
+    "Botox injection anal sphincter",
+    "Chronic anal fissure Botox",
+    "botulinum toxin anal fissure",
+    "botulinum toxin internal anal sphincter",
+    "anal sphincter chemodenervation",
+    "hypertonic internal anal sphincter"
+  ],
+  "case_builder_expected": {
+    "search": true,
+    "add_code": true,
+    "remove_code": true,
+    "duplicate_case": true,
+    "rvu_calculation": "3.10 wRVU base; 10.26 total RVU; $342.69 Medicare estimate before case-level MPPR/modifier adjustment",
+    "diagnosis_pointer_generation": [
+      "K60.1",
+      "K60.2",
+      "K60.0",
+      "K59.4",
+      "K62.89"
+    ],
+    "modifier_selection": "Supported modifier matrix encoded; 24/25/50 intentionally excluded for CPT line",
+    "export": "Audit JSON/print exports use active case state",
+    "pdf_generation": "No dedicated PDF generator is present in current static app; browser print/export pathways remain applicable.",
+    "ai_recommendations": "Procedure intelligence aliases map fissure/Botox/chemodenervation language to CPT 46505."
+  },
+  "validation_results": {
+    "focused_46505_harness": "pass",
+    "local_static_smoke": "pass",
+    "final_hardening_validation": "pass",
+    "case_test_suite": "baseline_existing_failures_106_of_110_passed; identical failure class observed on origin/main baseline",
+    "icd10_legacy_pointer_tests": "baseline_existing_crash; same TypeError on origin/main baseline",
+    "production_pdf_generation": "not_applicable_no_dedicated_pdf_generator_present"
+  }
+}

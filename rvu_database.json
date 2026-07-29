@@ -26401,7 +26401,7 @@
       "description": "Unlisted procedure, liver",
       "global_period": "YYY",
       "mp_rvu": 0,
-      "note": "Unlisted code — RVU determined by carrier on individual basis (by report)",
+      "note": "Unlisted code \u2014 RVU determined by carrier on individual basis (by report)",
       "pe_rvu": 0,
       "total_rvu": 0,
       "work_rvu": 0,
@@ -29468,7 +29468,7 @@
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
     "58550": {
-      "description": "Laparoscopic-assisted vaginal hysterectomy, uterus ≤250g",
+      "description": "Laparoscopic-assisted vaginal hysterectomy, uterus \u2264250g",
       "global_period": 90,
       "mp_rvu": 2.62,
       "pe_rvu": 6.21,
@@ -29523,7 +29523,7 @@
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
     "58571": {
-      "description": "Total laparoscopic hysterectomy, uterus ≤250g",
+      "description": "Total laparoscopic hysterectomy, uterus \u2264250g",
       "global_period": 90,
       "mp_rvu": 2.97,
       "pe_rvu": 7.21,
@@ -42955,7 +42955,7 @@
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
     "97605": {
-      "description": "Negative pressure wound therapy (wound VAC), ≤50 sq cm",
+      "description": "Negative pressure wound therapy (wound VAC), \u226450 sq cm",
       "global_period": "XXX",
       "mp_rvu": 0.01,
       "pe_rvu": 0.71,
@@ -42977,7 +42977,7 @@
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
     "97607": {
-      "description": "Negative pressure wound therapy, ≤50 sq cm",
+      "description": "Negative pressure wound therapy, \u226450 sq cm",
       "global_period": "XXX",
       "is_addon": false,
       "mp_rvu": 0.06,
@@ -43549,7 +43549,7 @@
       "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip"
     },
     "99238": {
-      "description": "Hospital discharge day, ≤30 min",
+      "description": "Hospital discharge day, \u226430 min",
       "global_period": "XXX",
       "mp_rvu": 0.12,
       "pe_rvu": 0.62,
@@ -44952,5 +44952,31 @@
   "source_sha256": "01169553aa9804d778837cd2727e6d27c4bbd95008a35d66ac1d0fb28ccdcbcf",
   "source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
   "value_type": "physician_work_rvu",
-  "year": 2026
+  "year": 2026,
+  "46505": {
+    "description": "Chemodenervation of internal anal sphincter",
+    "global_period": "010",
+    "work_rvu": 3.1,
+    "pe_rvu": 6.61,
+    "facility_pe_rvu": 3.73,
+    "mp_rvu": 0.55,
+    "total_rvu": 10.26,
+    "facility_total_rvu": 7.38,
+    "non_facility_total_rvu": 10.26,
+    "estimated_medicare_payment": 342.69,
+    "estimated_facility_medicare_payment": 246.5,
+    "wrvu_source": "CMS PFS RVU26C July 2026 non-QPP",
+    "wrvu_source_file": "PPRRVU2026_Jul_nonQPP.csv",
+    "wrvu_source_url": "https://www.cms.gov/files/zip/rvu26c.zip",
+    "status_code": "A",
+    "pctc_indicator": "0",
+    "multiple_procedure_indicator": "2",
+    "bilateral_indicator": "0",
+    "assistant_surgeon_indicator": "1",
+    "cosurgeon_indicator": "0",
+    "team_surgeon_indicator": "0",
+    "pricing_indicator": "9",
+    "diagnostic_family_indicator": "09",
+    "diagnostic_imaging_family_indicator": "0"
+  }
 }
