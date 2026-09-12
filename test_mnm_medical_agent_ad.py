@@ -10,20 +10,32 @@ def page():
     return INDEX.read_text(encoding="utf-8")
 
 
+def test_ad_is_compact_and_inside_case_rail():
+    html = page()
+    rail_start = html.index('<aside class="rail"')
+    ad_start = html.index('<section class="mnm-agent-ad mnm-agent-ad--rail"')
+    rail_end = html.index("</aside>", rail_start)
+    active_case = html.index('<div class="rh">', rail_start)
+    assert rail_start < ad_start < active_case < rail_end
+    assert "mnm-agent-ad__workflow" not in html
+    assert "mnm-agent-ad__examples" not in html
+    assert "document.addEventListener('DOMContentLoaded',function()" in html
+
+
 def test_medical_agent_ad_is_present_and_targets_clinicians():
     html = page()
     assert 'id="mnm-agent-ad"' in html
     assert "A chatbot answers." in html
     assert "An AI agent gets the work done." in html
     assert "For physicians · surgeons · residents · medical students" in html
-    assert "Monitor journals and prepare evidence briefs" in html
+    assert "monitor journals and prepare evidence briefs" in html
 
 
 def test_ad_links_safely_to_make_no_mistakes():
     html = page()
     assert 'href="https://makenomistakes.shop/"' in html
     assert 'rel="sponsored noopener"' in html
-    assert "Get your own AI agent" in html
+    assert "Learn more" in html
 
 
 def test_ad_uses_company_logo_and_accessible_video_dialog():
