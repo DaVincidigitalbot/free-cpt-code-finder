@@ -33,9 +33,20 @@ def test_medical_agent_ad_is_present_and_targets_clinicians():
 
 def test_ad_links_safely_to_make_no_mistakes():
     html = page()
-    assert 'href="https://makenomistakes.shop/"' in html
+    assert 'href="https://makenomistakes.shop/?utm_source=freecptcodefinder' in html
     assert 'rel="sponsored noopener"' in html
     assert "Learn more" in html
+
+
+def test_ad_actions_emit_distinct_ga4_events():
+    html = page()
+    assert "'mnm_ad_'+action+'_click'" in html
+    assert "watch_demo" in html
+    assert "learn_more" in html
+    assert "typeof window.gtag==='function'" in html
+    assert "ad_placement:'homepage_right_rail'" in html
+    assert "try{" in html
+    assert "if(cta)cta.addEventListener" in html
 
 
 def test_ad_uses_company_logo_and_accessible_video_dialog():

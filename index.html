@@ -500,10 +500,16 @@ document.addEventListener('DOMContentLoaded',function(){
   const openButton=document.getElementById('mnmAgentVideoOpen');
   const closeButton=document.getElementById('mnmAgentVideoClose');
   const video=document.getElementById('mnmAgentVideo');
+  const cta=document.querySelector('#mnm-agent-ad .mnm-agent-ad__cta');
   let previousOverflow='';
   let previousFocus=null;
   let backgroundElements=[];
   if(!dialog||!openButton||!closeButton||!video)return;
+  function trackAdClick(action){
+    try{
+      if(typeof window.gtag==='function')window.gtag('event','mnm_ad_'+action+'_click',{ad_placement:'homepage_right_rail',transport_type:'beacon'});
+    }catch(error){}
+  }
   function openVideo(){
     previousOverflow=document.body.style.overflow;
     previousFocus=document.activeElement;
@@ -522,7 +528,8 @@ document.addEventListener('DOMContentLoaded',function(){
     document.body.style.overflow=previousOverflow;
     if(previousFocus&&document.contains(previousFocus))previousFocus.focus();
   }
-  openButton.addEventListener('click',openVideo);
+  openButton.addEventListener('click',function(){trackAdClick('watch_demo');openVideo();});
+  if(cta)cta.addEventListener('click',function(){trackAdClick('learn_more');});
   closeButton.addEventListener('click',closeVideo);
   dialog.addEventListener('click',function(event){if(event.target===dialog)closeVideo();});
   document.addEventListener('keydown',function(event){
@@ -640,7 +647,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <p class="mnm-agent-ad__lede">A chatbot answers. An agent can monitor journals and prepare evidence briefs, presentations, and recurring workflows. <strong>You review and approve.</strong></p>
 <div class="mnm-agent-ad__actions">
 <button class="mnm-agent-ad__watch" id="mnmAgentVideoOpen" type="button"><span aria-hidden="true">▶</span> Watch demo</button>
-<a class="mnm-agent-ad__cta" href="https://makenomistakes.shop/" target="_blank" rel="sponsored noopener">Learn more&nbsp; →</a>
+<a class="mnm-agent-ad__cta" href="https://makenomistakes.shop/?utm_source=freecptcodefinder&amp;utm_medium=partner_referral&amp;utm_campaign=medical_ai_agent&amp;utm_content=sidebar_ad" target="_blank" rel="sponsored noopener">Learn more&nbsp; →</a>
 </div>
 <div class="mnm-agent-ad__note">Illustrative non-clinical workflow · Human review remains essential</div>
 <div class="mnm-agent-ad__disclosure">Sponsored partner · Make No Mistakes</div>
