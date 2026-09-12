@@ -360,6 +360,54 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 .ai-send{padding:10px 14px;border-radius:8px;background:var(--ox);color:var(--white);font-weight:600}
 .ai-send:hover{background:var(--ox-dark)}
 @media(max-width:700px){.ai-launch{right:14px;left:14px;justify-content:center;bottom:14px}.ai-panel{right:12px;left:12px;bottom:72px;width:auto;height:70vh;max-height:none}}
+
+/* MAKE NO MISTAKES — MEDICAL AI AGENT PARTNER AD */
+.mnm-agent-ad{margin:0 0 32px;overflow:hidden;border:1px solid var(--line2);border-radius:14px;background:var(--white);box-shadow:0 12px 32px rgba(15,23,42,.07)}
+.mnm-agent-ad__grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr)}
+.mnm-agent-ad__copy{padding:28px 30px 26px;display:flex;flex-direction:column;min-width:0}
+.mnm-agent-ad__brand{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;color:var(--ink)}
+.mnm-agent-ad__brand img{width:30px;height:30px;border-radius:50%}
+.mnm-agent-ad__audience{align-self:flex-start;margin:22px 0 10px;padding:6px 8px;border:1px solid var(--line2);border-radius:4px;background:var(--ox2);font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ox)}
+.mnm-agent-ad h2{margin:0;max-width:680px;font-size:clamp(31px,3.6vw,48px);line-height:.96;letter-spacing:-.045em;color:var(--ink)}
+.mnm-agent-ad h2 em{font-style:normal;color:var(--ox)}
+.mnm-agent-ad__lede{max-width:700px;margin:15px 0;color:var(--ink2);font-size:14px;line-height:1.5}
+.mnm-agent-ad__lede strong{color:var(--ink)}
+.mnm-agent-ad__examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;margin:0 0 19px;padding:0;list-style:none}
+.mnm-agent-ad__examples li{display:flex;gap:7px;color:var(--ink2);font-size:12px;line-height:1.35}
+.mnm-agent-ad__examples li::before{content:'✓';color:var(--moss);font-weight:900}
+.mnm-agent-ad__actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:auto}
+.mnm-agent-ad__watch,.mnm-agent-ad__cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 15px;border-radius:7px;font-size:12px;font-weight:800}
+.mnm-agent-ad__watch{gap:7px;border:1px solid var(--line2);background:var(--white);color:var(--ox)}
+.mnm-agent-ad__watch:hover{background:var(--ox2);border-color:var(--ox)}
+.mnm-agent-ad__cta{border:1px solid var(--ink);background:var(--ink);color:var(--white);text-decoration:none}
+.mnm-agent-ad__cta:hover{background:var(--ox);border-color:var(--ox)}
+.mnm-agent-ad__watch:focus-visible,.mnm-agent-ad__cta:focus-visible,.mnm-agent-video__close:focus-visible{outline:3px solid var(--ox);outline-offset:3px}
+.mnm-agent-ad__workflow{display:flex;align-items:center;padding:22px;background:#0f1720;color:#fff}
+.mnm-agent-ad__window{width:100%;overflow:hidden;border:1px solid rgba(255,255,255,.15);border-radius:11px;background:#101d28;box-shadow:0 18px 38px rgba(0,0,0,.24)}
+.mnm-agent-ad__window-top{display:flex;justify-content:space-between;gap:10px;padding:11px 13px;border-bottom:1px solid rgba(255,255,255,.11);font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a9b7c2}
+.mnm-agent-ad__status{color:#83d2a2}.mnm-agent-ad__status::before{content:'';display:inline-block;width:6px;height:6px;margin-right:6px;border-radius:50%;background:#65c98c}
+.mnm-agent-ad__window-body{padding:16px}
+.mnm-agent-ad__prompt{padding:11px 12px;border-left:3px solid #ff9914;background:#192a37;color:#f5f7f8;font-size:12px;line-height:1.4}
+.mnm-agent-ad__prompt small{display:block;margin-bottom:5px;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#ffb44f}
+.mnm-agent-ad__tasks{margin-top:11px}
+.mnm-agent-ad__task{display:grid;grid-template-columns:20px 1fr auto;gap:7px;align-items:center;min-height:34px;border-bottom:1px solid rgba(255,255,255,.08);font-size:10px;color:#d9e2e7}
+.mnm-agent-ad__task:last-child{border-bottom:0}
+.mnm-agent-ad__check{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;background:rgba(101,201,140,.14);color:#7ad69d;font-size:9px;font-weight:900}
+.mnm-agent-ad__task-state{font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:7px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8398a8}
+.mnm-agent-ad__result{margin-top:12px;padding:10px;border:1px solid rgba(126,200,255,.2);border-radius:7px;background:rgba(35,87,123,.2);font-size:10px;line-height:1.4;color:#cee6f6}
+.mnm-agent-ad__result strong{display:block;margin-bottom:3px;font-size:11px;color:white}
+.mnm-agent-ad__note{margin:7px 1px 0;text-align:right;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:7px;color:#8398a8}
+.mnm-agent-ad__foot{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:10px 16px;background:#071019;color:#c5cfd6;font-family:'SFMono-Regular',Consolas,'Liberation Mono',ui-monospace,monospace;font-size:9px;font-weight:700}
+.mnm-agent-ad__foot span+span::before{content:'•';margin-right:18px;color:#ff9914}
+.mnm-agent-ad__disclosure{padding:0 0 8px;text-align:center;background:#071019;color:#7f919e;font-size:8px}
+.mnm-agent-video[hidden]{display:none}.mnm-agent-video{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:22px;background:rgba(4,8,11,.86)}
+.mnm-agent-video__card{position:relative;width:min(960px,100%);overflow:hidden;border:1px solid rgba(255,255,255,.18);border-radius:13px;background:#050607;box-shadow:0 30px 90px #000}
+.mnm-agent-video video{display:block;width:100%;max-height:76vh;background:#000}
+.mnm-agent-video__close{position:absolute;z-index:2;right:11px;top:11px;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(0,0,0,.74);color:#fff;font-size:20px}
+.mnm-agent-video__caption{padding:12px 15px;color:#cbd4da;font-size:11px;line-height:1.45}.mnm-agent-video__caption strong{color:#fff}
+@media(max-width:900px){.mnm-agent-ad__grid{grid-template-columns:1fr}.mnm-agent-ad__workflow{min-height:340px}.mnm-agent-ad h2{font-size:42px}}
+@media(max-width:760px){.mnm-agent-ad__copy{padding:23px 20px 24px}.mnm-agent-ad h2{font-size:36px}.mnm-agent-ad__examples{grid-template-columns:1fr}.mnm-agent-ad__actions{align-items:stretch;flex-direction:column}.mnm-agent-ad__watch,.mnm-agent-ad__cta{width:100%}.mnm-agent-ad__workflow{padding:14px;min-height:0}.mnm-agent-ad__task{grid-template-columns:20px 1fr}.mnm-agent-ad__task-state{display:none}.mnm-agent-ad__foot{display:block}.mnm-agent-ad__foot span{display:block;margin:4px 0}.mnm-agent-ad__foot span+span::before{margin-right:7px}.mnm-agent-ad__foot span:first-child::before{content:'•';margin-right:7px;color:#ff9914}}
+@media(prefers-reduced-motion:reduce){.mnm-agent-ad *{scroll-behavior:auto!important}}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"FreeCPTCodeFinder.com","url":"https://freecptcodefinder.com/","publisher":{"@type":"Organization","name":"FreeCPTCodeFinder.com"}},{"@type":"WebSite","name":"FreeCPTCodeFinder.com","url":"https://freecptcodefinder.com/"},{"@type":"Person","name":"Graydon Stallard","honorificSuffix":"DO, FACOS, FACS","jobTitle":"Surgeon; Founder and Author of FreeCPTCodeFinder.com","knowsAbout":["General Surgery","Surgical Critical Care","Trauma","CPT coding education","surgical documentation"],"url":"https://freecptcodefinder.com/authors/graydon-stallard-do.html"}]}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3385830962144023" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" title="Free CPT Code Finder Blog" href="https://freecptcodefinder.com/feed.xml">
 <meta property="og:image" content="https://freecptcodefinder.com/og-image.png">
@@ -454,6 +502,102 @@ html[data-theme='dark'] .desc-popover{box-shadow:0 18px 48px rgba(0,0,0,.45)}
 </div>
 <div id="autocompleteResults" class="autocomplete-results" role="listbox" aria-label="CPT search results"></div>
 </div>
+
+<section class="mnm-agent-ad" id="mnm-agent-ad" aria-labelledby="mnmAgentAdTitle">
+<div class="mnm-agent-ad__grid">
+<div class="mnm-agent-ad__copy">
+<div class="mnm-agent-ad__brand"><img src="/assets/partners/make-no-mistakes-logo.png" alt="" loading="lazy">Make No Mistakes</div>
+<div class="mnm-agent-ad__audience">For physicians · surgeons · residents · medical students</div>
+<h2 id="mnmAgentAdTitle">A chatbot answers. <em>An AI agent gets the work done.</em></h2>
+<p class="mnm-agent-ad__lede">Give it an objective—not just a question. Your agent can carry out multi-step work, use tools, and deliver finished results while <strong>you stay in control.</strong></p>
+<ul class="mnm-agent-ad__examples">
+<li>Monitor journals and prepare evidence briefs</li>
+<li>Turn voice notes into organized action plans</li>
+<li>Research and draft presentations</li>
+<li>Run recurring administrative workflows</li>
+</ul>
+<div class="mnm-agent-ad__actions">
+<button class="mnm-agent-ad__watch" id="mnmAgentVideoOpen" type="button"><span aria-hidden="true">▶</span> Watch an agent work</button>
+<a class="mnm-agent-ad__cta" href="https://makenomistakes.shop/" target="_blank" rel="sponsored noopener">Get your own AI agent&nbsp; →</a>
+</div>
+</div>
+<div class="mnm-agent-ad__workflow" aria-label="Illustrative medical literature workflow">
+<div class="mnm-agent-ad__window">
+<div class="mnm-agent-ad__window-top"><span>Agent workflow</span><span class="mnm-agent-ad__status">Dedicated agent workflow</span></div>
+<div class="mnm-agent-ad__window-body">
+<div class="mnm-agent-ad__prompt"><small>Your request</small>“Every morning, scan new surgical literature and brief me on what matters.”</div>
+<div class="mnm-agent-ad__tasks">
+<div class="mnm-agent-ad__task"><span class="mnm-agent-ad__check">✓</span><span>Search trusted journals and databases</span><span class="mnm-agent-ad__task-state">Complete</span></div>
+<div class="mnm-agent-ad__task"><span class="mnm-agent-ad__check">✓</span><span>Remove duplicates and rank relevance</span><span class="mnm-agent-ad__task-state">Complete</span></div>
+<div class="mnm-agent-ad__task"><span class="mnm-agent-ad__check">✓</span><span>Summarize evidence with source links</span><span class="mnm-agent-ad__task-state">Complete</span></div>
+<div class="mnm-agent-ad__task"><span class="mnm-agent-ad__check">✓</span><span>Deliver the brief on your schedule</span><span class="mnm-agent-ad__task-state">Scheduled</span></div>
+</div>
+<div class="mnm-agent-ad__result"><strong>Finished work—not another chat window.</strong>Your review-ready brief arrives automatically, with every source linked.</div>
+<div class="mnm-agent-ad__note">Illustrative non-clinical workflow · Human review remains essential</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mnm-agent-ad__foot"><span>Pre-built OpenClaw or Hermes laptop</span><span>Guided setup from first boot</span><span>No coding required</span></div>
+<div class="mnm-agent-ad__disclosure">Sponsored partner · Make No Mistakes</div>
+</section>
+
+<div class="mnm-agent-video" id="mnmAgentVideoDialog" role="dialog" aria-modal="true" aria-label="AI agent demonstration video" hidden>
+<div class="mnm-agent-video__card">
+<button class="mnm-agent-video__close" id="mnmAgentVideoClose" type="button" aria-label="Close video">×</button>
+<video id="mnmAgentVideo" controls playsinline preload="metadata" poster="https://makenomistakes.shop/assets/video/mnm-ai-agent-updates-website-poster.jpg">
+<source src="https://makenomistakes.shop/assets/video/mnm-ai-agent-updates-website.mp4" type="video/mp4">
+<track kind="captions" src="/assets/captions/mnm-ai-agent-demo-en.vtt" srclang="en" label="English" default>
+Your browser does not support embedded video. <a href="https://makenomistakes.shop/" target="_blank" rel="sponsored noopener">See the demonstration on Make No Mistakes.</a>
+</video>
+<div class="mnm-agent-video__caption"><strong>Real demonstration:</strong> a spoken request becomes a reviewable website update. The same agent pattern can support literature, research, communication, and administrative workflows.</div>
+</div>
+</div>
+<script>
+(function(){
+  const dialog=document.getElementById('mnmAgentVideoDialog');
+  const openButton=document.getElementById('mnmAgentVideoOpen');
+  const closeButton=document.getElementById('mnmAgentVideoClose');
+  const video=document.getElementById('mnmAgentVideo');
+  let previousOverflow='';
+  let previousFocus=null;
+  let backgroundElements=[];
+  if(!dialog||!openButton||!closeButton||!video)return;
+  function openVideo(){
+    previousOverflow=document.body.style.overflow;
+    previousFocus=document.activeElement;
+    if(dialog.parentElement!==document.body)document.body.appendChild(dialog);
+    backgroundElements=Array.from(document.body.children).filter(function(element){return element!==dialog;}).map(function(element){return {element:element,inert:element.inert};});
+    backgroundElements.forEach(function(state){state.element.inert=true;});
+    dialog.hidden=false;
+    document.body.style.overflow='hidden';
+    closeButton.focus();
+  }
+  function closeVideo(){
+    video.pause();
+    dialog.hidden=true;
+    backgroundElements.forEach(function(state){state.element.inert=state.inert;});
+    backgroundElements=[];
+    document.body.style.overflow=previousOverflow;
+    if(previousFocus&&document.contains(previousFocus))previousFocus.focus();
+  }
+  openButton.addEventListener('click',openVideo);
+  closeButton.addEventListener('click',closeVideo);
+  dialog.addEventListener('click',function(event){if(event.target===dialog)closeVideo();});
+  document.addEventListener('keydown',function(event){
+    if(dialog.hidden)return;
+    if(event.key==='Escape'){closeVideo();return;}
+    if(event.key==='Tab'){
+      const focusable=Array.from(dialog.querySelectorAll('button,[href],video,[tabindex]:not([tabindex="-1"])')).filter(function(element){return !element.disabled&&element.getClientRects().length>0;});
+      if(!focusable.length){event.preventDefault();return;}
+      const first=focusable[0];
+      const last=focusable[focusable.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+    }
+  });
+})();
+</script>
 
 <div class="sec" id="guided-workflows">
 <div class="sec-h surg"><span class="bdot"></span>Guided Hernia Surgical Workflow</div>
