@@ -1,0 +1,89 @@
+{
+  "id": "paracentesis",
+  "name": "Paracentesis",
+  "category": "Critical Care",
+  "overview": "Percutaneous drainage of peritoneal fluid",
+  "indications": [
+    "Diagnostic ascites",
+    "Therapeutic drainage",
+    "Spontaneous bacterial peritonitis",
+    "Symptomatic ascites"
+  ],
+  "keyAnatomy": [
+    "Peritoneal cavity",
+    "Anterior abdominal wall",
+    "Inferior epigastric vessels",
+    "Bladder",
+    "Bowel"
+  ],
+  "preOpConsiderations": [
+    "Coagulation studies",
+    "Platelet count",
+    "Bladder emptying",
+    "Ultrasound guidance"
+  ],
+  "positioning": "Supine or sitting",
+  "portPlacementOrIncision": [
+    "Left lower quadrant",
+    "Midline below umbilicus",
+    "Ultrasound-guided"
+  ],
+  "criticalSteps": [
+    "Prep and drape",
+    "Local anesthesia",
+    "Insert needle/catheter",
+    "Aspirate fluid",
+    "Remove equipment"
+  ],
+  "commonPitfalls": [
+    "Bowel perforation",
+    "Bleeding",
+    "Infection",
+    "Dry tap"
+  ],
+  "majorComplications": [
+    "Bowel perforation",
+    "Bleeding",
+    "Infection",
+    "Hypotension"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor vital signs",
+    "Send fluid for analysis",
+    "Watch for complications",
+    "Albumin replacement if large volume"
+  ],
+  "relatedProcedures": [
+    "peritoneal-drain-placement",
+    "diagnostic-laparoscopy",
+    "peritoneocentesis"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic origin of the peritoneal cavity?",
+      "answer": "The intraembryonic coelom (from lateral plate mesoderm). The peritoneum (visceral and parietal) is mesothelium derived from somatic mesoderm (parietal) and splanchnic mesoderm (visceral). Ascitic fluid accumulates in the peritoneal cavity between these two layers.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Where is the preferred site for paracentesis, and what is the anatomic rationale?",
+      "answer": "Left lower quadrant, two finger-breadths medial and two finger-breadths cephalad to the ASIS (lateral to the rectus sheath, in the avascular zone between the rectus and oblique muscles). This avoids the inferior epigastric artery (runs within the rectus sheath), the cecum (right-sided), and any organomegaly.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply at risk during paracentesis?",
+      "answer": "Inferior epigastric artery (runs within the posterior rectus sheath from external iliac artery). Puncturing lateral to the rectus sheath avoids this vessel. Superficial epigastric and superficial circumflex iliac arteries may be present subcutaneously. In cirrhotic patients with portal hypertension, dilated abdominal wall veins (caput medusae) increase bleeding risk.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication of large-volume paracentesis?",
+      "answer": "Post-paracentesis circulatory dysfunction (PPCD): reduction in effective arterial blood volume after removing >5L of ascites, causing renal impairment and hyponatremia. Prevention: IV albumin infusion (6-8g per liter of ascites removed above 5L). Without albumin, PPCD occurs in 70-80% of large-volume paracenteses.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the SAAG and its diagnostic significance?",
+      "answer": "Serum-Ascites Albumin Gradient: serum albumin minus ascites albumin. SAAG ≥1.1 g/dL: portal hypertension (cirrhosis, heart failure, Budd-Chiari). SAAG <1.1: non-portal hypertensive (malignancy, TB peritonitis, nephrotic syndrome, pancreatitis). This is more accurate than the outdated exudate/transudate classification.",
+      "level": "attending"
+    }
+  ]
+}

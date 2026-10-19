@@ -1,0 +1,90 @@
+{
+  "id": "cholecystectomy-ioc",
+  "name": "Cholecystectomy with Intraoperative Cholangiogram",
+  "category": "Hepatopancreatobiliary",
+  "overview": "Laparoscopic cholecystectomy with fluoroscopic bile duct imaging",
+  "indications": [
+    "Suspected choledocholithiasis",
+    "Abnormal LFTs",
+    "Dilated CBD",
+    "Unclear anatomy"
+  ],
+  "keyAnatomy": [
+    "Cystic artery",
+    "Cystic duct",
+    "Common bile duct",
+    "Hepatic ducts",
+    "Critical view"
+  ],
+  "preOpConsiderations": [
+    "Fluoroscopy availability",
+    "Contrast allergy",
+    "LFT interpretation",
+    "MRCP correlation"
+  ],
+  "positioning": "Supine, left side up, reverse Trendelenburg",
+  "portPlacementOrIncision": [
+    "Standard 4-port laparoscopic setup"
+  ],
+  "criticalSteps": [
+    "Achieve critical view",
+    "Cannulate cystic duct",
+    "Inject contrast",
+    "Interpret images",
+    "Complete cholecystectomy"
+  ],
+  "commonPitfalls": [
+    "Contrast extravasation",
+    "Air bubbles",
+    "Inadequate filling",
+    "Misinterpretation"
+  ],
+  "majorComplications": [
+    "CBD injury",
+    "Contrast reaction",
+    "Retained stones",
+    "Bile leak"
+  ],
+  "pearlsHighYield": [
+    "Critical view before IOC",
+    "Gentle cannulation",
+    "Multiple views"
+  ],
+  "postOpPriorities": [
+    "Monitor for complications",
+    "ERCP if stones found",
+    "Diet advancement"
+  ],
+  "relatedProcedures": [
+    "ercp",
+    "cbd-exploration",
+    "endoscopic-sphincterotomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic explanation for a choledochal cyst?",
+      "answer": "Anomalous pancreaticobiliary ductal junction (APBDJ) — the pancreatic duct joins the CBD outside the duodenal wall, creating a long common channel allowing pancreatic juice reflux that weakens the bile duct wall. Todani classification types I-V.",
+      "level": "medical_student"
+    },
+    {
+      "question": "During IOC, what structures should you identify on the fluoroscopic image?",
+      "answer": "1) Right and left hepatic duct bifurcation, 2) Common hepatic duct, 3) Cystic duct insertion, 4) CBD (normal ≤8mm), 5) Free flow into duodenum. Absent duodenal filling suggests distal obstruction — give glucagon 1mg IV to differentiate spasm from stone.",
+      "level": "resident"
+    },
+    {
+      "question": "What percentage of patients have 'classic' biliary anatomy, and what are the dangerous variants?",
+      "answer": "Only 55-60% have classic anatomy. Dangerous variants: low-inserting right posterior sectoral duct (mistaken for cystic duct), aberrant right hepatic duct crossing the hepatocystic triangle, and short cystic duct with medial CBD insertion.",
+      "level": "resident"
+    },
+    {
+      "question": "If IOC shows a retained CBD stone, what are your intraoperative options?",
+      "answer": "1) Laparoscopic transcystic CBD exploration with choledochoscope (stones <8mm), 2) Fogarty balloon retrieval, 3) Glucagon + saline flush, 4) Formal choledochotomy for larger/multiple stones, 5) Postoperative ERCP. Transcystic exploration succeeds in 85-95%.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the evidence for routine versus selective intraoperative cholangiography?",
+      "answer": "Routine IOC detects unsuspected CBD stones (3-5%) and identifies aberrant anatomy. Sweden's mandatory IOC registry shows lower bile duct injury rates (0.1% vs 0.3%). However, no RCTs confirm superiority. It adds 10-15 minutes and has a 1-2% false positive rate.",
+      "level": "attending"
+    }
+  ]
+}

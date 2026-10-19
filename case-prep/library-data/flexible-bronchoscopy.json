@@ -1,0 +1,92 @@
+{
+  "id": "flexible-bronchoscopy",
+  "name": "Flexible Bronchoscopy",
+  "category": "Critical Care",
+  "overview": "Endoscopic examination of airways for diagnosis and therapy",
+  "indications": [
+    "Hemoptysis",
+    "Lung mass",
+    "Pneumonia",
+    "Atelectasis",
+    "Intubation guidance"
+  ],
+  "keyAnatomy": [
+    "Trachea",
+    "Main bronchi",
+    "Lobar bronchi",
+    "Segmental bronchi"
+  ],
+  "preOpConsiderations": [
+    "Coagulation status",
+    "Oxygen requirements",
+    "Sedation needs",
+    "Infection precautions"
+  ],
+  "positioning": "Supine or sitting",
+  "portPlacementOrIncision": [
+    "Transoral or transnasal",
+    "Through ETT or tracheostomy"
+  ],
+  "criticalSteps": [
+    "Topical anesthesia",
+    "Systematic examination",
+    "Sample collection",
+    "Therapeutic intervention",
+    "Safe withdrawal"
+  ],
+  "commonPitfalls": [
+    "Hypoxemia",
+    "Bleeding",
+    "Bronchospasm",
+    "Laryngospasm"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Pneumothorax",
+    "Respiratory failure",
+    "Cardiac arrhythmias"
+  ],
+  "pearlsHighYield": [
+    "Systematic approach",
+    "Adequate sedation",
+    "Continuous monitoring"
+  ],
+  "postOpPriorities": [
+    "Monitor oxygen saturation",
+    "NPO until gag reflex returns",
+    "Pathology results",
+    "Chest X-ray if biopsy"
+  ],
+  "relatedProcedures": [
+    "rigid-bronchoscopy",
+    "bal",
+    "endobronchial-biopsy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The tracheal bifurcation (carina) is at what vertebral level, and which main bronchus is the target for foreign body aspiration?",
+      "answer": "T4-T5 (at the sternal angle of Louis). The right main bronchus is more commonly the site of foreign body aspiration because it is wider (1.2 vs 1.0 cm), shorter (2.5 vs 5.0 cm), and more vertically oriented (25° vs 45° from tracheal axis) — all due to the aortic arch displacing the left bronchus.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the bronchial anatomy that the bronchoscopist must identify — name the right-sided segmental bronchi of the upper lobe.",
+      "answer": "Right upper lobe: Apical (B1), Posterior (B2), Anterior (B3). The right upper lobe bronchus is 'eparterial' (arises above the right pulmonary artery). The right middle lobe has Lateral (B4) and Medial (B5). Right lower lobe: Superior (B6), Medial basal (B7), Anterior basal (B8), Lateral basal (B9), Posterior basal (B10).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the bronchial tree visible during bronchoscopy?",
+      "answer": "Bronchial arteries (1 right, 2 left from thoracic aorta) supply the bronchial mucosa and wall. These are visible as submucosal vessels on bronchoscopy. In chronic inflammatory conditions (bronchiectasis, TB, cystic fibrosis), bronchial arteries hypertrophy massively and can cause life-threatening hemoptysis. Bronchial artery embolization is the treatment for massive hemoptysis.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication of transbronchial biopsy during flexible bronchoscopy?",
+      "answer": "Pneumothorax (1-5%) from puncturing the visceral pleura during peripheral parenchymal biopsy. Also: hemorrhage (1-2%, usually self-limited), desaturation, and bronchospasm. Always obtain CXR post-transbronchial biopsy. Fluoroscopic guidance during biopsy reduces pneumothorax rate. Navigational bronchoscopy (electromagnetic navigation) improves peripheral lesion access.",
+      "level": "attending"
+    },
+    {
+      "question": "What are the indications for rigid versus flexible bronchoscopy?",
+      "answer": "Rigid: massive hemoptysis (better suction, airway control), foreign body removal (better grasping tools), tracheal/bronchial stenting, tumor debulking, airway dilation. Flexible: diagnostic evaluation, BAL (bronchoalveolar lavage), transbronchial biopsy, EBUS-TBNA (endobronchial ultrasound), ICU bedside evaluation, difficult intubation adjunct. Rigid requires general anesthesia; flexible can be done with moderate sedation.",
+      "level": "attending"
+    }
+  ]
+}

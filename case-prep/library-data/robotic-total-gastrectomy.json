@@ -1,0 +1,94 @@
+{
+  "id": "robotic-total-gastrectomy",
+  "name": "Robotic Total Gastrectomy",
+  "category": "Upper GI",
+  "overview": "Robot-assisted total gastrectomy with enhanced precision",
+  "indications": [
+    "Gastric cancer",
+    "Complex anatomy",
+    "Previous surgery",
+    "Surgeon preference"
+  ],
+  "keyAnatomy": [
+    "Stomach",
+    "Esophagus",
+    "Duodenum",
+    "Lymph node stations",
+    "Splenic hilum"
+  ],
+  "preOpConsiderations": [
+    "Robot availability",
+    "Extended time",
+    "Learning curve",
+    "Conversion readiness"
+  ],
+  "positioning": "Supine, reverse Trendelenburg",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Camera port",
+    "Working arms",
+    "Assistant ports"
+  ],
+  "criticalSteps": [
+    "Robot docking",
+    "Precise lymphadenectomy",
+    "Vessel control",
+    "Intracorporeal reconstruction",
+    "Quality control"
+  ],
+  "commonPitfalls": [
+    "Collision issues",
+    "Longer operative time",
+    "Robot malfunction",
+    "Learning curve"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Bleeding",
+    "Conversion need",
+    "Pancreatic injury"
+  ],
+  "pearlsHighYield": [
+    "3D visualization",
+    "Wristed instruments",
+    "Tremor filtration"
+  ],
+  "postOpPriorities": [
+    "Leak surveillance",
+    "Early feeding",
+    "Pain control",
+    "Enhanced recovery"
+  ],
+  "relatedProcedures": [
+    "lap-total-gastrectomy",
+    "robotic-sleeve-gastrectomy",
+    "robotic-esophagectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The lesser omentum develops from which embryologic mesentery, and what critical structure traverses it?",
+      "answer": "The ventral mesogastrium. The hepatoduodenal ligament (part of the lesser omentum) contains the portal triad: CBD (right), hepatic artery proper (left), portal vein (posterior). Also contains left/right gastric vessels and station 1, 3, 5 lymph nodes.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is station 12a in robotic D2 lymphadenectomy, and why is it challenging?",
+      "answer": "Hepatoduodenal ligament nodes along the proper hepatic artery. Requires skeletonizing the hepatic artery, portal vein, and CBD — injury to any is catastrophic. Robotic wristed instruments excel here for precise dissection in this confined space.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common celiac trunk variant relevant to gastrectomy?",
+      "answer": "A replaced left hepatic artery from the left gastric artery (10-15%). If unrecognized and ligated with the left gastric during gastrectomy, it causes left hepatic lobe ischemia. Must be identified in the gastrohepatic ligament and preserved.",
+      "level": "resident"
+    },
+    {
+      "question": "What causes post-gastrectomy pancreatic fistula (3-8% incidence)?",
+      "answer": "Thermal or mechanical injury to pancreatic body/tail during station 11 (splenic artery) node dissection, omentectomy along the inferior pancreatic border, or retraction injury. Defined by drain amylase >3x serum on POD3 (ISGPF). Most are grade A/B managed conservatively.",
+      "level": "attending"
+    },
+    {
+      "question": "What does the FLOT4 trial (2019, Lancet) establish for gastric cancer treatment?",
+      "answer": "Perioperative FLOT (5-FU, leucovorin, oxaliplatin, docetaxel) x4 pre- and post-op significantly improved OS versus ECF/ECX (median 50 vs 35 months). FLOT4 is now the Western standard for ≥T2 or node-positive gastric cancer.",
+      "level": "attending"
+    }
+  ]
+}

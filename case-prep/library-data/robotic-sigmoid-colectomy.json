@@ -1,0 +1,94 @@
+{
+  "id": "robotic-sigmoid-colectomy",
+  "name": "Robotic Sigmoid Colectomy",
+  "category": "Colorectal",
+  "overview": "Robot-assisted sigmoid resection with enhanced precision in tight pelvis",
+  "indications": [
+    "Sigmoid diverticular disease",
+    "Sigmoid cancer",
+    "Complex pelvic anatomy",
+    "Male patient"
+  ],
+  "keyAnatomy": [
+    "Sigmoid vessels",
+    "Left colic vessels",
+    "Left ureter",
+    "Presacral space",
+    "Rectosigmoid junction"
+  ],
+  "preOpConsiderations": [
+    "Robot setup",
+    "Extended operative time",
+    "Bowel prep",
+    "DVT prophylaxis"
+  ],
+  "positioning": "Supine, steep Trendelenburg, lithotomy",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Camera port umbilical",
+    "Working arms bilateral",
+    "Assistant port"
+  ],
+  "criticalSteps": [
+    "Robot docking",
+    "Mobilize sigmoid with precision",
+    "Protect ureters",
+    "Intracorporeal anastomosis",
+    "Leak test"
+  ],
+  "commonPitfalls": [
+    "Collision issues",
+    "Longer operative time",
+    "Robot malfunction",
+    "Port site problems"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Ureteral injury",
+    "Conversion to open",
+    "Bleeding"
+  ],
+  "pearlsHighYield": [
+    "Wristed instruments in pelvis",
+    "Excellent visualization",
+    "Precise dissection"
+  ],
+  "postOpPriorities": [
+    "Monitor for leak",
+    "Early feeding",
+    "Enhanced recovery",
+    "Mobilization"
+  ],
+  "relatedProcedures": [
+    "robotic-low-anterior-resection",
+    "lap-sigmoid-colectomy",
+    "robotic-right-hemicolectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic basis for the sigmoid mesocolon's length and mobility, and why does this matter for robotic port placement?",
+      "answer": "The sigmoid colon derives from hindgut and retains a long mesentery because it never fuses with the posterior body wall (unlike the ascending colon). This mesenteric redundancy means the sigmoid is mobile — creating a wide range of anatomic positions. Robotic port placement must account for this variability: the camera port is placed at or above the umbilicus, with working ports triangulated toward the left lower quadrant.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the 'medial-to-lateral' dissection plane in robotic sigmoid colectomy, and what retroperitoneal structures must be identified?",
+      "answer": "The medial-to-lateral approach starts at the sacral promontory, incising peritoneum to enter the avascular plane between the mesocolon and Gerota's/Toldt's fascia. Structures identified: left ureter (crossing the iliac bifurcation), left gonadal vessels, left common iliac artery, and the hypogastric nerve plexus. The robot's 3D magnification and wristed instruments make identification of the ureter significantly easier than laparoscopic dissection.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the critical vascular pedicle in sigmoid colectomy, and what determines whether to ligate the IMA at its origin versus distally?",
+      "answer": "The IMA is the critical pedicle. High ligation (at the aortic origin) provides a longer vascular pedicle for adequate lymph node harvest and proximal reach for a tension-free anastomosis. Low ligation (preserving the left colic artery) maintains better splenic flexure blood supply via the marginal artery. For cancer: high ligation is standard (adequate lymphadenectomy). For diverticular disease: low ligation is acceptable.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common cause of anastomotic leak after robotic sigmoid colectomy, and how does ICG fluorescence angiography reduce its incidence?",
+      "answer": "Inadequate perfusion to the anastomosis is the primary modifiable risk factor (leak rate: 3-8%). ICG fluorescence angiography (IV ICG + near-infrared camera) visualizes real-time bowel perfusion at the planned transection site. If the demarcation line shows poor perfusion, the transection is moved proximally to well-perfused bowel. Studies show ICG reduces anastomotic leak rates from 7.4% to 2.5% in colorectal surgery.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the role of complete mesocolic excision (CME) in robotic sigmoid colectomy for cancer, and what does the evidence show?",
+      "answer": "CME maintains the mesenteric envelope intact (no tears) with central vascular ligation at the IMA origin — analogous to TME for rectal cancer. The robotic platform facilitates the precise sharp dissection required for intact mesocolic planes. Hohenberger's data: CME improved 5-year cancer-specific survival by 15% compared to conventional surgery. The quality of CME correlates with the number of lymph nodes harvested (target: ≥12 nodes).",
+      "level": "attending"
+    }
+  ]
+}

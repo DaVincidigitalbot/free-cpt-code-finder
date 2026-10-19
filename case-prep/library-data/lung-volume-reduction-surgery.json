@@ -1,0 +1,87 @@
+{
+  "id": "lung-volume-reduction-surgery",
+  "name": "Lung Volume Reduction Surgery",
+  "category": "Thoracic",
+  "overview": "Surgical resection of emphysematous lung tissue",
+  "indications": [
+    "Severe emphysema",
+    "Heterogeneous disease",
+    "Maximal medical therapy",
+    "Suitable candidate"
+  ],
+  "keyAnatomy": [
+    "Upper lobe emphysema",
+    "Lower lobe compression",
+    "Pleural space",
+    "Fissures"
+  ],
+  "preOpConsiderations": [
+    "CT scan pattern",
+    "Pulmonary function",
+    "Exercise capacity",
+    "Surgical risk"
+  ],
+  "positioning": "Supine for bilateral VATS",
+  "portPlacementOrIncision": [
+    "Bilateral VATS",
+    "Median sternotomy option"
+  ],
+  "criticalSteps": [
+    "Identify target areas",
+    "Staple resection",
+    "Buttress material",
+    "Check for leaks",
+    "Chest tube placement"
+  ],
+  "commonPitfalls": [
+    "Prolonged air leak",
+    "Respiratory failure",
+    "Wrong target area",
+    "Bilateral procedure morbidity"
+  ],
+  "majorComplications": [
+    "Prolonged air leak",
+    "Respiratory failure",
+    "Death 5-10%",
+    "Limited benefit"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Respiratory monitoring",
+    "Air leak management",
+    "Pulmonary rehabilitation",
+    "Long-term follow-up"
+  ],
+  "relatedProcedures": [
+    "lung-transplant",
+    "bronchoscopic-volume-reduction",
+    "bullectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic basis of the paraseptal (distal acinar) distribution of emphysema targeted by LVRS?",
+      "answer": "The distal acinus develops last during fetal alveolarization (continuing postnatally until age 8). The alveolar septa in the lung periphery are thinnest and most susceptible to protease destruction (alpha-1 antitrypsin deficiency) and oxidant damage (smoking). Paraseptal/upper-lobe emphysema creates large subpleural bullae with destroyed alveolar walls but preserved central airways — this 'target area' of non-functional lung is what LVRS resects, decompressing adjacent relatively preserved lung tissue.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the mediastinal shift dynamics after unilateral LVRS, and how does bilateral LVRS differ technically?",
+      "answer": "After unilateral LVRS, the mediastinum may shift toward the operated side as the resected lung occupies less volume. Bilateral LVRS (performed via median sternotomy or staged bilateral VATS) balances the volume reduction symmetrically. The NETT trial used bilateral LVRS for upper-lobe-predominant disease. Current practice prefers staged bilateral VATS (4-6 weeks apart) to reduce the perioperative risk of simultaneous bilateral surgery and allow assessment of first-side response before committing to the second side.",
+      "level": "resident"
+    },
+    {
+      "question": "What buttressing materials are used on LVRS staple lines, and what is the evidence for each?",
+      "answer": "Bovine pericardium (Peristrips): most commonly used, reduces air leak duration from 10-14 days to 5-7 days. ePTFE (Gore Seamguard): synthetic, non-absorbable, equivalent to bovine pericardium. PGA/TMC (Biodesign, absorbable): newer option. Without buttressing, prolonged air leak (>7 days) occurs in 45-50% of LVRS patients. With buttressing, this drops to 20-25%. The air leak is the #1 source of morbidity — it increases hospital stay, chest tube duration, and infection risk.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the NETT high-risk subgroup that should NOT undergo LVRS?",
+      "answer": "FEV1 ≤20% predicted AND either homogeneous emphysema distribution OR DLCO ≤20% predicted. This subgroup had 30-day mortality of 16% with LVRS (versus 0% medical therapy). These patients are candidates for endobronchial valve therapy or lung transplantation instead. The NETT trial's most important contribution was defining who should NOT have LVRS — saving lives through patient exclusion rather than inclusion.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the mechanism of action of endobronchial valves (Zephyr), and what anatomic prerequisite must be confirmed before placement?",
+      "answer": "Zephyr valves are one-way silicone duckbill valves placed bronchoscopically in segmental bronchi of the target lobe. They allow air and mucus OUT during exhalation but prevent air entry during inhalation → progressive lobar atelectasis (volume reduction without surgery). The prerequisite: absence of collateral ventilation to the target lobe, confirmed by the Chartis catheter (measures airflow through interlobar fissure). Intact fissures predict success. If collateral ventilation exists, the target lobe won't collapse.",
+      "level": "attending"
+    }
+  ]
+}

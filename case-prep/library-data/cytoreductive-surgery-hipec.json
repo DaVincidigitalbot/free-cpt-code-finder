@@ -1,0 +1,93 @@
+{
+  "id": "cytoreductive-surgery-hipec",
+  "name": "Cytoreductive Surgery with HIPEC",
+  "category": "Oncology",
+  "overview": "Maximal tumor debulking followed by heated intraperitoneal chemotherapy",
+  "indications": [
+    "Peritoneal carcinomatosis",
+    "Pseudomyxoma peritonei",
+    "Selected ovarian cancer",
+    "Mesothelioma"
+  ],
+  "keyAnatomy": [
+    "Entire peritoneal cavity",
+    "Diaphragm",
+    "Pelvis",
+    "Omentum",
+    "Small bowel"
+  ],
+  "preOpConsiderations": [
+    "Peritoneal cancer index",
+    "Cardiac evaluation",
+    "Renal function",
+    "Multidisciplinary planning"
+  ],
+  "positioning": "Supine with access to entire abdomen",
+  "portPlacementOrIncision": [
+    "Extended midline",
+    "Bilateral subcostal extension"
+  ],
+  "criticalSteps": [
+    "Complete cytoreduction",
+    "Assess completeness",
+    "Install HIPEC circuit",
+    "Perfusion with chemotherapy",
+    "Remove circuit and close"
+  ],
+  "commonPitfalls": [
+    "Incomplete cytoreduction",
+    "Perfusion complications",
+    "Hyperthermia injury",
+    "Anastomotic leak"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Renal toxicity",
+    "Neutropenia",
+    "Mortality 2-5%"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "ICU monitoring",
+    "Renal function",
+    "Anastomotic monitoring",
+    "Long-term oncologic care"
+  ],
+  "relatedProcedures": [
+    "peritonectomy",
+    "omentectomy",
+    "multivisceral-resection"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "The peritoneum develops from lateral plate mesoderm. Peritoneal carcinomatosis from colorectal cancer follows a specific embryologic-based distribution pattern. Why does the cancer preferentially deposit in certain peritoneal regions?",
+      "answer": "Peritoneal metastases follow gravity, fluid circulation patterns, and embryologic peritoneal reflections. Preferential sites: (1) the pouch of Douglas/rectovesical pouch (most dependent area in the pelvis — gravity), (2) the right paracolic gutter (peritoneal fluid circulates clockwise from pelvis up the right gutter to the right subdiaphragmatic space), (3) the greater omentum (the 'policeman of the abdomen' — rich in milky spots containing macrophages that TRAP tumor cells), (4) the ligament of Treitz (a peritoneal fold that creates a stasis point). The Peritoneal Cancer Index (PCI) maps these 13 regions to quantify disease burden — understanding the embryologic basis of peritoneal reflections is essential for complete cytoreduction.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "During cytoreduction, you need to perform a total parietal peritonectomy of the right upper quadrant. What structures are you stripping peritoneum off of, and what structure absolutely CANNOT be injured during this dissection?",
+      "answer": "You're stripping peritoneum off: the right hemidiaphragm, the liver surface (Glisson's capsule), the right subhepatic space (Morrison's pouch), the right paracolic gutter, and the hepatoduodenal ligament. The structure that CANNOT be injured: the right hepatic vein (and the IVC behind the liver). The peritoneum on the bare area of the liver (where the liver directly contacts the diaphragm without peritoneal covering) is the most treacherous zone — here the hepatic veins are just beneath the surface, and a tear means potentially fatal hemorrhage. Also, the right phrenic nerve on the diaphragm — injury causes right hemidiaphragm paralysis and respiratory compromise.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "HIPEC uses heated chemotherapy (typically mitomycin C or oxaliplatin) circulated in the abdomen at 41-43°C. Why does hyperthermia enhance drug cytotoxicity, and at what temperature do you start causing thermal injury to normal tissue?",
+      "answer": "Hyperthermia enhances cytotoxicity through: (1) increased drug penetration into tumor nodules (heat increases cell membrane permeability), (2) impaired DNA repair mechanisms in cancer cells at elevated temperatures, (3) synergistic cytotoxicity — heat makes cancer cells 10-100x more sensitive to alkylating agents, (4) increased tumor blood flow and drug delivery via vasodilation. Thermal injury to normal tissue begins at 43°C — the therapeutic window is narrow (41-43°C). Above 43°C, protein denaturation begins in normal peritoneal mesothelial cells, increasing the risk of anastomotic leaks, bowel injury, and adhesion formation. Intraperitoneal temperature is continuously monitored at 4+ points to ensure homogeneous heating without exceeding 43°C.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "The single most feared surgical complication after CRS/HIPEC is anastomotic leak. Why is the leak rate higher than standard colorectal surgery, and what's the reported rate?",
+      "answer": "Leak rates after CRS/HIPEC: 5-12% (vs 3-6% for standard colorectal). Higher because: (1) chemotherapy (especially mitomycin C) directly impairs wound healing by inhibiting fibroblast proliferation at the anastomotic level, (2) hyperthermia causes thermal injury to the serosal surface of the bowel, weakening the wall, (3) extensive peritonectomy devascularizes bowel mesentery in areas adjacent to the stripping, (4) these are long operations (8-12 hours) with significant third-spacing, hypoalbuminemia, and physiologic stress. Some surgeons delay the HIPEC until AFTER performing all anastomoses to protect the suture lines. Others use a protective diverting ileostomy for all rectal anastomoses. If in doubt, bring out a stoma — a leak in this setting has 30-50% mortality.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "A patient with colorectal peritoneal carcinomatosis has a PCI of 22. You open the abdomen and confirm extensive disease. Do you proceed with CRS/HIPEC? What's the magic number?",
+      "answer": "NO — close and abort. The magic number for colorectal carcinomatosis is PCI ≤20 (some centers use ≤17). Above PCI 20, complete cytoreduction (CC-0/CC-1) is rarely achievable, and the survival benefit disappears — you're inflicting massive morbidity (50-70% complication rate) without oncologic benefit. The Sugarbaker data clearly shows: CC-0 resection + HIPEC with PCI ≤20 = median survival 30-50 months. PCI >20 or CC-2/3 = median survival 6-12 months (same as systemic chemo alone, but with 10x the morbidity). The other absolute contraindications to proceeding: unresectable hepatic metastases, retroperitoneal invasion, massive small bowel involvement requiring resection of >1.5m of small bowel (short gut), and poor performance status. The hardest part of this operation is knowing when NOT to do it.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sebaceous-cyst-excision",
+  "name": "Sebaceous Cyst Excision",
+  "category": "Skin/Soft Tissue",
+  "overview": "Surgical removal of epidermoid or sebaceous cysts",
+  "indications": [
+    "Infected cyst",
+    "Recurrent inflammation",
+    "Cosmetic concerns",
+    "Diagnostic uncertainty"
+  ],
+  "keyAnatomy": [
+    "Cyst wall",
+    "Surrounding skin",
+    "Subcutaneous tissue",
+    "Hair follicles"
+  ],
+  "preOpConsiderations": [
+    "Active infection status",
+    "Previous drainage",
+    "Size and location",
+    "Malignancy risk"
+  ],
+  "positioning": "Optimize lesion access",
+  "portPlacementOrIncision": [
+    "Elliptical excision",
+    "Include punctum"
+  ],
+  "criticalSteps": [
+    "Mark elliptical incision",
+    "Excise cyst with intact wall",
+    "Remove all cyst contents",
+    "Irrigate if infected",
+    "Primary closure"
+  ],
+  "commonPitfalls": [
+    "Cyst rupture",
+    "Incomplete removal",
+    "Infection",
+    "Recurrence"
+  ],
+  "majorComplications": [
+    "Recurrence",
+    "Infection",
+    "Poor cosmesis",
+    "Scarring"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Wound care",
+    "Infection prevention",
+    "Pathology review",
+    "Scar management"
+  ],
+  "relatedProcedures": [
+    "lipoma-excision",
+    "pilonidal-cyst-excision",
+    "incision-drainage"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "Most 'sebaceous cysts' are actually epidermal inclusion cysts. What's the embryologic difference between a true sebaceous cyst, an epidermoid cyst, and a dermoid cyst?",
+      "answer": "Epidermoid cyst (most common): lined by keratinized stratified squamous epithelium (ectodermal origin) — contains laminated keratin ('cheesy' material). Arises from implantation of surface ectoderm into the dermis (trauma, surgery) or occlusion of a pilosebaceous unit. TRUE sebaceous cyst (steatocystoma): lined by sebaceous gland epithelium (also ectodermal), contains oily/sebaceous material, NOT keratin. Rare. Dermoid cyst: contains BOTH ectodermal AND mesodermal elements (hair follicles, sweat glands, even cartilage) — arises from embryonic inclusion of ectoderm along fusion lines during development. Found at embryonic fusion sites: lateral brow, midline nose, midline scalp. Dermoids can have intracranial extension — always image before excising a midline nasal dermoid.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You're excising a 'sebaceous cyst' from the posterior triangle of the neck. What's in the posterior triangle that can ruin your day during a 'simple' cyst excision?",
+      "answer": "The spinal accessory nerve (CN XI) — it crosses the posterior triangle superficially, running from the posterior border of the SCM to the anterior border of the trapezius. It's the most commonly injured nerve in elective neck surgery. Injury causes trapezius denervation: shoulder drop, inability to abduct the arm above 90°, chronic shoulder pain, and scapular winging. The nerve is often embedded in or immediately deep to the fascia that these cysts sit on. Other structures at risk: external jugular vein (crosses superficially), transverse cervical artery, and the brachial plexus trunks deep in the triangle.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "The cyst ruptured during your dissection and now the wound is contaminated with keratin debris. What happens if you leave keratin fragments behind, and how does this relate to the blood supply of the wound?",
+      "answer": "Keratin is a potent foreign body inflammatory stimulus — retained keratin fragments incite a vigorous granulomatous inflammatory reaction, creating painful nodules, chronic drainage, and recurrence. The tissue becomes highly vascularized (inflammation = neovascularization), forming granulation tissue around each keratin fragment. This is actually a foreign body giant cell reaction — macrophages fuse into Langhans-type giant cells trying to engulf the keratin. Prevention: irrigate copiously after rupture, meticulously remove all visible cyst wall fragments and keratin material. If the cyst was infected at the time of excision, the recurrence rate jumps to 30% (vs 3% for intact excision) because of retained microscopic wall fragments.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "Your pathology comes back and the 'sebaceous cyst' shows squamous cell carcinoma arising within the cyst wall. How common is this, and what do you do now?",
+      "answer": "Malignant transformation of an epidermal inclusion cyst to SCC is rare (<1%) but well-documented, especially in long-standing cysts. Risk factors: chronic inflammation, prior radiation to the area, immunosuppression. The SCC arising in a cyst tends to be well-differentiated but can be locally aggressive. Management: (1) review margins — if the cyst was excised intact with clear margins, this may be adequate for well-differentiated SCC, (2) if margins are positive or close, re-excise with appropriate margins (typically 1cm for well-differentiated SCC), (3) consider nodal evaluation if the SCC is high-risk (>2cm, poorly differentiated, perineural invasion), (4) refer to surgical oncology for formal staging. The lesson: ALWAYS send 'simple' cyst specimens to pathology. It's not always what you think.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "The patient has an infected, erythematous, fluctuant 'sebaceous cyst.' The ED drained it and packed it. Now it's back, bigger than before. What's the correct management algorithm?",
+      "answer": "The correct algorithm: (1) ACUTE phase (infected/inflamed): I&D and packing only — do NOT attempt excision in an infected field. The cyst wall is friable, planes are obliterated, and you'll leave fragments behind (guaranteed recurrence). (2) WAIT 4-6 weeks for inflammation to completely resolve — the cyst wall will reconstitute and become a defined, dissectable structure again. (3) DEFINITIVE excision once cool: make an elliptical incision INCORPORATING the punctum (the central pore), dissect the cyst in toto without rupturing it. The punctum is the key — it's the communication between the cyst and the surface, and leaving it guarantees recurrence. The rookie mistake: trying to be a hero by excising during the acute infection. Patience here prevents recurrence and gives a better cosmetic result.",
+      "level": "attending"
+    }
+  ]
+}

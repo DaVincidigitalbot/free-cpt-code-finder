@@ -1,0 +1,91 @@
+{
+  "id": "liver-trauma-repair",
+  "name": "Liver Laceration Repair",
+  "category": "Trauma",
+  "overview": "Surgical management of traumatic liver injuries",
+  "indications": [
+    "High-grade liver injury",
+    "Hemodynamic instability",
+    "Ongoing bleeding"
+  ],
+  "keyAnatomy": [
+    "Liver segments",
+    "Portal triad",
+    "Hepatic veins",
+    "IVC",
+    "Glisson's capsule"
+  ],
+  "preOpConsiderations": [
+    "Injury grade",
+    "Associated injuries",
+    "Blood products",
+    "Anesthesia"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Midline",
+    "Bilateral subcostal extension"
+  ],
+  "criticalSteps": [
+    "Control bleeding",
+    "Pack liver",
+    "Assess injury",
+    "Repair or resection",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "IVC injury",
+    "Bile leak",
+    "Inadequate packing",
+    "Exsanguination"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Bile leak",
+    "IVC injury",
+    "Liver failure"
+  ],
+  "pearlsHighYield": [
+    "Pringle maneuver",
+    "Perihepatic packing",
+    "Damage control approach"
+  ],
+  "postOpPriorities": [
+    "ICU monitoring",
+    "Liver function",
+    "Bile leak surveillance",
+    "Serial imaging"
+  ],
+  "relatedProcedures": [
+    "liver-resection",
+    "angioembolization",
+    "damage-control-surgery"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The liver is the largest solid organ derived from foregut endoderm. What makes it particularly prone to injury in blunt trauma?",
+      "answer": "Its large size (occupying the entire right upper quadrant), fixed position (attached by coronary/triangular ligaments and IVC), solid parenchyma with minimal elasticity, and dual blood supply (making it highly vascular — receives 25% of cardiac output). Deceleration injuries cause tearing at the ligamentous attachments, especially at the bare area and hepatic vein insertions.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the bare area of the liver, and what structure lies directly behind it?",
+      "answer": "The posterior superior surface of the right lobe between the coronary ligaments — the only portion of the liver not covered by peritoneum. The IVC lies directly posterior in the hepatic fossa. Injuries to the bare area can involve the retrohepatic IVC, which carries 50-80% mortality.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the liver that must be considered in laceration repair?",
+      "answer": "Dual supply: hepatic artery (25-30% of blood flow, 50% of oxygen) and portal vein (70-75% of blood flow, 50% of oxygen). The hepatic veins (right, middle, left) drain into the IVC. Massive hepatic hemorrhage comes from the hepatic veins and IVC — the Pringle maneuver (clamping portal triad) controls arterial/portal bleeding but NOT hepatic venous hemorrhage.",
+      "level": "resident"
+    },
+    {
+      "question": "What is hepatic packing, and when is it used versus definitive repair?",
+      "answer": "Perihepatic packing with laparotomy pads to tamponade hemorrhage — the cornerstone of damage control for liver injuries. Used when: grade IV-V injuries, coagulopathy (lethal triad), inability to identify bleeding source, and bilobar injuries. Packs are removed at planned re-exploration (24-72 hours). Definitive repair (hepatotomy with selective ligation, hepatic resection) is performed only in stable patients.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the role of angioembolization in hepatic trauma?",
+      "answer": "Used for: active arterial extravasation (blush on CT), hepatic artery pseudoaneurysm, or persistent bleeding after packing. Performed by interventional radiology — selective embolization of the offending arterial branch. Success rate: 80-90%. The liver tolerates hepatic artery embolization because the portal vein provides sufficient perfusion. Used as adjunct to NOM or after packing.",
+      "level": "attending"
+    }
+  ]
+}

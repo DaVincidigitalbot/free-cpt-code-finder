@@ -1,0 +1,88 @@
+{
+  "id": "intraosseous-access",
+  "name": "Intraosseous Access",
+  "category": "Critical Care",
+  "overview": "Emergency vascular access through bone marrow",
+  "indications": [
+    "Failed IV access",
+    "Cardiovascular collapse",
+    "Pediatric emergencies",
+    "Mass casualty events"
+  ],
+  "keyAnatomy": [
+    "Tibial tuberosity",
+    "Proximal humerus",
+    "Sternum",
+    "Bone marrow",
+    "Cortical bone"
+  ],
+  "preOpConsiderations": [
+    "Site selection",
+    "Contraindications",
+    "Equipment availability",
+    "Alternative access"
+  ],
+  "positioning": "Depends on insertion site",
+  "portPlacementOrIncision": [
+    "Percutaneous insertion",
+    "Various anatomic sites"
+  ],
+  "criticalSteps": [
+    "Identify landmarks",
+    "Insert IO needle",
+    "Confirm marrow aspiration",
+    "Secure needle",
+    "Begin infusion"
+  ],
+  "commonPitfalls": [
+    "Needle malposition",
+    "Extravasation",
+    "Infection",
+    "Compartment syndrome"
+  ],
+  "majorComplications": [
+    "Osteomyelitis",
+    "Compartment syndrome",
+    "Fracture",
+    "Extravasation"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor infusion site",
+    "Establish traditional IV",
+    "Remove when no longer needed",
+    "Pain management"
+  ],
+  "relatedProcedures": [
+    "central-line-placement",
+    "peripheral-iv-access",
+    "arterial-line-placement"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic basis of the intraosseous vascular space?",
+      "answer": "The medullary cavity develops from mesoderm-derived mesenchyme that differentiates into hematopoietic tissue and sinusoidal vasculature. The intramedullary venous sinusoids are non-collapsible (rigid bony walls) and drain into the central venous system -- this is why IO access works even in cardiovascular collapse when peripheral veins are inaccessible.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the preferred site for intraosseous access in adults versus children?",
+      "answer": "Adults: proximal tibia (anteromedial flat surface, 2cm below tibial tuberosity) or humeral head (greater tuberosity). Children: proximal tibia (same landmark, but the growth plate must be avoided -- insert 1-2cm below the tuberosity, angling slightly away from the growth plate). Sternal IO (FAST1) is another adult option.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the venous drainage pathway from the IO space to the central circulation?",
+      "answer": "Intramedullary sinusoids -> nutrient veins -> periosteal veins -> regional veins (e.g., popliteal vein from tibial IO) -> central venous system. Flow rates of 70-150 mL/min can be achieved under pressure (comparable to a 20-gauge peripheral IV). All IV fluids and medications can be administered IO.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the complications of intraosseous access?",
+      "answer": "Extravasation (most common, 12% -- subperiosteal or soft tissue), osteomyelitis (<1%), compartment syndrome (from extravasation into the leg), fat embolism (theoretical), growth plate injury in children, and fracture through the insertion site (rare). IO should be converted to conventional IV access within 24 hours.",
+      "level": "attending"
+    },
+    {
+      "question": "What are the contraindications to intraosseous access?",
+      "answer": "Fracture of the target bone (fluid extravasates through the fracture site), previous IO attempt in the same bone (within 24-48 hours), infection/cellulitis over the insertion site, prosthetic joint, and osteopetrosis (cannot penetrate cortex). Relative: severe osteoporosis (poor cortical purchase).",
+      "level": "attending"
+    }
+  ]
+}

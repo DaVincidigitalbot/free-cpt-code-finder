@@ -1,0 +1,92 @@
+{
+  "id": "tunneled-dialysis-catheter",
+  "name": "Tunneled Dialysis Catheter Placement",
+  "category": "Vascular",
+  "overview": "Placement of long-term hemodialysis access catheter",
+  "indications": [
+    "Temporary dialysis access",
+    "Bridge to permanent access",
+    "Failed AV access",
+    "Urgent dialysis needs"
+  ],
+  "keyAnatomy": [
+    "Internal jugular vein",
+    "Subclavian vein",
+    "Superior vena cava",
+    "Right atrium"
+  ],
+  "preOpConsiderations": [
+    "Previous central access",
+    "Vessel patency",
+    "Infection risk",
+    "Future access planning"
+  ],
+  "positioning": "Supine with head turned",
+  "portPlacementOrIncision": [
+    "Percutaneous insertion",
+    "Subcutaneous tunnel"
+  ],
+  "criticalSteps": [
+    "Ultrasound-guided access",
+    "Create subcutaneous tunnel",
+    "Insert tunneled catheter",
+    "Confirm position",
+    "Test function"
+  ],
+  "commonPitfalls": [
+    "Central stenosis",
+    "Infection",
+    "Thrombosis",
+    "Malposition"
+  ],
+  "majorComplications": [
+    "Infection",
+    "Central stenosis",
+    "Thrombosis",
+    "Bleeding"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Chest X-ray confirmation",
+    "Catheter function testing",
+    "Infection prevention",
+    "Plan permanent access"
+  ],
+  "relatedProcedures": [
+    "av-fistula-creation",
+    "av-graft-placement",
+    "catheter-removal"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "The right internal jugular vein develops from the anterior cardinal vein. Why is the RIGHT IJ the preferred access site for tunneled dialysis catheters over the LEFT?",
+      "answer": "The right anterior cardinal vein provides a STRAIGHT path to the SVC and right atrium — the right IJ runs directly into the right brachiocephalic vein, then straight into the SVC. The left IJ must cross the midline via the left brachiocephalic vein, traversing at an angle over the aortic arch. This creates: (1) more catheter kinking at the left brachiocephalic vein, (2) higher risk of central venous stenosis from catheter impingement on the vein wall, (3) worse flow rates due to the curved trajectory. Left IJ catheters have higher malfunction rates and shorter catheter life.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You're using ultrasound to access the right IJ. What structure lies immediately posterior to the IJ in the carotid sheath, and what landmark tells you you're too low in the neck?",
+      "answer": "The vagus nerve lies between and posterior to the IJ and carotid artery within the carotid sheath. Needle injury causes hoarseness (recurrent laryngeal branch) or hemodynamic instability (carotid body stimulation). You're too low when you see the confluence of the IJ and subclavian vein (the venous angle) — access here risks pneumothorax and makes it difficult to create the subcutaneous tunnel. Ideal access is at the apex of the triangle formed by the two heads of the sternocleidomastoid muscle, typically at the level of the cricoid cartilage.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "The catheter tip should rest at the cavoatrial junction. What happens if the tip is too high (mid-SVC), and what happens if it's too low (right atrium)?",
+      "answer": "Too high (mid-SVC): catheter abuts the SVC wall, causing fibrin sheath formation, vessel wall erosion, and eventually SVC stenosis/thrombosis. Flow rates are also lower because the lumens suck against the wall (especially during recirculation positioning). Too low (deep in RA or across tricuspid valve): risk of cardiac arrhythmias (catheter irritating the conduction system), tricuspid valve damage, cardiac perforation with tamponade, and right atrial thrombus. The sweet spot is the cavoatrial junction — confirmed on fluoroscopy as the catheter tip at the junction of the SVC shadow and the right heart border.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "Your dialysis patient's catheter flows well for 3 months, then develops progressively poor flow with high venous pressures during dialysis. Lines have been reversed, TPA locked, and it still doesn't work. What's the diagnosis?",
+      "answer": "Fibrin sheath formation — a biofilm sleeve that encases the entire catheter from insertion site to tip, acting as a one-way valve that allows infusion but impairs aspiration. It's the #1 cause of late catheter dysfunction, occurring in virtually 100% of catheters by 3 months. Treatment options: (1) fibrin sheath stripping — snare the catheter tip from a femoral approach and strip the sheath, (2) catheter exchange over a wire with balloon disruption of the sheath, (3) TPA infusion (already failed in this case). Simply exchanging the catheter without disrupting the sheath leads to recurrence because the sheath remains in the vein.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "A patient develops massive lower extremity lymphedema after bilateral inguinofemoral lymph node dissection. What's the rate, and what could you have done differently?",
+      "answer": "Rate: 30-70% after bilateral inguinofemoral lymph node dissection — it's the most disabling long-term complication. Prevention strategies: (1) Sentinel lymph node biopsy (SLNB) — the GROINSS-V and GOG-173 trials validated SLNB for vulvar cancer <4cm with clinically negative groins, reducing lymphedema to <5%, (2) preserve the saphenous vein (Catalona modification) — reduces lymphedema by 30-50%, (3) sartorius muscle transposition over the femoral vessels (protects vessels and reduces dead space), (4) meticulous groin wound care with closed suction drains for 7-14 days. The paradigm shift: we no longer do radical en bloc vulvectomy with bilateral groin dissection for every vulvar cancer. SLNB has revolutionized vulvar cancer surgery just as it did for melanoma and breast cancer. If the sentinel node is negative, skip the full dissection.",
+      "level": "attending"
+    }
+  ]
+}

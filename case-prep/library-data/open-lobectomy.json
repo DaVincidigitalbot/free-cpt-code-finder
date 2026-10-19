@@ -1,0 +1,91 @@
+{
+  "id": "open-lobectomy",
+  "name": "Open Lobectomy",
+  "category": "Thoracic",
+  "overview": "Open pulmonary lobectomy via thoracotomy",
+  "indications": [
+    "Large tumors",
+    "Central tumors",
+    "Complex anatomy",
+    "Failed VATS"
+  ],
+  "keyAnatomy": [
+    "Pulmonary arteries",
+    "Pulmonary veins",
+    "Bronchus",
+    "Interlobar fissures"
+  ],
+  "preOpConsiderations": [
+    "Pulmonary function",
+    "Cardiac status",
+    "Previous surgery",
+    "Tumor characteristics"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "Posterolateral thoracotomy",
+    "5th intercostal space"
+  ],
+  "criticalSteps": [
+    "Single lung ventilation",
+    "Hilar dissection",
+    "Divide vessels",
+    "Divide bronchus",
+    "Complete lobectomy"
+  ],
+  "commonPitfalls": [
+    "Pulmonary artery injury",
+    "Incomplete fissure",
+    "Air leak",
+    "Intercostal neuralgia"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Air leak",
+    "Pneumonia",
+    "Chronic pain"
+  ],
+  "pearlsHighYield": [
+    "Systematic hilar dissection",
+    "Individual vessel ligation",
+    "Bronchus closure"
+  ],
+  "postOpPriorities": [
+    "Chest tube drainage",
+    "Pain control",
+    "Pulmonary rehabilitation",
+    "Oncologic staging"
+  ],
+  "relatedProcedures": [
+    "pneumonectomy",
+    "bilobectomy",
+    "sleeve-lobectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The right lung has 10 bronchopulmonary segments versus how many on the left, and why?",
+      "answer": "Left lung: 8-9 segments (the lingula corresponds to the right middle lobe, and segments 1+2 often share a common bronchus as the apicoposterior segment, and segments 7+8 may share as the anteromedial basal). The cardiac notch reduces left lung volume. Knowledge of segmental anatomy is critical for identifying intersegmental planes during lobectomy.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the major (oblique) fissure landmark, and what structures cross it?",
+      "answer": "The major fissure runs from T3-T4 posteriorly to the 6th costal cartilage anteriorly, separating the upper from lower lobe (and upper from middle on the right). The pulmonary artery branches and pulmonary veins cross or lie within the fissure — an incomplete fissure (common) requires fissure completion using staplers before vessel isolation.",
+      "level": "resident"
+    },
+    {
+      "question": "During open lobectomy, what is the order of vessel ligation for a right upper lobectomy?",
+      "answer": "Classically: 1) Ligate the right upper lobe (truncus anterior) pulmonary artery branch, 2) Divide the right upper lobe bronchus, 3) Ligate the superior pulmonary vein upper lobe tributaries, 4) Complete the fissure. Some surgeons prefer 'fissureless' technique: vein → artery → bronchus → fissure stapling, which avoids extensive fissure dissection and reduces air leak.",
+      "level": "resident"
+    },
+    {
+      "question": "What is a bronchopleural fistula, and what is its mortality?",
+      "answer": "Communication between the bronchial stump and pleural space, presenting as air leak, empyema, fever, and potentially massive aspiration of empyema fluid into the contralateral lung. Mortality: 20-70%. Risk factors: right pneumonectomy (long stump) > right lower lobectomy, neoadjuvant chemoradiation, diabetes, and devascularized bronchial stump. Treatment: muscle flap buttressing (intercostal, latissimus, serratus, omentum).",
+      "level": "attending"
+    },
+    {
+      "question": "What is the predicted postoperative FEV1 (ppoFEV1) threshold for lobectomy, and how is it calculated?",
+      "answer": "ppoFEV1 >40% predicted (or >0.8L absolute) is required for lobectomy. Calculated: ppoFEV1 = preop FEV1 × (1 - functional segments removed / total functional segments). Quantitative V/Q scan provides the most accurate segment-level function. If borderline, cardiopulmonary exercise testing (VO2max >15 mL/kg/min = safe, <10 = prohibitive) determines surgical risk.",
+      "level": "attending"
+    }
+  ]
+}

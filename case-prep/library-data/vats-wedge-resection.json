@@ -1,0 +1,89 @@
+{
+  "id": "vats-wedge-resection",
+  "name": "VATS Wedge Resection",
+  "category": "Thoracic",
+  "overview": "Video-assisted thoracoscopic wedge resection of lung",
+  "indications": [
+    "Small peripheral nodules",
+    "Metastases",
+    "Diagnostic biopsy",
+    "Pneumothorax"
+  ],
+  "keyAnatomy": [
+    "Lung parenchyma",
+    "Visceral pleura",
+    "Pulmonary vessels"
+  ],
+  "preOpConsiderations": [
+    "Nodule localization",
+    "Pulmonary function",
+    "Multiple lesions"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "2-3 port VATS",
+    "Camera and working ports"
+  ],
+  "criticalSteps": [
+    "Identify lesion",
+    "Grasp lung",
+    "Staple resection",
+    "Check margins",
+    "Air leak test"
+  ],
+  "commonPitfalls": [
+    "Positive margins",
+    "Air leak",
+    "Bleeding",
+    "Lost nodule"
+  ],
+  "majorComplications": [
+    "Air leak",
+    "Bleeding",
+    "Incomplete resection",
+    "Conversion to open"
+  ],
+  "pearlsHighYield": [
+    "Adequate margins",
+    "Frozen section",
+    "Complete staple lines"
+  ],
+  "postOpPriorities": [
+    "Chest tube monitoring",
+    "Air leak assessment",
+    "Early ambulation",
+    "Pathology review"
+  ],
+  "relatedProcedures": [
+    "vats-lobectomy",
+    "open-wedge-resection",
+    "lung-biopsy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "At what week of fetal development does the lung begin to form from the foregut endoderm, and how does this relate to the visceral-parietal pleural distinction?",
+      "answer": "The respiratory diverticulum (lung bud) appears at week 4 from the ventral foregut endoderm. The lung parenchyma and visceral pleura derive from splanchnic mesoderm surrounding the developing bronchial buds (visceral afferent innervation via vagus — dull, poorly localized pain). The parietal pleura derives from somatic mesoderm of the body wall (somatic innervation via intercostal nerves — sharp, well-localized pain). This is why pleuritic chest pain from parietal pleural irritation is sharp and positional.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the intersegmental planes, and why does wedge resection intentionally ignore them?",
+      "answer": "Each bronchopulmonary segment is a cone-shaped functional unit with its own bronchus, artery, and vein, separated from adjacent segments by connective tissue intersegmental planes. Segmentectomy follows these planes (identified by selective segmental inflation/deflation). Wedge resection intentionally crosses segmental boundaries — stapling across lung parenchyma regardless of segmental anatomy — because the goal is margin around a peripheral nodule, not anatomic completeness. This makes wedge faster and simpler but provides no lymph node sampling.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the pulmonary arterial anatomy at the level of a typical upper lobe wedge resection, and why is it rarely at risk?",
+      "answer": "The pulmonary arteries run centrally alongside the bronchi, deep within the lung parenchyma at the hilum. A peripheral wedge resection stays in the outer 1-3cm of lung — well away from named pulmonary arterial branches. The stapler compresses small peripheral arterioles and venules without encountering named vessels. This is why wedge resection has minimal blood loss (<50mL typically). The only vascular risk is from adhesions between the visceral and parietal pleura that may contain intercostal artery branches.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the significance of the JCOG0802 trial for wedge resection of small lung cancers?",
+      "answer": "JCOG0802/WJOG4607L (2022, Lancet): for peripheral NSCLC ≤2cm with a consolidation-to-tumor ratio >0.5, segmentectomy (not wedge) was non-inferior to lobectomy for 5-year OS (94.3% vs 91.1% — segmentectomy was actually superior). However, wedge resection was NOT studied as the sublobar arm — it was segmentectomy. Wedge resection remains appropriate for diagnosis (nodule of unknown etiology), metastasectomy, and patients with insufficient pulmonary reserve for segmentectomy or lobectomy.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the protocol for intraoperative frozen section during VATS wedge resection of a new lung nodule?",
+      "answer": "The specimen is immediately sent for frozen section (results in 15-20 minutes). If benign (granuloma, hamartoma): wedge resection is curative, case complete. If primary lung cancer: proceed to lobectomy or segmentectomy with mediastinal lymph node sampling/dissection in the same anesthetic (if the patient has adequate reserve). If metastatic carcinoma: wedge resection with adequate margins is sufficient, no further resection needed. The margin is re-assessed — if <1cm or less than the nodule diameter, re-excise before completing.",
+      "level": "attending"
+    }
+  ]
+}

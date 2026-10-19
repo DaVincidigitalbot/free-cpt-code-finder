@@ -1,0 +1,93 @@
+{
+  "id": "lap-total-gastrectomy",
+  "name": "Laparoscopic Total Gastrectomy",
+  "category": "Upper GI",
+  "overview": "Minimally invasive complete gastric resection",
+  "indications": [
+    "Early gastric cancer",
+    "Gastric GIST",
+    "Selected advanced cancers"
+  ],
+  "keyAnatomy": [
+    "Stomach",
+    "Esophagus",
+    "Duodenum",
+    "Splenic vessels",
+    "Left gastric vessels"
+  ],
+  "preOpConsiderations": [
+    "Tumor location",
+    "Staging",
+    "Conversion readiness",
+    "Extended operative time"
+  ],
+  "positioning": "Supine, reverse Trendelenburg",
+  "portPlacementOrIncision": [
+    "5-6 ports",
+    "Camera umbilical",
+    "Working ports",
+    "Assistant ports"
+  ],
+  "criticalSteps": [
+    "Mobilize stomach",
+    "Lymphadenectomy",
+    "Divide vessels",
+    "Esophagojejunostomy",
+    "Jejunojejunostomy"
+  ],
+  "commonPitfalls": [
+    "Esophageal injury",
+    "Splenic injury",
+    "Anastomotic issues",
+    "Conversion need"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Bleeding",
+    "Conversion to open",
+    "Nutritional issues"
+  ],
+  "pearlsHighYield": [
+    "Adequate lymph node harvest",
+    "Intracorporeal anastomosis",
+    "Leak testing"
+  ],
+  "postOpPriorities": [
+    "Anastomotic surveillance",
+    "Pain control",
+    "Early mobilization",
+    "Nutritional support"
+  ],
+  "relatedProcedures": [
+    "open-total-gastrectomy",
+    "robotic-gastrectomy",
+    "lap-sleeve-gastrectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The greater omentum develops from which embryologic mesentery?",
+      "answer": "The dorsal mesogastrium — as the stomach rotates, it elongates and drapes inferiorly forming the omentum. It must be resected (omentectomy) for T3-T4 gastric cancers because it contains station 4 lymph nodes and may harbor tumor deposits.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the 'infrapyloric space' and why is it a critical dissection zone?",
+      "answer": "The space below the pylorus containing station 6 nodes along the right gastroepiploic artery. The GDA, right gastroepiploic vessels, and anterior superior PDA are all in proximity. Pancreatic injury here causes fistula (2-5% incidence).",
+      "level": "resident"
+    },
+    {
+      "question": "What maintains blood supply to the Roux limb after total gastrectomy?",
+      "answer": "Jejunal branches of the SMA via the marginal jejunal arcade. The Roux limb's viability depends on its intact mesentery — excessive skeletonization causes ischemia at the esophagojejunal anastomosis, the most devastating leak location.",
+      "level": "resident"
+    },
+    {
+      "question": "What techniques are available for intracorporeal esophagojejunostomy?",
+      "answer": "1) Circular stapler with OrVil (anvil delivered transorally), 2) Linear stapler (overlap/functional end-to-end), 3) Hand-sewn (rare). Leak rates 3-5%. Linear stapler is gaining favor due to lower stricture rates than circular stapler.",
+      "level": "attending"
+    },
+    {
+      "question": "What does JCOG0501 tell us about splenectomy during total gastrectomy?",
+      "answer": "Spleen-preserving D2 is non-inferior to splenectomy for OS in proximal gastric cancer not involving the greater curvature. Splenectomy increases morbidity (infection, pancreatic fistula, thrombocytosis) without oncologic benefit. Only indicated for direct splenic invasion or bulky station 10 nodes.",
+      "level": "attending"
+    }
+  ]
+}

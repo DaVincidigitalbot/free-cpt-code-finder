@@ -1,0 +1,94 @@
+{
+  "id": "lap-sigmoid-colectomy",
+  "name": "Laparoscopic Sigmoid Colectomy",
+  "category": "Colorectal",
+  "overview": "Minimally invasive resection of sigmoid colon for diverticular disease or cancer",
+  "indications": [
+    "Recurrent diverticulitis",
+    "Complicated diverticulitis",
+    "Sigmoid cancer",
+    "Stricture"
+  ],
+  "keyAnatomy": [
+    "Sigmoid vessels",
+    "Left colic vessels",
+    "Left ureter",
+    "Presacral space",
+    "Rectosigmoid junction"
+  ],
+  "preOpConsiderations": [
+    "Bowel prep",
+    "CT scan for planning",
+    "Stoma site marking",
+    "DVT prophylaxis"
+  ],
+  "positioning": "Supine, may use lithotomy for low anastomosis",
+  "portPlacementOrIncision": [
+    "5-port technique",
+    "Camera umbilical",
+    "Working ports bilateral",
+    "Extraction site planning"
+  ],
+  "criticalSteps": [
+    "Mobilize sigmoid",
+    "Ligate sigmoid vessels",
+    "Divide colon",
+    "Mobilize rectum",
+    "Create anastomosis"
+  ],
+  "commonPitfalls": [
+    "Ureteral injury",
+    "Presacral bleeding",
+    "Inadequate margins",
+    "Anastomotic tension"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Ureteral injury",
+    "Bleeding",
+    "Infection"
+  ],
+  "pearlsHighYield": [
+    "Identify ureters early",
+    "Adequate mobilization",
+    "Tension-free anastomosis"
+  ],
+  "postOpPriorities": [
+    "Monitor for complications",
+    "Early feeding",
+    "Ambulation",
+    "Pain control"
+  ],
+  "relatedProcedures": [
+    "open-sigmoid-colectomy",
+    "low-anterior-resection",
+    "hartmann-procedure"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The sigmoid has a true mesentery unlike the descending colon. What embryologic event explains this?",
+      "answer": "The sigmoid retains its dorsal mesentery because it does not fuse with the posterior abdominal wall during development. The descending colon's mesentery fuses (Toldt's fascia), making it retroperitoneal, while the sigmoid remains intraperitoneal and mobile.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Before dividing the IMA pedicle, what three structures must you identify as your 'critical view'?",
+      "answer": "1) Left ureter (confirm peristalsis), 2) Left gonadal vessels sweeping posteriorly, 3) Hypogastric nerve plexus (presacral nerves) posterior to the IMA. Failure to identify these leads to ureteral injury or sexual/bladder dysfunction.",
+      "level": "resident"
+    },
+    {
+      "question": "Should the IMA be ligated high (at aorta) or low (preserving left colic artery) for sigmoid cancer?",
+      "answer": "For cancer: high ligation for lymph node yield. For diverticulitis: preserving the left colic artery is acceptable. The HIGHLOW trial (2023) showed no difference in node yield or oncologic outcomes, so the debate continues.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the hypogastric nerves, and what happens if they're injured during sigmoid mobilization?",
+      "answer": "The superior hypogastric plexus runs over the sacral promontory, bifurcating into left and right hypogastric nerves. Injury causes retrograde ejaculation and bladder dysfunction in men, and sexual/bladder dysfunction in women.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the Hinchey classification for complicated diverticulitis and how does it guide surgery?",
+      "answer": "I: pericolic abscess (antibiotics ± drainage). II: pelvic abscess (percutaneous drainage). III: purulent peritonitis (resection ± anastomosis, or laparoscopic lavage per LOLA/SCANDIV). IV: fecal peritonitis (Hartmann's or resection with diversion). The LADIES trial showed lavage was non-inferior to resection for Hinchey III.",
+      "level": "attending"
+    }
+  ]
+}

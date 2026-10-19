@@ -1,0 +1,90 @@
+{
+  "id": "turbt",
+  "name": "Transurethral Resection of Bladder Tumor",
+  "category": "Urology",
+  "overview": "Endoscopic resection of bladder tumors",
+  "indications": [
+    "Bladder tumors",
+    "Hematuria evaluation",
+    "Staging of bladder cancer",
+    "Surveillance cystoscopy"
+  ],
+  "keyAnatomy": [
+    "Bladder",
+    "Tumor location",
+    "Bladder wall layers",
+    "Ureteral orifices"
+  ],
+  "preOpConsiderations": [
+    "Imaging studies",
+    "Anticoagulation management",
+    "Tumor characteristics",
+    "Anesthesia choice"
+  ],
+  "positioning": "Lithotomy",
+  "portPlacementOrIncision": [
+    "Transurethral endoscopic approach"
+  ],
+  "criticalSteps": [
+    "Complete cystoscopy",
+    "Tumor identification",
+    "Complete resection",
+    "Include muscle in specimen",
+    "Achieve hemostasis"
+  ],
+  "commonPitfalls": [
+    "Incomplete resection",
+    "Bladder perforation",
+    "Bleeding",
+    "No muscle in specimen"
+  ],
+  "majorComplications": [
+    "Bladder perforation",
+    "Bleeding",
+    "TURP syndrome",
+    "Recurrence"
+  ],
+  "pearlsHighYield": [
+    "Complete tumor resection",
+    "Include detrusor muscle",
+    "Map all tumors"
+  ],
+  "postOpPriorities": [
+    "Pathology review",
+    "Intravesical therapy planning",
+    "Surveillance scheduling",
+    "Multidisciplinary consultation"
+  ],
+  "relatedProcedures": [
+    "cystoscopy",
+    "intravesical-bcg",
+    "radical-cystectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The urothelium lining the bladder derives from which embryologic structure?",
+      "answer": "Endoderm of the urogenital sinus (transitional epithelium/urothelium). The trigone has a mesodermal contribution from the mesonephric ducts. Urothelial carcinoma arises from this transitional epithelium and can occur anywhere in the urinary tract (renal pelvis to urethra).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the layers of the bladder wall that determine TURBT staging?",
+      "answer": "Urothelium (mucosa) -> lamina propria (suburothelial connective tissue) -> muscularis propria (detrusor, inner circular + outer longitudinal) -> perivesical fat. TURBT must include detrusor muscle in the specimen to distinguish Ta/T1 (non-muscle-invasive) from T2 (muscle-invasive). Absence of muscle in the specimen requires re-TURBT.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the bladder wall at the resection site?",
+      "answer": "Superior and inferior vesical arteries (from internal iliac). The submucosal plexus provides local perfusion. During TURBT, electrocautery controls bleeding from submucosal vessels. Deep resection into the detrusor can injure the vesical arteries and cause perforation.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared complication of TURBT?",
+      "answer": "Bladder perforation (1-5%): intraperitoneal (through the dome -- requires surgical repair) vs extraperitoneal (through the lateral wall -- usually managed conservatively with catheter drainage). Also: obturator nerve stimulation during lateral wall resection causing adductor spasm -- prevented by obturator nerve block or general anesthesia with paralysis.",
+      "level": "attending"
+    },
+    {
+      "question": "When is re-TURBT indicated?",
+      "answer": "Within 2-6 weeks if: 1) No detrusor muscle in the initial specimen, 2) T1 disease (high risk of understaging), 3) High-grade Ta, 4) Large or multifocal tumors. Re-TURBT upstages 25-50% of T1 tumors to muscle-invasive, changing management from intravesical BCG to radical cystectomy.",
+      "level": "attending"
+    }
+  ]
+}

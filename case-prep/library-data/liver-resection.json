@@ -1,0 +1,93 @@
+{
+  "id": "liver-resection",
+  "name": "Hepatic Resection",
+  "category": "Hepatopancreatobiliary",
+  "overview": "Anatomical or non-anatomical resection of liver segments",
+  "indications": [
+    "Hepatocellular carcinoma",
+    "Metastases",
+    "Benign tumors",
+    "Trauma"
+  ],
+  "keyAnatomy": [
+    "Couinaud segments",
+    "Portal triads",
+    "Hepatic veins",
+    "IVC",
+    "Glisson's capsule"
+  ],
+  "preOpConsiderations": [
+    "Liver function",
+    "Volumetric studies",
+    "Portal vein embolization",
+    "Multidisciplinary planning"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Bilateral subcostal",
+    "J-shaped extension",
+    "Thoracoabdominal if needed"
+  ],
+  "criticalSteps": [
+    "Mobilize liver",
+    "Inflow control",
+    "Parenchymal transection",
+    "Outflow control",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "Bleeding",
+    "Bile leak",
+    "Air embolism",
+    "Liver failure"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Bile leak",
+    "Liver failure",
+    "Infection"
+  ],
+  "pearlsHighYield": [
+    "Pringle maneuver",
+    "CUSA dissection",
+    "Argon beam coagulation"
+  ],
+  "postOpPriorities": [
+    "Hemodynamic monitoring",
+    "Liver function tests",
+    "Bile leak detection",
+    "Early mobilization"
+  ],
+  "relatedProcedures": [
+    "radiofrequency-ablation",
+    "liver-transplant",
+    "portal-vein-embolization"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The hepatic sinusoidal endothelium derives from which embryologic venous system?",
+      "answer": "The vitelline (omphalomesenteric) veins. Hepatic cords from foregut endoderm interdigitate with the vitelline vein plexus forming sinusoids. The portal vein is a vitelline vein remnant — this dual origin explains the liver's dual blood supply from its earliest development.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Describe the Couinaud segmental anatomy — what defines each of the 8 segments?",
+      "answer": "Each segment has its own portal pedicle (portal vein, hepatic artery, bile duct) and hepatic venous drainage. Right hepatic vein separates segments 6/7 from 5/8. Middle hepatic vein separates right from left lobe. Left hepatic vein separates segment 4 from 2/3. Segment 1 (caudate) has independent IVC drainage. Cantlie's line (gallbladder fossa to IVC) divides right from left.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common hepatic arterial variant relevant to liver resection?",
+      "answer": "Replaced right hepatic artery from SMA (10-15%), coursing posterior to the portal vein through the portacaval space. A replaced left hepatic artery from the left gastric artery (10%) runs in the gastrohepatic ligament. Failure to identify these risks inadvertent ligation and hepatic lobe ischemia.",
+      "level": "resident"
+    },
+    {
+      "question": "What is post-hepatectomy liver failure, and how do you predict adequate future liver remnant?",
+      "answer": "PHLF: INR >1.7 and bilirubin >3.0 on POD5 (ISGLS). Minimum FLR: >20% (normal liver), >30% (chemotherapy-treated), >40% (cirrhotic) — measured by CT volumetry. If insufficient: portal vein embolization (PVE, 4-6 weeks to hypertrophy), ALPPS (faster but higher morbidity), or staged hepatectomy.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the Pringle maneuver, and what is its safe duration?",
+      "answer": "Clamping the hepatoduodenal ligament to occlude hepatic artery and portal vein inflow. Safe for 15-20 minutes continuous (up to 60-120 minutes intermittent: 15 on/5 off). Does NOT control hepatic vein back-bleeding — maintain low CVP (<5 cmH2O) to reduce venous hemorrhage during parenchymal transection.",
+      "level": "attending"
+    }
+  ]
+}

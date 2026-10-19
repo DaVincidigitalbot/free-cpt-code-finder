@@ -1,0 +1,90 @@
+{
+  "id": "hemithyroidectomy",
+  "name": "Hemithyroidectomy",
+  "category": "Endocrine",
+  "overview": "Removal of one thyroid lobe with isthmus",
+  "indications": [
+    "Unilateral thyroid nodule",
+    "Follicular neoplasm",
+    "Toxic adenoma",
+    "Unilateral cancer"
+  ],
+  "keyAnatomy": [
+    "Recurrent laryngeal nerve",
+    "Superior laryngeal nerve",
+    "Parathyroid glands",
+    "Berry ligament"
+  ],
+  "preOpConsiderations": [
+    "FNA results",
+    "Voice assessment",
+    "Contralateral lobe evaluation",
+    "TSH levels"
+  ],
+  "positioning": "Supine with neck extension",
+  "portPlacementOrIncision": [
+    "Low collar incision"
+  ],
+  "criticalSteps": [
+    "Mobilize lobe",
+    "Identify RLN",
+    "Preserve parathyroids",
+    "Ligate vessels",
+    "Remove lobe and isthmus"
+  ],
+  "commonPitfalls": [
+    "RLN injury",
+    "Parathyroid injury",
+    "Bleeding",
+    "Hypothyroidism"
+  ],
+  "majorComplications": [
+    "Vocal cord paralysis",
+    "Hypoparathyroidism",
+    "Bleeding",
+    "Hypothyroidism"
+  ],
+  "pearlsHighYield": [
+    "Careful RLN dissection",
+    "Preserve parathyroid",
+    "Berry ligament danger zone"
+  ],
+  "postOpPriorities": [
+    "Voice check",
+    "Calcium monitoring",
+    "TSH follow-up",
+    "Completion surgery if needed"
+  ],
+  "relatedProcedures": [
+    "total-thyroidectomy",
+    "completion-thyroidectomy",
+    "parathyroidectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What percentage of thyroid nodules are malignant, and what Bethesda category mandates lobectomy?",
+      "answer": "5-15% of thyroid nodules are malignant. Bethesda IV (follicular neoplasm/suspicious for follicular neoplasm) mandates lobectomy because FNA cannot distinguish follicular adenoma from carcinoma — the distinction requires histologic assessment of capsular/vascular invasion.",
+      "level": "medical_student"
+    },
+    {
+      "question": "During hemithyroidectomy, what is the relationship of the superior laryngeal nerve's external branch to the superior thyroid artery?",
+      "answer": "The external branch of the SLN runs with the superior thyroid artery in Joll's triangle (bounded by the sternothyroid, superior thyroid pole, and superior thyroid artery). Injury causes loss of cricothyroid function — inability to produce high-pitched sounds. Ligate the artery individually close to the capsule, not the pedicle en masse.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to a thyroid lobe, and which vessels are divided during hemithyroidectomy?",
+      "answer": "Superior thyroid artery (first branch of external carotid — supplies upper pole), inferior thyroid artery (from thyrocervical trunk — supplies lower pole and parathyroids). Both are ligated/divided on the operative side. The thyroid ima artery (from brachiocephalic, present in 3-10%) may supply the isthmus and lower poles.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the risk of permanent hypoparathyroidism after hemithyroidectomy versus total thyroidectomy?",
+      "answer": "Hemithyroidectomy: <1% (two glands on the contralateral side are undisturbed). Total thyroidectomy: 1-5% permanent (requiring lifelong calcium + calcitriol). Transient hypoparathyroidism after total thyroidectomy: 10-30%. This difference in parathyroid morbidity is a key reason to consider hemithyroidectomy for low-risk cancers.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the current ATA guideline for hemithyroidectomy versus total thyroidectomy for papillary thyroid cancer 1-4cm?",
+      "answer": "2015 ATA guidelines: lobectomy is sufficient for unifocal PTC 1-4cm without extrathyroidal extension, clinical lymph node involvement, or prior radiation. Total thyroidectomy is not mandatory. Completion thyroidectomy can be performed later if final pathology is unfavorable. This was a major paradigm shift from prior practice of total thyroidectomy for all PTC.",
+      "level": "attending"
+    }
+  ]
+}

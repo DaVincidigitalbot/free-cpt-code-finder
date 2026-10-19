@@ -1,0 +1,90 @@
+{
+  "id": "radio-guided-breast-surgery",
+  "name": "Radio-guided Breast Surgery (ROLL/RSL)",
+  "category": "Breast",
+  "overview": "Radiotracer-guided localization for breast lesions",
+  "indications": [
+    "Non-palpable breast lesions",
+    "Multiple lesions",
+    "Failed wire localization",
+    "Patient preference"
+  ],
+  "keyAnatomy": [
+    "Breast parenchyma",
+    "Lesion location",
+    "Surrounding tissue",
+    "Lymphatic drainage"
+  ],
+  "preOpConsiderations": [
+    "Radiotracer injection timing",
+    "Nuclear medicine coordination",
+    "Probe calibration",
+    "Radiation safety"
+  ],
+  "positioning": "Supine with arm extended",
+  "portPlacementOrIncision": [
+    "Incision guided by radiotracer signal"
+  ],
+  "criticalSteps": [
+    "Probe-guided localization",
+    "Excise radioactive tissue",
+    "Confirm complete removal",
+    "Check specimen radioactivity",
+    "Achieve hemostasis"
+  ],
+  "commonPitfalls": [
+    "Radiotracer migration",
+    "Incomplete excision",
+    "Positive margins",
+    "Technical failures"
+  ],
+  "majorComplications": [
+    "Positive margins",
+    "Incomplete excision",
+    "Radiation exposure",
+    "Allergic reactions"
+  ],
+  "pearlsHighYield": [
+    "Probe calibration essential",
+    "Real-time guidance",
+    "Radiation safety protocols"
+  ],
+  "postOpPriorities": [
+    "Specimen radioactivity check",
+    "Margin assessment",
+    "Radiation safety clearance",
+    "Pathology correlation"
+  ],
+  "relatedProcedures": [
+    "wire-localized-excision",
+    "oncoplastic-surgery",
+    "sentinel-lymph-node-biopsy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the ROLL technique for non-palpable breast lesion localization?",
+      "answer": "Radioguided Occult Lesion Localization: a radiotracer (Tc-99m macroaggregated albumin) is injected into the lesion under imaging guidance preoperatively. During surgery, a handheld gamma probe localizes the 'hot spot' for excision. Eliminates the need for wire placement and allows more flexible surgical planning.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the RSL (radioactive seed localization) technique?",
+      "answer": "A radioactive seed (I-125, titanium-encased) is implanted into the lesion up to 5 days preoperatively under imaging guidance. The gamma probe detects the seed during surgery. Advantages over wire: no wire migration, seed can be placed days before surgery (OR scheduling flexibility), and more precise localization.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the breast tissue being excised?",
+      "answer": "Internal mammary perforators (medial), lateral thoracic branches (lateral), and intercostal perforators. The excision should include the lesion with adequate margins while preserving surrounding breast blood supply for cosmesis and healing.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the margin positivity rate with radioguided versus wire localization?",
+      "answer": "Comparable: 10-25% positive margin rate for both techniques. However, radioguided techniques may achieve lower re-excision rates in some studies due to more centered excisions (the probe guides toward the lesion center rather than a wire endpoint). Specimen radiography remains mandatory.",
+      "level": "attending"
+    },
+    {
+      "question": "What are the advantages of seed over wire localization?",
+      "answer": "No day-of-surgery radiology appointment (seed placed 1-5 days earlier), no wire migration or transection, no patient discomfort from wire in situ, flexible OR scheduling, and comparable oncologic outcomes. Disadvantages: requires nuclear medicine license, seed must be accounted for (NRC regulations), and limited availability.",
+      "level": "attending"
+    }
+  ]
+}

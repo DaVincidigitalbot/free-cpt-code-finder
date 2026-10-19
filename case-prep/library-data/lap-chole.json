@@ -1,0 +1,97 @@
+{
+  "id": "lap-chole",
+  "name": "Laparoscopic Cholecystectomy",
+  "category": "Hepatopancreatobiliary",
+  "overview": "Minimally invasive removal of gallbladder for symptomatic cholelithiasis or cholecystitis",
+  "indications": [
+    "Symptomatic cholelithiasis",
+    "Acute cholecystitis",
+    "Biliary dyskinesia",
+    "Gallstone pancreatitis",
+    "Porcelain gallbladder"
+  ],
+  "keyAnatomy": [
+    "Triangle of Calot",
+    "Hepatocystic artery",
+    "Common bile duct",
+    "Critical view of safety",
+    "Rouviere's sulcus"
+  ],
+  "preOpConsiderations": [
+    "NPO 8+ hours",
+    "IV antibiotics if acute",
+    "MRCP if CBD concern",
+    "Consent for open conversion",
+    "DVT prophylaxis"
+  ],
+  "positioning": "Supine, left side up 15-20°, reverse Trendelenburg",
+  "portPlacementOrIncision": [
+    "Umbilical 12mm (camera)",
+    "Epigastric 5mm (retraction)",
+    "Right subcostal 5mm × 2 (dissection)"
+  ],
+  "criticalSteps": [
+    "Achieve critical view of safety",
+    "Clip and divide artery first",
+    "Clip and divide cystic duct",
+    "Dissect gallbladder from liver bed",
+    "Extract in endobag"
+  ],
+  "commonPitfalls": [
+    "Inadequate critical view",
+    "Mistaking CBD for cystic duct",
+    "Excessive electrocautery near CBD",
+    "Dropped stones",
+    "Inadequate hemostasis"
+  ],
+  "majorComplications": [
+    "CBD injury",
+    "Bleeding from liver bed",
+    "Bowel injury",
+    "Conversion to open"
+  ],
+  "pearlsHighYield": [
+    "Never clip anything until critical view achieved",
+    "Strasberg classification for CBD injury",
+    "Intraop cholangiography if anatomy unclear"
+  ],
+  "postOpPriorities": [
+    "Pain control",
+    "Early ambulation",
+    "Clear liquid diet advance",
+    "Monitor for bile leak",
+    "Same-day discharge if stable"
+  ],
+  "relatedProcedures": [
+    "open-chole",
+    "cbd-exploration",
+    "ercp"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The falciform ligament is a remnant of what embryologic structure?",
+      "answer": "The ventral mesentery (specifically the umbilical vein within it becomes the ligamentum teres).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What three criteria define the critical view of safety in cholecystectomy?",
+      "answer": "1) Hepatocystic triangle cleared of all fibrous and fatty tissue, 2) Only two structures (cystic duct and cystic artery) seen entering the gallbladder, 3) The lower third of the cystic plate (liver bed) is exposed.",
+      "level": "resident"
+    },
+    {
+      "question": "The cystic artery typically arises from which vessel, and what is the most common variant?",
+      "answer": "Right hepatic artery within the hepatocystic triangle. Most common variant is origin from the left hepatic artery or a replaced right hepatic artery off the SMA (~25%).",
+      "level": "resident"
+    },
+    {
+      "question": "What is Mirizzi syndrome and how does it complicate cholecystectomy?",
+      "answer": "Extrinsic compression of the common hepatic duct by an impacted stone in the cystic duct or Hartmann's pouch. Type II-IV involve cholecystocholedochal fistula, making dissection treacherous and often requiring bile duct reconstruction.",
+      "level": "attending"
+    },
+    {
+      "question": "What is Rouviere's sulcus and how does it help prevent bile duct injury?",
+      "answer": "A 2-5cm cleft on the inferior surface of the right liver lobe running anterior to the caudate process. Dissection should remain anterior and to the right of this sulcus to stay safely above the bile duct.",
+      "level": "attending"
+    }
+  ]
+}

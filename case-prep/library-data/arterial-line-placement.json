@@ -1,0 +1,91 @@
+{
+  "id": "arterial-line-placement",
+  "name": "Arterial Line Placement",
+  "category": "Critical Care",
+  "overview": "Insertion of arterial catheter for continuous blood pressure monitoring",
+  "indications": [
+    "Continuous BP monitoring",
+    "Frequent blood sampling",
+    "Hemodynamic instability",
+    "Vasopressor use"
+  ],
+  "keyAnatomy": [
+    "Radial artery",
+    "Ulnar artery",
+    "Brachial artery",
+    "Femoral artery"
+  ],
+  "preOpConsiderations": [
+    "Allen's test",
+    "Coagulopathy",
+    "Peripheral vascular disease",
+    "Site selection"
+  ],
+  "positioning": "Supine, wrist extended for radial",
+  "portPlacementOrIncision": [
+    "Percutaneous technique",
+    "Direct puncture or Seldinger"
+  ],
+  "criticalSteps": [
+    "Allen's test",
+    "Sterile preparation",
+    "Arterial puncture",
+    "Catheter advancement",
+    "Waveform confirmation"
+  ],
+  "commonPitfalls": [
+    "Thrombosis",
+    "Hematoma",
+    "Infection",
+    "Distal ischemia"
+  ],
+  "majorComplications": [
+    "Thrombosis",
+    "Infection",
+    "Bleeding",
+    "Distal ischemia"
+  ],
+  "pearlsHighYield": [
+    "Radial artery preferred",
+    "Allen's test mandatory",
+    "Real-time waveform"
+  ],
+  "postOpPriorities": [
+    "Waveform monitoring",
+    "Distal circulation checks",
+    "Site care",
+    "Daily assessment"
+  ],
+  "relatedProcedures": [
+    "central-venous-access",
+    "pulse-monitoring",
+    "arterial-puncture"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The radial artery is the continuation of which embryologic vessel, and what makes it ideal for arterial monitoring?",
+      "answer": "The radial artery develops from the superficial brachial artery system. It is ideal for arterial line because: 1) superficial location (easily palpated/visualized with US), 2) collateral circulation from the ulnar artery via the palmar arches (confirmed by Allen test), 3) no major nerves/veins adjacent, and 4) accessible without moving the patient.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the collateral circulation to the hand if the radial artery thromboses?",
+      "answer": "The ulnar artery via the superficial palmar arch (dominant, from ulnar artery) and deep palmar arch (dominant, from radial artery). In 3-5% of patients, the palmar arches are incomplete — if the ulnar artery cannot supply the entire hand alone, radial artery cannulation risks hand ischemia. The modified Allen test or Doppler assessment confirms adequacy.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the alternative sites for arterial line placement beyond the radial artery?",
+      "answer": "2nd choice: femoral artery (easy access, larger vessel, but higher infection risk and requires patient immobility). 3rd: dorsalis pedis (small, often absent in 5-10%). 4th: axillary/brachial (risk of median nerve injury at the brachial site). 5th: ulnar artery (avoid if the hand depends on it for collateral flow).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication of arterial line placement?",
+      "answer": "Thrombosis of the radial artery (10-20% incidence, but symptomatic ischemia <1% due to collateral flow). Risk factors: prolonged cannulation (>4 days), large catheter relative to artery size, female sex, peripheral vascular disease. Prevention: use 20-gauge catheter (smallest effective), continuous heparinized flush, and remove as soon as no longer needed.",
+      "level": "attending"
+    },
+    {
+      "question": "What causes 'arterial line dampening,' and how do you differentiate it from true hypotension?",
+      "answer": "Dampening: flattened waveform with falsely low systolic and falsely high diastolic readings. Causes: air bubbles, clot at the catheter tip, kinking, overly compliant tubing, or catheter against the vessel wall. Differentiate: 1) flush test (square wave test — should return to baseline within 1-2 oscillations), 2) compare with NIBP cuff reading, 3) aspirate/flush the line. A dampened waveform does NOT equal hypotension.",
+      "level": "attending"
+    }
+  ]
+}

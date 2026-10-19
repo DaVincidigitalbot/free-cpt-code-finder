@@ -1,0 +1,91 @@
+{
+  "id": "ercp-sphincterotomy",
+  "name": "ERCP with Sphincterotomy",
+  "category": "Endoscopy",
+  "overview": "Endoscopic retrograde cholangiopancreatography with sphincter division",
+  "indications": [
+    "Choledocholithiasis",
+    "Biliary stricture",
+    "Pancreatic duct stones",
+    "Sphincter of Oddi dysfunction"
+  ],
+  "keyAnatomy": [
+    "Ampulla of Vater",
+    "Common bile duct",
+    "Pancreatic duct",
+    "Sphincter of Oddi",
+    "Duodenum"
+  ],
+  "preOpConsiderations": [
+    "Coagulopathy",
+    "Previous sphincterotomy",
+    "Anatomy variants",
+    "Antibiotic prophylaxis"
+  ],
+  "positioning": "Prone or left lateral",
+  "portPlacementOrIncision": [
+    "Transoral duodenoscopic approach"
+  ],
+  "criticalSteps": [
+    "Cannulate bile duct",
+    "Cholangiography",
+    "Sphincterotomy",
+    "Stone extraction",
+    "Stent placement if needed"
+  ],
+  "commonPitfalls": [
+    "Perforation",
+    "Bleeding",
+    "Pancreatitis",
+    "Incomplete stone removal"
+  ],
+  "majorComplications": [
+    "Pancreatitis",
+    "Bleeding",
+    "Perforation",
+    "Cholangitis"
+  ],
+  "pearlsHighYield": [
+    "Pancreatic duct stent if difficult",
+    "Adequate sphincterotomy",
+    "Complete stone clearance"
+  ],
+  "postOpPriorities": [
+    "Monitor for pancreatitis",
+    "Pain control",
+    "Diet advancement",
+    "Follow-up imaging"
+  ],
+  "relatedProcedures": [
+    "ptc",
+    "balloon-sphincteroplasty",
+    "biliary-stenting"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The sphincter of Oddi develops from mesenchyme surrounding the ampulla. What is its normal resting pressure relative to CBD pressure?",
+      "answer": "Sphincter: 10-15 mmHg above duodenal pressure. CBD: 5-10 mmHg. The sphincter has phasic contractions (2-6/min). SOD is diagnosed when basal pressure exceeds 40 mmHg on manometry.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Where is the major papilla located in the duodenum, and what landmark helps identify it?",
+      "answer": "Posteromedial wall of D2, at the junction of middle and distal third. Identified by the longitudinal duodenal fold (plica longitudinalis) and a nipple-like protrusion. The minor papilla (Santorini) is 2cm proximal and anterior.",
+      "level": "resident"
+    },
+    {
+      "question": "Why is sphincterotomy made between 11 and 1 o'clock, and what vessel is at risk?",
+      "answer": "The posterior superior pancreaticoduodenal artery runs behind the ampulla at ~11 o'clock. Cutting in this direction avoids the vessel, but anatomic variation can place it in the cut zone. Post-sphincterotomy bleeding occurs in 1-2%.",
+      "level": "resident"
+    },
+    {
+      "question": "What is post-ERCP pancreatitis, and how is it prevented?",
+      "answer": "Incidence 3-7%, up to 15% in high-risk patients. Prevention: 1) Rectal indomethacin 100mg (NEJM 2012), 2) Prophylactic pancreatic duct stent, 3) Aggressive IV LR hydration, 4) Wire-guided cannulation. Risk factors: young female, SOD, difficult cannulation, pancreatic duct injection, precut.",
+      "level": "attending"
+    },
+    {
+      "question": "What is a precut sphincterotomy, and when should you consider it?",
+      "answer": "A technique for biliary access when standard cannulation fails (>5-10 min or >5 PD cannulations). Options: needle-knife fistulotomy, needle-knife precut, or transpancreatic sphincterotomy. Increases perforation and PEP risk. Early precut is now preferred over prolonged traumatic cannulation attempts.",
+      "level": "attending"
+    }
+  ]
+}

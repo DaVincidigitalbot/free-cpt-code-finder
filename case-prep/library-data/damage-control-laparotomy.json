@@ -1,0 +1,91 @@
+{
+  "id": "damage-control-laparotomy",
+  "name": "Damage Control Laparotomy",
+  "category": "Trauma",
+  "overview": "Abbreviated surgery for hemodynamically unstable trauma patients",
+  "indications": [
+    "Hemodynamic instability",
+    "Hypothermia",
+    "Coagulopathy",
+    "Acidosis"
+  ],
+  "keyAnatomy": [
+    "Peritoneal cavity",
+    "Major bleeding sources",
+    "Bowel",
+    "Solid organs"
+  ],
+  "preOpConsiderations": [
+    "Massive transfusion protocol",
+    "ICU coordination",
+    "Team preparation",
+    "Damage control mindset"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Rapid midline incision",
+    "Full-length if needed"
+  ],
+  "criticalSteps": [
+    "Control hemorrhage",
+    "Control contamination",
+    "Pack bleeding areas",
+    "Temporary closure",
+    "ICU resuscitation"
+  ],
+  "commonPitfalls": [
+    "Attempting definitive repair",
+    "Prolonged surgery",
+    "Inadequate packing",
+    "Missing bleeding"
+  ],
+  "majorComplications": [
+    "Exsanguination",
+    "Abdominal compartment syndrome",
+    "Multi-organ failure",
+    "Death"
+  ],
+  "pearlsHighYield": [
+    "Speed over perfection",
+    "Pack don't repair",
+    "Return in 24-48 hours"
+  ],
+  "postOpPriorities": [
+    "ICU resuscitation",
+    "Correct coagulopathy",
+    "Warm patient",
+    "Plan return to OR"
+  ],
+  "relatedProcedures": [
+    "definitive-repair",
+    "abdominal-closure",
+    "washout"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the 'lethal triad' of trauma, and what embryologic/physiologic basis drives damage control?",
+      "answer": "Hypothermia, acidosis, and coagulopathy — a self-perpetuating cycle. Hypothermia impairs coagulation enzymes (derived from hepatic endoderm). Acidosis (from anaerobic metabolism in hypoperfused mesoderm-derived tissues) worsens coagulopathy. Damage control interrupts this cycle by abbreviating surgery and prioritizing resuscitation.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the three phases of damage control surgery?",
+      "answer": "Phase 1: Abbreviated laparotomy (hemorrhage control, contamination control, temporary abdominal closure — 30-60 minutes). Phase 2: ICU resuscitation (rewarm, correct coagulopathy, optimize hemodynamics — 24-72 hours). Phase 3: Definitive repair (return to OR for definitive reconstruction when physiology normalizes). The decision to go damage control is made BEFORE or early in the operation.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply concern when performing temporary abdominal closure with negative pressure?",
+      "answer": "Abdominal packing can compress the IVC and mesenteric vessels, reducing venous return and causing visceral ischemia. The sponge-based VAC system must distribute pressure evenly. Abdominal compartment syndrome (ACS) can develop if closure is too tight — bladder pressure >20 mmHg with organ dysfunction defines ACS.",
+      "level": "resident"
+    },
+    {
+      "question": "What is abdominal compartment syndrome, and what are the thresholds for decompressive laparotomy?",
+      "answer": "Sustained intra-abdominal pressure >20 mmHg with new organ dysfunction (renal failure, respiratory failure, cardiac output depression). Measured by intravesical (bladder) pressure. Grade III (>25 mmHg) with organ failure mandates decompressive laparotomy. Risk factors: massive resuscitation (>10L crystalloid), abdominal packing, bowel edema.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the open abdomen management strategy, and when is fascial closure expected?",
+      "answer": "Negative pressure wound therapy (ABThera or Barker VAC) with sequential tightening. Fascial closure should be achieved within 5-7 days — after this, visceral adhesion to the abdominal wall makes closure extremely difficult. If primary closure is impossible, absorbable mesh bridge (Vicryl) or component separation can be performed. Planned ventral hernia is acceptable as a salvage strategy.",
+      "level": "attending"
+    }
+  ]
+}

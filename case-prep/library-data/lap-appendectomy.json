@@ -1,0 +1,96 @@
+{
+  "id": "lap-appendectomy",
+  "name": "Laparoscopic Appendectomy",
+  "category": "Colorectal",
+  "overview": "Minimally invasive removal of appendix for acute appendicitis",
+  "indications": [
+    "Acute appendicitis",
+    "Recurrent appendicitis",
+    "Appendiceal mass",
+    "Carcinoid tumor"
+  ],
+  "keyAnatomy": [
+    "Appendiceal artery",
+    "Mesoappendix",
+    "Base of cecum",
+    "Right colic vessels",
+    "Ileocecal fold"
+  ],
+  "preOpConsiderations": [
+    "NPO",
+    "IV antibiotics",
+    "Pain control",
+    "Pregnancy test if applicable",
+    "CT scan interpretation"
+  ],
+  "positioning": "Supine, left side down, Trendelenburg",
+  "portPlacementOrIncision": [
+    "Umbilical 12mm (camera)",
+    "Suprapubic 5mm",
+    "Left lower quadrant 5mm"
+  ],
+  "criticalSteps": [
+    "Mobilize appendix",
+    "Divide mesoappendix",
+    "Clip/staple appendiceal artery",
+    "Divide base with stapler",
+    "Extract in endobag"
+  ],
+  "commonPitfalls": [
+    "Perforation during manipulation",
+    "Inadequate base margin",
+    "Missed appendicolith",
+    "Bowel injury",
+    "Bleeding from mesoappendix"
+  ],
+  "majorComplications": [
+    "Bowel injury",
+    "Bleeding",
+    "Abscess",
+    "Wound infection"
+  ],
+  "pearlsHighYield": [
+    "Window mesoappendix carefully to avoid bleeding",
+    "Staple base perpendicular to avoid narrowing cecum",
+    "Irrigate copiously if perforated"
+  ],
+  "postOpPriorities": [
+    "Pain control",
+    "Diet advancement",
+    "Early discharge",
+    "Wound monitoring",
+    "Return precautions"
+  ],
+  "relatedProcedures": [
+    "open-appendectomy",
+    "right-hemicolectomy",
+    "ex-lap"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The appendix derives from which embryologic gut division, and how does midgut malrotation affect appendiceal position?",
+      "answer": "Midgut. The midgut undergoes 270-degree counterclockwise rotation around the SMA. Incomplete rotation (malrotation) places the appendix in the left upper quadrant, causing atypical appendicitis presentation.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the most common position of the appendix, and which position mimics urologic pathology?",
+      "answer": "Retrocecal (65%). Pelvic appendix mimics UTI or gynecologic pathology; retrocecal can cause flank pain mimicking renal colic. The tip position determines symptom presentation.",
+      "level": "resident"
+    },
+    {
+      "question": "The appendicular artery is a branch of what vessel, and what makes it clinically significant?",
+      "answer": "Branch of the ileocolic artery (from SMA). It is an end artery running in the free edge of the mesoappendix — thrombosis causes gangrenous appendicitis, and inadequate ligation causes hemorrhage, the most common reason for re-operation.",
+      "level": "resident"
+    },
+    {
+      "question": "What is stump appendicitis and how do you prevent it?",
+      "answer": "Recurrent appendicitis from a retained appendiceal stump >0.5cm. Prevented by complete transection at the cecal base. Occurs in 1/50,000 cases, more common after laparoscopic approach where the base may not be fully visualized.",
+      "level": "attending"
+    },
+    {
+      "question": "What does the CODA trial (2020, NEJM) show about antibiotics versus surgery for appendicitis?",
+      "answer": "Antibiotics alone were non-inferior to surgery for uncomplicated appendicitis but had 29% crossover to surgery by 90 days. Appendicolith on CT predicted failure of antibiotic therapy. For complicated appendicitis (phlegmon/abscess), drainage + antibiotics with consideration of interval appendectomy remains standard.",
+      "level": "attending"
+    }
+  ]
+}

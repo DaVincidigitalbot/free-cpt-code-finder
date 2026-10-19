@@ -1,0 +1,90 @@
+{
+  "id": "egd-dilation",
+  "name": "EGD with Dilation",
+  "category": "Endoscopy",
+  "overview": "Upper endoscopy with pneumatic or bougie dilation of strictures",
+  "indications": [
+    "Esophageal stricture",
+    "Achalasia",
+    "Anastomotic stricture",
+    "Caustic injury"
+  ],
+  "keyAnatomy": [
+    "Esophagus",
+    "Gastroesophageal junction",
+    "Stricture anatomy",
+    "Surrounding structures"
+  ],
+  "preOpConsiderations": [
+    "Barium swallow",
+    "Previous dilations",
+    "Stricture etiology",
+    "Perforation risk"
+  ],
+  "positioning": "Left lateral decubitus",
+  "portPlacementOrIncision": [
+    "Transoral endoscopic approach"
+  ],
+  "criticalSteps": [
+    "Endoscopic evaluation",
+    "Guidewire placement",
+    "Serial dilation",
+    "Post-dilation inspection",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "Perforation",
+    "Bleeding",
+    "Inadequate dilation",
+    "Pain"
+  ],
+  "majorComplications": [
+    "Perforation",
+    "Bleeding",
+    "Aspiration",
+    "Restenosis"
+  ],
+  "pearlsHighYield": [
+    "Rule of 3",
+    "Gradual dilation",
+    "Post-dilation observation"
+  ],
+  "postOpPriorities": [
+    "Monitor for perforation",
+    "Pain control",
+    "Diet advancement",
+    "Follow-up dilation"
+  ],
+  "relatedProcedures": [
+    "pneumatic-dilation",
+    "heller-myotomy",
+    "esophageal-stenting"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "Esophageal atresia occurs in 1:3000 births. What is the most common type and its embryologic basis?",
+      "answer": "Type C (85%): proximal atresia with distal TEF. Failure of the tracheoesophageal septum to completely separate foregut into trachea and esophagus during weeks 4-5. Associated with VACTERL in 25%.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the three types of esophageal strictures and the appropriate dilator for each?",
+      "answer": "Simple/short (peptic, Schatzki ring): TTS balloon. Complex/long (caustic, radiation, anastomotic): Savary bougie for tactile feedback. Malignant: stenting preferred. Rule of 3: don't exceed 3 consecutive French sizes per session.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the esophagus at different levels?",
+      "answer": "Cervical: inferior thyroid artery. Thoracic: direct aortic branches and bronchial arteries. Abdominal: left gastric and left inferior phrenic. Thoracic perforation is most dangerous — no serosa, segmental blood supply, rapid mediastinitis.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the perforation rate of esophageal dilation?",
+      "answer": "Bougie: 0.1-0.4%. Balloon: 0.1-0.3%. Malignant strictures: up to 10%. Signs: chest pain, subcutaneous emphysema, Hamman's sign. CT with oral water-soluble contrast is diagnostic.",
+      "level": "attending"
+    },
+    {
+      "question": "What is a Schatzki ring, and at what diameter does it cause dysphagia?",
+      "answer": "Thin mucosal ring at the squamocolumnar junction (GEJ), containing only mucosa and submucosa. Dysphagia at <13mm. Treatment: single dilation to >16mm. Always biopsy for eosinophilic esophagitis (10-15% of food impactions).",
+      "level": "attending"
+    }
+  ]
+}

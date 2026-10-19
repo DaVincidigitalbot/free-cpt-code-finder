@@ -1,0 +1,93 @@
+{
+  "id": "sleeve-gastrectomy",
+  "name": "Laparoscopic Sleeve Gastrectomy",
+  "category": "Bariatric",
+  "overview": "Vertical sleeve resection removing gastric fundus and greater curvature",
+  "indications": [
+    "Morbid obesity",
+    "High surgical risk",
+    "Bridge to bypass",
+    "Patient preference"
+  ],
+  "keyAnatomy": [
+    "Greater curvature",
+    "Gastric fundus",
+    "Antrum",
+    "Short gastric vessels",
+    "Left gastric vessels"
+  ],
+  "preOpConsiderations": [
+    "Upper endoscopy",
+    "H. pylori eradication",
+    "Nutritional assessment",
+    "Bougie size selection"
+  ],
+  "positioning": "Supine, reverse Trendelenburg, split-leg",
+  "portPlacementOrIncision": [
+    "5-port laparoscopic technique",
+    "Liver retraction",
+    "Working ports"
+  ],
+  "criticalSteps": [
+    "Mobilize greater curvature",
+    "Divide short gastrics",
+    "Create sleeve with stapler",
+    "Oversew staple line",
+    "Leak test"
+  ],
+  "commonPitfalls": [
+    "Staple line leak",
+    "Bleeding",
+    "Stenosis",
+    "Inadequate fundus resection"
+  ],
+  "majorComplications": [
+    "Leak",
+    "Bleeding",
+    "Stenosis",
+    "GERD"
+  ],
+  "pearlsHighYield": [
+    "Start 2-6cm from pylorus",
+    "Remove all fundus",
+    "Bougie size 32-40Fr"
+  ],
+  "postOpPriorities": [
+    "Leak surveillance",
+    "Early feeding",
+    "PPI therapy",
+    "Weight loss monitoring"
+  ],
+  "relatedProcedures": [
+    "gastric-bypass",
+    "revision-to-bypass",
+    "gastric-band"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The greater curvature receives blood from branches of the celiac trunk. How does sleeve gastrectomy alter gastric blood supply?",
+      "answer": "Short gastric and left gastroepiploic arteries are divided, leaving the sleeve dependent on right gastric artery (lesser curve) and left gastric artery branches. Ischemia at the proximal staple line near the GEJ is the most feared vascular complication.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the correct distance from the pylorus to begin stapling, and what happens if you start too close?",
+      "answer": "4-6cm. Starting <2cm narrows the antrum causing functional gastric outlet obstruction, prolonged vomiting, and increased intraluminal pressure leading to staple line leak. Starting >6cm leaves a large antral pouch reducing the restrictive effect.",
+      "level": "resident"
+    },
+    {
+      "question": "What size bougie is used and how does it relate to the left gastric artery?",
+      "answer": "32-40 French (commonly 36Fr). The staple line parallels the left gastric artery's lesser curve branches. Staying on the bougie prevents stapling too close to these vessels, which would devascularize the sleeve.",
+      "level": "resident"
+    },
+    {
+      "question": "Where does the staple line leak most commonly occur and why?",
+      "answer": "The proximal staple line near the GEJ (angle of His) — thinnest gastric wall, highest intraluminal pressure (LES high-pressure zone), and most tenuous blood supply. Leak rate: 1-3%. Proximal leaks are notoriously difficult to manage and may require stenting or esophagojejunostomy.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the hormonal mechanism of weight loss beyond simple restriction?",
+      "answer": "Fundus removal eliminates 80% of ghrelin-producing cells, dramatically reducing appetite. Accelerated gastric emptying increases GLP-1 and PYY release from the distal ileum (incretin effect), improving insulin sensitivity independently of weight loss. This is why sleeve resolves T2DM in 60-70%.",
+      "level": "attending"
+    }
+  ]
+}

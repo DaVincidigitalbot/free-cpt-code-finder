@@ -1,0 +1,88 @@
+{
+  "id": "chest-wall-resection",
+  "name": "Chest Wall Resection",
+  "category": "Thoracic",
+  "overview": "En bloc resection of chest wall for tumor or infection",
+  "indications": [
+    "Primary chest wall tumors",
+    "Lung cancer with chest wall invasion",
+    "Recurrent breast cancer",
+    "Chronic osteomyelitis"
+  ],
+  "keyAnatomy": [
+    "Ribs",
+    "Sternum",
+    "Chest wall muscles",
+    "Pleura",
+    "Underlying lung"
+  ],
+  "preOpConsiderations": [
+    "Extent of resection",
+    "Reconstruction planning",
+    "Cardiopulmonary function",
+    "Oncologic considerations"
+  ],
+  "positioning": "Lateral or supine",
+  "portPlacementOrIncision": [
+    "Wide excision with margins",
+    "May include thoracotomy"
+  ],
+  "criticalSteps": [
+    "Mark resection margins",
+    "Divide ribs and soft tissues",
+    "Achieve en bloc resection",
+    "Reconstruct chest wall",
+    "Secure closure"
+  ],
+  "commonPitfalls": [
+    "Positive margins",
+    "Flail chest",
+    "Respiratory failure",
+    "Mesh infection"
+  ],
+  "majorComplications": [
+    "Respiratory failure",
+    "Flail chest",
+    "Infection",
+    "Chronic pain"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Respiratory support",
+    "Pain management",
+    "Wound surveillance",
+    "Oncologic follow-up"
+  ],
+  "relatedProcedures": [
+    "lung-resection",
+    "muscle-flap-reconstruction",
+    "sternotomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The sternum develops from lateral plate mesoderm through sternal bar fusion. What congenital anomaly results from incomplete fusion?",
+      "answer": "Sternal cleft (failure of midline sternal bar fusion). Complete sternal cleft exposes the heart and great vessels. Partial clefts present as a superior or inferior notch. This is distinct from pectus excavatum (overgrowth of costal cartilages). Understanding sternal embryology matters for chest wall resection because sternal tumors (chondrosarcoma being most common) require partial or total sternectomy with reconstruction using methyl methacrylate or titanium plates.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the internal mammary artery and vein anatomy at each intercostal level, and why must it be controlled during chest wall resection?",
+      "answer": "The internal mammary (internal thoracic) artery runs 1-2cm lateral to the sternal border, giving off anterior intercostal branches at each space. It bifurcates at the 6th intercostal space into the musculophrenic and superior epigastric arteries. The accompanying veins run alongside. During chest wall resection, each cut intercostal space requires identification and ligation of the IMA perforators anteriorly AND the posterior intercostal arteries from the aorta. Uncontrolled IMA branch bleeding causes rapid, hard-to-visualize retrosternal hemorrhage.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the 'sandwich technique' for rigid chest wall reconstruction after resection, and when is it used?",
+      "answer": "Two layers of polypropylene (Marlex) or PTFE (Gore-Tex) mesh with methyl methacrylate cement molded between them, creating a rigid prosthetic plate. Used for anterior/lateral defects >5cm or involving ≥3 ribs. The cement is applied while doughy and molded to match chest wall contour, then hardens exothermically. Posterior defects under the scapula may not need rigid reconstruction because the scapula provides mechanical stability. Modern titanium rib plating systems (STRATOS, MatrixRIB) are increasingly used as alternatives.",
+      "level": "resident"
+    },
+    {
+      "question": "What is radiation-induced chest wall sarcoma, and what makes it a unique surgical challenge?",
+      "answer": "Post-radiation sarcomas develop 5-30 years after chest wall irradiation (most commonly after breast cancer RT). Most are high-grade undifferentiated pleomorphic sarcomas or osteosarcomas. They require wide (≥4cm) en bloc resection through irradiated tissue with poor vascularity. Wound healing is compromised — local muscle flaps (latissimus, pectoralis) are often in the radiation field and unreliable. Pedicled omental flaps (reliable blood supply from gastroepiploic artery) or free flaps may be required. 5-year survival: 30-40%.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the 'chimney' thoracostomy technique for infected chest wall prostheses after resection?",
+      "answer": "When prosthetic chest wall reconstruction becomes infected (5-10% — higher with mesh, especially after radiation), the infected prosthetic must be removed. If the soft tissue cannot be closed primarily, an open window thoracostomy (Eloesser flap or modified Clagett procedure) creates a permanent or staged opening for packing and drainage. Negative-pressure wound therapy (wound VAC) applied to the chest wall defect accelerates granulation tissue formation, allowing delayed flap closure or secondary intention healing.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "total-thyroidectomy",
+  "name": "Total Thyroidectomy",
+  "category": "Endocrine",
+  "overview": "Complete removal of thyroid gland",
+  "indications": [
+    "Thyroid cancer",
+    "Bilateral nodular disease",
+    "Graves disease",
+    "Large goiter"
+  ],
+  "keyAnatomy": [
+    "Recurrent laryngeal nerves",
+    "Superior laryngeal nerves",
+    "Parathyroid glands",
+    "Thyroid vessels"
+  ],
+  "preOpConsiderations": [
+    "Vocal cord assessment",
+    "Calcium levels",
+    "TSH optimization",
+    "Imaging studies"
+  ],
+  "positioning": "Supine with neck extension",
+  "portPlacementOrIncision": [
+    "Low collar incision 2cm above sternal notch"
+  ],
+  "criticalSteps": [
+    "Superior pole mobilization",
+    "Identify RLN",
+    "Preserve parathyroids",
+    "Ligate vessels",
+    "Complete removal"
+  ],
+  "commonPitfalls": [
+    "RLN injury",
+    "Parathyroid devascularization",
+    "Bleeding",
+    "Incomplete resection"
+  ],
+  "majorComplications": [
+    "Vocal cord paralysis",
+    "Hypoparathyroidism",
+    "Bleeding",
+    "Infection"
+  ],
+  "pearlsHighYield": [
+    "Nerve monitoring helpful",
+    "Visual RLN identification",
+    "Preserve parathyroid blood supply",
+    "Frozen section margins"
+  ],
+  "postOpPriorities": [
+    "Voice assessment",
+    "Calcium monitoring",
+    "Thyroid hormone replacement",
+    "Radioiodine consideration"
+  ],
+  "relatedProcedures": [
+    "hemithyroidectomy",
+    "parathyroidectomy",
+    "neck-dissection"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The ultimobranchial body contributes what cell type to the thyroid, and what malignancy arises from it?",
+      "answer": "The ultimobranchial body (from the 4th/5th pharyngeal pouch, neural crest-derived) migrates into the thyroid and differentiates into parafollicular C cells. These cells produce calcitonin. Medullary thyroid carcinoma (MTC) arises from C cells — it accounts for 3-5% of thyroid cancers and can be sporadic (75%) or hereditary (25%, MEN2A/2B). Serum calcitonin is the tumor marker.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the tubercle of Zuckerkandl, and why is it a critical landmark during total thyroidectomy?",
+      "answer": "The tubercle of Zuckerkandl is the posterolateral extension of the thyroid lobe, representing the embryologic point of fusion between the median thyroid anlage and the ultimobranchial body. The recurrent laryngeal nerve passes immediately deep to (medial to) this tubercle before entering the larynx. Identifying the tubercle during dissection leads you directly to the RLN — it is the single most reliable anatomic landmark for nerve identification.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the venous drainage pattern of the thyroid that determines ligation sequence during total thyroidectomy?",
+      "answer": "Superior thyroid vein (accompanies superior thyroid artery → internal jugular vein), middle thyroid vein (no accompanying artery — drains directly into the IJV laterally, often the first vessel encountered and divided), and inferior thyroid veins (drain to brachiocephalic veins, run anterior to the trachea). The middle thyroid vein must be divided early to mobilize the lobe laterally off the trachea.",
+      "level": "resident"
+    },
+    {
+      "question": "What is thyroid storm, and how do you manage it if triggered perioperatively during total thyroidectomy?",
+      "answer": "Thyroid storm is a life-threatening exacerbation of hyperthyroidism (mortality 10-30%). Perioperative triggers: inadequate preoperative preparation, thyroid gland manipulation. Burch-Wartofsky score >45 confirms diagnosis. Treatment order matters: 1) PTU (blocks synthesis AND peripheral T4→T3 conversion), 2) Beta-blocker (propranolol IV), 3) Iodide (Lugol's — MUST give AFTER PTU to avoid worsening), 4) Hydrocortisone (blocks conversion, treats relative adrenal insufficiency), 5) Cooling.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the significance of intraoperative neural monitoring (IONM) loss of signal during total thyroidectomy?",
+      "answer": "If IONM signal is lost on the first side (L1 — loss of signal on ipsilateral RLN), the contralateral side should NOT be operated until nerve recovery is confirmed, as bilateral RLN paralysis requires tracheostomy. A staged procedure (complete the contralateral side 2-3 months later after vocal cord function is confirmed by laryngoscopy) is recommended. This 'staged thyroidectomy' protocol reduces bilateral RLN injury from 0.5% to near zero.",
+      "level": "attending"
+    }
+  ]
+}

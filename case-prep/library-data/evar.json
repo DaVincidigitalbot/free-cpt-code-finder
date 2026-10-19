@@ -1,0 +1,88 @@
+{
+  "id": "evar",
+  "name": "EVAR (Endovascular Aneurysm Repair)",
+  "category": "Vascular",
+  "overview": "Minimally invasive endovascular repair of abdominal aortic aneurysm",
+  "indications": [
+    "AAA >5.5cm",
+    "Rapidly expanding AAA",
+    "Symptomatic AAA",
+    "Suitable anatomy"
+  ],
+  "keyAnatomy": [
+    "Infrarenal aorta",
+    "Iliac arteries",
+    "Renal arteries",
+    "Hypogastric arteries",
+    "Access vessels"
+  ],
+  "preOpConsiderations": [
+    "CT angiography",
+    "Anatomic suitability",
+    "Access vessel adequacy",
+    "Contrast allergy"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Bilateral femoral cutdown",
+    "Percutaneous option"
+  ],
+  "criticalSteps": [
+    "Obtain vascular access",
+    "Deploy main body",
+    "Deploy contralateral limb",
+    "Balloon modeling",
+    "Completion angiogram"
+  ],
+  "commonPitfalls": [
+    "Endoleak",
+    "Graft migration",
+    "Limb occlusion",
+    "Access complications"
+  ],
+  "majorComplications": [
+    "Endoleak",
+    "Graft migration",
+    "Renal failure",
+    "Limb occlusion"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor for complications",
+    "Check distal pulses",
+    "Lifelong surveillance",
+    "Antiplatelet therapy"
+  ],
+  "relatedProcedures": [
+    "open-aaa-repair",
+    "tevar",
+    "endoleak-repair"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic origin of the abdominal aorta?",
+      "answer": "The dorsal aortae fuse during week 4 to form the descending aorta. The abdominal aorta is a continuation of this fused dorsal aorta. The paired ventral (vitelline) branches become the celiac, SMA, and IMA. Lateral branches become renal and gonadal arteries.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the anatomic requirements for standard EVAR?",
+      "answer": "Adequate infrarenal neck: length ≥10-15mm, diameter ≤32mm, angulation <60 degrees, and minimal thrombus/calcification. Adequate iliac arteries for access (diameter ≥7mm, no severe tortuosity). The seal zones (proximal neck and iliac landing zones) determine EVAR feasibility.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the spinal cord at risk during EVAR?",
+      "answer": "The artery of Adamkiewicz (great radicular artery, usually T9-T12 on the left) is the major blood supply to the anterior spinal artery and lower spinal cord. In EVAR, coverage of lumbar arteries can compromise collateral spinal cord perfusion. Spinal cord ischemia/paraplegia is rare in EVAR (<1%) but more common in TEVAR (3-8%).",
+      "level": "resident"
+    },
+    {
+      "question": "What are the types of endoleak after EVAR?",
+      "answer": "Type I: seal zone leak (proximal Ia or distal Ib -- requires intervention). Type II: retrograde flow from branch vessels (lumbar, IMA -- most common, usually observed). Type III: graft defect/component separation (requires intervention). Type IV: graft porosity (rare with modern grafts). Type V: endotension (sac expansion without demonstrable leak). Types I and III require urgent repair.",
+      "level": "attending"
+    },
+    {
+      "question": "What does the EVAR-1 trial show for long-term outcomes?",
+      "answer": "EVAR-1 (2010 update): EVAR had lower 30-day mortality than open repair (1.8% vs 4.3%) but this benefit was lost by 8 years due to EVAR-related complications (endoleak, reintervention, rupture). Long-term mortality was similar. EVAR requires lifelong surveillance (annual CT). Open repair remains more durable. Patient age and fitness determine the optimal approach.",
+      "level": "attending"
+    }
+  ]
+}

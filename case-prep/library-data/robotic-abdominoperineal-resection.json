@@ -1,0 +1,88 @@
+{
+  "id": "robotic-abdominoperineal-resection",
+  "name": "Robotic Abdominoperineal Resection",
+  "category": "Colorectal",
+  "overview": "Robot-assisted APR with precise pelvic dissection",
+  "indications": [
+    "Low rectal cancer",
+    "Narrow pelvis",
+    "Previous pelvic surgery",
+    "Complex anatomy"
+  ],
+  "keyAnatomy": [
+    "TME plane",
+    "Levator ani",
+    "External sphincter",
+    "Pelvic autonomic nerves"
+  ],
+  "preOpConsiderations": [
+    "Robot setup",
+    "Neoadjuvant therapy",
+    "Stoma marking",
+    "Perineal positioning"
+  ],
+  "positioning": "Lithotomy initially, then prone for perineal phase",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Perineal elliptical incision"
+  ],
+  "criticalSteps": [
+    "Robotic TME",
+    "Precise pelvic dissection",
+    "Combined perineal approach",
+    "Colostomy creation"
+  ],
+  "commonPitfalls": [
+    "Position changes",
+    "Extended operative time",
+    "Robot limitations in perineum"
+  ],
+  "majorComplications": [
+    "Perineal wound issues",
+    "Sexual dysfunction",
+    "Conversion to open"
+  ],
+  "pearlsHighYield": [
+    "Enhanced precision",
+    "Better nerve identification",
+    "Reduced blood loss"
+  ],
+  "postOpPriorities": [
+    "Perineal wound care",
+    "Colostomy function",
+    "Pain control",
+    "Early mobilization"
+  ],
+  "relatedProcedures": [
+    "robotic-low-anterior-resection",
+    "open-apr",
+    "lap-apr"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What anatomic landmark does the puborectalis muscle create, and why is its complete excision important in APR?",
+      "answer": "The anorectal angle (80-110 degrees). Incomplete excision leaves tumor-bearing tissue — the 'waist' at the puborectalis/levator level is the most common site of positive CRM. Cylindrical technique excises the levators en bloc.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What advantage does the robotic platform provide for APR deep pelvic dissection?",
+      "answer": "Enhanced 3D visualization and articulation below the peritoneal reflection where laparoscopic instruments lose mechanical advantage. Facilitates precise dissection of Denonvilliers' fascia anteriorly, hypogastric nerve preservation laterally, and sharp Waldeyer's division posteriorly.",
+      "level": "resident"
+    },
+    {
+      "question": "After IMA division during APR, what maintains blood flow to the remaining pelvic structures?",
+      "answer": "The internal iliac system (middle and inferior rectal arteries, internal pudendal artery). The superior rectal artery goes with the specimen. The SMA-IMA collateral is no longer relevant since the colon is divided and rectum removed.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the incidence of perineal hernia after APR, and how is it prevented?",
+      "answer": "5-10%, higher after laparoscopic/robotic APR. Prevention: close pelvic peritoneum, biologic mesh over the pelvic floor, omental pedicle flap to fill dead space, or myocutaneous flap (VRAM).",
+      "level": "attending"
+    },
+    {
+      "question": "What neoadjuvant strategy should be considered for a T3N1 low rectal cancer before APR?",
+      "answer": "Total neoadjuvant therapy (TNT): short-course RT (5x5 Gy) + FOLFOX/CAPOX 4-6 months, then restage. If cCR → consider watch-and-wait to potentially avoid APR. If partial/no response → APR. Goal: maximum tumor response to possibly preserve the sphincter complex.",
+      "level": "attending"
+    }
+  ]
+}

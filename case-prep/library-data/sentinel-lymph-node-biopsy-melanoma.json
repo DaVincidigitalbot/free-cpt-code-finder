@@ -1,0 +1,92 @@
+{
+  "id": "sentinel-lymph-node-biopsy-melanoma",
+  "name": "Sentinel Lymph Node Biopsy (Melanoma)",
+  "category": "Skin/Soft Tissue",
+  "overview": "Minimally invasive lymph node staging for melanoma",
+  "indications": [
+    "Melanoma >1mm thickness",
+    "Melanoma 0.8-1mm with high-risk features",
+    "Ulcerated melanoma",
+    "High mitotic rate"
+  ],
+  "keyAnatomy": [
+    "Primary melanoma site",
+    "Lymphatic drainage pathways",
+    "Regional lymph node basins",
+    "Sentinel nodes"
+  ],
+  "preOpConsiderations": [
+    "Lymphoscintigraphy",
+    "Blue dye vs ICG",
+    "Pregnancy status",
+    "Previous surgery"
+  ],
+  "positioning": "Depends on primary site and node basin",
+  "portPlacementOrIncision": [
+    "Small incisions over sentinel nodes",
+    "Guided by gamma probe"
+  ],
+  "criticalSteps": [
+    "Inject tracers",
+    "Lymphoscintigraphy mapping",
+    "Intraoperative localization",
+    "Remove hot/blue nodes",
+    "Confirm ex vivo counts"
+  ],
+  "commonPitfalls": [
+    "Missed sentinel nodes",
+    "False negative",
+    "Allergic reaction to dye",
+    "Lymphedema"
+  ],
+  "majorComplications": [
+    "False negative rate 5-10%",
+    "Lymphedema",
+    "Nerve injury",
+    "Seroma"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Pathology results",
+    "Adjuvant therapy decision",
+    "Surveillance planning",
+    "Patient education"
+  ],
+  "relatedProcedures": [
+    "completion-lymphadenectomy",
+    "wide-local-excision",
+    "immunotherapy"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "Lymph nodes develop from mesenchymal condensations along lymphatic vessels during the 5th month of gestation. Why does melanoma preferentially metastasize to lymph nodes before other organs, and how does neural crest biology play into this?",
+      "answer": "Melanoma cells retain neural crest migratory properties — they have high motility and express adhesion molecules (like MCAM/MUC18) that facilitate lymphatic invasion. Lymphatic vessels are the first drainage pathway encountered in the dermis, and melanoma cells are biologically 'programmed' for migration (their embryologic ancestors migrated from the neural tube to the skin). Additionally, the lymph node microenvironment provides growth factors and immune-privileged niches (subcapsular sinus macrophages) that support melanoma cell survival. This is why nodal metastasis often precedes hematogenous spread — it's the path of least resistance for migratory cells.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You inject technetium and blue dye around a melanoma on the posterior shoulder. Lymphoscintigraphy shows drainage to BOTH axillary AND posterior triangle cervical nodes. How common is this ambiguous drainage, and what do you do?",
+      "answer": "Ambiguous or interval/in-transit drainage to multiple basins occurs in 5-15% of truncal melanomas, especially those near the midline or watershed zones (posterior shoulder is notorious). You MUST biopsy sentinel nodes in ALL draining basins — missing a positive node in one basin while only sampling the other is an oncologic failure. This is exactly why preoperative lymphoscintigraphy is MANDATORY, not optional. Intraoperatively, use both blue dye and gamma probe in each basin. The posterior shoulder is the classic 'trick question' location because of its complex watershed drainage between axillary, cervical, and sometimes supraclavicular basins.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "During axillary SLNB for melanoma, you encounter a blue-stained node immediately adjacent to the axillary vein. What named vascular structure are you most worried about injuring, and what happens if you do?",
+      "answer": "The thoracodorsal vascular pedicle (thoracodorsal artery and vein) — branch of the subscapular artery from the axillary artery. It runs along the lateral border of the latissimus dorsi and passes through the central axilla near the axillary vein. If you ligate it, the latissimus dorsi muscle loses its dominant blood supply, which matters enormously if the patient later needs a latissimus dorsi flap for breast reconstruction (not relevant in melanoma) or if you need it as a local flap. Also protect the lateral thoracic artery — it runs on the chest wall surface and can bleed briskly if transected.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "SLNB is 'minimally invasive' but has a 5-10% complication rate. What is the most common complication of axillary SLNB, and how does it differ from the most common complication after completion lymph node dissection?",
+      "answer": "Most common after SLNB: seroma (5-8%) — a contained lymphatic fluid collection at the biopsy site. It's self-limited and usually resolves with 1-2 aspirations. Most common after completion lymph node dissection: lymphedema (15-25%) — permanent arm swelling from disruption of the entire lymphatic drainage pathway. This is the critical difference and the entire RATIONALE for SLNB: by only removing 1-3 sentinel nodes (instead of all 20-30 axillary nodes), you preserve lymphatic drainage and reduce lymphedema risk from 25% to <5%. Other SLNB complications: wound infection (3-5%), nerve injury (numbness from intercostobrachial nerve, which you can't always preserve even in SLNB).",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "MSLT-II showed that completion lymph node dissection doesn't improve survival in sentinel node-positive melanoma. So why do we still do SLNB at all?",
+      "answer": "SLNB provides the single most powerful prognostic information in melanoma — sentinel node status changes the staging, the prognosis, AND the adjuvant therapy decision. A positive SLNB upstages a 2mm melanoma from stage IIA (80% 10-year survival) to stage IIIA (78%) or IIIB (60%) depending on tumor burden. This triggers eligibility for adjuvant immunotherapy (pembrolizumab, nivolumab) which has been shown in KEYNOTE-716 and CheckMate-238 to improve recurrence-free survival. So while we may not do completion dissection anymore (MSLT-II), the SLNB result is the gatekeeper to life-extending adjuvant treatment. It's prognostic and therapeutic decision-making, not just staging theater.",
+      "level": "attending"
+    }
+  ]
+}

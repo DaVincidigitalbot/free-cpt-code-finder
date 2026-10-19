@@ -1,0 +1,90 @@
+{
+  "id": "carotid-endarterectomy",
+  "name": "Carotid Endarterectomy",
+  "category": "Vascular",
+  "overview": "Removal of atherosclerotic plaque from carotid artery",
+  "indications": [
+    "Symptomatic carotid stenosis >50%",
+    "Asymptomatic stenosis >70%",
+    "TIA",
+    "Minor stroke"
+  ],
+  "keyAnatomy": [
+    "Carotid bifurcation",
+    "Internal carotid",
+    "External carotid",
+    "Vagus nerve"
+  ],
+  "preOpConsiderations": [
+    "Duplex scan",
+    "Cardiac evaluation",
+    "Antiplatelet therapy",
+    "Anesthesia type"
+  ],
+  "positioning": "Supine with head turned",
+  "portPlacementOrIncision": [
+    "Longitudinal neck incision along SCM"
+  ],
+  "criticalSteps": [
+    "Expose carotid",
+    "Systemic heparinization",
+    "Arteriotomy",
+    "Endarterectomy",
+    "Patch closure"
+  ],
+  "commonPitfalls": [
+    "Stroke",
+    "Cranial nerve injury",
+    "Restenosis",
+    "Bleeding"
+  ],
+  "majorComplications": [
+    "Stroke",
+    "MI",
+    "Cranial nerve injury",
+    "Bleeding"
+  ],
+  "pearlsHighYield": [
+    "Cerebral monitoring",
+    "Shunt if needed",
+    "Complete plaque removal"
+  ],
+  "postOpPriorities": [
+    "Neurologic checks",
+    "Blood pressure control",
+    "Antiplatelet therapy",
+    "Duplex surveillance"
+  ],
+  "relatedProcedures": [
+    "carotid-stenting",
+    "vertebral-reconstruction",
+    "subclavian-bypass"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The internal and external carotid arteries develop from which aortic arch, and what is the embryologic origin of the carotid body?",
+      "answer": "The 3rd aortic arch forms the common carotid and proximal internal carotid. The external carotid derives from the ventral aorta. The carotid body (a chemoreceptor) develops from the 3rd pharyngeal arch neural crest and mesoderm — it detects changes in O2, CO2, and pH.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the borders of the carotid triangle, and what structures pass through it?",
+      "answer": "Superior: posterior belly of digastric. Anterior: superior belly of omohyoid. Posterior: SCM. Contents: common carotid bifurcation, internal/external carotid, internal jugular vein, vagus nerve (CN X), hypoglossal nerve (CN XII), superior laryngeal nerve, and the ansa cervicalis.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the brain that provides collateral during ICA clamping?",
+      "answer": "Circle of Willis: anterior communicating artery (connects ACAs), posterior communicating arteries (connect ICA to PCA). External carotid collaterals: facial artery → ophthalmic artery retrograde flow into ICA. Shunt placement is used if EEG/stump pressure shows inadequate collateral (stump pressure <40 mmHg or EEG changes during clamping).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared neurologic complication, and what are the two mechanisms?",
+      "answer": "Stroke (1-3% for symptomatic stenosis, <1% for asymptomatic). Two mechanisms: 1) Thromboembolism (plaque debris or thrombus at the endarterectomy site), 2) Hypoperfusion (inadequate collateral during clamping). Post-operative hyperperfusion syndrome (headache, seizures, ICH) occurs when a previously hypoperfused brain receives normal flow after CEA — strict BP control (<140 systolic) prevents this.",
+      "level": "attending"
+    },
+    {
+      "question": "What are the NASCET and ACAS criteria for carotid endarterectomy?",
+      "answer": "NASCET (symptomatic): CEA beneficial for 50-99% ICA stenosis (NNT = 6 for 70-99%). ACAS/ACST (asymptomatic): CEA beneficial for ≥60-70% stenosis IF perioperative stroke/death rate is <3%. CREST-2 trial is currently comparing CEA + BMT vs BMT alone for asymptomatic stenosis, questioning whether surgery is still needed in the era of modern medical therapy.",
+      "level": "attending"
+    }
+  ]
+}

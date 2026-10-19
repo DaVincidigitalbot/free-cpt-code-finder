@@ -1,0 +1,91 @@
+{
+  "id": "vats-lobectomy",
+  "name": "VATS Lobectomy",
+  "category": "Thoracic",
+  "overview": "Video-assisted thoracoscopic pulmonary lobectomy",
+  "indications": [
+    "Lung cancer",
+    "Metastases",
+    "Benign tumors",
+    "Infectious disease"
+  ],
+  "keyAnatomy": [
+    "Pulmonary vessels",
+    "Bronchus",
+    "Interlobar fissures",
+    "Lymph nodes"
+  ],
+  "preOpConsiderations": [
+    "Pulmonary function",
+    "Cardiac evaluation",
+    "Tumor location",
+    "Staging"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "3-4 port VATS technique",
+    "Utility incision"
+  ],
+  "criticalSteps": [
+    "Single lung ventilation",
+    "Identify anatomy",
+    "Divide vessels",
+    "Divide bronchus",
+    "Remove lobe"
+  ],
+  "commonPitfalls": [
+    "Bleeding",
+    "Air leak",
+    "Incomplete fissure",
+    "Conversion to open"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Air leak",
+    "Pneumonia",
+    "Atrial fibrillation"
+  ],
+  "pearlsHighYield": [
+    "Complete fissure assessment",
+    "Vessel-first approach",
+    "Lymph node sampling"
+  ],
+  "postOpPriorities": [
+    "Chest tube management",
+    "Pain control",
+    "Pulmonary hygiene",
+    "Early mobilization"
+  ],
+  "relatedProcedures": [
+    "open-lobectomy",
+    "vats-wedge-resection",
+    "vats-segmentectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The lungs develop from the respiratory diverticulum of the foregut. At what embryologic stage do the lobar bronchi form?",
+      "answer": "Week 5: the respiratory bud divides into right (3 secondary bronchi → 3 lobes) and left (2 secondary bronchi → 2 lobes) primary bronchi. The right lung has 3 lobes because of asymmetric branching driven by cardiac positioning. By week 6, tertiary (segmental) bronchi form, establishing the bronchopulmonary segments.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the hilar anatomy from anterior to posterior for the right versus left lung?",
+      "answer": "Right hilum (anterior to posterior): superior pulmonary vein, pulmonary artery branches, bronchus (eparterial — above the artery for the upper lobe). Left hilum: superior pulmonary vein, pulmonary artery (highest structure), bronchus (hyparterial — below the artery). Mnemonic: Right = ABV (artery, bronchus, vein from superior to inferior). Left = APB.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the bronchial artery blood supply, and why does it matter after lobectomy?",
+      "answer": "Bronchial arteries (1 right, 2 left — from thoracic aorta or intercostal arteries) supply the bronchial wall, peribronchial tissue, and visceral pleura. After lobectomy, the bronchial stump heals via bronchial artery blood supply. If devascularized (excessive skeletonization), bronchial stump dehiscence/bronchopleural fistula occurs — the most feared complication (2-5% incidence, 20-70% mortality).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication after VATS lobectomy?",
+      "answer": "Prolonged air leak (>5 days) — occurs in 8-15% of patients. Caused by incomplete fissure division or parenchymal injury. Managed with chest tube on water seal, chemical pleurodesis, or Heimlich valve for outpatient management. Other complications: atrial fibrillation (10-20%), pneumonia (5%), and bronchopleural fistula (1-2%).",
+      "level": "attending"
+    },
+    {
+      "question": "What is the evidence for VATS versus open lobectomy for NSCLC?",
+      "answer": "Multiple retrospective studies and the VIOLET RCT (2019): VATS lobectomy has equivalent oncologic outcomes (survival, node harvest, recurrence) with less pain, shorter hospital stay (3-4 vs 5-7 days), fewer complications, and better preserved pulmonary function. VATS is now the standard approach for early-stage NSCLC at experienced centers.",
+      "level": "attending"
+    }
+  ]
+}

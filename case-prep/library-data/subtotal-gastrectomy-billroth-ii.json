@@ -1,0 +1,89 @@
+{
+  "id": "subtotal-gastrectomy-billroth-ii",
+  "name": "Subtotal Gastrectomy with Billroth II",
+  "category": "Upper GI",
+  "overview": "Distal gastric resection with gastrojejunostomy",
+  "indications": [
+    "Distal gastric cancer",
+    "Duodenal involvement",
+    "Complex duodenal scarring"
+  ],
+  "keyAnatomy": [
+    "Gastric remnant",
+    "Jejunum",
+    "Ligament of Treitz",
+    "Transverse mesocolon"
+  ],
+  "preOpConsiderations": [
+    "Jejunal length",
+    "Mesenteric vessels",
+    "Antecolic vs retrocolic"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Upper midline",
+    "Adequate exposure for jejunum"
+  ],
+  "criticalSteps": [
+    "Resect distal stomach",
+    "Select jejunal loop",
+    "Create gastrojejunostomy",
+    "Close duodenal stump",
+    "Secure anastomosis"
+  ],
+  "commonPitfalls": [
+    "Duodenal stump leak",
+    "Wrong limb",
+    "Afferent loop syndrome",
+    "Marginal ulcer"
+  ],
+  "majorComplications": [
+    "Duodenal stump leak",
+    "Anastomotic leak",
+    "Afferent loop syndrome",
+    "Dumping"
+  ],
+  "pearlsHighYield": [
+    "Secure duodenal closure",
+    "Correct limb identification",
+    "Tension-free anastomosis"
+  ],
+  "postOpPriorities": [
+    "Monitor for leak",
+    "Early feeding",
+    "Dumping assessment",
+    "Long-term follow-up"
+  ],
+  "relatedProcedures": [
+    "subtotal-gastrectomy-billroth-i",
+    "roux-en-y-gastrojejunostomy",
+    "total-gastrectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The Billroth II creates a gastrojejunostomy connecting which two embryologic gut segments?",
+      "answer": "Foregut (gastric remnant) to midgut (proximal jejunum). The duodenal stump is closed, creating a blind loop — this non-anatomic reconstruction explains the unique metabolic complications of Billroth II.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the optimal afferent limb length in Billroth II?",
+      "answer": "15-20cm from the ligament of Treitz. Too long: increased afferent loop syndrome risk (obstruction, bilious vomiting, pancreatitis from stasis). Too short: tension, kinking, inability to reach the gastric remnant.",
+      "level": "resident"
+    },
+    {
+      "question": "What causes duodenal stump blowout, and what is its mortality?",
+      "answer": "Ischemia of the closure, distal obstruction (afferent loop), or drain erosion. Incidence 2-4%, mortality 20-30%. Presents as sudden bilious drainage, sepsis, and RUQ pain on POD 3-7. Managed with drainage, antibiotics, and often re-operation.",
+      "level": "resident"
+    },
+    {
+      "question": "How does early dumping differ mechanistically from late dumping after Billroth II?",
+      "answer": "Early (15-30 min): hyperosmolar chyme in jejunum → fluid shift → hypovolemia, tachycardia, cramping. Late (1-3 hours): rapid glucose absorption → hyperinsulinemia → reactive hypoglycemia → diaphoresis, confusion. Treatment: small meals, avoid simple sugars. Refractory: octreotide or Roux-en-Y conversion.",
+      "level": "attending"
+    },
+    {
+      "question": "What is alkaline reflux gastritis, and what is the definitive treatment?",
+      "answer": "Bile reflux into the gastric remnant causing chronic inflammation, pain, and bilious vomiting — worse in Billroth II because bile enters directly without a pyloric mechanism. Conservative: sucralfate, cholestyramine, PPIs. Definitive: conversion to Roux-en-Y (diverts bile 40-60cm downstream).",
+      "level": "attending"
+    }
+  ]
+}

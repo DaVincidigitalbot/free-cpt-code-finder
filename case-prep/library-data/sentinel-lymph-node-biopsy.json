@@ -1,0 +1,90 @@
+{
+  "id": "sentinel-lymph-node-biopsy",
+  "name": "Sentinel Lymph Node Biopsy",
+  "category": "Breast",
+  "overview": "Identification and sampling of first-draining lymph nodes",
+  "indications": [
+    "Early breast cancer",
+    "Melanoma",
+    "DCIS with invasion",
+    "Staging procedure"
+  ],
+  "keyAnatomy": [
+    "Axillary lymph nodes",
+    "Internal mammary nodes",
+    "Lymphatic drainage patterns"
+  ],
+  "preOpConsiderations": [
+    "Dual tracer technique",
+    "Timing of injection",
+    "Previous surgery",
+    "Neoadjuvant therapy"
+  ],
+  "positioning": "Supine with arm extended",
+  "portPlacementOrIncision": [
+    "Small axillary incision",
+    "Follow radioactive signal"
+  ],
+  "criticalSteps": [
+    "Inject tracers",
+    "Identify sentinel nodes",
+    "Remove hot/blue nodes",
+    "Frozen section",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "False negative",
+    "Allergic reaction",
+    "Inadequate mapping",
+    "Missed nodes"
+  ],
+  "majorComplications": [
+    "False negative",
+    "Allergic reaction",
+    "Seroma",
+    "Lymphedema"
+  ],
+  "pearlsHighYield": [
+    "Dual tracer superior",
+    "Remove all sentinel nodes",
+    "Frozen section helpful"
+  ],
+  "postOpPriorities": [
+    "Pathology results",
+    "Completion axillary dissection if positive",
+    "Arm function",
+    "Adjuvant therapy planning"
+  ],
+  "relatedProcedures": [
+    "axillary-lymph-node-dissection",
+    "lumpectomy",
+    "mastectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What embryologic pathway explains why breast lymphatic drainage goes to the axilla?",
+      "answer": "Breast tissue develops from the pectoral mammary ridge, and lymphatic development follows the mesenchymal tissue between the breast and axilla. 75% of breast lymph drains to the axillary nodes (following the lateral thoracic vessels). The remaining 25% drains to internal mammary nodes (following the IMA perforators) — this drainage is often under-appreciated.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What defines the sentinel lymph node, and what is the false-negative rate of SLNB?",
+      "answer": "The first node(s) receiving lymphatic drainage from the tumor site. Identified by dual tracer (technetium-99m sulfur colloid + isosulfan blue/ICG). False-negative rate: 5-10% (defined as negative SLN with positive non-SLN nodes). This is why ≥2 SLN should be removed when possible — removing 3+ nodes reduces the FNR to <5%.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the axillary lymph node basin, and what vessel runs through the nodal tissue?",
+      "answer": "Branches of the lateral thoracic artery, subscapular artery, and thoracoacromial trunk. The thoracodorsal artery/vein runs through the level I/II nodes and must be preserved during SLNB. The intercostobrachial nerve (T2) crosses the axilla and is at risk during dissection.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the clinical significance of ACOSOG Z0011 for SLNB-positive patients?",
+      "answer": "Z0011 (2011): T1-T2, clinically node-negative patients with 1-2 positive SLN undergoing lumpectomy + whole-breast RT do NOT benefit from completion ALND. 10-year OS was equivalent. This eliminated routine ALND for most SLNB-positive patients and reduced morbidity (lymphedema, nerve injury) dramatically.",
+      "level": "attending"
+    },
+    {
+      "question": "When is SLNB contraindicated, and when should you go straight to ALND?",
+      "answer": "SLNB contraindicated: inflammatory breast cancer, clinically palpable/biopsy-proven N2-N3 disease, and after failed prior SLN mapping. Straight to ALND: proven axillary metastasis (FNA/core biopsy positive node) in patients not receiving neoadjuvant therapy. After neoadjuvant chemo, targeted axillary dissection (TAD = SLN + clipped node) is the new standard.",
+      "level": "attending"
+    }
+  ]
+}

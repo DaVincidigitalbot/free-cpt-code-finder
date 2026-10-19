@@ -1,0 +1,93 @@
+{
+  "id": "robotic-adrenalectomy",
+  "name": "Robotic Adrenalectomy",
+  "category": "Endocrine",
+  "overview": "Robot-assisted removal of adrenal gland",
+  "indications": [
+    "Large adrenal masses",
+    "Complex anatomy",
+    "Bilateral procedures",
+    "Previous surgery"
+  ],
+  "keyAnatomy": [
+    "Adrenal gland",
+    "Adrenal vein",
+    "IVC",
+    "Renal vessels",
+    "Liver/spleen"
+  ],
+  "preOpConsiderations": [
+    "Alpha blockade for pheochromocytoma",
+    "Robot setup",
+    "Patient positioning",
+    "Conversion readiness"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Lateral retroperitoneal approach",
+    "Strategic port placement"
+  ],
+  "criticalSteps": [
+    "Robot docking",
+    "Precise dissection",
+    "Early adrenal vein control",
+    "Complete mobilization",
+    "Intact removal"
+  ],
+  "commonPitfalls": [
+    "IVC injury",
+    "Hypertensive crisis",
+    "Tumor spillage",
+    "Conversion to open"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "IVC injury",
+    "Adrenal crisis",
+    "Pneumothorax"
+  ],
+  "pearlsHighYield": [
+    "Enhanced precision near IVC",
+    "3D visualization",
+    "Wristed instruments"
+  ],
+  "postOpPriorities": [
+    "Blood pressure monitoring",
+    "Steroid replacement if bilateral",
+    "Pain control",
+    "Pathology assessment"
+  ],
+  "relatedProcedures": [
+    "lap-adrenalectomy",
+    "open-adrenalectomy",
+    "partial-adrenalectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What advantage does the robot provide for adrenalectomy over laparoscopic approach?",
+      "answer": "Wristed instruments facilitate dissection around the short right adrenal vein (5mm, draining directly into the IVC). The 3D visualization and instrument articulation reduce the risk of IVC avulsion -- the most feared complication. Also beneficial for large tumors requiring precise dissection around renal vessels.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the posterior retroperitoneoscopic approach for robotic adrenalectomy?",
+      "answer": "Patient positioned prone with port placement in the posterior flank. The adrenal is approached directly through the retroperitoneum without peritoneal entry. Advantages: no visceral mobilization, faster recovery, can operate bilaterally in same position. Disadvantages: limited working space, not suitable for large tumors (>6cm).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the adrenal venous anatomy that differs between right and left sides?",
+      "answer": "Right adrenal vein: short (5mm), drains directly into posterolateral IVC. Left adrenal vein: longer (2-3cm), drains into left renal vein along with the left inferior phrenic vein. Right adrenalectomy is more technically demanding due to the short vein.",
+      "level": "resident"
+    },
+    {
+      "question": "What preoperative workup is mandatory before adrenalectomy for an incidentaloma?",
+      "answer": "1) Pheochromocytoma: plasma metanephrines/normetanephrines. 2) Cortisol-producing: 1mg dexamethasone suppression test. 3) Aldosterone-producing: aldosterone-to-renin ratio. 4) Sex hormones: DHEA-S. ALL adrenal incidentalomas need biochemical workup before surgery -- undiagnosed pheochromocytoma under anesthesia is potentially fatal.",
+      "level": "attending"
+    },
+    {
+      "question": "What size threshold prompts surgical removal of an adrenal incidentaloma?",
+      "answer": "Greater than 4cm (some say >3cm) or any size with: imaging features of malignancy (irregular borders, heterogeneous enhancement, high HU on unenhanced CT >10, slow washout), hormonal activity, or interval growth >1cm/year. Adrenocortical carcinoma risk increases significantly above 4cm (2% at 4cm, 25% at 6cm).",
+      "level": "attending"
+    }
+  ]
+}

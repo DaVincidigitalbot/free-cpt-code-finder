@@ -1,0 +1,91 @@
+{
+  "id": "thymectomy",
+  "name": "Thymectomy",
+  "category": "Thoracic",
+  "overview": "Surgical removal of thymus gland",
+  "indications": [
+    "Myasthenia gravis",
+    "Thymoma",
+    "Thymic hyperplasia",
+    "Thymic carcinoma"
+  ],
+  "keyAnatomy": [
+    "Thymus",
+    "Anterior mediastinum",
+    "Phrenic nerves",
+    "Great vessels"
+  ],
+  "preOpConsiderations": [
+    "Myasthenia management",
+    "Pulmonary function",
+    "Steroid optimization",
+    "Anesthesia considerations"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Median sternotomy",
+    "VATS approach",
+    "Transcervical approach"
+  ],
+  "criticalSteps": [
+    "Mobilize thymus",
+    "Preserve phrenic nerves",
+    "Complete resection",
+    "Remove ectopic tissue"
+  ],
+  "commonPitfalls": [
+    "Phrenic nerve injury",
+    "Incomplete resection",
+    "Bleeding",
+    "Myasthenic crisis"
+  ],
+  "majorComplications": [
+    "Phrenic nerve injury",
+    "Bleeding",
+    "Myasthenic crisis",
+    "Respiratory failure"
+  ],
+  "pearlsHighYield": [
+    "Complete thymectomy",
+    "Preserve phrenic nerves",
+    "Remove ectopic tissue"
+  ],
+  "postOpPriorities": [
+    "Respiratory monitoring",
+    "Myasthenia management",
+    "Early extubation",
+    "Steroid tapering"
+  ],
+  "relatedProcedures": [
+    "vats-thymectomy",
+    "mediastinal-mass-resection",
+    "myasthenia-management"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The thymus develops from which pharyngeal pouch, and what is its embryologic migration?",
+      "answer": "The ventral wing of the 3rd pharyngeal pouch (same pouch as the inferior parathyroids, which come from the dorsal wing). The thymus descends from the angle of the mandible to the anterior mediastinum during weeks 6-8. Ectopic thymic tissue can be found anywhere along this descent path — complete thymectomy requires removing all cervical and mediastinal thymic tissue.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the anatomy of the thymus in the anterior mediastinum?",
+      "answer": "Bilobed organ in the anterior superior mediastinum, resting on the pericardium posteriorly, between the lungs laterally, and behind the sternum anteriorly. It receives blood from the internal mammary arteries and inferior thyroid arteries. The left brachiocephalic (innominate) vein crosses directly over the thymus and its thymic veins drain into it — injury to this vein is the most dangerous complication.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the thymus?",
+      "answer": "Arterial: branches of the internal mammary (internal thoracic) arteries primarily, with contributions from inferior thyroid arteries and pericardiophrenic arteries. Venous: thymic veins drain into the left brachiocephalic vein (most important to identify and ligate) and internal mammary veins. The thymic arteries are small and easily controlled; the veins (especially the central thymic vein draining into the brachiocephalic) can cause significant hemorrhage if avulsed.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the evidence for thymectomy in myasthenia gravis?",
+      "answer": "MGTX trial (2016, NEJM): thymectomy + prednisone was superior to prednisone alone for generalized MG (improved clinical outcomes, lower prednisone requirements, fewer hospitalizations) over 3 years. Thymectomy is now recommended for all generalized non-thymomatous MG patients (especially those with anti-AChR antibodies) age 18-65. For thymoma-associated MG, thymectomy is mandatory for both tumor and MG treatment.",
+      "level": "attending"
+    },
+    {
+      "question": "What approach is used for thymectomy — transcervical, transsternal, or VATS/robotic?",
+      "answer": "Transsternal (median sternotomy): gold standard for oncologic completeness (thymoma). VATS or robotic (right or left or bilateral approach): preferred for non-thymomatous MG — equivalent completeness with less morbidity. Transcervical: minimally invasive but limited visualization of the lower poles. For thymoma, complete resection (R0) with en bloc removal of the entire thymus and surrounding fat is oncologically mandatory.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "hartmann-procedure",
+  "name": "Hartmann Procedure",
+  "category": "Colorectal",
+  "overview": "Sigmoid resection with end colostomy and rectal stump closure",
+  "indications": [
+    "Perforated diverticulitis",
+    "Obstructing sigmoid cancer",
+    "Emergency situations",
+    "High-risk patients"
+  ],
+  "keyAnatomy": [
+    "Sigmoid colon",
+    "Rectosigmoid junction",
+    "Left ureter",
+    "Presacral space"
+  ],
+  "preOpConsiderations": [
+    "Hemodynamic status",
+    "Bowel prep if possible",
+    "Stoma marking",
+    "ICU availability"
+  ],
+  "positioning": "Supine, may use lithotomy",
+  "portPlacementOrIncision": [
+    "Midline laparotomy",
+    "Left lower quadrant for stoma"
+  ],
+  "criticalSteps": [
+    "Mobilize sigmoid",
+    "Divide vessels",
+    "Resect sigmoid",
+    "Create end colostomy",
+    "Close rectal stump"
+  ],
+  "commonPitfalls": [
+    "Ureteral injury",
+    "Bleeding from pelvis",
+    "Stoma complications",
+    "Rectal stump leak"
+  ],
+  "majorComplications": [
+    "Stoma complications",
+    "Bleeding",
+    "Infection",
+    "Rectal stump leak"
+  ],
+  "pearlsHighYield": [
+    "Adequate mobilization",
+    "Secure rectal stump",
+    "Well-constructed stoma"
+  ],
+  "postOpPriorities": [
+    "Stoma care",
+    "ICU monitoring",
+    "Nutritional support",
+    "Future reversal planning"
+  ],
+  "relatedProcedures": [
+    "hartmann-reversal",
+    "end-colostomy",
+    "sigmoid-colectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "Henri Hartmann originally described this procedure in 1921 for which pathology?",
+      "answer": "Obstructing rectal cancer — not diverticulitis, which is its most common indication today. It was designed for situations where primary anastomosis was too risky.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Where should the rectal stump be divided, and how do you mark it for future reversal?",
+      "answer": "At the rectosigmoid junction (sacral promontory level). Mark the stump with a long non-absorbable suture tacked to the anterior abdominal wall for identification at reversal. Staple (not oversew) and leave it long enough for re-anastomosis.",
+      "level": "resident"
+    },
+    {
+      "question": "What causes Hartmann stump blowout?",
+      "answer": "Ischemia of the staple line (too distal division or excessive devascularization), retained fecal material below the staple line, or ongoing sepsis. The stump's blood supply depends on middle and inferior rectal arteries. It presents as pelvic sepsis requiring washout and revision.",
+      "level": "resident"
+    },
+    {
+      "question": "What percentage of Hartmann patients eventually undergo reversal?",
+      "answer": "Only 40-60%. Predictors of permanent stoma: age >70, ASA III-IV, malignancy, Hinchey IV, complications from index operation. Reversal carries 4-16% leak rate and 15-25% overall morbidity.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the evidence for primary anastomosis versus Hartmann's in perforated diverticulitis?",
+      "answer": "DIVERTI and LADIES trials: primary anastomosis with diverting ileostomy had lower morbidity, comparable mortality, and higher stoma reversal rates (70-80% vs 40-60%) than Hartmann's. Primary anastomosis is now preferred in hemodynamically stable Hinchey III patients.",
+      "level": "attending"
+    }
+  ]
+}

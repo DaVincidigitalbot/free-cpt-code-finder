@@ -1,0 +1,93 @@
+{
+  "id": "mesenteric-bypass-sma-stenting",
+  "name": "Mesenteric Bypass / SMA Stenting",
+  "category": "Vascular",
+  "overview": "Revascularization for chronic mesenteric ischemia",
+  "indications": [
+    "Chronic mesenteric ischemia",
+    "Acute mesenteric ischemia",
+    "Multi-vessel mesenteric disease",
+    "Failed endovascular therapy"
+  ],
+  "keyAnatomy": [
+    "Superior mesenteric artery",
+    "Celiac artery",
+    "Inferior mesenteric artery",
+    "Aorta",
+    "Visceral vessels"
+  ],
+  "preOpConsiderations": [
+    "CT angiography",
+    "Cardiac evaluation",
+    "Nutritional status",
+    "Multi-vessel involvement"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Midline laparotomy",
+    "Retroperitoneal approach"
+  ],
+  "criticalSteps": [
+    "Expose target vessels",
+    "Assess bowel viability",
+    "Create bypass",
+    "Restore perfusion",
+    "Evaluate flow"
+  ],
+  "commonPitfalls": [
+    "Bowel ischemia",
+    "Graft thrombosis",
+    "Spinal cord ischemia",
+    "Cardiac complications"
+  ],
+  "majorComplications": [
+    "Bowel infarction",
+    "Graft occlusion",
+    "MI",
+    "Renal failure"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor bowel function",
+    "Nutritional support",
+    "Anticoagulation",
+    "Graft surveillance"
+  ],
+  "relatedProcedures": [
+    "bowel-resection",
+    "mesenteric-angioplasty",
+    "second-look-laparotomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "The celiac trunk, SMA, and IMA develop from ventral segmental arteries of the aorta. Why do patients with chronic mesenteric ischemia typically need TWO of these three vessels to be diseased before developing symptoms?",
+      "answer": "Because the three mesenteric arteries are connected by a robust embryologically-derived collateral network: the pancreaticoduodenal arcades (celiac ↔ SMA), the arc of Riolan / marginal artery of Drummond (SMA ↔ IMA), and the arc of Bühler (embryonic ventral anastomosis between celiac and SMA, persists in 2-4%). These collaterals can compensate for single-vessel occlusion. Symptoms (postprandial pain, food fear, weight loss) only develop when two of three vessels are critically stenosed/occluded and the remaining collateral network is overwhelmed.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You're performing an antegrade aortomesenteric bypass from the supraceliac aorta to the SMA. How do you expose the supraceliac aorta, and what structure do you divide to get there?",
+      "answer": "Perform a left medial visceral rotation (Mattox maneuver) or approach through the lesser sac by dividing the gastrohepatic ligament. Then divide the median arcuate ligament (the muscular crus of the diaphragm) — this crosses over the aorta at the aortic hiatus and often compresses the celiac trunk (median arcuate ligament syndrome). Dividing it exposes the supraceliac aorta for clamping and anastomosis. The supraceliac aorta is typically FREE of atherosclerotic disease (unlike the infrarenal), which is why it's preferred for inflow.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "After SMA stenting, you're monitoring for restenosis. What's the duplex ultrasound velocity threshold that indicates >70% SMA stenosis, and why is SMA stent surveillance different from other arterial stents?",
+      "answer": "Peak systolic velocity >275 cm/s in the SMA indicates >70% stenosis (some labs use >300 cm/s). SMA stent surveillance is different because: (1) the SMA has high-resistance flow at rest and LOW-resistance flow postprandially — you must do fasting AND postprandial studies, (2) in-stent restenosis rates are higher for mesenteric stents (20-40% at 3 years) than other vascular beds due to the aortic origin angle and respiratory-related stent stress, (3) restenosis can be clinically silent until acute thrombosis causes mesenteric infarction — a catastrophic event. Surveillance duplex every 6 months is mandatory.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "You've completed a retrograde SMA bypass from the infrarenal aorta. The patient does well for 2 days then develops acute abdominal pain, lactic acidosis, and shock. What happened?",
+      "answer": "Graft thrombosis causing acute mesenteric ischemia — the most feared complication. Retrograde grafts (originating from infrarenal aorta) have a higher kink/thrombosis rate than antegrade grafts (from supraceliac aorta) because the graft must make a sharp curve from the infrarenal aorta up to the SMA. This is an emergency: immediate return to OR for graft thrombectomy and revision, assessment of bowel viability, resection of necrotic bowel. Mortality of acute graft thrombosis is 50-80%. This is why many vascular surgeons prefer antegrade bypass despite the more demanding exposure.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "Endovascular SMA stenting vs open bypass — when do you choose each, and what's the honest long-term data?",
+      "answer": "Stenting first for most patients: lower morbidity (5% vs 15% for open), shorter hospital stay, and good initial results. BUT: primary patency at 3 years is only 50-65% for stents vs 85-90% for open bypass. The recurrence rate for symptoms is significantly higher after stenting. Choose OPEN bypass when: (1) young, good-risk patient who needs durable repair, (2) failed prior stenting, (3) anatomy unfavorable for stenting (flush occlusion, heavy calcification at the origin), (4) concurrent aortic pathology requiring open repair. The real pearl: ALWAYS stent or bypass BOTH celiac AND SMA when doing open repair — the recurrence rate after single-vessel revascularization is unacceptable because the other vessel will progress.",
+      "level": "attending"
+    }
+  ]
+}

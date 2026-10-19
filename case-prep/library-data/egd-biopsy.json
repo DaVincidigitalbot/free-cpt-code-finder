@@ -1,0 +1,90 @@
+{
+  "id": "egd-biopsy",
+  "name": "EGD with Biopsy",
+  "category": "Endoscopy",
+  "overview": "Upper endoscopy with tissue sampling for diagnosis",
+  "indications": [
+    "Mucosal abnormalities",
+    "H. pylori testing",
+    "Barrett's surveillance",
+    "Mass lesions"
+  ],
+  "keyAnatomy": [
+    "Esophagus",
+    "Stomach",
+    "Duodenum",
+    "Mucosal layers"
+  ],
+  "preOpConsiderations": [
+    "Anticoagulation status",
+    "Biopsy indications",
+    "Sedation needs",
+    "H. pylori preparation"
+  ],
+  "positioning": "Left lateral decubitus",
+  "portPlacementOrIncision": [
+    "Transoral endoscopic approach"
+  ],
+  "criticalSteps": [
+    "Systematic examination",
+    "Identify abnormalities",
+    "Obtain biopsies",
+    "Hemostasis",
+    "Document findings"
+  ],
+  "commonPitfalls": [
+    "Inadequate samples",
+    "Bleeding",
+    "Missed lesions",
+    "Poor documentation"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Perforation",
+    "Aspiration",
+    "Sedation complications"
+  ],
+  "pearlsHighYield": [
+    "Multiple biopsies",
+    "Proper orientation",
+    "Hemostasis check"
+  ],
+  "postOpPriorities": [
+    "Monitor for bleeding",
+    "Pathology review",
+    "H. pylori treatment",
+    "Surveillance planning"
+  ],
+  "relatedProcedures": [
+    "colonoscopy-biopsy",
+    "eus-biopsy",
+    "ercp"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "Barrett's esophagus represents intestinal metaplasia. What embryologic process does this recapitulate?",
+      "answer": "The distal esophagus is initially columnar (foregut endoderm) before being replaced by squamous epithelium via cranial-to-caudal re-epithelialization. Barrett's reverts to embryonic columnar state — specialized intestinal metaplasia with goblet cells driven by acid/bile reflux.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What landmarks confirm you've entered the stomach during EGD?",
+      "answer": "Z-line (squamocolumnar junction), rugal folds, incisura angularis (lesser curve), pylorus, and retroflexion showing the cardia/fundus (J-maneuver). Barrett's is diagnosed when the Z-line displaces proximal to the GEJ.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the Seattle biopsy protocol for Barrett's surveillance?",
+      "answer": "Four-quadrant biopsies every 1-2cm throughout the Barrett's segment PLUS targeted biopsies of visible lesions. For confirmed dysplasia: every 1cm. Visible lesions should undergo EMR — biopsy alone underestimates dysplasia grade in 40%.",
+      "level": "resident"
+    },
+    {
+      "question": "What causes stress ulcers at the mucosal blood supply level?",
+      "answer": "Splanchnic vasoconstriction during critical illness redirects blood from the dense submucosal gastric plexus, causing mucosal ischemia. Combined with acid exposure (mucus-bicarbonate barrier failure), stress ulcers form. Both PPI and maintaining perfusion are key.",
+      "level": "attending"
+    },
+    {
+      "question": "How many biopsies should you take from a gastric ulcer margin, and why?",
+      "answer": "Minimum 6-8 from the ulcer rim. Gastric ulcers have 5-10% malignancy rate. Single biopsies have 70% sensitivity; 7+ achieve >98%. All gastric ulcers need repeat EGD at 8-12 weeks — a non-healing ulcer is cancer until proven otherwise.",
+      "level": "attending"
+    }
+  ]
+}

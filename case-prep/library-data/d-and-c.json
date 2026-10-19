@@ -1,0 +1,92 @@
+{
+  "id": "d-and-c",
+  "name": "D&C (Dilation and Curettage)",
+  "category": "Gynecology",
+  "overview": "Cervical dilation and uterine curettage for diagnostic or therapeutic purposes",
+  "indications": [
+    "Abnormal uterine bleeding",
+    "Incomplete abortion",
+    "Endometrial sampling",
+    "Retained products of conception"
+  ],
+  "keyAnatomy": [
+    "Cervical canal",
+    "Uterine cavity",
+    "Endometrium",
+    "Myometrium"
+  ],
+  "preOpConsiderations": [
+    "Pregnancy test",
+    "Cervical preparation",
+    "Anesthesia type",
+    "Infection screening"
+  ],
+  "positioning": "Lithotomy position",
+  "portPlacementOrIncision": [
+    "Transvaginal approach",
+    "No abdominal incision"
+  ],
+  "criticalSteps": [
+    "Bimanual examination",
+    "Insert speculum",
+    "Dilate cervix",
+    "Insert curette",
+    "Systematic curettage"
+  ],
+  "commonPitfalls": [
+    "Uterine perforation",
+    "Cervical laceration",
+    "Inadequate sampling",
+    "Asherman syndrome"
+  ],
+  "majorComplications": [
+    "Uterine perforation",
+    "Hemorrhage",
+    "Infection",
+    "Asherman syndrome"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor for bleeding",
+    "Pathology review",
+    "Contraception counseling",
+    "Follow-up appointments"
+  ],
+  "relatedProcedures": [
+    "hysteroscopy",
+    "endometrial-biopsy",
+    "manual-vacuum-aspiration"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "The uterine cavity is lined by endometrium that has a functional and basal layer. These layers derive from what embryologic tissue, and why does the basal layer matter for D&C safety?",
+      "answer": "The endometrium derives from the mesenchyme of the fused paramesonephric (Müllerian) ducts — it differentiates into the endometrial stroma and glands. The basal layer (stratum basalis) is the regenerative layer that is NOT shed during menstruation — it contains the stem cells and gland bases that regenerate the functional layer each cycle. During D&C, you must curette the functional layer WITHOUT destroying the basal layer. If you aggressively curette into/through the basalis, you get Asherman's syndrome — intrauterine adhesions from scar formation where the regenerative layer was destroyed. The basalis is only 1-2mm thick, so the margin for error is slim.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "During cervical dilation, the dilators must pass through the internal os. What is the anatomic relationship between the internal os and the uterine arteries, and why does this matter for complication management?",
+      "answer": "The uterine arteries cross the ureters ('water under the bridge') at the level of the internal os, running along the lateral margins of the cervix at the isthmic level. The internal os is the isthmic-corporeal junction — the narrowest point and the most likely site of cervical laceration during forced dilation. If you tear the cervix laterally during dilation, you can lacerate the ascending branch of the uterine artery, causing massive hemorrhage. This is why dilation must be gentle, sequential, and never forced. If resistance is met, use misoprostol or laminaria for preoperative cervical softening rather than muscling through.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "After a D&C for incomplete miscarriage, the patient continues to have heavy bleeding. The uterine arteries are the source. What's the interventional radiology option, and how does the uterine blood supply's unique anatomy make this possible?",
+      "answer": "Uterine artery embolization (UAE) — selective catheterization of both uterine arteries via femoral approach, then embolization with gelfoam (temporary) or particles (permanent). This works because the uterine artery (branch of the internal iliac) provides ~90% of the uterine blood supply, and bilateral embolization dramatically reduces flow. The unique anatomy that makes UAE safe: the uterus has extensive collateral blood supply from the ovarian arteries (aortic branches), vaginal arteries, and round ligament arteries. These collaterals sustain uterine viability after UAE while the hemorrhage source thromboses. The uterus is one of the most vascular-redundant organs in the body — it survives bilateral uterine artery ligation in extremis.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "During D&C, you feel the curette suddenly pass deeper than expected and lose resistance. What just happened, and what's your immediate management?",
+      "answer": "Uterine perforation — the curette has passed through the myometrium into the peritoneal cavity. Incidence: 0.5-1% of all D&Cs (higher in postmenopausal atrophic uterus and postpartum uterus). Immediate management: (1) STOP the procedure immediately, (2) remove the curette gently — do NOT explore the perforation with instruments, (3) assess vital signs — hemodynamic instability suggests vascular or visceral injury, (4) observe with serial abdominal exams and vitals for 4-6 hours. If stable: most perforations from a blunt curette are small and heal spontaneously. If unstable or if a suction cannula or sharp curette perforated: laparoscopy or laparotomy to rule out bowel injury and repair the defect. A perforating suction curette can grab and avulse bowel or omentum through the perforation — this is a surgical emergency.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "An intern is about to perform their first D&C for a missed abortion. What are the three technical pearls you give them before they start?",
+      "answer": "1) SOUND THE UTERUS FIRST — determine depth and direction before dilating or curetting. A retroverted uterus (20% of women) changes the curette angle by 90°. Perforating the fundus of a retroverted uterus because you assumed anteverted is the classic intern mistake. 2) Let the UTERUS tell you when you're done — the 'gritty' feel of the curette on myometrium (like scratching a rough surface) means you've reached the basalis and should stop. Continued curettage after this feeling creates Asherman's. The endometrium feels soft and pillowy; the myometrium feels firm and rough. 3) Use ULTRASOUND GUIDANCE for difficult cases — a bedside ultrasound probe on the abdomen lets you watch the curette in real-time, confirming you're in the cavity, monitoring completeness, and catching perforation before it becomes a catastrophe. There's no prize for doing D&C blind when ultrasound is available.",
+      "level": "attending"
+    }
+  ]
+}

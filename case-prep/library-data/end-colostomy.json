@@ -1,0 +1,90 @@
+{
+  "id": "end-colostomy",
+  "name": "End Colostomy Creation",
+  "category": "Colorectal",
+  "overview": "Creation of permanent or temporary end colostomy",
+  "indications": [
+    "Hartmann procedure",
+    "APR",
+    "Diversion",
+    "Fecal incontinence"
+  ],
+  "keyAnatomy": [
+    "Left colon",
+    "Abdominal wall",
+    "Rectus muscle",
+    "Anterior rectus fascia"
+  ],
+  "preOpConsiderations": [
+    "Stoma site marking",
+    "Patient education",
+    "Ostomy nurse consultation",
+    "Skin assessment"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Circular skin incision at marked site",
+    "Through rectus muscle"
+  ],
+  "criticalSteps": [
+    "Create opening in fascia",
+    "Bring colon through",
+    "Mature stoma immediately",
+    "Secure to fascia"
+  ],
+  "commonPitfalls": [
+    "Poor site selection",
+    "Ischemia",
+    "Retraction",
+    "Parastomal hernia"
+  ],
+  "majorComplications": [
+    "Necrosis",
+    "Retraction",
+    "Prolapse",
+    "Parastomal hernia"
+  ],
+  "pearlsHighYield": [
+    "Proper site selection",
+    "Adequate blood supply",
+    "Tension-free"
+  ],
+  "postOpPriorities": [
+    "Stoma viability",
+    "Patient education",
+    "Appliance fitting",
+    "Nutritional counseling"
+  ],
+  "relatedProcedures": [
+    "loop-colostomy",
+    "ileostomy",
+    "stoma-revision"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What embryologic feature makes the descending/sigmoid colon suitable for end colostomy?",
+      "answer": "The descending colon is secondarily retroperitoneal (providing a natural tunnel through the abdominal wall). The sigmoid has a retained mesentery allowing it to reach the surface without tension. Both have reliable IMA blood supply.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Through which layers should the colostomy trephine pass, and what is the ideal size?",
+      "answer": "Skin → subcutaneous fat → anterior rectus sheath → rectus abdominis (split, not divided) → posterior rectus sheath → peritoneum. Trephine admits two fingers (~2.5-3cm). Too tight: ischemia/stenosis. Too wide: parastomal hernia.",
+      "level": "resident"
+    },
+    {
+      "question": "What blood supply maintains the stoma, and how do you assess for ischemia at 24 hours?",
+      "answer": "Sigmoid branch of the IMA via the marginal artery. A dusky, blue-black, or pale stoma indicates ischemia. Use a transparent tube to examine mucosal color at depth — if deep mucosa is pink, it will survive. Ischemia below fascial level requires revision.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common long-term complication, and what does the PREVENT trial show?",
+      "answer": "Parastomal hernia (up to 50% at 5 years). Risk factors: obesity, COPD, steroids, lateral-to-rectus placement. PREVENT trial: prophylactic mesh at index operation reduces hernia incidence to ~15%.",
+      "level": "attending"
+    },
+    {
+      "question": "How does Brooke maturation differ for a colostomy versus an ileostomy?",
+      "answer": "For ileostomies, 2-3cm eversion (Brooke technique) is essential to prevent enzyme-rich effluent from contacting skin. For colostomies, a flush or slightly raised stoma is adequate because formed stool is less caustic. Most surgeons still mature colostomies with slight eversion for easier appliance fitting.",
+      "level": "attending"
+    }
+  ]
+}

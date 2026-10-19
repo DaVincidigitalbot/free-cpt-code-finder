@@ -1,0 +1,87 @@
+{
+  "id": "thoracentesis",
+  "name": "Thoracentesis",
+  "category": "Critical Care",
+  "overview": "Percutaneous drainage of pleural fluid",
+  "indications": [
+    "Diagnostic pleural effusion",
+    "Therapeutic drainage",
+    "Symptomatic pleural effusion",
+    "Suspected empyema"
+  ],
+  "keyAnatomy": [
+    "Pleural space",
+    "Intercostal vessels and nerves",
+    "Lung",
+    "Diaphragm"
+  ],
+  "preOpConsiderations": [
+    "Chest X-ray",
+    "Ultrasound guidance",
+    "Coagulation studies",
+    "Patient positioning"
+  ],
+  "positioning": "Sitting leaning forward or lateral decubitus",
+  "portPlacementOrIncision": [
+    "Posterior axillary line",
+    "Above rib to avoid vessels"
+  ],
+  "criticalSteps": [
+    "Mark insertion site",
+    "Local anesthesia",
+    "Insert needle over rib",
+    "Aspirate fluid",
+    "Post-procedure imaging"
+  ],
+  "commonPitfalls": [
+    "Pneumothorax",
+    "Hemothorax",
+    "Infection",
+    "Re-expansion pulmonary edema"
+  ],
+  "majorComplications": [
+    "Pneumothorax 1-6%",
+    "Bleeding",
+    "Infection",
+    "Organ injury"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Chest X-ray",
+    "Monitor for pneumothorax",
+    "Fluid analysis",
+    "Symptom assessment"
+  ],
+  "relatedProcedures": [
+    "chest-tube-insertion",
+    "pleural-biopsy",
+    "pleurodesis"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The pleural cavity develops from the intraembryonic coelom. What determines pleural fluid accumulation?",
+      "answer": "Starling forces: fluid enters the pleural space from parietal pleural capillaries (systemic pressure) and is absorbed by visceral pleural capillaries (lower pressure) and lymphatics. Effusions form from: increased hydrostatic pressure (CHF), decreased oncotic pressure (hypoalbuminemia), increased capillary permeability (inflammation/infection), or impaired lymphatic drainage (malignancy).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the anatomic landmark for thoracentesis?",
+      "answer": "1-2 intercostal spaces below the fluid level (confirmed by percussion dullness or ultrasound), in the posterior axillary line. Insert ABOVE the rib (neurovascular bundle runs below). US-guided thoracentesis is now standard of care -- reduces pneumothorax rate from 5-10% to <1%.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the intercostal artery anatomy at the thoracentesis site?",
+      "answer": "The main intercostal artery runs in the costal groove along the inferior rib border (protected by the rib overhang). However, a collateral intercostal artery runs along the SUPERIOR border of the rib below -- the true 'safe' zone is the mid-intercostal space. In elderly patients, the arteries become more tortuous and exposed, increasing bleeding risk.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the maximum volume to remove in diagnostic versus therapeutic thoracentesis?",
+      "answer": "Diagnostic: 50-100 mL (enough for cell count, chemistry, culture, cytology). Therapeutic: up to 1500 mL (to avoid re-expansion pulmonary edema). If the patient develops chest tightness, cough, or the pleural pressure drops below -20 cmH2O (measured with manometry), stop the procedure.",
+      "level": "attending"
+    },
+    {
+      "question": "What are Light's criteria for distinguishing exudate from transudate?",
+      "answer": "Exudate if ANY of: 1) Pleural/serum protein ratio >0.5, 2) Pleural/serum LDH ratio >0.6, 3) Pleural LDH > 2/3 upper limit of normal serum LDH. Sensitivity 98% for exudates but misclassifies 25% of transudates (especially diuretic-treated CHF). If clinical suspicion is transudate but Light's says exudate, check the serum-effusion albumin gradient (>1.2 g/dL supports transudate).",
+      "level": "attending"
+    }
+  ]
+}

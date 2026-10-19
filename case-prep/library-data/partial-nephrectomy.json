@@ -1,0 +1,90 @@
+{
+  "id": "partial-nephrectomy",
+  "name": "Partial Nephrectomy",
+  "category": "Urology",
+  "overview": "Nephron-sparing resection of renal tumor",
+  "indications": [
+    "Small renal masses <4cm",
+    "Imperative indications",
+    "Bilateral tumors",
+    "Hereditary RCC"
+  ],
+  "keyAnatomy": [
+    "Renal parenchyma",
+    "Collecting system",
+    "Renal vessels",
+    "Tumor pseudocapsule"
+  ],
+  "preOpConsiderations": [
+    "Tumor complexity scoring",
+    "Renal function assessment",
+    "Approach selection",
+    "Ischemia planning"
+  ],
+  "positioning": "Lateral decubitus or supine",
+  "portPlacementOrIncision": [
+    "Flank incision or laparoscopic/robotic"
+  ],
+  "criticalSteps": [
+    "Control renal vessels",
+    "Achieve renal hypothermia",
+    "Tumor excision",
+    "Collecting system repair",
+    "Parenchymal reconstruction"
+  ],
+  "commonPitfalls": [
+    "Positive margins",
+    "Excessive ischemia time",
+    "Collecting system injury",
+    "Bleeding"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Urine leak",
+    "Acute kidney injury",
+    "Tumor recurrence"
+  ],
+  "pearlsHighYield": [
+    "Negative surgical margins",
+    "Minimize ischemia time",
+    "Watertight closure"
+  ],
+  "postOpPriorities": [
+    "Renal function monitoring",
+    "Urine leak surveillance",
+    "Imaging follow-up",
+    "Oncologic surveillance"
+  ],
+  "relatedProcedures": [
+    "radical-nephrectomy",
+    "cryoablation",
+    "radiofrequency-ablation"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the nephron-sparing principle of partial nephrectomy?",
+      "answer": "Preserving renal function by excising only the tumor with a margin of normal parenchyma. Each kidney has ~1 million nephrons; preserving kidney tissue reduces long-term CKD risk. Standard for T1a (<4cm) tumors when technically feasible.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the RENAL nephrometry score?",
+      "answer": "Radius (size), Exophytic/endophytic, Nearness to collecting system, Anterior/posterior, Location relative to polar lines. Scored 4-12: low (4-6), moderate (7-9), high (10-12) complexity. Higher scores predict longer ischemia time, more complications, and higher conversion to radical nephrectomy.",
+      "level": "resident"
+    },
+    {
+      "question": "What is warm ischemia time threshold during partial nephrectomy?",
+      "answer": "Less than 20-25 minutes of hilar clamping (warm ischemia). Each minute beyond 20 increases renal functional loss. Cold ischemia (ice slush) extends the safe window to 35-40 minutes. Zero-ischemia (selective clamping of segmental arteries) is the ideal but technically demanding approach.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to a renal tumor that determines the resection plane?",
+      "answer": "Renal tumors receive blood from segmental arteries (end arteries with no collateral). The pseudocapsule around clear cell RCC is an avascular plane that facilitates enucleation. The resection margin should be within normal parenchyma; sub-millimeter margins are oncologically adequate.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the trifecta outcome for partial nephrectomy?",
+      "answer": "1) Negative margins, 2) No major complications, 3) Minimal renal function decrease (eGFR decline <10%). Achieved in 60-80% of cases at experienced centers. Robotic partial nephrectomy achieves trifecta more consistently than open or laparoscopic due to precise suturing during renorrhaphy.",
+      "level": "attending"
+    }
+  ]
+}

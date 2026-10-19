@@ -1,0 +1,89 @@
+{
+  "id": "av-fistula-creation",
+  "name": "Arteriovenous Fistula Creation",
+  "category": "Vascular",
+  "overview": "Creation of AV connection for hemodialysis access",
+  "indications": [
+    "End-stage renal disease",
+    "Hemodialysis access",
+    "Failed previous access"
+  ],
+  "keyAnatomy": [
+    "Radial artery",
+    "Cephalic vein",
+    "Brachial artery",
+    "Basilic vein"
+  ],
+  "preOpConsiderations": [
+    "Vein mapping",
+    "Arterial assessment",
+    "Previous access",
+    "Heart failure"
+  ],
+  "positioning": "Supine with arm extended",
+  "portPlacementOrIncision": [
+    "Wrist or elbow approach",
+    "Arteriotomy and venotomy"
+  ],
+  "criticalSteps": [
+    "Mobilize vessels",
+    "Create anastomosis",
+    "Check flow",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "Thrombosis",
+    "Stenosis",
+    "Steal syndrome",
+    "Infection"
+  ],
+  "majorComplications": [
+    "Thrombosis",
+    "Infection",
+    "Steal syndrome",
+    "High-output failure"
+  ],
+  "pearlsHighYield": [
+    "Radial-cephalic first choice",
+    "Adequate vessel size",
+    "Good flow assessment"
+  ],
+  "postOpPriorities": [
+    "Access maturation",
+    "Thrill assessment",
+    "Patient education",
+    "Surveillance"
+  ],
+  "relatedProcedures": [
+    "av-graft",
+    "thrombectomy",
+    "angioplasty"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The radial and ulnar arteries develop from the axis artery of the upper limb. What embryologic vessel is this?",
+      "answer": "The axial artery is the 7th cervical intersegmental artery, which gives rise to the subclavian, axillary, brachial, and then divides into the radial and ulnar arteries (interosseous artery is the primitive axial artery continuation). The palmar arches (superficial from ulnar, deep from radial) provide collateral flow that is tested by the Allen test.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the order of preference for AVF creation sites, and why?",
+      "answer": "'Fistula First' principle — distal to proximal: 1) Radiocephalic (Brescia-Cimino, at wrist — best patency, lowest steal), 2) Brachiocephalic (at antecubital fossa), 3) Brachiobasilic (with transposition — basilic vein is deep and must be superficialized). Distal sites preserve proximal options if failure occurs. Grafts (PTFE) are second-line. Catheters are last resort.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the hand that must be confirmed before radiocephalic AVF creation?",
+      "answer": "Confirmed by a modified Allen test: compress both radial and ulnar arteries, have patient clench fist, release ulnar artery only — palm should reperfuse within 5-6 seconds. This confirms adequate ulnar collateral flow through the palmar arches. If the Allen test is abnormal, do NOT create a radiocephalic fistula (risk of hand ischemia/steal syndrome).",
+      "level": "resident"
+    },
+    {
+      "question": "What is steal syndrome after AVF creation, and how do you manage it?",
+      "answer": "Arterial blood is 'stolen' from the hand into the low-resistance AVF circuit, causing hand ischemia (pain, pallor, coolness, ulceration). More common with proximal fistulas (brachial artery-based). Management: DRIL procedure (Distal Revascularization-Interval Ligation) — ligate the artery just distal to the AVF and bypass to the forearm, restoring hand perfusion while maintaining fistula flow.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the minimum maturation time for an AVF before cannulation, and what is the 'Rule of 6s'?",
+      "answer": "Minimum 6 weeks, ideally 8-12 weeks. Rule of 6s: the fistula should be >6mm in diameter, <6mm deep from skin surface, have >600 mL/min flow, and be ≥6cm in usable length. Failure to mature occurs in 25-60% of radiocephalic fistulas (lower rate for brachiocephalic). Non-maturation is managed with balloon angioplasty of the juxta-anastomotic stenosis.",
+      "level": "attending"
+    }
+  ]
+}

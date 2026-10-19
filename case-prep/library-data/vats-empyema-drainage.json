@@ -1,0 +1,89 @@
+{
+  "id": "vats-empyema-drainage",
+  "name": "VATS Empyema Drainage",
+  "category": "Thoracic",
+  "overview": "Video-assisted thoracoscopic drainage of pleural empyema",
+  "indications": [
+    "Empyema",
+    "Complicated parapneumonic effusion",
+    "Failed chest tube drainage"
+  ],
+  "keyAnatomy": [
+    "Pleural space",
+    "Fibrinous debris",
+    "Loculations",
+    "Lung surface"
+  ],
+  "preOpConsiderations": [
+    "CT chest",
+    "Microbiology",
+    "Timing of intervention",
+    "Patient status"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "2-3 port VATS",
+    "Large bore drainage"
+  ],
+  "criticalSteps": [
+    "Break up loculations",
+    "Remove fibrinous debris",
+    "Irrigate pleural space",
+    "Place drains"
+  ],
+  "commonPitfalls": [
+    "Incomplete drainage",
+    "Lung injury",
+    "Bleeding",
+    "Conversion to open"
+  ],
+  "majorComplications": [
+    "Persistent infection",
+    "Air leak",
+    "Bleeding",
+    "Bronchopleural fistula"
+  ],
+  "pearlsHighYield": [
+    "Early intervention",
+    "Complete debridement",
+    "Adequate drainage"
+  ],
+  "postOpPriorities": [
+    "Chest tube output",
+    "Infection control",
+    "Lung expansion",
+    "Antibiotic therapy"
+  ],
+  "relatedProcedures": [
+    "open-empyema-drainage",
+    "decortication",
+    "chest-tube-insertion"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "Empyema progresses through three phases. What are the biochemical characteristics that distinguish each?",
+      "answer": "Exudative (Stage I): clear fluid, pH >7.2, glucose >60, LDH <1000. Fibrinopurulent (Stage II): turbid/purulent, pH <7.2, glucose <40, LDH >1000, positive culture. Organized (Stage III): thick peel, unable to drain — requires decortication. Stage I responds to chest tube; Stage II needs VATS with lysis of adhesions and drainage; Stage III needs decortication.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the anatomic boundaries of the pleural space explored during VATS empyema drainage?",
+      "answer": "The pleural space extends from the thoracic apex to the costophrenic recesses. Empyema fluid typically collects in the dependent portions: the posterior costophrenic recess and the costodiaphragmatic recess. VATS allows complete visualization, lysis of loculations, and placement of directed chest tubes. The lung surface (visceral pleura) must be inspected for bronchopleural fistula.",
+      "level": "resident"
+    },
+    {
+      "question": "What blood supply concern exists during VATS lysis of pleural adhesions?",
+      "answer": "Inflammatory adhesions between visceral and parietal pleura develop neovascularity from intercostal arteries (parietal) and bronchial arteries (visceral). Dense adhesions can bleed significantly. The intercostal artery runs in the costal groove — injury during adhesiolysis or port placement causes hemorrhage that may require thoracotomy. The internal mammary artery is at risk with anterior ports.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the success rate of VATS for Stage II empyema?",
+      "answer": "85-90% success (avoiding thoracotomy and decortication). Success is time-dependent: VATS performed within 2-3 weeks of diagnosis has the highest success rate. After 3-4 weeks, organizing peel formation makes VATS less effective, and open decortication becomes necessary. The MIST2 trial showed TPA + DNase instillation through chest tubes can reduce the need for surgery.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the antibiotic regimen for empyema, and what organisms are most common?",
+      "answer": "Community-acquired: Streptococcus species (most common), Staphylococcus aureus, anaerobes (Bacteroides, Peptostreptococcus). Cover with: ampicillin-sulbactam, or ceftriaxone + metronidazole. Hospital-acquired: MRSA, gram-negatives, Pseudomonas. Cover with: vancomycin + piperacillin-tazobactam. Duration: 2-6 weeks total (IV initially, then oral step-down). Culture-directed therapy is always preferred when possible.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "lap-adrenalectomy",
+  "name": "Laparoscopic Adrenalectomy",
+  "category": "Endocrine",
+  "overview": "Minimally invasive removal of adrenal gland",
+  "indications": [
+    "Aldosteronoma",
+    "Pheochromocytoma",
+    "Adrenal adenoma",
+    "Adrenocortical carcinoma"
+  ],
+  "keyAnatomy": [
+    "Adrenal gland",
+    "Adrenal vein",
+    "IVC",
+    "Renal vessels",
+    "Liver/spleen"
+  ],
+  "preOpConsiderations": [
+    "Alpha blockade for pheo",
+    "Steroid replacement",
+    "Biochemical workup",
+    "Imaging"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "3-4 laparoscopic ports",
+    "Lateral retroperitoneal approach"
+  ],
+  "criticalSteps": [
+    "Mobilize adrenal",
+    "Control adrenal vein early",
+    "Complete mobilization",
+    "Extract in bag"
+  ],
+  "commonPitfalls": [
+    "IVC injury",
+    "Tumor spillage",
+    "Inadequate alpha blockade",
+    "Port site metastases"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "IVC injury",
+    "Hypertensive crisis",
+    "Adrenal insufficiency"
+  ],
+  "pearlsHighYield": [
+    "Early vein control",
+    "Gentle handling",
+    "No tumor spillage"
+  ],
+  "postOpPriorities": [
+    "Blood pressure monitoring",
+    "Steroid replacement",
+    "Biochemical follow-up",
+    "Pathology"
+  ],
+  "relatedProcedures": [
+    "open-adrenalectomy",
+    "partial-adrenalectomy",
+    "retroperitoneal-exploration"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The adrenal cortex and medulla have different embryologic origins. What are they?",
+      "answer": "Cortex: mesoderm (intermediate mesoderm/urogenital ridge). Medulla: neural crest cells (ectoderm) that migrate into the developing cortex during weeks 7-8. This dual origin explains why cortical and medullary tumors have completely different biology (cortisol/aldosterone vs catecholamines).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the key anatomic difference between right and left adrenalectomy regarding venous drainage?",
+      "answer": "Right adrenal vein: short (5mm), drains directly into the IVC posterolaterally — extremely dangerous to avulse, causing IVC hemorrhage. Left adrenal vein: longer (2-3cm), drains into the left renal vein with the left inferior phrenic vein. Right adrenalectomy is more technically demanding because of this short right adrenal vein.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the arterial supply to the adrenal glands?",
+      "answer": "Three sources: 1) Superior adrenal arteries (from inferior phrenic artery — multiple small branches), 2) Middle adrenal artery (from aorta — single vessel), 3) Inferior adrenal artery (from renal artery). Despite this rich arterial supply, there is typically only ONE adrenal vein per side — the vein is the key structure to control.",
+      "level": "resident"
+    },
+    {
+      "question": "What must be done preoperatively for a suspected pheochromocytoma before ANY surgical manipulation?",
+      "answer": "Alpha-blockade for 10-14 days (phenoxybenzamine or doxazosin) BEFORE beta-blockade (added only after alpha-block is established, otherwise unopposed alpha stimulation causes hypertensive crisis). Adequate volume expansion (liberal salt/fluid intake). Failure to block causes intraoperative hypertensive crisis, arrhythmias, and potentially death during tumor manipulation.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the size cutoff for laparoscopic versus open adrenalectomy, and when is open mandatory?",
+      "answer": "Laparoscopic: generally <6cm (some extend to 8-10cm for benign tumors). Open: tumors >6cm with radiographic features of malignancy, suspected adrenocortical carcinoma (ACC), or local invasion. ACC has a 40% recurrence rate even after R0 resection — capsular violation during laparoscopic removal worsens outcomes. Size >4cm with imaging features of malignancy warrants open approach.",
+      "level": "attending"
+    }
+  ]
+}

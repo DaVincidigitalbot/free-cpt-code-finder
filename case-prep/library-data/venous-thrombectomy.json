@@ -1,0 +1,88 @@
+{
+  "id": "venous-thrombectomy",
+  "name": "Venous Thrombectomy",
+  "category": "Vascular",
+  "overview": "Surgical removal of venous clots to restore venous drainage",
+  "indications": [
+    "Acute iliofemoral DVT",
+    "Phlegmasia cerulea dolens",
+    "Failed thrombolysis",
+    "Limb-threatening venous obstruction"
+  ],
+  "keyAnatomy": [
+    "Iliac veins",
+    "Femoral veins",
+    "Popliteal veins",
+    "Venous valves",
+    "Collateral circulation"
+  ],
+  "preOpConsiderations": [
+    "Duration of symptoms",
+    "Extent of thrombosis",
+    "Bleeding risk",
+    "Post-thrombotic syndrome risk"
+  ],
+  "positioning": "Supine with leg elevated",
+  "portPlacementOrIncision": [
+    "Groin incision",
+    "Balloon catheter thrombectomy"
+  ],
+  "criticalSteps": [
+    "Expose femoral vein",
+    "Insert balloon catheter",
+    "Extract thrombus",
+    "Assess flow",
+    "Anticoagulation"
+  ],
+  "commonPitfalls": [
+    "Incomplete extraction",
+    "Valve damage",
+    "PE risk",
+    "Bleeding"
+  ],
+  "majorComplications": [
+    "Pulmonary embolism",
+    "Bleeding",
+    "Valve dysfunction",
+    "Recurrent thrombosis"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Anticoagulation",
+    "Compression therapy",
+    "Duplex surveillance",
+    "PE monitoring"
+  ],
+  "relatedProcedures": [
+    "thrombolysis",
+    "venous-stenting",
+    "ivc-filter-placement"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The iliofemoral venous system develops from what embryologic venous structures?",
+      "answer": "The postcardinal, subcardinal, and supracardinal veins. The left common iliac vein is formed from the anastomosis between the postcardinal veins, which is why it crosses behind the right common iliac artery — the anatomic basis for May-Thurner syndrome.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is May-Thurner syndrome, and why is it relevant to venous thrombectomy?",
+      "answer": "Compression of the left common iliac vein by the overlying right common iliac artery against the L5 vertebral body, causing intimal spurs and predisposing to left iliofemoral DVT. After thrombectomy, the underlying compression must be addressed (usually with iliac vein stenting) or rethrombosis is nearly guaranteed.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the window for surgical venous thrombectomy to be effective?",
+      "answer": "Within 7-14 days of symptom onset (ideally < 7 days). After this, the thrombus organizes, adheres to the vein wall, and becomes impossible to extract cleanly. Beyond 2 weeks, catheter-directed thrombolysis or pharmacomechanical thrombectomy is preferred.",
+      "level": "resident"
+    },
+    {
+      "question": "During open iliofemoral venous thrombectomy, what is the key intraoperative maneuver to prevent PE?",
+      "answer": "Balloon catheter occlusion of the infrarenal IVC or application of a temporary IVC clamp proximal to the thrombus BEFORE passing the Fogarty catheter proximally. Without proximal control, you can dislodge thrombus into the IVC and cause fatal PE.",
+      "level": "attending"
+    },
+    {
+      "question": "What adjunct must be performed after venous thrombectomy to maintain patency, and what is the expected outcome?",
+      "answer": "Creation of a temporary arteriovenous fistula (usually between the saphenous vein and superficial femoral artery) to increase flow velocity through the repaired segment and prevent early rethrombosis. The AV fistula is ligated at 6-8 weeks. With this adjunct, 5-year patency is 70-80%.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "open-tracheostomy",
+  "name": "Open Tracheostomy",
+  "category": "Critical Care",
+  "overview": "Surgical creation of opening in trachea for airway access",
+  "indications": [
+    "Prolonged mechanical ventilation",
+    "Upper airway obstruction",
+    "Secretion management"
+  ],
+  "keyAnatomy": [
+    "Tracheal rings 2-4",
+    "Thyroid isthmus",
+    "Anterior jugular veins",
+    "Innominate artery"
+  ],
+  "preOpConsiderations": [
+    "Neck anatomy",
+    "Previous surgery",
+    "Bleeding risk",
+    "Ventilator dependence"
+  ],
+  "positioning": "Supine with neck extended",
+  "portPlacementOrIncision": [
+    "Horizontal incision 2cm above sternal notch"
+  ],
+  "criticalSteps": [
+    "Dissect to trachea",
+    "Identify tracheal rings",
+    "Create tracheal opening",
+    "Insert tracheostomy tube",
+    "Secure tube"
+  ],
+  "commonPitfalls": [
+    "High placement",
+    "Pneumothorax",
+    "Bleeding",
+    "Posterior tracheal wall injury"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Pneumothorax",
+    "Tracheal injury",
+    "Tube displacement"
+  ],
+  "pearlsHighYield": [
+    "Between rings 2-4",
+    "Stay midline",
+    "Avoid electrocautery near tube"
+  ],
+  "postOpPriorities": [
+    "Secure tube",
+    "Chest X-ray",
+    "Tube care education",
+    "Speech therapy"
+  ],
+  "relatedProcedures": [
+    "percutaneous-tracheostomy",
+    "tracheostomy-revision",
+    "decannulation"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The trachea develops from the ventral foregut, separating from the esophagus via the tracheoesophageal septum. At what level do the tracheal rings begin?",
+      "answer": "The trachea extends from C6 (cricoid cartilage) to T4-T5 (carina). It has 16-20 C-shaped hyaline cartilage rings (incomplete posteriorly — the posterior membrane is shared with the esophagus). The isthmus of the thyroid typically overlies tracheal rings 2-4, which is the standard tracheostomy site.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Between which tracheal rings is the tracheostomy typically placed, and what structure overlies this area?",
+      "answer": "Between rings 2-3 or 3-4 (below the thyroid isthmus or after dividing/retracting it). The thyroid isthmus must be divided or retracted superiorly. Placing the tracheostomy too high (ring 1) risks subglottic stenosis. Too low (ring 5+) risks innominate artery erosion — the most catastrophic late complication.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the anterior tracheal wall at the tracheostomy site?",
+      "answer": "Lateral tracheal blood supply from the inferior thyroid arteries. The anterior trachea between the rings is relatively avascular (supplied by small branches). The thyroid ima artery (present in 3-10%, arising from the brachiocephalic trunk) may course in the midline anterior to the trachea — this is a dangerous vessel if not anticipated.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared late complication of tracheostomy?",
+      "answer": "Tracheo-innominate artery fistula (TIF) — erosion of the tracheostomy tube or cuff into the innominate artery, causing massive hemorrhage (mortality 75-85%). Occurs 3-42 days post-tracheostomy. Sentinel bleed (small pulsatile bleed) precedes massive hemorrhage in 50%. Emergency management: hyperinflate cuff, digital pressure through the stoma, median sternotomy for innominate artery ligation/repair.",
+      "level": "attending"
+    },
+    {
+      "question": "When should tracheostomy be performed in the critically ill patient — early versus late?",
+      "answer": "Early tracheostomy (≤7-10 days of intubation) may reduce ICU stay, sedation requirements, and ventilator days, but does NOT reduce mortality (TracMan trial, 2013). Benefits: improved patient comfort, easier secretion management, reduced laryngeal injury, and facilitated weaning. Most ICU practice: consider tracheostomy if extubation is not expected within 10-14 days.",
+      "level": "attending"
+    }
+  ]
+}

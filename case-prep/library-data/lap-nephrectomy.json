@@ -1,0 +1,92 @@
+{
+  "id": "lap-nephrectomy",
+  "name": "Laparoscopic Nephrectomy",
+  "category": "Urology",
+  "overview": "Minimally invasive kidney removal",
+  "indications": [
+    "Renal cell carcinoma",
+    "Non-functioning kidney",
+    "Donor nephrectomy",
+    "Benign disease"
+  ],
+  "keyAnatomy": [
+    "Kidney",
+    "Renal vessels",
+    "Ureter",
+    "Adrenal gland",
+    "Colon"
+  ],
+  "preOpConsiderations": [
+    "Imaging studies",
+    "Renal function",
+    "Tumor characteristics",
+    "Patient positioning"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "4-5 laparoscopic ports",
+    "Hand-assist option"
+  ],
+  "criticalSteps": [
+    "Mobilize colon",
+    "Identify ureter",
+    "Control renal vessels",
+    "Mobilize kidney",
+    "Extract in bag"
+  ],
+  "commonPitfalls": [
+    "Vascular injury",
+    "Organ injury",
+    "Tumor spillage",
+    "Port site metastases"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Adjacent organ injury",
+    "Conversion to open",
+    "Tumor spillage"
+  ],
+  "pearlsHighYield": [
+    "Early vascular control",
+    "Intact specimen removal",
+    "Adequate margins"
+  ],
+  "postOpPriorities": [
+    "Pain control",
+    "Early mobilization",
+    "Renal function",
+    "Oncologic follow-up"
+  ],
+  "relatedProcedures": [
+    "open-nephrectomy",
+    "partial-nephrectomy",
+    "robotic-nephrectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The kidney develops from which embryologic tissue, and what are the three successive renal systems?",
+      "answer": "Intermediate mesoderm. Three systems: pronephros (degenerates, week 4), mesonephros (temporary kidney, weeks 4-8, duct becomes vas deferens in males), metanephros (permanent kidney from ureteric bud + metanephric blastema, week 5 onward).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the relationship of the renal hilum structures from anterior to posterior?",
+      "answer": "Renal vein (most anterior), renal artery (middle), renal pelvis/ureter (most posterior). Mnemonic: VAP (vein, artery, pelvis) from front to back. The left renal vein is longer, crossing anterior to the aorta — it can be safely divided near the IVC during left nephrectomy because of collateral drainage (left adrenal, gonadal, and lumbar veins).",
+      "level": "resident"
+    },
+    {
+      "question": "What are the named branches of the renal artery?",
+      "answer": "The renal artery divides into anterior and posterior divisions at the hilum. Anterior: apical, upper, middle, and lower segmental arteries. Posterior: posterior segmental artery. These are END arteries — ligation causes segmental infarction. The avascular plane of Brodel (between anterior and posterior circulations) is the line of incision for nephrotomy.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common intraoperative complication of laparoscopic nephrectomy?",
+      "answer": "Vascular injury (1-3%) — most commonly to the renal vein or its tributaries (gonadal vein, adrenal vein, lumbar vein on the left). Right-sided nephrectomy is more challenging due to the short right renal vein draining directly into the IVC.",
+      "level": "attending"
+    },
+    {
+      "question": "When is radical nephrectomy versus partial nephrectomy appropriate for renal tumors?",
+      "answer": "Partial (nephron-sparing): standard for T1a (≤4cm) tumors when technically feasible (equivalent oncologic outcomes, preserves renal function). Radical: T1b (4-7cm) if partial is not feasible, T2-T4, or venous invasion. The EORTC 30904 trial confirmed equivalent cancer-specific survival for partial vs radical in small renal masses.",
+      "level": "attending"
+    }
+  ]
+}

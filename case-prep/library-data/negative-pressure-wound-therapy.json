@@ -1,0 +1,92 @@
+{
+  "id": "negative-pressure-wound-therapy",
+  "name": "Negative Pressure Wound Therapy (Wound VAC)",
+  "category": "Skin/Soft Tissue",
+  "overview": "Application of controlled negative pressure for wound healing",
+  "indications": [
+    "Chronic wounds",
+    "Surgical site infections",
+    "Diabetic ulcers",
+    "Bridge to definitive closure"
+  ],
+  "keyAnatomy": [
+    "Wound bed",
+    "Surrounding skin",
+    "Granulation tissue",
+    "Undermining or tunneling"
+  ],
+  "preOpConsiderations": [
+    "Wound assessment",
+    "Debridement needs",
+    "Contraindications",
+    "Patient compliance"
+  ],
+  "positioning": "Optimize wound access",
+  "portPlacementOrIncision": [
+    "No incision required",
+    "Wound preparation"
+  ],
+  "criticalSteps": [
+    "Debride wound",
+    "Size foam appropriately",
+    "Apply adhesive drape",
+    "Connect to VAC unit",
+    "Set appropriate pressure"
+  ],
+  "commonPitfalls": [
+    "Air leaks",
+    "Inadequate seal",
+    "Pain/discomfort",
+    "Foam left in wound"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Pain",
+    "Maceration",
+    "Retained foam"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor seal integrity",
+    "Scheduled dressing changes",
+    "Pain management",
+    "Wound progression"
+  ],
+  "relatedProcedures": [
+    "wound-debridement",
+    "skin-graft",
+    "flap-closure"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "Wound healing recapitulates embryonic tissue development — specifically the three phases of wound repair mirror embryologic tissue formation. How does negative pressure wound therapy accelerate this recapitulation?",
+      "answer": "The three phases: inflammation (like mesenchymal condensation), proliferation (like organogenesis), remodeling (like tissue maturation). NPWT accelerates the transition from inflammation to proliferation by: (1) removing inhibitory inflammatory exudate (cytokines like MMPs that destroy new matrix), (2) applying mechanical strain (microdeformation) to wound bed cells — this mechanotransduction stimulates cell proliferation and angiogenesis, mimicking the mechanical forces that drive embryonic tissue morphogenesis, (3) reducing bacterial bioburden. The suction literally 'pulls' granulation tissue formation forward, similar to how mechanical forces guide embryonic cell migration and differentiation.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You're placing a wound VAC on an open abdomen after damage control laparotomy. What must you place between the viscera and the sponge, and what abdominal structure is most vulnerable to injury?",
+      "answer": "Place a non-adherent barrier layer (perforated polyethylene sheet or a commercially available visceral protective layer like the ABThera system) between the sponge and the bowel. Without this layer, the sponge adheres to serosa and creates enterocutaneous fistulae when changed. The most vulnerable structure is the duodenum (specifically the ligament of Treitz area) and any fresh anastomosis — suction on an anastomosis will cause a leak. Also, the greater omentum, if present, should be draped over the bowel as a biological protective layer before placing the barrier sheet.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "NPWT works by promoting angiogenesis and granulation. What's the optimal negative pressure setting, and what happens to wound bed blood flow at pressures that are too high?",
+      "answer": "Optimal pressure: -125 mmHg (the Morykwas study). At this pressure, blood flow to the wound bed increases by 4x. At pressures above -200 mmHg, blood flow paradoxically DECREASES — the suction collapses capillaries and creates ischemia in the wound bed, which is counterproductive. Below -75 mmHg, the mechanical deformation is insufficient to stimulate cell proliferation. The goldilocks zone is -75 to -125 mmHg. Use lower pressures (-75) on skin grafts to prevent shear displacement of the graft, and -125 for open wounds requiring granulation. Continuous mode for the first 48 hours, then intermittent (5 min on/2 min off) may further enhance granulation.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "The nurse calls at 2 AM — the wound VAC alarm is going off constantly, showing 'leak.' The patient has a large abdominal wound VAC. Before you drive in, what do you troubleshoot by phone?",
+      "answer": "Phone troubleshoot checklist: (1) Check all drape edges — the most common cause of leak is loss of seal at the adhesive drape edge, especially near skin folds, scars, or moist skin. Fix with skin prep (benzoin) and additional drape strips. (2) Check tubing connections — ensure the pad connector (TRAC pad) is firmly seated and the tubing isn't kinked. (3) Check canister — full canister triggers an alarm. Replace it. (4) Have the nurse press the drape firmly over the sponge while the suction cycles — if the alarm stops, the leak is at the drape-skin interface. (5) If the wound is producing more than 500mL/day, consider whether the VAC is appropriate — high-output wounds may need continuous wall suction until output decreases. Most VAC alarms are drape seal failures and don't require surgeon presence.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "Name three wounds where NPWT is absolutely CONTRAINDICATED, and explain why each would be dangerous.",
+      "answer": "(1) Exposed blood vessels (especially anastomotic sites or grafts) — suction can erode the vessel wall and cause catastrophic hemorrhage. There are case reports of fatal exsanguination from VAC-induced aortic erosion. (2) Untreated osteomyelitis — NPWT will granulate OVER infected bone without treating the underlying infection, creating a false sense of healing while sepsis brews beneath. Debride the infected bone first. (3) Malignant wounds (fungating tumors) — NPWT stimulates cell proliferation via mechanotransduction, and you do NOT want to stimulate proliferation of cancer cells. It can accelerate tumor growth. Also relative contraindication: patients on anticoagulation with friable wound beds — the increased blood flow can cause significant hemorrhage into the canister.",
+      "level": "attending"
+    }
+  ]
+}

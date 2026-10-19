@@ -1,0 +1,96 @@
+{
+  "id": "open-chole",
+  "name": "Open Cholecystectomy",
+  "category": "Hepatopancreatobiliary",
+  "overview": "Open surgical removal of gallbladder via right subcostal incision",
+  "indications": [
+    "Failed laparoscopic attempt",
+    "Severe inflammation/fibrosis",
+    "Suspicion of gallbladder cancer",
+    "Inability to tolerate pneumoperitoneum"
+  ],
+  "keyAnatomy": [
+    "Triangle of Calot",
+    "Hepatocystic artery",
+    "Common bile duct",
+    "Liver bed",
+    "Right subcostal nerve"
+  ],
+  "preOpConsiderations": [
+    "NPO 8+ hours",
+    "Type and screen",
+    "IV antibiotics",
+    "Epidural consideration",
+    "DVT prophylaxis"
+  ],
+  "positioning": "Supine with right side elevated",
+  "portPlacementOrIncision": [
+    "Right subcostal incision",
+    "Kocher incision alternative",
+    "May extend for exposure"
+  ],
+  "criticalSteps": [
+    "Dissect Calot's triangle",
+    "Identify and ligate cystic artery",
+    "Identify and ligate cystic duct",
+    "Dissect from liver bed",
+    "Achieve hemostasis"
+  ],
+  "commonPitfalls": [
+    "Injury to CBD",
+    "Bleeding from liver bed",
+    "Inadequate exposure",
+    "Nerve injury",
+    "Wound infection"
+  ],
+  "majorComplications": [
+    "CBD injury",
+    "Vascular injury",
+    "Bowel injury",
+    "Bile leak"
+  ],
+  "pearlsHighYield": [
+    "Palpate CBD throughout procedure",
+    "Intraop cholangiography if anatomy unclear",
+    "Consider drain if severe inflammation"
+  ],
+  "postOpPriorities": [
+    "Pain control",
+    "Early ambulation",
+    "Diet advancement",
+    "Wound care",
+    "Monitor drain output"
+  ],
+  "relatedProcedures": [
+    "lap-chole",
+    "cbd-exploration",
+    "liver-resection"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "From what embryologic structure does the gallbladder develop?",
+      "answer": "The caudal bud of the hepatic diverticulum from the foregut endoderm during week 4 of development.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the triangle of Calot versus the hepatocystic triangle, and which is more surgically relevant?",
+      "answer": "Calot's triangle: cystic duct, cystic artery, and common hepatic duct. The hepatocystic triangle (cystic duct, CHD, and inferior liver edge) is more surgically relevant because it encompasses the area of dissection and potential injury.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the 'caterpillar hump' and why must you identify it during open cholecystectomy?",
+      "answer": "A tortuous right hepatic artery that loops into the hepatocystic triangle, mimicking the cystic artery. Failure to recognize it risks ligation of the right hepatic artery causing right liver ischemia.",
+      "level": "resident"
+    },
+    {
+      "question": "What is a bile duct of Luschka and what complication does it cause?",
+      "answer": "Small accessory bile ductules draining directly from the liver bed into the gallbladder fossa. If not recognized, they cause postoperative bile leak (biloma) even when the cystic duct stump is secure.",
+      "level": "attending"
+    },
+    {
+      "question": "When performing a fundus-first cholecystectomy, what is the key advantage in a hostile hilum?",
+      "answer": "It allows identification from known anatomy (fundus) toward unknown (hilum), reducing risk of CBD injury in severe inflammation. The cystic duct-CBD junction is defined last when surrounding anatomy is clearer.",
+      "level": "attending"
+    }
+  ]
+}

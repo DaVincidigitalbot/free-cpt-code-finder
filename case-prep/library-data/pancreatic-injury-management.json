@@ -1,0 +1,88 @@
+{
+  "id": "pancreatic-injury-management",
+  "name": "Pancreatic Injury Management",
+  "category": "Trauma",
+  "overview": "Surgical management of traumatic pancreatic injuries",
+  "indications": [
+    "Pancreatic ductal injury",
+    "Grade 3-5 pancreatic trauma",
+    "Pancreatic transection",
+    "Associated organ injury"
+  ],
+  "keyAnatomy": [
+    "Pancreatic head",
+    "Pancreatic body and tail",
+    "Main pancreatic duct",
+    "Portal vein",
+    "Superior mesenteric vessels"
+  ],
+  "preOpConsiderations": [
+    "CT with contrast",
+    "MRCP if stable",
+    "Associated injuries",
+    "Hemodynamic status"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Upper midline",
+    "Bilateral subcostal extension"
+  ],
+  "criticalSteps": [
+    "Assess pancreatic injury",
+    "Evaluate ductal integrity",
+    "Drainage vs resection",
+    "Control bleeding",
+    "Manage associated injuries"
+  ],
+  "commonPitfalls": [
+    "Missed ductal injury",
+    "Inadequate drainage",
+    "Unnecessary resection",
+    "Delayed recognition"
+  ],
+  "majorComplications": [
+    "Pancreatic leak",
+    "Pseudocyst",
+    "Diabetes",
+    "Chronic pain"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor drain output",
+    "Check amylase levels",
+    "Blood glucose control",
+    "Nutritional support"
+  ],
+  "relatedProcedures": [
+    "distal-pancreatectomy",
+    "whipple",
+    "pancreatico-jejunostomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the key determinant of management in pancreatic trauma?",
+      "answer": "Main pancreatic duct integrity. Duct intact (AAST Grades I-II): non-operative management with drainage. Duct disrupted (Grades III-V): surgical management. ERCP or MRCP can assess duct integrity when CT is equivocal.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the AAST grades for pancreatic injury?",
+      "answer": "Grade I: minor contusion/laceration, no duct injury. Grade II: major contusion/laceration, no duct injury or tissue loss. Grade III: distal transection or parenchymal injury WITH duct injury. Grade IV: proximal transection or head injury WITH duct injury. Grade V: massive disruption of pancreatic head.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply consideration for pancreatic injury repair?",
+      "answer": "The pancreatic head shares blood supply with the duodenum via the pancreaticoduodenal arcades -- you cannot resect the head without taking the duodenum (Whipple). Distal injuries (body/tail, left of SMV) can be managed with distal pancreatectomy. The splenic artery/vein run along the posterior body/tail.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication of pancreatic trauma?",
+      "answer": "Pancreatic fistula/pseudocyst (20-40% after duct injury). Managed with percutaneous drainage, ERCP stenting, or surgical internal drainage (cystogastrostomy/cystojejunostomy) if mature. Also: pancreatic abscess, pancreatitis, and delayed hemorrhage from pseudoaneurysm erosion.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the role of damage control in pancreatic trauma?",
+      "answer": "For hemodynamically unstable patients: wide drainage of the pancreas with closed suction drains, NO definitive repair. Formal repair (distal pancreatectomy or Whipple) is deferred to Phase 3 (24-72 hours later). Pancreatic injuries rarely bleed enough to require emergency resection -- the morbidity is from duct disruption and delayed fistula/abscess.",
+      "level": "attending"
+    }
+  ]
+}

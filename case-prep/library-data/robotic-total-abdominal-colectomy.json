@@ -1,0 +1,89 @@
+{
+  "id": "robotic-total-abdominal-colectomy",
+  "name": "Robotic Total Abdominal Colectomy",
+  "category": "Colorectal",
+  "overview": "Robot-assisted complete colectomy with ileorectal anastomosis",
+  "indications": [
+    "Familial adenomatous polyposis",
+    "Synchronous colon cancers",
+    "Ulcerative colitis",
+    "Slow transit constipation"
+  ],
+  "keyAnatomy": [
+    "Entire colon",
+    "Ileocolic vessels",
+    "Middle colic vessels",
+    "Left colic vessels",
+    "Both ureters"
+  ],
+  "preOpConsiderations": [
+    "Extended operative time",
+    "Multiple quadrant mobilization",
+    "Genetic counseling",
+    "Rectal function assessment"
+  ],
+  "positioning": "Supine, lithotomy with patient rotation",
+  "portPlacementOrIncision": [
+    "6-port robotic setup",
+    "Multiple arm repositioning",
+    "Hand-assist option"
+  ],
+  "criticalSteps": [
+    "Sequential colon mobilization",
+    "Preserve middle colic arcade",
+    "Complete mesocolic excision",
+    "Create ileorectal anastomosis",
+    "Ensure adequate reach"
+  ],
+  "commonPitfalls": [
+    "Inadequate small bowel length",
+    "Ureteral injury",
+    "Excessive blood loss",
+    "Anastomotic tension"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Increased bowel frequency",
+    "Dehydration",
+    "Conversion to open"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Fluid balance management",
+    "Monitor bowel frequency",
+    "Nutritional support",
+    "Rectal surveillance"
+  ],
+  "relatedProcedures": [
+    "total-proctocolectomy-j-pouch",
+    "completion-proctectomy",
+    "ileorectal-anastomosis"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the operative advantage of robotic total colectomy over laparoscopic?",
+      "answer": "Multi-quadrant dissection with a single docking (newer Xi platform rotates arms), enhanced 3D visualization for splenic/hepatic flexure mobilization, and reduced conversion rates in obese patients. The Si platform required re-docking; the Xi platform operates across all quadrants.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What vascular pedicles are divided during robotic total colectomy?",
+      "answer": "Ileocolic, right colic (if present), middle colic (right and left branches), and IMA. All from the SMA/IMA system. The marginal artery is entirely removed with the specimen. Both ureters must be identified before pedicle ligation.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the anastomosis after robotic total colectomy?",
+      "answer": "Ileorectal anastomosis (IRA) -- typically side-to-end stapled or hand-sewn. The rectum is divided at the sacral promontory. The ileal-rectal anastomosis heals well due to the ileum's robust SMA blood supply and the rectum's middle/inferior rectal arteries.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the indication for total colectomy in FAP versus Lynch syndrome?",
+      "answer": "FAP: total proctocolectomy with IPAA (entire colon and rectum at cancer risk). Lynch syndrome: total colectomy with IRA (rectum can be surveilled, lower morbidity). The distinction matters because FAP has near-100% rectal cancer risk while Lynch has lower rectal involvement.",
+      "level": "attending"
+    },
+    {
+      "question": "What functional outcome difference exists between IRA and IPAA?",
+      "answer": "IRA: 3-5 stools/day (better function, rectum provides reservoir). IPAA: 5-8 stools/day (no rectal reservoir, but eliminates rectal cancer risk). IRA patients need lifelong rectal surveillance with annual proctoscopy for new polyps/cancer.",
+      "level": "attending"
+    }
+  ]
+}

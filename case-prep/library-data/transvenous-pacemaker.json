@@ -1,0 +1,87 @@
+{
+  "id": "transvenous-pacemaker",
+  "name": "Transvenous Pacemaker Placement",
+  "category": "Critical Care",
+  "overview": "Temporary cardiac pacing via central venous access",
+  "indications": [
+    "Complete heart block",
+    "Symptomatic bradycardia",
+    "High-grade AV block",
+    "Bridge to permanent pacemaker"
+  ],
+  "keyAnatomy": [
+    "Right ventricle",
+    "Tricuspid valve",
+    "Central veins",
+    "Cardiac conduction system"
+  ],
+  "preOpConsiderations": [
+    "Hemodynamic instability",
+    "Urgency of procedure",
+    "Fluoroscopy availability",
+    "Backup transcutaneous pacing"
+  ],
+  "positioning": "Supine with left arm accessible",
+  "portPlacementOrIncision": [
+    "Internal jugular or subclavian access",
+    "Fluoroscopic guidance"
+  ],
+  "criticalSteps": [
+    "Obtain central access",
+    "Advance pacing wire",
+    "Position in RV apex",
+    "Test capture and sensing",
+    "Secure lead"
+  ],
+  "commonPitfalls": [
+    "Lead displacement",
+    "Perforation",
+    "Loss of capture",
+    "Infection"
+  ],
+  "majorComplications": [
+    "Cardiac perforation",
+    "Pneumothorax",
+    "Lead displacement",
+    "Infection"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor pacing function",
+    "Chest X-ray",
+    "Lead position assessment",
+    "Plan for permanent device"
+  ],
+  "relatedProcedures": [
+    "permanent-pacemaker-insertion",
+    "central-line-placement",
+    "transcutaneous-pacing"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the venous anatomy used for transvenous pacemaker access?",
+      "answer": "Internal jugular vein (preferred for temporary -- straight course to the right ventricle), subclavian vein (preferred for permanent -- better long-term lead stability), or femoral vein (emergency bedside access). The lead is advanced through the SVC into the right atrium and positioned at the RV apex or RV septum.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the cardiac chambers traversed by the pacemaker lead?",
+      "answer": "SVC -> right atrium (passes through the tricuspid valve) -> right ventricle (apex for pacing). The lead must cross the tricuspid valve without becoming entangled in the chordae tendineae. Fluoroscopic guidance is standard for positioning. The RV apex provides the most stable lead position with the lowest dislodgement rate.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the conduction system being paced?",
+      "answer": "The SA node: SA nodal artery (from RCA in 60%, LCx in 40%). The AV node: AV nodal artery (from RCA in 90%). The bundle of His and bundle branches receive dual blood supply (from LAD and RCA). Ischemia to these structures causes the conduction abnormalities that necessitate pacing.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication of transvenous pacemaker placement?",
+      "answer": "Lead dislodgement (5-10% for temporary, 1-3% for permanent). Other: pneumothorax (1-3% with subclavian approach), cardiac perforation/tamponade (1%), venous thrombosis, lead fracture, and infection (pocket or lead endocarditis). Cardiac perforation presents as pericardial effusion and loss of capture.",
+      "level": "attending"
+    },
+    {
+      "question": "What are the indications for emergent temporary transvenous pacing?",
+      "answer": "Symptomatic bradycardia unresponsive to atropine, complete heart block with hemodynamic instability, Mobitz Type II second-degree block, trifascicular block with syncope, and overdrive pacing for refractory ventricular tachycardia. Transcutaneous pacing is a bridge until transvenous access is established.",
+      "level": "attending"
+    }
+  ]
+}

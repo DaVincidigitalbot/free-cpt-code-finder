@@ -1,0 +1,92 @@
+{
+  "id": "wide-local-excision-melanoma",
+  "name": "Wide Local Excision (Melanoma)",
+  "category": "Skin/Soft Tissue",
+  "overview": "Wide surgical excision of melanoma with appropriate margins",
+  "indications": [
+    "Invasive melanoma",
+    "Melanoma in situ",
+    "Atypical nevus with atypia",
+    "Positive biopsy margins"
+  ],
+  "keyAnatomy": [
+    "Skin and subcutaneous tissue",
+    "Fascia",
+    "Lymphatic drainage",
+    "Functional anatomy"
+  ],
+  "preOpConsiderations": [
+    "Breslow thickness",
+    "Staging studies",
+    "Sentinel node evaluation",
+    "Reconstruction planning"
+  ],
+  "positioning": "Optimize lesion exposure",
+  "portPlacementOrIncision": [
+    "Wide excision with measured margins",
+    "Elliptical or circular design"
+  ],
+  "criticalSteps": [
+    "Mark appropriate margins",
+    "Excise to fascia",
+    "Orient specimen",
+    "Achieve hemostasis",
+    "Plan reconstruction"
+  ],
+  "commonPitfalls": [
+    "Inadequate margins",
+    "Poor specimen orientation",
+    "Functional impairment",
+    "Positive margins"
+  ],
+  "majorComplications": [
+    "Positive margins",
+    "Poor cosmesis",
+    "Functional impairment",
+    "Recurrence"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Pathology review",
+    "Margin assessment",
+    "Adjuvant therapy consideration",
+    "Surveillance planning"
+  ],
+  "relatedProcedures": [
+    "sentinel-lymph-node-biopsy",
+    "lymph-node-dissection",
+    "mohs-surgery"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "Melanocytes originate from the neural crest. How does this embryologic origin explain why melanoma can arise in non-skin locations, and name three extracutaneous sites.",
+      "answer": "Neural crest cells migrate throughout the body during development — they don't just go to skin. Melanocytes seed the uveal tract (eye), meninges, and GI mucosa during embryonic migration. This is why melanoma can arise in: (1) the eye (uveal melanoma — most common extracutaneous site), (2) mucosal surfaces (anorectal, vulvovaginal, nasopharyngeal melanoma), (3) the meninges (primary CNS melanoma). The neural crest origin also explains melanoma's propensity for neurotropism — it spreads along nerves because melanocytes are embryologically related to Schwann cells and neurons.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You're excising a melanoma on the anterior shin with 2cm margins. Why is this location a nightmare for closure, and what's your reconstructive plan?",
+      "answer": "The anterior shin has minimal subcutaneous tissue, the skin is thin and inelastic, and the tibia lies immediately beneath — there's no muscle or fat to close over. The pretibial skin has poor blood supply (watershed zone between anterior tibial and posterior tibial perforators), so skin flaps are prone to necrosis. Options: (1) skin graft (split-thickness) directly onto the periosteum if intact, (2) local rotational flap from the calf (needs intact perforators), (3) free flap if the defect is large or periosteum is excised. NEVER attempt primary closure under tension on the shin — it will dehisce. Also, the saphenous nerve and great saphenous vein run medially and should be preserved if not involved.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "The wide local excision margins are based on Breslow depth. What are the current NCCN-recommended margins, and why don't we just take 5cm on everyone?",
+      "answer": "Current NCCN margins: melanoma in situ → 0.5-1cm, ≤1mm Breslow → 1cm, 1.01-2mm → 1-2cm, >2mm → 2cm. We don't take 5cm because: (1) randomized trials (Veronesi, Balch, Thomas) showed NO survival benefit for margins >2cm even in thick melanomas, (2) wider margins increase morbidity (larger defects, more complex closures, higher wound complications, more skin grafts), (3) melanoma spreads hematogenously/lymphatically, not by radial local extension beyond 2cm. The margin is about clearing local satellite microsatellites in the dermal lymphatics, which rarely extend beyond 2cm from the primary.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "Your pathology comes back and the deep margin is positive. The melanoma was 3mm Breslow depth on the upper back. What do you do?",
+      "answer": "Return to the OR for re-excision of the deep margin. On the back, the deep margin should extend to the muscular fascia — if positive, you need to take the underlying fascia (trapezius or latissimus dorsi fascia). However, routine inclusion of fascia in WLE is NO LONGER recommended by NCCN (older teaching was 'take the fascia') because trials showed no survival benefit. A positive deep margin is different from a positive lateral margin — it suggests a deeper invasive component that changes staging. Re-excise to clear fascia, update staging, and consider adjuvant therapy (immunotherapy with pembrolizumab if stage IIB or higher).",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "Your patient has a 0.9mm melanoma on the face. The 1cm margin would be disfiguring. What's the evidence-based alternative, and when do you fight for the full margin?",
+      "answer": "For facial melanoma, Mohs micrographic surgery (MMS) or staged margin-controlled excision ('slow Mohs') achieves complete margin clearance with tissue conservation. MMS examines 100% of the peripheral and deep margins (vs standard breadloaf pathology which samples <1%). For cosmetically sensitive areas (face, ears, hands, feet), NCCN allows narrower clinical margins when combined with complete histologic margin assessment. Fight for the full margin when: (1) the melanoma is >1mm Breslow, (2) it's ulcerated, (3) it has neurotropism, or (4) it's a desmoplastic subtype — these have higher local recurrence rates that justify wider excision even with cosmetic cost. Function and oncologic clearance trump cosmesis.",
+      "level": "attending"
+    }
+  ]
+}

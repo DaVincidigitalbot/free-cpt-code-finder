@@ -1,0 +1,91 @@
+{
+  "id": "robotic-heller-myotomy",
+  "name": "Robotic Heller Myotomy",
+  "category": "Upper GI",
+  "overview": "Robot-assisted division of LES for achalasia",
+  "indications": [
+    "Type II achalasia",
+    "Failed pneumatic dilation",
+    "Young patients",
+    "Recurrent symptoms"
+  ],
+  "keyAnatomy": [
+    "Lower esophageal sphincter",
+    "Gastroesophageal junction",
+    "Vagus nerves",
+    "Fundus"
+  ],
+  "preOpConsiderations": [
+    "Manometry results",
+    "POEM consideration",
+    "Robot availability",
+    "Fundoplication planning"
+  ],
+  "positioning": "Supine, reverse Trendelenburg",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Precise port placement"
+  ],
+  "criticalSteps": [
+    "Mobilize esophagus",
+    "Precise myotomy 6cm esophagus/3cm stomach",
+    "Protect vagus nerves",
+    "Add Toupet fundoplication",
+    "Check adequacy"
+  ],
+  "commonPitfalls": [
+    "Mucosal perforation",
+    "Incomplete myotomy",
+    "Vagal injury",
+    "Post-operative reflux"
+  ],
+  "majorComplications": [
+    "Esophageal perforation",
+    "Post-operative GERD",
+    "Recurrent dysphagia",
+    "Pneumothorax"
+  ],
+  "pearlsHighYield": [
+    "Precise dissection",
+    "Complete myotomy",
+    "Fundoplication mandatory"
+  ],
+  "postOpPriorities": [
+    "Swallow study",
+    "Diet advancement",
+    "Monitor for reflux",
+    "Long-term follow-up"
+  ],
+  "relatedProcedures": [
+    "lap-heller-myotomy",
+    "poem",
+    "robotic-nissen"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What advantage does the robot provide for the precision of the myotomy?",
+      "answer": "The wristed instruments allow the surgeon to maintain perpendicular dissection angle along the entire myotomy length, precisely dividing the circular and longitudinal muscle fibers without perforating the submucosa. The 10x magnified 3D view makes submucosal perforators visible for controlled hemostasis.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the difference between robotic and laparoscopic mucosal perforation rates during Heller myotomy?",
+      "answer": "Robotic: 0-2% (lower). Laparoscopic: 5-10%. The reduced perforation rate is attributed to the wristed instruments' ability to dissect tangentially along the submucosa rather than pushing through muscle with straight laparoscopic instruments.",
+      "level": "resident"
+    },
+    {
+      "question": "During robotic Heller, how do you confirm the myotomy is complete at the GEJ?",
+      "answer": "Intraoperative endoscopy: the scope should pass freely through the LES without resistance. Endoscopic visualization of the myotomy site shows bulging submucosa. The muscle edges should separate widely (>1cm gap). If tight areas persist, additional myotomy is performed under direct endoscopic guidance.",
+      "level": "resident"
+    },
+    {
+      "question": "Is a Dor or Toupet fundoplication preferred after robotic Heller?",
+      "answer": "Dor (anterior 180°) is preferred because: 1) it covers the exposed myotomy site (protects against leak), 2) it does not require posterior esophageal dissection (reducing perforation risk), and 3) it provides equivalent anti-reflux protection to Toupet in this setting. However, some surgeons prefer Toupet (posterior 270°) arguing better reflux control.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the long-term success rate of robotic Heller myotomy?",
+      "answer": "90-95% excellent/good dysphagia relief at 5-10 years (equivalent to laparoscopic). 5-10% may develop recurrent dysphagia from: fibrosis, incomplete myotomy, or development of a 'sigmoid' esophagus. POEM (peroral endoscopic myotomy) is a competing approach with equivalent short-term results but higher GERD rates.",
+      "level": "attending"
+    }
+  ]
+}

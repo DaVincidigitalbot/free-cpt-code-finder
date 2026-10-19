@@ -1,0 +1,88 @@
+{
+  "id": "parathyroidectomy",
+  "name": "Parathyroidectomy",
+  "category": "Endocrine",
+  "overview": "Removal of abnormal parathyroid glands",
+  "indications": [
+    "Primary hyperparathyroidism",
+    "Secondary/tertiary hyperparathyroidism",
+    "Parathyroid cancer"
+  ],
+  "keyAnatomy": [
+    "Four parathyroid glands",
+    "Recurrent laryngeal nerve",
+    "Thyroid",
+    "Ectopic locations"
+  ],
+  "preOpConsiderations": [
+    "Sestamibi scan",
+    "Ultrasound",
+    "Intraoperative PTH",
+    "4D-CT if needed"
+  ],
+  "positioning": "Supine with neck extension",
+  "portPlacementOrIncision": [
+    "Focused lateral approach or standard collar incision"
+  ],
+  "criticalSteps": [
+    "Locate abnormal gland",
+    "Confirm with frozen section",
+    "Check intraop PTH drop",
+    "Preserve normal glands"
+  ],
+  "commonPitfalls": [
+    "Missed multigland disease",
+    "RLN injury",
+    "Hypocalcemia",
+    "Persistent disease"
+  ],
+  "majorComplications": [
+    "Persistent hyperparathyroidism",
+    "Hypoparathyroidism",
+    "RLN injury",
+    "Bleeding"
+  ],
+  "pearlsHighYield": [
+    "Intraop PTH essential",
+    "50% drop at 10 minutes",
+    "Four-gland exploration if indicated"
+  ],
+  "postOpPriorities": [
+    "PTH and calcium monitoring",
+    "Symptom improvement",
+    "Bone health",
+    "Long-term follow-up"
+  ],
+  "relatedProcedures": [
+    "re-exploration-parathyroid",
+    "total-thyroidectomy",
+    "parathyroid-autotransplantation"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The superior and inferior parathyroid glands derive from which pharyngeal pouches, and which has more variable position?",
+      "answer": "Superior: 4th pharyngeal pouch (dorsal wing, consistent position behind upper thyroid). Inferior: 3rd pharyngeal pouch (descend with thymus, longer migration = more variable position — from angle of mandible to anterior mediastinum).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What percentage of patients have ectopic parathyroid glands, and what are the common locations?",
+      "answer": "15-20% have ectopic glands. Common locations: intrathyroidal (3-5%), carotid sheath, tracheoesophageal groove, thymus (most common ectopic site for inferior glands), mediastinum (may require sternotomy or VATS), and retroesophageal. Preoperative sestamibi scan and 4D-CT help localize.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the parathyroid glands, and what is the consequence of devascularization?",
+      "answer": "Primarily the inferior thyroid artery (supplies both superior and inferior glands in 80%). The superior thyroid artery contributes to the superior glands. Each gland has a single end-artery — devascularization causes infarction and hypoparathyroidism. If devascularized, mince the gland into 1mm pieces and autotransplant into the sternocleidomastoid or forearm muscle.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the intraoperative PTH protocol (Miami criteria), and when do you consider the operation successful?",
+      "answer": "Baseline PTH drawn before incision. After adenoma excision, PTH levels at 5 and 10 minutes. Success: PTH drops >50% from the highest pre-excision value AND falls into the normal range. If PTH doesn't drop adequately, search for multigland disease, ectopic gland, or supernumerary (5th) gland.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the difference between primary, secondary, and tertiary hyperparathyroidism surgically?",
+      "answer": "Primary: single adenoma (85%) — focused parathyroidectomy. Secondary: all four glands hyperplastic from chronic kidney disease — subtotal (3.5-gland) parathyroidectomy or total with autotransplant. Tertiary: autonomous PTH secretion after renal transplant (previously secondary) — subtotal parathyroidectomy if hypercalcemia persists >1 year post-transplant.",
+      "level": "attending"
+    }
+  ]
+}

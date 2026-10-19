@@ -1,0 +1,91 @@
+{
+  "id": "ivor-lewis-esophagectomy",
+  "name": "Ivor Lewis Esophagectomy",
+  "category": "Esophageal",
+  "overview": "Two-phase esophagectomy with thoracic anastomosis",
+  "indications": [
+    "Mid-distal esophageal cancer",
+    "Barrett's with HGD",
+    "Benign disease refractory",
+    "Failed anti-reflux surgery"
+  ],
+  "keyAnatomy": [
+    "Esophagus",
+    "Stomach",
+    "Azygos vein",
+    "Recurrent laryngeal nerve",
+    "Thoracic duct"
+  ],
+  "preOpConsiderations": [
+    "Staging studies",
+    "Neoadjuvant therapy",
+    "Pulmonary function tests",
+    "Cardiac evaluation"
+  ],
+  "positioning": "Supine then left lateral decubitus",
+  "portPlacementOrIncision": [
+    "Laparotomy then right posterolateral thoracotomy"
+  ],
+  "criticalSteps": [
+    "Abdominal mobilization",
+    "Thoracic esophageal mobilization",
+    "Resection",
+    "Intrathoracic anastomosis",
+    "Pyloroplasty"
+  ],
+  "commonPitfalls": [
+    "Anastomotic leak",
+    "Recurrent laryngeal nerve injury",
+    "Chyle leak",
+    "Conduit necrosis"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Pneumonia",
+    "Chyle leak",
+    "ARDS"
+  ],
+  "pearlsHighYield": [
+    "Good conduit mobilization",
+    "Tension-free anastomosis",
+    "Adequate blood supply"
+  ],
+  "postOpPriorities": [
+    "ICU monitoring",
+    "Pulmonary toilet",
+    "Nutrition",
+    "Anastomotic surveillance"
+  ],
+  "relatedProcedures": [
+    "mckeown-esophagectomy",
+    "minimally-invasive-esophagectomy",
+    "transhiatal-esophagectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The esophagus is the only GI organ lacking what outer layer, and how does this affect anastomotic healing?",
+      "answer": "No serosa — only adventitia. The serosa provides tensile strength for suture holding and promotes rapid healing via serosal apposition. Without it, esophageal anastomoses heal slowly and leak in 5-15%. The blood supply is also segmental without a named mesenteric vessel.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Describe the two surgical phases and the level of the anastomosis in Ivor Lewis.",
+      "answer": "Phase 1 (Abdominal): gastric mobilization, conduit creation, pyloroplasty, feeding jejunostomy. Phase 2 (Right thoracotomy/VATS): esophageal mobilization, en bloc lymphadenectomy, intrathoracic esophagogastric anastomosis at or above the azygos vein level.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the sole blood supply to the gastric conduit after esophagectomy?",
+      "answer": "The right gastroepiploic artery (from GDA). All other gastric vessels are divided. The conduit tip has the most tenuous perfusion — ICG angiography guides the optimal anastomotic site. This is why the conduit must not be twisted or stretched.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common cause of death after Ivor Lewis esophagectomy?",
+      "answer": "Pneumonia and respiratory failure (not anastomotic leak). Pulmonary complications: 15-30% due to one-lung ventilation, thoracotomy pain, aspiration from conduit dysfunction, and recurrent laryngeal nerve injury. Mortality: 2-5% at high-volume centers (>20/year), >10% at low-volume centers.",
+      "level": "attending"
+    },
+    {
+      "question": "What does the CROSS trial (2012) establish for esophageal cancer neoadjuvant therapy?",
+      "answer": "Neoadjuvant chemoradiation (carboplatin + paclitaxel + 41.4 Gy) followed by surgery improved 5-year OS by 13% (47% vs 34%) versus surgery alone. CROSS is the worldwide standard for locally advanced esophageal cancer.",
+      "level": "attending"
+    }
+  ]
+}

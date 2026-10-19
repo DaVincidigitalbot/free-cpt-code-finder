@@ -1,0 +1,90 @@
+{
+  "id": "colonoscopy-polypectomy",
+  "name": "Colonoscopy with Polypectomy",
+  "category": "Endoscopy",
+  "overview": "Colonoscopic removal of colonic polyps",
+  "indications": [
+    "Colorectal polyps",
+    "Screening colonoscopy",
+    "Surveillance",
+    "Bleeding polyps"
+  ],
+  "keyAnatomy": [
+    "Colon",
+    "Rectum",
+    "Polyp morphology",
+    "Bowel wall layers"
+  ],
+  "preOpConsiderations": [
+    "Bowel preparation",
+    "Anticoagulation management",
+    "Polyp characteristics",
+    "Sedation"
+  ],
+  "positioning": "Left lateral, supine, or prone as needed",
+  "portPlacementOrIncision": [
+    "Transanal endoscopic approach"
+  ],
+  "criticalSteps": [
+    "Complete colonoscopy",
+    "Polyp identification",
+    "Polypectomy technique",
+    "Retrieve specimen",
+    "Inspect base"
+  ],
+  "commonPitfalls": [
+    "Incomplete removal",
+    "Perforation",
+    "Bleeding",
+    "Lost specimen"
+  ],
+  "majorComplications": [
+    "Perforation",
+    "Bleeding",
+    "Post-polypectomy syndrome",
+    "Missed cancer"
+  ],
+  "pearlsHighYield": [
+    "Lift test for submucosal lesions",
+    "Appropriate technique by size",
+    "Complete retrieval"
+  ],
+  "postOpPriorities": [
+    "Monitor for complications",
+    "Pathology results",
+    "Surveillance planning",
+    "Activity restrictions"
+  ],
+  "relatedProcedures": [
+    "emr",
+    "esd",
+    "endoscopic-mucosal-resection"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What gene mutation initiates the adenoma-carcinoma sequence?",
+      "answer": "APC gene on chromosome 5q21 (tumor suppressor in Wnt pathway). Vogelstein sequence: normal  ->  APC  ->  KRAS  ->  SMAD4/DCC  ->  TP53  ->  carcinoma. Takes 10-15 years, basis for 10-year screening intervals.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What determines whether a sessile polyp can be safely removed endoscopically?",
+      "answer": "The 'non-lifting sign' — submucosal injection should lift the polyp from the muscularis propria. Non-lifting indicates submucosal invasion (T1+ cancer) fixing it to muscle — needs surgical resection. Paris 0-Is and 0-IIa are generally amenable; 0-III suggests invasion.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the highest-risk areas for perforation during colonoscopy?",
+      "answer": "Cecum (thinnest wall, largest diameter — Laplace's law, supplied by ileocolic artery) and sigmoid (narrowest lumen, highest pressure, supplied by sigmoid arteries from IMA). Splenic flexure is third (fixed, angulated, thin marginal artery).",
+      "level": "resident"
+    },
+    {
+      "question": "What is post-polypectomy syndrome versus perforation?",
+      "answer": "Transmural burn without frank perforation: localized pain, fever, leukocytosis, but NO free air on CT. Fat stranding and wall thickening present. Treatment: conservative (NPO, antibiotics, observation). Free air = perforation = surgery.",
+      "level": "attending"
+    },
+    {
+      "question": "What are current US Multi-Society Task Force surveillance intervals after polypectomy?",
+      "answer": "1-2 tubular adenomas <10mm: 7-10 years. 3-4 adenomas <10mm: 3-5 years. 5-10 adenomas: 3 years. Adenoma ≥10mm/villous/HGD: 3 years. Piecemeal EMR ≥20mm: 6 months. >10 adenomas: 1 year (consider genetic testing).",
+      "level": "attending"
+    }
+  ]
+}

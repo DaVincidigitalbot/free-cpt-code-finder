@@ -1,0 +1,87 @@
+{
+  "id": "reboa",
+  "name": "REBOA (Resuscitative Endovascular Balloon Occlusion of Aorta)",
+  "category": "Trauma",
+  "overview": "Endovascular aortic occlusion for hemorrhage control",
+  "indications": [
+    "Non-compressible torso hemorrhage",
+    "Pelvic hemorrhage",
+    "Abdominal hemorrhage",
+    "Hemodynamic collapse"
+  ],
+  "keyAnatomy": [
+    "Aortic zones",
+    "Femoral artery",
+    "Iliac vessels",
+    "Visceral vessels"
+  ],
+  "preOpConsiderations": [
+    "Hemodynamic instability",
+    "Access site",
+    "Balloon size",
+    "Time limitations"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Percutaneous femoral access",
+    "7-French sheath"
+  ],
+  "criticalSteps": [
+    "Obtain femoral access",
+    "Insert balloon catheter",
+    "Position in correct zone",
+    "Inflate balloon",
+    "Confirm placement"
+  ],
+  "commonPitfalls": [
+    "Wrong zone placement",
+    "Over-inflation",
+    "Prolonged occlusion",
+    "Access complications"
+  ],
+  "majorComplications": [
+    "Ischemic complications",
+    "Balloon rupture",
+    "Aortic injury",
+    "Limb ischemia"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Expedite definitive control",
+    "Monitor ischemia time",
+    "Gradual deflation",
+    "Vascular assessment"
+  ],
+  "relatedProcedures": [
+    "damage-control-surgery",
+    "aortic-cross-clamp",
+    "angioembolization"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What are the three zones of REBOA?",
+      "answer": "Zone I: descending thoracic aorta (left subclavian to celiac -- for abdominal/pelvic hemorrhage). Zone II: paravisceral aorta (celiac to renal -- NO inflation here, would cause visceral ischemia without hemorrhage control). Zone III: infrarenal aorta to bifurcation (for pelvic hemorrhage). Zone selection depends on the suspected bleeding source.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the femoral artery anatomy for REBOA access?",
+      "answer": "Common femoral artery accessed percutaneously (ideally US-guided) or via cutdown. A 7-12 Fr sheath is placed. The balloon catheter is advanced to the target zone under fluoroscopic or external landmark guidance. The CFA is located midway between the ASIS and pubic symphysis, lateral to the femoral vein.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the physiologic effects of Zone I REBOA inflation?",
+      "answer": "Proximal: increased afterload, coronary perfusion, and cerebral perfusion (augments CPP). Distal: complete cessation of blood flow below the balloon causing visceral and lower extremity ischemia. Inflation time is limited (ideally <60 minutes). Partial REBOA (pREBOA) allows some distal flow while maintaining proximal augmentation.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply concern during REBOA deflation?",
+      "answer": "Reperfusion injury: sudden release causes washout of ischemic metabolites (lactate, potassium, myoglobin) into the central circulation -- causing hyperkalemia (cardiac arrest risk), metabolic acidosis, and systemic inflammatory response. Gradual deflation and concurrent resuscitation mitigate these effects.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the evidence for REBOA versus resuscitative thoracotomy?",
+      "answer": "AORTA trial (2019): REBOA was associated with higher mortality than resuscitative thoracotomy in some analyses, though selection bias limits conclusions. REBOA is faster to deploy (5-10 min vs 15-20 min) and doesn't require surgical skill for thoracotomy. Current role: bridge to OR for non-compressible torso hemorrhage, NOT a replacement for definitive hemorrhage control.",
+      "level": "attending"
+    }
+  ]
+}

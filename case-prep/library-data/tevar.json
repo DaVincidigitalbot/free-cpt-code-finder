@@ -1,0 +1,88 @@
+{
+  "id": "tevar",
+  "name": "TEVAR (Thoracic Endovascular Aortic Repair)",
+  "category": "Vascular",
+  "overview": "Endovascular repair of thoracic aortic pathology",
+  "indications": [
+    "Thoracic aortic aneurysm",
+    "Aortic dissection",
+    "Traumatic aortic injury",
+    "Penetrating aortic ulcer"
+  ],
+  "keyAnatomy": [
+    "Ascending aorta",
+    "Aortic arch",
+    "Descending thoracic aorta",
+    "Arch vessels",
+    "Spinal arteries"
+  ],
+  "preOpConsiderations": [
+    "CT angiography",
+    "Adequate landing zones",
+    "Arch vessel involvement",
+    "Spinal cord ischemia risk"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Femoral cutdown",
+    "Percutaneous access"
+  ],
+  "criticalSteps": [
+    "Obtain large-bore access",
+    "Position stent-graft",
+    "Deploy device",
+    "Balloon modeling",
+    "Confirm exclusion"
+  ],
+  "commonPitfalls": [
+    "Spinal cord ischemia",
+    "Stroke",
+    "Access complications",
+    "Endoleak"
+  ],
+  "majorComplications": [
+    "Paraplegia",
+    "Stroke",
+    "Endoleak",
+    "Access injury"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Neurologic monitoring",
+    "Spinal drainage if indicated",
+    "Blood pressure management",
+    "Surveillance imaging"
+  ],
+  "relatedProcedures": [
+    "open-thoracic-aortic-repair",
+    "arch-debranching",
+    "evar"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The thoracic aorta develops from what embryologic aortic arch structures?",
+      "answer": "The ascending aorta from the aortic sac/truncus arteriosus, the arch from the left 4th aortic arch, and the descending aorta from the left dorsal aorta. The ligamentum arteriosum (remnant of the ductus arteriosus) marks the isthmus — the most common site of traumatic aortic transection.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the minimum proximal landing zone length required for TEVAR, and what critical branch defines zone 2?",
+      "answer": "Minimum 2 cm of healthy aorta for the proximal seal. Zone 2 is between the left common carotid and left subclavian arteries. Covering the left subclavian (zone 2 landing) may be necessary and often requires left carotid-subclavian bypass or a chimney stent to prevent left arm ischemia and stroke.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared neurological complication of TEVAR covering a long segment of thoracic aorta?",
+      "answer": "Spinal cord ischemia/paraplegia. The artery of Adamkiewicz (great radicular artery, typically T9-T12 on the left) is the dominant blood supply to the anterior spinal artery. Covering intercostal arteries in this region, especially with prior AAA repair (internal iliac sacrifice), dramatically increases risk. CSF drainage is protective.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the types of endoleaks, and which one after TEVAR requires immediate intervention?",
+      "answer": "Type I (seal zone leak, proximal Ia or distal Ib) — requires immediate treatment as it pressurizes the sac. Type II (branch vessel backflow) — usually observed. Type III (graft defect/junction leak) — requires repair. Type IV (graft porosity) — self-limiting. Type V (endotension) — controversial.",
+      "level": "attending"
+    },
+    {
+      "question": "What access vessel complication is more common in TEVAR than EVAR, and why?",
+      "answer": "Iliac rupture or dissection — the TEVAR delivery systems are larger (20-25 French) than EVAR devices, and the iliac arteries are often small, calcified, or tortuous. Iliac conduits (sewn to the iliac artery) are frequently needed for access. Always assess iliofemoral diameter and tortuosity on preoperative CTA.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "pneumonectomy",
+  "name": "Pneumonectomy",
+  "category": "Thoracic",
+  "overview": "Complete removal of entire lung",
+  "indications": [
+    "Central lung cancer",
+    "Extensive infection",
+    "Massive hemoptysis",
+    "Congenital anomalies"
+  ],
+  "keyAnatomy": [
+    "Main pulmonary artery",
+    "Pulmonary veins",
+    "Main bronchus",
+    "Phrenic nerve"
+  ],
+  "preOpConsiderations": [
+    "Pulmonary function",
+    "Cardiac evaluation",
+    "Right heart function",
+    "Chemotherapy history"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "Posterolateral thoracotomy",
+    "Extended if needed"
+  ],
+  "criticalSteps": [
+    "Hilar dissection",
+    "Divide pulmonary artery",
+    "Divide pulmonary veins",
+    "Divide bronchus",
+    "Check hemostasis"
+  ],
+  "commonPitfalls": [
+    "Right heart failure",
+    "Bronchopleural fistula",
+    "Bleeding",
+    "Respiratory failure"
+  ],
+  "majorComplications": [
+    "Bronchopleural fistula",
+    "Right heart failure",
+    "ARDS",
+    "Death"
+  ],
+  "pearlsHighYield": [
+    "Assess cardiac function",
+    "Bronchial closure technique",
+    "Avoid fluid overload"
+  ],
+  "postOpPriorities": [
+    "Hemodynamic monitoring",
+    "Chest tube management",
+    "Respiratory support",
+    "Cardiac monitoring"
+  ],
+  "relatedProcedures": [
+    "completion-pneumonectomy",
+    "lobectomy",
+    "sleeve-pneumonectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What embryologic feature explains why the right main bronchus is more commonly intubated and aspirated?",
+      "answer": "The right main bronchus is wider, shorter, and more vertically oriented than the left (due to the aortic arch pushing the left bronchus laterally and inferiorly during development). This anatomic asymmetry from differential embryologic growth makes the right bronchus the path of least resistance for foreign bodies and endotracheal tubes.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the critical step in managing the bronchial stump after pneumonectomy?",
+      "answer": "The bronchial stump must be: 1) Divided flush with the carina (no long stump — long stumps collect secretions and increase BPF risk), 2) Closed with stapler or hand-sewn interrupted sutures, 3) Tested for air leak under saline, 4) Covered/buttressed with a vascularized tissue flap (intercostal muscle, pericardial fat, serratus, or pleural flap) to reinforce healing and prevent fistula.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the bronchial stump that determines healing after pneumonectomy?",
+      "answer": "Bronchial arteries (from thoracic aorta). After pneumonectomy, the stump is completely dependent on the remaining bronchial artery supply. Excessive skeletonization or devascularization of the stump during lymph node dissection causes ischemic stump necrosis and bronchopleural fistula. Tissue flap buttressing provides additional blood supply.",
+      "level": "resident"
+    },
+    {
+      "question": "What is postpneumonectomy syndrome, and on which side does it occur?",
+      "answer": "Right pneumonectomy (mostly in children) → mediastinal shift to the right → left main bronchus compression against the thoracic spine or aorta → progressive dyspnea and recurrent pneumonia. Less common after left pneumonectomy. Treatment: tissue expander or saline-filled prosthesis in the empty hemithorax to re-center the mediastinum.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the operative mortality of pneumonectomy, and what predicts poor outcome?",
+      "answer": "Operative mortality: 5-10% (right pneumonectomy higher than left — 10-12% vs 5-6%). Predictors: right-sided resection, neoadjuvant chemoradiation (increases BPF risk 2-3x), ppoFEV1 <40%, DLCO <40%, cardiac disease. The high mortality is why alternatives (sleeve lobectomy preserving lung parenchyma) are preferred when oncologically feasible.",
+      "level": "attending"
+    }
+  ]
+}

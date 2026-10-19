@@ -1,0 +1,91 @@
+{
+  "id": "transhiatal-esophagectomy",
+  "name": "Transhiatal Esophagectomy",
+  "category": "Esophageal",
+  "overview": "Esophagectomy without thoracotomy via blunt dissection",
+  "indications": [
+    "Early esophageal cancer",
+    "Poor pulmonary function",
+    "Barrett's with high-grade dysplasia",
+    "Benign disease"
+  ],
+  "keyAnatomy": [
+    "Esophageal hiatus",
+    "Mediastinal esophagus",
+    "Aorta",
+    "Trachea",
+    "Recurrent laryngeal nerves"
+  ],
+  "preOpConsiderations": [
+    "Tumor size limitations",
+    "Pulmonary function",
+    "No thoracotomy",
+    "Lymph node limitations"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Laparotomy and cervical incision only"
+  ],
+  "criticalSteps": [
+    "Mobilize stomach",
+    "Cervical esophageal mobilization",
+    "Transhiatal blunt dissection",
+    "Esophageal removal",
+    "Cervical anastomosis"
+  ],
+  "commonPitfalls": [
+    "Bleeding from mediastinum",
+    "Incomplete oncologic resection",
+    "Tracheal injury",
+    "Recurrent nerve injury"
+  ],
+  "majorComplications": [
+    "Mediastinal bleeding",
+    "Tracheal injury",
+    "Anastomotic leak",
+    "Recurrent nerve injury"
+  ],
+  "pearlsHighYield": [
+    "Careful blunt dissection",
+    "Control bleeding promptly",
+    "Limited oncologic use"
+  ],
+  "postOpPriorities": [
+    "Monitor for bleeding",
+    "Voice assessment",
+    "Anastomotic integrity",
+    "Early mobilization"
+  ],
+  "relatedProcedures": [
+    "ivor-lewis-esophagectomy",
+    "mckeown-esophagectomy",
+    "minimally-invasive-esophagectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the key difference between transhiatal and transthoracic esophagectomy?",
+      "answer": "Transhiatal avoids thoracotomy entirely -- the esophagus is mobilized bluntly through the hiatus from below and the cervical incision from above. No formal thoracic lymphadenectomy. The cervical anastomosis is performed in the neck.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What structure is at greatest risk during blunt mediastinal dissection?",
+      "answer": "The left main bronchus (posterior membranous wall) and the thoracic aorta. Blunt dissection around the mid-esophagus is done without direct visualization. Massive hemorrhage from aortic injury or airway rupture requires emergent thoracotomy.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply consideration during transhiatal mobilization?",
+      "answer": "The segmental aortic branches to the esophagus are avulsed during blunt dissection. This is generally well-tolerated because the esophagus is being removed. However, uncontrolled bleeding from these branches can accumulate in the mediastinum and may require conversion to thoracotomy.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the oncologic disadvantage of transhiatal esophagectomy?",
+      "answer": "Limited mediastinal lymphadenectomy -- only periesophageal nodes removed by blunt dissection. Formal station 7 (subcarinal), 8 (paraesophageal), and 9 (pulmonary ligament) node dissection cannot be performed without thoracotomy. May understage and undertreat mid-esophageal cancers.",
+      "level": "attending"
+    },
+    {
+      "question": "What does the Orringer (Michigan) data show for transhiatal esophagectomy outcomes?",
+      "answer": "Orringer's series (>2000 patients): operative mortality 1-3% (lower than transthoracic), anastomotic leak 10-13% (cervical, manageable), 5-year survival comparable to transthoracic for distal/GEJ cancers. The debate continues: lymph node count vs. lower perioperative morbidity.",
+      "level": "attending"
+    }
+  ]
+}

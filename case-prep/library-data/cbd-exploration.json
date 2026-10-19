@@ -1,0 +1,92 @@
+{
+  "id": "cbd-exploration",
+  "name": "Common Bile Duct Exploration",
+  "category": "Hepatopancreatobiliary",
+  "overview": "Surgical exploration and stone removal from common bile duct",
+  "indications": [
+    "Choledocholithiasis",
+    "Failed ERCP",
+    "Large stones",
+    "Multiple stones"
+  ],
+  "keyAnatomy": [
+    "Common bile duct",
+    "Hepatic ducts",
+    "Duodenum",
+    "Portal vein",
+    "Hepatic artery"
+  ],
+  "preOpConsiderations": [
+    "ERCP attempt",
+    "Stone size/number",
+    "Coagulopathy",
+    "Anatomical variants"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Right subcostal",
+    "Laparoscopic approach option"
+  ],
+  "criticalSteps": [
+    "Expose CBD",
+    "Choledochotomy",
+    "Stone extraction",
+    "Completion cholangiography",
+    "T-tube or primary closure"
+  ],
+  "commonPitfalls": [
+    "Retained stones",
+    "CBD injury",
+    "Bile leak",
+    "T-tube problems"
+  ],
+  "majorComplications": [
+    "Bile leak",
+    "Stricture",
+    "Retained stones",
+    "Bleeding"
+  ],
+  "pearlsHighYield": [
+    "Complete stone clearance",
+    "Flexible choledochoscopy",
+    "Completion cholangiogram"
+  ],
+  "postOpPriorities": [
+    "T-tube cholangiography",
+    "Monitor for leak",
+    "T-tube clamping trial",
+    "ERCP if retained stones"
+  ],
+  "relatedProcedures": [
+    "lap-cbd-exploration",
+    "ercp",
+    "sphincterotomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The hepatopancreatic ampulla of Vater forms from the fusion of which two embryologic ductal systems?",
+      "answer": "The CBD (from hepatic diverticulum/foregut) and the ventral pancreatic duct (from ventral pancreatic bud). They fuse during ventral bud rotation. A long common channel (>15mm, APBDJ) predisposes to choledochal cysts and gallbladder cancer.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the four portions of the CBD, and which segment is accessed during supraduodenal choledochotomy?",
+      "answer": "1) Supraduodenal (accessed for choledochotomy — 2-3cm, anterior to portal vein), 2) Retroduodenal, 3) Intrapancreatic, 4) Intraduodenal (ampulla). The choledochotomy is a longitudinal anterior incision to avoid the lateral axial blood supply.",
+      "level": "resident"
+    },
+    {
+      "question": "Why is the choledochotomy made longitudinally rather than transversely on the CBD?",
+      "answer": "The 3 and 9 o'clock axial arteries run along the lateral CBD walls. A longitudinal anterior midline incision preserves these vessels. A transverse incision would divide them, causing ischemia and stricture — the most devastating long-term complication.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the difference between transcystic and transductal approaches to CBDE?",
+      "answer": "Transcystic: stones <8mm, few in number, dilated cystic duct. Avoids choledochotomy, no T-tube. Transductal: stones >8mm, multiple stones, small/tortuous cystic duct, or intrahepatic stones. Requires choledochotomy with primary closure or T-tube.",
+      "level": "attending"
+    },
+    {
+      "question": "What does current evidence show about T-tube versus primary closure after choledochotomy?",
+      "answer": "Multiple RCTs show primary closure has shorter hospital stay, less bile leak, and equivalent stone clearance. T-tube complications include bile leak on removal (1-5%), accidental dislodgement causing biliary peritonitis, and tract cholangitis. Primary closure is now preferred.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "robotic-low-anterior-resection",
+  "name": "Robotic Low Anterior Resection",
+  "category": "Colorectal",
+  "overview": "Robot-assisted TME with enhanced precision in narrow pelvis",
+  "indications": [
+    "Low rectal cancer",
+    "Narrow male pelvis",
+    "Complex anatomy",
+    "Surgeon preference"
+  ],
+  "keyAnatomy": [
+    "Total mesorectal excision plane",
+    "Presacral fascia",
+    "Lateral stalks",
+    "Pelvic autonomic nerves",
+    "Anal sphincters"
+  ],
+  "preOpConsiderations": [
+    "Robot setup",
+    "Neoadjuvant therapy",
+    "Extended operative time",
+    "Stoma marking"
+  ],
+  "positioning": "Lithotomy with steep Trendelenburg",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Camera port",
+    "Three working arms",
+    "Assistant ports"
+  ],
+  "criticalSteps": [
+    "Robot docking",
+    "Precise TME dissection",
+    "Nerve-sparing technique",
+    "Intracorporeal anastomosis",
+    "Leak test"
+  ],
+  "commonPitfalls": [
+    "Collision in narrow pelvis",
+    "Longer operative time",
+    "Robot limitations",
+    "Learning curve"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Conversion to open",
+    "Sexual dysfunction",
+    "Bleeding"
+  ],
+  "pearlsHighYield": [
+    "Wristed instruments advantage",
+    "Superior visualization",
+    "Tremor elimination"
+  ],
+  "postOpPriorities": [
+    "Monitor for leak",
+    "Early mobilization",
+    "Functional assessment",
+    "Enhanced recovery"
+  ],
+  "relatedProcedures": [
+    "lap-low-anterior-resection",
+    "robotic-sigmoid-colectomy",
+    "robotic-apr"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the 'lateral ligament' of the rectum, and what critical nerve runs within it?",
+      "answer": "A condensation of endopelvic fascia from the lateral pelvic sidewall to the mesorectum. It contains the pelvic splanchnic nerves (nervi erigentes, S2-S4). Overzealous division causes parasympathetic nerve injury leading to bladder and sexual dysfunction.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What advantage does the robot offer for autonomic nerve preservation during TME?",
+      "answer": "Wristed instruments and 10x 3D visualization allow precise identification of hypogastric nerves at the IMA origin, the hypogastric plexus over the promontory, and pelvic splanchnic nerves at the sidewall. ROLARR subanalysis suggests lower genitourinary dysfunction rates.",
+      "level": "resident"
+    },
+    {
+      "question": "How do you confirm adequate blood supply to the rectal stump after IMA ligation robotically?",
+      "answer": "ICG (indocyanine green) fluorescence angiography via the Firefly system on the da Vinci — shows real-time perfusion. The rectal stump is supplied by middle rectal arteries (present in ~50%) and inferior rectal arteries from the internal pudendal system.",
+      "level": "resident"
+    },
+    {
+      "question": "What were the key findings of the ROLARR trial (2017, JAMA)?",
+      "answer": "Robotic vs laparoscopic rectal resection: no significant overall difference in conversion to open. However, robotic had significantly lower conversion rates in male and obese patients with narrow pelvis. No differences in oncologic outcomes, complications, or QOL at 6 months.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the 'watch and wait' protocol for rectal cancer?",
+      "answer": "For patients achieving clinical complete response after neoadjuvant chemoradiation, close surveillance replaces surgery. The International Watch & Wait Database shows 75-80% sustained cCR at 2 years. Regrowth is mostly luminal and salvageable surgically. Preserves rectum, avoids stoma, maintains quality of life.",
+      "level": "attending"
+    }
+  ]
+}

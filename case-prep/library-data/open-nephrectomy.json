@@ -1,0 +1,93 @@
+{
+  "id": "open-nephrectomy",
+  "name": "Open Nephrectomy",
+  "category": "Urology",
+  "overview": "Open surgical kidney removal",
+  "indications": [
+    "Large tumors",
+    "Complex anatomy",
+    "IVC involvement",
+    "Failed laparoscopic"
+  ],
+  "keyAnatomy": [
+    "Kidney",
+    "Renal vessels",
+    "IVC",
+    "Adrenal gland",
+    "Retroperitoneum"
+  ],
+  "preOpConsiderations": [
+    "Imaging",
+    "IVC involvement",
+    "Adrenal involvement",
+    "Surgical approach"
+  ],
+  "positioning": "Lateral or supine",
+  "portPlacementOrIncision": [
+    "Flank incision",
+    "Subcostal",
+    "Thoracoabdominal if large"
+  ],
+  "criticalSteps": [
+    "Mobilize kidney",
+    "Control renal vessels",
+    "En bloc resection",
+    "Adrenalectomy if indicated",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "IVC injury",
+    "Adrenal injury",
+    "Pleural injury",
+    "Incomplete resection"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "IVC injury",
+    "Pleural effusion",
+    "Adjacent organ injury"
+  ],
+  "pearlsHighYield": [
+    "Early vascular control",
+    "En bloc resection",
+    "Adequate margins"
+  ],
+  "postOpPriorities": [
+    "Chest X-ray",
+    "Renal function",
+    "Pain control",
+    "Oncologic staging"
+  ],
+  "relatedProcedures": [
+    "radical-nephrectomy",
+    "nephroureterectomy",
+    "ivc-thrombectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The ureteric bud arises from what structure, and what happens if it buds too cranially or caudally?",
+      "answer": "The mesonephric (Wolffian) duct. Too cranial: ectopic ureter (may insert into bladder neck, urethra, or seminal vesicle — above the sphincter in males, below in females causing incontinence). Too caudal: may result in vesicoureteral reflux due to short intramural tunnel. The Weigert-Meyer rule describes duplex system relationships.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is Gerota's fascia, and what are its anatomic boundaries?",
+      "answer": "Gerota's fascia (renal fascia) encloses the kidney, adrenal gland, and perirenal fat. It fuses medially with the great vessel adventitia, superiorly closes above the adrenal, and is open inferiorly (allowing perinephric fluid to track to the pelvis). During radical nephrectomy, the entire Gerota's fascia specimen is removed en bloc.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the collateral venous drainage pathways for the left kidney if the renal vein is ligated?",
+      "answer": "Left adrenal vein, left gonadal (testicular/ovarian) vein, and lumbar veins — all drain into the left renal vein. If the left renal vein is divided near the IVC (preserving these tributaries), blood drains retrogradely through these collaterals. This is why left renal vein ligation is tolerated, but right renal vein ligation is NOT (no collateral tributaries).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared complication of open radical nephrectomy for a tumor with IVC thrombus?",
+      "answer": "Tumor embolism to the pulmonary arteries during surgical manipulation — can cause acute pulmonary embolism and cardiovascular collapse. Also: massive hemorrhage from IVC (especially with suprahepatic or intracardiac thrombus extension requiring cardiopulmonary bypass). Preoperative imaging (MRI/CT) must define the cranial extent of the thrombus: Level I (renal vein), II (infrathepatic IVC), III (intrahepatic), IV (supradiaphragmatic/intracardiac).",
+      "level": "attending"
+    },
+    {
+      "question": "What is the role of cytoreductive nephrectomy in metastatic renal cell carcinoma today?",
+      "answer": "Historically beneficial (SWOG 8949): cytoreductive nephrectomy + interferon improved survival versus interferon alone. However, the CARMENA trial (2018): in the era of targeted therapy (sunitinib), cytoreductive nephrectomy did NOT improve OS versus sunitinib alone for intermediate/poor-risk metastatic RCC. Now reserved for good-risk patients with resectable primary and limited metastatic burden.",
+      "level": "attending"
+    }
+  ]
+}

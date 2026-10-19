@@ -1,0 +1,87 @@
+{
+  "id": "lumbar-puncture",
+  "name": "Lumbar Puncture",
+  "category": "Critical Care",
+  "overview": "Percutaneous access to cerebrospinal fluid",
+  "indications": [
+    "Suspected meningitis",
+    "Subarachnoid hemorrhage",
+    "Intrathecal medication",
+    "Diagnostic CSF analysis"
+  ],
+  "keyAnatomy": [
+    "Lumbar vertebrae L3-L5",
+    "Subarachnoid space",
+    "Spinal cord (ends L1-L2)",
+    "Cauda equina"
+  ],
+  "preOpConsiderations": [
+    "Increased intracranial pressure",
+    "Coagulation studies",
+    "Local infection",
+    "Patient cooperation"
+  ],
+  "positioning": "Lateral decubitus or sitting",
+  "portPlacementOrIncision": [
+    "L3-L4 or L4-L5 interspace",
+    "Midline approach"
+  ],
+  "criticalSteps": [
+    "Identify landmarks",
+    "Local anesthesia",
+    "Insert spinal needle",
+    "Confirm CSF flow",
+    "Collect samples"
+  ],
+  "commonPitfalls": [
+    "Bloody tap",
+    "Post-LP headache",
+    "Nerve root injury",
+    "Infection"
+  ],
+  "majorComplications": [
+    "Post-LP headache",
+    "Bleeding",
+    "Infection",
+    "Nerve injury"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "CSF analysis",
+    "Monitor for headache",
+    "Neurologic assessment",
+    "Hydration"
+  ],
+  "relatedProcedures": [
+    "epidural-injection",
+    "intrathecal-medication",
+    "csf-shunt-placement"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The spinal cord develops from the neural tube. At what vertebral level does the conus medullaris terminate in adults?",
+      "answer": "L1-L2 in adults (L3 in neonates -- the cord ascends relative to the vertebral column during growth). LP is performed at L3-L4 or L4-L5 interspace (below the conus) to avoid spinal cord injury. The L4-L5 interspace is at the level of the iliac crests (Tuffier's line).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the anatomic layers penetrated during lumbar puncture?",
+      "answer": "Skin -> subcutaneous fat -> supraspinous ligament -> interspinous ligament -> ligamentum flavum (felt as increased resistance/'pop') -> epidural space -> dura mater -> arachnoid mater -> subarachnoid space (CSF). The spinal needle traverses 4-6cm in adults.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the spinal cord at the LP level?",
+      "answer": "The anterior spinal artery (from vertebral arteries) and two posterior spinal arteries supply the cord. At the LP level (below the conus), only the cauda equina nerve roots are present -- they float freely in CSF and are pushed aside by the LP needle rather than being transected.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common complication of lumbar puncture?",
+      "answer": "Post-dural puncture headache (PDPH): 10-30% with standard cutting needles, <5% with atraumatic (pencil-point) needles. Caused by persistent CSF leak through the dural puncture hole, leading to low CSF pressure and traction on pain-sensitive meningeal structures. Treatment: caffeine, bed rest, and epidural blood patch (90% success) for refractory cases.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the contraindication to LP that must be ruled out before the procedure?",
+      "answer": "Space-occupying lesion with mass effect causing brain herniation risk. CT brain before LP is indicated if: focal neurologic deficit, altered consciousness, papilledema, seizure, or immunocompromised state. LP in the setting of uncal herniation can cause fatal brainstem herniation from pressure differential. Coagulopathy (INR >1.5, platelets <50K) is a relative contraindication.",
+      "level": "attending"
+    }
+  ]
+}

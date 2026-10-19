@@ -1,0 +1,90 @@
+{
+  "id": "turp",
+  "name": "Transurethral Resection of Prostate",
+  "category": "Urology",
+  "overview": "Endoscopic removal of prostatic tissue for BPH",
+  "indications": [
+    "Symptomatic BPH",
+    "Urinary retention",
+    "Recurrent UTIs",
+    "Bladder stones from BPH"
+  ],
+  "keyAnatomy": [
+    "Prostate transition zone",
+    "Bladder neck",
+    "External sphincter",
+    "Verumontanum"
+  ],
+  "preOpConsiderations": [
+    "Prostate size assessment",
+    "Anticoagulation management",
+    "UTI treatment",
+    "Anesthesia planning"
+  ],
+  "positioning": "Lithotomy",
+  "portPlacementOrIncision": [
+    "Transurethral approach with resectoscope"
+  ],
+  "criticalSteps": [
+    "Systematic resection",
+    "Preserve external sphincter",
+    "Achieve hemostasis",
+    "Evacuate chips",
+    "Insert catheter"
+  ],
+  "commonPitfalls": [
+    "Sphincter injury",
+    "Capsule perforation",
+    "TURP syndrome",
+    "Bleeding"
+  ],
+  "majorComplications": [
+    "TURP syndrome",
+    "Bleeding",
+    "Incontinence",
+    "Retrograde ejaculation"
+  ],
+  "pearlsHighYield": [
+    "Preserve verumontanum",
+    "Systematic resection",
+    "Avoid capsule perforation"
+  ],
+  "postOpPriorities": [
+    "Monitor for TURP syndrome",
+    "Catheter management",
+    "Hematuria assessment",
+    "Trial of voiding"
+  ],
+  "relatedProcedures": [
+    "holep",
+    "greenlight-laser",
+    "simple-prostatectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The prostate develops from which embryologic structure?",
+      "answer": "Urogenital sinus endoderm (prostatic buds) under the influence of dihydrotestosterone (5-alpha reductase converts testosterone). The prostate has distinct zones: peripheral (70%, cancer), transition (20%, BPH), central (5-10%), and anterior fibromuscular stroma.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the anatomy of the prostatic urethra relevant to TURP?",
+      "answer": "The verumontanum (seminal colliculus) is the key landmark -- it contains the ejaculatory duct openings. Resection must NOT extend distal to the verumontanum (risks external sphincter injury and incontinence). The prostatic capsule defines the depth of resection.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the prostate that causes bleeding during TURP?",
+      "answer": "Branches of the inferior vesical artery (from internal iliac) supply the prostate. The arterial supply enters at the 4 and 8 o'clock positions (posterolateral). The venous plexus of Santorini (dorsal venous complex) lies anterior. Arterial bleeders appear as pulsatile jets; venous bleeding is dark and diffuse.",
+      "level": "resident"
+    },
+    {
+      "question": "What is TUR syndrome?",
+      "answer": "Dilutional hyponatremia from absorption of hypotonic irrigating fluid (glycine or sorbitol) through open venous sinuses during prolonged TURP. Symptoms: confusion, seizures, nausea, hypertension, then cardiovascular collapse. Prevention: limit resection time (<60-90 min), use bipolar TURP (allows isotonic saline irrigation), monitor Na+ intraoperatively.",
+      "level": "attending"
+    },
+    {
+      "question": "What has largely replaced monopolar TURP?",
+      "answer": "Bipolar TURP (uses normal saline irrigation, eliminating TUR syndrome risk), laser enucleation (HoLEP -- holmium laser enucleation), and laser vaporization (PVP -- photoselective vaporization with GreenLight laser). HoLEP is considered the new gold standard for large prostates (>80g) with equivalent outcomes and lower transfusion rates.",
+      "level": "attending"
+    }
+  ]
+}

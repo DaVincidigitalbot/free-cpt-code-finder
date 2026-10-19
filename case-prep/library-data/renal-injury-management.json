@@ -1,0 +1,88 @@
+{
+  "id": "renal-injury-management",
+  "name": "Renal Injury Management",
+  "category": "Trauma",
+  "overview": "Surgical and non-operative management of renal trauma",
+  "indications": [
+    "High-grade renal trauma",
+    "Hemodynamic instability",
+    "Urinary extravasation",
+    "Failed conservative management"
+  ],
+  "keyAnatomy": [
+    "Renal parenchyma",
+    "Renal pelvis",
+    "Renal vessels",
+    "Ureter",
+    "Gerota's fascia"
+  ],
+  "preOpConsiderations": [
+    "CT staging",
+    "Hemodynamic status",
+    "Associated injuries",
+    "Solitary kidney"
+  ],
+  "positioning": "Supine or flank",
+  "portPlacementOrIncision": [
+    "Midline for unstable patients",
+    "Flank for stable patients"
+  ],
+  "criticalSteps": [
+    "Control bleeding",
+    "Assess viability",
+    "Repair vs nephrectomy",
+    "Manage collecting system",
+    "Drainage"
+  ],
+  "commonPitfalls": [
+    "Unnecessary nephrectomy",
+    "Missed ureteral injury",
+    "Inadequate debridement",
+    "Poor drainage"
+  ],
+  "majorComplications": [
+    "Nephrectomy",
+    "Chronic kidney disease",
+    "Hypertension",
+    "Pseudoaneurysm"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor renal function",
+    "Blood pressure control",
+    "Imaging surveillance",
+    "Nephrology consultation"
+  ],
+  "relatedProcedures": [
+    "nephrectomy",
+    "partial-nephrectomy",
+    "ureteral-repair"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the AAST grading system for renal injuries?",
+      "answer": "Grade I: subcapsular hematoma, no laceration. Grade II: <1cm parenchymal laceration, non-expanding perirenal hematoma. Grade III: >1cm laceration without collecting system involvement. Grade IV: laceration into collecting system, or segmental vascular injury. Grade V: shattered kidney or renal hilum avulsion.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What determines operative versus non-operative management?",
+      "answer": "NOM: hemodynamically stable Grades I-IV without expanding hematoma or active extravasation. Operative: hemodynamic instability, Grade V (hilar avulsion), expanding/pulsatile hematoma found at laparotomy. Angioembolization: active arterial extravasation (blush on CT) in a stable patient. NOM success rate: >95% for Grades I-III, 75-85% for Grade IV.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the kidney that guides repair decisions?",
+      "answer": "Single renal artery (75%), multiple renal arteries (25%). Segmental arteries are end-arteries -- occlusion causes segmental infarction. Warm ischemia time >30-60 minutes causes irreversible renal damage. If hilar clamping is needed for repair, cold ischemia with ice slush extends the window.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common delayed complication of renal trauma?",
+      "answer": "Delayed bleeding (1-5%) from pseudoaneurysm or AV fistula formation at the laceration site. Presents days to weeks after injury with hematuria, flank pain, or hemodynamic instability. Managed with selective angioembolization. Also: urinoma, perinephric abscess, and hypertension (Page kidney from compression).",
+      "level": "attending"
+    },
+    {
+      "question": "When should you explore a retroperitoneal hematoma around the kidney during trauma laparotomy?",
+      "answer": "Penetrating trauma: always explore (cannot assess injury without direct inspection). Blunt trauma: explore ONLY if expanding, pulsatile, or the patient is hemodynamically unstable. A contained, non-expanding hematoma in blunt trauma should be left alone -- exploration may convert a stable injury into a nephrectomy.",
+      "level": "attending"
+    }
+  ]
+}

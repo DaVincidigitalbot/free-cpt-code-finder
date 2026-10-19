@@ -1,0 +1,89 @@
+{
+  "id": "modified-radical-mastectomy",
+  "name": "Modified Radical Mastectomy",
+  "category": "Breast",
+  "overview": "Mastectomy with axillary lymph node dissection",
+  "indications": [
+    "Invasive breast cancer",
+    "Multiple positive nodes",
+    "Failed sentinel node biopsy"
+  ],
+  "keyAnatomy": [
+    "Breast tissue",
+    "Axillary lymph nodes",
+    "Long thoracic nerve",
+    "Thoracodorsal nerve"
+  ],
+  "preOpConsiderations": [
+    "Staging",
+    "Neoadjuvant therapy",
+    "Arm function counseling",
+    "Reconstruction planning"
+  ],
+  "positioning": "Supine with arm extended",
+  "portPlacementOrIncision": [
+    "Extended elliptical incision including axilla"
+  ],
+  "criticalSteps": [
+    "Mastectomy",
+    "Axillary dissection levels I-II",
+    "Preserve nerves",
+    "Lymph node harvest",
+    "Hemostasis"
+  ],
+  "commonPitfalls": [
+    "Nerve injury",
+    "Lymphedema",
+    "Seroma",
+    "Inadequate node harvest"
+  ],
+  "majorComplications": [
+    "Lymphedema",
+    "Nerve injury",
+    "Infection",
+    "Seroma"
+  ],
+  "pearlsHighYield": [
+    "Preserve motor nerves",
+    "Adequate lymph node harvest >10",
+    "Good hemostasis"
+  ],
+  "postOpPriorities": [
+    "Drain management",
+    "Arm exercises",
+    "Lymphedema education",
+    "Adjuvant therapy"
+  ],
+  "relatedProcedures": [
+    "axillary-lymph-node-dissection",
+    "total-mastectomy",
+    "sentinel-lymph-node-biopsy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What distinguishes the Halsted radical mastectomy from the modified radical mastectomy embryologically and surgically?",
+      "answer": "Halsted (1882) removed the pectoralis major and minor en bloc with axillary nodes. The modified radical mastectomy (Patey/Madden) preserves the pectoralis major (and minor in Madden), recognizing that these muscles are not part of the lymphatic drainage pathway. The Patey modification removes pectoralis minor; Madden preserves both.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the anatomic boundaries of the level I, II, and III axillary lymph node dissection?",
+      "answer": "Level I: lateral to pectoralis minor. Level II: behind pectoralis minor. Level III: medial to pectoralis minor (infraclavicular/subclavicular). Level II access requires retracting pectoralis minor. Level III requires dividing pectoralis minor (Patey) or reaching medial to it. MRM typically includes levels I and II.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the axilla, and which vessel is the 'vessel of axillary dissection'?",
+      "answer": "The axillary artery branches: thoracoacromial, lateral thoracic, subscapular (gives off thoracodorsal and circumflex scapular). The lateral thoracic artery runs on the chest wall surface and is frequently encountered/ligated during axillary dissection.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the incidence of lymphedema after modified radical mastectomy with axillary dissection?",
+      "answer": "15-25% lifelong risk (increases with radiation, obesity, and extent of nodal disease). Caused by disruption of axillary lymphatic drainage. Sentinel lymph node biopsy has reduced this to 5-8% for SLN-negative patients. Lymphedema is irreversible once established — prevention and early intervention are critical.",
+      "level": "attending"
+    },
+    {
+      "question": "What landmark trial changed the management of the axilla for clinically node-negative breast cancer?",
+      "answer": "ACOSOG Z0011 (2011, JAMA): patients with T1-T2, clinically node-negative breast cancer with 1-2 positive SLN undergoing lumpectomy did NOT benefit from completion ALND. No difference in OS or DFS. This practice-changing trial eliminated ALND for many SLN-positive patients receiving whole-breast radiation.",
+      "level": "attending"
+    }
+  ]
+}

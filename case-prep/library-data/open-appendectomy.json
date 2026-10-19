@@ -1,0 +1,95 @@
+{
+  "id": "open-appendectomy",
+  "name": "Open Appendectomy",
+  "category": "Colorectal",
+  "overview": "Open surgical removal of appendix via McBurney or Pfannenstiel incision",
+  "indications": [
+    "Failed laparoscopic attempt",
+    "Pregnant patient",
+    "Extensive adhesions",
+    "Suspected malignancy"
+  ],
+  "keyAnatomy": [
+    "McBurney's point",
+    "Appendiceal artery",
+    "Base of cecum",
+    "Lateral cutaneous nerve"
+  ],
+  "preOpConsiderations": [
+    "NPO",
+    "IV antibiotics",
+    "Pain control",
+    "Mark surgical site",
+    "Pregnancy considerations"
+  ],
+  "positioning": "Supine, may rotate left hip up",
+  "portPlacementOrIncision": [
+    "McBurney incision",
+    "Pfannenstiel if low/pregnant",
+    "May extend as needed"
+  ],
+  "criticalSteps": [
+    "Locate appendix",
+    "Ligate mesoappendix",
+    "Ligate appendiceal artery",
+    "Divide base",
+    "Bury stump or simple ligation"
+  ],
+  "commonPitfalls": [
+    "Inadequate exposure",
+    "Bleeding from vessels",
+    "Stump leak",
+    "Wound infection"
+  ],
+  "majorComplications": [
+    "Stump leak",
+    "Bleeding",
+    "Bowel injury",
+    "Wound complications"
+  ],
+  "pearlsHighYield": [
+    "Ligation vs. stapling base",
+    "Pursestring for burying stump",
+    "Irrigate if perforated",
+    "Layer closure important"
+  ],
+  "postOpPriorities": [
+    "Pain control",
+    "Early ambulation",
+    "Diet advancement",
+    "Wound care",
+    "Activity restrictions"
+  ],
+  "relatedProcedures": [
+    "lap-appendectomy",
+    "right-hemicolectomy",
+    "ex-lap"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "At what gestational age does the appendix first become recognizable as a cecal diverticulum?",
+      "answer": "The appendix appears as a diverticulum of the cecal bud at week 8, from the caudal limb of the midgut loop (post-arterial segment), becoming clearly recognizable by week 12 of development.",
+      "level": "medical_student"
+    },
+    {
+      "question": "Describe McBurney's point and all the layers encountered in a McBurney muscle-splitting incision.",
+      "answer": "McBurney's point: junction of lateral and middle thirds of a line from ASIS to umbilicus. Layers: skin, Scarpa's fascia, external oblique aponeurosis (split along fibers), internal oblique (split), transversus abdominis (split), transversalis fascia, preperitoneal fat, peritoneum.",
+      "level": "resident"
+    },
+    {
+      "question": "The appendicular artery is an end artery. What is the clinical consequence of this?",
+      "answer": "Thrombosis of the appendicular artery (from inflammation or fecalith obstruction) causes gangrenous appendicitis because there are no collateral vessels. This is why appendicitis progresses to gangrene and perforation rather than resolving — the vascular anatomy seals its fate.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the wound complication rate in open appendectomy for perforated appendicitis, and how do you reduce it?",
+      "answer": "SSI rate 10-20% for perforated cases. Reduced by leaving the skin open for delayed primary closure (DPC) at day 4-5 if wound is clean. DPC reduces SSI from 20% to <5% in contaminated cases.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the Alvarado score and its clinical utility?",
+      "answer": "A clinical scoring system: Migration of pain (1), Anorexia (1), Nausea (1), RLQ tenderness (2), Rebound (1), Elevation of temp (1), Leukocytosis (2), Shift to left (1). Score ≥7 strongly suggests appendicitis. <5 effectively rules it out. It reduces unnecessary imaging and guides surgical decision-making in resource-limited settings.",
+      "level": "attending"
+    }
+  ]
+}

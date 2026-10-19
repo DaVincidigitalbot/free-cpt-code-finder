@@ -1,0 +1,88 @@
+{
+  "id": "liver-transplant-recipient",
+  "name": "Liver Transplant (Recipient Overview)",
+  "category": "Transplant",
+  "overview": "Orthotopic liver transplantation for end-stage liver disease",
+  "indications": [
+    "End-stage liver disease",
+    "Hepatocellular carcinoma",
+    "Acute liver failure",
+    "Metabolic liver disease"
+  ],
+  "keyAnatomy": [
+    "Hepatic vessels",
+    "Portal vein",
+    "Bile duct",
+    "Inferior vena cava",
+    "Native liver"
+  ],
+  "preOpConsiderations": [
+    "MELD score",
+    "Portal hypertension",
+    "Cardiopulmonary status",
+    "Donor organ quality"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Bilateral subcostal with extension",
+    "Chevron incision"
+  ],
+  "criticalSteps": [
+    "Hepatectomy phase",
+    "Anhepatic phase",
+    "Vascular anastomoses",
+    "Biliary reconstruction",
+    "Reperfusion"
+  ],
+  "commonPitfalls": [
+    "Primary non-function",
+    "Hepatic artery thrombosis",
+    "Biliary complications",
+    "Bleeding"
+  ],
+  "majorComplications": [
+    "Primary non-function",
+    "Hepatic artery thrombosis",
+    "Biliary leak/stricture",
+    "Rejection"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Graft function monitoring",
+    "Immunosuppression",
+    "Biliary complications",
+    "Infection surveillance"
+  ],
+  "relatedProcedures": [
+    "living-donor-liver-transplant",
+    "liver-biopsy",
+    "biliary-reconstruction"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What are the four vascular anastomoses in liver transplantation?",
+      "answer": "1) Suprahepatic IVC (or piggyback technique to hepatic veins), 2) Infrahepatic IVC (omitted in piggyback), 3) Portal vein (end-to-end), 4) Hepatic artery (end-to-end or with donor/recipient arterial conduit). After reperfusion, the biliary anastomosis is performed: duct-to-duct (choledochocholedochostomy) or Roux-en-Y hepaticojejunostomy.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the 'piggyback' technique?",
+      "answer": "The recipient IVC is preserved (not removed with the native liver). The donor suprahepatic IVC is anastomosed to the confluence of the recipient hepatic veins (or a common cuff of the right and middle hepatic veins). Advantages: no need for venovenous bypass, hemodynamic stability during the anhepatic phase. It has largely replaced the classical (bicaval) technique.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply sequence that determines graft viability?",
+      "answer": "Portal vein reperfusion first (provides 75% of hepatic blood flow), then hepatic artery repair (provides oxygenated blood and bile duct supply). The bile ducts are entirely dependent on hepatic arterial flow -- hepatic artery thrombosis (HAT) causes bile duct necrosis, biliary strictures, and potential graft loss. HAT is the most feared vascular complication (2-5%).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common cause of early graft loss?",
+      "answer": "Primary non-function (PNF, 2-5%): graft fails to function despite adequate anatomy -- caused by severe ischemia-reperfusion injury, donor factors (steatosis >30%, prolonged cold ischemia), or hyperacute rejection. Requires emergency relisting and retransplantation. HAT is the second most common cause of early graft loss.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the MELD score and its role in liver transplant allocation?",
+      "answer": "Model for End-Stage Liver Disease: calculated from bilirubin, INR, and creatinine (+ sodium in MELD-Na). Range 6-40. Higher MELD = sicker patient = higher priority for deceased donor organs. MELD predicts 90-day mortality without transplant. The 'sickest first' allocation policy has reduced waitlist mortality but results in sicker recipients with more perioperative complications.",
+      "level": "attending"
+    }
+  ]
+}

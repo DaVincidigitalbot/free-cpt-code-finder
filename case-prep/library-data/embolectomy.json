@@ -1,0 +1,88 @@
+{
+  "id": "embolectomy",
+  "name": "Arterial Embolectomy",
+  "category": "Vascular",
+  "overview": "Surgical removal of arterial emboli",
+  "indications": [
+    "Acute arterial occlusion",
+    "Embolism",
+    "Failed thrombolysis"
+  ],
+  "keyAnatomy": [
+    "Affected artery",
+    "Embolus location",
+    "Collateral circulation"
+  ],
+  "preOpConsiderations": [
+    "Time from onset",
+    "Limb viability",
+    "Anticoagulation",
+    "Embolic source"
+  ],
+  "positioning": "Depends on affected vessel",
+  "portPlacementOrIncision": [
+    "Arteriotomy at accessible location"
+  ],
+  "criticalSteps": [
+    "Arteriotomy",
+    "Fogarty balloon catheter",
+    "Extract emboli",
+    "Assess flow",
+    "Close artery"
+  ],
+  "commonPitfalls": [
+    "Incomplete extraction",
+    "Arterial injury",
+    "Distal embolization",
+    "Compartment syndrome"
+  ],
+  "majorComplications": [
+    "Re-embolization",
+    "Bleeding",
+    "Compartment syndrome",
+    "Reperfusion injury"
+  ],
+  "pearlsHighYield": [
+    "Time critical",
+    "Complete extraction",
+    "Check compartments"
+  ],
+  "postOpPriorities": [
+    "Anticoagulation",
+    "Pulse monitoring",
+    "Compartment assessment",
+    "Source investigation"
+  ],
+  "relatedProcedures": [
+    "thrombectomy",
+    "fasciotomy",
+    "bypass"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "Acute limb ischemia presents with the '6 Ps.' What are they, and which indicates irreversible damage?",
+      "answer": "Pain, Pallor, Pulselessness, Poikilothermia (cool), Paresthesia, Paralysis. Paralysis and absent sensation indicate irreversible ischemia (Rutherford IIb-III) — muscle rigor and mottled non-blanching skin (class III) mean the limb is non-salvageable, and revascularization risks reperfusion injury with rhabdomyolysis, hyperkalemia, and death.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the Fogarty catheter, and how does it work?",
+      "answer": "A balloon-tipped catheter inserted through an arteriotomy (typically at the common femoral artery) and advanced past the embolus. The balloon is inflated and withdrawn, extracting the clot. Invented by Thomas Fogarty in 1963 — it revolutionized embolectomy by eliminating the need for direct exposure of the occlusion site. Available in sizes 2-7 Fr.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the lower extremity distal to the popliteal trifurcation?",
+      "answer": "The popliteal artery divides into: 1) Anterior tibial artery (becomes dorsalis pedis), 2) Tibioperoneal trunk → posterior tibial artery (becomes medial/lateral plantar arteries) and peroneal artery. At least one tibial vessel must be patent for limb viability. Embolectomy catheters are passed into each tibial vessel to ensure complete clot extraction.",
+      "level": "resident"
+    },
+    {
+      "question": "What is reperfusion injury after embolectomy, and what is the most dangerous systemic complication?",
+      "answer": "Reperfusion of ischemic muscle releases myoglobin (rhabdomyolysis), potassium, lactate, and reactive oxygen species. Most dangerous: hyperkalemia causing cardiac arrest — can occur within minutes of restoring flow. Management: prophylactic calcium, bicarbonate, aggressive IV fluids, and continuous cardiac monitoring. Compartment syndrome (see below) is the most common local complication.",
+      "level": "attending"
+    },
+    {
+      "question": "What percentage of arterial emboli originate from the heart, and what is the most common cardiac source?",
+      "answer": "80-85% are cardiac in origin. Most common source: left atrial appendage thrombus from atrial fibrillation. Other sources: mural thrombus (post-MI), valvular disease, endocarditis, paradoxical embolus (PFO). The remaining 15-20% are from arterial sources (aortic atheroma, aneurysm). Echocardiography is mandatory to identify the embolic source and guide anticoagulation.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "lumpectomy",
+  "name": "Breast Lumpectomy",
+  "category": "Breast",
+  "overview": "Breast-conserving surgery with wide local excision",
+  "indications": [
+    "Early breast cancer",
+    "DCIS",
+    "Phyllodes tumor",
+    "High-risk lesions"
+  ],
+  "keyAnatomy": [
+    "Tumor location",
+    "Breast quadrants",
+    "Nipple-areolar complex",
+    "Chest wall"
+  ],
+  "preOpConsiderations": [
+    "Tumor localization",
+    "Margin assessment",
+    "Cosmetic outcome",
+    "Radiation planning"
+  ],
+  "positioning": "Supine with arm extended",
+  "portPlacementOrIncision": [
+    "Radial or circumareolar incision"
+  ],
+  "criticalSteps": [
+    "Locate tumor",
+    "Wide local excision",
+    "Orient specimen",
+    "Achieve hemostasis",
+    "Oncoplastic closure"
+  ],
+  "commonPitfalls": [
+    "Positive margins",
+    "Poor cosmesis",
+    "Hematoma",
+    "Infection"
+  ],
+  "majorComplications": [
+    "Positive margins",
+    "Seroma",
+    "Infection",
+    "Poor cosmetic outcome"
+  ],
+  "pearlsHighYield": [
+    "Adequate margins",
+    "Specimen orientation",
+    "Oncoplastic techniques"
+  ],
+  "postOpPriorities": [
+    "Pathology review",
+    "Margin assessment",
+    "Cosmetic evaluation",
+    "Radiation oncology"
+  ],
+  "relatedProcedures": [
+    "re-excision",
+    "oncoplastic-surgery",
+    "sentinel-lymph-node-biopsy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic basis for breast tissue extending into the axillary tail of Spence?",
+      "answer": "The mammary ridge extends from axilla to groin during development. The axillary tail represents the most lateral extent of persistent mammary ridge tissue. Cancers can arise in the tail, and it must be included in the surgical field. Accessory breast tissue in the axilla is a remnant of incomplete ridge regression.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the current minimum negative margin requirements for invasive cancer versus DCIS after lumpectomy?",
+      "answer": "Invasive cancer: 'no ink on tumor' (2014 SSO-ASTRO consensus — wider margins do NOT reduce recurrence when combined with radiation). DCIS: 2mm negative margin (2016 SSO-ASTRO-ASCO consensus). These guidelines ended the era of re-excision for 'close' margins in invasive cancer.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the breast quadrant containing the tumor, and how does lumpectomy affect it?",
+      "answer": "The breast is supplied by a segmental pattern: medial quadrants by internal mammary perforators, lateral quadrants by lateral thoracic and intercostal arteries. Lumpectomy disrupts the local blood supply to the cavity, which fills with seroma. Oncoplastic techniques can redistribute remaining tissue to fill the defect.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the local recurrence rate after lumpectomy alone versus lumpectomy with radiation?",
+      "answer": "Lumpectomy alone: 25-40% at 10 years. Lumpectomy + radiation: 5-10% at 10 years. This is why whole-breast radiation is mandatory after lumpectomy (NSABP B-06, 20-year data). The sole exception: PRIME II trial showed omission of radiation may be acceptable in low-risk women >65 with ER+, T1, node-negative tumors on endocrine therapy.",
+      "level": "attending"
+    },
+    {
+      "question": "When must you perform an intraoperative specimen radiograph, and what are you looking for?",
+      "answer": "For any lesion identified by imaging (calcifications, architectural distortion, or image-detected mass) — especially wire-localized or seed-localized lesions. You're confirming the target is in the specimen (calcifications, clip, or seed). If the target is not in the specimen, re-excise immediately. Also assess for specimen orientation to guide margin re-excision if needed.",
+      "level": "attending"
+    }
+  ]
+}

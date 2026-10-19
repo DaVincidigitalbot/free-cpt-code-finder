@@ -1,0 +1,92 @@
+{
+  "id": "robotic-nephrectomy",
+  "name": "Robotic Nephrectomy",
+  "category": "Urology",
+  "overview": "Robot-assisted kidney removal",
+  "indications": [
+    "Renal cell carcinoma",
+    "Large complex tumors",
+    "Previous surgery",
+    "Surgeon preference"
+  ],
+  "keyAnatomy": [
+    "Kidney",
+    "Renal vessels",
+    "Ureter",
+    "Adrenal gland",
+    "Surrounding organs"
+  ],
+  "preOpConsiderations": [
+    "Robot setup",
+    "Patient positioning",
+    "Tumor characteristics",
+    "Conversion readiness"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Hand-assist port option"
+  ],
+  "criticalSteps": [
+    "Robot docking",
+    "Renal artery control",
+    "Renal vein control",
+    "Complete mobilization",
+    "Intact specimen removal"
+  ],
+  "commonPitfalls": [
+    "Vascular injury",
+    "Organ injury",
+    "Tumor spillage",
+    "Conversion to open"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Adjacent organ injury",
+    "Tumor spillage",
+    "Port site metastases"
+  ],
+  "pearlsHighYield": [
+    "Enhanced precision",
+    "Early vascular control",
+    "Intact specimen removal"
+  ],
+  "postOpPriorities": [
+    "Renal function monitoring",
+    "Pain control",
+    "Early mobilization",
+    "Oncologic follow-up"
+  ],
+  "relatedProcedures": [
+    "lap-nephrectomy",
+    "robotic-partial-nephrectomy",
+    "open-nephrectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What advantage does the robot provide for nephrectomy?",
+      "answer": "Enhanced 3D visualization of the renal hilum for precise vascular control, wristed instruments for dissection around the renal vessels, and reduced blood loss. Particularly advantageous for complex cases: large tumors, prior surgery, or venous thrombus.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the hilar anatomy from anterior to posterior?",
+      "answer": "Renal vein (anterior), renal artery (middle), renal pelvis (posterior) -- VAP. The left renal vein is longer, crossing anterior to the aorta. The left adrenal and gonadal veins must be identified and preserved or divided.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the adrenal gland during nephrectomy?",
+      "answer": "The adrenal has independent blood supply (superior, middle, inferior adrenal arteries) and can be preserved during nephrectomy unless involved by tumor. The adrenal vein on the left drains into the renal vein and must be controlled during left nephrectomy.",
+      "level": "resident"
+    },
+    {
+      "question": "When should the adrenal gland be taken with the kidney?",
+      "answer": "Upper pole tumors, tumors >7cm, imaging evidence of adrenal involvement, or intraoperative suspicion. For lower pole and small tumors (<4cm), adrenal-sparing is standard. Ipsilateral adrenalectomy adds morbidity without benefit for most renal tumors.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the conversion rate for robotic versus laparoscopic nephrectomy?",
+      "answer": "Robotic: 1-3% (lower than laparoscopic 3-7%). The wristed instruments and stable camera platform reduce conversions, especially for complex cases. The most common reason for conversion remains uncontrollable hemorrhage.",
+      "level": "attending"
+    }
+  ]
+}

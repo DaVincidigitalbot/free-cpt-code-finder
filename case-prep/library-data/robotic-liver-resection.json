@@ -1,0 +1,93 @@
+{
+  "id": "robotic-liver-resection",
+  "name": "Robotic Liver Resection",
+  "category": "Hepatopancreatobiliary",
+  "overview": "Robot-assisted hepatic resection with enhanced precision",
+  "indications": [
+    "Hepatocellular carcinoma",
+    "Metastases",
+    "Benign tumors",
+    "Complex anatomy"
+  ],
+  "keyAnatomy": [
+    "Liver segments",
+    "Portal triads",
+    "Hepatic veins",
+    "IVC",
+    "Glisson's capsule"
+  ],
+  "preOpConsiderations": [
+    "Robot setup",
+    "Tumor location",
+    "Liver function",
+    "Learning curve"
+  ],
+  "positioning": "Supine, left side up",
+  "portPlacementOrIncision": [
+    "4-arm robotic setup",
+    "Strategic port placement",
+    "Hand-assist option"
+  ],
+  "criticalSteps": [
+    "Robot docking",
+    "Precise dissection",
+    "Parenchymal transection",
+    "Hemostasis",
+    "Specimen extraction"
+  ],
+  "commonPitfalls": [
+    "Bleeding",
+    "Air embolism",
+    "Limited tactile feedback",
+    "Technical challenges"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Bile leak",
+    "Liver failure",
+    "Conversion to open"
+  ],
+  "pearlsHighYield": [
+    "Enhanced precision",
+    "3D visualization",
+    "Excellent hemostasis"
+  ],
+  "postOpPriorities": [
+    "Hemodynamic monitoring",
+    "Liver function tests",
+    "Drain management",
+    "Early mobilization"
+  ],
+  "relatedProcedures": [
+    "open-liver-resection",
+    "laparoscopic-liver-resection",
+    "ablation"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the advantage of the robotic platform for anatomic liver resection?",
+      "answer": "Wristed instruments facilitate precise parenchymal transection along segmental planes, dissection of hepatic vein branches (fragile, retract into the IVC if torn), and suture hemostasis in deep parenchymal surfaces. The robot reduces conversion rates for complex anatomic resections.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the Glissonean pedicle approach in robotic hepatectomy?",
+      "answer": "Extra-fascial isolation of the portal pedicle (hepatic artery, portal vein branch, bile duct) en bloc within Glisson's capsule. The robotic platform facilitates this approach by allowing precise dissection of the pedicle at the hilum without separate identification of each structure.",
+      "level": "resident"
+    },
+    {
+      "question": "What determines the margin adequacy in robotic liver resection for malignancy?",
+      "answer": "Minimum 1cm margin for HCC and colorectal liver metastases (though even sub-centimeter margins improve survival vs R1). Intraoperative ultrasound is essential for margin assessment. The robotic platform allows precise parenchymal transection guided by real-time ultrasound.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the conversion rate for robotic liver resection?",
+      "answer": "5-15% (approach-dependent: minor resections 3-5%, major resections 10-15%). Main reasons: bleeding (especially from hepatic veins), inability to complete parenchymal transection safely, and oncologic concerns. The robotic ICG fluorescence system can identify tumors and bile ducts.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the role of ICG fluorescence in robotic liver surgery?",
+      "answer": "ICG given IV 24-48 hours preoperatively accumulates in tumors (HCC: direct uptake; metastases: rim uptake in compressed normal liver). During robotic resection, near-infrared Firefly visualization identifies the tumor, confirms margins, and reveals additional lesions not seen on preoperative imaging.",
+      "level": "attending"
+    }
+  ]
+}

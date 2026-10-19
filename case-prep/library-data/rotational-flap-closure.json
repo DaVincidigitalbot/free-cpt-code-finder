@@ -1,0 +1,92 @@
+{
+  "id": "rotational-flap-closure",
+  "name": "Rotational Flap Closure",
+  "category": "Skin/Soft Tissue",
+  "overview": "Reconstruction using rotational skin flap for wound coverage",
+  "indications": [
+    "Large skin defects",
+    "Tumor excision defects",
+    "Trauma wounds",
+    "Improved cosmesis"
+  ],
+  "keyAnatomy": [
+    "Skin and subcutaneous tissue",
+    "Blood supply",
+    "Tension lines",
+    "Aesthetic units"
+  ],
+  "preOpConsiderations": [
+    "Defect size and location",
+    "Surrounding tissue quality",
+    "Blood supply assessment",
+    "Patient expectations"
+  ],
+  "positioning": "Optimize surgical access",
+  "portPlacementOrIncision": [
+    "Arc-shaped incision",
+    "Preserve blood supply"
+  ],
+  "criticalSteps": [
+    "Design flap with adequate base",
+    "Undermine appropriately",
+    "Rotate flap into defect",
+    "Layer closure",
+    "Monitor perfusion"
+  ],
+  "commonPitfalls": [
+    "Inadequate blood supply",
+    "Excessive tension",
+    "Dog-ear formation",
+    "Flap necrosis"
+  ],
+  "majorComplications": [
+    "Flap necrosis",
+    "Wound dehiscence",
+    "Poor cosmesis",
+    "Infection"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Monitor flap viability",
+    "Wound care",
+    "Activity restrictions",
+    "Scar management"
+  ],
+  "relatedProcedures": [
+    "advancement-flap",
+    "skin-graft",
+    "free-flap"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "Skin develops from two embryologic layers — what are they, and why does understanding this matter when designing a rotational flap?",
+      "answer": "Epidermis from surface ectoderm, dermis from mesoderm (specifically dermatome portion of somitic mesoderm for trunk, neural crest-derived mesenchyme for face). This matters because the dermal blood supply — the subdermal plexus — lives at the ectodermal-mesodermal interface. A rotational flap must include the FULL-THICKNESS dermis to capture this plexus. If you elevate too superficially (splitting the dermis), you devascularize the flap. For face flaps, the neural crest-derived dermis is thinner and more vascular than trunk dermis, which is why facial flaps survive on narrower pedicles.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "You're designing a rotation flap on the scalp. What unique anatomic feature of the scalp makes it both ideal and challenging for rotational flaps?",
+      "answer": "The galea aponeurotica — a tough fascial layer connecting frontalis to occipitalis muscles. Ideal because: the scalp's blood supply runs in the subgaleal plane (superficial temporal, supraorbital, supratrochlear, occipital, posterior auricular arteries), creating one of the most robust vascular networks in the body — scalp flaps rarely die. Challenging because: the galea is inelastic, severely limiting tissue advancement. To gain mobility, you must SCORE the galea with parallel incisions (galeal scoring) — each score gives 1-1.5cm of additional advancement. Without scoring, the scalp will not rotate. Back-cut the flap if needed, but never violate the subgaleal vascular plexus.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "What's the difference between a random-pattern and an axial-pattern rotational flap, and when does the distinction matter clinically?",
+      "answer": "Random-pattern flap: relies on the subdermal plexus without a named vessel. Limited to a length-to-width ratio of ~2:1 on the body (3:1 on the face due to richer vascularity). Axial-pattern flap: designed around a specific named artery (e.g., superficial temporal artery for a temporoparietal flap). Can be much longer because the named vessel provides guaranteed perfusion along the flap's axis. The distinction matters when: (1) the defect is large — random flaps can't safely reach, (2) the tissue has been irradiated — random perfusion is unreliable in irradiated tissue, axial vessels may still be patent, (3) you need to import tissue from a distance (axial flaps can be tubed and transferred in stages).",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "Post-op day 2, the distal tip of your rotation flap is dusky and cool. What's happening and what's your decision framework?",
+      "answer": "Distal flap ischemia — the farthest point from the pedicle has insufficient perfusion. Decision framework: (1) Is it venous congestion (purple, swollen, brisk dark bleeding on pinprick) or arterial insufficiency (pale, cool, no capillary refill)? Venous: release sutures at the tip to decompress, consider leeches (medicinal Hirudo) for salvage. Arterial: the flap was designed too long for its pedicle width. (2) Observe for 48-72 hours — partial thickness necrosis (eschar) often demarcates and heals by secondary intention. (3) If full-thickness necrosis: debride and plan secondary closure, skin graft, or a second flap. The key lesson: when designing the flap, the arc of rotation should be generous — always make the flap BIGGER than you think you need. You can trim excess; you can't add tissue.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "You're closing a defect after melanoma excision on the cheek. The plastic surgery intern suggests a rotation flap. When should you use a rotation flap versus a skin graft versus healing by secondary intention?",
+      "answer": "Rotation flap: best when you need COLOR MATCH, TEXTURE MATCH, and CONTOUR (cheek is ideal — adjacent tissue provides all three). Use when: defect is <5cm, adjacent tissue is lax enough, and there's no concern for recurrence requiring re-excision. Skin graft: use when the defect is too large for local flaps, the wound bed is well-vascularized (not over bone/tendon), or you need to MONITOR for local recurrence (grafts are thin and transparent — you can see recurrence through them; flaps hide it). Secondary intention: surprisingly good on concave surfaces (medial canthus, temple, nasolabial fold) — healing by contraction produces excellent cosmesis in these areas. The attending pearl: on the face, NEVER skin graft if a local flap is possible — the cosmetic difference is dramatic and patients live with their face every day.",
+      "level": "attending"
+    }
+  ]
+}

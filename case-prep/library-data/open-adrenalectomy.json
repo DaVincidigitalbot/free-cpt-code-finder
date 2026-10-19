@@ -1,0 +1,93 @@
+{
+  "id": "open-adrenalectomy",
+  "name": "Open Adrenalectomy",
+  "category": "Endocrine",
+  "overview": "Open surgical removal of adrenal gland",
+  "indications": [
+    "Large tumors >6cm",
+    "Suspected malignancy",
+    "Previous abdominal surgery",
+    "Failed laparoscopic"
+  ],
+  "keyAnatomy": [
+    "Adrenal gland",
+    "Adrenal vein",
+    "IVC",
+    "Renal vessels",
+    "Retroperitoneum"
+  ],
+  "preOpConsiderations": [
+    "Alpha blockade",
+    "Cross-sectional imaging",
+    "Steroid replacement",
+    "Large tumor considerations"
+  ],
+  "positioning": "Supine or lateral",
+  "portPlacementOrIncision": [
+    "Subcostal",
+    "Midline",
+    "Thoracoabdominal if large"
+  ],
+  "criticalSteps": [
+    "Mobilize colon",
+    "Identify adrenal",
+    "Control vein early",
+    "En bloc resection",
+    "Check for spillage"
+  ],
+  "commonPitfalls": [
+    "Tumor rupture",
+    "IVC injury",
+    "Incomplete resection",
+    "Adjacent organ injury"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Tumor spillage",
+    "Adjacent organ injury",
+    "Adrenal crisis"
+  ],
+  "pearlsHighYield": [
+    "No touch technique for cancer",
+    "Early vascular control",
+    "Wide margins"
+  ],
+  "postOpPriorities": [
+    "Hemodynamic monitoring",
+    "Steroid replacement",
+    "Oncologic staging",
+    "Adjuvant therapy"
+  ],
+  "relatedProcedures": [
+    "lap-adrenalectomy",
+    "ivc-resection",
+    "nephrectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The fetal adrenal cortex has a large 'fetal zone' that involutes after birth. What does it produce?",
+      "answer": "DHEA and DHEA-S (dehydroepiandrosterone sulfate) — the fetal zone comprises 80% of the fetal adrenal mass and produces androgen precursors essential for placental estrogen synthesis. It involutes within the first year of life, replaced by the adult zona glomerulosa, fasciculata, and reticularis.",
+      "level": "medical_student"
+    },
+    {
+      "question": "For open right adrenalectomy, what surgical approach provides the best exposure to the IVC and short right adrenal vein?",
+      "answer": "A right subcostal (Kocher) incision with medial visceral rotation (Cattell-Braasch maneuver — mobilizing the right colon, duodenum, and pancreatic head medially). This exposes the IVC, right renal vein, and the short right adrenal vein at its IVC junction for safe ligation before tumor manipulation.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the three layers of the adrenal cortex (from outside in) and their hormonal products?",
+      "answer": "GFR mnemonic: Glomerulosa (mineralocorticoids — aldosterone), Fasciculata (glucocorticoids — cortisol), Reticularis (androgens — DHEA/androstenedione). 'Salt, Sugar, Sex' — the deeper you go, the sweeter it gets. Cortical tumors are classified by which zone they arise from and what they secrete.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared complication of open adrenalectomy for adrenocortical carcinoma?",
+      "answer": "Tumor rupture/capsular violation causing peritoneal carcinomatosis. ACC is an aggressive cancer (5-year survival 20-35% overall) and capsule violation upstages disease and dramatically worsens prognosis. En bloc resection with negative margins, potentially including kidney, spleen, or diaphragm, is the standard for ACC.",
+      "level": "attending"
+    },
+    {
+      "question": "After bilateral adrenalectomy, what lifelong medication is required, and what is the acute risk?",
+      "answer": "Lifelong glucocorticoid (hydrocortisone) AND mineralocorticoid (fludrocortisone) replacement — the patient has Addisonian crisis risk. Acute adrenal crisis presents with hypotension, hyponatremia, hyperkalemia, and cardiovascular collapse during physiologic stress. Patients must carry emergency injectable hydrocortisone and wear medical alert identification.",
+      "level": "attending"
+    }
+  ]
+}

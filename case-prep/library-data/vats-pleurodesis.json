@@ -1,0 +1,91 @@
+{
+  "id": "vats-pleurodesis",
+  "name": "VATS Pleurodesis",
+  "category": "Thoracic",
+  "overview": "Video-assisted thoracoscopic pleurodesis for recurrent pneumothorax",
+  "indications": [
+    "Recurrent pneumothorax",
+    "Large air leak",
+    "High-risk patients",
+    "Bilateral disease"
+  ],
+  "keyAnatomy": [
+    "Pleural space",
+    "Visceral pleura",
+    "Parietal pleura",
+    "Blebs and bullae"
+  ],
+  "preOpConsiderations": [
+    "Previous episodes",
+    "Bilateral disease",
+    "Underlying lung disease",
+    "Patient factors"
+  ],
+  "positioning": "Lateral decubitus",
+  "portPlacementOrIncision": [
+    "2-3 port VATS",
+    "Camera and working ports"
+  ],
+  "criticalSteps": [
+    "Inspect pleural space",
+    "Identify blebs",
+    "Wedge resection",
+    "Mechanical pleurodesis",
+    "Chemical pleurodesis"
+  ],
+  "commonPitfalls": [
+    "Incomplete pleurodesis",
+    "Air leak",
+    "Bleeding",
+    "Pain"
+  ],
+  "majorComplications": [
+    "Recurrence",
+    "Chronic pain",
+    "Empyema",
+    "Respiratory failure"
+  ],
+  "pearlsHighYield": [
+    "Complete pleural abrasion",
+    "Talc poudrage",
+    "Wedge resection of blebs"
+  ],
+  "postOpPriorities": [
+    "Chest tube monitoring",
+    "Air leak assessment",
+    "Pain control",
+    "Recurrence prevention"
+  ],
+  "relatedProcedures": [
+    "open-pleurodesis",
+    "chemical-pleurodesis",
+    "bullectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The pleural cavity forms from the intraembryonic coelom. What embryologic membrane separates the pleural from the peritoneal cavity?",
+      "answer": "The pleuroperitoneal membrane — one of the four components of the diaphragm. Failure of this membrane to close causes a Bochdalek hernia (congenital diaphragmatic hernia, posterolateral, left > right). The pleuropericardial membrane separates the pleural from the pericardial cavity.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the anatomy of the pleural space, and what maintains negative intrapleural pressure?",
+      "answer": "The pleural space is a potential space between the visceral (on lung) and parietal (on chest wall/diaphragm/mediastinum) pleura. Normal: 5-15 mL of serous fluid. Negative pressure (-5 cmH2O at FRC) is maintained by elastic recoil of the lung pulling inward and chest wall springing outward. Disruption of either pleural surface allows air entry (pneumothorax) or fluid accumulation (effusion).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the parietal pleura, and why is mechanical pleurodesis painful?",
+      "answer": "Parietal pleura: intercostal arteries, internal mammary, musculophrenic (somatic blood supply = somatic innervation by intercostal nerves = sharp, localizable pain). Visceral pleura: bronchial arteries (visceral innervation = dull, poorly localized pain). Mechanical pleurodesis (abrasion) irritates the parietal pleura's somatic nerve endings, causing significant postoperative pain.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the two types of pleurodesis, and what is the success rate for preventing recurrent pneumothorax?",
+      "answer": "Chemical: talc poudrage (insufflation of sterile talc — 95% success rate for malignant effusion) or talc slurry via chest tube. Mechanical: pleural abrasion with a scratch pad, partial pleurectomy, or electrocautery. For spontaneous pneumothorax: mechanical pleurodesis + bleb resection (stapled wedge) achieves <5% recurrence. Talc: 90-95% success for malignant effusions.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the feared complication of talc pleurodesis, and how has it been mitigated?",
+      "answer": "ARDS (acute respiratory distress syndrome) — historically reported in 1-9% with non-graded (small particle) talc. The mechanism: small talc particles (<15 micrometers) are absorbed systemically, causing widespread inflammation. Mitigation: use large-particle graded talc (>25 micrometers, e.g., Steritalc), which stays in the pleural space. With graded talc, ARDS risk is <1%.",
+      "level": "attending"
+    }
+  ]
+}

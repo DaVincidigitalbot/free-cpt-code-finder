@@ -1,0 +1,93 @@
+{
+  "id": "pelvic-exenteration-total",
+  "name": "Total Pelvic Exenteration",
+  "category": "Oncology",
+  "overview": "Complete removal of pelvic organs for advanced malignancy",
+  "indications": [
+    "Recurrent cervical cancer",
+    "Advanced bladder cancer",
+    "Rectal cancer with invasion",
+    "Selected sarcomas"
+  ],
+  "keyAnatomy": [
+    "Bladder",
+    "Rectum",
+    "Uterus/vagina",
+    "Pelvic sidewall",
+    "Major vessels"
+  ],
+  "preOpConsiderations": [
+    "Staging studies",
+    "Nutritional optimization",
+    "Reconstruction planning",
+    "Multidisciplinary team"
+  ],
+  "positioning": "Supine, lithotomy capable",
+  "portPlacementOrIncision": [
+    "Extended midline",
+    "Possible combined approach"
+  ],
+  "criticalSteps": [
+    "Assess resectability",
+    "Mobilize pelvic organs",
+    "Control major vessels",
+    "Create diversions",
+    "Reconstruct pelvic floor"
+  ],
+  "commonPitfalls": [
+    "Massive bleeding",
+    "Ureteral injury",
+    "Incomplete resection",
+    "Poor patient selection"
+  ],
+  "majorComplications": [
+    "Massive bleeding",
+    "Sepsis",
+    "Sexual dysfunction",
+    "High mortality 5-10%"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "ICU monitoring",
+    "Fluid management",
+    "Infection prevention",
+    "Psychological support"
+  ],
+  "relatedProcedures": [
+    "anterior-pelvic-exenteration",
+    "posterior-pelvic-exenteration",
+    "radical-hysterectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "category": "Embryology",
+      "question": "Total pelvic exenteration removes all organs from the endodermal cloaca derivatives and the mesodermal urogenital structures. What embryologic structure gave rise to ALL the pelvic organs you're removing, and what does the cloacal membrane separate?",
+      "answer": "The cloaca — the common endodermal chamber that receives the hindgut, allantois, and mesonephric ducts. The urorectal septum divides it into the urogenital sinus (anterior → bladder, urethra, prostate/vagina) and the anorectal canal (posterior → rectum, upper anal canal). The cloacal membrane separates endoderm from surface ectoderm. In total pelvic exenteration, you're removing everything the cloaca became: rectum (hindgut), bladder (urogenital sinus), internal reproductive organs (mesonephric/paramesonephric derivatives), and the pelvic peritoneum. You're essentially undoing embryologic pelvic organ formation.",
+      "level": "medical_student"
+    },
+    {
+      "category": "Anatomy",
+      "question": "The lateral dissection plane during pelvic exenteration follows the pelvic sidewall. What structures define the lateral limit of resection, and what nerve plexus lives there?",
+      "answer": "The lateral limit is the internal iliac vessels and the obturator internus muscle/fascia along the pelvic sidewall. The internal iliac artery branches (superior and inferior vesical, middle rectal, obturator, internal pudendal) are individually ligated and divided. The obturator nerve and vessels run through the obturator canal and must be identified and preserved if not involved by tumor. The inferior hypogastric (pelvic) nerve plexus is on the lateral pelvic sidewall — it's almost always sacrificed in total exenteration, resulting in complete loss of bladder, sexual, and rectal function (which is moot since all three organs are removed). The ureters cross the pelvic brim and must be identified early.",
+      "level": "resident"
+    },
+    {
+      "category": "Blood Supply",
+      "question": "After removing all pelvic organs, you have a massive dead space in the pelvis. How do you fill it, and what's the blood supply of the flap you use?",
+      "answer": "Fill the pelvic dead space with a vertical rectus abdominis myocutaneous (VRAM) flap — the workhorse for pelvic exenteration reconstruction. Blood supply: the deep inferior epigastric artery (from the external iliac), which runs on the posterior surface of the rectus muscle. The flap is harvested with the rectus muscle, its overlying skin paddle, and the DIEA pedicle, then rotated into the pelvis to obliterate dead space. Benefits: brings well-vascularized tissue into an irradiated field, prevents small bowel from falling into the pelvis and adhering/fistulizing, and can reconstruct the vagina if needed. Without a flap, pelvic abscess and small bowel fistula rates are unacceptably high.",
+      "level": "resident"
+    },
+    {
+      "category": "Complication",
+      "question": "What is the overall 30-day morbidity rate for total pelvic exenteration, and what is the single most common major complication?",
+      "answer": "30-day morbidity: 50-70% — this is one of the highest-morbidity elective operations in surgery. The single most common major complication: wound/pelvic infection and abscess (25-40%). The pelvic dead space, combined with the fact that most patients have received prior chemoradiation (irradiated tissue has poor vascularity and impaired immune response), creates an ideal environment for infection. Other major complications: ureteroileal anastomotic leak (urinary conduit leak, 10-15%), small bowel obstruction (15-20%), and VTE (10-15%). Operative mortality has improved to 2-5% in experienced centers but was historically 10-20%. This operation is ONLY justified when it offers the only chance of cure — there is no palliative exenteration.",
+      "level": "attending"
+    },
+    {
+      "category": "Clinical Pearl",
+      "question": "A 45-year-old woman with recurrent cervical cancer after chemoradiation is being evaluated for total pelvic exenteration. What's the ONE preoperative finding on exam or imaging that makes you cancel the operation?",
+      "answer": "Tumor fixed to the pelvic sidewall — specifically encasement of the internal iliac vessels or sciatic nerve involvement. If the tumor is fixed laterally, you cannot achieve an R0 resection without removing the pelvic sidewall musculature and vessels, which is incompatible with limb viability. This finding on exam (the 'frozen pelvis') or imaging (encasement of internal iliac vessels, sciatic/obturator nerve involvement, or extension through the greater sciatic foramen) converts the case from potentially curative to unresectable. Other findings that should make you pause: bilateral ureteral obstruction with renal failure (suggests extensive bilateral sidewall disease), distant metastases (liver, lung, para-aortic nodes above the aortic bifurcation), and medical fitness — this operation requires 8-12 hours of anesthesia in a patient who's already been through chemoradiation.",
+      "level": "attending"
+    }
+  ]
+}

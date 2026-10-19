@@ -1,0 +1,90 @@
+{
+  "id": "incision-drainage-abscess",
+  "name": "Incision and Drainage of Abscess",
+  "category": "Skin/Soft Tissue",
+  "overview": "Surgical drainage of infected fluid collection",
+  "indications": [
+    "Fluctuant abscess",
+    "Failed antibiotic therapy",
+    "Sepsis",
+    "Large collection"
+  ],
+  "keyAnatomy": [
+    "Abscess cavity",
+    "Surrounding tissue",
+    "Vital structures",
+    "Skin layers"
+  ],
+  "preOpConsiderations": [
+    "Location",
+    "Size",
+    "Systemic symptoms",
+    "Imaging if deep"
+  ],
+  "positioning": "Optimize exposure of affected area",
+  "portPlacementOrIncision": [
+    "Linear incision over point of maximum fluctuance"
+  ],
+  "criticalSteps": [
+    "Incise to cavity",
+    "Break loculations",
+    "Irrigate",
+    "Pack if needed",
+    "Culture material"
+  ],
+  "commonPitfalls": [
+    "Inadequate drainage",
+    "Injury to structures",
+    "Incomplete evacuation",
+    "Recurrence"
+  ],
+  "majorComplications": [
+    "Recurrence",
+    "Bleeding",
+    "Nerve injury",
+    "Bacteremia"
+  ],
+  "pearlsHighYield": [
+    "Dependent drainage",
+    "Break all loculations",
+    "Culture directed therapy"
+  ],
+  "postOpPriorities": [
+    "Wound care",
+    "Antibiotics",
+    "Pain control",
+    "Healing assessment"
+  ],
+  "relatedProcedures": [
+    "percutaneous-drainage",
+    "antibiotic-therapy",
+    "debridement"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the difference between an abscess and a phlegmon from a tissue development standpoint?",
+      "answer": "An abscess has a mature fibrous capsule (fibroblast-deposited collagen) surrounding liquefied necrotic tissue and pus — it's walled off and will not respond to antibiotics alone. A phlegmon is a diffuse inflammatory process without a formed capsule — it represents an earlier stage that may respond to antibiotics. Only true abscesses require I&D.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the anatomy of the subcutaneous tissue that determines abscess cavity extent?",
+      "answer": "Superficial fascia (Camper's fascia — fatty layer) allows abscess spread. Deep fascia (Scarpa's fascia/investing fascia of muscles) limits deep extension. Abscesses following fascial planes can extend much farther than the surface appearance suggests — always explore the cavity with a finger to break up all loculations and assess true extent.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the wound edges after I&D, and why is primary closure sometimes acceptable?",
+      "answer": "The subdermal plexus from perforating arteries of the underlying named vessels. Primary closure after I&D (with or without loop drainage) has been shown in RCTs (Singer 2013, JAMA) to accelerate healing with equivalent recurrence rates for small (≤5cm) abscesses. The key: adequate drainage of the cavity and breaking up loculations before closure.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common organism in skin abscesses, and when should you add antibiotics?",
+      "answer": "MRSA (methicillin-resistant Staph aureus) is now the #1 cause of community-acquired skin abscesses in the US. I&D alone is curative for most simple abscesses. Add antibiotics when: cellulitis extends beyond the abscess, systemic signs (fever, WBC), immunocompromised, device-adjacent, or abscess >5cm. TMP-SMX or doxycycline cover community MRSA.",
+      "level": "attending"
+    },
+    {
+      "question": "When should you NOT perform a simple bedside I&D, and what should you do instead?",
+      "answer": "Do NOT perform bedside I&D for: perianal/perirectal abscess (OR under anesthesia — may have fistula requiring exam under anesthesia), hand/deep space infections (flexor sheath — OR with proper exposure), breast abscess (may need US-guided drainage or OR), and any abscess near major neurovascular structures. Also suspect necrotizing fasciitis if pain is out of proportion, crepitus, or hemodynamic instability — this needs emergent OR debridement, not I&D.",
+      "level": "attending"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "mediastinoscopy",
+  "name": "Mediastinoscopy",
+  "category": "Thoracic",
+  "overview": "Surgical exploration of mediastinum for lymph node sampling",
+  "indications": [
+    "Lung cancer staging",
+    "Mediastinal masses",
+    "Sarcoidosis",
+    "Lymphoma"
+  ],
+  "keyAnatomy": [
+    "Superior mediastinum",
+    "Paratracheal nodes",
+    "Subcarinal nodes",
+    "Great vessels"
+  ],
+  "preOpConsiderations": [
+    "CT chest",
+    "Previous mediastinoscopy",
+    "Vascular anatomy",
+    "Bleeding risk"
+  ],
+  "positioning": "Supine with neck extended",
+  "portPlacementOrIncision": [
+    "Small suprasternal incision"
+  ],
+  "criticalSteps": [
+    "Create pretracheal plane",
+    "Insert mediastinoscope",
+    "Identify lymph nodes",
+    "Biopsy nodes",
+    "Achieve hemostasis"
+  ],
+  "commonPitfalls": [
+    "Vascular injury",
+    "Recurrent nerve injury",
+    "Pneumothorax",
+    "Inadequate sampling"
+  ],
+  "majorComplications": [
+    "Major bleeding",
+    "Recurrent nerve injury",
+    "Pneumothorax",
+    "Esophageal injury"
+  ],
+  "pearlsHighYield": [
+    "Stay in midline",
+    "Gentle technique",
+    "Adequate sampling"
+  ],
+  "postOpPriorities": [
+    "Vocal cord check",
+    "Chest X-ray",
+    "Pathology results",
+    "Staging completion"
+  ],
+  "relatedProcedures": [
+    "ebus",
+    "chamberlain-procedure",
+    "thoracotomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The mediastinum is divided into compartments. What structures occupy the middle mediastinum?",
+      "answer": "Heart, pericardium, ascending aorta, SVC, tracheal bifurcation (carina), main bronchi, pulmonary arteries, and tracheobronchial lymph nodes. Mediastinoscopy accesses the pretracheal and paratracheal spaces (stations 2R, 2L, 4R, 4L, 7) through a cervical incision along the anterior trachea.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the anatomic plane of dissection during cervical mediastinoscopy?",
+      "answer": "The pretracheal fascia — the mediastinoscope is advanced along the anterior tracheal surface, between the trachea posteriorly and the innominate artery/aortic arch anteriorly. The plane stays anterior to the trachea and posterior to the great vessels. Station 7 (subcarinal) nodes are accessed by dissecting inferior to the carina.",
+      "level": "resident"
+    },
+    {
+      "question": "What vessel is most at risk during mediastinoscopy?",
+      "answer": "The innominate artery — it crosses from left to right anterior to the trachea at the thoracic inlet. Also at risk: azygos vein (right paratracheal dissection), pulmonary arteries (subcarinal dissection), and the left recurrent laryngeal nerve (left paratracheal, station 4L — runs in the tracheoesophageal groove). Major vascular injury occurs in 0.1-0.3% but can be fatal.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the complication rate of mediastinoscopy?",
+      "answer": "Overall: 1-3%. Major hemorrhage: 0.1-0.3% (may require sternotomy). RLN injury: 0.5-1% (left > right). Pneumothorax: 0.5%. Esophageal injury: <0.1%. Wound infection: 0.5%. Mortality: 0.05%. Despite being 'just a biopsy,' mediastinoscopy requires a surgeon prepared for emergent sternotomy.",
+      "level": "attending"
+    },
+    {
+      "question": "What has largely replaced mediastinoscopy for mediastinal staging of lung cancer?",
+      "answer": "EBUS-TBNA (endobronchial ultrasound-guided transbronchial needle aspiration) — can access stations 2, 4, 7, 10, 11 with real-time ultrasound guidance. Combined with EUS-FNA (esophageal ultrasound), nearly all mediastinal stations can be sampled without a surgical incision. However, mediastinoscopy remains the gold standard when tissue architecture is needed or EBUS is non-diagnostic (negative EBUS with high clinical suspicion requires confirmatory mediastinoscopy).",
+      "level": "attending"
+    }
+  ]
+}

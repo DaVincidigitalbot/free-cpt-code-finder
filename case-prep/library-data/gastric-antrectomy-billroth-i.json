@@ -1,0 +1,92 @@
+{
+  "id": "gastric-antrectomy-billroth-i",
+  "name": "Gastric Antrectomy with Billroth I Reconstruction",
+  "category": "Upper GI",
+  "overview": "Distal gastric resection with gastroduodenostomy",
+  "indications": [
+    "Distal gastric cancer",
+    "Peptic ulcer disease",
+    "Gastric outlet obstruction",
+    "Benign tumors"
+  ],
+  "keyAnatomy": [
+    "Gastric antrum",
+    "Pylorus",
+    "Duodenum",
+    "Right gastric vessels",
+    "Gastroduodenal artery"
+  ],
+  "preOpConsiderations": [
+    "Extent of resection",
+    "Duodenal mobilization",
+    "Adequate margins",
+    "Kocherization"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Upper midline",
+    "Right subcostal option"
+  ],
+  "criticalSteps": [
+    "Kocherize duodenum",
+    "Divide gastrocolic omentum",
+    "Ligate vessels",
+    "Resect antrum",
+    "Create gastroduodenostomy"
+  ],
+  "commonPitfalls": [
+    "Duodenal injury",
+    "Pancreatic injury",
+    "Inadequate margins",
+    "Anastomotic leak"
+  ],
+  "majorComplications": [
+    "Anastomotic leak",
+    "Dumping syndrome",
+    "Bile reflux",
+    "Marginal ulcer"
+  ],
+  "pearlsHighYield": [
+    "Adequate duodenal mobilization",
+    "Tension-free anastomosis",
+    "Good blood supply"
+  ],
+  "postOpPriorities": [
+    "Monitor for leak",
+    "Early feeding",
+    "Dumping prevention",
+    "PPI therapy"
+  ],
+  "relatedProcedures": [
+    "subtotal-gastrectomy-billroth-ii",
+    "total-gastrectomy",
+    "pyloroplasty"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the antrum of the stomach embryologically, and what cells does it contain?",
+      "answer": "The antrum is the distal stomach derived from foregut, containing primarily G cells (gastrin-producing endocrine cells) and mucus-secreting cells, but NOT parietal cells. This is why antrectomy removes the hormonal drive (gastrin) for acid secretion without removing the acid-producing parietal cell mass in the fundus/body.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What defines the incisura angularis, and why is it the proximal margin of antrectomy?",
+      "answer": "The incisura is the notch on the lesser curvature marking the junction of the body and antrum. On the greater curvature, the corresponding landmark is the 'crow's foot' — the terminal branching of the anterior nerve of Latarjet. Antrectomy removes everything distal to this line.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the antrum that is divided during antrectomy?",
+      "answer": "Right gastric artery (from proper hepatic) along the lesser curve and right gastroepiploic artery (from GDA) along the greater curve. Both are divided. The gastric remnant survives on the left gastric and left gastroepiploic/short gastric arteries.",
+      "level": "resident"
+    },
+    {
+      "question": "How does Billroth I reconstruction restore GI continuity?",
+      "answer": "Direct gastroduodenostomy — the gastric remnant is anastomosed end-to-end (or end-to-side) to the duodenal stump. This is the most physiologic reconstruction: food passes through the duodenum, bile and pancreatic juice mix normally, and there is no blind loop.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the main limitation of Billroth I compared to Billroth II for large antral resections?",
+      "answer": "Tension — if the resection extends too far proximally, the gastric remnant and duodenal stump cannot be approximated without tension, making Billroth I impossible. Billroth II (gastrojejunostomy) or Roux-en-Y bypass the duodenum entirely, eliminating the tension issue.",
+      "level": "attending"
+    }
+  ]
+}

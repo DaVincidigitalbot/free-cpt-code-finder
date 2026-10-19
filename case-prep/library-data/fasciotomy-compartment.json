@@ -1,0 +1,90 @@
+{
+  "id": "fasciotomy-compartment",
+  "name": "Fasciotomy for Compartment Syndrome",
+  "category": "Skin/Soft Tissue",
+  "overview": "Emergency fascial release to relieve compartment pressure",
+  "indications": [
+    "Compartment syndrome",
+    "Pressure >30mmHg",
+    "Clinical signs",
+    "Reperfusion injury"
+  ],
+  "keyAnatomy": [
+    "Muscle compartments",
+    "Fascia",
+    "Nerves",
+    "Blood vessels"
+  ],
+  "preOpConsiderations": [
+    "Time from onset",
+    "Compartment pressures",
+    "Multiple compartments",
+    "Associated injuries"
+  ],
+  "positioning": "Depends on affected compartment",
+  "portPlacementOrIncision": [
+    "Long longitudinal incisions",
+    "Release all compartments"
+  ],
+  "criticalSteps": [
+    "Complete fascial release",
+    "Assess muscle viability",
+    "Debride if needed",
+    "Leave open"
+  ],
+  "commonPitfalls": [
+    "Incomplete release",
+    "Delayed surgery",
+    "Missing compartments",
+    "Nerve injury"
+  ],
+  "majorComplications": [
+    "Amputation",
+    "Permanent disability",
+    "Infection",
+    "Kidney failure"
+  ],
+  "pearlsHighYield": [
+    "Early recognition crucial",
+    "Complete release all fascia",
+    "Don't close primarily"
+  ],
+  "postOpPriorities": [
+    "Elevation",
+    "Repeat surgery planning",
+    "Physical therapy",
+    "Delayed closure"
+  ],
+  "relatedProcedures": [
+    "debridement",
+    "skin-graft",
+    "amputation"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The four compartments of the lower leg develop from embryologic myotome divisions. What are they, and what muscle/nerve is in each?",
+      "answer": "1) Anterior: tibialis anterior, extensors, deep peroneal nerve. 2) Lateral: peroneus longus/brevis, superficial peroneal nerve. 3) Deep posterior: tibialis posterior, flexors, posterior tibial artery, tibial nerve. 4) Superficial posterior: gastrocnemius, soleus, sural nerve. The anterior compartment is most commonly affected (least compliant fascia).",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the pathophysiology of compartment syndrome at the microvascular level?",
+      "answer": "Rising intracompartmental pressure exceeds capillary perfusion pressure (not arterial pressure — distal pulses remain present). The critical threshold: absolute pressure >30 mmHg OR delta pressure <30 mmHg (diastolic BP - compartment pressure). Ischemia → muscle necrosis → myoglobin release → renal failure. The 'golden window' is 6 hours — irreversible necrosis occurs after this.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to the lower leg compartments, and why does compartment syndrome preserve palpable pulses?",
+      "answer": "Anterior tibial artery (anterior compartment), posterior tibial artery (deep posterior), peroneal artery (deep posterior/lateral). Compartment syndrome occludes capillaries/venules (pressure 30-40 mmHg) but NOT arteries (systolic pressure 90-120 mmHg). This is why palpable distal pulses do NOT rule out compartment syndrome — it's a microvascular, not macrovascular, problem.",
+      "level": "resident"
+    },
+    {
+      "question": "How many incisions are needed for a complete four-compartment lower leg fasciotomy?",
+      "answer": "TWO incisions: 1) Anterolateral incision (over the intermuscular septum between anterior and lateral compartments — releases both), 2) Medial incision (2cm posterior to the tibial border — releases deep and superficial posterior compartments). Each incision must be full length of the compartment. Partial fasciotomy is NEVER adequate.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the management of the fasciotomy wound after decompression?",
+      "answer": "Leave open with wet dressings or VAC therapy. Reassess at 48-72 hours for muscle viability (debride necrotic muscle). Delayed primary closure or skin grafting typically at 5-7 days once swelling resolves. Vessel loop shoelace technique allows gradual wound approximation. If left open too long, the wound edges retract and primary closure becomes impossible — requiring STSG.",
+      "level": "attending"
+    }
+  ]
+}

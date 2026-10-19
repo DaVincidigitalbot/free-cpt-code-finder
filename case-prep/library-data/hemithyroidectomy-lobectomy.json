@@ -1,0 +1,91 @@
+{
+  "id": "hemithyroidectomy-lobectomy",
+  "name": "Hemithyroidectomy/Thyroid Lobectomy",
+  "category": "Endocrine",
+  "overview": "Removal of one thyroid lobe with isthmus",
+  "indications": [
+    "Unilateral thyroid nodule",
+    "Follicular neoplasm",
+    "Toxic adenoma",
+    "Small thyroid cancer"
+  ],
+  "keyAnatomy": [
+    "Thyroid lobe",
+    "Recurrent laryngeal nerve",
+    "Superior laryngeal nerve",
+    "Parathyroid glands",
+    "Berry ligament"
+  ],
+  "preOpConsiderations": [
+    "Fine needle aspiration results",
+    "Voice assessment",
+    "Calcium levels",
+    "TSH levels"
+  ],
+  "positioning": "Supine with neck extension",
+  "portPlacementOrIncision": [
+    "Low collar incision 2cm above sternal notch"
+  ],
+  "criticalSteps": [
+    "Mobilize thyroid lobe",
+    "Identify recurrent laryngeal nerve",
+    "Preserve parathyroids",
+    "Ligate vessels systematically",
+    "Remove lobe with isthmus"
+  ],
+  "commonPitfalls": [
+    "RLN injury",
+    "Parathyroid devascularization",
+    "Bleeding",
+    "Inadequate resection"
+  ],
+  "majorComplications": [
+    "Vocal cord paralysis",
+    "Hypoparathyroidism",
+    "Bleeding",
+    "Hypothyroidism"
+  ],
+  "pearlsHighYield": [
+    "Nerve monitoring helpful",
+    "Visual identification of RLN",
+    "Preserve blood supply to parathyroids"
+  ],
+  "postOpPriorities": [
+    "Voice assessment",
+    "Calcium monitoring",
+    "TSH follow-up",
+    "Pathology results"
+  ],
+  "relatedProcedures": [
+    "total-thyroidectomy",
+    "completion-thyroidectomy",
+    "parathyroidectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What is the embryologic significance of the pyramidal lobe, and must it be removed during thyroid lobectomy?",
+      "answer": "The pyramidal lobe is a remnant of the thyroglossal duct — a superior extension of thyroid tissue from the isthmus toward the hyoid bone, present in 30-60% of patients. During lobectomy for cancer, the pyramidal lobe should be removed with the isthmus (isthmectomy) if it is on the ipsilateral side, as it may harbor thyroid tissue that could recur. In benign disease, it can be left if not connected to the specimen.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the ligament of Berry's relationship to the inferior thyroid artery during thyroid lobectomy, and why is this the 'danger zone'?",
+      "answer": "The ligament of Berry anchors the posterior thyroid to the first two tracheal rings. The RLN enters the larynx within millimeters of this ligament. The terminal branches of the inferior thyroid artery also cross the nerve at this point. The 'danger zone' is the last 1cm of dissection freeing the thyroid from the trachea — the surgeon must use a capsular dissection technique, keeping the scalpel on the thyroid capsule to avoid both the nerve and parathyroid blood supply.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the lymphatic drainage of a thyroid lobe that determines the need for prophylactic central neck dissection?",
+      "answer": "Primary drainage: level VI central compartment nodes (pretracheal, paratracheal, prelaryngeal/Delphian node). Secondary: lateral jugular chain (levels II-V). The Delphian node sits on the cricothyroid membrane and is a sentinel node — if positive intraoperatively, formal central neck dissection (level VI) should be performed. Prophylactic CND for cN0 papillary thyroid cancer is debated: ATA recommends it for T3-T4 tumors.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the rate of completion thyroidectomy after lobectomy, and what pathologic findings trigger it?",
+      "answer": "10-30% of lobectomies require completion thyroidectomy based on final pathology. Triggers: PTC >4cm, aggressive histology (tall cell, hobnail, columnar), multifocal PTC, extrathyroidal extension, positive margins, vascular invasion (follicular thyroid cancer), or lymph node metastases. Completion thyroidectomy should be performed within 6 months of the initial lobectomy to minimize adhesion scarring.",
+      "level": "attending"
+    },
+    {
+      "question": "After thyroid lobectomy, what percentage of patients develop hypothyroidism requiring levothyroxine?",
+      "answer": "22-35% of patients become hypothyroid after lobectomy (TSH >4.5), typically within 6-12 months. Risk factors: elevated preoperative anti-TPO antibodies (Hashimoto's thyroiditis), preoperative TSH in upper-normal range (>2.5), and smaller contralateral lobe. All patients need TSH monitoring at 6 weeks, 3 months, 6 months, and annually. Most can be managed with low-dose levothyroxine (25-75 mcg).",
+      "level": "attending"
+    }
+  ]
+}

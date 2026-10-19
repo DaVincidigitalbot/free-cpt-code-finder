@@ -1,0 +1,91 @@
+{
+  "id": "percutaneous-tracheostomy",
+  "name": "Percutaneous Tracheostomy",
+  "category": "Critical Care",
+  "overview": "Bedside percutaneous creation of tracheostomy",
+  "indications": [
+    "Prolonged ventilation",
+    "ICU setting",
+    "High-risk transport",
+    "COVID-19 considerations"
+  ],
+  "keyAnatomy": [
+    "Tracheal rings",
+    "Thyroid isthmus",
+    "Anterior neck vessels",
+    "Tracheal anatomy"
+  ],
+  "preOpConsiderations": [
+    "Neck anatomy",
+    "Coagulopathy",
+    "High PEEP",
+    "Bronchoscopic guidance"
+  ],
+  "positioning": "Supine with neck extended",
+  "portPlacementOrIncision": [
+    "Small vertical incision",
+    "Percutaneous technique"
+  ],
+  "criticalSteps": [
+    "Bronchoscopic guidance",
+    "Needle insertion",
+    "Guidewire placement",
+    "Dilation",
+    "Tube insertion"
+  ],
+  "commonPitfalls": [
+    "Posterior tracheal injury",
+    "Bleeding",
+    "Pneumothorax",
+    "Tube malposition"
+  ],
+  "majorComplications": [
+    "Bleeding",
+    "Pneumothorax",
+    "Tracheal injury",
+    "Esophageal injury"
+  ],
+  "pearlsHighYield": [
+    "Bronchoscopic guidance essential",
+    "Coagulation screen",
+    "Real-time visualization"
+  ],
+  "postOpPriorities": [
+    "Bronchoscopic confirmation",
+    "Chest X-ray",
+    "Bleeding surveillance",
+    "Tube security"
+  ],
+  "relatedProcedures": [
+    "open-tracheostomy",
+    "bronchoscopy",
+    "surgical-airway"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What embryologic relationship between the trachea and esophagus makes posterior tracheal wall injury possible during percutaneous tracheostomy?",
+      "answer": "The trachea and esophagus develop from the common foregut tube, separated by the tracheoesophageal septum. The posterior tracheal wall (membranous portion) shares a common wall with the anterior esophagus. The dilator can penetrate through this membranous wall into the esophagus — bronchoscopic guidance prevents this by confirming anterior/midline needle placement.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What is the Ciaglia technique, and how does it differ from the Griggs technique?",
+      "answer": "Ciaglia (most common): serial dilators (Blue Rhino single-step dilator) over a guidewire after Seldinger needle access into the trachea. Griggs: guide wire dilating forceps (Howard-Kelly forceps) to create the stoma. Ciaglia is more popular due to its simplicity and safety profile. Both require bronchoscopic guidance for safe needle placement.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the pretracheal vascular anatomy that must be considered?",
+      "answer": "The anterior jugular veins and their communicating veins cross the midline in the pretracheal space. The inferior thyroid veins drain into the brachiocephalic veins in the midline. The thyroid ima artery (3-10%) courses directly in front of the trachea. Ultrasound-guided preprocedure assessment identifies these vessels and prevents hemorrhage.",
+      "level": "resident"
+    },
+    {
+      "question": "What are the absolute contraindications to percutaneous tracheostomy?",
+      "answer": "1) Pediatric patients (<12 years — small trachea), 2) Inability to identify landmarks (massive neck swelling, morbid obesity, prior neck surgery/radiation), 3) Emergency airway (cricothyroidotomy faster), 4) Coagulopathy that cannot be corrected, 5) High ventilatory requirements (PEEP >15, FiO2 >0.8 — risk during brief disconnection). Relative: cervical spine instability, tumor/vascular anomaly over the access site.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the complication rate of percutaneous versus open tracheostomy?",
+      "answer": "Percutaneous: wound infection 0-4% (lower than open), bleeding 2-5%, posterior wall injury 1%, pneumothorax <1%. Open: wound infection 5-10%, bleeding 3-5%, tracheal stenosis 1-2%. Meta-analyses show percutaneous has lower wound infection rates and comparable overall complications, with the advantage of bedside ICU performance (avoiding transport to OR).",
+      "level": "attending"
+    }
+  ]
+}

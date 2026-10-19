@@ -1,0 +1,90 @@
+{
+  "id": "heller-myotomy",
+  "name": "Laparoscopic Heller Myotomy",
+  "category": "Upper GI",
+  "overview": "Division of lower esophageal sphincter for achalasia",
+  "indications": [
+    "Achalasia",
+    "Failed pneumatic dilation",
+    "Type II achalasia",
+    "Young patients"
+  ],
+  "keyAnatomy": [
+    "Lower esophageal sphincter",
+    "Gastroesophageal junction",
+    "Vagus nerves",
+    "Phrenoesophageal ligament"
+  ],
+  "preOpConsiderations": [
+    "Barium swallow",
+    "Manometry",
+    "Upper endoscopy",
+    "POEM consideration"
+  ],
+  "positioning": "Supine, reverse Trendelenburg",
+  "portPlacementOrIncision": [
+    "5-port laparoscopic setup"
+  ],
+  "criticalSteps": [
+    "Mobilize esophagus",
+    "Divide short gastrics",
+    "Myotomy 6cm esophagus/3cm stomach",
+    "Add fundoplication",
+    "Check adequacy"
+  ],
+  "commonPitfalls": [
+    "Mucosal perforation",
+    "Incomplete myotomy",
+    "Post-operative reflux",
+    "Inadequate length"
+  ],
+  "majorComplications": [
+    "Esophageal perforation",
+    "Post-operative GERD",
+    "Recurrent dysphagia",
+    "Pneumothorax"
+  ],
+  "pearlsHighYield": [
+    "Complete myotomy essential",
+    "Add fundoplication",
+    "Toupet preferred"
+  ],
+  "postOpPriorities": [
+    "Swallow study",
+    "Diet advancement",
+    "Monitor for reflux",
+    "Long-term follow-up"
+  ],
+  "relatedProcedures": [
+    "toupet-fundoplication",
+    "poem",
+    "pneumatic-dilation"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "Achalasia results from degeneration of which specific neural structure, and from what embryologic cell population do these neurons derive?",
+      "answer": "Myenteric (Auerbach's) plexus inhibitory neurons (releasing NO and VIP) in the LES. These neurons derive from vagal neural crest cells that migrate into the gut wall during weeks 4-7. Loss of inhibitory input leaves excitatory cholinergic neurons unopposed.",
+      "level": "medical_student"
+    },
+    {
+      "question": "How far does the Heller myotomy extend proximally and distally, and what happens if you go too far onto the stomach?",
+      "answer": "6-8cm proximally on the esophagus, 2-2.5cm onto the gastric cardia past the GEJ. Extending >3cm onto stomach causes iatrogenic GERD. Not extending far enough leaves residual LES hypertension and persistent dysphagia.",
+      "level": "resident"
+    },
+    {
+      "question": "What submucosal vessels are encountered during myotomy, and how do you manage bleeding from them?",
+      "answer": "Ascending branches of the left gastric artery and esophageal branches of the left inferior phrenic artery form a GEJ plexus visible in the submucosa. Control with gentle pressure — NOT cautery, which risks mucosal perforation through the thin exposed submucosa.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared intraoperative complication and how do you detect it?",
+      "answer": "Mucosal perforation (5-10%). Detected by intraoperative endoscopy with air insufflation while the myotomy site is submerged in irrigation — bubbles indicate perforation. If found, repair primarily with absorbable suture and cover with the fundoplication wrap.",
+      "level": "attending"
+    },
+    {
+      "question": "Why is a Dor fundoplication added after Heller, and what does POEM omit?",
+      "answer": "The myotomy destroys the LES, predisposing to GERD. Dor (anterior 180°) prevents reflux and covers the exposed myotomy site. POEM omits the fundoplication — GERD rates 40-60% vs 10-15% with Heller + Dor. This is POEM's main disadvantage.",
+      "level": "attending"
+    }
+  ]
+}

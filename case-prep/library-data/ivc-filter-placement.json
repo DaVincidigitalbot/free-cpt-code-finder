@@ -1,0 +1,87 @@
+{
+  "id": "ivc-filter-placement",
+  "name": "IVC Filter Placement",
+  "category": "Vascular",
+  "overview": "Percutaneous insertion of inferior vena cava filter",
+  "indications": [
+    "DVT with contraindication to anticoagulation",
+    "Recurrent PE on anticoagulation",
+    "High PE risk with bleeding",
+    "Prophylaxis in high-risk patients"
+  ],
+  "keyAnatomy": [
+    "Inferior vena cava",
+    "Renal veins",
+    "Iliac veins",
+    "Hepatic veins"
+  ],
+  "preOpConsiderations": [
+    "Bleeding vs clotting risk",
+    "IVC anatomy",
+    "Filter type selection",
+    "Retrieval planning"
+  ],
+  "positioning": "Supine",
+  "portPlacementOrIncision": [
+    "Internal jugular approach",
+    "Femoral vein approach"
+  ],
+  "criticalSteps": [
+    "Venous access",
+    "Cavography",
+    "Measure IVC diameter",
+    "Deploy filter",
+    "Confirm position"
+  ],
+  "commonPitfalls": [
+    "IVC perforation",
+    "Filter migration",
+    "Filter thrombosis",
+    "Tilted deployment"
+  ],
+  "majorComplications": [
+    "IVC perforation",
+    "Filter migration",
+    "IVC thrombosis",
+    "Retrieval difficulty"
+  ],
+  "pearlsHighYield": [],
+  "postOpPriorities": [
+    "Anticoagulation when safe",
+    "Filter retrieval planning",
+    "DVT surveillance",
+    "Registry tracking"
+  ],
+  "relatedProcedures": [
+    "ivc-filter-retrieval",
+    "anticoagulation",
+    "thrombolysis"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The IVC develops from three paired embryologic venous systems — what are they?",
+      "answer": "Posterior cardinal, subcardinal, and supracardinal veins. The infrarenal IVC derives from the right supracardinal vein, the renal segment from the subcardinal-supracardinal anastomosis, and the suprarenal from the right subcardinal vein. Developmental anomalies (duplicated IVC, left-sided IVC, circumaortic renal vein) occur in 2-3% of patients and affect filter placement.",
+      "level": "medical_student"
+    },
+    {
+      "question": "At what vertebral level is the IVC filter ideally placed, and what landmark do you use fluoroscopically?",
+      "answer": "Just below the renal veins, typically at L2-L3. Fluoroscopic landmarks: the renal veins enter the IVC at the level of the L1-L2 disc space. A cavogram is performed first to identify the renal veins, IVC diameter, and any anomalies (duplicated IVC, thrombus).",
+      "level": "resident"
+    },
+    {
+      "question": "What is the maximum IVC diameter for standard filter placement?",
+      "answer": "28-30 mm for most filters. A mega-cava (> 28 mm) requires a bird's nest filter (max 40 mm) or bilateral iliac vein filters. Always measure IVC diameter on cavogram — deploying a standard filter in a mega-cava leads to tilting, migration, and failed PE prophylaxis.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most common long-term complication of IVC filters?",
+      "answer": "IVC thrombosis and filter-related DVT (up to 30% at 5 years). This is why retrievable filters should be removed as soon as the contraindication to anticoagulation resolves. The FDA issued a safety advisory recommending retrieval within 25-54 days if feasible.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the absolute indication for IVC filter placement?",
+      "answer": "Documented VTE (DVT or PE) with an absolute contraindication to anticoagulation (active hemorrhage, recent CNS surgery, severe thrombocytopenia). Prophylactic filters in trauma patients without documented VTE remain controversial despite widespread use.",
+      "level": "attending"
+    }
+  ]
+}

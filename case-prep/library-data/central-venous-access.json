@@ -1,0 +1,90 @@
+{
+  "id": "central-venous-access",
+  "name": "Central Venous Access",
+  "category": "Critical Care",
+  "overview": "Placement of central venous catheter for access and monitoring",
+  "indications": [
+    "Vasopressor administration",
+    "CVP monitoring",
+    "Poor peripheral access",
+    "Hemodialysis"
+  ],
+  "keyAnatomy": [
+    "Internal jugular vein",
+    "Subclavian vein",
+    "Femoral vein",
+    "Associated arteries"
+  ],
+  "preOpConsiderations": [
+    "Coagulation status",
+    "Previous access",
+    "Infection risk",
+    "Ultrasound guidance"
+  ],
+  "positioning": "Trendelenburg for IJ/subclavian",
+  "portPlacementOrIncision": [
+    "Percutaneous Seldinger technique"
+  ],
+  "criticalSteps": [
+    "Sterile preparation",
+    "Ultrasound guidance",
+    "Needle insertion",
+    "Guidewire placement",
+    "Catheter insertion"
+  ],
+  "commonPitfalls": [
+    "Arterial puncture",
+    "Pneumothorax",
+    "Air embolism",
+    "Catheter malposition"
+  ],
+  "majorComplications": [
+    "Pneumothorax",
+    "Arterial injury",
+    "Infection",
+    "Thrombosis"
+  ],
+  "pearlsHighYield": [
+    "Ultrasound guidance preferred",
+    "Real-time imaging",
+    "Confirm venous blood"
+  ],
+  "postOpPriorities": [
+    "Chest X-ray",
+    "Function assessment",
+    "Daily necessity review",
+    "Infection prevention"
+  ],
+  "relatedProcedures": [
+    "arterial-line",
+    "picc-line",
+    "tunneled-catheter"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "The subclavian vein develops from which embryologic venous system?",
+      "answer": "The anterior cardinal vein system. The subclavian vein forms from the caudal portion of the anterior cardinal vein. The left brachiocephalic vein bridges between the left anterior cardinal system and the right (forming the SVC). This embryologic asymmetry explains why the SVC is right-sided and why the left-sided approach has a longer course to the SVC.",
+      "level": "medical_student"
+    },
+    {
+      "question": "What are the anatomic landmarks for subclavian vein access?",
+      "answer": "The subclavian vein runs anterior to the anterior scalene muscle (and subclavian artery, which is posterior to the scalene). Landmark: junction of the medial and middle thirds of the clavicle. Needle directed toward the sternal notch, walking under the clavicle. Vein is between the clavicle and first rib. The subclavian vein is NOT compressible (between bone), so it cannot be US-guided as easily as IJ, and bleeding complications are managed differently.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply/anatomy that makes the internal jugular vein preferred for central access?",
+      "answer": "The IJ runs within the carotid sheath, lateral to the carotid artery and vagus nerve, under the sternocleidomastoid muscle. Ultrasound-guided IJ access is now the standard (2003 NICE guidelines). The IJ is compressible (unlike subclavian), and inadvertent carotid puncture can be managed with direct pressure. Landmarks: apex of the triangle formed by the two heads of the SCM.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the most feared immediate complication of subclavian central line placement?",
+      "answer": "Pneumothorax (1-6% landmark-guided, <1% US-guided) — the cupola of the pleura rises above the first rib. Also: subclavian artery puncture (cannot compress between clavicle and rib, may need endovascular intervention), hemothorax, and air embolism. Post-procedure CXR is mandatory to confirm tip position (at the cavo-atrial junction) and rule out pneumothorax.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the optimal CVC tip position, and what complication results from malposition?",
+      "answer": "Cavo-atrial junction (lower SVC) — confirmed by CXR (tip at or just above the carina). Too high (brachiocephalic): catheter thrombosis, venous stenosis. Too deep (right atrium): arrhythmia, cardiac perforation, tamponade. Left-sided lines must cross the midline and can impinge on the left brachiocephalic-SVC junction — higher thrombosis risk.",
+      "level": "attending"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   const labels = {
     student: "🟢 Medical Student",
     resident: "🟡 Resident",
-    oral_boards: "🔴 Advanced Decision-Making",
+    oral_boards: "🔴 Attending",
   };
   const esc = (s) =>
     String(s || "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -133,7 +133,7 @@
       '<button class="pimp-filter active" data-filter="all" type="button">All Questions</button>' +
       '<button class="pimp-filter" data-filter="student" type="button">Medical Student</button>' +
       '<button class="pimp-filter" data-filter="resident" type="button">Resident</button>' +
-      '<button class="pimp-filter" data-filter="oral_boards" type="button">Advanced</button>' +
+      '<button class="pimp-filter" data-filter="oral_boards" type="button">Attending</button>' +
       '</div><button class="quiz-toggle" data-quiz-toggle type="button">Quiz Mode</button></div>' +
       '<div class="pimp-list" data-pimp-list>' + questions.map(renderQuestionCard).join("") + '</div>' +
       '<div class="quiz-panel" data-quiz-panel></div>';
