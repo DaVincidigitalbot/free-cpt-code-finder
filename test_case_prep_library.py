@@ -91,6 +91,11 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
         ]:
             self.assertIn(marker, html)
 
+    def test_case_prep_pages_bust_the_production_stylesheet_cache(self):
+        expected = '/styles/case-prep.css?v=20261019'
+        self.assertIn(expected, HOME.read_text(encoding="utf-8"))
+        self.assertIn(expected, DETAIL.read_text(encoding="utf-8"))
+
     def test_runtime_payloads_are_split_for_fast_detail_pages(self):
         index = json.loads(INDEX.read_text(encoding="utf-8"))
         files = sorted(PROCEDURE_DATA.glob("*.json"))
