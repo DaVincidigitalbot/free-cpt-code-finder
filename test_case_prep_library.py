@@ -63,7 +63,7 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
             "Complete Case Prep Library",
             'data-library-search',
             'data-library-category',
-            'src="/js/case-prep-library.js"',
+            'src="/js/case-prep-library.js?v=20261019-search2"',
         ]:
             self.assertIn(marker, html)
 
@@ -93,7 +93,7 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
 
     def test_case_prep_pages_bust_the_production_stylesheet_cache(self):
         expected = '/styles/case-prep.css?v=20261019'
-        self.assertIn(expected, HOME.read_text(encoding="utf-8"))
+        self.assertIn(expected + "-search2", HOME.read_text(encoding="utf-8"))
         self.assertIn(expected, DETAIL.read_text(encoding="utf-8"))
 
     def test_runtime_payloads_are_split_for_fast_detail_pages(self):
@@ -147,6 +147,7 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
             ".app-mode-toggle__label{color:",
             ".prep-sheet[aria-busy=\"true\"]",
             "body[data-case-prep-library-detail] .fccf-report-launch",
+            "body:has([data-case-prep-library-home]) .fccf-report-launch",
         ]:
             self.assertIn(marker, css)
         self.assertNotIn("var(--forest)", css)

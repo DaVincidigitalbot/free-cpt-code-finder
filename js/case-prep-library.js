@@ -3,7 +3,7 @@
 
   const INDEX_URL = "/case-prep/clinical-library-index.json";
   const PAGE_SIZE = 30;
-  const state = { data: null, query: "", category: "all", visible: PAGE_SIZE };
+  const state = { data: null, query: "", category: "all", visible: PAGE_SIZE, catalog: [], guidesAvailable: false };
 
   function escapeHtml(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, (character) => ({
@@ -29,17 +29,91 @@
     return state.data;
   }
 
+  // Keep discovery rules outside generated JSON so future imports preserve them.
+  const SEARCH_ALIASES = {
+    lap: "laparoscopic", chole: "cholecystectomy", appy: "appendectomy",
+    tar: "transversus abdominis release", etep: "etep",
+  };
+  function normalizeSearch(value) {
+    return String(value || "").toLowerCase().normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim()
+      .replace(/\s+/g, " ");
+  }
+  function expandSearch(value) {
+    return normalizeSearch(value).replace(/\bex lap\b/g, "exploratory laparotomy")
+      .split(" ").map((token) => SEARCH_ALIASES[token] || token).join(" ");
+  }
   function procedureSearchText(procedure) {
-    return [
-      procedure.name,
-      procedure.category,
-      procedure.overview,
-      ...(procedure.searchTerms || []),
-    ].join(" ").toLowerCase();
+    return expandSearch([procedure.name, procedure.category, procedure.overview,
+      ...(procedure.aliases || []), ...(procedure.searchTerms || [])].join(" "));
+  }
+  function buildCatalog(imported, guides) {
+    const overlaps = {
+      "laparoscopic-cholecystectomy": ["lap-chole"],
+      "laparoscopic-appendectomy": ["lap-appendectomy"],
+      "thyroid-lobectomy": ["hemithyroidectomy", "hemithyroidectomy-lobectomy"],
+      "total-thyroidectomy": ["total-thyroidectomy"],
+      parathyroidectomy: ["parathyroidectomy"],
+      "chest-tube-placement": ["chest-tube-insertion"],
+    };
+    const guideCategories = {
+      "exploratory-laparotomy": "Trauma",
+      "ventral-hernia-repair": "Hernia",
+      "transversus-abdominis-release": "Hernia",
+      "hiatal-hernia-repair": "Hernia",
+    };
+    const catalog = imported.map((item) => ({ ...item, kind: "Rapid prep", url: procedureUrl(item.id) }));
+    guides.filter((guide) => guide.status === "live").forEach((guide) => {
+      const ids = overlaps[guide.slug] || [];
+      const matching = catalog.filter((item) => ids.includes(item.id));
+      const primary = matching[0];
+      const record = {
+        id: "guide-" + guide.slug, name: guide.title, overview: guide.summary,
+        category: primary ? primary.category : guideCategories[guide.slug] || guide.category,
+        kind: "Operative guide", url: "/case-prep/" + guide.slug + "/",
+        rapidUrl: primary && primary.url,
+        rapidSheets: matching.map((item) => ({ name: item.name, url: item.url })),
+        questionCount: primary ? primary.questionCount : 0,
+        aliases: matching.map((item) => item.name),
+        searchTerms: matching.flatMap((item) => item.searchTerms || []).concat(guide.cptCodes || []),
+      };
+      for (let i = catalog.length - 1; i >= 0; i -= 1) {
+        if (ids.includes(catalog[i].id)) catalog.splice(i, 1);
+      }
+      catalog.push(record);
+    });
+    return catalog.map((item) => ({ ...item, searchText: procedureSearchText(item), titleText: expandSearch(item.name) }));
+  }
+  function searchCatalog(catalog, query, category) {
+    const normalized = expandSearch(query);
+    const tokens = normalized.split(" ").filter(Boolean);
+    return catalog.filter((item) => (category === "all" || item.category === category) &&
+      tokens.every((token) => item.searchText.includes(token)))
+      .map((item) => ({ item, score: !normalized ? 0 :
+        (item.titleText === normalized ? 1000 : 0) +
+        ((item.aliases || []).some((alias) => expandSearch(alias) === normalized) ? 800 : 0) +
+        (item.titleText.includes(normalized) ? 300 : 0) +
+        tokens.filter((token) => item.titleText.includes(token)).length * 30 +
+        (item.kind === "Operative guide" ? 5 : 0) }))
+      .sort((a, b) => b.score - a.score || a.item.name.localeCompare(b.item.name))
+      .map(({ item }) => item);
   }
 
   function procedureUrl(id) {
     return "/case-prep/library/?procedure=" + encodeURIComponent(id);
+  }
+
+  function safeInternalUrl(value, fallback) {
+    const expectedOrigin = "https://freecptcodefinder.com";
+    const url = String(value || "").trim();
+    if (!url.startsWith("/") || url.startsWith("//") || url.includes("\\")) return fallback;
+    try {
+      const parsed = new URL(url, expectedOrigin);
+      if (parsed.origin !== expectedOrigin) return fallback;
+      return parsed.pathname + parsed.search + parsed.hash;
+    } catch (_) {
+      return fallback;
+    }
   }
 
   function procedureDataUrl(id) {
@@ -47,21 +121,17 @@
   }
 
   function cardMarkup(procedure) {
-    return '<a class="library-card" href="' + procedureUrl(procedure.id) + '" data-library-card data-procedure-id="' + escapeHtml(procedure.id) + '">' +
-      '<div class="library-card-meta"><span>' + escapeHtml(procedure.category) + '</span><b>' + procedure.questionCount + ' questions</b></div>' +
+    const destination = safeInternalUrl(procedure.url, procedureUrl(procedure.id));
+    return '<article class="library-card"><a class="library-card-link" href="' + escapeHtml(destination) + '" data-library-card data-procedure-id="' + escapeHtml(procedure.id) + '">' +
+      '<div class="library-card-meta"><span>' + escapeHtml(procedure.category) + '</span><b>' + escapeHtml(procedure.kind || 'Rapid prep') + '</b></div>' +
       '<h3>' + escapeHtml(procedure.name) + '</h3>' +
       '<p>' + escapeHtml(procedure.overview) + '</p>' +
-      '<div class="library-card-footer"><span>Anatomy · Steps · Pitfalls</span><strong>Open prep sheet →</strong></div>' +
-      '</a>';
+      '<div class="library-card-footer"><span>Anatomy · Steps · Pitfalls</span><strong>Open ' + (procedure.kind === 'Operative guide' ? 'guide' : 'prep sheet') + ' →</strong></div></a>' +
+      (procedure.rapidSheets || []).map((sheet) => '<a class="library-rapid-link" href="' + escapeHtml(safeInternalUrl(sheet.url, procedureUrl(procedure.id))) + '">Rapid prep &amp; questions: ' + escapeHtml(sheet.name) + ' →</a>').join('') + '</article>';
   }
 
   function filteredProcedures() {
-    const query = state.query.trim().toLowerCase();
-    return state.data.procedures.filter((procedure) => {
-      const categoryMatch = state.category === "all" || procedure.category === state.category;
-      const queryMatch = !query || procedureSearchText(procedure).includes(query);
-      return categoryMatch && queryMatch;
-    });
+    return searchCatalog(state.catalog, state.query, state.category);
   }
 
   function renderLibraryResults() {
@@ -75,7 +145,8 @@
 
     grid.innerHTML = shown.map(cardMarkup).join("");
     grid.setAttribute("aria-busy", "false");
-    count.textContent = matches.length + (matches.length === 1 ? " procedure" : " procedures");
+    const coverage = state.guidesAvailable ? " · operative guides and rapid prep" : " · rapid prep";
+    count.textContent = matches.length + (matches.length === 1 ? " procedure" : " procedures") + (state.query.trim() ? ' matching “' + state.query.trim() + '”' : coverage);
     empty.hidden = matches.length !== 0;
     more.hidden = state.visible >= matches.length;
     if (!more.hidden) more.textContent = "Show " + Math.min(PAGE_SIZE, matches.length - state.visible) + " more procedures";
@@ -97,7 +168,7 @@
     const reset = root.querySelector("[data-library-reset]");
     const more = root.querySelector("[data-library-more]");
 
-    category.insertAdjacentHTML("beforeend", state.data.categories.map((name) => '<option value="' + escapeHtml(name) + '">' + escapeHtml(name) + '</option>').join(""));
+    category.insertAdjacentHTML("beforeend", [...new Set(state.catalog.map((item) => item.category))].sort().map((name) => '<option value="' + escapeHtml(name) + '">' + escapeHtml(name) + '</option>').join(""));
 
     search.addEventListener("input", () => {
       state.query = search.value;
@@ -129,6 +200,15 @@
         search.focus();
       }
     });
+    root.querySelectorAll("[data-search-example]").forEach((button) => {
+      button.addEventListener("click", () => {
+        search.value = button.dataset.searchExample;
+        search.dispatchEvent(new Event("input"));
+        search.focus();
+      });
+    });
+    state.query = search.value;
+    state.category = category.value;
     renderLibraryResults();
   }
 
@@ -261,12 +341,30 @@
   document.addEventListener("DOMContentLoaded", async () => {
     try {
       await loadLibrary();
-      renderLibraryHome();
+      if (document.querySelector("[data-case-prep-library-home]")) {
+        let guides = [];
+        try {
+          const response = await fetch("/case-prep/case-prep-data.json", { credentials: "same-origin" });
+          if (!response.ok) throw new Error("Guide catalog unavailable");
+          guides = (await response.json()).procedures;
+          state.guidesAvailable = true;
+        } catch (_) {
+          state.guidesAvailable = false;
+          document.querySelector("[data-library-notice]").textContent = "Operative guides are temporarily unavailable in search. Rapid prep is available; try reloading for all guides.";
+        }
+        state.catalog = buildCatalog(state.data.procedures, guides);
+        renderLibraryHome();
+      }
       await renderProcedureDetail();
     } catch (error) {
       console.error(error);
       const count = document.querySelector("[data-library-count]");
-      if (count) count.textContent = "The library could not be loaded. Please refresh.";
+      if (count) {
+        count.textContent = "The library could not be loaded. Reload to try again.";
+        document.querySelector("[data-library-grid]").setAttribute("aria-busy", "false");
+        document.querySelector("[data-library-retry]").hidden = false;
+        document.querySelector("[data-library-retry]").onclick = () => window.location.reload();
+      }
       const detail = document.querySelector("[data-procedure-detail]");
       const errorPanel = document.querySelector("[data-procedure-error]");
       if (detail && errorPanel) {

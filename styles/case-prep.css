@@ -250,3 +250,24 @@ body[data-procedure-slug] .case-prep-visual-grid{grid-template-columns:repeat(au
 @media(max-width:700px){body[data-case-prep-library-detail] .site-content-wrap{padding-bottom:5.5rem}body[data-case-prep-library-detail] .fccf-report-launch{left:auto!important;right:12px!important;bottom:12px!important;width:auto!important;max-width:160px!important;padding:9px 11px!important;font-size:12px!important;white-space:normal!important}}
 @media(prefers-reduced-motion:reduce){.library-feature-card,.library-card{transition:none}.library-feature-card:hover{transform:none}}
 @media print{.prep-toc,.prep-sheet-actions,.prep-breadcrumb,.hdr,.site-footer{display:none!important}.prep-sheet{border:0}.prep-sheet-layout{display:block}.prep-content{padding:0}.question-answer[hidden]{display:block}.prep-section{break-inside:avoid}.question-card{break-inside:avoid}}
+
+/* Search-first discovery; keep result controls next to the result list. */
+[hidden]{display:none!important}
+.library-hero h1{max-width:800px;font-size:clamp(2.1rem,4vw,3.5rem);line-height:1.08}
+.library-hero-grid{margin-top:20px;gap:28px}
+.library-hero{padding-bottom:24px}
+.library-command{max-width:none;margin-top:22px}
+.library-examples{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;color:#d7dfdb;font-size:.85rem}
+.library-examples button{border:1px solid #718078;border-radius:20px;background:transparent;color:#fff;padding:7px 12px;cursor:pointer;font:inherit}
+.library-examples button:hover{background:#33443b}
+.library-card{padding:0;overflow:hidden;min-width:0}
+.library-card-link{display:flex;flex:1;flex-direction:column;padding:18px;color:var(--ink);text-decoration:none;min-width:0}
+.library-card h3,.library-card p{overflow-wrap:anywhere}
+.library-rapid-link{padding:12px 18px;border-top:1px solid var(--line);color:var(--ox);font-size:.84rem}
+.library-card-footer{flex-wrap:wrap}
+.library-card-meta{flex-wrap:wrap}
+.library-examples button:focus-visible,.library-card a:focus-visible{outline:3px solid #c47d2c;outline-offset:3px}
+[data-library-notice]:empty{display:none}
+body:has([data-case-prep-library-home]) .site-content-wrap{padding-bottom:80px}
+@media(max-width:700px){body:has([data-case-prep-library-home]) .fccf-report-launch{left:auto!important;right:12px!important;bottom:12px!important;width:auto!important;max-width:160px!important;padding:9px 11px!important;font-size:12px!important;white-space:normal!important}}
+@media(max-width:800px){.library-brief{display:none}.library-hero h1{font-size:2.2rem}.library-layout{gap:16px}.library-filter-panel{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.library-filter-panel select{flex:1;min-width:180px}.library-result-count{width:100%}.library-scope{display:none}}
