@@ -17,6 +17,7 @@ CSS = ROOT / "styles" / "case-prep.css"
 LEGACY_QUESTION_BANK = ROOT / "js" / "pimp-question-bank.js"
 
 
+
 class ClinicalCasePrepLibraryTests(unittest.TestCase):
     def test_complete_clinical_case_log_library_is_migrated(self):
         data = json.loads(DATA.read_text(encoding="utf-8"))
@@ -65,6 +66,9 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
             next(item for item in procedures if item["id"] == "robotic-etep-inguinal-hernia")["id"],
         )
 
+    def test_unapproved_clinical_drafts_are_outside_the_static_publish_tree(self):
+        self.assertFalse((ROOT / "case-prep" / "clinical-drafts").exists())
+
     def test_importer_rejects_unsafe_output_slugs(self):
         with self.assertRaises(ValueError):
             validate_slug("../escape")
@@ -78,10 +82,46 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
         self.assertEqual("Robotic TAPP Inguinal Hernia Repair", tapp["name"])
         self.assertEqual(5, len(tapp["pimpingQuestions"]))
 
+    def test_curated_content_overrides_conflicting_imported_content(self):
+        curated = json.loads((ROOT / "case-prep" / "curated-procedures.json").read_text(encoding="utf-8"))[0]
+        conflicting = dict(curated)
+        conflicting["name"] = "SOURCE OVERRIDE WITH A MUCH LONGER NAME THAT MUST NOT WIN"
+        conflicting["overview"] = "SOURCE OVERVIEW " * 20
+        conflicting["pimpingQuestions"] = [
+            {"question": curated["pimpingQuestions"][0]["question"], "answer": "SOURCE ANSWER WINS"}
+        ]
+        with TemporaryDirectory() as directory:
+            source = Path(directory) / "procedures.json"
+            source.write_text(json.dumps([conflicting]), encoding="utf-8")
+            payload = build_payload(source)
+        tapp = next(item for item in payload["procedures"] if item["id"] == curated["id"])
+        self.assertEqual(curated["name"], tapp["name"])
+        self.assertEqual(curated["overview"], tapp["overview"])
+        self.assertEqual(curated["pimpingQuestions"][0]["answer"], tapp["pimpingQuestions"][0]["answer"])
+
+    def test_importer_preserves_explicit_question_difficulty(self):
+        procedure = {
+            "id": "difficulty-test-procedure",
+            "name": "Difficulty Test Procedure",
+            "category": "General Surgery",
+            "overview": "Test fixture.",
+            "positioning": "Supine",
+            "pimpingQuestions": [
+                {"question": "Judgment question", "answer": "Answer", "level": "attending"},
+                {"question": "Foundational question", "answer": "Answer", "level": "medical_student"},
+            ],
+        }
+        with TemporaryDirectory() as directory:
+            source = Path(directory) / "procedures.json"
+            source.write_text(json.dumps([procedure]), encoding="utf-8")
+            payload = build_payload(source)
+        imported = next(item for item in payload["procedures"] if item["id"] == procedure["id"])
+        self.assertEqual(["attending", "medical_student"], [q["level"] for q in imported["pimpingQuestions"]])
+
     def test_landing_page_exposes_search_filters_and_full_library(self):
         html = HOME.read_text(encoding="utf-8")
         for marker in [
-            "233 surgical procedures",
+            "236 searchable resources",
             "1,175 attending-style questions",
             "Anatomy",
             "Pitfalls",
@@ -89,7 +129,7 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
             "Complete Case Prep Library",
             'data-library-search',
             'data-library-category',
-            'src="/js/case-prep-library.js?v=20261019-tapp-contrast1"',
+            'src="/js/case-prep-library.js?v=20261020-experience1"',
         ]:
             self.assertIn(marker, html)
 
@@ -114,13 +154,30 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
             'data-question-bank',
             'data-question-level-filter',
             'role="group"',
+            'data-procedure-retry',
+            'role="alert"',
+            'data-question-count role="status" aria-live="polite"',
         ]:
             self.assertIn(marker, html)
 
     def test_case_prep_pages_bust_the_production_stylesheet_cache(self):
-        expected = '/styles/case-prep.css?v=20261019-tapp-contrast1'
-        self.assertIn(expected, HOME.read_text(encoding="utf-8"))
-        self.assertIn(expected, DETAIL.read_text(encoding="utf-8"))
+        expected = '/styles/case-prep.css?v=20261020-experience1'
+        chrome = '/js/site-chrome.js?v=20261020-experience1'
+        for page in (ROOT / "case-prep").rglob("*.html"):
+            markup = page.read_text(encoding="utf-8")
+            if "/styles/case-prep.css" in markup:
+                self.assertIn(expected, markup, page)
+                self.assertNotIn('href="/styles/case-prep.css"', markup, page)
+            if "/js/site-chrome.js" in markup:
+                self.assertIn(chrome, markup, page)
+                self.assertNotIn('src="/js/site-chrome.js"', markup, page)
+
+    def test_shared_header_uses_current_conversion_factor(self):
+        chrome = (ROOT / "js" / "site-chrome.js").read_text(encoding="utf-8")
+        self.assertIn("CMS RVU26C July 2026", chrome)
+        self.assertIn("<span>CF 33.4009</span>", chrome)
+        self.assertNotIn("CF 32.3465", chrome)
+        self.assertIn('js/report-widget.js?v=20261020-experience1', chrome)
 
     def test_runtime_payloads_are_split_for_fast_detail_pages(self):
         index = json.loads(INDEX.read_text(encoding="utf-8"))
@@ -174,9 +231,47 @@ class ClinicalCasePrepLibraryTests(unittest.TestCase):
             ".prep-sheet[aria-busy=\"true\"]",
             "body[data-case-prep-library-detail] .fccf-report-launch",
             "body:has([data-case-prep-library-home]) .fccf-report-launch",
+            "html[data-theme='dark'] .library-filter-panel",
+            ".library-search-row:focus-within",
+            ".question-answer[hidden]{display:block!important}",
+            "body #fccf-report-widget{display:flex",
+            "body .fccf-report-launch{position:static!important",
+            ".library-hero .case-prep-lede{display:none}",
+            ".library-section-heading>p{display:none}",
         ]:
             self.assertIn(marker, css)
         self.assertNotIn("var(--forest)", css)
+
+    def test_search_controls_are_adjacent_to_results_without_duplicate_featured_section(self):
+        html = HOME.read_text(encoding="utf-8")
+        library_start = html.index('id="complete-library"')
+        search_start = html.index('data-library-search')
+        grid_start = html.index('data-library-grid')
+        self.assertLess(library_start, search_start)
+        self.assertLess(search_start, grid_start)
+        self.assertNotIn("library-featured", html)
+
+    def test_detail_fetch_error_has_retry_and_clears_busy_state(self):
+        js = JS.read_text(encoding="utf-8")
+        for marker in [
+            "showProcedureError",
+            "Unable to load this prep sheet",
+            "The case-prep library could not be loaded",
+            'setAttribute("aria-busy", "false")',
+            "data-procedure-retry",
+            "() => window.location.reload()",
+        ]:
+            self.assertIn(marker, js)
+
+    def test_library_controls_disable_during_loading_and_primary_failure(self):
+        html = HOME.read_text(encoding="utf-8")
+        js = JS.read_text(encoding="utf-8")
+        self.assertIn('data-library-search type="search" disabled', html)
+        self.assertIn('data-library-category disabled', html)
+        self.assertIn('data-library-reset type="button" disabled', html)
+        self.assertIn("setLibraryControlsDisabled", js)
+        self.assertIn("setLibraryControlsDisabled(true)", js)
+        self.assertIn("setLibraryControlsDisabled(false)", js)
 
     def test_prep_sheet_light_panels_have_wcag_aa_text_tokens_in_both_themes(self):
         css = CSS.read_text(encoding="utf-8")

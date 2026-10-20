@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const DATA_VERSION = "20261019-tapp-contrast1";
+  const DATA_VERSION = "20261020-experience1";
   const INDEX_URL = "/case-prep/clinical-library-index.json?v=" + DATA_VERSION;
   const PAGE_SIZE = 30;
   const state = { data: null, query: "", category: "all", visible: PAGE_SIZE, catalog: [], guidesAvailable: false };
@@ -35,14 +35,23 @@
     lap: "laparoscopic", chole: "cholecystectomy", appy: "appendectomy",
     tar: "transversus abdominis release", etep: "etep",
   };
+  function canonicalizeAcronyms(value) {
+    return String(value || "")
+      .replace(/\bt[\s._/-]*a[\s._/-]*p[\s._/-]*p\b/gi, "tapp")
+      .replace(/\bt[\s._/-]*a[\s._/-]*r\b/gi, "tar")
+      .replace(/\be[\s._/-]*t[\s._/-]*e[\s._/-]*p\b/gi, "etep");
+  }
   function normalizeSearch(value) {
-    return String(value || "").toLowerCase().normalize("NFKD")
+    return canonicalizeAcronyms(value).toLowerCase().normalize("NFKD")
       .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim()
       .replace(/\s+/g, " ");
   }
   function expandSearch(value) {
-    return normalizeSearch(value).replace(/\bex lap\b/g, "exploratory laparotomy")
-      .split(" ").map((token) => SEARCH_ALIASES[token] || token).join(" ");
+    const tokens = normalizeSearch(value).split(" ").filter(Boolean);
+    if (tokens.includes("ex") && tokens.includes("lap")) {
+      return [...tokens.filter((token) => token !== "ex" && token !== "lap"), "exploratory", "laparotomy"].join(" ");
+    }
+    return tokens.map((token) => SEARCH_ALIASES[token] || token).filter((token) => token.length > 1).join(" ");
   }
   function procedureSearchText(procedure) {
     return expandSearch([procedure.name, procedure.category, procedure.overview,
@@ -88,7 +97,7 @@
   function searchCatalog(catalog, query, category) {
     const normalized = expandSearch(query);
     const tokens = normalized.split(" ").filter(Boolean);
-    return catalog.filter((item) => (category === "all" || item.category === category) &&
+    const scored = catalog.filter((item) => (category === "all" || item.category === category) &&
       tokens.every((token) => item.searchText.includes(token)))
       .map((item) => ({ item, score: !normalized ? 0 :
         (item.titleText === normalized ? 1000 : 0) +
@@ -96,8 +105,9 @@
         (item.titleText.includes(normalized) ? 300 : 0) +
         tokens.filter((token) => item.titleText.includes(token)).length * 30 +
         (item.kind === "Operative guide" ? 5 : 0) }))
-      .sort((a, b) => b.score - a.score || a.item.name.localeCompare(b.item.name))
-      .map(({ item }) => item);
+      .sort((a, b) => b.score - a.score || a.item.name.localeCompare(b.item.name));
+    const strongTitleMatch = scored.length && scored[0].score >= 300;
+    return scored.filter((entry) => !strongTitleMatch || entry.score > 0).map(({ item }) => item);
   }
 
   function procedureUrl(id) {
@@ -147,10 +157,10 @@
     grid.innerHTML = shown.map(cardMarkup).join("");
     grid.setAttribute("aria-busy", "false");
     const coverage = state.guidesAvailable ? " · operative guides and rapid prep" : " · rapid prep";
-    count.textContent = matches.length + (matches.length === 1 ? " procedure" : " procedures") + (state.query.trim() ? ' matching “' + state.query.trim() + '”' : coverage);
+    count.textContent = matches.length + (matches.length === 1 ? " resource" : " resources") + (state.query.trim() ? ' matching “' + state.query.trim() + '”' : coverage);
     empty.hidden = matches.length !== 0;
     more.hidden = state.visible >= matches.length;
-    if (!more.hidden) more.textContent = "Show " + Math.min(PAGE_SIZE, matches.length - state.visible) + " more procedures";
+    if (!more.hidden) more.textContent = "Show " + Math.min(PAGE_SIZE, matches.length - state.visible) + " more resources";
 
     grid.querySelectorAll("[data-library-card]").forEach((card) => {
       card.addEventListener("click", () => track("case_prep_library_open", {
@@ -161,9 +171,15 @@
     });
   }
 
+  function setLibraryControlsDisabled(disabled) {
+    document.querySelectorAll("[data-library-search],[data-library-category],[data-library-reset],[data-search-example]")
+      .forEach((control) => { control.disabled = disabled; });
+  }
+
   function renderLibraryHome() {
     const root = document.querySelector("[data-case-prep-library-home]");
     if (!root) return;
+    setLibraryControlsDisabled(false);
     const search = root.querySelector("[data-library-search]");
     const category = root.querySelector("[data-library-category]");
     const reset = root.querySelector("[data-library-reset]");
@@ -271,6 +287,31 @@
     });
   }
 
+  function showProcedureError(title, message, retryable, retryAction) {
+    const root = document.querySelector("[data-procedure-detail]");
+    const panel = document.querySelector("[data-procedure-error]");
+    if (root) {
+      root.hidden = true;
+      root.setAttribute("aria-busy", "false");
+    }
+    if (!panel) return;
+    panel.hidden = false;
+    const heading = panel.querySelector("[data-procedure-error-title]");
+    const copy = panel.querySelector("[data-procedure-error-message]");
+    const retry = panel.querySelector("[data-procedure-retry]");
+    if (heading) heading.textContent = title;
+    if (copy) copy.textContent = message;
+    if (retry) {
+      retry.hidden = !retryable;
+      retry.onclick = retryable ? () => {
+        panel.hidden = true;
+        root.hidden = false;
+        root.setAttribute("aria-busy", "true");
+        (retryAction || renderProcedureDetail)();
+      } : null;
+    }
+  }
+
   async function renderProcedureDetail() {
     const root = document.querySelector("[data-procedure-detail]");
     if (!root) return;
@@ -282,13 +323,31 @@
     }
     const summary = state.data.procedures.find((item) => item.id === id);
     if (!summary) {
-      root.hidden = true;
-      document.querySelector("[data-procedure-error]").hidden = false;
+      showProcedureError("Procedure not found", "That prep sheet could not be found.", false);
       return;
     }
-    const response = await fetch(procedureDataUrl(id), { credentials: "same-origin" });
-    if (!response.ok) throw new Error("Unable to load this procedure.");
-    const procedure = await response.json();
+    let response;
+    try {
+      response = await fetch(procedureDataUrl(id), { credentials: "same-origin" });
+    } catch (_) {
+      showProcedureError("Unable to load this prep sheet", "Check your connection and try again.", true);
+      return;
+    }
+    if (response.status === 404) {
+      showProcedureError("Procedure not found", "That prep sheet could not be found.", false);
+      return;
+    }
+    if (!response.ok) {
+      showProcedureError("Unable to load this prep sheet", "The procedure data is temporarily unavailable. Try again.", true);
+      return;
+    }
+    let procedure;
+    try {
+      procedure = await response.json();
+    } catch (_) {
+      showProcedureError("Unable to load this prep sheet", "The procedure data could not be read. Try again.", true);
+      return;
+    }
 
     updateMetadata(procedure);
     document.querySelector("[data-breadcrumb-name]").textContent = procedure.name;
@@ -361,6 +420,7 @@
       console.error(error);
       const count = document.querySelector("[data-library-count]");
       if (count) {
+        setLibraryControlsDisabled(true);
         count.textContent = "The library could not be loaded. Reload to try again.";
         document.querySelector("[data-library-grid]").setAttribute("aria-busy", "false");
         document.querySelector("[data-library-retry]").hidden = false;
@@ -369,8 +429,12 @@
       const detail = document.querySelector("[data-procedure-detail]");
       const errorPanel = document.querySelector("[data-procedure-error]");
       if (detail && errorPanel) {
-        detail.hidden = true;
-        errorPanel.hidden = false;
+        showProcedureError(
+          "Unable to load this prep sheet",
+          "The case-prep library could not be loaded. Check your connection and try again.",
+          true,
+          () => window.location.reload(),
+        );
       }
     }
   });

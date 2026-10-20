@@ -70,6 +70,7 @@
       ".fccf-report-success{color:#166534}",
       ".fccf-report-error{color:#991b1b}",
       "@media(max-width:700px){.fccf-report-launch{left:14px;right:14px;bottom:14px;justify-content:center}.fccf-report-panel{left:12px;right:12px;bottom:68px;width:auto;max-height:calc(100vh - 88px)}.fccf-report-backdrop.open{display:block}}",
+      "@media print{#fccf-report-widget{display:none!important}}",
     ].join("");
     document.head.appendChild(style);
   }
@@ -159,12 +160,32 @@
     const procedureInput = root.querySelector("#fccf-report-procedure");
     const specialtySelect = root.querySelector("#fccf-report-specialty");
     const descriptionInput = root.querySelector("#fccf-report-description");
+    const backgroundContent = Array.from(document.body.children).filter((element) => element !== root);
+    const backgroundInertStates = new Map();
+
+    function focusableElements() {
+      return Array.from(panel.querySelectorAll('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href]'))
+        .filter((element) => !element.hidden && element.offsetParent !== null);
+    }
 
     function setOpen(open) {
       panel.classList.toggle("open", open);
       backdrop.classList.toggle("open", open);
       launch.setAttribute("aria-expanded", String(open));
-      if (open) setTimeout(() => (typeSelect.value === "missing_cpt_code" ? procedureInput : descriptionInput).focus(), 30);
+      if (open) {
+        backgroundContent.forEach((background) => {
+          backgroundInertStates.set(background, background.inert);
+          background.inert = true;
+        });
+        close.focus();
+        setTimeout(() => (typeSelect.value === "missing_cpt_code" ? procedureInput : descriptionInput).focus(), 30);
+      } else {
+        backgroundContent.forEach((background) => {
+          background.inert = backgroundInertStates.get(background) || false;
+        });
+        backgroundInertStates.clear();
+        launch.focus();
+      }
     }
 
     function syncIssueTypeFields() {
@@ -180,7 +201,24 @@
     close.addEventListener("click", () => setOpen(false));
     backdrop.addEventListener("click", () => setOpen(false));
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && panel.classList.contains("open")) setOpen(false);
+      if (!panel.classList.contains("open")) return;
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (event.key === "Tab") {
+        const focusable = focusableElements();
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     });
     typeSelect.addEventListener("change", syncIssueTypeFields);
     syncIssueTypeFields();

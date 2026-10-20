@@ -30,6 +30,7 @@ QUESTION_LEVELS_BY_POSITION = (
     "attending",
     "attending",
 )
+VALID_QUESTION_LEVELS = set(QUESTION_LEVELS_BY_POSITION)
 
 SAFE_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 CURATED_PROCEDURES = Path(__file__).resolve().parents[1] / "case-prep" / "curated-procedures.json"
@@ -52,15 +53,18 @@ def unique(items):
     return output
 
 
-def merge_procedures(procedures):
+def merge_procedures(procedures, curated_start=None):
     merged = OrderedDict()
-    for procedure in procedures:
+    for index, procedure in enumerate(procedures):
         slug = validate_slug(procedure["id"])
         if slug not in merged:
             merged[slug] = dict(procedure)
             continue
 
         current = merged[slug]
+        if curated_start is not None and index >= curated_start:
+            current.update(procedure)
+            continue
         if len(procedure.get("name", "")) > len(current.get("name", "")):
             current["name"] = procedure["name"]
         if len(procedure.get("overview", "")) > len(current.get("overview", "")):
@@ -96,14 +100,18 @@ def merge_procedures(procedures):
 def build_payload(source):
     source_procedures = json.loads(source.read_text(encoding="utf-8"))
     curated_procedures = json.loads(CURATED_PROCEDURES.read_text(encoding="utf-8")) if CURATED_PROCEDURES.exists() else []
-    procedures = merge_procedures([*source_procedures, *curated_procedures])
+    procedures = merge_procedures(
+        [*source_procedures, *curated_procedures],
+        curated_start=len(source_procedures),
+    )
     for procedure in procedures:
         leveled_questions = []
         for index, question in enumerate(procedure.get("pimpingQuestions", [])):
             leveled_question = dict(question)
-            leveled_question["level"] = QUESTION_LEVELS_BY_POSITION[
-                min(index, len(QUESTION_LEVELS_BY_POSITION) - 1)
-            ]
+            if leveled_question.get("level") not in VALID_QUESTION_LEVELS:
+                leveled_question["level"] = QUESTION_LEVELS_BY_POSITION[
+                    min(index, len(QUESTION_LEVELS_BY_POSITION) - 1)
+                ]
             leveled_questions.append(leveled_question)
         procedure["pimpingQuestions"] = leveled_questions
     procedures.sort(key=lambda item: (item["category"].lower(), item["name"].lower()))

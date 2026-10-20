@@ -14,7 +14,7 @@ const catalog = buildCatalog(imported, guides);
 const search = (q, category='all') => searchCatalog(catalog, q, category);
 test('common searches work with reordered words, punctuation, case, and abbreviations', () => {
   for (const q of ['robotic inguinal hernia', 'hernia inguinal robotic', ' ROBOTIC / inguinal--hernia ']) {
-    assert.equal(search(q)[0].id, 'robotic-etep-inguinal-hernia');
+    assert.deepEqual(search(q).slice(0, 2).map(x => x.id).sort(), ['robotic-etep-inguinal-hernia', 'robotic-tapp-inguinal-hernia']);
   }
   for (const q of ['lap chole', 'chole lap', 'LAP-CHOLE']) {
     assert.equal(search(q)[0].url, '/case-prep/laparoscopic-cholecystectomy/');
@@ -23,12 +23,22 @@ test('common searches work with reordered words, punctuation, case, and abbrevia
   }
   assert.equal(search('appy')[0].url, '/case-prep/laparoscopic-appendectomy/');
   assert.equal(search('ex lap')[0].url, '/case-prep/exploratory-laparotomy/');
+  assert.equal(search('lap ex')[0].url, '/case-prep/exploratory-laparotomy/');
+  assert.equal(search('lap/ex')[0].url, '/case-prep/exploratory-laparotomy/');
   assert.equal(search('TAR')[0].url, '/case-prep/transversus-abdominis-release/');
+  assert.equal(search('T.A.R.')[0].url, '/case-prep/transversus-abdominis-release/');
+  assert.ok(search('T.A.R.').length < 10);
   assert.ok(search('eTEP').some(x => x.id === 'robotic-etep-inguinal-hernia'));
   assert.equal(search('robotic TAPP inguinal hernia')[0].id, 'robotic-tapp-inguinal-hernia');
   assert.equal(search('TAPP')[0].id, 'robotic-tapp-inguinal-hernia');
+  assert.equal(search('T.A.P.P.')[0].id, 'robotic-tapp-inguinal-hernia');
+  assert.equal(search('T.A.P.P.').length, 1);
   assert.equal(search('robotic eTEP inguinal hernia')[0].id, 'robotic-etep-inguinal-hernia');
   assert.notEqual(search('TAPP')[0].id, search('eTEP')[0].id);
+  assert.equal(search('chest tube')[0].url, '/case-prep/chest-tube-placement/');
+  assert.equal(search('chest tube').length, 1);
+  assert.equal(search('Whipple')[0].id, 'whipple');
+  assert.equal(search('robotic eTEP ventral hernia').length, 0);
 });
 test('category filters, empty searches, and no matches remain predictable', () => {
   assert.ok(search('', 'Hernia').length > 0);
@@ -84,6 +94,12 @@ test('landing controls wire to live results, clear, category, and example action
       if(selector === '[data-procedure-detail]') return null;
       return element(selector);
     },
+    querySelectorAll(selector) {
+      if(selector === '[data-library-search],[data-library-category],[data-library-reset],[data-search-example]') {
+        return ['[data-library-search]','[data-library-category]','[data-library-reset]','[data-search-example]'].map(element);
+      }
+      return [];
+    },
   };
   const sandbox = {document, console, URL, fetch: async url => ({ok:true, json:async () =>
     read(url.includes('clinical-library-index') ? 'case-prep/clinical-library-index.json' : 'case-prep/case-prep-data.json')})};
@@ -92,7 +108,8 @@ test('landing controls wire to live results, clear, category, and example action
   // A visitor may type before the catalogs finish downloading.
   element('[data-library-search]').value = 'robotic inguinal hernia';
   await ready();
-  assert.equal(element('[data-library-count]').textContent, '2 procedures matching “robotic inguinal hernia”');
+  assert.equal(element('[data-library-search]').disabled, false);
+  assert.equal(element('[data-library-count]').textContent, '2 resources matching “robotic inguinal hernia”');
   const grid = element('[data-library-grid]');
   assert.ok(grid.innerHTML.includes('Robotic eTEP Inguinal Hernia Repair'));
   const input = element('[data-library-search]');
