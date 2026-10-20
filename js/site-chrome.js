@@ -202,7 +202,7 @@
       });
     if (!document.querySelector("script[data-fccf-report-widget]")) {
       const reportScript = document.createElement("script");
-      reportScript.src = root + "js/report-widget.js?v=20261020-experience1";
+      reportScript.src = root + "js/report-widget.js?v=20261020-thyroid1";
       reportScript.defer = true;
       reportScript.dataset.fccfReportWidget = "1";
       document.head.appendChild(reportScript);

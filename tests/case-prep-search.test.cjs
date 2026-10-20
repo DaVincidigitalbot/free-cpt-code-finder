@@ -5,9 +5,9 @@ const vm = require('node:vm');
 const read = path => JSON.parse(fs.readFileSync(path, 'utf8'));
 const context = { document: { addEventListener() {} }, URL };
 vm.createContext(context);
-const source = fs.readFileSync('js/case-prep-library.js', 'utf8').replace(/\}\)\(\);\s*$/, 'globalThis.api = {buildCatalog, searchCatalog, cardMarkup, expandSearch};})();');
+const source = fs.readFileSync('js/case-prep-library.js', 'utf8').replace(/\}\)\(\);\s*$/, 'globalThis.api = {buildCatalog, searchCatalog, cardMarkup, expandSearch, resolveProcedureId};})();');
 vm.runInContext(source, context);
-const {buildCatalog, searchCatalog, cardMarkup, expandSearch} = context.api;
+const {buildCatalog, searchCatalog, cardMarkup, expandSearch, resolveProcedureId} = context.api;
 const imported = read('case-prep/clinical-library-index.json').procedures;
 const guides = read('case-prep/case-prep-data.json').procedures;
 const catalog = buildCatalog(imported, guides);
@@ -37,6 +37,15 @@ test('common searches work with reordered words, punctuation, case, and abbrevia
   assert.notEqual(search('TAPP')[0].id, search('eTEP')[0].id);
   assert.equal(search('chest tube')[0].url, '/case-prep/chest-tube-placement/');
   assert.equal(search('chest tube').length, 1);
+  assert.equal(search('thyroid lobectomy').length, 1);
+  assert.equal(search('thyroid lobectomy')[0].url, '/case-prep/thyroid-lobectomy/');
+  assert.equal(search('thyroid lobectomy')[0].rapidUrl, '/case-prep/library/?procedure=thyroid-lobectomy');
+  assert.equal(search('hemithyroidectomy')[0].url, '/case-prep/thyroid-lobectomy/');
+  assert.equal(search('total thyroidectomy')[0].url, '/case-prep/total-thyroidectomy/');
+  assert.deepEqual(
+    search('robotic thyroidectomy').map(x => x.url).sort(),
+    ['/case-prep/thyroid-lobectomy/', '/case-prep/total-thyroidectomy/'],
+  );
   assert.equal(search('Whipple')[0].id, 'whipple');
   assert.equal(search('robotic eTEP ventral hernia').length, 0);
 });
@@ -51,6 +60,11 @@ test('category filters, empty searches, and no matches remain predictable', () =
   assert.deepEqual([...new Set(catalog.map(x => x.category).filter(x => !canonicalCategories.has(x)))], []);
   assert.equal(search('TAR', 'Hernia')[0].url, '/case-prep/transversus-abdominis-release/');
   assert.equal(search('hiatal hernia', 'Hernia')[0].url, '/case-prep/hiatal-hernia-repair/');
+});
+test('legacy thyroid detail ids resolve to the canonical lobectomy sheet', () => {
+  assert.equal(resolveProcedureId('hemithyroidectomy'), 'thyroid-lobectomy');
+  assert.equal(resolveProcedureId('hemithyroidectomy-lobectomy'), 'thyroid-lobectomy');
+  assert.equal(resolveProcedureId('robotic-thyroidectomy'), 'robotic-thyroidectomy');
 });
 test('all source records remain reachable and planned guides stay unpublished', () => {
   const html = catalog.map(cardMarkup).join('');

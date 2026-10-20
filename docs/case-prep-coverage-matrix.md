@@ -1,7 +1,7 @@
 # Case Prep coverage matrix
 
 Updated: 2026-10-20
-Production baseline: 233 rapid-prep resources, 20 categories, plus original operative guides.
+Production baseline: 231 rapid-prep resources, 20 categories, plus original operative guides.
 
 Status vocabulary:
 
@@ -24,11 +24,11 @@ Status vocabulary:
 | Small-bowel resection with anastomosis | General/ACS | Ileocecectomy and colectomy are not substitutes | Genuine gap | P1 | Core small-intestine curriculum omission | Sources identified | ACS/colorectal surgeon | Not started | Not started |
 | PEG tube placement | Endoscopy/Critical Care | EGD resources only partially overlap | Genuine gap | P1 | Common enteral-access procedure with distinct contraindications and complication management | Sources identified | Surgical endoscopist | Not started | Not started |
 | Pediatric inguinal hernia repair/high ligation | Pediatric Surgery | Adult repairs are not substitutes | Genuine gap | P1-P2 | Different anatomy, sac handling, contralateral evaluation, and gonadal risk | Sources identified | Pediatric surgeon | Not started | Not started |
-| Hemithyroidectomy + hemithyroidectomy-lobectomy | Endocrine | Near-identical resources | Duplicate | P0 cleanup | Merge while preserving aliases and stable redirects | Existing content | Endocrine reviewer | Not started | Not started |
+| Thyroid Lobectomy (formerly hemithyroidectomy + hemithyroidectomy-lobectomy) | Endocrine | Two source records consolidated into one extent-based resource | Resolved duplicate | Complete | Canonical Thyroid Lobectomy retains all 10 lobectomy questions; hemithyroidectomy remains searchable; remote-access education is approach-specific, not a separate case | Existing content | Endocrine reviewer | Complete | Complete |
 | TAH-BSO duplicate IDs | Gynecology | Near-identical resources | Duplicate | P0 cleanup | Merge while preserving aliases | Existing content | Gynecology reviewer | Not started | Not started |
 | `fissurectomy` titled Lateral Internal Sphincterotomy | Colorectal | Different operations conflated | Mislabel | P0 safety | Correct ID/title or split after specialty review | Sources needed | Colorectal surgeon | Not started | Not started |
 | Open Shouldice repair | Hernia | Production description calls it tension-free | Partial/inaccurate | P0 safety | Nomenclature and principles require hernia review | Sources identified | Hernia surgeon | Surgeon revision | Not started |
-| Related-procedure references | All | 519 unresolved references affecting 222/233 records | Partial integrity | P1 | Normalize aliases, add true gaps, or document unavailable targets | Audit complete | Data/editorial | Not started | Not started |
+| Related-procedure references | All | 515 unresolved references affecting 220/231 records | Partial integrity | P1 | Normalize aliases, add true gaps, or document unavailable targets | Audit complete | Data/editorial | Not started | Not started |
 
 ## Batch discipline
 

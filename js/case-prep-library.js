@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const DATA_VERSION = "20261020-experience1";
+  const DATA_VERSION = "20261020-thyroid1";
   const INDEX_URL = "/case-prep/clinical-library-index.json?v=" + DATA_VERSION;
   const PAGE_SIZE = 30;
   const state = { data: null, query: "", category: "all", visible: PAGE_SIZE, catalog: [], guidesAvailable: false };
@@ -34,6 +34,7 @@
   const SEARCH_ALIASES = {
     lap: "laparoscopic", chole: "cholecystectomy", appy: "appendectomy",
     tar: "transversus abdominis release", etep: "etep",
+    hemithyroidectomy: "thyroid lobectomy",
   };
   function canonicalizeAcronyms(value) {
     return String(value || "")
@@ -61,7 +62,7 @@
     const overlaps = {
       "laparoscopic-cholecystectomy": ["lap-chole"],
       "laparoscopic-appendectomy": ["lap-appendectomy"],
-      "thyroid-lobectomy": ["hemithyroidectomy", "hemithyroidectomy-lobectomy"],
+      "thyroid-lobectomy": ["thyroid-lobectomy"],
       "total-thyroidectomy": ["total-thyroidectomy"],
       parathyroidectomy: ["parathyroidectomy"],
       "chest-tube-placement": ["chest-tube-insertion"],
@@ -71,6 +72,10 @@
       "ventral-hernia-repair": "Hernia",
       "transversus-abdominis-release": "Hernia",
       "hiatal-hernia-repair": "Hernia",
+    };
+    const guideAliases = {
+      "thyroid-lobectomy": ["Hemithyroidectomy", "Robotic thyroidectomy"],
+      "total-thyroidectomy": ["Robotic thyroidectomy"],
     };
     const catalog = imported.map((item) => ({ ...item, kind: "Rapid prep", url: procedureUrl(item.id) }));
     guides.filter((guide) => guide.status === "live").forEach((guide) => {
@@ -84,7 +89,7 @@
         rapidUrl: primary && primary.url,
         rapidSheets: matching.map((item) => ({ name: item.name, url: item.url })),
         questionCount: primary ? primary.questionCount : 0,
-        aliases: matching.map((item) => item.name),
+        aliases: matching.map((item) => item.name).concat(guideAliases[guide.slug] || []),
         searchTerms: matching.flatMap((item) => item.searchTerms || []).concat(guide.cptCodes || []),
       };
       for (let i = catalog.length - 1; i >= 0; i -= 1) {
@@ -112,6 +117,14 @@
 
   function procedureUrl(id) {
     return "/case-prep/library/?procedure=" + encodeURIComponent(id);
+  }
+
+  const PROCEDURE_ID_ALIASES = {
+    hemithyroidectomy: "thyroid-lobectomy",
+    "hemithyroidectomy-lobectomy": "thyroid-lobectomy",
+  };
+  function resolveProcedureId(id) {
+    return PROCEDURE_ID_ALIASES[id] || id;
   }
 
   function safeInternalUrl(value, fallback) {
@@ -316,7 +329,9 @@
     const root = document.querySelector("[data-procedure-detail]");
     if (!root) return;
     const parameters = new URLSearchParams(window.location.search);
-    let id = parameters.get("procedure");
+    const requestedId = parameters.get("procedure");
+    let id = resolveProcedureId(requestedId);
+    if (id && requestedId !== id) history.replaceState(null, "", procedureUrl(id));
     if (!id && state.data.procedures.length) {
       id = state.data.procedures[0].id;
       history.replaceState(null, "", procedureUrl(id));
@@ -362,10 +377,29 @@
       container.innerHTML = Array.isArray(value) ? listMarkup(value, orderedFields.has(field)) : '<p class="prep-position">' + escapeHtml(value) + '</p>';
     });
 
+    const approaches = procedure.approachEducation || [];
+    const approachSection = document.querySelector("[data-approach-education]");
+    const approachToc = document.querySelector("[data-approach-toc]");
+    if (approaches.length) {
+      const approach = approaches[0];
+      document.querySelector("[data-approach-name]").textContent = approach.name;
+      document.querySelector("[data-approach-overview]").textContent = approach.overview;
+      document.querySelectorAll("[data-approach-field]").forEach((container) => {
+        const field = container.dataset.approachField;
+        const value = approach[field];
+        container.innerHTML = Array.isArray(value) ? listMarkup(value, field === "criticalSteps") : '<p class="prep-position">' + escapeHtml(value) + '</p>';
+      });
+      approachSection.hidden = false;
+      approachToc.hidden = false;
+    }
+
     const bank = document.querySelector("[data-question-bank]");
-    const questionCards = procedure.pimpingQuestions.map(questionMarkup).join("");
+    const questions = procedure.pimpingQuestions.concat(
+      approaches.flatMap((approach) => approach.pimpingQuestions || [])
+    );
+    const questionCards = questions.map(questionMarkup).join("");
     bank.innerHTML = questionCards;
-    document.querySelector("[data-question-count]").textContent = procedure.pimpingQuestions.length + " questions";
+    document.querySelector("[data-question-count]").textContent = questions.length + " questions";
     const filters = document.querySelector("[data-question-level-filter]");
     filters.querySelectorAll("[data-question-level]").forEach((filterButton) => {
       filterButton.addEventListener("click", () => {

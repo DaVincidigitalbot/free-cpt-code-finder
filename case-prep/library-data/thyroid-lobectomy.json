@@ -1,0 +1,224 @@
+{
+  "id": "thyroid-lobectomy",
+  "name": "Thyroid Lobectomy",
+  "category": "Endocrine",
+  "overview": "Removal of one thyroid lobe with isthmus",
+  "indications": [
+    "Unilateral thyroid nodule",
+    "Follicular neoplasm",
+    "Toxic adenoma",
+    "Unilateral cancer",
+    "Small thyroid cancer"
+  ],
+  "keyAnatomy": [
+    "Recurrent laryngeal nerve",
+    "Superior laryngeal nerve",
+    "Parathyroid glands",
+    "Berry ligament",
+    "Thyroid lobe"
+  ],
+  "preOpConsiderations": [
+    "FNA results",
+    "Voice assessment",
+    "Contralateral lobe evaluation",
+    "TSH levels",
+    "Fine needle aspiration results",
+    "Calcium levels"
+  ],
+  "positioning": "Supine with neck extension",
+  "portPlacementOrIncision": [
+    "Low collar incision",
+    "Low collar incision 2cm above sternal notch"
+  ],
+  "criticalSteps": [
+    "Mobilize lobe",
+    "Identify RLN",
+    "Preserve parathyroids",
+    "Ligate vessels",
+    "Remove lobe and isthmus",
+    "Mobilize thyroid lobe",
+    "Identify recurrent laryngeal nerve",
+    "Ligate vessels systematically",
+    "Remove lobe with isthmus"
+  ],
+  "commonPitfalls": [
+    "RLN injury",
+    "Parathyroid injury",
+    "Bleeding",
+    "Hypothyroidism",
+    "Parathyroid devascularization",
+    "Inadequate resection"
+  ],
+  "majorComplications": [
+    "Vocal cord paralysis",
+    "Hypoparathyroidism",
+    "Bleeding",
+    "Hypothyroidism"
+  ],
+  "pearlsHighYield": [
+    "Careful RLN dissection",
+    "Preserve parathyroid",
+    "Berry ligament danger zone",
+    "Nerve monitoring helpful",
+    "Visual identification of RLN",
+    "Preserve blood supply to parathyroids"
+  ],
+  "postOpPriorities": [
+    "Voice check",
+    "Calcium monitoring",
+    "TSH follow-up",
+    "Completion surgery if needed",
+    "Voice assessment",
+    "Pathology results"
+  ],
+  "relatedProcedures": [
+    "total-thyroidectomy",
+    "completion-thyroidectomy",
+    "parathyroidectomy"
+  ],
+  "pimpingQuestions": [
+    {
+      "question": "What percentage of thyroid nodules are malignant, and what Bethesda category mandates lobectomy?",
+      "answer": "5-15% of thyroid nodules are malignant. Bethesda IV (follicular neoplasm/suspicious for follicular neoplasm) mandates lobectomy because FNA cannot distinguish follicular adenoma from carcinoma — the distinction requires histologic assessment of capsular/vascular invasion.",
+      "level": "medical_student"
+    },
+    {
+      "question": "During hemithyroidectomy, what is the relationship of the superior laryngeal nerve's external branch to the superior thyroid artery?",
+      "answer": "The external branch of the SLN runs with the superior thyroid artery in Joll's triangle (bounded by the sternothyroid, superior thyroid pole, and superior thyroid artery). Injury causes loss of cricothyroid function — inability to produce high-pitched sounds. Ligate the artery individually close to the capsule, not the pedicle en masse.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the blood supply to a thyroid lobe, and which vessels are divided during hemithyroidectomy?",
+      "answer": "Superior thyroid artery (first branch of external carotid — supplies upper pole), inferior thyroid artery (from thyrocervical trunk — supplies lower pole and parathyroids). Both are ligated/divided on the operative side. The thyroid ima artery (from brachiocephalic, present in 3-10%) may supply the isthmus and lower poles.",
+      "level": "resident"
+    },
+    {
+      "question": "What is the risk of permanent hypoparathyroidism after hemithyroidectomy versus total thyroidectomy?",
+      "answer": "Hemithyroidectomy: <1% (two glands on the contralateral side are undisturbed). Total thyroidectomy: 1-5% permanent (requiring lifelong calcium + calcitriol). Transient hypoparathyroidism after total thyroidectomy: 10-30%. This difference in parathyroid morbidity is a key reason to consider hemithyroidectomy for low-risk cancers.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the current ATA guideline for hemithyroidectomy versus total thyroidectomy for papillary thyroid cancer 1-4cm?",
+      "answer": "2015 ATA guidelines: lobectomy is sufficient for unifocal PTC 1-4cm without extrathyroidal extension, clinical lymph node involvement, or prior radiation. Total thyroidectomy is not mandatory. Completion thyroidectomy can be performed later if final pathology is unfavorable. This was a major paradigm shift from prior practice of total thyroidectomy for all PTC.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the embryologic significance of the pyramidal lobe, and must it be removed during thyroid lobectomy?",
+      "answer": "The pyramidal lobe is a remnant of the thyroglossal duct — a superior extension of thyroid tissue from the isthmus toward the hyoid bone, present in 30-60% of patients. During lobectomy for cancer, the pyramidal lobe should be removed with the isthmus (isthmectomy) if it is on the ipsilateral side, as it may harbor thyroid tissue that could recur. In benign disease, it can be left if not connected to the specimen.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the ligament of Berry's relationship to the inferior thyroid artery during thyroid lobectomy, and why is this the 'danger zone'?",
+      "answer": "The ligament of Berry anchors the posterior thyroid to the first two tracheal rings. The RLN enters the larynx within millimeters of this ligament. The terminal branches of the inferior thyroid artery also cross the nerve at this point. The 'danger zone' is the last 1cm of dissection freeing the thyroid from the trachea — the surgeon must use a capsular dissection technique, keeping the scalpel on the thyroid capsule to avoid both the nerve and parathyroid blood supply.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the lymphatic drainage of a thyroid lobe that determines the need for prophylactic central neck dissection?",
+      "answer": "Primary drainage: level VI central compartment nodes (pretracheal, paratracheal, prelaryngeal/Delphian node). Secondary: lateral jugular chain (levels II-V). The Delphian node sits on the cricothyroid membrane and is a sentinel node — if positive intraoperatively, formal central neck dissection (level VI) should be performed. Prophylactic CND for cN0 papillary thyroid cancer is debated: ATA recommends it for T3-T4 tumors.",
+      "level": "attending"
+    },
+    {
+      "question": "What is the rate of completion thyroidectomy after lobectomy, and what pathologic findings trigger it?",
+      "answer": "10-30% of lobectomies require completion thyroidectomy based on final pathology. Triggers: PTC >4cm, aggressive histology (tall cell, hobnail, columnar), multifocal PTC, extrathyroidal extension, positive margins, vascular invasion (follicular thyroid cancer), or lymph node metastases. Completion thyroidectomy should be performed within 6 months of the initial lobectomy to minimize adhesion scarring.",
+      "level": "attending"
+    },
+    {
+      "question": "After thyroid lobectomy, what percentage of patients develop hypothyroidism requiring levothyroxine?",
+      "answer": "22-35% of patients become hypothyroid after lobectomy (TSH >4.5), typically within 6-12 months. Risk factors: elevated preoperative anti-TPO antibodies (Hashimoto's thyroiditis), preoperative TSH in upper-normal range (>2.5), and smaller contralateral lobe. All patients need TSH monitoring at 6 weeks, 3 months, 6 months, and annually. Most can be managed with low-dose levothyroxine (25-75 mcg).",
+      "level": "attending"
+    }
+  ],
+  "approachEducation": [
+    {
+      "id": "remote-access-robotic-thyroid-approach",
+      "name": "Remote-access robotic approach",
+      "sourceName": "Robotic Thyroidectomy",
+      "overview": "Robot-assisted thyroidectomy via remote access",
+      "indications": [
+        "Cosmetic considerations",
+        "Small thyroid cancers",
+        "Benign nodules",
+        "Patient preference"
+      ],
+      "keyAnatomy": [
+        "Thyroid gland",
+        "Recurrent laryngeal nerves",
+        "Parathyroid glands",
+        "Remote access routes"
+      ],
+      "preOpConsiderations": [
+        "Patient selection",
+        "Tumor size limitations",
+        "Robot setup",
+        "Learning curve"
+      ],
+      "positioning": "Varies by approach (axillary, facelift, transoral)",
+      "portPlacementOrIncision": [
+        "Remote incisions away from neck",
+        "Endoscopic working space"
+      ],
+      "criticalSteps": [
+        "Create working space",
+        "Robotic thyroidectomy",
+        "Nerve identification",
+        "Hemostasis",
+        "Closure"
+      ],
+      "commonPitfalls": [
+        "Limited indications",
+        "Learning curve",
+        "Longer operative time",
+        "Higher cost"
+      ],
+      "majorComplications": [
+        "RLN injury",
+        "Bleeding",
+        "Seroma",
+        "Conversion to open"
+      ],
+      "pearlsHighYield": [
+        "Careful patient selection",
+        "Enhanced visualization",
+        "Hidden scars"
+      ],
+      "postOpPriorities": [
+        "Voice assessment",
+        "Calcium monitoring",
+        "Cosmetic outcome",
+        "Remote site healing"
+      ],
+      "sourceRelatedProcedures": [
+        "endoscopic-thyroidectomy",
+        "conventional-thyroidectomy",
+        "minimally-invasive-thyroidectomy"
+      ],
+      "pimpingQuestions": [
+        {
+          "question": "What is the transaxillary approach for robotic thyroidectomy?",
+          "answer": "An incision in the axilla with a subcutaneous flap elevated over the pectoralis and SCM to reach the thyroid -- no neck scar. The robot arms are inserted through the axillary incision. The gasless technique (retractor-based) provides working space. Popularized by Chung (Korea) for cosmesis-conscious patients.",
+          "level": "medical_student"
+        },
+        {
+          "question": "What nerve is additionally at risk in the transaxillary approach?",
+          "answer": "The brachial plexus and its terminal branches during arm positioning and tunnel creation. Also, the great auricular nerve and marginal mandibular branch of the facial nerve during the subcutaneous flap elevation. The RLN and SLN remain at risk as in conventional thyroidectomy.",
+          "level": "resident"
+        },
+        {
+          "question": "What is the blood supply encountered during subcutaneous flap creation?",
+          "answer": "Subplatysmal perforators from the submental, facial, and superior thyroid arteries. The flap is elevated deep to the platysma. Bleeding from the anterior jugular veins is common and must be controlled to maintain visualization.",
+          "level": "resident"
+        },
+        {
+          "question": "What are the contraindications to robotic transaxillary thyroidectomy?",
+          "answer": "Thyroid cancer with gross extrathyroidal extension, lateral neck lymph node metastasis (requires formal neck dissection), substernal goiter, prior neck surgery/radiation, BMI >35 (long tunnel), and thyroid gland >8cm. Graves' disease is a relative contraindication due to vascularity.",
+          "level": "attending"
+        },
+        {
+          "question": "What does the evidence show for robotic versus conventional thyroidectomy outcomes?",
+          "answer": "Oncologic outcomes (recurrence, node yield) are equivalent. Robotic: no neck scar (patient satisfaction advantage), but longer OR time (30-60 min longer), higher cost, and risk of brachial plexus injury and chest wall complications unique to the approach. No RCT demonstrates surgical superiority -- the benefit is purely cosmetic.",
+          "level": "attending"
+        }
+      ]
+    }
+  ]
+}
