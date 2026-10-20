@@ -25,6 +25,10 @@ test('common searches work with reordered words, punctuation, case, and abbrevia
   assert.equal(search('ex lap')[0].url, '/case-prep/exploratory-laparotomy/');
   assert.equal(search('TAR')[0].url, '/case-prep/transversus-abdominis-release/');
   assert.ok(search('eTEP').some(x => x.id === 'robotic-etep-inguinal-hernia'));
+  assert.equal(search('robotic TAPP inguinal hernia')[0].id, 'robotic-tapp-inguinal-hernia');
+  assert.equal(search('TAPP')[0].id, 'robotic-tapp-inguinal-hernia');
+  assert.equal(search('robotic eTEP inguinal hernia')[0].id, 'robotic-etep-inguinal-hernia');
+  assert.notEqual(search('TAPP')[0].id, search('eTEP')[0].id);
 });
 test('category filters, empty searches, and no matches remain predictable', () => {
   assert.ok(search('', 'Hernia').length > 0);
@@ -88,6 +92,7 @@ test('landing controls wire to live results, clear, category, and example action
   // A visitor may type before the catalogs finish downloading.
   element('[data-library-search]').value = 'robotic inguinal hernia';
   await ready();
+  assert.equal(element('[data-library-count]').textContent, '2 procedures matching “robotic inguinal hernia”');
   const grid = element('[data-library-grid]');
   assert.ok(grid.innerHTML.includes('Robotic eTEP Inguinal Hernia Repair'));
   const input = element('[data-library-search]');

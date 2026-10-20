@@ -32,6 +32,7 @@ QUESTION_LEVELS_BY_POSITION = (
 )
 
 SAFE_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+CURATED_PROCEDURES = Path(__file__).resolve().parents[1] / "case-prep" / "curated-procedures.json"
 
 
 def validate_slug(slug):
@@ -74,6 +75,11 @@ def merge_procedures(procedures):
 
         for field in LIST_FIELDS:
             current[field] = unique([*current.get(field, []), *procedure.get(field, [])])
+        if procedure.get("sourceReferences"):
+            current["sourceReferences"] = unique([
+                *current.get("sourceReferences", []),
+                *procedure["sourceReferences"],
+            ])
 
         questions = [*current.get("pimpingQuestions", []), *procedure.get("pimpingQuestions", [])]
         seen_questions = set()
@@ -88,7 +94,9 @@ def merge_procedures(procedures):
 
 
 def build_payload(source):
-    procedures = merge_procedures(json.loads(source.read_text(encoding="utf-8")))
+    source_procedures = json.loads(source.read_text(encoding="utf-8"))
+    curated_procedures = json.loads(CURATED_PROCEDURES.read_text(encoding="utf-8")) if CURATED_PROCEDURES.exists() else []
+    procedures = merge_procedures([*source_procedures, *curated_procedures])
     for procedure in procedures:
         leveled_questions = []
         for index, question in enumerate(procedure.get("pimpingQuestions", [])):
@@ -103,7 +111,7 @@ def build_payload(source):
     return {
         "meta": {
             "title": "Complete Surgical Case Prep Library",
-            "source": "ClinicalCaseLog.com educational case-prep curriculum",
+            "source": "ClinicalCaseLog.com educational case-prep curriculum plus reviewed FreeCPTCodeFinder supplements",
             "imported": date.today().isoformat(),
             "disclaimer": "Educational reference only. It does not replace operative supervision, institutional policy, current literature, or clinical judgment.",
         },

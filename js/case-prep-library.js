@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  const INDEX_URL = "/case-prep/clinical-library-index.json";
+  const DATA_VERSION = "20261019-tapp-contrast1";
+  const INDEX_URL = "/case-prep/clinical-library-index.json?v=" + DATA_VERSION;
   const PAGE_SIZE = 30;
   const state = { data: null, query: "", category: "all", visible: PAGE_SIZE, catalog: [], guidesAvailable: false };
 
@@ -117,7 +118,7 @@
   }
 
   function procedureDataUrl(id) {
-    return "/case-prep/library-data/" + encodeURIComponent(id) + ".json";
+    return "/case-prep/library-data/" + encodeURIComponent(id) + ".json?v=" + DATA_VERSION;
   }
 
   function cardMarkup(procedure) {

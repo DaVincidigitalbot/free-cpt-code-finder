@@ -182,7 +182,7 @@ body[data-procedure-slug] .case-prep-visual-grid{grid-template-columns:repeat(au
 .prep-shell{padding-top:22px;padding-bottom:48px}
 .prep-breadcrumb{margin-bottom:18px}
 .prep-breadcrumb a{text-decoration:underline;text-underline-offset:2px}
-.prep-sheet{border:1px solid var(--line);background:#fff}
+.prep-sheet{--paper:#F4F0E8;--ink:#17231F;--ink2:#46524C;--line:#D4CCC0;--line2:#A69C90;--ox:#7A3326;--moss:#315E42;--white:#FFFFFF;border:1px solid var(--line);background:var(--white);color:var(--ink)}
 .prep-sheet[aria-busy="true"]{min-height:4200px}
 .prep-sheet-header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end;background:#17231f;color:#fff;padding:34px}
 .prep-sheet-header h1{margin:6px 0 10px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,5vw,4.3rem);line-height:1;letter-spacing:-.04em}
